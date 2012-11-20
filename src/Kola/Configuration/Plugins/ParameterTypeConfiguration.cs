@@ -1,10 +1,12 @@
-﻿namespace Kola.Configuration
+﻿using System;
+
+namespace Kola.Configuration.Plugins
 {
-    public class ParameterTypeConfiguration
+    public class ParameterTypeConfiguration : Exception
     {
         private readonly PluginConfiguration pluginConfiguration;
 
-        public ParameterTypeConfiguration(PluginConfiguration pluginConfiguration)
+        internal ParameterTypeConfiguration(PluginConfiguration pluginConfiguration)
         {
             this.pluginConfiguration = pluginConfiguration;
         }

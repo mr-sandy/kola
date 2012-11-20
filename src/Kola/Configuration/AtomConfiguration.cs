@@ -1,10 +1,25 @@
-﻿namespace Kola.Configuration
+﻿
+using System;
+
+namespace Kola.Configuration
 {
-    public class AtomConfiguration : ComponentDeclaration
+    internal class AtomConfiguration
     {
-        public AtomConfiguration(PluginConfiguration pluginConfiguration)
-            : base(pluginConfiguration)
+        public AtomConfiguration(string atomName)
         {
+            this.AtomName = atomName;
+        }
+
+        public string AtomName { get; private set; }
+
+        public void SetHandler<T>()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetView(string view)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,22 +1,13 @@
-﻿using System;
+﻿
+using System;
 
 namespace Kola.Configuration
 {
-    public class PluginConfiguration
+    internal class PluginConfiguration
     {
-        private readonly Registry registration;
+        public string ViewLocation { get; set; }
 
-        public PluginConfiguration()
-        {
-            this.registration = new Registry(this);
-        }
-
-        public Registry Register
-        {
-            get { return registration; }
-        }
-
-        public void SetViewLocation(string location)
+        public void AddAtomConfiguration(AtomConfiguration atomConfiguration)
         {
             throw new NotImplementedException();
         }

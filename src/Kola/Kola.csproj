@@ -41,17 +41,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\AtomConfiguration.cs" />
-    <Compile Include="Configuration\CacheConfiguration.cs" />
-    <Compile Include="Configuration\ComponentConfiguration.cs" />
-    <Compile Include="Configuration\ComponentDeclaration.cs" />
-    <Compile Include="Configuration\ContainerConfiguration.cs" />
+    <Compile Include="Configuration\Plugins\AtomConfigurer.cs" />
+    <Compile Include="Configuration\Plugins\AtomHandlerConfigurer.cs" />
+    <Compile Include="Configuration\Plugins\CacheConfiguration.cs" />
+    <Compile Include="Configuration\Plugins\HandlerConfigurer.cs" />
+    <Compile Include="Configuration\Plugins\PluginConfigurer.cs" />
+    <Compile Include="Configuration\Plugins\ContainerConfigurer.cs" />
+    <Compile Include="Configuration\Plugins\ParameterTypeConfiguration.cs" />
+    <Compile Include="Configuration\Plugins\PluginBootstrapper.cs" />
+    <Compile Include="Configuration\PluginConfiguration.cs" />
     <Compile Include="Configuration\DefaultHandler.cs" />
     <Compile Include="Configuration\Handler.cs" />
-    <Compile Include="Configuration\ParameterConfiguration.cs" />
-    <Compile Include="Configuration\ParameterTypeConfiguration.cs" />
-    <Compile Include="Configuration\PluginConfiguration.cs" />
-    <Compile Include="Configuration\Registry.cs" />
-    <Compile Include="Configuration\PluginBootstrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

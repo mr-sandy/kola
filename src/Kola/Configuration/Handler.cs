@@ -1,4 +1,5 @@
-﻿namespace Kola.Configuration
+﻿
+namespace Kola.Configuration
 {
     public abstract class Handler
     {
