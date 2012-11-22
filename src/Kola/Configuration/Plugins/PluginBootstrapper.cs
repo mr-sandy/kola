@@ -7,7 +7,7 @@ namespace Kola.Configuration.Plugins
 
         protected PluginConfigurer Configure
         {
-            get { return new PluginConfigurer(this.PluginConfiguration); }
+            get { return new PluginConfigurer(this.pluginConfiguration); }
         }
 
         internal PluginConfiguration PluginConfiguration

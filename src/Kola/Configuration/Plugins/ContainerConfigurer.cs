@@ -3,23 +3,23 @@ namespace Kola.Configuration.Plugins
 {
     public class ContainerConfigurer
     {
-        private readonly PluginConfiguration pluginConfiguration;
+        private readonly ContainerConfiguration containerConfiguration;
 
-        internal ContainerConfigurer(PluginConfiguration pluginConfiguration)
+        internal ContainerConfigurer(ContainerConfiguration containerConfiguration)
         {
-            this.pluginConfiguration = pluginConfiguration;
+            this.containerConfiguration = containerConfiguration;
         }
 
-        public ContainerHandlerConfigurer WithHandler<T>(string view = "")
+        public ContainerHandlerConfigurer WithHandler<T>(string viewName = "")
         {
-            return null;
+            this.containerConfiguration.HandlerType = typeof(T);
+            this.containerConfiguration.ViewName = viewName;
+            return new ContainerHandlerConfigurer(this.containerConfiguration);
         }
 
-        public ContainerHandlerConfigurer WithView(string view)
+        public ContainerHandlerConfigurer WithView(string viewName)
         {
-            //return this.WithHandler<DefaultHandler>(view);
-            return null;
+            return this.WithHandler<DefaultHandler>(viewName);
         }
-
     }
 }

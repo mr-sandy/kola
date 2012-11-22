@@ -1,9 +1,7 @@
 ﻿
-using System;
-
 namespace Kola.Configuration
 {
-    internal class AtomConfiguration
+    internal class AtomConfiguration : ComponentConfiguration
     {
         public AtomConfiguration(string atomName)
         {
@@ -12,14 +10,8 @@ namespace Kola.Configuration
 
         public string AtomName { get; private set; }
 
-        public void SetHandler<T>()
-        {
-            throw new NotImplementedException();
-        }
+        public CacheType CacheType { get; set; }
 
-        public void SetView(string view)
-        {
-            throw new NotImplementedException();
-        }
+        public int CacheDuration { get; set; }
     }
 }

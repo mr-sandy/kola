@@ -3,19 +3,23 @@ namespace Kola.Configuration.Plugins
 {
     public class AtomConfigurer
     {
-        internal AtomConfigurer(PluginConfiguration pluginConfiguration, string atomName)
+        private readonly AtomConfiguration atomConfiguration;
+
+        internal AtomConfigurer(AtomConfiguration atomConfiguration)
         {
+            this.atomConfiguration = atomConfiguration;
         }
 
-        public AtomHandlerConfigurer WithHandler<T>(string view = "")
+        public AtomHandlerConfigurer WithHandler<T>(string viewName = "")
         {
-            return null;
+            this.atomConfiguration.HandlerType = typeof(T);
+            this.atomConfiguration.ViewName = viewName;
+            return new AtomHandlerConfigurer(this.atomConfiguration);
         }
 
-        public AtomHandlerConfigurer WithView(string view)
+        public AtomHandlerConfigurer WithView(string viewName)
         {
-            //return this.WithHandler<DefaultHandler>(view);
-            return null;
+            return this.WithHandler<DefaultHandler>(viewName);
         }
     }
 }

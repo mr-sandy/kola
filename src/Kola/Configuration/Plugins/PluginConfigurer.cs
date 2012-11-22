@@ -17,17 +17,17 @@ namespace Kola.Configuration.Plugins
 
         public AtomConfigurer Atom(string atomName)
         {
-            return new AtomConfigurer(this.pluginConfiguration, atomName);
+            return new AtomConfigurer(this.pluginConfiguration.ConfigureAtom(atomName));
         }
 
         public ContainerConfigurer Container(string containerName)
         {
-            return new ContainerConfigurer(this.pluginConfiguration);
+            return new ContainerConfigurer(this.pluginConfiguration.ConfigureContainer(containerName));
         }
 
-        public ParameterTypeConfiguration ParameterType(string parameterTypeName)
+        public ParameterTypeConfigurer ParameterType(string parameterTypeName)
         {
-            throw new ParameterTypeConfiguration(this.pluginConfiguration);
+            throw new ParameterTypeConfigurer(this.pluginConfiguration.ConfigureParameterType(parameterTypeName));
         }
     }
 }

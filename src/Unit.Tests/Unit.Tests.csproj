@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{22D48FD5-8CA9-4B0E-9090-742C9A064833}</ProjectGuid>
+    <ProjectGuid>{970F848C-56EE-407B-BB37-7331FD0C9636}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Kola</RootNamespace>
-    <AssemblyName>Kola</AssemblyName>
+    <RootNamespace>Unit.Tests</RootNamespace>
+    <AssemblyName>Unit.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,31 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\AtomConfiguration.cs" />
-    <Compile Include="Configuration\CacheType.cs" />
-    <Compile Include="Configuration\ComponentConfiguration.cs" />
-    <Compile Include="Configuration\ContainerConfiguration.cs" />
-    <Compile Include="Configuration\ParameterConfiguration.cs" />
-    <Compile Include="Configuration\ParameterTypeConfiguration.cs" />
-    <Compile Include="Configuration\Plugins\AtomConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\AtomHandlerConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\CacheConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\ContainerHandlerConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\PluginConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\ContainerConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\ParameterTypeConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\PluginBootstrapper.cs" />
-    <Compile Include="Configuration\PluginConfiguration.cs" />
-    <Compile Include="Configuration\DefaultHandler.cs" />
-    <Compile Include="Configuration\Handler.cs" />
-    <Compile Include="Hosting\IPageHandler.cs" />
+    <Compile Include="Configuration\WhenConfiguringAPlugInAtom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Model\" />
-    <Folder Include="Persistence\" />
-    <Folder Include="ViewEngines\Razor\" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kola\Kola.csproj">
+      <Project>{22D48FD5-8CA9-4B0E-9090-742C9A064833}</Project>
+      <Name>Kola</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
