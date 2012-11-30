@@ -1,16 +1,17 @@
-﻿
+﻿using Kola.Model;
+
 namespace Kola.Hosting
 {
     public interface IPageHandler
     {
-        string GetPage(string path);
+        Page GetPage(string path);
     }
 
     public class PageHandler : IPageHandler
     {
-        public string GetPage(string path)
+        public Page GetPage(string path)
         {
-            return "Page";
+            return new Page();
         }
     }
 }

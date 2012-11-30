@@ -16,10 +16,13 @@ namespace Kola.Hosting.Nancy.Modules
         private Negotiator GetPage(dynamic parameters)
         {
             var page = this.pageHandler.GetPage((string)parameters.templatePath);
-            
+
             return this.Negotiate
-                .WithAllowedMediaRange("application/xml")
-                .WithModel(page);
+                .WithMediaRangeModel("text/html", page).WithView("Page");
+
+            //return this.Negotiate
+            //    .WithAllowedMediaRange("application/xml")
+            //    .WithModel(page);
         }
     }
 }

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{22D48FD5-8CA9-4B0E-9090-742C9A064833}</ProjectGuid>
+    <ProjectGuid>{7002F570-7371-4532-AC10-28BC908A5FAC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Kola</RootNamespace>
-    <AssemblyName>Kola</AssemblyName>
+    <RootNamespace>Kola.Hosting.Nancy.ViewEngines.Razor</RootNamespace>
+    <AssemblyName>Kola.Hosting.Nancy.ViewEngines.Razor</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,8 +31,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Nancy">
+      <HintPath>..\packages\Nancy.0.13.0\lib\net40\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor">
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.13.0\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.13.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,35 +50,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\AtomConfiguration.cs" />
-    <Compile Include="Configuration\CacheType.cs" />
-    <Compile Include="Configuration\ComponentConfiguration.cs" />
-    <Compile Include="Configuration\ContainerConfiguration.cs" />
-    <Compile Include="Configuration\Ideas\KolaConfiguration.cs" />
-    <Compile Include="Configuration\ParameterConfiguration.cs" />
-    <Compile Include="Configuration\ParameterTypeConfiguration.cs" />
-    <Compile Include="Configuration\Plugins\AtomConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\AtomHandlerConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\CacheConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\ContainerHandlerConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\PluginConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\ContainerConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\ParameterTypeConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\PluginBootstrapper.cs" />
-    <Compile Include="Configuration\PluginConfiguration.cs" />
-    <Compile Include="Configuration\DefaultHandler.cs" />
-    <Compile Include="Configuration\Handler.cs" />
-    <Compile Include="Hosting\IPageHandler.cs" />
-    <Compile Include="Model\Component.cs" />
-    <Compile Include="Model\Page.cs" />
+    <Compile Include="MyRazorConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Persistence\" />
-    <Folder Include="ViewEngines\Razor\" />
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <EmbeddedResource Include="Views\Page.cshtml" />
+    <None Include="web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kola.Hosting.Nancy\Kola.Hosting.Nancy.csproj">
+      <Project>{9A84009E-C133-4D41-822C-A3E6F7E617E4}</Project>
+      <Name>Kola.Hosting.Nancy</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+if $(ConfigurationName) == Debug (
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.13.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.13.0\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+)</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
