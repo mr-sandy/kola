@@ -11,7 +11,7 @@ namespace Kola.Configuration.Plugins
             this.parameterTypeConfiguration = parameterTypeConfiguration;
         }
 
-        public ParameterTypeConfigurer DefaultTo(string value)
+        public ParameterTypeConfigurer WithDefault(string value)
         {
             this.parameterTypeConfiguration.DefaultValue = value;
             return this;

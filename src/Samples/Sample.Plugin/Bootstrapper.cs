@@ -24,7 +24,7 @@ namespace Sample.Plugin
                 .WithParameter("parameter-name-1", "parameter-type-1", "parameter-value-1");
 
             this.Configure.ParameterType("parameter-1")
-                .DefaultTo("default")
+                .WithDefault("default")
                 .WithEditor("editor?");
         }
     }

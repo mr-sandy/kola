@@ -20,9 +20,13 @@ namespace Kola.Hosting.Nancy
 
     public class KolaNancyBootstrapper : DefaultNancyBootstrapper
     {
-        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
+        public KolaNancyBootstrapper()
         {
             KolaConfiguration.BuildConfiguration();
+        }
+
+        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
+        {
 
             base.ConfigureApplicationContainer(container);
 
