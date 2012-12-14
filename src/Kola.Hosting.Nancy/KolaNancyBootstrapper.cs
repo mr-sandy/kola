@@ -1,45 +1,34 @@
 ﻿using System;
-using Kola.Configuration;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using Kola.Configuration.Ideas;
+using Kola.Configuration.Plugins;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.TinyIoc;
 using Nancy.ViewEngines;
+using Nancy.ViewEngines.Razor;
 
 namespace Kola.Hosting.Nancy
 {
-    public static class ViewEngineStuff
-    {
-        public static void RegisterIocBootstrapper(Action<TinyIoCContainer> iocBootstrapper)
-        {
-            Bootstrapper = iocBootstrapper;
-        }
-
-        internal static Action<TinyIoCContainer> Bootstrapper { get; set; }
-    }
-
     public class KolaNancyBootstrapper : DefaultNancyBootstrapper
     {
-        public KolaNancyBootstrapper()
-        {
-            KolaConfiguration.BuildConfiguration();
-        }
-
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
-
             base.ConfigureApplicationContainer(container);
 
-            ViewEngineStuff.Bootstrapper(container);
+            var kolaConfiguration = new KolaBootstrapper().BuildConfiguration();
 
-            //container.Register<IRazorConfiguration, MyRazorConfiguration>();
+            container.Register<KolaConfiguration>().AsSingleton();
+            container.Register<IRazorConfiguration, KolaRazorConfiguration>();
 
-            //foreach (var viewLocation in Registry.Configuration.ViewLocations)
-            //{
-            //    ResourceViewLocationProvider.RootNamespaces.Add(viewLocation.Assembly, viewLocation.Location);
-            //}
+            foreach (var viewLocation in kolaConfiguration.ViewLocations)
+            {
+                ResourceViewLocationProvider.RootNamespaces.Add(viewLocation.Assembly, viewLocation.Location);
+            }
 
-            //ResourceViewLocationProvider.Ignore.Add(typeof(RazorViewEngine).Assembly);
+            ResourceViewLocationProvider.Ignore.Add(typeof(RazorViewEngine).Assembly);
         }
 
         protected override NancyInternalConfiguration InternalConfiguration

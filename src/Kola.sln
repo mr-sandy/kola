@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit.Tests", "Unit.Tests\Un
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kola.Hosting.Nancy", "Kola.Hosting.Nancy\Kola.Hosting.Nancy.csproj", "{9A84009E-C133-4D41-822C-A3E6F7E617E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kola.Hosting.Nancy.ViewEngines.Razor", "Kola.Hosting.Nancy.ViewEngines.Razor\Kola.Hosting.Nancy.ViewEngines.Razor.csproj", "{7002F570-7371-4532-AC10-28BC908A5FAC}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,10 +43,6 @@ Global
 		{9A84009E-C133-4D41-822C-A3E6F7E617E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A84009E-C133-4D41-822C-A3E6F7E617E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A84009E-C133-4D41-822C-A3E6F7E617E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7002F570-7371-4532-AC10-28BC908A5FAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7002F570-7371-4532-AC10-28BC908A5FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7002F570-7371-4532-AC10-28BC908A5FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7002F570-7371-4532-AC10-28BC908A5FAC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

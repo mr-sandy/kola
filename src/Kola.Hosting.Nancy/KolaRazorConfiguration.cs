@@ -1,21 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Kola.Configuration.Ideas;
 using Nancy.TinyIoc;
 using Nancy.ViewEngines.Razor;
 
-namespace Kola.Hosting.Nancy.ViewEngines.Razor
+namespace Kola.Hosting.Nancy
 {
-    public class KolaRazorConfiguration : IKolaViewEngineConfig<TinyIoCContainer>
+    public class KolaRazorConfiguration : IRazorConfiguration
     {
-        public void Setup(TinyIoCContainer container)
-        {
-            container.Register<IRazorConfiguration, MyRazorConfiguration>();
-        }
-    }
+        private readonly KolaConfiguration kolaConfiguration;
 
-    public class MyRazorConfiguration : IRazorConfiguration
-    {
+        public KolaRazorConfiguration(KolaConfiguration kolaConfiguration)
+        {
+            this.kolaConfiguration = kolaConfiguration;
+        }
+
         public IEnumerable<string> GetAssemblyNames()
         {
             return new[] { "Sample.Host", "Linn.Cms.Service" };
