@@ -1,4 +1,6 @@
-﻿using Kola.Configuration.Ideas;
+﻿using System;
+using System.Collections.Generic;
+using Kola.Configuration.Ideas;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.TinyIoc;
@@ -11,11 +13,9 @@ namespace Kola.Hosting.Nancy
     {
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
-            base.ConfigureApplicationContainer(container);
-            
             var kolaConfiguration = new KolaBootstrapper().BuildConfiguration();
             container.Register(kolaConfiguration);
-            container.Register<IRazorConfiguration>(new KolaRazorConfiguration(kolaConfiguration));
+            //container.Register<IRazorConfiguration, KolaRazorConfiguration>().AsSingleton();
 
             foreach (var viewLocation in kolaConfiguration.ViewLocations)
             {
@@ -24,6 +24,8 @@ namespace Kola.Hosting.Nancy
 
             ResourceViewLocationProvider.RootNamespaces.Add(typeof(KolaNancyBootstrapper).Assembly, "Kola.Hosting.Nancy");
             ResourceViewLocationProvider.Ignore.Add(typeof(RazorViewEngine).Assembly);
+
+            base.ConfigureApplicationContainer(container);
         }
 
         protected override NancyInternalConfiguration InternalConfiguration
@@ -32,6 +34,24 @@ namespace Kola.Hosting.Nancy
             {
                 return NancyInternalConfiguration.WithOverrides(c => c.ViewLocationProvider = typeof(ResourceViewLocationProvider));
             }
+        }
+    }
+
+    public class MyRazorConfiguration : IRazorConfiguration
+    {
+        public IEnumerable<string> GetAssemblyNames()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<string> GetDefaultNamespaces()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AutoIncludeModelNamespace
+        {
+            get { throw new NotImplementedException(); }
         }
     }
 }

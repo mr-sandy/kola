@@ -14,7 +14,7 @@ namespace Kola.Hosting.Nancy.Extensions
 
         public static IHtmlString RenderComponents2<T>(this HtmlHelpers<T> helpers)
         {
-            return new NonEncodedHtmlString("<h1>Hi</h1>");
+            return new NonEncodedHtmlString("<h1>Success!!!!</h1>");
         }
 
         //public static IHtmlString RenderComponents<T>(this HtmlHelpers<T> helpers, IEnumerable<Component> components)
