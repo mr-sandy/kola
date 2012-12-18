@@ -27,7 +27,7 @@ namespace Kola.Configuration.Plugins
 
         public ParameterTypeConfigurer ParameterType(string parameterTypeName)
         {
-            throw new ParameterTypeConfigurer(this.pluginConfiguration.ConfigureParameterType(parameterTypeName));
+            return new ParameterTypeConfigurer(this.pluginConfiguration.ConfigureParameterType(parameterTypeName));
         }
     }
 }

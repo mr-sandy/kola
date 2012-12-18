@@ -1,7 +1,7 @@
 ﻿
 namespace Kola.Model
 {
-    internal class Component
+    public class Component
     {
     }
 }

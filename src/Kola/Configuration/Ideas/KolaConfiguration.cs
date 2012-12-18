@@ -20,45 +20,62 @@ namespace Kola.Configuration.Ideas
     {
         public KolaConfiguration BuildConfiguration()
         {
-            return new KolaConfiguration();
+            var kolaConfiguration = new KolaConfiguration();
+            this.LoadPlugInConfiguration(kolaConfiguration);
+            return kolaConfiguration;
         }
 
         private void LoadPlugInConfiguration(KolaConfiguration kolaConfiguration)
         {
-            var pluginTypes = AppDomain.CurrentDomain.GetAssemblies().SelectMany(FindPlugins);
+            var pluginTypes = GetPluginTypes<PluginBootstrapper>();
 
             foreach (var pluginType in pluginTypes)
             {
-                var plugin = InstantiatePlugin(pluginType);
+                var plugin = Instantiate<PluginBootstrapper>(pluginType);
 
                 kolaConfiguration.AddPlugInConfiguration(plugin.PluginConfiguration, pluginType.Assembly);
             }
-
         }
 
-        private static IEnumerable<Type> FindPlugins(Assembly assembly)
+        private IEnumerable<Type> GetPluginTypes<T>()
         {
-            return assembly.GetTypes().Where(t => (t != typeof(PluginBootstrapper)) && typeof(PluginBootstrapper).IsAssignableFrom(t));
+            return AppDomain.CurrentDomain.GetAssemblies().SelectMany(FindPlugins<T>);
         }
 
-        private static PluginBootstrapper InstantiatePlugin(Type type)
+        private static IEnumerable<Type> FindPlugins<T>(Assembly assembly)
         {
-            return (PluginBootstrapper)type.GetConstructor(new Type[] { }).Invoke(new object[] { });
+            return assembly.GetTypes().Where(t => (t != typeof(T)) && typeof(T).IsAssignableFrom(t));
+        }
+
+        private static T Instantiate<T>(Type type)
+        {
+            return (T)type.GetConstructor(new Type[] { }).Invoke(new object[] { });
         }
 
     }
 
     public class KolaConfiguration
     {
-        public IEnumerable<ViewLocation> ViewLocations { get; private set; }
+        private readonly List<ViewLocation> viewLocations = new List<ViewLocation>();
 
-        internal void Add,.PlugInConfiguration(PluginConfiguration pluginConfiguration, Assembly sourceAssembly)
+        public IEnumerable<ViewLocation> ViewLocations
         {
-            throw new NotImplementedException();
+            get { return this.viewLocations; }
+        }
+
+        public IEnumerable<string> AssemblyNames
+        {
+            get { return this.viewLocations.Select(l => l.Assembly.FullName); }
+        }
+
+        internal void AddPlugInConfiguration(PluginConfiguration pluginConfiguration, Assembly sourceAssembly)
+        {
+            this.viewLocations.Add(new ViewLocation(sourceAssembly, pluginConfiguration.ViewLocation));
         }
     }
 
-    public class ViewLocation {
+    public class ViewLocation
+    {
 
         public ViewLocation(Assembly assembly, string location)
         {

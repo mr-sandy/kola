@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using Kola.Configuration.Ideas;
-using Kola.Configuration.Plugins;
+﻿using Kola.Configuration.Ideas;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.TinyIoc;
@@ -17,17 +12,17 @@ namespace Kola.Hosting.Nancy
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
             base.ConfigureApplicationContainer(container);
-
+            
             var kolaConfiguration = new KolaBootstrapper().BuildConfiguration();
-
-            container.Register<KolaConfiguration>().AsSingleton();
-            container.Register<IRazorConfiguration, KolaRazorConfiguration>();
+            container.Register(kolaConfiguration);
+            container.Register<IRazorConfiguration>(new KolaRazorConfiguration(kolaConfiguration));
 
             foreach (var viewLocation in kolaConfiguration.ViewLocations)
             {
                 ResourceViewLocationProvider.RootNamespaces.Add(viewLocation.Assembly, viewLocation.Location);
             }
 
+            ResourceViewLocationProvider.RootNamespaces.Add(typeof(KolaNancyBootstrapper).Assembly, "Kola.Hosting.Nancy");
             ResourceViewLocationProvider.Ignore.Add(typeof(RazorViewEngine).Assembly);
         }
 
@@ -35,9 +30,7 @@ namespace Kola.Hosting.Nancy
         {
             get
             {
-                return
-                    NancyInternalConfiguration.WithOverrides(
-                        c => c.ViewLocationProvider = typeof(ResourceViewLocationProvider));
+                return NancyInternalConfiguration.WithOverrides(c => c.ViewLocationProvider = typeof(ResourceViewLocationProvider));
             }
         }
     }

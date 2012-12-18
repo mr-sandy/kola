@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Kola.Configuration.Ideas;
-using Nancy.TinyIoc;
 using Nancy.ViewEngines.Razor;
 
 namespace Kola.Hosting.Nancy
@@ -16,12 +16,12 @@ namespace Kola.Hosting.Nancy
 
         public IEnumerable<string> GetAssemblyNames()
         {
-            return new[] { "Sample.Host", "Linn.Cms.Service" };
+            return this.kolaConfiguration.AssemblyNames.Union(new[] { "Kola.Hosting.Nancy" });
         }
 
         public IEnumerable<string> GetDefaultNamespaces()
         {
-            return new[] { "Linn.Cms.Core.Extensions" };
+            return new[] { "Kola.Hosting.Nancy", "Kola.Hosting.Nancy.Extensions" };
         }
 
         public bool AutoIncludeModelNamespace

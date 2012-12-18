@@ -1,1 +1,8 @@
-﻿<h1>Badgers</h1>
+﻿@using Nancy.ViewEngines.Razor
+@using Kola.Hosting.Nancy.Extensions
+
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Model.Page>
+
+@Html.RenderComponents2()
+
+<h1>Hllo</h1>
