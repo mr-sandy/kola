@@ -15,7 +15,6 @@ namespace Kola.Hosting.Nancy
         {
             var kolaConfiguration = new KolaBootstrapper().BuildConfiguration();
             container.Register(kolaConfiguration);
-            //container.Register<IRazorConfiguration, KolaRazorConfiguration>().AsSingleton();
 
             foreach (var viewLocation in kolaConfiguration.ViewLocations)
             {
@@ -34,24 +33,6 @@ namespace Kola.Hosting.Nancy
             {
                 return NancyInternalConfiguration.WithOverrides(c => c.ViewLocationProvider = typeof(ResourceViewLocationProvider));
             }
-        }
-    }
-
-    public class MyRazorConfiguration : IRazorConfiguration
-    {
-        public IEnumerable<string> GetAssemblyNames()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<string> GetDefaultNamespaces()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool AutoIncludeModelNamespace
-        {
-            get { throw new NotImplementedException(); }
         }
     }
 }

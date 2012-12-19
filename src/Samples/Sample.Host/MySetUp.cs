@@ -1,28 +1,12 @@
-﻿using System.Collections.Generic;
-using Kola.Hosting.Nancy;
-using Nancy.Bootstrapper;
-using Nancy.ViewEngines.Razor;
+﻿using Kola.Hosting.Nancy;
 
 namespace Sample.Host
 {
-    public class MySetUp : IApplicationRegistrations
+    /// <summary>
+    /// I can't work out why, but it seems like the class causing the registration of KolaRazorConfiguration has to be in the host
+    /// So this otherwise redundant class has to remain
+    /// </summary>
+    public class MySetUp : NancyRazorSetUp
     {
-        public IEnumerable<TypeRegistration> TypeRegistrations
-        {
-            get
-            {
-                return new[] { new TypeRegistration(typeof(IRazorConfiguration), typeof(KolaRazorConfiguration)) };
-            }
-        }
-
-        public IEnumerable<CollectionTypeRegistration> CollectionTypeRegistrations
-        {
-            get { return null; }
-        }
-
-        public IEnumerable<InstanceRegistration> InstanceRegistrations
-        {
-            get { return null; }
-        }
     }
 }
