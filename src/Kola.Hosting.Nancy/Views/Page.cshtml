@@ -3,6 +3,4 @@
 
 @inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Model.Page>
 
-@Html.RenderComponents2()
-
-<h1>Hllo</h1>
+@Html.RenderComponents(Model.Components)

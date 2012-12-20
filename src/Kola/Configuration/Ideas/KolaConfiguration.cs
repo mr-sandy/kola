@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Kola.Configuration.Plugins;
+using Kola.Model;
+using Kola.Processing;
 
 /*
  * Here's what we are going to do:
@@ -22,6 +24,9 @@ namespace Kola.Configuration.Ideas
         {
             var kolaConfiguration = new KolaConfiguration();
             this.LoadPlugInConfiguration(kolaConfiguration);
+
+            KolaRegistry.KolaEngine = new KolaEngine(kolaConfiguration);
+
             return kolaConfiguration;
         }
 
@@ -71,6 +76,11 @@ namespace Kola.Configuration.Ideas
         internal void AddPlugInConfiguration(PluginConfiguration pluginConfiguration, Assembly sourceAssembly)
         {
             this.viewLocations.Add(new ViewLocation(sourceAssembly, pluginConfiguration.ViewLocation));
+        }
+
+        public void GetHandler(Component component)
+        {
+            throw new NotImplementedException();
         }
     }
 

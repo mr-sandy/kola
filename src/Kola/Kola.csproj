@@ -45,6 +45,8 @@
     <Compile Include="Configuration\ComponentConfiguration.cs" />
     <Compile Include="Configuration\ContainerConfiguration.cs" />
     <Compile Include="Configuration\Ideas\KolaConfiguration.cs" />
+    <Compile Include="Processing\KolaEngine.cs" />
+    <Compile Include="Processing\KolaRegistry.cs" />
     <Compile Include="Configuration\ParameterConfiguration.cs" />
     <Compile Include="Configuration\ParameterTypeConfiguration.cs" />
     <Compile Include="Configuration\Plugins\AtomConfigurer.cs" />
@@ -67,6 +69,9 @@
     <Folder Include="Extensions\" />
     <Folder Include="Persistence\" />
     <Folder Include="ViewEngines\Razor\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration\Ideas\ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

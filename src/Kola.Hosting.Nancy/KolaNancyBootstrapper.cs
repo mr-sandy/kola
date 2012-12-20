@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Kola.Configuration.Ideas;
+﻿using Kola.Configuration.Ideas;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.TinyIoc;
@@ -14,7 +12,6 @@ namespace Kola.Hosting.Nancy
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
             var kolaConfiguration = new KolaBootstrapper().BuildConfiguration();
-            container.Register(kolaConfiguration);
 
             foreach (var viewLocation in kolaConfiguration.ViewLocations)
             {
