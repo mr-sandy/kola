@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Kola.Configuration.Plugins;
-using Kola.Model;
 using Kola.Processing;
 
 /*
@@ -20,17 +19,17 @@ namespace Kola.Configuration.Ideas
 {
     public class KolaBootstrapper
     {
-        public KolaConfiguration BuildConfiguration()
+        public KolaHostConfiguration Bootstrap()
         {
-            var kolaConfiguration = new KolaConfiguration();
+            var kolaConfiguration = new KolaHostConfiguration();
             this.LoadPlugInConfiguration(kolaConfiguration);
 
-            KolaRegistry.KolaEngine = new KolaEngine(kolaConfiguration);
+            KolaRegistry.KolaEngine = new KolaEngine(new KolaEngineConfiguration());
 
             return kolaConfiguration;
         }
 
-        private void LoadPlugInConfiguration(KolaConfiguration kolaConfiguration)
+        private void LoadPlugInConfiguration(KolaHostConfiguration kolaConfiguration)
         {
             var pluginTypes = GetPluginTypes<PluginBootstrapper>();
 
@@ -57,44 +56,5 @@ namespace Kola.Configuration.Ideas
             return (T)type.GetConstructor(new Type[] { }).Invoke(new object[] { });
         }
 
-    }
-
-    public class KolaConfiguration
-    {
-        private readonly List<ViewLocation> viewLocations = new List<ViewLocation>();
-
-        public IEnumerable<ViewLocation> ViewLocations
-        {
-            get { return this.viewLocations; }
-        }
-
-        public IEnumerable<string> AssemblyNames
-        {
-            get { return this.viewLocations.Select(l => l.Assembly.FullName); }
-        }
-
-        internal void AddPlugInConfiguration(PluginConfiguration pluginConfiguration, Assembly sourceAssembly)
-        {
-            this.viewLocations.Add(new ViewLocation(sourceAssembly, pluginConfiguration.ViewLocation));
-        }
-
-        public void GetHandler(Component component)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class ViewLocation
-    {
-
-        public ViewLocation(Assembly assembly, string location)
-        {
-            Assembly = assembly;
-            Location = location;
-        }
-
-        public Assembly Assembly { get; private set; }
-
-        public string Location { get; private set; }
     }
 }

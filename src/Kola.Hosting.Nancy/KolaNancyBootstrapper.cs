@@ -11,9 +11,9 @@ namespace Kola.Hosting.Nancy
     {
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
-            var kolaConfiguration = new KolaBootstrapper().BuildConfiguration();
+            var kolaHostConfiguration = new KolaBootstrapper().Bootstrap();
 
-            foreach (var viewLocation in kolaConfiguration.ViewLocations)
+            foreach (var viewLocation in kolaHostConfiguration.ViewLocations)
             {
                 ResourceViewLocationProvider.RootNamespaces.Add(viewLocation.Assembly, viewLocation.Location);
             }

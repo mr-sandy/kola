@@ -1,30 +1,41 @@
 ﻿using System.Collections.Generic;
-using Kola.Configuration.Ideas;
+using System.Linq;
 using Kola.Model;
 
 namespace Kola.Processing
 {
     public class KolaEngine
     {
-        private readonly KolaConfiguration kolaConfiguration;
+        private readonly KolaEngineConfiguration kolaEngineConfiguration;
+        private readonly IComponentRenderer componentRenderer;
 
-        public KolaEngine(KolaConfiguration kolaConfiguration)
+        public KolaEngine(KolaEngineConfiguration kolaEngineConfiguration)
         {
-            this.kolaConfiguration = kolaConfiguration;
+            this.kolaEngineConfiguration = kolaEngineConfiguration;
+
+            this.componentRenderer = new CacheManager(new ComponentRenderer());
         }
 
-        public KolaResult Render(IEnumerable<Component> components)
+        //Should a page be a special case of a component?
+        public RenderPageReponse RenderPage(Page page)
         {
-            //Find the handler for each component
-            foreach (var component in components)
-            {
-                var handler = this.kolaConfiguration.GetHandler(component);
-            }
-            return new KolaResult {Html = "Hello"};
+            var bits = page.Components.Select(c => this.componentRenderer.RenderComponent(c));
+
+            return new RenderPageReponse(bits);
         }
     }
 
-    public class KolaResult
+    public class RenderPageReponse
+    {
+        public RenderPageReponse(IEnumerable<RenderComponentReponse> renderComponentReponses)
+        {
+            
+        }
+
+        public string Html { get; set; }
+    }
+
+    public class RenderComponentReponse
     {
         public string Html { get; set; }
     }

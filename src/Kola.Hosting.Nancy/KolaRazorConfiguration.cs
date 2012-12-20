@@ -7,9 +7,9 @@ namespace Kola.Hosting.Nancy
 {
     public class KolaRazorConfiguration : IRazorConfiguration
     {
-        private readonly KolaConfiguration kolaConfiguration;
+        private readonly KolaHostConfiguration kolaConfiguration;
 
-        public KolaRazorConfiguration(KolaConfiguration kolaConfiguration)
+        public KolaRazorConfiguration(KolaHostConfiguration kolaConfiguration)
         {
             this.kolaConfiguration = kolaConfiguration;
         }

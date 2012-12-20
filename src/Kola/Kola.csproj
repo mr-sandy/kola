@@ -44,7 +44,12 @@
     <Compile Include="Configuration\CacheType.cs" />
     <Compile Include="Configuration\ComponentConfiguration.cs" />
     <Compile Include="Configuration\ContainerConfiguration.cs" />
-    <Compile Include="Configuration\Ideas\KolaConfiguration.cs" />
+    <Compile Include="Configuration\Ideas\KolaBootstrapper.cs" />
+    <Compile Include="Processing\CacheManager.cs" />
+    <Compile Include="Processing\IPageRenderer.cs" />
+    <Compile Include="Processing\KolaEngineConfiguration.cs" />
+    <Compile Include="Configuration\Ideas\KolaHostConfiguration.cs" />
+    <Compile Include="Configuration\Ideas\ViewLocation.cs" />
     <Compile Include="Processing\KolaEngine.cs" />
     <Compile Include="Processing\KolaRegistry.cs" />
     <Compile Include="Configuration\ParameterConfiguration.cs" />
@@ -63,6 +68,7 @@
     <Compile Include="Hosting\IPageHandler.cs" />
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\Page.cs" />
+    <Compile Include="Processing\PageRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
