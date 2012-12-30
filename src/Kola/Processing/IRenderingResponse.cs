@@ -3,6 +3,6 @@ namespace Kola.Processing
 {
     public interface IRenderingResponse
     {
-        string ToHtml();
+        string ToHtml(IViewHelper viewHelper);
     }
 }

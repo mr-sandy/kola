@@ -4,16 +4,16 @@ namespace Kola.Processing
 {
     public class RenderingResponse : IRenderingResponse
     {
-        private readonly Func<string> htmlCommand;
+        private readonly Func<IViewHelper, string> htmlCommand;
 
-        public RenderingResponse(Func<string> htmlCommand)
+        public RenderingResponse(Func<IViewHelper, string> htmlCommand)
         {
             this.htmlCommand = htmlCommand;
         }
 
-        public string ToHtml()
+        public string ToHtml(IViewHelper viewHelper)
         {
-            return this.htmlCommand();
+            return this.htmlCommand(viewHelper);
         }
     }
 }

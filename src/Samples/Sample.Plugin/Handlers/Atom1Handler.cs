@@ -16,7 +16,7 @@ namespace Sample.Plugin.Handlers
 
         public IRenderingResponse HandleRequest(IComponent component, RequestContext context)
         {
-            return new RenderingResponse(() => context.ViewHelper.RenderPartial("atom-1", component));
+            return new RenderingResponse(viewHelper => viewHelper.RenderPartial("atom-1", component));
         }
     }
 }

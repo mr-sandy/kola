@@ -8,7 +8,7 @@ namespace Kola.Processing
     {
         public IRenderingResponse HandleRequest(IComponent component, RequestContext context)
         {
-            return new RenderingResponse(() => context.ViewHelper.RenderPartial(component.Name, component));
+            return new RenderingResponse(viewHelper => viewHelper.RenderPartial(component.Name, component));
         }
     }
 }

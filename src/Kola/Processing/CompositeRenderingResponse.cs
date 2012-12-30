@@ -12,13 +12,13 @@ namespace Kola.Processing
             this.renderingResponses = renderingResponses;
         }
 
-        public string ToHtml()
+        public string ToHtml(IViewHelper viewHelper)
         {
             var sb = new StringBuilder();
 
             foreach (var renderingResponse in this.renderingResponses)
             {
-                sb.Append(renderingResponse.ToHtml());
+                sb.Append(renderingResponse.ToHtml(viewHelper));
             }
 
             return sb.ToString();

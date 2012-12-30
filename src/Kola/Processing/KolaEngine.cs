@@ -18,23 +18,23 @@ namespace Kola.Processing
         }
 
         //Should a page be a special case of a component?
-        public IRenderingResponse RenderPage(Page page, IViewHelper viewHelper)
+        public IRenderingResponse RenderPage(Page page)
         {
-            var context = this.NewContext(viewHelper);
+            var context = this.NewContext();
             var bits = page.Components.Select(c => this.componentRenderer.RenderComponent(c, context));
             return new CompositeRenderingResponse(bits);
         }
 
-        public IRenderingResponse RenderComponents(IEnumerable<IComponent> components, IViewHelper viewHelper)
+        public IRenderingResponse RenderComponents(IEnumerable<IComponent> components)
         {
-            var context = this.NewContext(viewHelper);
+            var context = this.NewContext();
             var bits = components.Select(c => this.componentRenderer.RenderComponent(c, context));
             return new CompositeRenderingResponse(bits);
         }
 
-        private RequestContext NewContext(IViewHelper viewHelper)
+        private RequestContext NewContext()
         {
-            return new RequestContext(new CachingHandlerFactory(new CachingHandlerFactory(new HandlerFactory(kolaEngineConfiguration.HandlerMappings, kolaEngineConfiguration.ObjectFactory))), viewHelper);
+            return new RequestContext(new CachingHandlerFactory(new CachingHandlerFactory(new HandlerFactory(kolaEngineConfiguration.HandlerMappings, kolaEngineConfiguration.ObjectFactory))));
         }
     }
 }

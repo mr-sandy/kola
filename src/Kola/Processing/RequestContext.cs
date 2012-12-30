@@ -2,14 +2,11 @@
 {
     public class RequestContext
     {
-        public RequestContext(IHandlerFactory handlerFactory, IViewHelper viewHelper)
+        public RequestContext(IHandlerFactory handlerFactory)
         {
             this.HandlerFactory = handlerFactory;
-            ViewHelper = viewHelper;
         }
 
         public IHandlerFactory HandlerFactory { get; private set; }
-        
-        public IViewHelper ViewHelper { get; private set; }
     }
 }
