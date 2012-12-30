@@ -10,7 +10,15 @@ namespace Kola.Model
             {
                 return new[]
                            {
-                               new Component {Name = "atom-1"}
+                               new Component
+                                   {
+                                       Name = "container-1",
+                                       Children = new[]
+                                                      {
+                                                          new Component {Name = "atom-1"},
+                                                          new Component {Name = "atom-2"}
+                                                      }
+                                   }
                            };
             }
         }

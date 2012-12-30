@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Kola.Model;
 
@@ -17,12 +18,18 @@ namespace Kola.Processing
         }
 
         //Should a page be a special case of a component?
-        public RenderPageReponse RenderPage(Page page, IViewHelper viewHelper)
+        public IRenderingResponse RenderPage(Page page, IViewHelper viewHelper)
         {
             var context = this.NewContext(viewHelper);
             var bits = page.Components.Select(c => this.componentRenderer.RenderComponent(c, context));
-            bits.ToArray();
-            return new RenderPageReponse(bits);
+            return new CompositeRenderingResponse(bits);
+        }
+
+        public IRenderingResponse RenderComponents(IEnumerable<IComponent> components, IViewHelper viewHelper)
+        {
+            var context = this.NewContext(viewHelper);
+            var bits = components.Select(c => this.componentRenderer.RenderComponent(c, context));
+            return new CompositeRenderingResponse(bits);
         }
 
         private RequestContext NewContext(IViewHelper viewHelper)

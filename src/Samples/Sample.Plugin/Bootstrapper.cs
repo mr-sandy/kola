@@ -19,7 +19,7 @@ namespace Sample.Plugin
                 .WithParameter("parameter-name-2", "parameter-type-2")
                 .Cache.PerUser.For(100);
 
-            this.Configure.Container("container-1")
+            this.Configure.Atom("container-1")
                 .WithView("Container1")
                 .WithParameter("parameter-name-1", "parameter-type-1", "parameter-value-1");
 

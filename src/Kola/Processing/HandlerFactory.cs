@@ -24,7 +24,7 @@ namespace Kola.Processing
                 return this.objectFactory.Resolve<IHandler>(handlerType);
             }
 
-            return null;
+            throw new Exception("No handler found for component '" + component.Name + "'");
         }
     }
 

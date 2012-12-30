@@ -1,4 +1,6 @@
 ﻿
+using Kola.Processing;
+
 namespace Kola.Configuration.Plugins
 {
     public class AtomConfigurer

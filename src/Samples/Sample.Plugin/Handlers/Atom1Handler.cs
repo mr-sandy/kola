@@ -14,9 +14,9 @@ namespace Sample.Plugin.Handlers
             this.atom1Dependency = atom1Dependency;
         }
 
-        public string HandleRequest(IComponent component, RequestContext context)
+        public IRenderingResponse HandleRequest(IComponent component, RequestContext context)
         {
-            return context.ViewHelper.RenderPartial("atom1", component);
+            return new RenderingResponse(() => context.ViewHelper.RenderPartial("atom-1", component));
         }
     }
 }

@@ -45,6 +45,7 @@
     <Compile Include="Configuration\ComponentConfiguration.cs" />
     <Compile Include="Configuration\ContainerConfiguration.cs" />
     <Compile Include="Configuration\Ideas\KolaBootstrapper.cs" />
+    <Compile Include="Processing\IRenderingResponse.cs" />
     <Compile Include="Processing\CacheManager.cs" />
     <Compile Include="Processing\HandlerFactory.cs" />
     <Compile Include="Processing\CachingHandlerFactory.cs" />
@@ -67,15 +68,15 @@
     <Compile Include="Configuration\Plugins\ParameterTypeConfigurer.cs" />
     <Compile Include="Configuration\Plugins\PluginBootstrapper.cs" />
     <Compile Include="Configuration\PluginConfiguration.cs" />
-    <Compile Include="Configuration\DefaultHandler.cs" />
-    <Compile Include="Configuration\Handler.cs" />
+    <Compile Include="Processing\DefaultHandler.cs" />
+    <Compile Include="Processing\IHandler.cs" />
     <Compile Include="Hosting\IPageHandler.cs" />
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\Page.cs" />
     <Compile Include="Processing\PageRenderer.cs" />
-    <Compile Include="Processing\RenderComponentReponse.cs" />
+    <Compile Include="Processing\CompositeRenderingResponse.cs" />
+    <Compile Include="Processing\RenderingResponse.cs" />
     <Compile Include="Processing\RequestContext.cs" />
-    <Compile Include="Processing\RenderPageReponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

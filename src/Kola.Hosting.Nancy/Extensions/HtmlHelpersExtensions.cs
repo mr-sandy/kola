@@ -1,4 +1,5 @@
-﻿using Kola.Model;
+﻿using System.Collections.Generic;
+using Kola.Model;
 using Kola.Processing;
 using Nancy.ViewEngines.Razor;
 
@@ -8,23 +9,12 @@ namespace Kola.Hosting.Nancy.Extensions
     {
         public static IHtmlString RenderPage<T>(this HtmlHelpers<T> helpers, Page page)
         {
-            return new RenderPageReponseWrapper(KolaRegistry.KolaEngine.RenderPage(page, new NancyRazorViewHelper<T>(helpers)));
+            return new RenderingReponseWrapper(KolaRegistry.KolaEngine.RenderPage(page, new NancyRazorViewHelper<T>(helpers)));
+        }
+
+        public static IHtmlString RenderComponents<T>(this HtmlHelpers<T> helpers, IEnumerable<IComponent> components)
+        {
+            return new RenderingReponseWrapper(KolaRegistry.KolaEngine.RenderComponents(components, new NancyRazorViewHelper<T>(helpers)));
         }
     }
-
-    public class RenderPageReponseWrapper  : IHtmlString
-    {
-        private readonly RenderPageReponse renderPageReponse;
-
-        public RenderPageReponseWrapper(RenderPageReponse renderPageReponse)
-        {
-            this.renderPageReponse = renderPageReponse;
-        }
-
-        public string ToHtmlString()
-        {
-            return renderPageReponse.Html;
-        }
-    }
-
 }
