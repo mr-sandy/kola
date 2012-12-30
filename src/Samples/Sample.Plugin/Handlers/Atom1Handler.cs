@@ -1,6 +1,4 @@
-﻿using System;
-using Kola.Configuration;
-using Kola.Model;
+﻿using Kola.Model;
 using Kola.Processing;
 
 namespace Sample.Plugin.Handlers
