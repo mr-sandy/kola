@@ -1,7 +1,13 @@
 ﻿
 namespace Kola.Model
 {
-    public class Component
+    public interface IComponent
     {
+        string Name { get; }
+    }
+
+    public class Component : IComponent
+    {
+        public string Name { get; set; }
     }
 }

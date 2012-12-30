@@ -1,7 +1,10 @@
 ﻿
+using System;
 using System.Linq;
 using Kola.Configuration;
 using Kola.Configuration.Plugins;
+using Kola.Model;
+using Kola.Processing;
 using NUnit.Framework;
 
 namespace Unit.Tests.Configuration
@@ -97,8 +100,11 @@ namespace Unit.Tests.Configuration
         }
     }
 
-    internal class TestHandler : Handler
+    internal class TestHandler : IHandler
     {
-        
+        public string HandleRequest(IComponent component, RequestContext context)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

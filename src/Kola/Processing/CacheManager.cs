@@ -11,9 +11,9 @@ namespace Kola.Processing
             this.innerRenderer = innerRenderer;
         }
 
-        public RenderComponentReponse RenderComponent(Component component)
+        public RenderComponentReponse RenderComponent(IComponent component, RequestContext context)
         {
-            return this.innerRenderer.RenderComponent(component);
+            return this.innerRenderer.RenderComponent(component, context);
         }
     }
 }

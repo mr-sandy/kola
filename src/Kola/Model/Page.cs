@@ -4,13 +4,13 @@ namespace Kola.Model
 {
     public class Page
     {
-        public IEnumerable<Component> Components
+        public IEnumerable<IComponent> Components
         {
             get
             {
                 return new[]
                            {
-                               new Component()
+                               new Component {Name = "atom-1"}
                            };
             }
         }

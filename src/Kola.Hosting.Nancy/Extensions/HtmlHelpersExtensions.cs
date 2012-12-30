@@ -8,7 +8,7 @@ namespace Kola.Hosting.Nancy.Extensions
     {
         public static IHtmlString RenderPage<T>(this HtmlHelpers<T> helpers, Page page)
         {
-            return new RenderPageReponseWrapper(KolaRegistry.KolaEngine.RenderPage(page));
+            return new RenderPageReponseWrapper(KolaRegistry.KolaEngine.RenderPage(page, new NancyRazorViewHelper<T>(helpers)));
         }
     }
 

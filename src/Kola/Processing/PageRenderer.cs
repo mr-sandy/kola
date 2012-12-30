@@ -5,9 +5,11 @@ namespace Kola.Processing
 {
     internal class ComponentRenderer : IComponentRenderer
     {
-        public RenderComponentReponse RenderComponent(Component component)
+        public RenderComponentReponse RenderComponent(IComponent component, RequestContext context)
         {
-            throw new NotImplementedException();
+            var handler = context.HandlerFactory.GetHandler(component);
+
+            return new RenderComponentReponse { Html = handler.HandleRequest(component, context)};
         }
     }
 }

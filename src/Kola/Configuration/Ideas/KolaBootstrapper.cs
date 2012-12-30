@@ -19,26 +19,29 @@ namespace Kola.Configuration.Ideas
 {
     public class KolaBootstrapper
     {
-        public KolaHostConfiguration Bootstrap()
+        public KolaHostConfiguration Bootstrap(IObjectFactory objectFactory)
         {
             var kolaConfiguration = new KolaHostConfiguration();
-            this.LoadPlugInConfiguration(kolaConfiguration);
 
-            KolaRegistry.KolaEngine = new KolaEngine(new KolaEngineConfiguration());
-
-            return kolaConfiguration;
-        }
-
-        private void LoadPlugInConfiguration(KolaHostConfiguration kolaConfiguration)
-        {
             var pluginTypes = GetPluginTypes<PluginBootstrapper>();
+
+            var handlerMappings = new Dictionary<string, Type>();
 
             foreach (var pluginType in pluginTypes)
             {
                 var plugin = Instantiate<PluginBootstrapper>(pluginType);
 
                 kolaConfiguration.AddPlugInConfiguration(plugin.PluginConfiguration, pluginType.Assembly);
+
+                foreach (var atom in plugin.PluginConfiguration.Atoms)
+                {
+                    handlerMappings.Add(atom.AtomName, atom.HandlerType);
+                }
             }
+
+            KolaRegistry.KolaEngine = new KolaEngine(new KolaEngineConfiguration(handlerMappings, objectFactory));
+
+            return kolaConfiguration;
         }
 
         private IEnumerable<Type> GetPluginTypes<T>()

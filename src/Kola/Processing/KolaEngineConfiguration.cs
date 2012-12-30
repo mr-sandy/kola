@@ -1,13 +1,18 @@
 ﻿using System;
-using Kola.Model;
+using System.Collections.Generic;
 
 namespace Kola.Processing
 {
     public class KolaEngineConfiguration
     {
-        public Type GetHandlerType(Component component)
+        public KolaEngineConfiguration(IDictionary<string, Type> handlerMappings, IObjectFactory objectFactory)
         {
-            return null;
+            this.HandlerMappings = handlerMappings;
+            this.ObjectFactory = objectFactory;
         }
+
+        public IDictionary<string, Type> HandlerMappings { get; private set; }
+
+        public IObjectFactory ObjectFactory { get; private set; }
     }
 }

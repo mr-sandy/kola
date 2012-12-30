@@ -1,14 +1,22 @@
-﻿using Kola.Configuration;
+﻿using System;
+using Kola.Configuration;
+using Kola.Model;
+using Kola.Processing;
 
 namespace Sample.Plugin.Handlers
 {
-    public class Atom1Handler : Handler
+    public class Atom1Handler : IHandler
     {
         private readonly IAtom1Dependency atom1Dependency;
 
         public Atom1Handler(IAtom1Dependency atom1Dependency)
         {
             this.atom1Dependency = atom1Dependency;
+        }
+
+        public string HandleRequest(IComponent component, RequestContext context)
+        {
+            return context.ViewHelper.RenderPartial("atom1", component);
         }
     }
 }
