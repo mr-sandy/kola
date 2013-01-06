@@ -75,6 +75,7 @@
     <Compile Include="Model\Page.cs" />
     <Compile Include="Processing\PageRenderer.cs" />
     <Compile Include="Processing\CompositeRenderingResponse.cs" />
+    <Compile Include="Processing\PageRenderingResponse.cs" />
     <Compile Include="Processing\RenderingResponse.cs" />
     <Compile Include="Processing\RequestContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
