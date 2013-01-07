@@ -83,6 +83,7 @@
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Persistence\" />
+    <Folder Include="Processing\Cache\" />
     <Folder Include="ViewEngines\Razor\" />
   </ItemGroup>
   <ItemGroup>
