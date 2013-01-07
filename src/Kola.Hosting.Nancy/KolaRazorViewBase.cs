@@ -11,7 +11,7 @@ namespace Kola.Hosting.Nancy
 
         public string Greet()
         {
-            return "Hi, Nancy!";
+            return "From view base";
         }
 
         public KolaHtmlHelper KolaHtmlHelper { get; private set; }

@@ -28,7 +28,7 @@ namespace Kola.Hosting.Nancy.Extensions
     {
         public string ToHtmlString()
         {
-            return "success?";
+            return "From Kola extension method";
         }
     }
 }
