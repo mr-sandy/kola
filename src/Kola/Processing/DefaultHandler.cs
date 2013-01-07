@@ -1,6 +1,6 @@
-﻿using System;
-using Kola.Configuration;
+﻿using System.Linq;
 using Kola.Model;
+using Kola.Processing.Dependencies;
 
 namespace Kola.Processing
 {
@@ -8,7 +8,7 @@ namespace Kola.Processing
     {
         public IRenderingResponse HandleRequest(IComponent component, RequestContext context)
         {
-            return new RenderingResponse(viewHelper => viewHelper.RenderPartial(component.Name, component));
+            return new RenderingResponse(viewHelper => viewHelper.RenderPartial(component.Name, component), Enumerable.Empty<IDependency>());
         }
     }
 }

@@ -3,12 +3,12 @@ using Nancy.ViewEngines.Razor;
 
 namespace Kola.Hosting.Nancy.Extensions
 {
-    public class RenderingReponseWrapper  : IHtmlString
+    public class HtmlReponseWrapper  : IHtmlString
     {
-        private readonly IRenderingResponse renderPageReponse;
+        private readonly IHtmlResponse renderPageReponse;
         private readonly IViewHelper viewHelper;
 
-        public RenderingReponseWrapper(IRenderingResponse renderPageReponse, IViewHelper viewHelper)
+        public HtmlReponseWrapper(IHtmlResponse renderPageReponse, IViewHelper viewHelper)
         {
             this.renderPageReponse = renderPageReponse;
             this.viewHelper = viewHelper;

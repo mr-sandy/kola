@@ -4,6 +4,8 @@ namespace Kola.Model
 {
     public class Page
     {
+        public string Title { get { return "The Page Title"; } }
+
         public IEnumerable<IComponent> Components
         {
             get

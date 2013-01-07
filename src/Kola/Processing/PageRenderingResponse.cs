@@ -1,28 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using Kola.Model;
+using Kola.Processing.Dependencies;
 
 namespace Kola.Processing
 {
-    public class PageRenderingResponse : IRenderingResponse
+    public class PageRenderingResponse : IHtmlResponse
     {
-         private readonly IEnumerable<IRenderingResponse> renderingResponses;
+        private readonly Page page;
+        private readonly IRenderingResponse renderingResponse;
 
-        public PageRenderingResponse(IEnumerable<IRenderingResponse> renderingResponses)
+        private const string PageTemplate =
+            @"<!DOCTYPE html>
+<html>
+<head>
+  <title>{0}</title>
+</head>
+<body>
+{1}
+</body>
+</html>";
+
+        public PageRenderingResponse(Page page, IRenderingResponse renderingResponse)
         {
-            this.renderingResponses = renderingResponses;
+            this.page = page;
+            this.renderingResponse = renderingResponse;
         }
 
         public string ToHtml(IViewHelper viewHelper)
         {
-            var sb = new StringBuilder();
-
-            foreach (var renderingResponse in this.renderingResponses)
-            {
-                sb.Append(renderingResponse.ToHtml(viewHelper));
-            }
-
-            return sb.ToString();
+            return string.Format(PageTemplate, page.Title, renderingResponse.ToHtml(viewHelper));
         }
     }
 }

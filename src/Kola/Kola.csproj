@@ -45,6 +45,8 @@
     <Compile Include="Configuration\ComponentConfiguration.cs" />
     <Compile Include="Configuration\ContainerConfiguration.cs" />
     <Compile Include="Configuration\Ideas\KolaBootstrapper.cs" />
+    <Compile Include="Processing\Caching\ICacheSetting.cs" />
+    <Compile Include="Processing\Dependencies\IDependency.cs" />
     <Compile Include="Processing\IRenderingResponse.cs" />
     <Compile Include="Processing\CacheManager.cs" />
     <Compile Include="Processing\HandlerFactory.cs" />
@@ -83,7 +85,6 @@
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Persistence\" />
-    <Folder Include="Processing\Cache\" />
     <Folder Include="ViewEngines\Razor\" />
   </ItemGroup>
   <ItemGroup>

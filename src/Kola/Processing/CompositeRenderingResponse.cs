@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
+using Kola.Processing.Dependencies;
 
 namespace Kola.Processing
 {
@@ -22,6 +24,11 @@ namespace Kola.Processing
             }
 
             return sb.ToString();
+        }
+
+        public IEnumerable<IDependency> Dependencies
+        {
+            get { throw new NotImplementedException(); }
         }
     }
 }

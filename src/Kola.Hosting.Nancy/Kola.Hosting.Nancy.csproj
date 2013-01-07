@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\HtmlHelpersExtensions.cs" />
-    <Compile Include="Extensions\RenderingReponseWrapper.cs" />
+    <Compile Include="Extensions\HtmlReponseWrapper.cs" />
     <Compile Include="KolaNancyBootstrapper.cs" />
     <Compile Include="KolaRazorViewBase.cs" />
     <Compile Include="Modules\PageModule.cs" />

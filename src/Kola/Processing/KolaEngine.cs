@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Kola.Model;
 
@@ -17,19 +16,21 @@ namespace Kola.Processing
             this.componentRenderer = new CacheManager(new ComponentRenderer());
         }
 
-        //Should a page be a special case of a component?
-        public IRenderingResponse RenderPage(Page page)
+        public IHtmlResponse RenderPage(Page page)
         {
             var context = this.NewContext();
-            var bits = page.Components.Select(c => this.componentRenderer.RenderComponent(c, context));
-            return new PageRenderingResponse(bits);
+            return new PageRenderingResponse(page, this.BuildCompositeRenderingResponse(page.Components, context));
         }
 
         public IRenderingResponse RenderComponents(IEnumerable<IComponent> components)
         {
             var context = this.NewContext();
-            var bits = components.Select(c => this.componentRenderer.RenderComponent(c, context));
-            return new CompositeRenderingResponse(bits);
+            return this.BuildCompositeRenderingResponse(components, context);
+        }
+
+        private IRenderingResponse BuildCompositeRenderingResponse(IEnumerable<IComponent> components, RequestContext context)
+        {
+            return new CompositeRenderingResponse(components.Select(c => this.componentRenderer.RenderComponent(c, context)));
         }
 
         private RequestContext NewContext()

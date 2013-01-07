@@ -9,12 +9,12 @@ namespace Kola.Hosting.Nancy.Extensions
     {
         public static IHtmlString RenderPage<T>(this HtmlHelpers<T> helpers, Page page)
         {
-            return new RenderingReponseWrapper(KolaRegistry.KolaEngine.RenderPage(page), new NancyRazorViewHelper<T>(helpers));
+            return new HtmlReponseWrapper(KolaRegistry.KolaEngine.RenderPage(page), new NancyRazorViewHelper<T>(helpers));
         }
 
         public static IHtmlString RenderComponents<T>(this HtmlHelpers<T> helpers, IEnumerable<IComponent> components)
         {
-            return new RenderingReponseWrapper(KolaRegistry.KolaEngine.RenderComponents(components), new NancyRazorViewHelper<T>(helpers));
+            return new HtmlReponseWrapper(KolaRegistry.KolaEngine.RenderComponents(components), new NancyRazorViewHelper<T>(helpers));
         }
 
         public static IHtmlString RenderBadger(this KolaHtmlHelper helper, IComponent component)
