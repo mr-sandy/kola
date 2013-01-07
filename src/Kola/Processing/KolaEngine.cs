@@ -22,7 +22,7 @@ namespace Kola.Processing
         {
             var context = this.NewContext();
             var bits = page.Components.Select(c => this.componentRenderer.RenderComponent(c, context));
-            return new CompositeRenderingResponse(bits);
+            return new PageRenderingResponse(bits);
         }
 
         public IRenderingResponse RenderComponents(IEnumerable<IComponent> components)
@@ -34,7 +34,7 @@ namespace Kola.Processing
 
         private RequestContext NewContext()
         {
-            return new RequestContext(new CachingHandlerFactory(new CachingHandlerFactory(new HandlerFactory(kolaEngineConfiguration.HandlerMappings, kolaEngineConfiguration.ObjectFactory))));
+            return new RequestContext(new CachingHandlerFactory(new HandlerFactory(kolaEngineConfiguration.HandlerMappings, kolaEngineConfiguration.ObjectFactory)));
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Kola.Model;
 using Kola.Processing;
 using Nancy.ViewEngines.Razor;
