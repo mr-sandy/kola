@@ -16,18 +16,5 @@ namespace Kola.Hosting.Nancy.Extensions
         {
             return new HtmlReponseWrapper(KolaRegistry.KolaEngine.RenderComponents(components), new NancyRazorViewHelper<T>(helpers));
         }
-
-        public static IHtmlString RenderBadger(this KolaHtmlHelper helper, IComponent component)
-        {
-            return new TempHtmlString();
-        }
-    }
-
-    public class TempHtmlString : IHtmlString
-    {
-        public string ToHtmlString()
-        {
-            return "From Kola extension method";
-        }
     }
 }

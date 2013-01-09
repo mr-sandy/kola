@@ -9,11 +9,6 @@ namespace Kola.Hosting.Nancy
             this.KolaHtmlHelper = new KolaHtmlHelper();
         }
 
-        public string Greet()
-        {
-            return "From view base";
-        }
-
         public KolaHtmlHelper KolaHtmlHelper { get; private set; }
     }
 
