@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Kola.Configuration.Ideas;
 using Kola.Processing;
 using Nancy;
@@ -23,6 +24,7 @@ namespace Kola.Hosting.Nancy
 
             ResourceViewLocationProvider.RootNamespaces.Add(typeof(KolaNancyBootstrapper).Assembly, "Kola.Hosting.Nancy");
             ResourceViewLocationProvider.Ignore.Add(typeof(RazorViewEngine).Assembly);
+            ResourceViewLocationProvider.Ignore.Add(Assembly.Load("System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"));
 
             base.ConfigureApplicationContainer(container);
         }
