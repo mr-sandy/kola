@@ -20,9 +20,9 @@ namespace Kola.Configuration.Ideas
             get { return this.viewLocations.Select(l => l.Assembly.FullName); }
         }
 
-        internal void AddPlugInConfiguration(PluginConfiguration pluginConfiguration, Assembly sourceAssembly)
+        internal void AddPlugInConfiguration(PluginConfiguration pluginConfiguration)
         {
-            this.viewLocations.Add(new ViewLocation(sourceAssembly, pluginConfiguration.ViewLocation));
+            this.viewLocations.Add(new ViewLocation(pluginConfiguration.GetType().Assembly, pluginConfiguration.ViewLocation));
         }
 
         public void GetHandler(IComponent component)

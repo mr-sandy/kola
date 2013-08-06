@@ -59,7 +59,9 @@
     <Compile Include="Modules\PageModule.cs" />
     <Compile Include="KolaRazorConfiguration.cs" />
     <Compile Include="NancyRazorSetUp.cs" />
+    <Compile Include="NancyRazorViewHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TinyIoCObjectFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Page.cshtml" />

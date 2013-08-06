@@ -1,7 +1,5 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using Kola.Configuration.Ideas;
-using Kola.Processing;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.TinyIoc;
@@ -14,7 +12,6 @@ namespace Kola.Hosting.Nancy
     {
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
-            //This shouldn't be an instance - needs to be a factory?
             var kolaHostConfiguration = KolaBootstrapper.Bootstrap(new TinyIoCObjectFactory(container));
 
             foreach (var viewLocation in kolaHostConfiguration.ViewLocations)
@@ -35,36 +32,6 @@ namespace Kola.Hosting.Nancy
             {
                 return NancyInternalConfiguration.WithOverrides(c => c.ViewLocationProvider = typeof(ResourceViewLocationProvider));
             }
-        }
-    }
-
-    public class NancyRazorViewHelper<T> : IViewHelper
-    {
-        private readonly HtmlHelpers<T> htmlHelpers;
-
-        public NancyRazorViewHelper(HtmlHelpers<T> htmlHelpers)
-        {
-            this.htmlHelpers = htmlHelpers;
-        }
-
-        public string RenderPartial<TModel>(string viewName, TModel model)
-        {
-            return this.htmlHelpers.Partial(viewName, model).ToHtmlString();
-        }
-    }
-
-    public class TinyIoCObjectFactory : IObjectFactory
-    {
-        private readonly TinyIoCContainer container;
-
-        public TinyIoCObjectFactory(TinyIoCContainer container)
-        {
-            this.container = container;
-        }
-
-        public T Resolve<T>(Type type)
-        {
-            return (T)this.container.Resolve(type);
         }
     }
 }

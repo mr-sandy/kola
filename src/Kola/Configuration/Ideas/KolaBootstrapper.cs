@@ -25,7 +25,7 @@ namespace Kola.Configuration.Ideas
 
             foreach (var plugin in FindPlugins())
             {
-                kolaConfiguration.AddPlugInConfiguration(plugin, plugin.GetType().Assembly);
+                kolaConfiguration.AddPlugInConfiguration(plugin);
 
                 foreach (var atom in plugin.ComponentConfigurations)
                 {
