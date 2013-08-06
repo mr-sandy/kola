@@ -52,7 +52,6 @@
     <Compile Include="Processing\IHandlerFactory.cs" />
     <Compile Include="Processing\IPageRenderer.cs" />
     <Compile Include="Processing\IViewHelper.cs" />
-    <Compile Include="Processing\KolaEngineConfiguration.cs" />
     <Compile Include="Configuration\Ideas\KolaHostConfiguration.cs" />
     <Compile Include="Configuration\Ideas\ViewLocation.cs" />
     <Compile Include="Processing\KolaEngine.cs" />

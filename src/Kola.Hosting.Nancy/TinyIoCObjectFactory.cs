@@ -17,5 +17,10 @@ namespace Kola.Hosting.Nancy
         {
             return (T)this.container.Resolve(type);
         }
+
+        public void RegisterSingleton(Type type)
+        {
+            this.container.Register(type, type).AsSingleton();
+        }
     }
 }

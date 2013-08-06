@@ -6,12 +6,12 @@ namespace Kola.Processing
 {
     public class KolaEngine
     {
-        private readonly KolaEngineConfiguration kolaEngineConfiguration;
+        private readonly IHandlerFactory handlerFactory;
         private readonly IComponentRenderer componentRenderer;
 
-        public KolaEngine(KolaEngineConfiguration kolaEngineConfiguration)
+        public KolaEngine(IHandlerFactory handlerFactory)
         {
-            this.kolaEngineConfiguration = kolaEngineConfiguration;
+            this.handlerFactory = handlerFactory;
 
             this.componentRenderer = new CacheManager(new ComponentRenderer());
         }
@@ -35,7 +35,7 @@ namespace Kola.Processing
 
         private RequestContext NewContext()
         {
-            return new RequestContext(new CachingHandlerFactory(new HandlerFactory(kolaEngineConfiguration.HandlerMappings, kolaEngineConfiguration.ObjectFactory)));
+            return new RequestContext(new CachingHandlerFactory(this.handlerFactory));
         }
     }
 }

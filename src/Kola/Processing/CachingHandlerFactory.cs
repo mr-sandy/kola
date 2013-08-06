@@ -1,6 +1,4 @@
-﻿using System;
-using Kola.Configuration;
-using Kola.Model;
+﻿using Kola.Model;
 
 namespace Kola.Processing
 {

@@ -33,7 +33,7 @@ namespace Kola.Configuration.Ideas
                 }
             }
 
-            KolaRegistry.KolaEngine = new KolaEngine(new KolaEngineConfiguration(handlerMappings, objectFactory));
+            KolaRegistry.KolaEngine = new KolaEngine(new HandlerFactory(handlerMappings, objectFactory));
 
             return kolaConfiguration;
         }
