@@ -15,7 +15,7 @@ namespace Kola.Hosting.Nancy
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
             //This shouldn't be an instance - needs to be a factory?
-            var kolaHostConfiguration = new KolaBootstrapper().Bootstrap(new TinyIoCObjectFactory(container));
+            var kolaHostConfiguration = KolaBootstrapper.Bootstrap(new TinyIoCObjectFactory(container));
 
             foreach (var viewLocation in kolaHostConfiguration.ViewLocations)
             {

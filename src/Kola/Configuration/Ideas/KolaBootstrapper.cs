@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Kola.Configuration.Plugins;
 using Kola.Processing;
 
 /*
@@ -17,25 +16,20 @@ using Kola.Processing;
  */
 namespace Kola.Configuration.Ideas
 {
-    public class KolaBootstrapper
+    public static class KolaBootstrapper
     {
-        public KolaHostConfiguration Bootstrap(IObjectFactory objectFactory)
+        public static KolaHostConfiguration Bootstrap(IObjectFactory objectFactory)
         {
             var kolaConfiguration = new KolaHostConfiguration();
-
-            var pluginTypes = GetPluginTypes<PluginBootstrapper>();
-
             var handlerMappings = new Dictionary<string, Type>();
 
-            foreach (var pluginType in pluginTypes)
+            foreach (var plugin in FindPlugins())
             {
-                var plugin = Instantiate<PluginBootstrapper>(pluginType);
+                kolaConfiguration.AddPlugInConfiguration(plugin, plugin.GetType().Assembly);
 
-                kolaConfiguration.AddPlugInConfiguration(plugin.PluginConfiguration, pluginType.Assembly);
-
-                foreach (var atom in plugin.PluginConfiguration.Atoms)
+                foreach (var atom in plugin.ComponentConfigurations)
                 {
-                    handlerMappings.Add(atom.AtomName, atom.HandlerType);
+                    handlerMappings.Add(atom.Name, atom.HandlerType);
                 }
             }
 
@@ -44,20 +38,19 @@ namespace Kola.Configuration.Ideas
             return kolaConfiguration;
         }
 
-        private IEnumerable<Type> GetPluginTypes<T>()
+        private static IEnumerable<PluginConfiguration> FindPlugins()
         {
-            return AppDomain.CurrentDomain.GetAssemblies().SelectMany(FindPlugins<T>);
+            var types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(FindPlugins);
+
+            foreach (var type in types)
+            {
+                yield return (PluginConfiguration)type.GetConstructor(new Type[] { }).Invoke(new object[] { });
+            }
         }
 
-        private static IEnumerable<Type> FindPlugins<T>(Assembly assembly)
+        private static IEnumerable<Type> FindPlugins(Assembly assembly)
         {
-            return assembly.GetTypes().Where(t => (t != typeof(T)) && typeof(T).IsAssignableFrom(t));
+            return assembly.GetTypes().Where(t => (t != typeof(PluginConfiguration)) && typeof(PluginConfiguration).IsAssignableFrom(t));
         }
-
-        private static T Instantiate<T>(Type type)
-        {
-            return (T)type.GetConstructor(new Type[] { }).Invoke(new object[] { });
-        }
-
     }
 }

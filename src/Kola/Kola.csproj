@@ -40,10 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\AtomConfiguration.cs" />
     <Compile Include="Configuration\CacheType.cs" />
     <Compile Include="Configuration\ComponentConfiguration.cs" />
-    <Compile Include="Configuration\ContainerConfiguration.cs" />
     <Compile Include="Configuration\Ideas\KolaBootstrapper.cs" />
     <Compile Include="Processing\Caching\ICacheSetting.cs" />
     <Compile Include="Processing\Dependencies\IDependency.cs" />
@@ -61,14 +59,11 @@
     <Compile Include="Processing\KolaRegistry.cs" />
     <Compile Include="Configuration\ParameterConfiguration.cs" />
     <Compile Include="Configuration\ParameterTypeConfiguration.cs" />
-    <Compile Include="Configuration\Plugins\AtomConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\AtomHandlerConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\CacheConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\ContainerHandlerConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\PluginConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\ContainerConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\ParameterTypeConfigurer.cs" />
-    <Compile Include="Configuration\Plugins\PluginBootstrapper.cs" />
+    <Compile Include="Configuration\Fluent\ComponentConfigurer.cs" />
+    <Compile Include="Configuration\Fluent\ComponentHandlerConfigurer.cs" />
+    <Compile Include="Configuration\Fluent\CacheConfigurer.cs" />
+    <Compile Include="Configuration\Fluent\PluginConfigurer.cs" />
+    <Compile Include="Configuration\Fluent\ParameterTypeConfigurer.cs" />
     <Compile Include="Configuration\PluginConfiguration.cs" />
     <Compile Include="Processing\DefaultHandler.cs" />
     <Compile Include="Processing\IHandler.cs" />

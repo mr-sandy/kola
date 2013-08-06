@@ -1,33 +1,31 @@
 ﻿using System.Collections.Generic;
+using Kola.Configuration.Fluent;
 
 namespace Kola.Configuration
 {
-    internal class PluginConfiguration
+    public abstract class PluginConfiguration
     {
-        private List<AtomConfiguration> atoms = new List<AtomConfiguration>();
+        private readonly List<ComponentConfiguration> components = new List<ComponentConfiguration>();
 
         public string ViewLocation { get; set; }
 
-        public AtomConfiguration ConfigureAtom(string atomName)
+        internal void Add(ComponentConfiguration componentConfiguration)
         {
-            var config = new AtomConfiguration(atomName);
-            this.atoms.Add(config);
-            return config;
+            this.components.Add(componentConfiguration);
         }
 
-        public ContainerConfiguration ConfigureContainer(string containerName)
+        internal void Add(ParameterTypeConfiguration parameterTypeConfiguration)
         {
-            return new ContainerConfiguration(containerName);
         }
 
-        public ParameterTypeConfiguration ConfigureParameterType(string parameterTypeName)
+        internal IEnumerable<ComponentConfiguration> ComponentConfigurations
         {
-            return new ParameterTypeConfiguration(parameterTypeName);
+            get { return this.components; }
         }
 
-        internal IEnumerable<AtomConfiguration> Atoms
+        protected PluginConfigurer Configure
         {
-            get { return this.atoms; }
+            get { return new PluginConfigurer(this); }
         }
     }
 }
