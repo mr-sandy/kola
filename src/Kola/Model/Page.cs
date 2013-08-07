@@ -12,6 +12,7 @@ namespace Kola.Model
             {
                 return new[]
                            {
+                               new Component {Name = "atom-2"},
                                new Component
                                    {
                                        Name = "container-1",

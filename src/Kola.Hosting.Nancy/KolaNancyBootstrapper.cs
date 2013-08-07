@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Linq;
+using System.Reflection;
 using Kola.Configuration.Ideas;
 using Nancy;
 using Nancy.Bootstrapper;
@@ -22,9 +24,16 @@ namespace Kola.Hosting.Nancy
             ResourceViewLocationProvider.RootNamespaces.Add(typeof(KolaNancyBootstrapper).Assembly, "Kola.Hosting.Nancy");
             ResourceViewLocationProvider.Ignore.Add(typeof(RazorViewEngine).Assembly);
             ResourceViewLocationProvider.Ignore.Add(Assembly.Load("System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"));
+            AppDomainAssemblyTypeScanner.AddAssembliesToScan(AppDomainAssemblyTypeScanner.DefaultAssembliesToScan.Concat(CandidatePluginAssemblies).ToArray());
 
             base.ConfigureApplicationContainer(container);
         }
+
+        //TODO : A better way of adding plugins to AppDomainAssemblyTypeScanner is required :)
+        public static Func<Assembly, bool>[] CandidatePluginAssemblies = new Func<Assembly, bool>[]
+        {
+            x => x.GetReferencedAssemblies().Any(r => r.Name.StartsWith("Kola"))
+        };
 
         protected override NancyInternalConfiguration InternalConfiguration
         {

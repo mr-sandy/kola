@@ -11,6 +11,7 @@ namespace Kola.Hosting.Nancy.Modules
         {
             this.pageHandler = pageHandler;
             this.Get["(?<templatePath>.*)"] = this.GetPage;
+            this.Get["/"] = this.GetPage;
         }
 
         private Negotiator GetPage(dynamic parameters)

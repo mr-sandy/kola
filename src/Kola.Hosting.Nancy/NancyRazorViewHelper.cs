@@ -14,7 +14,9 @@ namespace Kola.Hosting.Nancy
 
         public string RenderPartial<TModel>(string viewName, TModel model)
         {
-            return this.htmlHelpers.Partial(viewName, model).ToHtmlString();
+            var htmlString = this.htmlHelpers.Partial(viewName, model);
+            return htmlString.ToHtmlString();
+            //return this.htmlHelpers.Partial(viewName, model).ToHtmlString();
         }
     }
 }

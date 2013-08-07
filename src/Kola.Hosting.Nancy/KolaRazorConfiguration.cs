@@ -7,12 +7,12 @@ namespace Kola.Hosting.Nancy
     {
         public IEnumerable<string> GetAssemblyNames()
         {
-            return new[] { "Kola.Hosting.Nancy" };
+            return new[] { "Sample.Plugin", "Kola.Hosting.Nancy" };
         }
 
         public IEnumerable<string> GetDefaultNamespaces()
         {
-            return new[] { "Kola.Hosting.Nancy", "Kola.Hosting.Nancy.Extensions" };
+            return new[] { "Sample.Plugin", "Kola.Hosting.Nancy", "Kola.Hosting.Nancy.Extensions" };
         }
 
         public bool AutoIncludeModelNamespace
