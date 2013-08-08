@@ -75,11 +75,11 @@
     <Compile Include="Processing\RenderingResponse.cs" />
     <Compile Include="Processing\RequestContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewEngines\Razor\KolaRazorViewBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\" />
     <Folder Include="Persistence\" />
-    <Folder Include="ViewEngines\Razor\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />

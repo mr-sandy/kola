@@ -1,8 +1,8 @@
 ﻿using Nancy.ViewEngines.Razor;
 
-namespace Kola.Hosting.Nancy
+namespace Kola.ViewEngines.Razor
 {
-    public abstract class KolaRazorViewBase<T> : NancyRazorViewBase<T>
+    public abstract class KolaRazorViewBase<TModel> : NancyRazorViewBase<TModel>
     {
         protected KolaRazorViewBase()
         {
