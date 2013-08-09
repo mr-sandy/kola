@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{09961085-2828-421C-BFCD-8F6A6102B464}</ProjectGuid>
+    <ProjectGuid>{61B22E63-05EB-4479-9033-B7A37D62EEF0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sample.Plugin</RootNamespace>
-    <AssemblyName>Sample.Plugin</AssemblyName>
+    <RootNamespace>Kola.Nancy.Razor.Plugins.Core</RootNamespace>
+    <AssemblyName>Kola.Nancy.Razor.Plugins.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MarkdownSharp">
+      <HintPath>..\..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Nancy">
       <HintPath>..\..\packages\Nancy.0.18.0\lib\net40\Nancy.dll</HintPath>
     </Reference>
@@ -50,11 +53,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
-    <Compile Include="Handlers\IAtom1Dependency.cs" />
+    <Compile Include="Handlers\MarkdownHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Handlers\Atom1Handler.cs" />
-    <EmbeddedResource Include="Views\Atom-2.cshtml" />
-    <EmbeddedResource Include="Views\Atom-1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Kola.Nancy.Razor\Kola.Nancy.Razor.csproj">
@@ -67,12 +67,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Container-1.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Views\Markdown.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

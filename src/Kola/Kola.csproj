@@ -66,7 +66,7 @@
     <Compile Include="Configuration\PluginConfiguration.cs" />
     <Compile Include="Processing\DefaultHandler.cs" />
     <Compile Include="Processing\IHandler.cs" />
-    <Compile Include="Hosting\IPageHandler.cs" />
+    <Compile Include="IPageHandler.cs" />
     <Compile Include="Model\Component.cs" />
     <Compile Include="Model\Page.cs" />
     <Compile Include="Processing\PageRenderer.cs" />
@@ -75,12 +75,8 @@
     <Compile Include="Processing\RenderingResponse.cs" />
     <Compile Include="Processing\RequestContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewEngines\Razor\KolaRazorViewBase.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-    <Folder Include="Persistence\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
   </ItemGroup>
