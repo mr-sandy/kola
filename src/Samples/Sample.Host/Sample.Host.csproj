@@ -76,7 +76,7 @@
       <Project>{22D48FD5-8CA9-4B0E-9090-742C9A064833}</Project>
       <Name>Kola</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Kola.Nancy.Razor.Plugins.Core\Kola.Plugins.Core.csproj">
+    <ProjectReference Include="..\..\Plugins\Kola.Plugins.Core\Kola.Plugins.Core.csproj">
       <Project>{61B22E63-05EB-4479-9033-B7A37D62EEF0}</Project>
       <Name>Kola.Plugins.Core</Name>
     </ProjectReference>

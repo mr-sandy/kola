@@ -17,7 +17,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit.Tests", "Tests\Unit.Te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{FF152348-3D66-4057-A7F9-948CDEC3731A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kola.Plugins.Core", "Plugins\Kola.Nancy.Razor.Plugins.Core\Kola.Plugins.Core.csproj", "{61B22E63-05EB-4479-9033-B7A37D62EEF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kola.Plugins.Core", "Plugins\Kola.Plugins.Core\Kola.Plugins.Core.csproj", "{61B22E63-05EB-4479-9033-B7A37D62EEF0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
