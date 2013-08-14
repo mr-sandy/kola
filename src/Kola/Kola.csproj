@@ -52,6 +52,7 @@
     <Compile Include="Configuration\CacheType.cs" />
     <Compile Include="Configuration\ComponentConfiguration.cs" />
     <Compile Include="Configuration\Ideas\KolaBootstrapper.cs" />
+    <Compile Include="Nancy\Conventions\EmbeddedStaticContentConventionBuilder.cs" />
     <Compile Include="Nancy\Extensions\HtmlHelpersExtensions.cs" />
     <Compile Include="Nancy\Extensions\HtmlReponseWrapper.cs" />
     <Compile Include="Nancy\KolaNancyBootstrapper.cs" />
@@ -97,15 +98,48 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
+    <EmbeddedResource Include="Scripts\app\templates\CreateTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\CreateView.js" />
+    <EmbeddedResource Include="Content\bootstrap-responsive.css" />
+    <EmbeddedResource Include="Content\bootstrap-responsive.min.css" />
+    <EmbeddedResource Include="Content\bootstrap.css" />
+    <EmbeddedResource Include="Content\bootstrap.min.css" />
+    <EmbeddedResource Include="Content\images\glyphicons-halflings-white.png" />
+    <EmbeddedResource Include="Content\images\glyphicons-halflings.png" />
+    <EmbeddedResource Include="Scripts\bootstrap.js" />
+    <EmbeddedResource Include="Scripts\bootstrap.min.js" />
+    <EmbeddedResource Include="Scripts\jquery-1.9.1-vsdoc.js" />
+    <EmbeddedResource Include="Scripts\jquery-1.9.1.js" />
+    <EmbeddedResource Include="Scripts\jquery-1.9.1.min.js" />
+    <EmbeddedResource Include="Scripts\r.js" />
+    <EmbeddedResource Include="Scripts\text.js" />
+    <EmbeddedResource Include="Scripts\app\Router.js" />
+    <EmbeddedResource Include="Scripts\backbone.js" />
+    <EmbeddedResource Include="Scripts\backbone.min.js" />
+    <EmbeddedResource Include="Scripts\handlebars.js" />
+    <EmbeddedResource Include="Scripts\handlebars.min.js" />
+    <EmbeddedResource Include="Scripts\handlebars.runtime.js" />
+    <EmbeddedResource Include="Scripts\underscore.js" />
+    <EmbeddedResource Include="Scripts\underscore.min.js" />
+    <EmbeddedResource Include="Scripts\app\templates\HeaderTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\HeaderView.js" />
+    <EmbeddedResource Include="Scripts\app\views\AppView.js" />
+    <EmbeddedResource Include="Scripts\app\App.js" />
+    <EmbeddedResource Include="Scripts\main.js" />
+    <EmbeddedResource Include="Scripts\require.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Nancy\Views\Page.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="App_Readme\Handlebarsjs_LICENSE" />
+    <None Include="App_Readme\Handlebarsjs_README.md" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="web.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

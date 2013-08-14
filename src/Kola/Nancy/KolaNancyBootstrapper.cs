@@ -4,9 +4,11 @@ using System.Reflection;
 using Kola.Configuration.Ideas;
 using Nancy;
 using Nancy.Bootstrapper;
+using Nancy.Conventions;
 using Nancy.TinyIoc;
 using Nancy.ViewEngines;
 using Nancy.ViewEngines.Razor;
+using Nancy.Embedded.Conventions;
 
 namespace Kola.Nancy
 {
@@ -41,6 +43,14 @@ namespace Kola.Nancy
             {
                 return NancyInternalConfiguration.WithOverrides(c => c.ViewLocationProvider = typeof(ResourceViewLocationProvider));
             }
+        }
+
+        protected override void ConfigureConventions(NancyConventions conventions)
+        {
+            base.ConfigureConventions(conventions);
+
+            conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/Scripts", typeof(KolaNancyBootstrapper).Assembly));
+            conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/Content", typeof(KolaNancyBootstrapper).Assembly));
         }
     }
 }

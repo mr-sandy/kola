@@ -1,4 +1,15 @@
-﻿@using Nancy.ViewEngines.Razor
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<dynamic>
 @using Kola.Nancy.Extensions
-@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase
-<h1>Admin</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <link type="text/css" rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="Content/bootstrap-responsive.min.css" />
+</head>
+<body>
+    <div id="header"></div>
+    <div id="content"></div>
+    <script type="text/javascript" src="Scripts/require.js" data-main="Scripts/main"></script>
+</body>
+</html>
