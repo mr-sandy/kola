@@ -1,7 +1,7 @@
 ﻿using Kola.Processing;
 using Nancy.ViewEngines.Razor;
 
-namespace Kola.Nancy.Razor
+namespace Kola.Nancy
 {
     public class NancyRazorViewHelper<T> : IViewHelper
     {

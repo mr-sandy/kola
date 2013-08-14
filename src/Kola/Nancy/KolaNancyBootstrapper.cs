@@ -8,7 +8,7 @@ using Nancy.TinyIoc;
 using Nancy.ViewEngines;
 using Nancy.ViewEngines.Razor;
 
-namespace Kola.Nancy.Razor
+namespace Kola.Nancy
 {
     public class KolaNancyBootstrapper : DefaultNancyBootstrapper
     {
@@ -21,7 +21,7 @@ namespace Kola.Nancy.Razor
                 ResourceViewLocationProvider.RootNamespaces.Add(viewLocation.Assembly, viewLocation.Location);
             }
 
-            ResourceViewLocationProvider.RootNamespaces.Add(typeof(KolaNancyBootstrapper).Assembly, "Kola.Nancy.Razor");
+            ResourceViewLocationProvider.RootNamespaces.Add(typeof(KolaNancyBootstrapper).Assembly, "Kola.Nancy");
             ResourceViewLocationProvider.Ignore.Add(typeof(RazorViewEngine).Assembly);
             ResourceViewLocationProvider.Ignore.Add(Assembly.Load("System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"));
             AppDomainAssemblyTypeScanner.AddAssembliesToScan(AppDomainAssemblyTypeScanner.DefaultAssembliesToScan.Concat(CandidatePluginAssemblies).ToArray());

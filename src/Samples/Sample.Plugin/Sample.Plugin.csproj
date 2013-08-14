@@ -57,10 +57,6 @@
     <EmbeddedResource Include="Views\Atom-1.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Kola.Nancy.Razor\Kola.Nancy.Razor.csproj">
-      <Project>{9A84009E-C133-4D41-822C-A3E6F7E617E4}</Project>
-      <Name>Kola.Nancy.Razor</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Kola\Kola.csproj">
       <Project>{22D48FD5-8CA9-4B0E-9090-742C9A064833}</Project>
       <Name>Kola</Name>

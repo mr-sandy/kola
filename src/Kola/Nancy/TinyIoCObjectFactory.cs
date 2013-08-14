@@ -2,7 +2,7 @@
 using Kola.Processing;
 using Nancy.TinyIoc;
 
-namespace Kola.Nancy.Razor
+namespace Kola.Nancy
 {
     public class TinyIoCObjectFactory : IObjectFactory
     {

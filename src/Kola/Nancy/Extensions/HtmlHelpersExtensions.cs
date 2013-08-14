@@ -3,7 +3,7 @@ using Kola.Model;
 using Kola.Processing;
 using Nancy.ViewEngines.Razor;
 
-namespace Kola.Nancy.Razor.Extensions
+namespace Kola.Nancy.Extensions
 {
     public static class HtmlHelpersExtensions
     {

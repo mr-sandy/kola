@@ -1,7 +1,7 @@
 ﻿using Kola.Model;
 using Kola.Processing;
 
-namespace Kola.Nancy.Razor.Plugins.Core.Handlers
+namespace Kola.Plugins.Core.Handlers
 {
     public class MarkdownHandler : IHandler
     {

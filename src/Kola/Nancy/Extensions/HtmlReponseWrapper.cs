@@ -1,9 +1,9 @@
 ﻿using Kola.Processing;
 using Nancy.ViewEngines.Razor;
 
-namespace Kola.Nancy.Razor.Extensions
+namespace Kola.Nancy.Extensions
 {
-    public class HtmlReponseWrapper  : IHtmlString
+    public class HtmlReponseWrapper : IHtmlString
     {
         private readonly IHtmlResponse renderPageReponse;
         private readonly IViewHelper viewHelper;

@@ -72,21 +72,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Kola.Nancy.Razor\Kola.Nancy.Razor.csproj">
-      <Project>{9A84009E-C133-4D41-822C-A3E6F7E617E4}</Project>
-      <Name>Kola.Nancy.Razor</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Kola.Nancy\Kola.Nancy.csproj">
-      <Project>{3AF086FB-F7BA-487E-8A9E-8A74A583C070}</Project>
-      <Name>Kola.Nancy</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Kola\Kola.csproj">
       <Project>{22D48FD5-8CA9-4B0E-9090-742C9A064833}</Project>
       <Name>Kola</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Kola.Nancy.Razor.Plugins.Core\Kola.Nancy.Razor.Plugins.Core.csproj">
+    <ProjectReference Include="..\..\Plugins\Kola.Nancy.Razor.Plugins.Core\Kola.Plugins.Core.csproj">
       <Project>{61B22E63-05EB-4479-9033-B7A37D62EEF0}</Project>
-      <Name>Kola.Nancy.Razor.Plugins.Core</Name>
+      <Name>Kola.Plugins.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sample.Plugin\Sample.Plugin.csproj">
       <Project>{09961085-2828-421C-BFCD-8F6A6102B464}</Project>
