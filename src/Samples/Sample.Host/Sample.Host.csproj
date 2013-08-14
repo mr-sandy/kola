@@ -69,7 +69,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MySetUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
