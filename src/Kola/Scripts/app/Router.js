@@ -7,8 +7,8 @@
     return Backbone.Router.extend({
 
         routes: {
-            '~': 'home',
-            '~/pages': 'pages'
+            '_kola': 'home',
+            '_kola/pages': 'pages'
         }
 
     });

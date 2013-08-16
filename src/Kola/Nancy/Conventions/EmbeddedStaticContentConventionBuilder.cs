@@ -31,19 +31,13 @@ namespace Nancy.Embedded.Conventions
         {
             return (ctx, root) =>
             {
-                var path =
-                    HttpUtility.UrlDecode(ctx.Request.Path);
+                var path = HttpUtility.UrlDecode(ctx.Request.Path);
 
-                var fileName =
-                    Path.GetFileName(path);
+                var fileName = Path.GetFileName(path);
 
-                if (string.IsNullOrEmpty(fileName))
-                {
-                    return null;
-                }
+                if (string.IsNullOrEmpty(fileName)) { return null; }
 
-                var pathWithoutFilename =
-                    GetPathWithoutFilename(fileName, path);
+                var pathWithoutFilename = GetPathWithoutFilename(fileName, path);
 
                 if (!requestedPath.StartsWith("/"))
                 {
@@ -56,11 +50,9 @@ namespace Nancy.Embedded.Conventions
                     return null;
                 }
 
-                contentPath =
-                    GetContentPath(requestedPath, contentPath);
+                contentPath = GetContentPath(requestedPath, contentPath);
 
-                var responseFactory =
-                    ResponseFactoryCache.GetOrAdd(path, BuildContentDelegate(ctx, requestedPath, contentPath, assembly, allowedExtensions));
+                var responseFactory = ResponseFactoryCache.GetOrAdd(path, BuildContentDelegate(ctx, requestedPath, contentPath, assembly, allowedExtensions));
 
                 return responseFactory.Invoke();
             };
@@ -80,18 +72,14 @@ namespace Nancy.Embedded.Conventions
                     return () => null;
                 }
 
-                var transformedRequestPath =
-                     GetSafeRequestPath(requestPath, requestedPath, contentPath);
+                var transformedRequestPath = GetSafeRequestPath(requestPath, requestedPath, contentPath);
 
-                transformedRequestPath =
-                    GetEncodedPath(transformedRequestPath);
+                transformedRequestPath = GetEncodedPath(transformedRequestPath);
 
                 // Resolve relative paths by using c:\ as a fake root path
-                var fileName =
-                    Path.GetFullPath(Path.Combine("c:\\", transformedRequestPath));
+                var fileName = Path.GetFullPath(Path.Combine("c:\\", transformedRequestPath));
 
-                var contentRootPath =
-                    Path.GetFullPath(Path.Combine("c:\\", GetEncodedPath(contentPath)));
+                var contentRootPath = Path.GetFullPath(Path.Combine("c:\\", GetEncodedPath(contentPath)));
 
                 if (!IsWithinContentFolder(contentRootPath, fileName))
                 {
@@ -99,11 +87,9 @@ namespace Nancy.Embedded.Conventions
                     return () => null;
                 }
 
-                var resourceName =
-                    Path.GetDirectoryName(assembly.GetName().Name + fileName.Substring(2)).Replace('\\', '.').Replace('-', '_');
+                var resourceName = Path.GetDirectoryName(assembly.GetName().Name + fileName.Substring(2)).Replace('\\', '.').Replace('-', '_');
 
-                fileName =
-                    Path.GetFileName(fileName);
+                fileName = Path.GetFileName(fileName);
 
                 if (!assembly.GetManifestResourceNames().Any(x => string.Equals(x, resourceName + "." + fileName, StringComparison.OrdinalIgnoreCase)))
                 {
@@ -112,6 +98,7 @@ namespace Nancy.Embedded.Conventions
                 }
 
                 context.Trace.TraceLog.WriteLog(x => x.AppendLine(string.Concat("[EmbeddedStaticContentConventionBuilder] Returning file '", fileName, "'")));
+
                 return () => new EmbeddedFileResponse(assembly, resourceName, fileName);
             };
         }
@@ -123,24 +110,21 @@ namespace Nancy.Embedded.Conventions
 
         private static string GetSafeRequestPath(string requestPath, string requestedPath, string contentPath)
         {
-            var actualContentPath =
-                (contentPath.Equals("/") ? string.Empty : contentPath);
+            var actualContentPath = (contentPath.Equals("/") ? string.Empty : contentPath);
 
             if (requestedPath.Equals("/"))
             {
                 return string.Concat(actualContentPath, requestPath);
             }
 
-            var expression =
-                new Regex(Regex.Escape(requestedPath), RegexOptions.IgnoreCase);
+            var expression = new Regex(Regex.Escape(requestedPath), RegexOptions.IgnoreCase);
 
             return expression.Replace(requestPath, actualContentPath, 1);
         }
 
         private static string GetContentPath(string requestedPath, string contentPath)
         {
-            contentPath =
-                contentPath ?? requestedPath;
+            contentPath = contentPath ?? requestedPath;
 
             if (!contentPath.StartsWith("/"))
             {
@@ -152,8 +136,7 @@ namespace Nancy.Embedded.Conventions
 
         private static string GetPathWithoutFilename(string fileName, string path)
         {
-            var pathWithoutFileName =
-                path.Replace(fileName, string.Empty);
+            var pathWithoutFileName = path.Replace(fileName, string.Empty);
 
             return (pathWithoutFileName.Equals("/")) ?
                 pathWithoutFileName :

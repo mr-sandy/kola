@@ -8,8 +8,8 @@ namespace Kola.Nancy.Modules
     {
         public AdminModule()
         {
-            this.Get["/~"] = this.GetPage;
-            this.Get["/~/{*}"] = this.GetPage;
+            this.Get["/_kola"] = this.GetPage;
+            this.Get["/_kola/{*}"] = this.GetPage;
         }
 
         private Negotiator GetPage(dynamic parameters)
