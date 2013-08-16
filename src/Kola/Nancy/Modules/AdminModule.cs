@@ -9,12 +9,14 @@ namespace Kola.Nancy.Modules
         public AdminModule()
         {
             this.Get["/~"] = this.GetPage;
+            this.Get["/~/{*}"] = this.GetPage;
         }
 
         private Negotiator GetPage(dynamic parameters)
         {
-            return this.Negotiate
-            .WithMediaRangeModel("text/html", new { Jam = "Jam"}).WithView("Admin");
+            return View["Admin"];
+            //return this.Negotiate
+            //.WithMediaRangeModel("text/html", new { Jam = "Jam"}).WithView("Admin");
 
         }
     }

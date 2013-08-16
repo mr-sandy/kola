@@ -98,8 +98,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
-    <EmbeddedResource Include="Scripts\app\templates\CreateTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\views\CreateView.js" />
+    <EmbeddedResource Include="Scripts\app\Extensions.js" />
+    <EmbeddedResource Include="Content\images\loading.gif" />
+    <EmbeddedResource Include="Scripts\app\views\LoadingView.js" />
+    <EmbeddedResource Include="Scripts\app\templates\LoadingTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\templates\HomeTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\HomeView.js" />
+    <EmbeddedResource Include="Scripts\app\templates\PagesTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\PagesView.js" />
     <EmbeddedResource Include="Content\bootstrap-responsive.css" />
     <EmbeddedResource Include="Content\bootstrap-responsive.min.css" />
     <EmbeddedResource Include="Content\bootstrap.css" />
@@ -121,8 +127,8 @@
     <EmbeddedResource Include="Scripts\handlebars.runtime.js" />
     <EmbeddedResource Include="Scripts\underscore.js" />
     <EmbeddedResource Include="Scripts\underscore.min.js" />
-    <EmbeddedResource Include="Scripts\app\templates\HeaderTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\views\HeaderView.js" />
+    <EmbeddedResource Include="Scripts\app\templates\NavigationTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\NavigationView.js" />
     <EmbeddedResource Include="Scripts\app\views\AppView.js" />
     <EmbeddedResource Include="Scripts\app\App.js" />
     <EmbeddedResource Include="Scripts\main.js" />

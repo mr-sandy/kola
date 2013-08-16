@@ -1,7 +1,8 @@
 ﻿define([
     'backbone',
     'app/views/AppView',
-    'app/Router'
+    'app/Router',
+    'app/Extensions'
 ], function (
     Backbone,
     AppView,
