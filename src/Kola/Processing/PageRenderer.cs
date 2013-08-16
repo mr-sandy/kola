@@ -1,5 +1,5 @@
 ﻿using System;
-using Kola.Model;
+using Kola.Domain;
 
 namespace Kola.Processing
 {

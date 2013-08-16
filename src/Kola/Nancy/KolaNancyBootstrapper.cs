@@ -5,6 +5,7 @@ using Kola.Configuration.Ideas;
 using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
+using Nancy.Diagnostics;
 using Nancy.TinyIoc;
 using Nancy.ViewEngines;
 using Nancy.ViewEngines.Razor;
@@ -52,5 +53,19 @@ namespace Kola.Nancy
             conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Scripts", typeof(KolaNancyBootstrapper).Assembly, "/Scripts"));
             conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Content", typeof(KolaNancyBootstrapper).Assembly, "/Content"));
         }
+
+        #region diagnostics 
+
+        //protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
+        //{
+        //    StaticConfiguration.EnableRequestTracing = true;
+        //}
+
+        //protected override DiagnosticsConfiguration DiagnosticsConfiguration
+        //{
+        //    get { return new DiagnosticsConfiguration { Password = @"123" }; }
+        //}
+
+        #endregion
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Kola.Model
+namespace Kola.Domain
 {
     public class Page
     {

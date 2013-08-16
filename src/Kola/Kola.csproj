@@ -52,6 +52,9 @@
     <Compile Include="Configuration\CacheType.cs" />
     <Compile Include="Configuration\ComponentConfiguration.cs" />
     <Compile Include="Configuration\Ideas\KolaBootstrapper.cs" />
+    <Compile Include="Domain\ComponentContainer.cs" />
+    <Compile Include="Domain\IComponent.cs" />
+    <Compile Include="Domain\Template.cs" />
     <Compile Include="Nancy\Conventions\EmbeddedStaticContentConventionBuilder.cs" />
     <Compile Include="Nancy\Extensions\NancyRazorViewBaseExtensions.cs" />
     <Compile Include="Nancy\Extensions\StringExtensions.cs" />
@@ -60,7 +63,7 @@
     <Compile Include="Nancy\KolaNancyBootstrapper.cs" />
     <Compile Include="Nancy\Modules\AdminModule.cs" />
     <Compile Include="Persistence\ITemplateRepository.cs" />
-    <Compile Include="Nancy\Modules\RequestFilters.cs" />
+    <Compile Include="Nancy\Modules\AcceptHeaderFilters.cs" />
     <Compile Include="Nancy\Modules\TemplatesModule.cs" />
     <Compile Include="Nancy\Modules\RenderingModule.cs" />
     <Compile Include="Nancy\NancyRazorViewHelper.cs" />
@@ -89,8 +92,8 @@
     <Compile Include="Processing\DefaultHandler.cs" />
     <Compile Include="Processing\IHandler.cs" />
     <Compile Include="IPageHandler.cs" />
-    <Compile Include="Model\Component.cs" />
-    <Compile Include="Model\Page.cs" />
+    <Compile Include="Domain\Component.cs" />
+    <Compile Include="Domain\Page.cs" />
     <Compile Include="Processing\PageRenderer.cs" />
     <Compile Include="Processing\CompositeRenderingResponse.cs" />
     <Compile Include="Processing\PageRenderingResponse.cs" />

@@ -1,8 +1,10 @@
 ﻿
+using Kola.Domain;
+
 namespace Kola.Persistence
 {
-    internal interface ITemplateRepository
+    public interface ITemplateRepository
     {
-        
+        void Add(Template template);
     }
 }

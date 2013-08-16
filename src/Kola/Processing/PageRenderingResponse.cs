@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Kola.Model;
+using Kola.Domain;
 using Kola.Processing.Dependencies;
 
 namespace Kola.Processing

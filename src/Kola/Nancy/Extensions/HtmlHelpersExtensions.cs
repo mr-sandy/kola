@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Kola.Model;
+using Kola.Domain;
 using Kola.Processing;
 using Nancy.ViewEngines.Razor;
 

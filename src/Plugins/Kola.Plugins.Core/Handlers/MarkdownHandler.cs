@@ -1,4 +1,4 @@
-﻿using Kola.Model;
+﻿using Kola.Domain;
 using Kola.Processing;
 
 namespace Kola.Plugins.Core.Handlers

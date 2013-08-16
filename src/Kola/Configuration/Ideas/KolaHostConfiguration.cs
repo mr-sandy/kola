@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Kola.Model;
+using Kola.Domain;
 
 namespace Kola.Configuration.Ideas
 {

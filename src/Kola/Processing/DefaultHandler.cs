@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Kola.Model;
+using Kola.Domain;
 using Kola.Processing.Dependencies;
 
 namespace Kola.Processing

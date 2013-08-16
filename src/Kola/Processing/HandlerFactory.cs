@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Kola.Model;
+using Kola.Domain;
 
 namespace Kola.Processing
 {

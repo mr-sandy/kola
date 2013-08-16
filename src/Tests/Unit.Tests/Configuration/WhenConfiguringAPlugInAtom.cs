@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 using Kola.Configuration;
-using Kola.Model;
+using Kola.Domain;
 using Kola.Processing;
 using NUnit.Framework;
 
