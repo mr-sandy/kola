@@ -17,13 +17,4 @@ namespace Kola.Nancy.Extensions
             return new HtmlReponseWrapper(KolaRegistry.KolaEngine.RenderComponents(components), new NancyRazorViewHelper<T>(helpers));
         }
     }
-
-    public static class NancyRazorViewBaseExtensions
-    {
-        public static string UriFor<TEntity>(this NancyRazorViewBase<TEntity> helper, string path)
-        {
-            var root = "venus";
-            return root.TrimEnd('/') + '/' + path.TrimStart('/');
-        }
-    }
 }

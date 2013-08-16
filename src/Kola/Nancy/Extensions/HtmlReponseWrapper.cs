@@ -3,7 +3,7 @@ using Nancy.ViewEngines.Razor;
 
 namespace Kola.Nancy.Extensions
 {
-    public class HtmlReponseWrapper : IHtmlString
+    internal class HtmlReponseWrapper : IHtmlString
     {
         private readonly IHtmlResponse renderPageReponse;
         private readonly IViewHelper viewHelper;
