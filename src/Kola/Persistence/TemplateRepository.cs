@@ -1,4 +1,6 @@
-﻿using Kola.Domain;
+﻿using System;
+using System.Collections.Generic;
+using Kola.Domain;
 
 namespace Kola.Persistence
 {
@@ -6,6 +8,11 @@ namespace Kola.Persistence
     {
         public void Add(Template template)
         {
+        }
+
+        public Template Get(IEnumerable<string> path)
+        {
+            throw new NotImplementedException();
         }
     }
 }
