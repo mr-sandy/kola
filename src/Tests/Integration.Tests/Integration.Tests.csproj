@@ -58,7 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Content Include="Tests.txt" />
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\ContextBase.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenCreatingATemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

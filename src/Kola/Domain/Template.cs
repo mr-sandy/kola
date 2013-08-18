@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Kola.Domain
 {
-    public class Template
+    public class Template : ComponentContainer
     {
         public Template(IEnumerable<string> path)
         {
@@ -10,5 +11,13 @@ namespace Kola.Domain
         }
 
         public IEnumerable<string> Path { get; private set; }
+    }
+
+    public class Atom : IComponent
+    {
+        public string Name
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

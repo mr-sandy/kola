@@ -14,9 +14,9 @@ namespace Kola.Domain
 
         public IEnumerable<IComponent> Components { get { return this.components; } }
 
-        public void AddChild(IComponent component, int index)
+        public void AddChild(int index, IComponent component)
         {
-            
+            this.components.Insert(index, component);
         }
     }
 }

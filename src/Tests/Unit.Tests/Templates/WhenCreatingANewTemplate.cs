@@ -23,7 +23,8 @@ namespace Unit.Tests.Templates
             var templatePath = new[] { "test", "path" };
             this.template = new Template(templatePath);
 
-//            template.AddComponent
+            var newComponent = new Atom();
+            template.AddChild(0, newComponent);
         }
 
         [Test]

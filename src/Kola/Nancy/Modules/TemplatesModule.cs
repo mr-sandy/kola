@@ -1,17 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Kola.Domain;
 using Kola.Persistence;
+using Kola.Resources;
 using Nancy;
+using Nancy.ModelBinding;
 
 namespace Kola.Nancy.Modules
 {
     public class TemplatesModule : NancyModule
     {
         private readonly ITemplateRepository templateRepository;
+        private readonly IComponentSpecificationLibrary componentSpecificationLibrary;
 
-        public TemplatesModule(ITemplateRepository templateRepository)
+        public TemplatesModule(ITemplateRepository templateRepository, IComponentSpecificationLibrary componentSpecificationLibrary)
         {
             this.templateRepository = templateRepository;
+            this.componentSpecificationLibrary = componentSpecificationLibrary;
 
             this.Get["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
             this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.CreateTemplate(p.templatePath);
@@ -29,9 +35,9 @@ namespace Kola.Nancy.Modules
 
         private dynamic CreateTemplate(string templatePath)
         {
-            var parts = templatePath.Split('/');
+            var pathFragments = templatePath.Split('/');
 
-            var template = new Template(parts);
+            var template = new Template(pathFragments);
 
             this.templateRepository.Add(template);
 
@@ -48,7 +54,33 @@ namespace Kola.Nancy.Modules
 
         private dynamic AddComponent(string templatePath, string componentPath)
         {
+            var componentResource = this.Bind<ComponentResource>();
+
+            var templatePathFragments = templatePath.Split('/');
+            var template = this.templateRepository.Get(templatePathFragments);
+
+            if (template == null) return HttpStatusCode.NotFound;
+
+            var componentPathFragments = componentPath.Split('/').Select(int.Parse);
+            var parent = template.Components.NavigateTo(componentPathFragments);
+
+
+
+            var componentSpecification = this.componentSpecificationLibrary.LookUp(componentResource.Name);
             throw new NotImplementedException();
+        }
+    }
+
+    public interface IComponentSpecificationLibrary
+    {
+        IComponentSpecification LookUp(string name);
+    }
+
+    internal static class ComponentExtensions
+    {
+        internal static IComponent NavigateTo(this IEnumerable<IComponent> components, IEnumerable<int> componentPath)
+        {
+            return null;
         }
     }
 }
