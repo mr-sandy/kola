@@ -62,7 +62,6 @@
     <Compile Include="Nancy\Extensions\HtmlReponseWrapper.cs" />
     <Compile Include="Nancy\KolaNancyBootstrapper.cs" />
     <Compile Include="Nancy\Modules\AdminModule.cs" />
-    <Compile Include="Nancy\Modules\IComponentSpecification.cs" />
     <Compile Include="Persistence\ITemplateRepository.cs" />
     <Compile Include="Nancy\Modules\AcceptHeaderFilters.cs" />
     <Compile Include="Nancy\Modules\TemplatesModule.cs" />

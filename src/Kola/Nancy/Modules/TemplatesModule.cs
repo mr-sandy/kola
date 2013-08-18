@@ -12,12 +12,12 @@ namespace Kola.Nancy.Modules
     public class TemplatesModule : NancyModule
     {
         private readonly ITemplateRepository templateRepository;
-        private readonly IComponentSpecificationLibrary componentSpecificationLibrary;
+        private readonly IComponentFactory componentFactory;
 
-        public TemplatesModule(ITemplateRepository templateRepository, IComponentSpecificationLibrary componentSpecificationLibrary)
+        public TemplatesModule(ITemplateRepository templateRepository, IComponentFactory componentFactory)
         {
             this.templateRepository = templateRepository;
-            this.componentSpecificationLibrary = componentSpecificationLibrary;
+            this.componentFactory = componentFactory;
 
             this.Get["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
             this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.CreateTemplate(p.templatePath);
@@ -56,24 +56,24 @@ namespace Kola.Nancy.Modules
         {
             var componentResource = this.Bind<ComponentResource>();
 
-            var templatePathFragments = templatePath.Split('/');
-            var template = this.templateRepository.Get(templatePathFragments);
-
+            var template = this.templateRepository.Get(templatePath.Split('/'));
             if (template == null) return HttpStatusCode.NotFound;
 
-            var componentPathFragments = componentPath.Split('/').Select(int.Parse);
-            var parent = template.Components.NavigateTo(componentPathFragments);
+            var parent = template.Components.NavigateTo(componentPath.Split('/').Select(int.Parse)) as ComponentContainer;
+            if (parent == null) return HttpStatusCode.NotFound;
 
+            var component = this.componentFactory.Create(componentResource.Name);
+            if (component == null) return HttpStatusCode.NotFound;
 
+            parent.AddChild(1, component);
 
-            var componentSpecification = this.componentSpecificationLibrary.LookUp(componentResource.Name);
             throw new NotImplementedException();
         }
     }
 
-    public interface IComponentSpecificationLibrary
+    public interface IComponentFactory
     {
-        IComponentSpecification LookUp(string name);
+        IComponent Create(string name);
     }
 
     internal static class ComponentExtensions
