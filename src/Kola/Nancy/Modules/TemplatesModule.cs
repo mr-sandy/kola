@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Kola.Domain;
+using Kola.Nancy.Extensions;
 using Kola.Persistence;
 using Kola.Resources;
 using Nancy;
@@ -52,22 +53,28 @@ namespace Kola.Nancy.Modules
             throw new NotImplementedException();
         }
 
-        private dynamic AddComponent(string templatePath, string componentPath)
+        private dynamic AddComponent(string rawTemplatePath, string rawComponentPath)
         {
             var componentResource = this.Bind<ComponentResource>();
 
-            var template = this.templateRepository.Get(templatePath.Split('/'));
+            var template = this.templateRepository.Get(rawTemplatePath.Split('/'));
             if (template == null) return HttpStatusCode.NotFound;
 
-            var parent = template.Components.NavigateTo(componentPath.Split('/').Select(int.Parse)) as ComponentContainer;
+            var componentPath = rawComponentPath.Split('/').Select(int.Parse);
+            if (componentPath.Count() == 0) return HttpStatusCode.NotFound;
+
+            var parent = (componentPath.Count() == 1)
+                ? template
+                : template.Components.NavigateTo(componentPath.TakeAllButLast()) as ComponentContainer;
             if (parent == null) return HttpStatusCode.NotFound;
 
             var component = this.componentFactory.Create(componentResource.Name);
-            if (component == null) return HttpStatusCode.NotFound;
+            if (component == null) return HttpStatusCode.BadRequest;
 
-            parent.AddChild(1, component);
+            if (!parent.AddChild(componentPath.Last(), component)) { return HttpStatusCode.BadRequest; }
 
-            throw new NotImplementedException();
+            this.templateRepository.Update(template);
+            return HttpStatusCode.Created;
         }
     }
 

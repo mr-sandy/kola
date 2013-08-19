@@ -56,6 +56,7 @@
     <Compile Include="Domain\IComponent.cs" />
     <Compile Include="Domain\Template.cs" />
     <Compile Include="Nancy\Conventions\EmbeddedStaticContentConventionBuilder.cs" />
+    <Compile Include="Nancy\Extensions\EnumerableExtensions.cs" />
     <Compile Include="Nancy\Extensions\NancyRazorViewBaseExtensions.cs" />
     <Compile Include="Nancy\Extensions\StringExtensions.cs" />
     <Compile Include="Nancy\Extensions\HtmlHelpersExtensions.cs" />

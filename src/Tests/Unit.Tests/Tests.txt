@@ -1,3 +1,7 @@
 ﻿Tests:
 
 1. When adding a component, the new instance should include all of the parameters from the component specification. Any default prameter values should be set.
+
+To create a component:
+
+PUT: /_kola/templates/path/to/template/_components/0 { name: "name" }
