@@ -27,28 +27,28 @@ namespace Kola.Nancy.Modules
         }
 
 
-        private dynamic GetTemplate(string templatePath)
+        private dynamic GetTemplate(string rawTemplatePath)
         {
             throw new NotImplementedException();
-            var parts = templatePath.Split('/');
+            var templatePath = rawTemplatePath.Split('/');
             return "GetTemplate: " + string.Join("-", parts);
         }
 
-        private dynamic CreateTemplate(string templatePath)
+        private dynamic CreateTemplate(string rawTemplatePath)
         {
-            var pathFragments = templatePath.Split('/');
+            var templatePath = rawTemplatePath.Split('/');
 
-            var template = new Template(pathFragments);
+            var template = new Template(templatePath);
 
             this.templateRepository.Add(template);
 
             return this.Response
                 .AsJson(template)
                 .WithStatusCode(HttpStatusCode.Created)
-                .WithHeader("location", string.Format("/{0}", templatePath));
+                .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
 
-        private dynamic GetComponent(string templatePath, string componentPath)
+        private dynamic GetComponent(string rawTemplatePath, string rawComponentPath)
         {
             throw new NotImplementedException();
         }
