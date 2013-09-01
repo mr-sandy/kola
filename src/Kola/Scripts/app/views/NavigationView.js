@@ -10,11 +10,6 @@
 
     return Backbone.View.extend({
 
-        initialize: function () {
-            this.listenTo(this.options.router, 'route:home', this.home);
-            this.listenTo(this.options.router, 'route:pages', this.pages);
-        },
-
         template: Handlebars.compile(NavigationTemplate),
 
         render: function () {
@@ -23,19 +18,6 @@
 
         events: {
             'click a': 'navigate'
-        },
-
-        navigate: function (e) {
-            e.preventDefault();
-            this.options.router.navigate($(e.target).attr('href'), { trigger: true });
-        },
-
-        home: function (e) {
-            alert("Home!");
-        },
-
-        pages: function () {
-            alert("Pages!");
         }
     });
 });

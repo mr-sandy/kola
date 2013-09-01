@@ -2,8 +2,7 @@
     'jquery',
     'backbone'
 ], function ($,
-    Backbone) 
-{
+    Backbone) {
     "use strict";
 
     Backbone.View.prototype.canClose = function () {
@@ -20,6 +19,12 @@
         }
         return false;
     };
+
+    Backbone.View.prototype.navigate = function (e) {
+        e.preventDefault();
+        this.options.router.navigate($(e.target).attr('href'), { trigger: true });
+    };
+
 
     Backbone.View.prototype.assign = function (view, selector) {
         view.setElement(this.$(selector)).render();

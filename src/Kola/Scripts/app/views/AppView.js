@@ -5,7 +5,9 @@
     'app/views/LoadingView',
     'app/views/HomeView',
     'app/views/NavigationView',
-    'app/views/PagesView',
+    'app/views/TemplatesView',
+    'app/views/CreateTemplateView',
+    'app/models/Template',
     'bootstrap'
 ], function (Backbone,
     Handlebars,
@@ -13,7 +15,9 @@
     LoadingView,
     HomeView,
     NavigationView,
-    PagesView) {
+    TemplatesView,
+    CreateTemplateView,
+    Template) {
 
     "use strict";
 
@@ -27,7 +31,8 @@
             });
 
             this.listenTo(this.options.router, 'route:home', this.home);
-            this.listenTo(this.options.router, 'route:pages', this.pages);
+            this.listenTo(this.options.router, 'route:templates', this.templates);
+            this.listenTo(this.options.router, 'route:createTemplate', this.createTemplate);
         },
 
         render: function () {
@@ -56,7 +61,7 @@
             }
 
             //            this.showView(homeView);
-//            this.showView(new LoadingView());
+            //            this.showView(new LoadingView());
             //            if (this.closeCurrentView()) {
             //                //                this.showView(new LoadingView());
 
@@ -67,12 +72,24 @@
             //            }
         },
 
-        pages: function () {
+        templates: function () {
             var self = this;
 
             if (this.closeCurrentView()) {
-                var pagesView = new PagesView({ router: this.options.router });
-                this.showView(pagesView);
+                var templatesView = new TemplatesView({ router: this.options.router });
+                this.showView(templatesView);
+            }
+        },
+
+        createTemplate: function () {
+            var self = this;
+
+            if (this.closeCurrentView()) {
+                var createTemplateView = new CreateTemplateView({
+                    model: new Template(),
+                    router: this.options.router
+                });
+                this.showView(createTemplateView);
             }
         }
     });

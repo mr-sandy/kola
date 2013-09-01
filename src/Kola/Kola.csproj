@@ -109,14 +109,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
+    <EmbeddedResource Include="Scripts\app\models\Template.js" />
+    <EmbeddedResource Include="Scripts\app\templates\CreateTemplateTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\CreateTemplateView.js" />
     <EmbeddedResource Include="Scripts\app\Extensions.js" />
     <EmbeddedResource Include="Content\images\loading.gif" />
     <EmbeddedResource Include="Scripts\app\views\LoadingView.js" />
     <EmbeddedResource Include="Scripts\app\templates\LoadingTemplate.html" />
     <EmbeddedResource Include="Scripts\app\templates\HomeTemplate.html" />
     <EmbeddedResource Include="Scripts\app\views\HomeView.js" />
-    <EmbeddedResource Include="Scripts\app\templates\PagesTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\views\PagesView.js" />
+    <EmbeddedResource Include="Scripts\app\templates\TemplatesTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\TemplatesView.js" />
     <EmbeddedResource Include="Content\bootstrap-responsive.css" />
     <EmbeddedResource Include="Content\bootstrap-responsive.min.css" />
     <EmbeddedResource Include="Content\bootstrap.css" />

@@ -14,5 +14,10 @@ namespace Kola.Persistence
         {
             throw new NotImplementedException();
         }
+
+        public void Update(Template template)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,19 +1,24 @@
 ﻿define([
     'backbone',
     'handlebars',
-    'text!app/templates/PagesTemplate.html'
+    'text!app/templates/TemplatesTemplate.html'
 ], function (Backbone,
     Handlebars,
-    PagesTemplate) {
+    TemplatesTemplate) {
 
     "use strict";
 
     return Backbone.View.extend({
 
-        template: Handlebars.compile(PagesTemplate),
+        template: Handlebars.compile(TemplatesTemplate),
 
         render: function () {
             this.$el.html(this.template());
-        }
+        },
+
+        events: {
+            'click a#createTemplate': 'navigate'
+        },
+
     });
 });

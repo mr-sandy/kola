@@ -30,8 +30,8 @@ namespace Kola.Nancy.Modules
         private dynamic GetTemplate(string rawTemplatePath)
         {
             throw new NotImplementedException();
-            var templatePath = rawTemplatePath.Split('/');
-            return "GetTemplate: " + string.Join("-", parts);
+            //var templatePath = rawTemplatePath.Split('/');
+            //return "GetTemplate: " + string.Join("-", parts);
         }
 
         private dynamic CreateTemplate(string rawTemplatePath)
@@ -81,6 +81,14 @@ namespace Kola.Nancy.Modules
     public interface IComponentFactory
     {
         IComponent Create(string name);
+    }
+
+    public class ComponentFactory : IComponentFactory
+    {
+        public IComponent Create(string name)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     internal static class ComponentExtensions

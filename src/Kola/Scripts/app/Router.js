@@ -8,7 +8,8 @@
 
         routes: {
             '_kola': 'home',
-            '_kola/pages': 'pages'
+            '_kola/templates': 'templates',
+            '_kola/templates/create': 'createTemplate'
         }
 
     });

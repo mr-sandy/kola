@@ -2,7 +2,8 @@
     paths: {
         jquery: 'jquery-1.9.1.min',
         underscore: 'underscore.min',
-        backbone: 'backbone.min',
+        backbone: 'backbone',
+//        backbone: 'backbone.min',
         handlebars: 'handlebars.min'
     },
     shim: {
