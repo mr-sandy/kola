@@ -12,7 +12,7 @@ namespace Kola.Persistence
 
         public Template Get(IEnumerable<string> path)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public void Update(Template template)

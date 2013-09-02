@@ -38,8 +38,7 @@
 
             this.model.save({}, {
                 success: function (model) {
-                    alert("really?");
-                    //                    self.options.router.navigate(self.transformForRouter(config.rootUrl, model.id), { trigger: true });
+                    self.options.router.navigate("_kola/templates/" + model.id, { trigger: true });
                 },
                 error: function (model, xhr) {
                     alert("that's more like it");

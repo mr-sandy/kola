@@ -38,6 +38,9 @@ namespace Kola.Nancy.Modules
         {
             var templatePath = rawTemplatePath.Split('/');
 
+            var existingTemplate = this.templateRepository.Get(templatePath);
+            if (existingTemplate != null) return HttpStatusCode.BadRequest;
+
             var template = new Template(templatePath);
 
             this.templateRepository.Add(template);
@@ -71,7 +74,7 @@ namespace Kola.Nancy.Modules
             var component = this.componentFactory.Create(componentResource.Name);
             if (component == null) return HttpStatusCode.BadRequest;
 
-            if (!parent.AddChild(componentPath.Last(), component)) { return HttpStatusCode.BadRequest; }
+            if (!parent.AddChild(componentPath.Last(), component)) return HttpStatusCode.BadRequest;
 
             this.templateRepository.Update(template);
             return HttpStatusCode.Created;

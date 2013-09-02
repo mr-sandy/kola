@@ -7,6 +7,7 @@
     'app/views/NavigationView',
     'app/views/TemplatesView',
     'app/views/CreateTemplateView',
+    'app/views/EditTemplateView',
     'app/models/Template',
     'bootstrap'
 ], function (Backbone,
@@ -17,6 +18,7 @@
     NavigationView,
     TemplatesView,
     CreateTemplateView,
+    EditTemplateView,
     Template) {
 
     "use strict";
@@ -33,6 +35,7 @@
             this.listenTo(this.options.router, 'route:home', this.home);
             this.listenTo(this.options.router, 'route:templates', this.templates);
             this.listenTo(this.options.router, 'route:createTemplate', this.createTemplate);
+            this.listenTo(this.options.router, 'route:editTemplate', this.editTemplate);
         },
 
         render: function () {
@@ -90,6 +93,18 @@
                     router: this.options.router
                 });
                 this.showView(createTemplateView);
+            }
+        },
+
+        editTemplate: function () {
+            var self = this;
+
+            if (this.closeCurrentView()) {
+                var editTemplateView = new EditTemplateView({
+                    model: new Template(),
+                    router: this.options.router
+                });
+                this.showView(editTemplateView);
             }
         }
     });
