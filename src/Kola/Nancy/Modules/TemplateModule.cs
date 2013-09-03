@@ -11,13 +11,13 @@
     using global::Nancy;
     using global::Nancy.ModelBinding;
 
-    public class TemplatesModule : NancyModule
+    public class TemplateModule : NancyModule
     {
         private readonly ITemplateRepository templateRepository;
 
         private readonly IComponentFactory componentFactory;
 
-        public TemplatesModule(ITemplateRepository templateRepository, IComponentFactory componentFactory)
+        public TemplateModule(ITemplateRepository templateRepository, IComponentFactory componentFactory)
         {
             this.templateRepository = templateRepository;
             this.componentFactory = componentFactory;
@@ -49,8 +49,9 @@
 
             this.templateRepository.Add(template);
 
-            return this.Response.AsJson(template).WithStatusCode(HttpStatusCode.Created).WithHeader(
-                "location", string.Format("/{0}", rawTemplatePath));
+            return this.Response.AsJson(template)
+                .WithStatusCode(HttpStatusCode.Created)
+                .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
 
         private dynamic GetComponent(string rawTemplatePath, string rawComponentPath)

@@ -9,6 +9,6 @@
     return Backbone.Collection.extend({
         model: Component,
 
-        url: "/_kola/components"
+        url: "/_kola/component-types"
     });
 });
