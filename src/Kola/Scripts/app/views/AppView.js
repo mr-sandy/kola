@@ -9,7 +9,8 @@
     'app/views/CreateTemplateView',
     'app/views/EditTemplateView',
     'app/models/Template',
-    'bootstrap'
+    'bootstrap',
+    'jqueryui'
 ], function (Backbone,
     Handlebars,
     $,
@@ -39,7 +40,7 @@
         },
 
         render: function () {
-            this.navigationView.setElement('#navigation').render();
+            this.assign(this.navigationView, '#navigation');
         },
 
         closeCurrentView: function () {

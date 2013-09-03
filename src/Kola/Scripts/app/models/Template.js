@@ -7,6 +7,10 @@
         url: function () {
             return "/_kola/templates/" + this.get("id");
             //            return this.combineUrls(config.rootUrl, '/demos');
+        },
+
+        parse: function (resp, xhr) {
+            return resp;
         }
     });
 });

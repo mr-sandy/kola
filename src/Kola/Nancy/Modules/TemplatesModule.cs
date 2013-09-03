@@ -1,18 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Kola.Domain;
-using Kola.Nancy.Extensions;
-using Kola.Persistence;
-using Kola.Resources;
-using Nancy;
-using Nancy.ModelBinding;
-
-namespace Kola.Nancy.Modules
+﻿namespace Kola.Nancy.Modules
 {
+    using System;
+    using System.Linq;
+
+    using Kola.Domain;
+    using Kola.Nancy.Extensions;
+    using Kola.Persistence;
+    using Kola.Resources;
+
+    using global::Nancy;
+    using global::Nancy.ModelBinding;
+
     public class TemplatesModule : NancyModule
     {
         private readonly ITemplateRepository templateRepository;
+
         private readonly IComponentFactory componentFactory;
 
         public TemplatesModule(ITemplateRepository templateRepository, IComponentFactory componentFactory)
@@ -26,7 +28,6 @@ namespace Kola.Nancy.Modules
             this.Post["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.AddComponent(p.templatePath, p.componentPath);
         }
 
-
         private dynamic GetTemplate(string rawTemplatePath)
         {
             throw new NotImplementedException();
@@ -39,16 +40,17 @@ namespace Kola.Nancy.Modules
             var templatePath = rawTemplatePath.Split('/');
 
             var existingTemplate = this.templateRepository.Get(templatePath);
-            if (existingTemplate != null) return HttpStatusCode.BadRequest;
+            if (existingTemplate != null)
+            {
+                return HttpStatusCode.BadRequest;
+            }
 
             var template = new Template(templatePath);
 
             this.templateRepository.Add(template);
 
-            return this.Response
-                .AsJson(template)
-                .WithStatusCode(HttpStatusCode.Created)
-                .WithHeader("location", string.Format("/{0}", rawTemplatePath));
+            return this.Response.AsJson(template).WithStatusCode(HttpStatusCode.Created).WithHeader(
+                "location", string.Format("/{0}", rawTemplatePath));
         }
 
         private dynamic GetComponent(string rawTemplatePath, string rawComponentPath)
@@ -61,44 +63,38 @@ namespace Kola.Nancy.Modules
             var componentResource = this.Bind<ComponentResource>();
 
             var template = this.templateRepository.Get(rawTemplatePath.Split('/'));
-            if (template == null) return HttpStatusCode.NotFound;
+            if (template == null)
+            {
+                return HttpStatusCode.NotFound;
+            }
 
             var componentPath = rawComponentPath.Split('/').Select(int.Parse);
-            if (componentPath.Count() == 0) return HttpStatusCode.NotFound;
+            if (componentPath.Count() == 0)
+            {
+                return HttpStatusCode.NotFound;
+            }
 
             var parent = (componentPath.Count() == 1)
-                ? template
-                : template.Components.NavigateTo(componentPath.TakeAllButLast()) as ComponentContainer;
-            if (parent == null) return HttpStatusCode.NotFound;
+                             ? template
+                             : template.Components.NavigateTo(componentPath.TakeAllButLast()) as ComponentContainer;
+            if (parent == null)
+            {
+                return HttpStatusCode.NotFound;
+            }
 
             var component = this.componentFactory.Create(componentResource.Name);
-            if (component == null) return HttpStatusCode.BadRequest;
+            if (component == null)
+            {
+                return HttpStatusCode.BadRequest;
+            }
 
-            if (!parent.AddChild(componentPath.Last(), component)) return HttpStatusCode.BadRequest;
+            if (!parent.AddChild(componentPath.Last(), component))
+            {
+                return HttpStatusCode.BadRequest;
+            }
 
             this.templateRepository.Update(template);
             return HttpStatusCode.Created;
-        }
-    }
-
-    public interface IComponentFactory
-    {
-        IComponent Create(string name);
-    }
-
-    public class ComponentFactory : IComponentFactory
-    {
-        public IComponent Create(string name)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    internal static class ComponentExtensions
-    {
-        internal static IComponent NavigateTo(this IEnumerable<IComponent> components, IEnumerable<int> componentPath)
-        {
-            return null;
         }
     }
 }

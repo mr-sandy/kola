@@ -36,14 +36,17 @@
 
             this.$el.find('button[type=submit]').button('saving');
 
-            this.model.save({}, {
-                success: function (model) {
-                    self.options.router.navigate("_kola/templates/" + model.id, { trigger: true });
-                },
-                error: function (model, xhr) {
-                    alert("that's more like it");
-                }
+            this.model.save().then(function () {
+                self.options.router.navigate("_kola/templates/" + self.model.id, { trigger: true });
             });
+            //            this.model.save({}, {
+            //                success: function (model) {
+            //                    self.options.router.navigate("_kola/templates/" + model.id, { trigger: true });
+            //                },
+            //                error: function (model, xhr) {
+            //                    alert("that's more like it");
+            //                }
+            //            });
         }
 
     });

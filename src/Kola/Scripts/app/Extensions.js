@@ -25,8 +25,7 @@
         this.options.router.navigate($(e.target).attr('href'), { trigger: true });
     };
 
-
     Backbone.View.prototype.assign = function (view, selector) {
-        view.setElement(this.$(selector)).render();
+        view.setElement(selector).render();
     };
 });

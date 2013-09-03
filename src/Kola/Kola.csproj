@@ -64,6 +64,10 @@
     <Compile Include="Nancy\Extensions\HtmlReponseWrapper.cs" />
     <Compile Include="Nancy\KolaNancyBootstrapper.cs" />
     <Compile Include="Nancy\Modules\AdminModule.cs" />
+    <Compile Include="Nancy\Modules\ComponentExtensions.cs" />
+    <Compile Include="Nancy\Modules\ComponentFactory.cs" />
+    <Compile Include="Nancy\Modules\ComponentsModule.cs" />
+    <Compile Include="Nancy\Modules\IComponentFactory.cs" />
     <Compile Include="Persistence\ITemplateRepository.cs" />
     <Compile Include="Nancy\Modules\AcceptHeaderFilters.cs" />
     <Compile Include="Nancy\Modules\TemplatesModule.cs" />
@@ -110,6 +114,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
+    <Content Include="Content\jquery-ui\jquery-ui-1.10.3.custom.css" />
+    <Content Include="Content\jquery-ui\jquery-ui-1.10.3.custom.min.css" />
+    <EmbeddedResource Include="Scripts\app\templates\StructureEditorTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\StructureEditorView.js" />
+    <EmbeddedResource Include="Scripts\jquery-ui-1.10.3.custom.min.js" />
+    <EmbeddedResource Include="Content\kola.css">
+      <DependentUpon>kola.scss</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\kola.min.css">
+      <DependentUpon>kola.scss</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\kola.scss" />
+    <EmbeddedResource Include="Scripts\app\collections\Components.js" />
+    <EmbeddedResource Include="Scripts\app\models\Component.js" />
+    <EmbeddedResource Include="Scripts\app\templates\ToolboxTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\ToolboxView.js" />
     <EmbeddedResource Include="Scripts\app\templates\EditTemplateTemplate.html" />
     <EmbeddedResource Include="Scripts\app\views\EditTemplateView.js" />
     <EmbeddedResource Include="Scripts\app\models\Template.js" />
