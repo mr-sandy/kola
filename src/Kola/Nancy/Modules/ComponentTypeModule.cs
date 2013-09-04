@@ -19,7 +19,9 @@
         {
             var componentTypes = this.componentTypeRepository.FindAll();
 
-            return this.Response.AsJson(componentTypes.ToResource());
+            var result = this.Response.AsJson(componentTypes.ToResource());
+
+            return result;
         }
     }
 }

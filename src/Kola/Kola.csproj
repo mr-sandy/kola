@@ -184,7 +184,9 @@
     <None Include="app.config" />
     <None Include="App_Readme\Handlebarsjs_LICENSE" />
     <None Include="App_Readme\Handlebarsjs_README.md" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <EmbeddedResource Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="web.config" />
   </ItemGroup>
