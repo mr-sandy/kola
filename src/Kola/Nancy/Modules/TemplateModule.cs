@@ -31,8 +31,6 @@
         private dynamic GetTemplate(string rawTemplatePath)
         {
             throw new NotImplementedException();
-            //var templatePath = rawTemplatePath.Split('/');
-            //return "GetTemplate: " + string.Join("-", parts);
         }
 
         private dynamic CreateTemplate(string rawTemplatePath)

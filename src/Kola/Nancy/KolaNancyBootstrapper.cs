@@ -10,7 +10,6 @@
     using global::Nancy.Bootstrapper;
     using global::Nancy.Conventions;
     using global::Nancy.Embedded.Conventions;
-    using global::Nancy.Serializers.Json.ServiceStack;
     using global::Nancy.TinyIoc;
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
@@ -32,7 +31,6 @@
             {
                 return NancyInternalConfiguration.WithOverrides(c =>
                 {
-                    //c.Serializers.Insert(0, typeof(ServiceStackJsonSerializer));
                     c.ViewLocationProvider = typeof(ResourceViewLocationProvider);
                 });
             }
