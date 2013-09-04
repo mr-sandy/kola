@@ -30,9 +30,9 @@
             get
             {
                 return NancyInternalConfiguration.WithOverrides(c =>
-                {
-                    c.ViewLocationProvider = typeof(ResourceViewLocationProvider);
-                });
+                    {
+                        c.ViewLocationProvider = typeof(ResourceViewLocationProvider);
+                    });
             }
         }
 
