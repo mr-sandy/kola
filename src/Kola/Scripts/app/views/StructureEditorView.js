@@ -13,7 +13,7 @@
         template: Handlebars.compile(StructureEditorTemplate),
 
         events: {
-            'drop ': 'handleDrop',
+            'drop ': 'handleDrop'
         },
 
         render: function () {
@@ -26,8 +26,9 @@
             });
         },
 
-         handleDrop: function (event, ui) {
-            alert(ui.draggable.text());
+        handleDrop: function (event, ui) {
+            //            alert(ui.draggable.text());
+            alert(this.model.get("id"));
         }
     });
 });

@@ -128,6 +128,8 @@
     <Content Include="Configuration\Ideas\ReadMe.txt" />
     <Content Include="Content\jquery-ui\jquery-ui-1.10.3.custom.css" />
     <Content Include="Content\jquery-ui\jquery-ui-1.10.3.custom.min.css" />
+    <EmbeddedResource Include="Scripts\app\collections\ComponentDefinitions.js" />
+    <EmbeddedResource Include="Scripts\app\models\ComponentDefinition.js" />
     <EmbeddedResource Include="Scripts\app\templates\StructureEditorTemplate.html" />
     <EmbeddedResource Include="Scripts\app\views\StructureEditorView.js" />
     <EmbeddedResource Include="Scripts\jquery-ui-1.10.3.custom.min.js" />

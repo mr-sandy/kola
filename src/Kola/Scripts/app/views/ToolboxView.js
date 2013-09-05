@@ -1,11 +1,11 @@
 ﻿define([
     'backbone',
     'handlebars',
-    'app/collections/Components',
+    'app/collections/ComponentDefinitions',
     'text!app/templates/ToolboxTemplate.html'
 ], function (Backbone,
     Handlebars,
-    Components,
+    ComponentDefinitions,
     ToolboxTemplate) {
 
     "use strict";
@@ -15,7 +15,7 @@
         template: Handlebars.compile(ToolboxTemplate),
 
         initialize: function () {
-            this.collection = new Components();
+            this.collection = new ComponentDefinitions();
         },
 
         render: function () {

@@ -1,22 +1,12 @@
 ﻿define([
     'backbone',
-    'underscore',
-    'app/collections/Components'
+    'underscore'
 ], function (Backbone,
-    _,
-    Components) {
+    _) {
 
     "use strict";
 
     return Backbone.Model.extend({
-
-        initialize: function () {
-            this.components = new Components();
-        },
-
-        addComponent: function (component) {
-            this.components.add(component);
-        },
 
         parse: function (resp, options) {
 

@@ -17,9 +17,10 @@
         template: Handlebars.compile(EditTemplateTemplate),
 
         initialize: function () {
-
             this.toolboxView = new ToolboxView();
-            this.structureEditorView = new StructureEditorView();
+            this.structureEditorView = new StructureEditorView({
+                model: this.model
+            });
         },
 
         render: function () {
