@@ -12,10 +12,10 @@
         public ComponentTypeModule(IComponentTypeRepository componentTypeRepository)
         {
             this.componentTypeRepository = componentTypeRepository;
-            this.Get["/_kola/component-types", AcceptHeaderFilters.NotHtml] = p => this.GetComponents();
+            this.Get["/_kola/component-types", AcceptHeaderFilters.NotHtml] = p => this.GetComponentTypes();
         }
 
-        private dynamic GetComponents()
+        private dynamic GetComponentTypes()
         {
             var componentTypes = this.componentTypeRepository.FindAll();
 
