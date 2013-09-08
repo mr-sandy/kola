@@ -97,15 +97,20 @@
             }
         },
 
-        editTemplate: function () {
+        editTemplate: function (templatePath) {
             var self = this;
+
+            var template = new Template({ id: templatePath });
 
             if (this.closeCurrentView()) {
                 var editTemplateView = new EditTemplateView({
-                    model: new Template(),
+                    model: template,
                     router: this.options.router
                 });
-                this.showView(editTemplateView);
+
+                template.fetch().then(function () {
+                    self.showView(editTemplateView);
+                });
             }
         }
     });

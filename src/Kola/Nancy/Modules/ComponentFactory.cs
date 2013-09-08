@@ -6,7 +6,7 @@
 
     public class ComponentFactory : IComponentFactory
     {
-        public IComponent Create(string name)
+        public IComponent Create(string type)
         {
             throw new NotImplementedException();
         }

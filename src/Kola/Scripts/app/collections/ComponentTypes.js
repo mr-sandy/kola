@@ -1,14 +1,14 @@
 ﻿define([
     'backbone',
-    'app/models/ComponentDefinition'
+    'app/models/ComponentType'
 ], function (Backbone,
-    Component) {
+    ComponentType) {
 
     "use strict";
 
     return Backbone.Collection.extend({
 
-        model: Component,
+        model: ComponentType,
 
         url: "/_kola/component-types"
     });

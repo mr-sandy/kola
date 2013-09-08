@@ -4,6 +4,6 @@
 
     public interface IComponentFactory
     {
-        IComponent Create(string name);
+        IComponent Create(string type);
     }
 }

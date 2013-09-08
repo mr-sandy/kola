@@ -24,13 +24,13 @@
 
             this.Get["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
             this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.CreateTemplate(p.templatePath);
-            this.Get["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.GetComponent(p.templatePath, p.componentPath);
+            //this.Get["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.GetComponent(p.templatePath, p.componentPath);
             this.Post["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.AddComponent(p.templatePath, p.componentPath);
         }
 
         private dynamic GetTemplate(string rawTemplatePath)
         {
-            throw new NotImplementedException();
+            return new TemplateResource { };
         }
 
         private dynamic CreateTemplate(string rawTemplatePath)
@@ -52,10 +52,10 @@
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
 
-        private dynamic GetComponent(string rawTemplatePath, string rawComponentPath)
-        {
-            throw new NotImplementedException();
-        }
+        //private dynamic GetComponent(string rawTemplatePath, string rawComponentPath)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         private dynamic AddComponent(string rawTemplatePath, string rawComponentPath)
         {
@@ -81,7 +81,7 @@
                 return HttpStatusCode.NotFound;
             }
 
-            var component = this.componentFactory.Create(componentResource.Name);
+            var component = this.componentFactory.Create(componentResource.Type);
             if (component == null)
             {
                 return HttpStatusCode.BadRequest;

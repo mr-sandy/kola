@@ -120,16 +120,17 @@
     <Compile Include="Resources\ComponentResource.cs" />
     <Compile Include="Resources\ComponentTypeResource.cs" />
     <Compile Include="Resources\LinkResource.cs" />
+    <Compile Include="Resources\TemplateResource.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Nancy\Views\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
-    <Content Include="Content\jquery-ui\jquery-ui-1.10.3.custom.css" />
-    <Content Include="Content\jquery-ui\jquery-ui-1.10.3.custom.min.css" />
-    <EmbeddedResource Include="Scripts\app\collections\ComponentDefinitions.js" />
-    <EmbeddedResource Include="Scripts\app\models\ComponentDefinition.js" />
+    <EmbeddedResource Include="Content\jquery-ui\jquery-ui-1.10.3.custom.css" />
+    <EmbeddedResource Include="Content\jquery-ui\jquery-ui-1.10.3.custom.min.css" />
+    <EmbeddedResource Include="Scripts\app\collections\ComponentTypes.js" />
+    <EmbeddedResource Include="Scripts\app\models\ComponentType.js" />
     <EmbeddedResource Include="Scripts\app\templates\StructureEditorTemplate.html" />
     <EmbeddedResource Include="Scripts\app\views\StructureEditorView.js" />
     <EmbeddedResource Include="Scripts\jquery-ui-1.10.3.custom.min.js" />
