@@ -15,7 +15,8 @@
         },
 
         addComponent: function (component) {
-            this.components.add(component);
+            alert("Adding Component");
+            //this.components.add(component);
         },
 
         parse: function (resp, options) {

@@ -8,11 +8,15 @@
     return Backbone.Model.extend({
 
         initialize: function () {
-            this.components = new Components();
+            var components = new Components();
+            components.url = this.url();
+            this.set({ components: new Components() });
+            //            this.components = new Components();
         },
 
         addComponent: function (component) {
-            this.components.add(component);
+            this.get("components").add(component);
+            component.save();
         },
 
         url: function () {

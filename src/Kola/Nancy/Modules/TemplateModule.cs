@@ -1,6 +1,5 @@
 ﻿namespace Kola.Nancy.Modules
 {
-    using System;
     using System.Linq;
 
     using Kola.Domain;
@@ -24,13 +23,19 @@
 
             this.Get["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
             this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.CreateTemplate(p.templatePath);
-            //this.Get["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.GetComponent(p.templatePath, p.componentPath);
             this.Post["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.AddComponent(p.templatePath, p.componentPath);
         }
 
         private dynamic GetTemplate(string rawTemplatePath)
         {
-            return new TemplateResource { };
+            var templatePath = rawTemplatePath.Split('/');
+            var template = this.templateRepository.Get(templatePath);
+
+            if (template == null) return HttpStatusCode.NotFound;
+
+            return this.Response.AsJson(template.ToResource())
+                .WithStatusCode(HttpStatusCode.Created)
+                .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
 
         private dynamic CreateTemplate(string rawTemplatePath)
@@ -47,15 +52,10 @@
 
             this.templateRepository.Add(template);
 
-            return this.Response.AsJson(template)
+            return this.Response.AsJson(template.ToResource())
                 .WithStatusCode(HttpStatusCode.Created)
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
-
-        //private dynamic GetComponent(string rawTemplatePath, string rawComponentPath)
-        //{
-        //    throw new NotImplementedException();
-        //}
 
         private dynamic AddComponent(string rawTemplatePath, string rawComponentPath)
         {

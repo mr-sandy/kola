@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Kola.Domain;
-
-namespace Kola.Persistence
+﻿namespace Kola.Persistence
 {
+    using System;
+    using System.Collections.Generic;
+
+    using Kola.Domain;
+
     internal class TemplateRepository : ITemplateRepository
     {
         public void Add(Template template)
@@ -12,7 +13,7 @@ namespace Kola.Persistence
 
         public Template Get(IEnumerable<string> path)
         {
-            return null;
+            return new Template(path);
         }
 
         public void Update(Template template)

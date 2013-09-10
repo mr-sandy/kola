@@ -7,10 +7,6 @@
     "use strict";
 
     return Backbone.Collection.extend({
-        model: Component,
-
-        url: function () {
-            return "";
-        }
+        model: Component
     });
 });

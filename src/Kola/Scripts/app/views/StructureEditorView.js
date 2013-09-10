@@ -1,9 +1,11 @@
 ﻿define([
     'backbone',
     'handlebars',
+    'app/models/Component',
     'text!app/templates/StructureEditorTemplate.html'
 ], function (Backbone,
     Handlebars,
+    Component,
     StructureEditorTemplate) {
 
     "use strict";
@@ -28,7 +30,10 @@
 
         handleDrop: function (event, ui) {
             //            alert(ui.draggable.text());
-            alert(this.model.get("id"));
+            var component = new Component();
+            component.url = this.model.url();
+            this.model.addComponent(component);
+            //alert(this.model.get("id"));
         }
     });
 });

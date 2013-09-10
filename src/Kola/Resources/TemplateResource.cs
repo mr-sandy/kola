@@ -5,5 +5,7 @@
     public class TemplateResource
     {
         public IEnumerable<ComponentResource> Components { get; set; }
+
+        public IEnumerable<LinkResource> Links { get; set; }
     }
 }

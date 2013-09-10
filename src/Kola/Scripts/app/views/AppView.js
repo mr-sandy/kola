@@ -108,9 +108,13 @@
                     router: this.options.router
                 });
 
-                template.fetch().then(function () {
-                    self.showView(editTemplateView);
-                });
+                template.fetch()
+                    .then(function () {
+                        self.showView(editTemplateView);
+                    })
+                    .fail(function () {
+                        alert("failure!");
+                    });
             }
         }
     });

@@ -69,6 +69,7 @@
     <Compile Include="Nancy\Extensions\StringExtensions.cs" />
     <Compile Include="Nancy\Extensions\HtmlHelpersExtensions.cs" />
     <Compile Include="Nancy\Extensions\HtmlReponseWrapper.cs" />
+    <Compile Include="Nancy\Extensions\TemplateExtensions.cs" />
     <Compile Include="Nancy\KolaNancyBootstrapper.cs" />
     <Compile Include="Nancy\Modules\AdminModule.cs" />
     <Compile Include="Nancy\Modules\ComponentExtensions.cs" />
@@ -197,6 +198,7 @@
       <SubType>Designer</SubType>
     </None>
     <EmbeddedResource Include="Scripts\jquery-1.9.1.min.map" />
+    <EmbeddedResource Include="Scripts\jquery.min.map" />
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup />
