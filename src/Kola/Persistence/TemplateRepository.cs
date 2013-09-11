@@ -18,7 +18,6 @@
 
         public void Update(Template template)
         {
-            throw new NotImplementedException();
         }
     }
 }

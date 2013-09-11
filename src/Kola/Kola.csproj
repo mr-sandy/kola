@@ -63,6 +63,7 @@
     <Compile Include="Domain\IComponent.cs" />
     <Compile Include="Domain\Template.cs" />
     <Compile Include="Nancy\Conventions\EmbeddedStaticContentConventionBuilder.cs" />
+    <Compile Include="Nancy\Extensions\ComponentExtensions.cs" />
     <Compile Include="Nancy\Extensions\ComponentTypeExtensions.cs" />
     <Compile Include="Nancy\Extensions\EnumerableExtensions.cs" />
     <Compile Include="Nancy\Extensions\NancyRazorViewBaseExtensions.cs" />

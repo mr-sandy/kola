@@ -1,14 +1,14 @@
 ﻿namespace Kola.Nancy.Modules
 {
-    using System;
-
     using Kola.Domain;
+
+    using IComponent = Kola.Domain.IComponent;
 
     public class ComponentFactory : IComponentFactory
     {
         public IComponent Create(string type)
         {
-            throw new NotImplementedException();
+            return new Atom();
         }
     }
 }

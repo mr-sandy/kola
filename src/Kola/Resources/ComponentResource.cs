@@ -9,5 +9,6 @@ namespace Kola.Resources
 
         public IEnumerable<ComponentResource> Components { get; set; }
 
+        public IEnumerable<LinkResource> Links { get; set; }
     }
 }

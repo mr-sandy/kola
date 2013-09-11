@@ -29,11 +29,8 @@
         },
 
         handleDrop: function (event, ui) {
-            //            alert(ui.draggable.text());
-            var component = new Component();
-            component.url = this.model.url();
+            var component = new Component(this.model.componentsUrl());
             this.model.addComponent(component);
-            //alert(this.model.get("id"));
         }
     });
 });

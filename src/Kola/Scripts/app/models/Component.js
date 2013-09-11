@@ -10,8 +10,9 @@
 
     return Backbone.Model.extend({
 
-        initialize: function () {
+        initialize: function (url) {
             this.components = new Components();
+            this.url = url;
         },
 
         addComponent: function (component) {

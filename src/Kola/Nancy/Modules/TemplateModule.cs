@@ -23,6 +23,7 @@
 
             this.Get["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
             this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.CreateTemplate(p.templatePath);
+            this.Post["/_kola/templates/{templatePath*}/_components", AcceptHeaderFilters.NotHtml] = p => this.AddComponent(p.templatePath, null);
             this.Post["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.AddComponent(p.templatePath, p.componentPath);
         }
 
@@ -67,13 +68,11 @@
                 return HttpStatusCode.NotFound;
             }
 
-            var componentPath = rawComponentPath.Split('/').Select(int.Parse);
-            if (componentPath.Count() == 0)
-            {
-                return HttpStatusCode.NotFound;
-            }
+            var componentPath = !string.IsNullOrEmpty(rawComponentPath)
+                ? rawComponentPath.Split('/').Select(int.Parse)
+                : Enumerable.Empty<int>();
 
-            var parent = (componentPath.Count() == 1)
+            var parent = (componentPath.Count() == 0)
                              ? template
                              : template.Components.NavigateTo(componentPath.TakeAllButLast()) as ComponentContainer;
             if (parent == null)
@@ -87,13 +86,16 @@
                 return HttpStatusCode.BadRequest;
             }
 
-            if (!parent.AddChild(componentPath.Last(), component))
+            if (!parent.AddChild(componentPath.LastOrDefault(), component))
             {
                 return HttpStatusCode.BadRequest;
             }
 
             this.templateRepository.Update(template);
-            return HttpStatusCode.Created;
+
+            return this.Response.AsJson(component.ToResource())
+                .WithStatusCode(HttpStatusCode.Created)
+                .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
     }
 }
