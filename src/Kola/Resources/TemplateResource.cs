@@ -1,11 +1,6 @@
 ﻿namespace Kola.Resources
 {
-    using System.Collections.Generic;
-
-    public class TemplateResource
+    public class TemplateResource : CompositeResource
     {
-        public IEnumerable<ComponentResource> Components { get; set; }
-
-        public IEnumerable<LinkResource> Links { get; set; }
     }
 }

@@ -4,6 +4,6 @@ namespace Kola.Processing
 {
     public interface IHandler
     {
-        IRenderingResponse HandleRequest(IComponent component, RequestContext context);
+        IRenderingResponse HandleRequest(Component component, RequestContext context);
     }
 }

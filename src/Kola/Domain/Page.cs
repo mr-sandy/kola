@@ -1,29 +1,8 @@
-﻿using System.Collections.Generic;
-
-namespace Kola.Domain
+﻿namespace Kola.Domain
 {
-    public class Page
+    // TODO {SC} This is wrong - the components in a composites are definitions, not evaluated instances
+    public class Page : Composite
     {
-        public string Title { get { return "The Page Title"; } }
-
-        public IEnumerable<IComponent> Components
-        {
-            get
-            {
-                return new[]
-                           {
-                               new Component {Name = "markdown"},
-                               new Component
-                                   {
-                                       Name = "container-1",
-                                       Children = new[]
-                                                      {
-                                                          new Component {Name = "atom-1"},
-                                                          new Component {Name = "atom-2"}
-                                                      }
-                                   }
-                           };
-            }
-        }
+        public string Title { get; set; }
     }
 }

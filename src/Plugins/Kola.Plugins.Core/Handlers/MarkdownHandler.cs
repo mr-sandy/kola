@@ -5,7 +5,7 @@ namespace Kola.Plugins.Core.Handlers
 {
     public class MarkdownHandler : IHandler
     {
-        public IRenderingResponse HandleRequest(IComponent component, RequestContext context)
+        public IRenderingResponse HandleRequest(Component component, RequestContext context)
         {
             var transformer = new MarkdownSharp.Markdown();
 

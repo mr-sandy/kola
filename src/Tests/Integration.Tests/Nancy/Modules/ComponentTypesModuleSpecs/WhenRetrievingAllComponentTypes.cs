@@ -22,8 +22,8 @@
         {
             var components = new[]
                 {
-                    new ComponentType { Name = "Component A" }, 
-                    new ComponentType { Name = "Component B" } 
+                    new ComponentType("Component A"), 
+                    new ComponentType("Component B") 
                 };
 
             this.ComponentTypeRepository.Stub(r => r.FindAll()).Return(components);

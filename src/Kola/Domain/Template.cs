@@ -1,9 +1,8 @@
 ﻿namespace Kola.Domain
 {
-    using System;
     using System.Collections.Generic;
 
-    public class Template : ComponentContainer
+    public class Template : Composite
     {
         public Template(IEnumerable<string> path)
         {

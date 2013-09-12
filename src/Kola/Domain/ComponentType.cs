@@ -2,6 +2,11 @@
 {
     public class ComponentType
     {
-        public string Name { get; set; }
+        public ComponentType(string name)
+        {
+            this.Name = name;
+        }
+
+        public string Name { get; private set; }
     }
 }

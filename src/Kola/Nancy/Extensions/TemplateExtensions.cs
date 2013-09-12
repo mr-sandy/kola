@@ -7,13 +7,16 @@
     {
         public static TemplateResource ToResource(this Template template)
         {
+            var uri = string.Join("/", template.Path);
             return new TemplateResource
                 {
+                    Components = template.Components.ToResource(string.Format("{0}/_components", uri)),
                     Links = new[]
                             {
                                 new LinkResource
                                     {
-                                        Rel = "self", Href = string.Format("/{0}", string.Join("/", template.Path))
+                                        Rel = "self", 
+                                        Href = string.Format("/{0}", uri)
                                     }
                             }
                 };

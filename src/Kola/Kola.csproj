@@ -58,9 +58,14 @@
     <Compile Include="Configuration\CacheType.cs" />
     <Compile Include="Configuration\ComponentConfiguration.cs" />
     <Compile Include="Configuration\Ideas\KolaBootstrapper.cs" />
-    <Compile Include="Domain\Atom.cs" />
-    <Compile Include="Domain\ComponentContainer.cs" />
-    <Compile Include="Domain\IComponent.cs" />
+    <Compile Include="Domain\ComponentType.cs" />
+    <Compile Include="Domain\Composite.cs" />
+    <Compile Include="Domain\Component.cs" />
+    <Compile Include="Domain\old\Atom.cs" />
+    <Compile Include="Domain\old\ComponentContainer.cs" />
+    <Compile Include="Domain\old\IComponent.cs" />
+    <Compile Include="Domain\old\Template.cs" />
+    <Compile Include="Domain\Page.cs" />
     <Compile Include="Domain\Template.cs" />
     <Compile Include="Nancy\Conventions\EmbeddedStaticContentConventionBuilder.cs" />
     <Compile Include="Nancy\Extensions\ComponentExtensions.cs" />
@@ -75,9 +80,10 @@
     <Compile Include="Nancy\Modules\AdminModule.cs" />
     <Compile Include="Nancy\Modules\ComponentExtensions.cs" />
     <Compile Include="Nancy\Modules\ComponentFactory.cs" />
+    <Compile Include="Nancy\Extensions\ComponentResourceExtensions.cs" />
     <Compile Include="Nancy\Modules\ComponentTypeModule.cs" />
     <Compile Include="Nancy\Modules\IComponentFactory.cs" />
-    <Compile Include="Domain\ComponentType.cs" />
+    <Compile Include="Domain\old\ComponentType.cs" />
     <Compile Include="Persistence\ComponentTypeRepository.cs" />
     <Compile Include="Persistence\IComponentTypeRepository.cs" />
     <Compile Include="Persistence\ITemplateRepository.cs" />
@@ -110,8 +116,8 @@
     <Compile Include="Processing\DefaultHandler.cs" />
     <Compile Include="Processing\IHandler.cs" />
     <Compile Include="IPageHandler.cs" />
-    <Compile Include="Domain\Component.cs" />
-    <Compile Include="Domain\Page.cs" />
+    <Compile Include="Domain\old\Component.cs" />
+    <Compile Include="Domain\old\Page.cs" />
     <Compile Include="Processing\PageRenderer.cs" />
     <Compile Include="Processing\CompositeRenderingResponse.cs" />
     <Compile Include="Processing\PageRenderingResponse.cs" />
@@ -121,6 +127,7 @@
     <Compile Include="Nancy\TinyIoCObjectFactory.cs" />
     <Compile Include="Resources\ComponentResource.cs" />
     <Compile Include="Resources\ComponentTypeResource.cs" />
+    <Compile Include="Resources\CompositeResource.cs" />
     <Compile Include="Resources\LinkResource.cs" />
     <Compile Include="Resources\TemplateResource.cs" />
   </ItemGroup>

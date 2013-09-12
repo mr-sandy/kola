@@ -15,7 +15,7 @@ namespace Kola.Processing
             this.objectFactory = objectFactory;
         }
 
-        public IHandler GetHandler(IComponent component)
+        public IHandler GetHandler(Component component)
         {
             if (this.handlerMappings.ContainsKey(component.Name))
             {

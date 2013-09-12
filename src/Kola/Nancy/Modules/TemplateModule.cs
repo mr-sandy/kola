@@ -74,7 +74,7 @@
 
             var parent = (componentPath.Count() == 0)
                              ? template
-                             : template.Components.NavigateTo(componentPath.TakeAllButLast()) as ComponentContainer;
+                             : template.Components.NavigateTo(componentPath.TakeAllButLast()) as Composite;
             if (parent == null)
             {
                 return HttpStatusCode.NotFound;
@@ -86,14 +86,13 @@
                 return HttpStatusCode.BadRequest;
             }
 
-            if (!parent.AddChild(componentPath.LastOrDefault(), component))
-            {
-                return HttpStatusCode.BadRequest;
-            }
+            parent.AddComponent(component);
 
             this.templateRepository.Update(template);
 
-            return this.Response.AsJson(component.ToResource())
+            var templateResource = template.ToResource();
+
+            return this.Response.AsJson(templateResource.FindLastChild(componentPath))
                 .WithStatusCode(HttpStatusCode.Created)
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }

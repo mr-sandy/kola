@@ -10,9 +10,9 @@
         {
             return new[]
                 {
-                    new ComponentType { Name = "Component Type 1" }, 
-                    new ComponentType { Name = "Component Type 2" },
-                    new ComponentType { Name = "Component Type 3" }
+                    new ComponentType("Component Type 1"), 
+                    new ComponentType("Component Type 2"),
+                    new ComponentType("Component Type 3")
                 };
         }
     }

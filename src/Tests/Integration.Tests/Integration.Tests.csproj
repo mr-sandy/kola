@@ -37,11 +37,13 @@
     <Reference Include="FluentAssertions">
       <HintPath>..\..\packages\FluentAssertions.2.0.1\lib\net40\FluentAssertions.dll</HintPath>
     </Reference>
-    <Reference Include="Nancy">
-      <HintPath>..\..\packages\Nancy.0.18.0\lib\net40\Nancy.dll</HintPath>
+    <Reference Include="Nancy, Version=0.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Nancy.0.20.0\lib\net40\Nancy.dll</HintPath>
     </Reference>
-    <Reference Include="Nancy.Testing">
-      <HintPath>..\..\packages\Nancy.Testing.0.18.0\lib\net40\Nancy.Testing.dll</HintPath>
+    <Reference Include="Nancy.Testing, Version=0.20.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Nancy.Testing.0.20.0\lib\net40\Nancy.Testing.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
@@ -62,6 +64,7 @@
     <Compile Include="Nancy\Modules\ComponentTypesModuleSpecs\ContextBase.cs" />
     <Compile Include="Nancy\Modules\ComponentTypesModuleSpecs\WhenRetrievingAllComponentTypes.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\ContextBase.cs" />
+    <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenPostingAComponentToTheTemplateRoot.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenRetrievingATemplate.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenCreatingATemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

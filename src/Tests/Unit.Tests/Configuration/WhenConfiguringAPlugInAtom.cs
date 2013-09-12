@@ -101,7 +101,7 @@ namespace Unit.Tests.Configuration
 
     internal class TestHandler : IHandler
     {
-        public IRenderingResponse HandleRequest(IComponent component, RequestContext context)
+        public IRenderingResponse HandleRequest(Component component, RequestContext context)
         {
             throw new NotImplementedException();
         }

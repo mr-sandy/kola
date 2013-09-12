@@ -25,7 +25,7 @@ namespace Kola.Configuration.Ideas
             this.viewLocations.Add(new ViewLocation(pluginConfiguration.GetType().Assembly, pluginConfiguration.ViewLocation));
         }
 
-        public void GetHandler(IComponent component)
+        public void GetHandler(Component component)
         {
             throw new NotImplementedException();
         }

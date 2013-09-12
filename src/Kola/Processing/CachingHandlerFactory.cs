@@ -11,7 +11,7 @@ namespace Kola.Processing
             this.innerHandlerFactory = innerHandlerFactory;
         }
 
-        public IHandler GetHandler(IComponent component)
+        public IHandler GetHandler(Component component)
         {
             return this.Retrieve(component)
                    ?? this.Cache(this.innerHandlerFactory.GetHandler(component));
@@ -24,7 +24,7 @@ namespace Kola.Processing
             return handler;
         }
 
-        private IHandler Retrieve(IComponent component)
+        private IHandler Retrieve(Component component)
         {
             //Lookup cache
 

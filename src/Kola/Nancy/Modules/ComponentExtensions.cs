@@ -6,7 +6,7 @@
 
     internal static class ComponentExtensions
     {
-        internal static IComponent NavigateTo(this IEnumerable<IComponent> components, IEnumerable<int> componentPath)
+        internal static Component NavigateTo(this IEnumerable<Component> components, IEnumerable<int> componentPath)
         {
             return null;
         }

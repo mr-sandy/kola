@@ -22,13 +22,13 @@ namespace Kola.Processing
             return new PageRenderingResponse(page, this.BuildCompositeRenderingResponse(page.Components, context));
         }
 
-        public IRenderingResponse RenderComponents(IEnumerable<IComponent> components)
+        public IRenderingResponse RenderComponents(IEnumerable<Component> components)
         {
             var context = this.NewContext();
             return this.BuildCompositeRenderingResponse(components, context);
         }
 
-        private IRenderingResponse BuildCompositeRenderingResponse(IEnumerable<IComponent> components, RequestContext context)
+        private IRenderingResponse BuildCompositeRenderingResponse(IEnumerable<Component> components, RequestContext context)
         {
             return new CompositeRenderingResponse(components.Select(c => this.componentRenderer.RenderComponent(c, context)));
         }

@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
-
-namespace Kola.Domain
+﻿namespace Kola.Domain
 {
-    public class Component : IComponent
+    public class Component : Composite
     {
-        public string Name { get; set; }
-        public IEnumerable<IComponent> Children { get; set; }
+        public Component(string name)
+        {
+            this.Name = name;
+        }
+
+        public string Name { get; private set; }
     }
 }
