@@ -136,7 +136,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
-    <EmbeddedResource Include="Scripts\app\models\ComponentContainer.js" />
+    <EmbeddedResource Include="Scripts\app\models\ComponentCollection.js" />
     <EmbeddedResource Include="Content\jquery-ui\jquery-ui-1.10.3.custom.css" />
     <EmbeddedResource Include="Content\jquery-ui\jquery-ui-1.10.3.custom.min.css" />
     <EmbeddedResource Include="Scripts\app\collections\ComponentTypes.js" />

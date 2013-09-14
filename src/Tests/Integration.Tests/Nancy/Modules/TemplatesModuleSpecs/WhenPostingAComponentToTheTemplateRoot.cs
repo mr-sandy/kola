@@ -6,11 +6,10 @@
     using FluentAssertions;
 
     using Kola.Domain;
+    using Kola.Resources;
 
     using global::Nancy;
     using global::Nancy.Testing;
-
-    using Kola.Resources;
 
     using NUnit.Framework;
 

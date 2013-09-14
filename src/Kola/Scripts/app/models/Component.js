@@ -1,30 +1,27 @@
 ﻿define([
     'backbone',
     'underscore',
-    'app/collections/Components'
+    'app/models/ComponentCollection'
 ], function (Backbone,
     _,
-    Components) {
+    ComponentCollection) {
 
     "use strict";
 
     return Backbone.Model.extend({
 
-        initialize: function (url) {
-            this.components = new Components();
-            this.url = url;
-        },
-
-        addComponent: function (component) {
-            alert("Adding Component");
-            //this.components.add(component);
+        initialize: function () {
+            this.set({ components: new ComponentCollection() });
         },
 
         parse: function (resp, options) {
+            this.get("components").refresh(resp.components);
 
-            var id = _.find(resp.links, function (l) { return l.rel == "self" }).href;
+            resp = _.omit(resp, "components");
 
-            return _.extend(resp, { id: id });
+            return _.extend(resp, {
+                id: _.find(resp.links, function (l) { return l.rel == "self" }).href
+            });
         }
     });
 });

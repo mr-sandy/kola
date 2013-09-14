@@ -1,18 +1,17 @@
 ﻿define([
     'backbone',
-    'underscore',
+    'app/models/Component',
     'app/collections/Components'
 ], function (Backbone,
-    _,
+    Component,
     Components) {
 
     "use strict";
 
     return Backbone.Model.extend({
 
-        initialize: function (url) {
+        initialize: function () {
             this.components = new Components();
-            this.url = url;
         },
 
         addComponent: function (component) {
@@ -20,11 +19,15 @@
             //this.components.add(component);
         },
 
-        parse: function (resp, options) {
+        refresh: function (resp) {
+            _.map(resp.components, this.makeComponent)
+        },
 
-            var id = _.find(resp.links, function (l) { return l.rel == "self" }).href;
-
-            return _.extend(resp, { id: id });
+        makeComponent: function (value, key, list) {
+            var component = new Component();
+            component.parse(value);
+            this.get("components").add(component);
         }
+
     });
 });

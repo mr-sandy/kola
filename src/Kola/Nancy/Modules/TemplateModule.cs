@@ -23,7 +23,7 @@
 
             this.Get["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
             this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.CreateTemplate(p.templatePath);
-            this.Post["/_kola/templates/{templatePath*}/_components", AcceptHeaderFilters.NotHtml] = p => this.AddComponent(p.templatePath, null);
+             this.Post["/_kola/templates/{templatePath*}/_components", AcceptHeaderFilters.NotHtml] = p => this.AddComponent(p.templatePath, null);
             this.Post["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.AddComponent(p.templatePath, p.componentPath);
         }
 
@@ -35,7 +35,7 @@
             if (template == null) return HttpStatusCode.NotFound;
 
             return this.Response.AsJson(template.ToResource())
-                .WithStatusCode(HttpStatusCode.Created)
+                .WithStatusCode(HttpStatusCode.OK)
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
 
