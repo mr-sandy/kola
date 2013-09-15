@@ -13,6 +13,8 @@
             var uri = string.Format("/{0}/{1}", rootUri, index);
             return new ComponentResource
             {
+                Name = component.Name,
+
                 Components = component.Components.ToResource(uri),
 
                 Links = new[]

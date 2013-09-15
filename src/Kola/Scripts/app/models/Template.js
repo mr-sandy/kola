@@ -11,11 +11,11 @@
     return Backbone.Model.extend({
 
         initialize: function () {
-            this.set({ components: new ComponentCollection() });
+            this.set({ componentCollection: new ComponentCollection() });
         },
 
         parse: function (resp, xhr) {
-            this.get("components").refresh(resp.components);
+            this.get("componentCollection").refresh(resp.components);
 
             return _.omit(resp, "components");
         },

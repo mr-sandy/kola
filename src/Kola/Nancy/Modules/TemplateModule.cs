@@ -80,7 +80,7 @@
                 return HttpStatusCode.NotFound;
             }
 
-            var component = this.componentFactory.Create(componentResource.Type);
+            var component = this.componentFactory.Create(componentResource.Name);
             if (component == null)
             {
                 return HttpStatusCode.BadRequest;

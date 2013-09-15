@@ -11,7 +11,8 @@
     return Backbone.Model.extend({
 
         initialize: function () {
-            this.components = new Components();
+            _.bindAll(this, 'makeComponent');
+            this.set("components", new Components());
         },
 
         addComponent: function (component) {
@@ -20,10 +21,15 @@
         },
 
         refresh: function (resp) {
-            _.map(resp.components, this.makeComponent)
+            _.map(resp, this.makeComponent)
         },
 
         makeComponent: function (value, key, list) {
+
+            if (!Component) {
+                Component = require("app/models/Component");
+            }
+
             var component = new Component();
             component.parse(value);
             this.get("components").add(component);

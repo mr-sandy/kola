@@ -11,11 +11,15 @@
     return Backbone.Model.extend({
 
         initialize: function () {
-            this.set({ components: new ComponentCollection() });
+            if (!ComponentCollection) {
+                ComponentCollection = require("app/models/ComponentCollection");
+            }
+
+            this.set({ componentCollection: new ComponentCollection() });
         },
 
         parse: function (resp, options) {
-            this.get("components").refresh(resp.components);
+            this.get("componentCollection").refresh(resp.components);
 
             resp = _.omit(resp, "components");
 
