@@ -1,32 +1,27 @@
 ﻿define([
-    'underscore',
+    'backbone',
     'app/models/Component',
     'app/collections/Components'
-], function (
-    _,
+], function (Backbone,
     Component,
     Components) {
+
     "use strict";
 
-    return {
-
-        baseInitialize: function () {
-        },
-
-        baseParse: function (resp, xhr) {
-            return resp;
-        },
+    return Backbone.Model.extend({
 
         initialize: function () {
             _.bindAll(this, 'makeComponent');
             this.set("components", new Components());
-            this.baseInitialize();
         },
 
-        parse: function (resp, xhr) {
-            _.map(resp.components, this.makeComponent);
+        addComponent: function (component) {
+            alert("Adding Component");
+            //this.components.add(component);
+        },
 
-            return this.baseParse(resp, xhr);
+        refresh: function (resp) {
+            _.map(resp, this.makeComponent)
         },
 
         makeComponent: function (value, key, list) {
@@ -39,5 +34,6 @@
             component.parse(value);
             this.get("components").add(component);
         }
-    }
+
+    });
 });
