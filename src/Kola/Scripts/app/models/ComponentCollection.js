@@ -18,13 +18,16 @@
         },
 
         initialize: function () {
-            _.bindAll(this, 'makeComponent');
+            //            _.bindAll(this, 'makeComponent');
             this.set("components", new Components());
             this.baseInitialize();
         },
 
         parse: function (resp, xhr) {
-            _.map(resp.components, this.makeComponent);
+            var self = this;
+            var components = _.map(resp.components, self.makeComponent);
+
+            this.get("components").add(components);
 
             return this.baseParse(resp, xhr);
         },
@@ -37,7 +40,8 @@
 
             var component = new Component();
             component.parse(value);
-            this.get("components").add(component);
+
+            return component;
         }
     }
 });
