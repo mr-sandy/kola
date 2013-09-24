@@ -10,7 +10,10 @@
 
     return Backbone.Model.extend(
         _.extend(
-        ComponentCollection,
         {
-        }));
+            baseParse: function (resp, xhr) {
+                return resp;
+            }
+        },
+        ComponentCollection));
 });

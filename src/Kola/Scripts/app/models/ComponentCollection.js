@@ -13,10 +13,6 @@
         baseInitialize: function () {
         },
 
-        baseParse: function (resp, xhr) {
-            return resp;
-        },
-
         initialize: function () {
             //            _.bindAll(this, 'makeComponent');
             this.set("components", new Components());
