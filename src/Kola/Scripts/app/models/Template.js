@@ -1,24 +1,21 @@
 ﻿define([
     'backbone',
-    'underscore',
     'app/models/ComponentCollection'
-], function (Backbone,
-    _,
+], function (
+    Backbone,
     ComponentCollection) {
-
     "use strict";
 
     return Backbone.Model.extend(
-        _.extend(        
         {
             baseParse: function (resp, xhr) {
                 return resp;
             },
-            
-            url: function () {
-                return "/_kola/templates/" + this.get("id");
-            }
-        },
-        ComponentCollection
-        ));
+
+            url: function () { return "jam" +  this.get("url"); }
+
+            //            url: function () {
+            //                return "/_kola/templates/" + this.get("id");
+            //            }
+        }).extend(ComponentCollection);
 });

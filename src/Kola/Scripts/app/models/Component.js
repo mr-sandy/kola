@@ -1,19 +1,15 @@
 ﻿define([
     'backbone',
-    'underscore',
     'app/models/ComponentCollection'
-], function (Backbone,
-    _,
+], function (
+    Backbone,
     ComponentCollection) {
-
     "use strict";
 
     return Backbone.Model.extend(
-        _.extend(
         {
             baseParse: function (resp, xhr) {
                 return resp;
             }
-        },
-        ComponentCollection));
+        }).extend(ComponentCollection);
 });

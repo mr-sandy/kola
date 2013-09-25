@@ -1,9 +1,7 @@
 ﻿define([
-    'underscore',
     'app/models/Component',
     'app/collections/Components'
 ], function (
-    _,
     Component,
     Components) {
     "use strict";
@@ -21,8 +19,10 @@
 
         parse: function (resp, xhr) {
             var self = this;
-            var components = _.map(resp.components, self.makeComponent);
 
+            this.set("url", _.find(resp.links, function (l) { return l.rel == "self"; }).href);
+            this.set("id", _.find(resp.links, function (l) { return l.rel == "self"; }).href);
+            var components = _.map(resp.components, self.makeComponent);
             this.get("components").add(components);
 
             return this.baseParse(resp, xhr);

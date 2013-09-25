@@ -26,6 +26,12 @@
                 activeClass: "active",
                 hoverClass: "hover"
             });
+
+            _.each(this.model.get("components"),
+            function (c) {
+                alert(c.get("name")); 
+            });
+
         },
 
         handleDrop: function (event, ui) {
