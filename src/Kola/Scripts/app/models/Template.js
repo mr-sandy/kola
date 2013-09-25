@@ -6,16 +6,21 @@
     ComponentCollection) {
     "use strict";
 
-    return Backbone.Model.extend(
+    return Backbone.Model.extend(ComponentCollection).extend(
         {
-            baseParse: function (resp, xhr) {
+            initialize: function () {
+                this.baseInitialize();
+            },
+
+            parse: function (resp, xhr) {
+                this.baseParse(resp);
                 return resp;
             },
 
-            url: function () { return "jam" +  this.get("url"); }
+            url: function () { return "jam" + this.get("url"); }
 
             //            url: function () {
             //                return "/_kola/templates/" + this.get("id");
             //            }
-        }).extend(ComponentCollection);
+        });
 });
