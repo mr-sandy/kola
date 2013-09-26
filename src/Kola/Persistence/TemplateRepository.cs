@@ -14,14 +14,20 @@
         {
             var template = new Template(path);
 
-            var component1 = new Component("copmonent1");
+            var component0 = new Component("component 0");
+            template.AddComponent(component0);
+
+            var component00 = new Component("component 0.0");
+            component0.AddComponent(component00);
+
+            var component000 = new Component("component 0.0.0");
+            component00.AddComponent(component000);
+
+            var component1 = new Component("component 1");
             template.AddComponent(component1);
 
-            var component11 = new Component("copmonent1.1");
-            component1.AddComponent(component11);
-
-            var component2 = new Component("copmonent2");
-            template.AddComponent(component2);
+            var component10 = new Component("component 1.0");
+            component1.AddComponent(component10);
 
             return template;
         }

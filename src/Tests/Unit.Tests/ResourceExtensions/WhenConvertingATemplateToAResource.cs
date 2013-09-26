@@ -44,13 +44,12 @@
         {
             this.templateResource.Links.Should().Contain(l => l.Rel == "self");
         }
-
         [Test]
         public void ShouldReturnUrlInLinkRelForSelf()
         {
             var rel = this.templateResource.Links.Where(l => l.Rel == "self").Single();
 
-            rel.Href.Should().EndWith("test/path");
+            rel.Href.Should().Be("/test/path");
         }
 
         [Test]
@@ -64,7 +63,7 @@
         {
             var rel = this.templateResource.Components.ElementAt(0).Links.Where(l => l.Rel == "self").Single();
 
-            rel.Href.Should().EndWith("test/path/_components/0");
+            rel.Href.Should().Be("/test/path/_components/0");
         }
 
         [Test]
@@ -72,7 +71,7 @@
         {
             var rel = this.templateResource.Components.ElementAt(1).Links.Where(l => l.Rel == "self").Single();
 
-            rel.Href.Should().EndWith("test/path/_components/1");
+            rel.Href.Should().Be("/test/path/_components/1");
         }
 
         [Test]
@@ -80,7 +79,7 @@
         {
             var rel = this.templateResource.Components.ElementAt(0).Components.ElementAt(0).Links.Where(l => l.Rel == "self").Single();
 
-            rel.Href.Should().EndWith("test/path/_components/0/0");
+            rel.Href.Should().Be("/test/path/_components/0/0");
         }
     }
 }

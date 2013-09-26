@@ -1,26 +1,26 @@
 ﻿define([
-    'backbone',
-    'app/models/ComponentCollection'
+    'app/models/Component',
+    'app/collections/Components'
 ], function (
-    Backbone,
-    ComponentCollection) {
+    Component,
+    Components) {
     "use strict";
 
-    return Backbone.Model.extend(ComponentCollection).extend(
-        {
-            initialize: function () {
-                this.baseInitialize();
-            },
+    return Backbone.Model.extend(
+    {
+        initialize: function () {
+            this.set("components", new Components());
+        },
 
-            parse: function (resp, xhr) {
-                this.baseParse(resp);
-                return resp;
-            },
+        parse: function (resp, xhr) {
+            var components = _.map(resp.components, function (value) { return new Component(value); });
+            this.get("components").reset(components);
 
-            url: function () { return "jam" + this.get("url"); }
+            return _.omit(resp, "components");
+        },
 
-            //            url: function () {
-            //                return "/_kola/templates/" + this.get("id");
-            //            }
-        });
+        url: function () {
+            return "_kola/templates/" + this.id;
+        }
+    });
 });

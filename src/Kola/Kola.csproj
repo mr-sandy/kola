@@ -137,11 +137,9 @@
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
     <EmbeddedResource Include="Scripts\app\models\Template.js" />
-    <EmbeddedResource Include="Scripts\app\models\ComponentCollection.js" />
     <EmbeddedResource Include="Scripts\app\models\Component.js" />
     <EmbeddedResource Include="Scripts\underscore.js" />
     <EmbeddedResource Include="Scripts\underscore.min.js" />
-    <EmbeddedResource Include="Scripts\app\models\old\ComponentCollection.js" />
     <EmbeddedResource Include="Content\jquery-ui\jquery-ui-1.10.3.custom.css" />
     <EmbeddedResource Include="Content\jquery-ui\jquery-ui-1.10.3.custom.min.css" />
     <EmbeddedResource Include="Scripts\app\collections\ComponentTypes.js" />
@@ -157,12 +155,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Content\kola.scss" />
     <EmbeddedResource Include="Scripts\app\collections\Components.js" />
-    <EmbeddedResource Include="Scripts\app\models\old\Component.js" />
     <EmbeddedResource Include="Scripts\app\templates\ToolboxTemplate.html" />
     <EmbeddedResource Include="Scripts\app\views\ToolboxView.js" />
     <EmbeddedResource Include="Scripts\app\templates\EditTemplateTemplate.html" />
     <EmbeddedResource Include="Scripts\app\views\EditTemplateView.js" />
-    <EmbeddedResource Include="Scripts\app\models\old\Template.js" />
     <EmbeddedResource Include="Scripts\app\templates\CreateTemplateTemplate.html" />
     <EmbeddedResource Include="Scripts\app\views\CreateTemplateView.js" />
     <EmbeddedResource Include="Scripts\app\Extensions.js" />

@@ -10,7 +10,7 @@
     {
         public static ComponentResource ToResource(this Component component, string rootUri, int index)
         {
-            var uri = string.Format("/{0}/{1}", rootUri, index);
+            var uri = string.Format("{0}/{1}", rootUri, index);
             return new ComponentResource
             {
                 Name = component.Name,
