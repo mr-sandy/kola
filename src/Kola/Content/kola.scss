@@ -1,21 +1,31 @@
+@mixin border-radius() {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;		
+}
 
 #toolbox {
     margin: 20px;
     padding: 0;
-    border: 2px #333 solid;
+    border: 3px #575 solid;
+	@include border-radius();
 
 	ul {
 		margin: 0;
 	    padding: 15px;
 	    list-style-type: none;
 		overflow: auto;
-		background-color: #cdc;
+		background-color: #efe;
+		@include border-radius();
 
 		li {
             float: left;
 			padding: 10px;
-		    border: 1px #333 solid;
-			background-color: #efe;
+		    border: 3px #575 solid;
+			background-color: #fff;
+			font-weight: bold;
+			color: #575;
+			@include border-radius();
 		}
 
 		li + li {
@@ -27,7 +37,8 @@
 #blockEditor {
     margin: 20px;
     padding: 0;
-    border: 2px black solid;
+    border: 3px #557 solid;
+	@include border-radius();
 
 	ul {
 		margin: 0;
@@ -35,20 +46,24 @@
 	    list-style-type: none;
 		overflow: auto;
 		background-color: #ccd;
+		@include border-radius();
 
 		ul {
 			margin-top: 10px;
-		    border: 1px #333 solid;
+		    border: 3px #557 solid;
 		}
 
 		li {
-			padding: 10px 15px 15px 15px;
-		    border: 1px #333 solid;
+			padding: 10px 15px;
+		    border: 3px #557 solid;
 			background-color: #eef;
+			font-weight: bold;
+			color: #557;
+			@include border-radius();
 
 			&.new {
                 background-color: #fff;
-                border: 1px dashed #333;
+				border: 3px #557 dotted;
 			}		
 		}
 
