@@ -32,7 +32,12 @@
 
         _doRender: function () {
             this.$el.html(this.template(this.collection.toJSON()));
-            this.$el.find("li").draggable({ opacity: 0.7, helper: "clone" });
+            this.$el.find("li").draggable(
+            {
+                opacity: 0.7, 
+                helper: "clone",
+                connectToSortable: "#blockEditor ul"
+            });
         }
     });
 });

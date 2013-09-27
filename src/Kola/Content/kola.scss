@@ -1,47 +1,59 @@
 
 #toolbox {
     margin: 20px;
-    border: 2px black solid;
-    padding: 20px;
+    padding: 0;
+    border: 2px #333 solid;
 
 	ul {
 		margin: 0;
+	    padding: 15px;
+	    list-style-type: none;
+		overflow: auto;
+		background-color: #cdc;
+
+		li {
+            float: left;
+			padding: 10px;
+		    border: 1px #333 solid;
+			background-color: #efe;
+		}
+
+		li + li {
+			margin-left: 10px
+		}
 	}
 }
 
-#structureEditor {
+#blockEditor {
     margin: 20px;
+    padding: 0;
     border: 2px black solid;
-    padding: 20px;
-	min-height: 200px;
-	background-color: #eef;
 
-//	&.active {
-//		background-color: #ddf;
-//	}
-//
-//	&.hover {
-//		background-color: #ccf;
-//	}
-}
+	ul {
+		margin: 0;
+	    padding: 15px;
+	    list-style-type: none;
+		overflow: auto;
+		background-color: #ccd;
 
-li.component {
-    display: inline-block;
-    border: 1px black solid;
-    width: 100px;
-    height: 50px;
-    text-align: center;
-    background-color: #ddd;
-    margin-right: 10px;
-}
+		ul {
+			margin-top: 10px;
+		    border: 1px #333 solid;
+		}
 
-.badger {
-	padding: 10px;
-	margin: 10px;
-	border: 1px solid #333;
-	background-color: rgba(3,3,3,0.05);
+		li {
+			padding: 10px 15px 15px 15px;
+		    border: 1px #333 solid;
+			background-color: #eef;
 
-	&.hover {
-		background-color: #fff;
+			&.new {
+                background-color: #fff;
+                border: 1px dashed #333;
+			}		
+		}
+
+        li + li {
+			margin-top: 10px
+		}
 	}
 }
