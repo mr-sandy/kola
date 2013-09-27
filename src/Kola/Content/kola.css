@@ -57,7 +57,8 @@
       border-radius: 8px; }
       #blockEditor ul li.new {
         background-color: #fff;
-        border: 3px #557 dotted; }
+        border: 3px #557 dotted;
+        min-height: 20px; }
     #blockEditor ul li + li {
       margin-top: 10px; }
 

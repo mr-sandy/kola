@@ -17,26 +17,21 @@
         template: Handlebars.compile(BlockTemplate),
 
         render: function () {
-            var self = this;
-
             this.$el.html(this.template());
 
-            this.model.get("components").each(
-                            function (component) {
-                                var view = new BlockComponentView({
-                                    model: component
-                                });
-
-                                self.assign(view, self.$el.find("ul"));
-                            }
-                        );
-
-            self.$el.find("ul").sortable({
+            this.$el.find("ul").sortable({
+                opacity: 0.75,
                 placeholder: "new",
                 connectWith: "ul"
             });
 
+            this.model.get("components").each(this.renderChild, this);
+
             return this;
+        },
+
+        renderChild: function (component) {
+            this.assign(new BlockComponentView({ model: component }), this.$el.find("ul"));
         }
     });
 });

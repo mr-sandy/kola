@@ -16,8 +16,8 @@
 
         template: Handlebars.compile(BlockComponentTemplate),
 
-        events: {
-            'drop ': 'handleDrop'
+        initialize: function (args) {
+            _.bindAll(this, 'handleStop');
         },
 
         render: function () {
@@ -31,30 +31,25 @@
             this.$element = $(this.template(data));
             this.$el.append(this.$element);
 
-            this.model.get("components").each(
-                function (component) {
-                    var view = new BlockComponentView({
-                        model: component
-                    });
+            this.$element.find("ul").sortable({
+                opacity: 0.75,
+                placeholder: "new",
+                connectWith: "ul",
+                stop: this.handleStop
+            });
 
-                    self.assign(view, self.$element.find("ul"));
-                }
-            );
+            this.model.get("components").each(this.renderChild, this);
 
             return this;
         },
 
-        handleDrop: function (event, ui) {
-            //            var component = new Component(this.model.componentsUrl());
-            //            this.model.addComponent(component);
+        renderChild: function(component) {
+            this.assign(new BlockComponentView({ model: component }), this.$element.find("ul"));
+        },
+
+        handleStop: function (event, ui) {
+            var component = new Component();
+            this.model.get("components").add(component, { at: ui.item.index() });
         }
     });
 });
-
-
-//this.$element.droppable({
-//    accept: "li.component",
-//    activeClass: "active",
-//    hoverClass: "hover",
-//    greedy: true
-//});
