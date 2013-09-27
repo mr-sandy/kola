@@ -2,12 +2,12 @@
     'backbone',
     'handlebars',
     'app/views/ToolboxView',
-    'app/views/BlockView',
+    'app/views/ComponentView',
     'text!app/templates/EditTemplateTemplate.html'
 ], function (Backbone,
     Handlebars,
     ToolboxView,
-    BlockView,
+    ComponentView,
     EditTemplateTemplate) {
 
     "use strict";
@@ -18,7 +18,7 @@
 
         initialize: function () {
             this.toolboxView = new ToolboxView();
-            this.blockView = new BlockView({
+            this.componentView = new ComponentView({
                 model: this.model
             });
         },
@@ -26,7 +26,7 @@
         render: function () {
             this.$el.html(this.template());
             this.assign(this.toolboxView, '#toolbox');
-            this.assign(this.blockView, '#blockEditor');
+            this.assign(this.componentView, '#blockEditor');
         }
     });
 });

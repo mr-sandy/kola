@@ -29,6 +29,12 @@
             var component10 = new Component("component 1.0");
             component1.AddComponent(component10);
 
+            var component2 = new Component("component 2");
+            template.AddComponent(component2);
+
+            var component20 = new Component("component 2.0");
+            component2.AddComponent(component20);
+
             return template;
         }
 

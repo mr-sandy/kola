@@ -136,8 +136,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
-    <EmbeddedResource Include="Scripts\app\templates\BlockComponentTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\views\BlockComponentView.js" />
+    <EmbeddedResource Include="Scripts\app\templates\RootComponentTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\templates\ComponentTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\ComponentView.js" />
     <EmbeddedResource Include="Scripts\app\models\Template.js" />
     <EmbeddedResource Include="Scripts\app\models\Component.js" />
     <EmbeddedResource Include="Scripts\underscore.js" />
@@ -146,8 +147,6 @@
     <EmbeddedResource Include="Content\jquery-ui\jquery-ui-1.10.3.custom.min.css" />
     <EmbeddedResource Include="Scripts\app\collections\ComponentTypes.js" />
     <EmbeddedResource Include="Scripts\app\models\ComponentType.js" />
-    <EmbeddedResource Include="Scripts\app\templates\BlockTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\views\BlockView.js" />
     <EmbeddedResource Include="Scripts\jquery-ui-1.10.3.custom.min.js" />
     <EmbeddedResource Include="Content\kola.css">
       <DependentUpon>kola.scss</DependentUpon>
