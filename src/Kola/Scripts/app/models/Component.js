@@ -15,14 +15,15 @@
                 Component = require("app/models/Component");
             }
 
-            var components = (resp && resp.components) 
+            var components = (resp && resp.components)
                 ? new Components(_.map(resp.components, function (value) { return new Component(value); }))
                 : new Components();
 
             this.set("components", components);
 
-            //            this.set("url", _.find(resp.links, function (l) { return l.rel == "self"; }).href);
-            //            this.set("id", _.find(resp.links, function (l) { return l.rel == "self"; }).href);
+            this.get("components").url = (resp && resp.links)
+                ? _.find(resp.links, function (l) { return l.rel == "self"; }).href
+                : function () { throw "Oh dear"; };
         }
     });
 });
