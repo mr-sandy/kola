@@ -20,10 +20,19 @@
                 : new Components();
 
             this.set("components", components);
+            this.get("components").url = this.collectionUrl;
 
-            this.get("components").url = (resp && resp.links)
-                ? _.find(resp.links, function (l) { return l.rel == "self"; }).href
-                : function () { throw "Oh dear"; };
-        }
+//            this.url = "buscuirt";
+
+            //            this.get("components").url = (resp && resp.links)
+            //                ? _.find(resp.links, function (l) { return l.rel == "self"; }).href
+            //                : function () { throw "Oh dear"; };
+        },
+
+        collectionUrl: function () {
+            return this.url() + "/";
+        },
+
+        urlRoot: "/"
     });
 });

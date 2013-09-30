@@ -21,6 +21,5 @@
                 Component = require("app/models/Component");
             }
         }
-
     });
 });
