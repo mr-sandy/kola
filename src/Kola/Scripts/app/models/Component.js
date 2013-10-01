@@ -31,8 +31,6 @@
 
         collectionUrl: function () {
             return this.url() + "/";
-        },
-
-        urlRoot: "/"
+        }
     });
 });
