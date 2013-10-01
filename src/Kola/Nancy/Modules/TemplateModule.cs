@@ -34,7 +34,8 @@
 
             if (template == null) return HttpStatusCode.NotFound;
 
-            return this.Response.AsJson(template.ToResource())
+            var resource = template.ToResource();
+            return this.Response.AsJson(resource)
                 .WithStatusCode(HttpStatusCode.OK)
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }

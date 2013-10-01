@@ -12,7 +12,7 @@
     RootComponentTemplate,
     ComponentTemplate) {
 
-    "use strict";
+    'use strict';
 
     return Backbone.View.extend({
 
@@ -33,22 +33,22 @@
         },
 
         render: function () {
-            var $element = $(this.template(this.model.omit("components")));
+            var $element = $(this.template(this.model.omit('components')));
 
             this.$container = (this.isChild)
-                ? $element.find("ul")
+                ? $element.find('ul')
                 : $element;
 
             this.$container.sortable({
                 opacity: 0.75,
-                placeholder: "new",
-                connectWith: "ul",
+                placeholder: 'new',
+                connectWith: 'ul',
                 stop: this.handleStop
             });
 
             this.$el.append($element);
 
-            this.model.get("components").each(this.renderChild, this);
+            this.model.get('components').each(this.renderChild, this);
 
             return this;
         },
@@ -59,7 +59,7 @@
 
         handleStop: function (event, ui) {
             var component = new Component();
-            this.model.get("components").add(component, { at: ui.item.index() });
+            this.model.get('components').add(component, { at: ui.item.index() });
             component.save();
         }
     });

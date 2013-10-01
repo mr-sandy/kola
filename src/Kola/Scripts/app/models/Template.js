@@ -4,35 +4,30 @@
 ], function (
     Component,
     Components) {
-    "use strict";
+    'use strict';
 
     return Backbone.Model.extend(
     {
         initialize: function () {
-            _.bindAll(this, 'collectionUrl');
-            this.set("components", new Components());
+            this.set('components', new Components());
+            //            this.get('components').url = this.componentPath();
+
+            this.get('components').url = this.url + '/_components';
         },
+
+        //        componentPath: function () {
+        //            return document.URL + "/_components";
+        //        },
 
         parse: function (resp, xhr) {
-            var components = _.map(resp.components, function (value) { return new Component(value); });
-            //this.get("components").url = _.find(resp.links, function (l) { return l.rel == "self"; }).href + '/_components';
 
-            //            this.url = _.find(resp.links, function (l) { return l.rel == "self"; }).href;
-            this.get("components").reset(components);
+            var components = _.map(resp.components, function (value, index) {
+                return new Component(_.extend(value, { id: index }), {});
+            });
 
-            this.get("components").url = this.collectionUrl;
+            this.get('components').reset(components);
 
-            return _.omit(resp, "components");
-        },
-
-        collectionUrl: function () {
-            return this.url() + "/_components";
-        },
-
-        url: function () {
-            return this.id;
-        },
-
-        urlRoot: "/"
+            return _.omit(resp, 'components');
+        }
     });
 });

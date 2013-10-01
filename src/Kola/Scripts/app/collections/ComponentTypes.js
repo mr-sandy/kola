@@ -4,12 +4,12 @@
 ], function (Backbone,
     ComponentType) {
 
-    "use strict";
+    'use strict';
 
     return Backbone.Collection.extend({
 
         model: ComponentType,
 
-        url: "/_kola/component-types"
+        url: '/_kola/component-types'
     });
 });

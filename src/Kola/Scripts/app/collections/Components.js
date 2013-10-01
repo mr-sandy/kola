@@ -4,22 +4,16 @@
 ], function (Backbone,
     Component) {
 
-    "use strict";
+    'use strict';
 
     return Backbone.Collection.extend({
 
         model: function () {
             if (!Component) {
-                Component = require("app/models/Component");
+                Component = require('app/models/Component');
             }
 
             return Component;
-        },
-
-        initialize: function () {
-            if (!Component) {
-                Component = require("app/models/Component");
-            }
         }
     });
 });

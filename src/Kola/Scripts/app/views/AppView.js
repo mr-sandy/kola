@@ -22,7 +22,7 @@
     EditTemplateView,
     Template) {
 
-    "use strict";
+    'use strict';
 
     return Backbone.View.extend({
 
@@ -100,7 +100,7 @@
         editTemplate: function (templatePath) {
             var self = this;
 
-            var template = new Template({ id: templatePath });
+            var template = new Template({}, { url: '/_kola/templates/' + templatePath });
 
             if (this.closeCurrentView()) {
                 var editTemplateView = new EditTemplateView({
@@ -113,7 +113,7 @@
                         self.showView(editTemplateView);
                     })
                     .fail(function () {
-                        alert("failure!");
+                        alert('failure!');
                     });
             }
         }

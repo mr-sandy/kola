@@ -1,36 +1,34 @@
 ﻿define([
-    'backbone',
     'app/models/Component',
     'app/collections/Components'
 ], function (
-    Backbone,
     Component,
     Components) {
-    "use strict";
+    'use strict';
 
     return Backbone.Model.extend(
     {
-        initialize: function (resp) {
+        initialize: function (data) {
+            var self = this;
+
             if (!Component) {
-                Component = require("app/models/Component");
+                Component = require('app/models/Component');
             }
 
-            var components = (resp && resp.components)
-                ? new Components(_.map(resp.components, function (value) { return new Component(value); }))
+            var components = (data && data.components)
+                ? new Components(_.map(data.components, function (value, index) {
+                    return new Component(_.extend(value, { id: index }));
+                }))
                 : new Components();
 
-            this.set("components", components);
-            this.get("components").url = this.collectionUrl;
+            if (data && data.links) {
+                this.url = _.find(data.links, function (l) { return l.rel == "self"; }).href;
+                components.url = this.url;
+            }
 
-//            this.url = "buscuirt";
+            //            components.url = this.get('parent').url() + '/' + this.id;
 
-            //            this.get("components").url = (resp && resp.links)
-            //                ? _.find(resp.links, function (l) { return l.rel == "self"; }).href
-            //                : function () { throw "Oh dear"; };
-        },
-
-        collectionUrl: function () {
-            return this.url() + "/";
+            this.set('components', components);
         }
     });
 });
