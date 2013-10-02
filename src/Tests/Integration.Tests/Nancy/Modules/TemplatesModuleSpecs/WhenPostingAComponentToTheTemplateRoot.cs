@@ -44,17 +44,17 @@
         }
 
         [Test]
-        public void ShouldReturnAResourceWithSelfLink()
+        public void ShouldReturnAResourceWithComponentPathLink()
         {
-            this.Response.Body.DeserializeJson<ComponentResource>().Links.Should().Contain(l => l.Rel == "self");
+            this.Response.Body.DeserializeJson<ComponentResource>().Links.Should().Contain(l => l.Rel == "componentPath");
         }
 
         [Test]
-        public void ShouldReturnSelfLinkWithCorrectHref()
+        public void ShouldReturnComponentPathLinkWithCorrectHref()
         {
-            var link = this.Response.Body.DeserializeJson<ComponentResource>().Links.Where(l => l.Rel == "self").Single();
+            var link = this.Response.Body.DeserializeJson<ComponentResource>().Links.Where(l => l.Rel == "componentPath").Single();
 
-            link.Href.Should().EndWith("test/path/_components/0");
+            link.Href.Should().EndWith("0");
         }
     }
 }

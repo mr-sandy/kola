@@ -8,35 +8,37 @@
 
     internal static class ComponentExtensions
     {
-        public static ComponentResource ToResource(this Component component, string rootUri, int index)
+        public static ComponentResource ToResource(this Component component, IEnumerable<int> componentIndices)
         {
-            var uri = string.Format("{0}/{1}", rootUri, index);
+            var componentPath = string.Join("/", componentIndices);
             return new ComponentResource
             {
                 Name = component.Name,
 
-                Components = component.Components.ToResource(uri),
+                Components = component.Components.ToResource(componentIndices),
 
                 Links = new[]
                             {
                                 new LinkResource
                                     {
-                                        Rel = "self", 
-                                        Href = uri
+                                        Rel = "componentPath", 
+                                        Href = componentPath
                                     }
                             }
             };
         }
 
-        public static IEnumerable<ComponentResource> ToResource(this IEnumerable<Component> components, string rootUri)
+        public static IEnumerable<ComponentResource> ToResource(this IEnumerable<Component> components, IEnumerable<int> componentIndices = null)
         {
             var result = new List<ComponentResource>();
 
+            componentIndices = componentIndices ?? Enumerable.Empty<int>();
+
             for (var i = 0; i < components.Count(); i++)
             {
-                result.Add(components.ElementAt(i).ToResource(rootUri, i));
+                result.Add(components.ElementAt(i).ToResource(componentIndices.Append(i)));
             }
-             
+
             return result;
         }
     }

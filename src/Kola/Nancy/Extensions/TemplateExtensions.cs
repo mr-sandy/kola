@@ -10,7 +10,7 @@
             var uri = string.Join("/", template.Path);
             return new TemplateResource
                 {
-                    Components = template.Components.ToResource(string.Format("/{0}/_components", uri)),
+                    Components = template.Components.ToResource(),
                     Links = new[]
                             {
                                 new LinkResource

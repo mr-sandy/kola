@@ -61,25 +61,25 @@
         [Test]
         public void ShouldReturnCorrectLinkRelForFirstChild()
         {
-            var rel = this.templateResource.Components.ElementAt(0).Links.Where(l => l.Rel == "self").Single();
+            var rel = this.templateResource.Components.ElementAt(0).Links.Where(l => l.Rel == "componentPath").Single();
 
-            rel.Href.Should().Be("/test/path/_components/0");
+            rel.Href.Should().Be("0");
         }
 
         [Test]
         public void ShouldReturnCorrectLinkRelForSecondChild()
         {
-            var rel = this.templateResource.Components.ElementAt(1).Links.Where(l => l.Rel == "self").Single();
+            var rel = this.templateResource.Components.ElementAt(1).Links.Where(l => l.Rel == "componentPath").Single();
 
-            rel.Href.Should().Be("/test/path/_components/1");
+            rel.Href.Should().Be("1");
         }
 
         [Test]
         public void ShouldReturnCorrectLinkRelForFirstGrandchild()
         {
-            var rel = this.templateResource.Components.ElementAt(0).Components.ElementAt(0).Links.Where(l => l.Rel == "self").Single();
+            var rel = this.templateResource.Components.ElementAt(0).Components.ElementAt(0).Links.Where(l => l.Rel == "componentPath").Single();
 
-            rel.Href.Should().Be("/test/path/_components/0/0");
+            rel.Href.Should().Be("0/0");
         }
     }
 }

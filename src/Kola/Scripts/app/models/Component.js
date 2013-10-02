@@ -16,16 +16,10 @@
                 Component = require('app/models/Component');
             }
 
-            var components = (data && data.components)
-                ? new Components(_.map(data.components, function (value, index) {
-                    return new Component(_.extend(value, { id: index }));
-                }))
-                : new Components();
+            var components = new Components(_.map(data.components, function (value) { return new Component(value); }));
 
-            if (data && data.links) {
-                this.url = this.combineUrls(Config.templatesRoot, _.find(data.links, function (l) { return l.rel == "self"; }).href);
-                components.url = this.url;
-            }
+            this.componentPath = _.find(data.links, function (l) { return l.rel == "componentPath"; }).href;
+
 
             this.set('components', components);
         }

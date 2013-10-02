@@ -58,9 +58,9 @@
         },
 
         handleStop: function (event, ui) {
-            var component = new Component();
-            this.model.get('components').add(component, { at: ui.item.index() });
-            component.save();
+            //is it an add or a move?
+            alert('howdy!');
+            alert(this.model.componentPath);
         }
     });
 });
