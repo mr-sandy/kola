@@ -28,4 +28,18 @@
     Backbone.View.prototype.assign = function (view, selector) {
         view.setElement(selector).render();
     };
+
+    Backbone.View.prototype.combineUrls = urlCombine;
+    Backbone.Model.prototype.combineUrls = urlCombine;
+    Backbone.Collection.prototype.combineUrls = urlCombine;
+
+    function urlCombine(url1, url2) {
+        if (url1) {
+            url1 = url1.replace(/\/$/, "");
+        }
+        if (url2) {
+            url2 = url2.replace(/^\//, "");
+        }
+        return url1 + '/' + url2;
+    }
 });

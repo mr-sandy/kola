@@ -2,6 +2,7 @@
     'backbone',
     'handlebars',
     'jquery',
+    'app/Config',
     'app/views/LoadingView',
     'app/views/HomeView',
     'app/views/NavigationView',
@@ -14,6 +15,7 @@
 ], function (Backbone,
     Handlebars,
     $,
+    Config,
     LoadingView,
     HomeView,
     NavigationView,
@@ -100,7 +102,7 @@
         editTemplate: function (templatePath) {
             var self = this;
 
-            var template = new Template({}, { url: '/_kola/templates/' + templatePath });
+            var template = new Template({}, { url: this.combineUrls(Config.templatesRoot, templatePath) });
 
             if (this.closeCurrentView()) {
                 var editTemplateView = new EditTemplateView({

@@ -1,7 +1,9 @@
 ﻿define([
+    'app/Config',
     'app/models/Component',
     'app/collections/Components'
 ], function (
+    Config,
     Component,
     Components) {
     'use strict';
@@ -9,7 +11,6 @@
     return Backbone.Model.extend(
     {
         initialize: function (data) {
-            var self = this;
 
             if (!Component) {
                 Component = require('app/models/Component');
@@ -22,11 +23,9 @@
                 : new Components();
 
             if (data && data.links) {
-                this.url = _.find(data.links, function (l) { return l.rel == "self"; }).href;
+                this.url = this.combineUrls(Config.templatesRoot, _.find(data.links, function (l) { return l.rel == "self"; }).href);
                 components.url = this.url;
             }
-
-            //            components.url = this.get('parent').url() + '/' + this.id;
 
             this.set('components', components);
         }

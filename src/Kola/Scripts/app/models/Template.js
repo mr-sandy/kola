@@ -10,14 +10,8 @@
     {
         initialize: function () {
             this.set('components', new Components());
-            //            this.get('components').url = this.componentPath();
-
             this.get('components').url = this.url + '/_components';
         },
-
-        //        componentPath: function () {
-        //            return document.URL + "/_components";
-        //        },
 
         parse: function (resp, xhr) {
 
