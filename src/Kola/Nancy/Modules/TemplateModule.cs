@@ -22,9 +22,9 @@
             this.componentFactory = componentFactory;
 
             this.Get["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
-            this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.CreateTemplate(p.templatePath);
-             this.Post["/_kola/templates/{templatePath*}/_components", AcceptHeaderFilters.NotHtml] = p => this.AddComponent(p.templatePath, null);
-            this.Post["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.AddComponent(p.templatePath, p.componentPath);
+            this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.PutTemplate(p.templatePath);
+            this.Post["/_kola/templates/{templatePath*}/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAddComponentAmendment(p.templatePath);
+            this.Post["/_kola/templates/{templatePath*}/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostMoveComponentAmendment(p.templatePath);
         }
 
         private dynamic GetTemplate(string rawTemplatePath)
@@ -40,7 +40,7 @@
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
 
-        private dynamic CreateTemplate(string rawTemplatePath)
+        private dynamic PutTemplate(string rawTemplatePath)
         {
             var templatePath = rawTemplatePath.Split('/');
 
@@ -59,43 +59,28 @@
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
 
-        private dynamic AddComponent(string rawTemplatePath, string rawComponentPath)
+        private dynamic PostAmendment<T>(string rawTemplatePath, Amendment amendment)
         {
-            var componentResource = this.Bind<ComponentResource>();
+            var templatePath = rawTemplatePath.Split('/');
+            var template = this.templateRepository.Get(templatePath);
 
-            var template = this.templateRepository.Get(rawTemplatePath.Split('/'));
-            if (template == null)
-            {
-                return HttpStatusCode.NotFound;
-            }
+            if (template == null) return HttpStatusCode.NotFound;
 
-            var componentPath = !string.IsNullOrEmpty(rawComponentPath)
-                ? rawComponentPath.Split('/').Select(int.Parse)
-                : Enumerable.Empty<int>();
-
-            var parent = (componentPath.Count() == 0)
-                             ? template
-                             : template.Components.NavigateTo(componentPath.TakeAllButLast()) as Composite;
-            if (parent == null)
-            {
-                return HttpStatusCode.NotFound;
-            }
-
-            var component = this.componentFactory.Create(componentResource.Name);
-            if (component == null)
-            {
-                return HttpStatusCode.BadRequest;
-            }
-
-            parent.AddComponent(component);
+            template.AddAmendment(amendment);
 
             this.templateRepository.Update(template);
 
-            var templateResource = template.ToResource();
+            return HttpStatusCode.Created;
+        }
 
-            return this.Response.AsJson(templateResource.FindLastChild(componentPath))
-                .WithStatusCode(HttpStatusCode.Created)
-                .WithHeader("location", string.Format("/{0}", rawTemplatePath));
+        private dynamic PostAddComponentAmendment(string rawTemplatePath)
+        {
+            return this.PostAmendment<AddComponentAmendmentResource>(rawTemplatePath, this.Bind<AddComponentAmendmentResource>().ToDomain());
+        }
+
+        private dynamic PostMoveComponentAmendment(string rawTemplatePath)
+        {
+            return this.PostAmendment<AddComponentAmendmentResource>(rawTemplatePath, this.Bind<AddComponentAmendmentResource>().ToDomain());
         }
     }
 }

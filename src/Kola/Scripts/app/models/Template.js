@@ -1,15 +1,32 @@
 ﻿define([
+    'backbone',
     'app/models/Component',
-    'app/collections/Components'
+    'app/models/AddComponentAmendment',
+    'app/models/MoveComponentAmendment',
+    'app/collections/Components',
+    'app/collections/Amendments'
 ], function (
+    Backbone,
     Component,
-    Components) {
+    AddComponentAmendment,
+    MoveComponentAmendment,
+    Components,
+    Amendments) {
     'use strict';
 
     return Backbone.Model.extend(
     {
         initialize: function () {
-            this.set('components', new Components());
+            var components = new Components();
+            components.on(
+            {
+                "addComponent": this.addComponent,
+                "moveComponent": this.moveComponent
+            }, this);
+
+            this.set('components', components);
+            var self = this;
+            this.set('amendments', new Amendments([], { url: function () { return this.combineUrls(self.url, '_amendments') } }));
         },
 
         parse: function (resp, xhr) {
@@ -23,6 +40,18 @@
             return _.omit(resp, 'components');
         },
 
-        componentPath: ''
+        componentPath: '',
+
+        addComponent: function (args) {
+            var amendment = new AddComponentAmendment(args);
+            this.get('amendments').add(amendment);
+            amendment.save();
+        },
+
+        moveComponent: function (args) {
+            var amendment = new MoveComponentAmendment(args);
+            this.get('amendments').add(amendment);
+            amendment.save();
+        }
     });
 });

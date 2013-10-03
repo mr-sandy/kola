@@ -71,5 +71,10 @@
         li + li {
 			margin-top: 10px
 		}
+
+		li[data-type=toolbox-item] {
+			background-color: #fee;
+            border: 3px #755 solid;
+		}
 	}
 }

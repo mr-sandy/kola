@@ -10,5 +10,10 @@
         }
 
         public IEnumerable<string> Path { get; private set; }
+
+        public void AddAmendment(Amendment amendment)
+        {
+
+        }
     }
 }

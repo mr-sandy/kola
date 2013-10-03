@@ -54,13 +54,13 @@
         },
 
         renderChild: function (component) {
-            this.assign(new ComponentView({ model: component, isChild: true, eventBroker: this.options.eventBroker }), this.$container);
+            this.assign(new ComponentView({ model: component, isChild: true }), this.$container);
         },
 
         handleStop: function (event, ui) {
 
             if (ui.item.attr('data-type') == 'toolbox-item') {
-                this.options.eventBroker.trigger('addComponent',
+                this.model.addComponent(
                 {
                     componentType: ui.item.attr('data-href'),
                     componentPath: ui.item.closest('[data-component-path]').attr('data-component-path'),
@@ -68,7 +68,7 @@
                 });
             }
             else {
-                this.options.eventBroker.trigger('moveComponent',
+                this.model.moveComponent(
                 {
                     componentPath: ui.item.attr('data-component-path'),
                     parentComponentPath: ui.item.parent().closest('[data-component-path]').attr('data-component-path'),

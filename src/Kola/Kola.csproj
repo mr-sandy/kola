@@ -58,6 +58,8 @@
     <Compile Include="Configuration\CacheType.cs" />
     <Compile Include="Configuration\ComponentConfiguration.cs" />
     <Compile Include="Configuration\Ideas\KolaBootstrapper.cs" />
+    <Compile Include="Domain\AddComponentAmendment.cs" />
+    <Compile Include="Domain\Amendment.cs" />
     <Compile Include="Domain\ComponentType.cs" />
     <Compile Include="Domain\Composite.cs" />
     <Compile Include="Domain\Component.cs" />
@@ -68,6 +70,7 @@
     <Compile Include="Domain\Page.cs" />
     <Compile Include="Domain\Template.cs" />
     <Compile Include="Nancy\Conventions\EmbeddedStaticContentConventionBuilder.cs" />
+    <Compile Include="Nancy\Extensions\AmendmentResourceExtensions.cs" />
     <Compile Include="Nancy\Extensions\ComponentExtensions.cs" />
     <Compile Include="Nancy\Extensions\ComponentTypeExtensions.cs" />
     <Compile Include="Nancy\Extensions\EnumerableExtensions.cs" />
@@ -125,6 +128,7 @@
     <Compile Include="Processing\RequestContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Nancy\TinyIoCObjectFactory.cs" />
+    <Compile Include="Resources\AddComponentAmendmentResource.cs" />
     <Compile Include="Resources\ComponentResource.cs" />
     <Compile Include="Resources\ComponentTypeResource.cs" />
     <Compile Include="Resources\CompositeResource.cs" />
@@ -136,7 +140,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
-    <EmbeddedResource Include="Scripts\app\models\EventBroker.js" />
+    <EmbeddedResource Include="Scripts\app\models\AddComponentAmendment.js" />
+    <EmbeddedResource Include="Scripts\app\models\MoveComponentAmendment.js" />
+    <EmbeddedResource Include="Scripts\app\models\Amendment.js" />
+    <EmbeddedResource Include="Scripts\app\collections\Amendments.js" />
     <EmbeddedResource Include="Scripts\app\Config.js" />
     <EmbeddedResource Include="Scripts\app\templates\RootComponentTemplate.html" />
     <EmbeddedResource Include="Scripts\app\templates\ComponentTemplate.html" />

@@ -1,9 +1,11 @@
 ﻿define([
     'backbone',
     'handlebars',
+    'app/Config',
     'text!app/templates/CreateTemplateTemplate.html'
 ], function (Backbone,
     Handlebars,
+    Config,
     CreateTemplateTemplate) {
 
     "use strict";
@@ -20,34 +22,21 @@
             'submit form': 'save'
         },
 
-        updateAll: function () {
-            this.model.set({
-                'id': this.$('#path').val().trim(),
-                'path': this.$('#path').val().trim()
-            });
-        },
-
         save: function (e) {
             var self = this;
 
             e.preventDefault();
 
-            this.updateAll();
+            var url = this.combineUrls(Config.templatesRoot, this.$('#path').val().trim());
+
+            this.model.url = url;
+            this.model.set('id', url);
 
             this.$el.find('button[type=submit]').button('saving');
 
             this.model.save().then(function () {
-                self.options.router.navigate("_kola/templates/" + self.model.id, { trigger: true });
+                self.options.router.navigate(self.model.url, { trigger: true });
             });
-            //            this.model.save({}, {
-            //                success: function (model) {
-            //                    self.options.router.navigate("_kola/templates/" + model.id, { trigger: true });
-            //                },
-            //                error: function (model, xhr) {
-            //                    alert("that's more like it");
-            //                }
-            //            });
         }
-
     });
 });
