@@ -1,9 +1,7 @@
 ﻿define([
-    'app/Config',
     'app/models/Component',
     'app/collections/Components'
 ], function (
-    Config,
     Component,
     Components) {
     'use strict';
@@ -16,11 +14,9 @@
                 Component = require('app/models/Component');
             }
 
+            this.set('componentPath', _.find(data.links, function (l) { return l.rel == "componentPath"; }).href);
+
             var components = new Components(_.map(data.components, function (value) { return new Component(value); }));
-
-            this.componentPath = _.find(data.links, function (l) { return l.rel == "componentPath"; }).href;
-
-
             this.set('components', components);
         }
     });

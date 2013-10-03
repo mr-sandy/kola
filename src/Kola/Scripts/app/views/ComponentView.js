@@ -36,7 +36,7 @@
             var $element = $(this.template(this.model.omit('components')));
 
             this.$container = (this.isChild)
-                ? $element.find('ul')
+                ? $element.find('ul').filter(':first')
                 : $element;
 
             this.$container.sortable({
@@ -54,13 +54,27 @@
         },
 
         renderChild: function (component) {
-            this.assign(new ComponentView({ model: component, isChild: true }), this.$container);
+            this.assign(new ComponentView({ model: component, isChild: true, eventBroker: this.options.eventBroker }), this.$container);
         },
 
         handleStop: function (event, ui) {
-            //is it an add or a move?
-            alert('howdy!');
-            alert(this.model.componentPath);
+
+            if (ui.item.attr('data-type') == 'toolbox-item') {
+                this.options.eventBroker.trigger('addComponent',
+                {
+                    componentType: ui.item.attr('data-href'),
+                    componentPath: ui.item.closest('[data-component-path]').attr('data-component-path'),
+                    index: ui.item.index()
+                });
+            }
+            else {
+                this.options.eventBroker.trigger('moveComponent',
+                {
+                    componentPath: ui.item.attr('data-component-path'),
+                    parentComponentPath: ui.item.parent().closest('[data-component-path]').attr('data-component-path'),
+                    index: ui.item.index()
+                });
+            }
         }
     });
 });
