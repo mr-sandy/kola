@@ -5,11 +5,10 @@
     using FluentAssertions;
 
     using Kola.Domain;
+    using Kola.Extensions;
     using Kola.Resources;
 
     using NUnit.Framework;
-
-    using Kola.Nancy.Extensions;
 
     public class WhenConvertingATemplateToAResource
     {
@@ -21,7 +20,7 @@
             var templatePath = new[] { "test", "path" };
             var template = new Template(templatePath);
 
-            var child1 = new Component("child1");
+            var child1 = new Composite("child1");
             template.AddComponent(child1);
 
             var grandchild1 = new Component("grandchild1");

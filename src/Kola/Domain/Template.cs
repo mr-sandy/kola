@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
 
+    using Kola.Nancy.Modules;
+
     public class Template : Composite
     {
         private readonly List<Amendment> amendments = new List<Amendment>();
@@ -21,6 +23,16 @@
         public void AddAmendment(Amendment amendment)
         {
             this.amendments.Add(amendment);
+        }
+
+        public void ApplyAmendments(IComponentFactory componentFactory)
+        {
+            var processor = new AmendmentProcessingVisitor(this, componentFactory);
+
+            foreach (var amendment in this.Amendments)
+            {
+                amendment.Accept(processor);
+            }
         }
     }
 }

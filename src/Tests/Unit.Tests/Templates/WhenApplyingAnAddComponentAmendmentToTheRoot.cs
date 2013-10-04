@@ -5,6 +5,7 @@
     using FluentAssertions;
 
     using Kola.Domain;
+    using Kola.Nancy.Modules;
 
     using NUnit.Framework;
 
@@ -16,15 +17,10 @@
             var templatePath = new[] { "test", "path" };
             this.Template = new Template(templatePath);
 
-            var amendment = new AddComponentAmendment("componentType", string.Empty, 0);
+            var amendment = new AddComponentAmendment("componentType", Enumerable.Empty<int>(), 0);
             this.Template.AddAmendment(amendment);
 
-            var processor = new AmendmentProcessingVisitor(this.Template);
-
-            foreach (var amendment1 in this.Template.Amendments)
-            {
-                amendment1.Accept(processor);
-            }
+            this.Template.ApplyAmendments(new ComponentFactory());
         }
 
         [Test]

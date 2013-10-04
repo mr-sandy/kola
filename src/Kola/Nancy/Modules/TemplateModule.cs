@@ -1,7 +1,7 @@
 ﻿namespace Kola.Nancy.Modules
 {
     using Kola.Domain;
-    using Kola.Nancy.Extensions;
+    using Kola.Extensions;
     using Kola.Persistence;
     using Kola.Resources;
 
@@ -32,7 +32,10 @@
 
             if (template == null) return HttpStatusCode.NotFound;
 
+            template.ApplyAmendments(this.componentFactory);
+
             var resource = template.ToResource();
+
             return this.Response.AsJson(resource)
                 .WithStatusCode(HttpStatusCode.OK)
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));

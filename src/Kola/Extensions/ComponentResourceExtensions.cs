@@ -1,4 +1,4 @@
-﻿namespace Kola.Nancy.Extensions
+﻿namespace Kola.Extensions
 {
     using System.Collections.Generic;
     using System.Linq;

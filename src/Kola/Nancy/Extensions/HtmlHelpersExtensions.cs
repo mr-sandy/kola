@@ -1,10 +1,13 @@
-﻿using System.Collections.Generic;
-using Kola.Domain;
-using Kola.Processing;
-using Nancy.ViewEngines.Razor;
-
-namespace Kola.Nancy.Extensions
+﻿namespace Kola.Nancy.Extensions
 {
+    using System.Collections.Generic;
+
+    using Kola.Domain;
+    using Kola.Nancy;
+    using Kola.Processing;
+
+    using global::Nancy.ViewEngines.Razor;
+
     public static class HtmlHelpersExtensions
     {
         public static IHtmlString RenderPage<T>(this HtmlHelpers<T> helpers, Page page)

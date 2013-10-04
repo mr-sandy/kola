@@ -3,6 +3,7 @@
     using System.Collections.Generic;
 
     using Kola.Domain;
+    using Kola.Persistence.Surrogates.Extensions;
 
     internal class TemplateRepository : ITemplateRepository
     {
@@ -10,6 +11,8 @@
 
         public void Add(Template template)
         {
+            var surrogate = template.ToSurrogate();
+
             Templates.Add(string.Join("+", template.Path), template);
         }
 
@@ -48,6 +51,8 @@
 
         public void Update(Template template)
         {
+            var surrogate = template.ToSurrogate();
+
         }
     }
 }

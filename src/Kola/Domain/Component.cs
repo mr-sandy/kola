@@ -1,10 +1,8 @@
 ﻿namespace Kola.Domain
 {
-    using System.Diagnostics.CodeAnalysis;
-
-    public class Component : Composite
+    public class Component
     {
-        public Component(string name)
+        public Component(string name = "")
         {
             this.Name = name;
         }

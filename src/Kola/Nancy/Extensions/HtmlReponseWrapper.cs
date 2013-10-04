@@ -1,8 +1,9 @@
-﻿using Kola.Processing;
-using Nancy.ViewEngines.Razor;
-
-namespace Kola.Nancy.Extensions
+﻿namespace Kola.Nancy.Extensions
 {
+    using Kola.Processing;
+
+    using global::Nancy.ViewEngines.Razor;
+
     internal class HtmlReponseWrapper : IHtmlString
     {
         private readonly IHtmlResponse renderPageReponse;
@@ -16,7 +17,7 @@ namespace Kola.Nancy.Extensions
 
         public string ToHtmlString()
         {
-            return renderPageReponse.ToHtml(this.viewHelper);
+            return this.renderPageReponse.ToHtml(this.viewHelper);
         }
     }
 }

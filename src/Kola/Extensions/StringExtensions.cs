@@ -1,5 +1,5 @@
 ﻿
-namespace Kola.Nancy.Extensions
+namespace Kola.Extensions
 {
     internal static class StringExtensions
     {
@@ -9,5 +9,6 @@ namespace Kola.Nancy.Extensions
                 ? string.Empty 
                 : raw.ToLower().Replace(" ", "-");
         }
+
     }
 }

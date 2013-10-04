@@ -1,6 +1,6 @@
 ﻿namespace Kola.Nancy.Modules
 {
-    using Kola.Nancy.Extensions;
+    using Kola.Extensions;
     using Kola.Persistence;
 
     using global::Nancy;

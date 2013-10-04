@@ -1,4 +1,4 @@
-﻿namespace Kola.Nancy.Extensions
+﻿namespace Kola.Extensions
 {
     using Kola.Domain;
     using Kola.Resources;

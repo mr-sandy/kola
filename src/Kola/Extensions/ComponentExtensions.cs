@@ -1,4 +1,4 @@
-﻿namespace Kola.Nancy.Extensions
+﻿namespace Kola.Extensions
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -11,11 +11,17 @@
         public static ComponentResource ToResource(this Component component, IEnumerable<int> componentIndices)
         {
             var componentPath = string.Join("/", componentIndices);
+
+            var composite = component as Composite;
+            var components = (composite == null)
+                                 ? Enumerable.Empty<ComponentResource>()
+                                 : composite.Components.ToResource(componentIndices);
+
             return new ComponentResource
             {
                 Name = component.Name,
 
-                Components = component.Components.ToResource(componentIndices),
+                Components = components,
 
                 Links = new[]
                             {

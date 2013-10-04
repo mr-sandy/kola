@@ -2,9 +2,14 @@
 {
     using System.Collections.Generic;
 
-    public abstract class Composite
+    public class Composite : Component
     {
         private readonly List<Component> components = new List<Component>();
+
+        public Composite(string name = "")
+            : base(name)
+        {
+        }
 
         public IEnumerable<Component> Components
         {
