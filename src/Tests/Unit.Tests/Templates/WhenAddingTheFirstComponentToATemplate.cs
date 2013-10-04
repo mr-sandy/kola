@@ -14,16 +14,16 @@
         public void EstablishContext()
         {
             var templatePath = new[] { "test", "path" };
-            this.template = new Template(templatePath);
+            this.Template = new Template(templatePath);
 
             var newComponent = new Component("component1");
-            template.AddComponent(newComponent);
+            this.Template.AddComponent(newComponent);
         }
 
         [Test]
         public void ShouldHaveOneComponent()
         {
-            AssertionExtensions.Should((int)this.template.Components.Count()).Be(1);
+            AssertionExtensions.Should((int)this.Template.Components.Count()).Be(1);
         }
     }
 }

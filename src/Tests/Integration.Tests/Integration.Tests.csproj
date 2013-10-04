@@ -64,6 +64,7 @@
     <Compile Include="Nancy\Modules\ComponentTypesModuleSpecs\ContextBase.cs" />
     <Compile Include="Nancy\Modules\ComponentTypesModuleSpecs\WhenRetrievingAllComponentTypes.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\ContextBase.cs" />
+    <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenPostingAnAmendment.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenRetrievingATemplate.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenCreatingATemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

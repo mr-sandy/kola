@@ -1,7 +1,5 @@
 ﻿namespace Kola.Nancy.Modules
 {
-    using System.Linq;
-
     using Kola.Domain;
     using Kola.Nancy.Extensions;
     using Kola.Persistence;
@@ -47,7 +45,7 @@
             var existingTemplate = this.templateRepository.Get(templatePath);
             if (existingTemplate != null)
             {
-                return HttpStatusCode.BadRequest;
+                return HttpStatusCode.Conflict;
             }
 
             var template = new Template(templatePath);
@@ -59,7 +57,17 @@
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
 
-        private dynamic PostAmendment<T>(string rawTemplatePath, Amendment amendment)
+        private dynamic PostAddComponentAmendment(string rawTemplatePath)
+        {
+            return this.PostAmendment(rawTemplatePath, this.Bind<AddComponentAmendmentResource>().ToDomain());
+        }
+
+        private dynamic PostMoveComponentAmendment(string rawTemplatePath)
+        {
+            return this.PostAmendment(rawTemplatePath, this.Bind<AddComponentAmendmentResource>().ToDomain());
+        }
+
+        private dynamic PostAmendment(string rawTemplatePath, Amendment amendment)
         {
             var templatePath = rawTemplatePath.Split('/');
             var template = this.templateRepository.Get(templatePath);
@@ -71,16 +79,6 @@
             this.templateRepository.Update(template);
 
             return HttpStatusCode.Created;
-        }
-
-        private dynamic PostAddComponentAmendment(string rawTemplatePath)
-        {
-            return this.PostAmendment<AddComponentAmendmentResource>(rawTemplatePath, this.Bind<AddComponentAmendmentResource>().ToDomain());
-        }
-
-        private dynamic PostMoveComponentAmendment(string rawTemplatePath)
-        {
-            return this.PostAmendment<AddComponentAmendmentResource>(rawTemplatePath, this.Bind<AddComponentAmendmentResource>().ToDomain());
         }
     }
 }

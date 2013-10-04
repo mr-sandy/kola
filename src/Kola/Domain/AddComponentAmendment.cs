@@ -14,5 +14,10 @@
         public string ComponentPath { get; private set; }
 
         public int Index { get; private set; }
+
+        public override void Accept(IAmendmentVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
     }
 }

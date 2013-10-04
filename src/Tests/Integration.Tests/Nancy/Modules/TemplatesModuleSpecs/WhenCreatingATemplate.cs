@@ -1,9 +1,13 @@
 ﻿namespace Integration.Tests.Nancy.Modules.TemplatesModuleSpecs
 {
     using FluentAssertions;
+
     using Kola.Domain;
+    
     using global::Nancy;
+
     using NUnit.Framework;
+
     using Rhino.Mocks;
 
     public class WhenCreatingATemplate : ContextBase

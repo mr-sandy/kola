@@ -1,10 +1,9 @@
-﻿using Kola.Domain;
-using NUnit.Framework;
-
-namespace Unit.Tests.Templates
+﻿namespace Unit.Tests.Templates
 {
+    using Kola.Domain;
+
     public class ContextBase
     {
-        protected Template template;
+        protected Template Template;
     }
 }

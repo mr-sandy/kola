@@ -60,9 +60,11 @@
     <Compile Include="Configuration\Ideas\KolaBootstrapper.cs" />
     <Compile Include="Domain\AddComponentAmendment.cs" />
     <Compile Include="Domain\Amendment.cs" />
+    <Compile Include="Domain\AmendmentProcessingVisitor.cs" />
     <Compile Include="Domain\ComponentType.cs" />
     <Compile Include="Domain\Composite.cs" />
     <Compile Include="Domain\Component.cs" />
+    <Compile Include="Domain\IAmendmentVisitor.cs" />
     <Compile Include="Domain\old\Atom.cs" />
     <Compile Include="Domain\old\ComponentContainer.cs" />
     <Compile Include="Domain\old\IComponent.cs" />
