@@ -1,6 +1,7 @@
 ﻿namespace Kola.Domain
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using Kola.Extensions;
     using Kola.Nancy.Modules;
@@ -20,12 +21,22 @@
         {
             var parent = this.GetComposite(amendment.ComponentPath);
 
-            parent.AddComponent(this.componentFactory.Create(amendment.ComponentType));
+            parent.AddComponent(this.componentFactory.Create(amendment.ComponentType), amendment.Index);
         }
 
-        private Composite GetComposite(IEnumerable<int> componentPath)
+        public void Visit(MoveComponentAmendment amendment)
         {
-            var parent = this.template.FindChild(componentPath) as Composite;
+            var component = this.template.FindChild(amendment.ComponentPath);
+            var sourceParent = this.GetComposite(amendment.ComponentPath.TakeAllButLast());
+            var targetParent = this.GetComposite(amendment.ParentComponentPath);
+
+            sourceParent.RemoveComponentAt(amendment.ComponentPath.Last());
+            targetParent.AddComponent(component, amendment.Index);
+        }
+
+        private CompositeComponent GetComposite(IEnumerable<int> componentPath)
+        {
+            var parent = this.template.FindChild(componentPath) as CompositeComponent;
 
             if (parent == null)
             {

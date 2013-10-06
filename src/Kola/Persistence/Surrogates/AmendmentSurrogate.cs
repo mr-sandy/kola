@@ -1,6 +1,7 @@
 ﻿namespace Kola.Persistence.Surrogates
 {
-    public class AmendmentSurrogate
+    public abstract class AmendmentSurrogate
     {
+        public abstract void Accept(IAmendmentSurrogateVisitor visitor);
     }
 }

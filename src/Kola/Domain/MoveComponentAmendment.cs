@@ -1,18 +1,17 @@
 ﻿namespace Kola.Domain
 {
-    using System;
     using System.Collections.Generic;
 
-    public class AddComponentAmendment : Amendment
+    public class MoveComponentAmendment : Amendment
     {
-        public AddComponentAmendment(string componentType, IEnumerable<int> componentPath, int index)
+        public MoveComponentAmendment(IEnumerable<int> parentComponentPath, IEnumerable<int> componentPath, int index)
         {
-            this.ComponentType = componentType;
+            this.ParentComponentPath = parentComponentPath;
             this.ComponentPath = componentPath;
             this.Index = index;
         }
 
-        public string ComponentType { get; private set; }
+        public IEnumerable<int> ParentComponentPath { get; private set; }
 
         public IEnumerable<int> ComponentPath { get; private set; }
 

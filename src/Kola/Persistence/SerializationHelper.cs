@@ -10,9 +10,13 @@
         {
             var serializer = new XmlSerializer(typeof(T));
 
+            var settings = new XmlWriterSettings
+                {
+                    Indent = true
+                };
             using (var fs = new FileStream(path, FileMode.Create))
             {
-                var xmlWriter = XmlWriter.Create(fs);
+                var xmlWriter = XmlWriter.Create(fs, settings);
                 serializer.Serialize(xmlWriter, o);
                 xmlWriter.Flush();
                 fs.Close();

@@ -1,7 +1,5 @@
 ﻿namespace Kola.Extensions
 {
-    using System.Linq;
-
     using Kola.Domain;
     using Kola.Resources;
 
@@ -11,7 +9,15 @@
         {
             return new AddComponentAmendment(
                 resource.ComponentType, 
-                resource.ComponentPath.Split('/').Where(s => !string.IsNullOrWhiteSpace(s)).Select(s => int.Parse(s)), 
+                resource.ComponentPath.ParseComponentPath(), 
+                resource.Index);
+        }
+
+        public static MoveComponentAmendment ToDomain(this MoveComponentAmendmentResource resource)
+        {
+            return new MoveComponentAmendment(
+                resource.ParentComponentPath.ParseComponentPath(),
+                resource.ComponentPath.ParseComponentPath(),
                 resource.Index);
         }
     }

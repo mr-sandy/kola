@@ -10,9 +10,7 @@
     {
         public static ComponentResource ToResource(this Component component, IEnumerable<int> componentIndices)
         {
-            var componentPath = string.Join("/", componentIndices);
-
-            var composite = component as Composite;
+            var composite = component as CompositeComponent;
             var components = (composite == null)
                                  ? Enumerable.Empty<ComponentResource>()
                                  : composite.Components.ToResource(componentIndices);
@@ -28,7 +26,7 @@
                                 new LinkResource
                                     {
                                         Rel = "componentPath", 
-                                        Href = componentPath
+                                        Href = componentIndices.ToComponentPathString()
                                     }
                             }
             };

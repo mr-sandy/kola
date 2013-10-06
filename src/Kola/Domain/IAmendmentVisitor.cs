@@ -3,5 +3,7 @@
     public interface IAmendmentVisitor
     {
         void Visit(AddComponentAmendment amendment);
+
+        void Visit(MoveComponentAmendment amendment);
     }
 }

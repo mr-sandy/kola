@@ -8,7 +8,7 @@
 
     internal static class CompositeExtensions
     {
-        public static Component FindChild(this Composite composite, IEnumerable<int> componentPath)
+        public static Component FindChild(this CompositeComponent composite, IEnumerable<int> componentPath)
         {
             if (componentPath.Count() == 0)
             {
@@ -30,7 +30,7 @@
                 return component;
             }
 
-            var childAsComposite = component as Composite;
+            var childAsComposite = component as CompositeComponent;
 
             if (childAsComposite == null)
             {

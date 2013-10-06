@@ -23,10 +23,18 @@
             });
         },
 
+        events: {
+            'click #apply': 'apply'
+        },
+
         render: function () {
             this.$el.html(this.template());
             this.assign(this.toolboxView, '#toolbox');
             this.assign(this.componentView, '#blockEditor');
+        },
+
+        apply: function () {
+            this.model.applyAmendments();
         }
     });
 });

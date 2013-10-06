@@ -16,7 +16,7 @@
             var templatePath = new[] { "test", "path" };
             this.Template = new Template(templatePath);
 
-            var newComponent = new Component("component1");
+            var newComponent = new SimpleComponent("component1");
             this.Template.AddComponent(newComponent);
         }
 

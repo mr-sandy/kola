@@ -9,5 +9,6 @@
     return Backbone.Collection.extend({
 
         model: Amendment
+
     });
 });

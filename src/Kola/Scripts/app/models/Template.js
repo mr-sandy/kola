@@ -3,6 +3,7 @@
     'app/models/Component',
     'app/models/AddComponentAmendment',
     'app/models/MoveComponentAmendment',
+    'app/models/ApplyAmendmentRequest',
     'app/collections/Components',
     'app/collections/Amendments'
 ], function (
@@ -10,6 +11,7 @@
     Component,
     AddComponentAmendment,
     MoveComponentAmendment,
+    ApplyAmendmentRequest,
     Components,
     Amendments) {
     'use strict';
@@ -52,6 +54,12 @@
             var amendment = new MoveComponentAmendment(args);
             this.get('amendments').add(amendment);
             amendment.save();
+        },
+
+        applyAmendments: function () {
+            var applyAmendmentRequest = new ApplyAmendmentRequest();
+            this.get('amendments').add(applyAmendmentRequest);
+            applyAmendmentRequest.save();
         }
     });
 });

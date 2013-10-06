@@ -62,15 +62,14 @@
     <Compile Include="Domain\Amendment.cs" />
     <Compile Include="Domain\AmendmentProcessingVisitor.cs" />
     <Compile Include="Domain\ComponentType.cs" />
-    <Compile Include="Domain\Composite.cs" />
+    <Compile Include="Domain\CompositeComponent.cs" />
     <Compile Include="Domain\Component.cs" />
     <Compile Include="Domain\DomainException.cs" />
     <Compile Include="Domain\IAmendmentVisitor.cs" />
-    <Compile Include="Domain\old\Atom.cs" />
-    <Compile Include="Domain\old\ComponentContainer.cs" />
-    <Compile Include="Domain\old\IComponent.cs" />
-    <Compile Include="Domain\old\Template.cs" />
+    <Compile Include="Domain\IComponentVisitor.cs" />
+    <Compile Include="Domain\MoveComponentAmendment.cs" />
     <Compile Include="Domain\Page.cs" />
+    <Compile Include="Domain\SimpleComponent.cs" />
     <Compile Include="Domain\Template.cs" />
     <Compile Include="Extensions\CompositeExtensions.cs" />
     <Compile Include="Nancy\Conventions\EmbeddedStaticContentConventionBuilder.cs" />
@@ -90,8 +89,8 @@
     <Compile Include="Extensions\ComponentResourceExtensions.cs" />
     <Compile Include="Nancy\Modules\ComponentTypeModule.cs" />
     <Compile Include="Nancy\Modules\IComponentFactory.cs" />
-    <Compile Include="Domain\old\ComponentType.cs" />
     <Compile Include="Persistence\ComponentTypeRepository.cs" />
+    <Compile Include="Persistence\FileSystemHelper.cs" />
     <Compile Include="Persistence\IComponentTypeRepository.cs" />
     <Compile Include="Persistence\ITemplateRepository.cs" />
     <Compile Include="Nancy\Modules\AcceptHeaderFilters.cs" />
@@ -102,9 +101,18 @@
     <Compile Include="Persistence\Surrogates\AddComponentAmendmentSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\AmendmentSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\ComponentSurrogate.cs" />
+    <Compile Include="Persistence\Surrogates\CompositeComponentSurrogate.cs" />
+    <Compile Include="Persistence\Surrogates\Extensions\AmendmentBuildingVisitor.cs" />
     <Compile Include="Persistence\Surrogates\Extensions\AmendmentExtensions.cs" />
+    <Compile Include="Persistence\Surrogates\Extensions\AmendmentSurrogateBuildingVisitor.cs" />
+    <Compile Include="Persistence\Surrogates\Extensions\ComponentBuildingVisitor.cs" />
     <Compile Include="Persistence\Surrogates\Extensions\ComponentExtensions.cs" />
+    <Compile Include="Persistence\Surrogates\Extensions\ComponentSurrogateBuildingVisitor.cs" />
     <Compile Include="Persistence\Surrogates\Extensions\TemplateExtensions.cs" />
+    <Compile Include="Persistence\Surrogates\IAmendmentSurrogateVisitor.cs" />
+    <Compile Include="Persistence\Surrogates\IComponentSurrogateVisitor.cs" />
+    <Compile Include="Persistence\Surrogates\MoveComponentAmendmentSurrogate.cs" />
+    <Compile Include="Persistence\Surrogates\SimpleComponentSurrogate.cs" />
     <Compile Include="Persistence\TemplateRepository.cs" />
     <Compile Include="Persistence\Surrogates\TemplateSurrogate.cs" />
     <Compile Include="Processing\Caching\ICacheSetting.cs" />
@@ -131,8 +139,6 @@
     <Compile Include="Processing\DefaultHandler.cs" />
     <Compile Include="Processing\IHandler.cs" />
     <Compile Include="IPageHandler.cs" />
-    <Compile Include="Domain\old\Component.cs" />
-    <Compile Include="Domain\old\Page.cs" />
     <Compile Include="Processing\PageRenderer.cs" />
     <Compile Include="Processing\CompositeRenderingResponse.cs" />
     <Compile Include="Processing\PageRenderingResponse.cs" />
@@ -145,6 +151,7 @@
     <Compile Include="Resources\ComponentTypeResource.cs" />
     <Compile Include="Resources\CompositeResource.cs" />
     <Compile Include="Resources\LinkResource.cs" />
+    <Compile Include="Resources\MoveComponentAmendmentResource.cs" />
     <Compile Include="Resources\TemplateResource.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
+    <EmbeddedResource Include="Scripts\app\models\ApplyAmendmentRequest.js" />
     <EmbeddedResource Include="Scripts\app\models\AddComponentAmendment.js" />
     <EmbeddedResource Include="Scripts\app\models\MoveComponentAmendment.js" />
     <EmbeddedResource Include="Scripts\app\models\Amendment.js" />

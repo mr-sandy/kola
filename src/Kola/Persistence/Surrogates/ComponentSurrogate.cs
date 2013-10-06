@@ -1,6 +1,12 @@
 ﻿namespace Kola.Persistence.Surrogates
 {
-    public class ComponentSurrogate
+    using System.Xml.Serialization;
+
+    public abstract class ComponentSurrogate
     {
+        [XmlAttribute("name")]
+        public string Name { get; set; }
+
+        public abstract void Accept(IComponentSurrogateVisitor visitor);
     }
 }

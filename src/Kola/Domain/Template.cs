@@ -4,13 +4,19 @@
 
     using Kola.Nancy.Modules;
 
-    public class Template : Composite
+    public class Template : CompositeComponent
     {
         private readonly List<Amendment> amendments = new List<Amendment>();
 
-        public Template(IEnumerable<string> path)
+        public Template(IEnumerable<string> path, IEnumerable<Amendment> amendments = null, IEnumerable<Component> components = null)
+            : base(string.Empty, components)
         {
             this.Path = path;
+
+            if (amendments != null)
+            {
+                this.amendments.AddRange(amendments);
+            }
         }
 
         public IEnumerable<string> Path { get; private set; }
@@ -25,13 +31,18 @@
             this.amendments.Add(amendment);
         }
 
-        public void ApplyAmendments(IComponentFactory componentFactory)
+        public void ApplyAmendments(IComponentFactory componentFactory, bool reset = false)
         {
             var processor = new AmendmentProcessingVisitor(this, componentFactory);
 
             foreach (var amendment in this.Amendments)
             {
                 amendment.Accept(processor);
+            }
+
+            if (reset)
+            {
+                this.amendments.Clear();
             }
         }
     }

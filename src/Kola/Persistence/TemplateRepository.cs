@@ -3,56 +3,56 @@
     using System.Collections.Generic;
 
     using Kola.Domain;
+    using Kola.Extensions;
+    using Kola.Persistence.Surrogates;
     using Kola.Persistence.Surrogates.Extensions;
 
     internal class TemplateRepository : ITemplateRepository
     {
-        private static readonly Dictionary<string, Template> Templates = new Dictionary<string, Template>();
+        private const string RootDirectory = @"C:\projects\kola\src\Kola\Persistence\Templates";
+        private const string TemplateFileName = "Template.xml";
+
+        private readonly SerializationHelper serializationHelper;
+        private readonly FileSystemHelper fileSystemHelper;
+
+        public TemplateRepository(SerializationHelper serializationHelper, FileSystemHelper fileSystemHelper)
+        {
+            this.serializationHelper = serializationHelper;
+            this.fileSystemHelper = fileSystemHelper;
+        }
 
         public void Add(Template template)
         {
             var surrogate = template.ToSurrogate();
+            var directoryPath = this.fileSystemHelper.CombinePaths(RootDirectory, template.Path.ToFileSystemPath());
 
-            Templates.Add(string.Join("+", template.Path), template);
+            if (!this.fileSystemHelper.DirectoryExists(directoryPath))
+            {
+                this.fileSystemHelper.CreateDirectory(directoryPath);
+            }
+
+            var path = this.fileSystemHelper.CombinePaths(directoryPath, TemplateFileName);
+            this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
         }
 
-        public Template Get(IEnumerable<string> path)
+        public Template Get(IEnumerable<string> templatePath)
         {
-            var fancyPath = string.Join("+", path);
-            return Templates.ContainsKey(fancyPath)
-                ? Templates[fancyPath] 
-                : null;
+            var path = this.fileSystemHelper.CombinePaths(RootDirectory, templatePath.ToFileSystemPath(), TemplateFileName);
 
-            //var template = new Template(path);
+            if (!this.fileSystemHelper.FileExists(path))
+            {
+                return null;
+            }
 
-            //var component0 = new Component("component 0");
-            //template.AddComponent(component0);
-
-            //var component00 = new Component("component 0.0");
-            //component0.AddComponent(component00);
-
-            //var component000 = new Component("component 0.0.0");
-            //component00.AddComponent(component000);
-
-            //var component1 = new Component("component 1");
-            //template.AddComponent(component1);
-
-            //var component10 = new Component("component 1.0");
-            //component1.AddComponent(component10);
-
-            //var component2 = new Component("component 2");
-            //template.AddComponent(component2);
-
-            //var component20 = new Component("component 2.0");
-            //component2.AddComponent(component20);
-
-            //return template;
+            var surrogate = this.serializationHelper.Deserialize<TemplateSurrogate>(path);
+            return surrogate.ToDomain(templatePath);
         }
 
         public void Update(Template template)
         {
             var surrogate = template.ToSurrogate();
-
+            var path = this.fileSystemHelper.CombinePaths(RootDirectory, template.Path.ToFileSystemPath(), TemplateFileName);
+            this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
         }
     }
 }

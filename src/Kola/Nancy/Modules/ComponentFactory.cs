@@ -8,7 +8,7 @@
     {
         public IComponent Create(string type)
         {
-            return new Component(type);
+            return new CompositeComponent(type);
         }
     }
 }

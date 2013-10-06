@@ -23,11 +23,12 @@
             this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.PutTemplate(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAddComponentAmendment(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostMoveComponentAmendment(p.templatePath);
+            this.Post["/_kola/templates/{templatePath*}/_amendments/apply", AcceptHeaderFilters.NotHtml] = p => this.PostApplyAmendments(p.templatePath);
         }
 
         private dynamic GetTemplate(string rawTemplatePath)
         {
-            var templatePath = rawTemplatePath.Split('/');
+            var templatePath = rawTemplatePath.ParseTemplatePath();
             var template = this.templateRepository.Get(templatePath);
 
             if (template == null) return HttpStatusCode.NotFound;
@@ -43,7 +44,7 @@
 
         private dynamic PutTemplate(string rawTemplatePath)
         {
-            var templatePath = rawTemplatePath.Split('/');
+            var templatePath = rawTemplatePath.ParseTemplatePath();
 
             var existingTemplate = this.templateRepository.Get(templatePath);
             if (existingTemplate != null)
@@ -67,12 +68,12 @@
 
         private dynamic PostMoveComponentAmendment(string rawTemplatePath)
         {
-            return this.PostAmendment(rawTemplatePath, this.Bind<AddComponentAmendmentResource>().ToDomain());
+            return this.PostAmendment(rawTemplatePath, this.Bind<MoveComponentAmendmentResource>().ToDomain());
         }
 
         private dynamic PostAmendment(string rawTemplatePath, Amendment amendment)
         {
-            var templatePath = rawTemplatePath.Split('/');
+            var templatePath = rawTemplatePath.ParseTemplatePath();
             var template = this.templateRepository.Get(templatePath);
 
             if (template == null) return HttpStatusCode.NotFound;
@@ -83,5 +84,20 @@
 
             return HttpStatusCode.Created;
         }
+
+        private dynamic PostApplyAmendments(string rawTemplatePath)
+        {
+            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var template = this.templateRepository.Get(templatePath);
+
+            if (template == null) return HttpStatusCode.NotFound;
+
+            template.ApplyAmendments(this.componentFactory, reset: true);
+
+            this.templateRepository.Update(template);
+
+            return HttpStatusCode.Created;
+        }
+
     }
 }

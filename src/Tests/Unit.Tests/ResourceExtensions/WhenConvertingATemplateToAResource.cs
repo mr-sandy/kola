@@ -20,13 +20,13 @@
             var templatePath = new[] { "test", "path" };
             var template = new Template(templatePath);
 
-            var child1 = new Composite("child1");
+            var child1 = new CompositeComponent("child1");
             template.AddComponent(child1);
 
-            var grandchild1 = new Component("grandchild1");
+            var grandchild1 = new SimpleComponent("grandchild1");
             child1.AddComponent(grandchild1);
 
-            var child2 = new Component("child2");
+            var child2 = new SimpleComponent("child2");
             template.AddComponent(child2);
 
             this.templateResource = template.ToResource();
