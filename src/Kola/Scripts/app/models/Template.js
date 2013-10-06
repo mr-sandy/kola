@@ -45,21 +45,54 @@
         componentPath: '',
 
         addComponent: function (args) {
+            var self = this;
             var amendment = new AddComponentAmendment(args);
             this.get('amendments').add(amendment);
-            amendment.save();
+            amendment.save()
+            .then(function (data) {
+                var componentPath = _.find(data.links, function (l) { return l.rel == "componentPath"; }).href;
+                var component = self.findChild(componentPath.split('/'));
+                component.parse(data);
+            });
         },
 
         moveComponent: function (args) {
+            var self = this;
             var amendment = new MoveComponentAmendment(args);
             this.get('amendments').add(amendment);
-            amendment.save();
+            amendment.save()
+            .then(function (data) {
+                alert(data);
+            });
         },
 
         applyAmendments: function () {
             var applyAmendmentRequest = new ApplyAmendmentRequest();
             this.get('amendments').add(applyAmendmentRequest);
             applyAmendmentRequest.save();
+        },
+
+        findChild: function (componentPath) {
+
+            if (componentPath.length == 0) {
+                return this;
+            }
+
+            var index = componentPath[0];
+            var remainder = componentPath.slice(1);
+            var components = this.get('components');
+
+            if (index >= components.length) {
+                throw "Component index outside bounds";
+            }
+
+            var component = components.at(index);
+
+            if (remainder.length == 0) {
+                return component;
+            }
+
+            return component.findChild(remainder);
         }
     });
 });

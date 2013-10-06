@@ -22,5 +22,10 @@
         {
             visitor.Visit(this);
         }
+
+        public override IEnumerable<int> GetRootComponent()
+        {
+            return this.ComponentPath;
+        }
     }
 }

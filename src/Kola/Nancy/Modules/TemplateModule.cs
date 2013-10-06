@@ -82,7 +82,13 @@
 
             this.templateRepository.Update(template);
 
-            return HttpStatusCode.Created;
+            template.ApplyAmendments(this.componentFactory);
+
+            var rootComponentIndex = amendment.GetRootComponent();
+
+            var snippet = template.FindChild(rootComponentIndex);
+
+            return this.Response.AsJson(snippet.ToResource(rootComponentIndex)).WithStatusCode(HttpStatusCode.Created);
         }
 
         private dynamic PostApplyAmendments(string rawTemplatePath)
@@ -98,6 +104,5 @@
 
             return HttpStatusCode.Created;
         }
-
     }
 }

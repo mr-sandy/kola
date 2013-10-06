@@ -47,6 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\WhenConfiguringAPlugInAtom.cs" />
+    <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapOfEqualLists.cs" />
+    <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapOfNonEmptyLists.cs" />
+    <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapWithOneEmptyLists.cs" />
+    <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapWithTwoeEmptyLists.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResourceExtensions\WhenConvertingATemplateToAResource.cs" />
     <Compile Include="Templates\ContextBase.cs" />

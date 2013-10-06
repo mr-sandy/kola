@@ -30,6 +30,8 @@
             if (!ComponentView) {
                 ComponentView = require('app/views/ComponentView');
             }
+
+            this.model.on('change', this.render, this);
         },
 
         render: function () {

@@ -1,6 +1,9 @@
 ﻿namespace Kola.Domain
 {
+    using System;
     using System.Collections.Generic;
+
+    using Kola.Extensions;
 
     public class MoveComponentAmendment : Amendment
     {
@@ -20,6 +23,11 @@
         public override void Accept(IAmendmentVisitor visitor)
         {
             visitor.Visit(this);
+        }
+
+        public override IEnumerable<int> GetRootComponent()
+        {
+            return this.ComponentPath.GetOverlap(this.ParentComponentPath);
         }
     }
 }

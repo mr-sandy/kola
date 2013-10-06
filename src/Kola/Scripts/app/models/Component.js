@@ -28,12 +28,38 @@
             });
         },
 
+        parse: function (resp, xhr) {
+            return _.omit(resp, 'components');
+        },
+
         addComponent: function (args) {
             this.trigger('addComponent', args);
         },
 
         moveComponent: function (args) {
             this.trigger('moveComponent', args);
+        },
+
+        findChild: function (componentPath) {
+            if (componentPath.length == 0) {
+                return this;
+            }
+
+            var index = componentPath[0];
+            var remainder = componentPath.slice(1);
+            var components = this.get('components');
+
+            if (index >= components.length) {
+                throw "Component index outside bounds";
+            }
+
+            var component = components.at(index);
+
+            if (remainder.length == 0) {
+                return component;
+            }
+
+            return component.findChild(remainder);
         }
 
     });
