@@ -10,25 +10,27 @@
 
     return Backbone.Model.extend(
     {
-        initialize: function (data) {
-
-            if (!Component) {
-                Component = require('app/models/Component');
-            }
-
-            this.set('componentPath', _.find(data.links, function (l) { return l.rel == "componentPath"; }).href);
-
-            var components = new Components(_.map(data.components, function (value) { return new Component(value); }));
-            this.set('components', components);
-
+        initialize: function () {
             var self = this;
 
-            components.on("all", function (eventName, args) {
+            this.get('components').on("all", function (eventName, args) {
                 self.trigger(eventName, args);
             });
         },
 
         parse: function (resp, xhr) {
+
+            if (!Component) { Component = require('app/models/Component'); }
+
+            this.set('componentPath', _.find(resp.links, function (l) { return l.rel == "componentPath"; }).href);
+
+            if (this.get('components')) {
+                this.get('components').reset(resp.components, { parse: true });
+            }
+            else {
+                this.set('components', new Components(resp.components, { parse: true, model: Component }));
+            }
+
             return _.omit(resp, 'components');
         },
 
@@ -61,6 +63,5 @@
 
             return component.findChild(remainder);
         }
-
     });
 });

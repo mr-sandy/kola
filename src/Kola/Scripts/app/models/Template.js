@@ -19,25 +19,23 @@
     return Backbone.Model.extend(
     {
         initialize: function () {
-            var components = new Components();
-            components.on(
+            var self = this;
+
+            if (!Component) { Component = require('app/models/Component'); }
+
+            this.set('amendments', new Amendments([], { url: function () { return this.combineUrls(self.url, '_amendments') } }));
+            this.set('components', new Components([], { model: Component }));
+
+            this.get('components').on(
             {
                 "addComponent": this.addComponent,
                 "moveComponent": this.moveComponent
             }, this);
-
-            this.set('components', components);
-            var self = this;
-            this.set('amendments', new Amendments([], { url: function () { return this.combineUrls(self.url, '_amendments') } }));
         },
 
         parse: function (resp, xhr) {
 
-            var components = _.map(resp.components, function (value) {
-                return new Component(value);
-            });
-
-            this.get('components').reset(components);
+            this.get('components').reset(resp.components, { parse: true });
 
             return _.omit(resp, 'components');
         },
@@ -73,7 +71,6 @@
         },
 
         findChild: function (componentPath) {
-
             if (componentPath.length == 0) {
                 return this;
             }
