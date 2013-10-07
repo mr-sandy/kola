@@ -31,10 +31,13 @@
                 ComponentView = require('app/views/ComponentView');
             }
 
-            this.model.on('change', this.render, this);
+            this.model.on('reset', function () {
+                alert(this.model.get('componentPath'));
+                this.render();
+            }, this);
         },
 
-        render: function () {
+        render: function (append) {
             var $element = $(this.template(this.model.omit('components')));
 
             this.$container = (this.isChild)
@@ -48,7 +51,12 @@
                 stop: this.handleStop
             });
 
-            this.$el.append($element);
+            if (append) {
+                this.$el.append($element);
+            }
+            else {
+                this.$el.html($element);
+            }
 
             this.model.get('components').each(this.renderChild, this);
 
@@ -56,7 +64,15 @@
         },
 
         renderChild: function (component) {
-            this.assign(new ComponentView({ model: component, isChild: true }), this.$container);
+            //            this.assign(new ComponentView({ model: component, isChild: true }), this.$container);
+
+            //            var html = new ComponentView({ model: component, isChild: true }).render();
+            //            this.$container.append($(html).find('li'));
+            //            //            var $item = this.$container.append('<li></li>');
+            //            //            this.assign(new ComponentView({ model: component, isChild: true }), $item);
+
+            var view = new ComponentView({ model: component, isChild: true });
+            view.setElement(this.$container).render(true);
         },
 
         handleStop: function (event, ui) {

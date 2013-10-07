@@ -13,9 +13,13 @@
         initialize: function () {
             var self = this;
 
-            this.get('components').on("all", function (eventName, args) {
+            this.get('components').on('all', function (eventName, args) {
                 self.trigger(eventName, args);
             });
+
+//            this.get('components').on('reset', function (eventName, args) {
+//                self.trigger('change', args);
+//            });
         },
 
         parse: function (resp, xhr) {
@@ -43,7 +47,7 @@
         },
 
         findChild: function (componentPath) {
-            if (componentPath.length == 0) {
+            if (componentPath.length == 0 || componentPath[0] == '') {
                 return this;
             }
 
