@@ -17,9 +17,9 @@
     return Backbone.View.extend({
 
         template: function (data) {
-            return (this.isChild)
-                ? Handlebars.compile(ComponentTemplate)(data)
-                : Handlebars.compile(RootComponentTemplate)(data);
+            return (this.isRoot)
+                ? Handlebars.compile(RootComponentTemplate)(data)
+                : Handlebars.compile(ComponentTemplate)(data);
         },
 
         initialize: function (args) {
@@ -27,7 +27,7 @@
 
             _.bindAll(this, 'handleStop');
 
-            this.isChild = args.isChild;
+            this.isRoot = args.isRoot;
 
             this.model.on('updated', this.render, this);
         },
@@ -35,9 +35,9 @@
         render: function (append) {
             var $element = $(this.template(this.model.omit('components')));
 
-            this.$container = (this.isChild)
-                ? $element.find('ul').filter(':first')
-                : $element;
+            this.$container = (this.isRoot)
+                ? $element
+                : $element.find('ul').filter(':first');
 
             this.$container.sortable({
                 opacity: 0.75,
@@ -46,12 +46,20 @@
                 stop: this.handleStop
             });
 
-            if (append) {
-                this.$el.append($element);
-            }
-            else {
+            if (this.isRoot) {
                 this.$el.html($element);
             }
+            else {
+                this.$el.replaceWith($element);
+                this.$el = $element;
+            }
+
+            //            if (append) {
+            //                this.$el.append($element);
+            //            }
+            //            else {
+            //                this.$el.html($element);
+            //            }
 
             this.model.get('components').each(this.renderChild, this);
 
@@ -59,8 +67,9 @@
         },
 
         renderChild: function (component) {
-            var view = new ComponentView({ model: component, isChild: true });
-            view.setElement(this.$container).render(true);
+            var view = new ComponentView({ model: component });
+            this.$container.append('<li class="placeholder"></li>');
+            view.setElement(this.$container.find('li.placeholder')).render(true);
         },
 
         handleStop: function (event, ui) {

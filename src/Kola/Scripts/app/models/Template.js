@@ -25,8 +25,8 @@
 
             initialize: function () {
                 var self = this;
-                
-                _.bindAll(this, '_updateModel');
+
+                _.bindAll(this, '_updateModel', '_showFailure');
 
                 if (!Component) { Component = require('app/models/Component'); }
 
@@ -48,20 +48,15 @@
             },
 
             addComponent: function (args) {
-                var self = this;
                 var amendment = new AddComponentAmendment(args);
                 this.get('amendments').add(amendment);
-                amendment.save().then(self._updateModel);
+                amendment.save().then(this._updateModel).fail(this._showFailure);
             },
 
             moveComponent: function (args) {
-                var self = this;
                 var amendment = new MoveComponentAmendment(args);
                 this.get('amendments').add(amendment);
-                amendment.save()
-                    .then(function (data) {
-                        alert('hello ' + data);
-                    });
+                amendment.save().then(this._updateModel);
             },
 
             applyAmendments: function () {
@@ -75,6 +70,10 @@
                 var component = this._findChild(componentPath.split('/'));
                 component.set(component.parse(data));
                 component.trigger('updated');
+            },
+
+            _showFailure: function (data) {
+                alert('fail fail fail');
             }
         },
         CompositeComponent));

@@ -19,7 +19,8 @@
         initialize: function () {
             this.toolboxView = new ToolboxView();
             this.componentView = new ComponentView({
-                model: this.model
+                model: this.model,
+                isRoot: true 
             });
         },
 
