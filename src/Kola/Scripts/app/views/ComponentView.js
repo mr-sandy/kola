@@ -31,8 +31,8 @@
                 ComponentView = require('app/views/ComponentView');
             }
 
-            this.model.on('reset', function () {
-                alert(this.model.get('componentPath'));
+            this.model.on('badger', function () {
+                alert('jam' + this.model.get('componentPath'));
                 this.render();
             }, this);
         },
@@ -64,13 +64,6 @@
         },
 
         renderChild: function (component) {
-            //            this.assign(new ComponentView({ model: component, isChild: true }), this.$container);
-
-            //            var html = new ComponentView({ model: component, isChild: true }).render();
-            //            this.$container.append($(html).find('li'));
-            //            //            var $item = this.$container.append('<li></li>');
-            //            //            this.assign(new ComponentView({ model: component, isChild: true }), $item);
-
             var view = new ComponentView({ model: component, isChild: true });
             view.setElement(this.$container).render(true);
         },

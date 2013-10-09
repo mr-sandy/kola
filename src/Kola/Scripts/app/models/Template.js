@@ -35,7 +35,7 @@
 
         parse: function (resp, xhr) {
 
-            this.get('components').reset(resp.components, { parse: true });
+            this.get('components').set(resp.components, { parse: true });
 
             return _.omit(resp, 'components');
         },
@@ -50,7 +50,8 @@
             .then(function (data) {
                 var componentPath = _.find(data.links, function (l) { return l.rel == "componentPath"; }).href;
                 var component = self.findChild(componentPath.split('/'));
-                component.parse(data);
+                component.set(component.parse(data));
+                component.trigger('badger');
             });
         },
 
@@ -60,7 +61,7 @@
             this.get('amendments').add(amendment);
             amendment.save()
             .then(function (data) {
-                alert(data);
+                alert('hello ' + data);
             });
         },
 

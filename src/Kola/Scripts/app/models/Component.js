@@ -13,27 +13,31 @@
         initialize: function () {
             var self = this;
 
-            this.get('components').on('all', function (eventName, args) {
-                self.trigger(eventName, args);
+            this.get('components').on('addComponent', function (args) {
+                self.trigger('addComponent', args);
             });
 
-//            this.get('components').on('reset', function (eventName, args) {
-//                self.trigger('change', args);
-//            });
+            this.get('components').on('moveComponent', function (args) {
+                self.trigger('moveComponent', args);
+            });
         },
+
+        idAttribute: 'componentPath',
 
         parse: function (resp, xhr) {
 
             if (!Component) { Component = require('app/models/Component'); }
 
-            this.set('componentPath', _.find(resp.links, function (l) { return l.rel == "componentPath"; }).href);
+            if (!this.get('components')) {
+                this.set('components', new Components([], { parse: true, model: Component }));
+            }
 
-            if (this.get('components')) {
-                this.get('components').reset(resp.components, { parse: true });
-            }
-            else {
-                this.set('components', new Components(resp.components, { parse: true, model: Component }));
-            }
+            this.get('components').set(resp.components, { parse: true });
+
+            resp = _.extend(resp,
+            {
+                'componentPath': _.find(resp.links, function (l) { return l.rel == "componentPath"; }).href
+            });
 
             return _.omit(resp, 'components');
         },
