@@ -159,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
+    <EmbeddedResource Include="Scripts\app\models\CompositeComponent.js" />
     <EmbeddedResource Include="Scripts\app\models\ApplyAmendmentRequest.js" />
     <EmbeddedResource Include="Scripts\app\models\AddComponentAmendment.js" />
     <EmbeddedResource Include="Scripts\app\models\MoveComponentAmendment.js" />

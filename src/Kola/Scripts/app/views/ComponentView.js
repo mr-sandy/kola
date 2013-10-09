@@ -23,18 +23,13 @@
         },
 
         initialize: function (args) {
+            if (!ComponentView) { ComponentView = require('app/views/ComponentView'); }
+
             _.bindAll(this, 'handleStop');
 
             this.isChild = args.isChild;
 
-            if (!ComponentView) {
-                ComponentView = require('app/views/ComponentView');
-            }
-
-            this.model.on('badger', function () {
-                alert('jam' + this.model.get('componentPath'));
-                this.render();
-            }, this);
+            this.model.on('updated', this.render, this);
         },
 
         render: function (append) {

@@ -3,45 +3,19 @@
   <components>
     <compositeComponent name="/_kola/component-types/component-type-1">
       <components>
-        <compositeComponent name="/_kola/component-types/component-type-1">
+        <compositeComponent name="/_kola/component-types/component-type-3">
           <components />
         </compositeComponent>
-        <compositeComponent name="/_kola/component-types/component-type-2">
-          <components />
+        <compositeComponent name="/_kola/component-types/component-type-1">
+          <components>
+            <compositeComponent name="/_kola/component-types/component-type-1">
+              <components />
+            </compositeComponent>
+          </components>
         </compositeComponent>
       </components>
     </compositeComponent>
   </components>
   <amendments>
-    <addComponent>
-      <componentType>/_kola/component-types/component-type-1</componentType>
-      <componentPath>0/0</componentPath>
-      <index>0</index>
-    </addComponent>
-    <addComponent>
-      <componentType>/_kola/component-types/component-type-1</componentType>
-      <componentPath>0</componentPath>
-      <index>0</index>
-    </addComponent>
-    <addComponent>
-      <componentType>/_kola/component-types/component-type-1</componentType>
-      <componentPath>0/0</componentPath>
-      <index>0</index>
-    </addComponent>
-    <addComponent>
-      <componentType>/_kola/component-types/component-type-1</componentType>
-      <componentPath>0/0/0</componentPath>
-      <index>0</index>
-    </addComponent>
-    <addComponent>
-      <componentType>/_kola/component-types/component-type-2</componentType>
-      <componentPath>0/0</componentPath>
-      <index>0</index>
-    </addComponent>
-    <addComponent>
-      <componentType>/_kola/component-types/component-type-2</componentType>
-      <componentPath>0/0</componentPath>
-      <index>0</index>
-    </addComponent>
   </amendments>
 </template>

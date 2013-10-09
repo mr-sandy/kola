@@ -1,6 +1,7 @@
 ﻿define([
     'backbone',
     'app/models/Component',
+    'app/models/CompositeComponent',
     'app/models/AddComponentAmendment',
     'app/models/MoveComponentAmendment',
     'app/models/ApplyAmendmentRequest',
@@ -9,6 +10,7 @@
 ], function (
     Backbone,
     Component,
+    CompositeComponent,
     AddComponentAmendment,
     MoveComponentAmendment,
     ApplyAmendmentRequest,
@@ -17,80 +19,63 @@
     'use strict';
 
     return Backbone.Model.extend(
-    {
-        initialize: function () {
-            var self = this;
+    _.extend(
+        {
+            componentPath: '',
 
-            if (!Component) { Component = require('app/models/Component'); }
+            initialize: function () {
+                var self = this;
+                
+                _.bindAll(this, '_updateModel');
 
-            this.set('amendments', new Amendments([], { url: function () { return this.combineUrls(self.url, '_amendments') } }));
-            this.set('components', new Components([], { model: Component }));
+                if (!Component) { Component = require('app/models/Component'); }
 
-            this.get('components').on(
-            {
-                "addComponent": this.addComponent,
-                "moveComponent": this.moveComponent
-            }, this);
-        },
+                this.set('amendments', new Amendments([], { url: function () { return this.combineUrls(self.url, '_amendments') } }));
+                this.set('components', new Components([], { model: Component }));
 
-        parse: function (resp, xhr) {
+                this.get('components').on(
+                            {
+                                "addComponent": this.addComponent,
+                                "moveComponent": this.moveComponent
+                            }, this);
+            },
 
-            this.get('components').set(resp.components, { parse: true });
+            parse: function (resp, xhr) {
 
-            return _.omit(resp, 'components');
-        },
+                this.get('components').set(resp.components, { parse: true });
 
-        componentPath: '',
+                return _.omit(resp, 'components');
+            },
 
-        addComponent: function (args) {
-            var self = this;
-            var amendment = new AddComponentAmendment(args);
-            this.get('amendments').add(amendment);
-            amendment.save()
-            .then(function (data) {
+            addComponent: function (args) {
+                var self = this;
+                var amendment = new AddComponentAmendment(args);
+                this.get('amendments').add(amendment);
+                amendment.save().then(self._updateModel);
+            },
+
+            moveComponent: function (args) {
+                var self = this;
+                var amendment = new MoveComponentAmendment(args);
+                this.get('amendments').add(amendment);
+                amendment.save()
+                    .then(function (data) {
+                        alert('hello ' + data);
+                    });
+            },
+
+            applyAmendments: function () {
+                var applyAmendmentRequest = new ApplyAmendmentRequest();
+                this.get('amendments').add(applyAmendmentRequest);
+                applyAmendmentRequest.save();
+            },
+
+            _updateModel: function (data) {
                 var componentPath = _.find(data.links, function (l) { return l.rel == "componentPath"; }).href;
-                var component = self.findChild(componentPath.split('/'));
+                var component = this._findChild(componentPath.split('/'));
                 component.set(component.parse(data));
-                component.trigger('badger');
-            });
-        },
-
-        moveComponent: function (args) {
-            var self = this;
-            var amendment = new MoveComponentAmendment(args);
-            this.get('amendments').add(amendment);
-            amendment.save()
-            .then(function (data) {
-                alert('hello ' + data);
-            });
-        },
-
-        applyAmendments: function () {
-            var applyAmendmentRequest = new ApplyAmendmentRequest();
-            this.get('amendments').add(applyAmendmentRequest);
-            applyAmendmentRequest.save();
-        },
-
-        findChild: function (componentPath) {
-            if (componentPath.length == 0 || componentPath[0] == '') {
-                return this;
+                component.trigger('updated');
             }
-
-            var index = componentPath[0];
-            var remainder = componentPath.slice(1);
-            var components = this.get('components');
-
-            if (index >= components.length) {
-                throw "Component index outside bounds";
-            }
-
-            var component = components.at(index);
-
-            if (remainder.length == 0) {
-                return component;
-            }
-
-            return component.findChild(remainder);
-        }
-    });
+        },
+        CompositeComponent));
 });

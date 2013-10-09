@@ -1,75 +1,69 @@
 ﻿define([
     'backbone',
     'app/models/Component',
+    'app/models/CompositeComponent',
     'app/collections/Components'
 ], function (
     Backbone,
     Component,
+    CompositeComponent,
     Components) {
     'use strict';
 
     return Backbone.Model.extend(
-    {
-        initialize: function () {
-            var self = this;
+    _.extend(
+        {
+            idAttribute: 'componentPath',
 
-            this.get('components').on('addComponent', function (args) {
-                self.trigger('addComponent', args);
-            });
+            initialize: function () {
+                var self = this;
 
-            this.get('components').on('moveComponent', function (args) {
-                self.trigger('moveComponent', args);
-            });
-        },
+                this.get('components').on('addComponent', function (args) {
+                    self.trigger('addComponent', args);
+                });
 
-        idAttribute: 'componentPath',
+                this.get('components').on('moveComponent', function (args) {
+                    self.trigger('moveComponent', args);
+                });
+            },
 
-        parse: function (resp, xhr) {
+            parse: function (resp, xhr) {
 
-            if (!Component) { Component = require('app/models/Component'); }
+                var components = this._getOrSetComponents();
 
-            if (!this.get('components')) {
-                this.set('components', new Components([], { parse: true, model: Component }));
+                components.set(resp.components, { parse: true });
+
+                resp = _.extend(resp,
+                            {
+                                'componentPath': _.find(resp.links, function (l) { return l.rel == "componentPath"; }).href
+                            });
+
+                return _.omit(resp, 'components');
+            },
+
+            addComponent: function (args) {
+                this.trigger('addComponent', args);
+            },
+
+            moveComponent: function (args) {
+                this.trigger('moveComponent', args);
+            },
+
+            _getOrSetComponents: function () {
+
+                var components = this.get('components');
+
+                if (!components) {
+                    if (!Component) { Component = require('app/models/Component'); }
+
+                    components = new Components([], { parse: true, model: Component });
+
+                    this.set('components', components);
+                }
+
+                return components;
             }
 
-            this.get('components').set(resp.components, { parse: true });
-
-            resp = _.extend(resp,
-            {
-                'componentPath': _.find(resp.links, function (l) { return l.rel == "componentPath"; }).href
-            });
-
-            return _.omit(resp, 'components');
         },
-
-        addComponent: function (args) {
-            this.trigger('addComponent', args);
-        },
-
-        moveComponent: function (args) {
-            this.trigger('moveComponent', args);
-        },
-
-        findChild: function (componentPath) {
-            if (componentPath.length == 0 || componentPath[0] == '') {
-                return this;
-            }
-
-            var index = componentPath[0];
-            var remainder = componentPath.slice(1);
-            var components = this.get('components');
-
-            if (index >= components.length) {
-                throw "Component index outside bounds";
-            }
-
-            var component = components.at(index);
-
-            if (remainder.length == 0) {
-                return component;
-            }
-
-            return component.findChild(remainder);
-        }
-    });
+        CompositeComponent));
 });
