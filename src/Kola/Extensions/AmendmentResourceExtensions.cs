@@ -20,5 +20,10 @@
                 resource.ComponentPath.ParseComponentPath(),
                 resource.Index);
         }
+
+        public static DeleteComponentAmendment ToDomain(this DeleteComponentAmendmentResource resource)
+        {
+            return new DeleteComponentAmendment(resource.ComponentPath.ParseComponentPath());
+        }
     }
 }

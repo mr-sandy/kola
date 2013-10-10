@@ -5,5 +5,7 @@
         void Visit(AddComponentAmendment amendment);
 
         void Visit(MoveComponentAmendment amendment);
+
+        void Visit(DeleteComponentAmendment amendment);
     }
 }

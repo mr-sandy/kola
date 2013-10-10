@@ -55,6 +55,8 @@
       -webkit-border-radius: 8px;
       -moz-border-radius: 8px;
       border-radius: 8px; }
+      #blockEditor ul li .delete {
+        float: right; }
       #blockEditor ul li.new {
         background-color: #fff;
         border: 3px #557 dotted;

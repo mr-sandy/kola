@@ -1,5 +1,6 @@
 ﻿namespace Kola.Domain
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -32,6 +33,14 @@
 
             sourceParent.RemoveComponentAt(amendment.ComponentPath.Last());
             targetParent.AddComponent(component, amendment.Index);
+        }
+
+        public void Visit(DeleteComponentAmendment amendment)
+        {
+            var index = amendment.ComponentPath.Last();
+            var parent = this.GetComposite(amendment.ComponentPath.TakeAllButLast());
+
+            parent.RemoveComponentAt(index);
         }
 
         private CompositeComponent GetComposite(IEnumerable<int> componentPath)

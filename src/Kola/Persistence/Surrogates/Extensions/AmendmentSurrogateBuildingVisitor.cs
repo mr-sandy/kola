@@ -23,5 +23,10 @@
         {
             this.amendmentSurrogates.Add(amendment.ToSurrogate());
         }
+
+        public void Visit(DeleteComponentAmendment amendment)
+        {
+            this.amendmentSurrogates.Add(amendment.ToSurrogate());
+        }
     }
 }

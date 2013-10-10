@@ -61,6 +61,10 @@
 			color: #557;
 			@include border-radius();
 
+			.delete {
+                float: right;
+            }
+
 			&.new {
                 background-color: #fff;
 				border: 3px #557 dotted;

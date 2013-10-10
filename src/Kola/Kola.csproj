@@ -64,6 +64,7 @@
     <Compile Include="Domain\ComponentType.cs" />
     <Compile Include="Domain\CompositeComponent.cs" />
     <Compile Include="Domain\Component.cs" />
+    <Compile Include="Domain\DeleteComponentAmendment.cs" />
     <Compile Include="Domain\DomainException.cs" />
     <Compile Include="Domain\IAmendmentVisitor.cs" />
     <Compile Include="Domain\IComponentVisitor.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Persistence\Surrogates\AmendmentSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\ComponentSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\CompositeComponentSurrogate.cs" />
+    <Compile Include="Persistence\Surrogates\DeleteComponentAmendmentSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\Extensions\AmendmentBuildingVisitor.cs" />
     <Compile Include="Persistence\Surrogates\Extensions\AmendmentExtensions.cs" />
     <Compile Include="Persistence\Surrogates\Extensions\AmendmentSurrogateBuildingVisitor.cs" />
@@ -150,6 +152,7 @@
     <Compile Include="Resources\ComponentResource.cs" />
     <Compile Include="Resources\ComponentTypeResource.cs" />
     <Compile Include="Resources\CompositeResource.cs" />
+    <Compile Include="Resources\DeleteComponentAmendmentResource.cs" />
     <Compile Include="Resources\LinkResource.cs" />
     <Compile Include="Resources\MoveComponentAmendmentResource.cs" />
     <Compile Include="Resources\TemplateResource.cs" />
@@ -159,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
+    <EmbeddedResource Include="Scripts\app\models\DeleteComponentAmendment.js" />
     <EmbeddedResource Include="Scripts\app\models\CompositeComponent.js" />
     <EmbeddedResource Include="Scripts\app\models\ApplyAmendmentRequest.js" />
     <EmbeddedResource Include="Scripts\app\models\AddComponentAmendment.js" />

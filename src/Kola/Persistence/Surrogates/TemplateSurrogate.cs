@@ -13,6 +13,7 @@
         [XmlArray("amendments")]
         [XmlArrayItem(typeof(AddComponentAmendmentSurrogate))]
         [XmlArrayItem(typeof(MoveComponentAmendmentSurrogate))]
+        [XmlArrayItem(typeof(DeleteComponentAmendmentSurrogate))]
         public AmendmentSurrogate[] Amendments { get; set; }
 
     }

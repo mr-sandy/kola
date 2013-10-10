@@ -1,6 +1,5 @@
 ﻿namespace Kola.Domain
 {
-    using System;
     using System.Collections.Generic;
 
     using Kola.Extensions;

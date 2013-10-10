@@ -23,6 +23,7 @@
             this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.PutTemplate(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAddComponentAmendment(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostMoveComponentAmendment(p.templatePath);
+            this.Post["/_kola/templates/{templatePath*}/_amendments/deleteComponent", AcceptHeaderFilters.NotHtml] = p => this.PostDeleteComponentAmendment(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/apply", AcceptHeaderFilters.NotHtml] = p => this.PostApplyAmendments(p.templatePath);
         }
 
@@ -69,6 +70,11 @@
         private dynamic PostMoveComponentAmendment(string rawTemplatePath)
         {
             return this.PostAmendment(rawTemplatePath, this.Bind<MoveComponentAmendmentResource>().ToDomain());
+        }
+
+        private dynamic PostDeleteComponentAmendment(string rawTemplatePath)
+        {
+            return this.PostAmendment(rawTemplatePath, this.Bind<DeleteComponentAmendmentResource>().ToDomain());
         }
 
         private dynamic PostAmendment(string rawTemplatePath, Amendment amendment)

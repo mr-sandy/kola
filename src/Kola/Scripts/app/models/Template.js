@@ -4,6 +4,7 @@
     'app/models/CompositeComponent',
     'app/models/AddComponentAmendment',
     'app/models/MoveComponentAmendment',
+    'app/models/DeleteComponentAmendment',
     'app/models/ApplyAmendmentRequest',
     'app/collections/Components',
     'app/collections/Amendments'
@@ -13,6 +14,7 @@
     CompositeComponent,
     AddComponentAmendment,
     MoveComponentAmendment,
+    DeleteComponentAmendment,
     ApplyAmendmentRequest,
     Components,
     Amendments) {
@@ -30,14 +32,11 @@
 
                 if (!Component) { Component = require('app/models/Component'); }
 
-                this.set('amendments', new Amendments([], { url: function () { return this.combineUrls(self.url, '_amendments') } }));
-                this.set('components', new Components([], { model: Component }));
+                var components = new Components([], { model: Component });
+                components.template = this;
+                this.set('components', components);
 
-                this.get('components').on(
-                            {
-                                "addComponent": this.addComponent,
-                                "moveComponent": this.moveComponent
-                            }, this);
+                this.set('amendments', new Amendments([], { url: function () { return this.combineUrls(self.url, '_amendments') } }));
             },
 
             parse: function (resp, xhr) {
@@ -55,6 +54,12 @@
 
             moveComponent: function (args) {
                 var amendment = new MoveComponentAmendment(args);
+                this.get('amendments').add(amendment);
+                amendment.save().then(this._updateModel);
+            },
+
+            deleteComponent: function (args) {
+                var amendment = new DeleteComponentAmendment(args);
                 this.get('amendments').add(amendment);
                 amendment.save().then(this._updateModel);
             },

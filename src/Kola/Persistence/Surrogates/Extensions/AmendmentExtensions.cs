@@ -51,6 +51,14 @@
             };
         }
 
+        public static DeleteComponentAmendmentSurrogate ToSurrogate(this DeleteComponentAmendment amendment)
+        {
+            return new DeleteComponentAmendmentSurrogate
+            {
+                ComponentPath = amendment.ComponentPath.ToComponentPathString(),
+            };
+        }
+
         public static AddComponentAmendment ToDomain(this AddComponentAmendmentSurrogate surrogate)
         {
             return new AddComponentAmendment(surrogate.ComponentType, surrogate.ComponentPath.ParseComponentPath(), surrogate.Index);
@@ -59,6 +67,11 @@
         public static MoveComponentAmendment ToDomain(this MoveComponentAmendmentSurrogate surrogate)
         {
             return new MoveComponentAmendment(surrogate.ParentComponentPath.ParseComponentPath(), surrogate.ComponentPath.ParseComponentPath(), surrogate.Index);
+        }
+
+        public static DeleteComponentAmendment ToDomain(this DeleteComponentAmendmentSurrogate surrogate)
+        {
+            return new DeleteComponentAmendment(surrogate.ComponentPath.ParseComponentPath());
         }
     }
 }

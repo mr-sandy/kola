@@ -15,18 +15,6 @@
         {
             idAttribute: 'componentPath',
 
-            initialize: function () {
-                var self = this;
-
-                this.get('components').on('addComponent', function (args) {
-                    self.trigger('addComponent', args);
-                });
-
-                this.get('components').on('moveComponent', function (args) {
-                    self.trigger('moveComponent', args);
-                });
-            },
-
             parse: function (resp, xhr) {
 
                 var components = this._getOrSetComponents();
@@ -42,11 +30,15 @@
             },
 
             addComponent: function (args) {
-                this.trigger('addComponent', args);
+                this.collection.template.addComponent(args);
             },
 
             moveComponent: function (args) {
-                this.trigger('moveComponent', args);
+                this.collection.template.moveComponent(args);
+            },
+
+            deleteComponent: function (args) {
+                this.collection.template.deleteComponent(args);
             },
 
             _getOrSetComponents: function () {
@@ -56,8 +48,9 @@
                 if (!components) {
                     if (!Component) { Component = require('app/models/Component'); }
 
-                    components = new Components([], { parse: true, model: Component });
-
+                    components = new Components([], { model: Component });
+                    components.template = this.collection.template;
+                    if (!this.collection.template) { alert("holy moly!")}
                     this.set('components', components);
                 }
 

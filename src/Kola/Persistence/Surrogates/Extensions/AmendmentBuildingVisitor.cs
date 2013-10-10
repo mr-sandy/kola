@@ -1,5 +1,6 @@
 ﻿namespace Kola.Persistence.Surrogates.Extensions
 {
+    using System;
     using System.Collections.Generic;
 
     using Kola.Domain;
@@ -19,6 +20,11 @@
         }
 
         public void Visit(MoveComponentAmendmentSurrogate surrogate)
+        {
+            this.amendments.Add(surrogate.ToDomain());
+        }
+
+        public void Visit(DeleteComponentAmendmentSurrogate surrogate)
         {
             this.amendments.Add(surrogate.ToDomain());
         }

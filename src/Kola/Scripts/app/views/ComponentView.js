@@ -32,6 +32,10 @@
             this.model.on('updated', this.render, this);
         },
 
+        events: {
+            "click .delete": "handleDelete",
+        },
+
         render: function (append) {
             var $element = $(this.template(this.model.omit('components')));
 
@@ -53,13 +57,6 @@
                 this.$el.replaceWith($element);
                 this.$el = $element;
             }
-
-            //            if (append) {
-            //                this.$el.append($element);
-            //            }
-            //            else {
-            //                this.$el.html($element);
-            //            }
 
             this.model.get('components').each(this.renderChild, this);
 
@@ -90,6 +87,12 @@
                     index: ui.item.index()
                 });
             }
+        },
+
+        handleDelete: function(e){
+            this.model.deleteComponent({
+                componentPath: $(e.target).parent().attr('data-component-path')
+            });
         }
     });
 });
