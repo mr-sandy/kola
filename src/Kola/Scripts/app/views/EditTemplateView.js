@@ -25,7 +25,8 @@
         },
 
         events: {
-            'click #apply': 'apply'
+            'click #apply': 'apply',
+            'click #undo': 'undo'
         },
 
         render: function () {
@@ -36,6 +37,10 @@
 
         apply: function () {
             this.model.applyAmendments();
+        },
+
+        undo: function () {
+            this.model.undoAmendment();
         }
     });
 });

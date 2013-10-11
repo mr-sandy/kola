@@ -1,6 +1,8 @@
 ﻿namespace Kola.Domain
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using Kola.Nancy.Modules;
 
@@ -44,6 +46,18 @@
             {
                 this.amendments.Clear();
             }
+        }
+
+        public Amendment UndoAmendment()
+        {
+            if (this.amendments.Count > 0)
+            {
+                var lastAmendment = this.amendments.Last();
+                this.amendments.Remove(lastAmendment);
+                return lastAmendment;
+            }
+
+            return null;
         }
     }
 }

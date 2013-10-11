@@ -1,5 +1,7 @@
 ﻿namespace Kola.Nancy.Modules
 {
+    using System.Linq;
+
     using Kola.Domain;
     using Kola.Extensions;
     using Kola.Persistence;
@@ -25,6 +27,7 @@
             this.Post["/_kola/templates/{templatePath*}/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostMoveComponentAmendment(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/deleteComponent", AcceptHeaderFilters.NotHtml] = p => this.PostDeleteComponentAmendment(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/apply", AcceptHeaderFilters.NotHtml] = p => this.PostApplyAmendments(p.templatePath);
+            this.Post["/_kola/templates/{templatePath*}/_amendments/undo", AcceptHeaderFilters.NotHtml] = p => this.PostUndoAmendments(p.templatePath);
         }
 
         private dynamic GetTemplate(string rawTemplatePath)
@@ -109,6 +112,28 @@
             this.templateRepository.Update(template);
 
             return HttpStatusCode.Created;
+        }
+
+        private dynamic PostUndoAmendments(string rawTemplatePath)
+        {
+            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var template = this.templateRepository.Get(templatePath);
+
+            if (template == null) return HttpStatusCode.NotFound;
+
+            var lastAmendment = template.UndoAmendment();
+
+            this.templateRepository.Update(template);
+
+            template.ApplyAmendments(this.componentFactory);
+
+            var rootComponentIndex = (lastAmendment == null)
+                                         ? Enumerable.Empty<int>()
+                                         : lastAmendment.GetRootComponent();
+
+            var snippet = template.FindChild(rootComponentIndex);
+
+            return this.Response.AsJson(snippet.ToResource(rootComponentIndex)).WithStatusCode(HttpStatusCode.Created);
         }
     }
 }

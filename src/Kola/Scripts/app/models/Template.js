@@ -6,6 +6,7 @@
     'app/models/MoveComponentAmendment',
     'app/models/DeleteComponentAmendment',
     'app/models/ApplyAmendmentRequest',
+    'app/models/UndoAmendmentRequest',
     'app/collections/Components',
     'app/collections/Amendments'
 ], function (
@@ -16,6 +17,7 @@
     MoveComponentAmendment,
     DeleteComponentAmendment,
     ApplyAmendmentRequest,
+    UndoAmendmentRequest,
     Components,
     Amendments) {
     'use strict';
@@ -62,6 +64,12 @@
                 var amendment = new DeleteComponentAmendment(args);
                 this.get('amendments').add(amendment);
                 amendment.save().then(this._updateModel);
+            },
+
+            undoAmendment: function () {
+                var undoAmendmentRequest = new UndoAmendmentRequest();
+                this.get('amendments').add(undoAmendmentRequest);
+                undoAmendmentRequest.save().then(this._updateModel);
             },
 
             applyAmendments: function () {

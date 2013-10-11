@@ -162,6 +162,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
+    <EmbeddedResource Include="Scripts\app\models\UndoAmendmentRequest.js" />
     <EmbeddedResource Include="Scripts\app\models\DeleteComponentAmendment.js" />
     <EmbeddedResource Include="Scripts\app\models\CompositeComponent.js" />
     <EmbeddedResource Include="Scripts\app\models\ApplyAmendmentRequest.js" />
