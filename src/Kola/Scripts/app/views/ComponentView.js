@@ -29,7 +29,7 @@
 
             this.isRoot = args.isRoot;
 
-            this.model.on('updated', this.render, this);
+            this.model.on('change', this.render, this);
         },
 
         events: {

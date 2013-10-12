@@ -72,6 +72,8 @@
     <Compile Include="Domain\Page.cs" />
     <Compile Include="Domain\SimpleComponent.cs" />
     <Compile Include="Domain\Template.cs" />
+    <Compile Include="Extensions\AmendmentExtensions.cs" />
+    <Compile Include="Extensions\AmendmentResourceBuildingVisitor.cs" />
     <Compile Include="Extensions\CompositeExtensions.cs" />
     <Compile Include="Nancy\Conventions\EmbeddedStaticContentConventionBuilder.cs" />
     <Compile Include="Extensions\AmendmentResourceExtensions.cs" />
@@ -149,6 +151,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Nancy\TinyIoCObjectFactory.cs" />
     <Compile Include="Resources\AddComponentAmendmentResource.cs" />
+    <Compile Include="Resources\AmendmentResource.cs" />
     <Compile Include="Resources\ComponentResource.cs" />
     <Compile Include="Resources\ComponentTypeResource.cs" />
     <Compile Include="Resources\CompositeResource.cs" />

@@ -1,10 +1,12 @@
 ﻿define([
     'backbone',
+    'app/Config',
     'app/models/Component',
     'app/models/CompositeComponent',
     'app/collections/Components'
 ], function (
     Backbone,
+    Config,
     Component,
     CompositeComponent,
     Components) {
@@ -21,12 +23,16 @@
 
                 components.set(resp.components, { parse: true });
 
+                var componentPath = _.find(resp.links, function (l) { return l.rel == "self"; }).href;
+                this.url = this.combineUrls(Config.templatesRoot, componentPath);
+
                 resp = _.extend(resp,
                             {
-                                'componentPath': _.find(resp.links, function (l) { return l.rel == "componentPath"; }).href
+                                'componentPath': _.find(resp.links, function (l) { return l.rel == "componentPath"; }).href,
+                                'path': this.url
                             });
 
-                return _.omit(resp, 'components');
+                return _.omit(resp, 'components', 'amendments');
             },
 
             addComponent: function (args) {
@@ -50,7 +56,7 @@
 
                     components = new Components([], { model: Component });
                     components.template = this.collection.template;
-                    if (!this.collection.template) { alert("holy moly!")}
+                    if (!this.collection.template) { alert("holy moly!") }
                     this.set('components', components);
                 }
 

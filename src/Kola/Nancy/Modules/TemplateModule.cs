@@ -22,6 +22,7 @@
             this.componentFactory = componentFactory;
 
             this.Get["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
+            this.Get["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.GetComponent(p.templatePath, p.componentPath);
             this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.PutTemplate(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAddComponentAmendment(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostMoveComponentAmendment(p.templatePath);
@@ -40,6 +41,26 @@
             template.ApplyAmendments(this.componentFactory);
 
             var resource = template.ToResource();
+
+            return this.Response.AsJson(resource)
+                .WithStatusCode(HttpStatusCode.OK)
+                .WithHeader("location", string.Format("/{0}", rawTemplatePath));
+        }
+
+        private dynamic GetComponent(string rawTemplatePath, string rawComponentPath)
+        {
+            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var template = this.templateRepository.Get(templatePath);
+
+            if (template == null) return HttpStatusCode.NotFound;
+
+            template.ApplyAmendments(this.componentFactory);
+
+            var componentPath = rawComponentPath.ParseComponentPath();
+
+            var component = template.FindChild(componentPath);
+
+            var resource = component.ToResource(template.Path, componentPath);
 
             return this.Response.AsJson(resource)
                 .WithStatusCode(HttpStatusCode.OK)
@@ -97,7 +118,7 @@
 
             var snippet = template.FindChild(rootComponentIndex);
 
-            return this.Response.AsJson(snippet.ToResource(rootComponentIndex)).WithStatusCode(HttpStatusCode.Created);
+            return this.Response.AsJson(snippet.ToResource(Enumerable.Empty<string>(), rootComponentIndex)).WithStatusCode(HttpStatusCode.Created);
         }
 
         private dynamic PostApplyAmendments(string rawTemplatePath)
@@ -133,7 +154,7 @@
 
             var snippet = template.FindChild(rootComponentIndex);
 
-            return this.Response.AsJson(snippet.ToResource(rootComponentIndex)).WithStatusCode(HttpStatusCode.Created);
+            return this.Response.AsJson(snippet.ToResource(Enumerable.Empty<string>(), rootComponentIndex)).WithStatusCode(HttpStatusCode.Created);
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Kola.Resources
 {
-    public class AddComponentAmendmentResource
+    public class AddComponentAmendmentResource : AmendmentResource
     {
         public string ComponentType { get; set; }
 

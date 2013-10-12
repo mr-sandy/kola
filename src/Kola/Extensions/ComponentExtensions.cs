@@ -8,12 +8,12 @@
 
     internal static class ComponentExtensions
     {
-        public static ComponentResource ToResource(this Component component, IEnumerable<int> componentIndices)
+        public static ComponentResource ToResource(this Component component, IEnumerable<string> templatePath, IEnumerable<int> componentIndices)
         {
             var composite = component as CompositeComponent;
             var components = (composite == null)
                                  ? Enumerable.Empty<ComponentResource>()
-                                 : composite.Components.ToResource(componentIndices);
+                                 : composite.Components.ToResource(templatePath, componentIndices);
 
             return new ComponentResource
             {
@@ -25,6 +25,11 @@
                             {
                                 new LinkResource
                                     {
+                                        Rel = "self", 
+                                        Href = templatePath.Append("_components").Concat(componentIndices.Select(i => i.ToString())).ToHttpPath() 
+                                    },
+                                new LinkResource
+                                    {
                                         Rel = "componentPath", 
                                         Href = componentIndices.ToComponentPathString()
                                     }
@@ -32,7 +37,7 @@
             };
         }
 
-        public static IEnumerable<ComponentResource> ToResource(this IEnumerable<Component> components, IEnumerable<int> componentIndices = null)
+        public static IEnumerable<ComponentResource> ToResource(this IEnumerable<Component> components, IEnumerable<string> templatePath, IEnumerable<int> componentIndices = null)
         {
             var result = new List<ComponentResource>();
 
@@ -40,7 +45,7 @@
 
             for (var i = 0; i < components.Count(); i++)
             {
-                result.Add(components.ElementAt(i).ToResource(componentIndices.Append(i)));
+                result.Add(components.ElementAt(i).ToResource(templatePath, componentIndices.Append(i)));
             }
 
             return result;

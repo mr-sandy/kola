@@ -45,7 +45,7 @@
 
                 this.get('components').set(resp.components, { parse: true });
 
-                return _.omit(resp, 'components');
+                return _.omit(resp, 'components', 'amendments');
             },
 
             addComponent: function (args) {
@@ -81,8 +81,10 @@
             _updateModel: function (data) {
                 var componentPath = _.find(data.links, function (l) { return l.rel == "componentPath"; }).href;
                 var component = this._findChild(componentPath.split('/'));
-                component.set(component.parse(data));
-                component.trigger('updated');
+                //                component.set(component.parse(data));
+                component.fetch().then(function () {
+                    component.trigger('change');
+                });
             },
 
             _showFailure: function (data) {

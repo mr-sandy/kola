@@ -1,6 +1,6 @@
 ﻿namespace Kola.Resources
 {
-    public class MoveComponentAmendmentResource
+    public class MoveComponentAmendmentResource : AmendmentResource
     {
         public string ParentComponentPath { get; set; }
 
