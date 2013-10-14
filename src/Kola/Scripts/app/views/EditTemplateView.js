@@ -1,13 +1,15 @@
 ﻿define([
     'backbone',
     'handlebars',
-    'app/views/ToolboxView',
+    'app/views/AmendmentsView',
     'app/views/ComponentView',
+    'app/views/ToolboxView',
     'text!app/templates/EditTemplateTemplate.html'
 ], function (Backbone,
     Handlebars,
-    ToolboxView,
+    AmendmentsView,
     ComponentView,
+    ToolboxView,
     EditTemplateTemplate) {
 
     "use strict";
@@ -17,11 +19,14 @@
         template: Handlebars.compile(EditTemplateTemplate),
 
         initialize: function () {
-            this.toolboxView = new ToolboxView();
+            this.amendmentsView = new AmendmentsView({
+                model: this.model.amendments
+            });
             this.componentView = new ComponentView({
                 model: this.model,
                 isRoot: true 
             });
+            this.toolboxView = new ToolboxView();
         },
 
         events: {
@@ -31,8 +36,9 @@
 
         render: function () {
             this.$el.html(this.template());
-            this.assign(this.toolboxView, '#toolbox');
             this.assign(this.componentView, '#blockEditor');
+            this.assign(this.componentView, '#blockEditor');
+            this.assign(this.toolboxView, '#toolbox');
         },
 
         apply: function () {

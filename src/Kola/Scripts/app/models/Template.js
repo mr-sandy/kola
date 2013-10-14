@@ -44,6 +44,7 @@
             parse: function (resp, xhr) {
 
                 this.get('components').set(resp.components, { parse: true });
+                this.get('amendments').set(resp.amendments, { parse: true });
 
                 return _.omit(resp, 'components', 'amendments');
             },
