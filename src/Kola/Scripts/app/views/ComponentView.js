@@ -36,7 +36,7 @@
             "click .delete": "handleDelete",
         },
 
-        render: function (append) {
+        render: function () {
             var $element = $(this.template(this.model.omit('components')));
 
             this.$container = (this.isRoot)
@@ -66,7 +66,7 @@
         renderChild: function (component) {
             var view = new ComponentView({ model: component });
             this.$container.append('<li class="placeholder"></li>');
-            view.setElement(this.$container.find('li.placeholder')).render(true);
+            view.setElement(this.$container.find('li.placeholder')).render();
         },
 
         handleStop: function (event, ui) {

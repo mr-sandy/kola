@@ -1,5 +1,7 @@
 ﻿namespace Kola.Nancy.Modules
 {
+    using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     using Kola.Domain;
@@ -23,6 +25,8 @@
 
             this.Get["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
             this.Get["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.GetComponent(p.templatePath, p.componentPath);
+            this.Get["/_kola/templates/{templatePath*}/_amendments/{amendmentIndex}", AcceptHeaderFilters.NotHtml] = p => this.DeleteAmendment(p.templatePath, p.amendmentIndex);
+            this.Delete["/_kola/templates/{templatePath*}/_amendments", AcceptHeaderFilters.NotHtml] = p => this.GetAmendments(p.templatePath);
             this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.PutTemplate(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAddComponentAmendment(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostMoveComponentAmendment(p.templatePath);
@@ -45,6 +49,25 @@
             return this.Response.AsJson(resource)
                 .WithStatusCode(HttpStatusCode.OK)
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
+        }
+
+        private dynamic GetAmendments(string rawTemplatePath)
+        {
+            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var template = this.templateRepository.Get(templatePath);
+
+            if (template == null) return HttpStatusCode.NotFound;
+
+            var resource = template.Amendments.ToResource(template.Path);
+
+            return this.Response.AsJson(resource)
+                .WithStatusCode(HttpStatusCode.OK)
+                .WithHeader("location", string.Format("/{0}", rawTemplatePath));
+        }
+
+        private dynamic DeleteAmendment(string rawTemplatePath, int amendmentIndex)
+        {
+            throw new Exception("is this right?");
         }
 
         private dynamic GetComponent(string rawTemplatePath, string rawComponentPath)
@@ -88,21 +111,8 @@
 
         private dynamic PostAddComponentAmendment(string rawTemplatePath)
         {
-            return this.PostAmendment(rawTemplatePath, this.Bind<AddComponentAmendmentResource>().ToDomain());
-        }
+            var amendment = this.Bind<AddComponentAmendmentResource>().ToDomain();
 
-        private dynamic PostMoveComponentAmendment(string rawTemplatePath)
-        {
-            return this.PostAmendment(rawTemplatePath, this.Bind<MoveComponentAmendmentResource>().ToDomain());
-        }
-
-        private dynamic PostDeleteComponentAmendment(string rawTemplatePath)
-        {
-            return this.PostAmendment(rawTemplatePath, this.Bind<DeleteComponentAmendmentResource>().ToDomain());
-        }
-
-        private dynamic PostAmendment(string rawTemplatePath, Amendment amendment)
-        {
             var templatePath = rawTemplatePath.ParseTemplatePath();
             var template = this.templateRepository.Get(templatePath);
 
@@ -114,11 +124,49 @@
 
             template.ApplyAmendments(this.componentFactory);
 
-            var rootComponentIndex = amendment.GetRootComponent();
+            var resource = amendment.ToResource(template.Path, template.Amendments.Count() - 1, true);
 
-            var snippet = template.FindChild(rootComponentIndex);
+            return this.Response.AsJson(resource).WithStatusCode(HttpStatusCode.Created);
+        }
 
-            return this.Response.AsJson(snippet.ToResource(Enumerable.Empty<string>(), rootComponentIndex)).WithStatusCode(HttpStatusCode.Created);
+        private dynamic PostMoveComponentAmendment(string rawTemplatePath)
+        {
+            var amendment = this.Bind<MoveComponentAmendmentResource>().ToDomain();
+
+            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var template = this.templateRepository.Get(templatePath);
+
+            if (template == null) return HttpStatusCode.NotFound;
+
+            template.AddAmendment(amendment);
+
+            this.templateRepository.Update(template);
+
+            template.ApplyAmendments(this.componentFactory);
+
+            var resource = amendment.ToResource(template.Path, template.Amendments.Count() - 1, true);
+
+            return this.Response.AsJson(resource).WithStatusCode(HttpStatusCode.Created);
+        }
+
+        private dynamic PostDeleteComponentAmendment(string rawTemplatePath)
+        {
+            var amendment = this.Bind<DeleteComponentAmendmentResource>().ToDomain();
+
+            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var template = this.templateRepository.Get(templatePath);
+
+            if (template == null) return HttpStatusCode.NotFound;
+
+            template.AddAmendment(amendment);
+
+            this.templateRepository.Update(template);
+
+            template.ApplyAmendments(this.componentFactory);
+
+            var resource = amendment.ToResource(template.Path, template.Amendments.Count() - 1, true);
+
+            return this.Response.AsJson(resource).WithStatusCode(HttpStatusCode.Created);
         }
 
         private dynamic PostApplyAmendments(string rawTemplatePath)

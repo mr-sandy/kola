@@ -17,6 +17,11 @@
                                     {
                                         Rel = "self", 
                                         Href = template.Path.ToHttpPath()
+                                    },
+                                new LinkResource
+                                    {
+                                        Rel = "amendments", 
+                                        Href = template.Path.Append("_amendments").ToHttpPath() 
                                     }
                             }
                 };

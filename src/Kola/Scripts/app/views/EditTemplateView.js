@@ -1,12 +1,14 @@
 ﻿define([
     'backbone',
     'handlebars',
+    'app/collections/Amendments',
     'app/views/AmendmentsView',
     'app/views/ComponentView',
     'app/views/ToolboxView',
     'text!app/templates/EditTemplateTemplate.html'
 ], function (Backbone,
     Handlebars,
+    Amendments,
     AmendmentsView,
     ComponentView,
     ToolboxView,
@@ -19,12 +21,13 @@
         template: Handlebars.compile(EditTemplateTemplate),
 
         initialize: function () {
+            var amendments = new Amendments({ url: alert(this.model.amendmentsUrl) });
             this.amendmentsView = new AmendmentsView({
-                model: this.model.amendments
+                collection: amendments
             });
             this.componentView = new ComponentView({
                 model: this.model,
-                isRoot: true 
+                isRoot: true
             });
             this.toolboxView = new ToolboxView();
         },
@@ -34,9 +37,13 @@
             'click #undo': 'undo'
         },
 
+        loadAmendments: function () {
+            alert("bonnus");
+        },
+
         render: function () {
             this.$el.html(this.template());
-            this.assign(this.componentView, '#blockEditor');
+            this.assign(this.amendmentsView, '#amendments');
             this.assign(this.componentView, '#blockEditor');
             this.assign(this.toolboxView, '#toolbox');
         },

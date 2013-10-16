@@ -105,14 +105,12 @@
             var template = new Template({}, { url: this.combineUrls(Config.templatesRoot, templatePath) });
 
             if (this.closeCurrentView()) {
-                var editTemplateView = new EditTemplateView({
-                    model: template,
-                    router: this.options.router
-                });
-
                 template.fetch()
                     .then(function () {
-                        self.showView(editTemplateView);
+                        self.showView(new EditTemplateView({
+                            model: template,
+                            router: self.options.router
+                        }));
                     })
                     .fail(function () {
                         alert('failure!');
