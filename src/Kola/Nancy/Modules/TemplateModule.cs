@@ -26,7 +26,7 @@
             this.Get["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
             this.Get["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.GetComponent(p.templatePath, p.componentPath);
             this.Get["/_kola/templates/{templatePath*}/_amendments/{amendmentIndex}", AcceptHeaderFilters.NotHtml] = p => this.DeleteAmendment(p.templatePath, p.amendmentIndex);
-            this.Delete["/_kola/templates/{templatePath*}/_amendments", AcceptHeaderFilters.NotHtml] = p => this.GetAmendments(p.templatePath);
+            this.Get["/_kola/templates/{templatePath*}/_amendments", AcceptHeaderFilters.NotHtml] = p => this.GetAmendments(p.templatePath);
             this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.PutTemplate(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAddComponentAmendment(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostMoveComponentAmendment(p.templatePath);
@@ -180,7 +180,8 @@
 
             this.templateRepository.Update(template);
 
-            return HttpStatusCode.Created;
+            return this.Response.AsJson(new { jam = "biscuits" })
+                .WithStatusCode(HttpStatusCode.Created);
         }
 
         private dynamic PostUndoAmendments(string rawTemplatePath)

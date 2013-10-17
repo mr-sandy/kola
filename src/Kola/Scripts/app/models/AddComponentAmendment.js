@@ -1,15 +1,19 @@
 ﻿define([
     'backbone',
-    'underscore'
+    'underscore',
+    'app/models/Amendment',
 ], function (
     Backbone,
-    _) {
+    _,
+    Amendment) {
     'use strict';
 
     return Backbone.Model.extend(
-    {
-        url: function () {
-            return this.combineUrls(_.result(this.collection, 'url'), 'addComponent')
-        }
-    });
+    _.extend(
+        {
+            url: function () {
+                return this.combineUrls(_.result(this.collection, 'url'), 'addComponent')
+            }
+        },
+        Amendment));
 });

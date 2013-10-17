@@ -1,6 +1,7 @@
 ﻿define([
     'backbone',
     'handlebars',
+    'app/Config',
     'app/collections/Amendments',
     'app/views/AmendmentsView',
     'app/views/ComponentView',
@@ -8,6 +9,7 @@
     'text!app/templates/EditTemplateTemplate.html'
 ], function (Backbone,
     Handlebars,
+    Config,
     Amendments,
     AmendmentsView,
     ComponentView,
@@ -21,24 +23,27 @@
         template: Handlebars.compile(EditTemplateTemplate),
 
         initialize: function () {
-            var amendments = new Amendments({ url: alert(this.model.amendmentsUrl) });
+            var self = this;
+
+            this.amendments = new Amendments([], { url: this.combineUrls(Config.kolaRoot, this.model.amendmentsUrl) });
             this.amendmentsView = new AmendmentsView({
-                collection: amendments
+                collection: this.amendments
             });
             this.componentView = new ComponentView({
                 model: this.model,
-                isRoot: true
+                isRoot: true,
+                amendments: this.amendments
             });
             this.toolboxView = new ToolboxView();
+
+            this.amendments.fetch().done(function () { self.listenTo(self.amendments, 'sync', self.refresh); });
+
+
         },
 
         events: {
             'click #apply': 'apply',
             'click #undo': 'undo'
-        },
-
-        loadAmendments: function () {
-            alert("bonnus");
         },
 
         render: function () {
@@ -49,11 +54,15 @@
         },
 
         apply: function () {
-            this.model.applyAmendments();
+            this.amendments.apply();
         },
 
         undo: function () {
-            this.model.undoAmendment();
+            this.model.undo();
+        },
+
+        refresh: function (amendment) {
+            this.model.refresh(amendment.subject)
         }
     });
 });

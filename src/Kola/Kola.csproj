@@ -165,6 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
+    <EmbeddedResource Include="Scripts\app\models\Amendment.js" />
     <EmbeddedResource Include="Scripts\app\views\AmendmentsView.js" />
     <EmbeddedResource Include="Scripts\app\templates\AmendmentsTemplate.html" />
     <EmbeddedResource Include="Scripts\app\models\UndoAmendmentRequest.js" />
@@ -173,7 +174,6 @@
     <EmbeddedResource Include="Scripts\app\models\ApplyAmendmentRequest.js" />
     <EmbeddedResource Include="Scripts\app\models\AddComponentAmendment.js" />
     <EmbeddedResource Include="Scripts\app\models\MoveComponentAmendment.js" />
-    <EmbeddedResource Include="Scripts\app\models\Amendment.js" />
     <EmbeddedResource Include="Scripts\app\collections\Amendments.js" />
     <EmbeddedResource Include="Scripts\app\Config.js" />
     <EmbeddedResource Include="Scripts\app\templates\RootComponentTemplate.html" />

@@ -24,7 +24,7 @@
                 components.set(resp.components, { parse: true });
 
                 var componentPath = _.find(resp.links, function (l) { return l.rel == "self"; }).href;
-                this.url = this.combineUrls(Config.templatesRoot, componentPath);
+                this.url = this.combineUrls(Config.kolaRoot, componentPath);
 
                 resp = _.extend(resp,
                             {

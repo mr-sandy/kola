@@ -66,7 +66,7 @@
             yield return new LinkResource
             {
                 Rel = "subject",
-                Href = templatePath.Append("_components").Concat(rootComponent.Select(i => i.ToString())).ToHttpPath()
+                Href = rootComponent.Select(i => i.ToString()).ToHttpPath()
             };
 
             if (isLast)

@@ -10,7 +10,6 @@
             return new TemplateResource
                 {
                     Components = template.Components.ToResource(template.Path),
-                    Amendments = template.Amendments.ToResource(template.Path),
                     Links = new[]
                             {
                                 new LinkResource

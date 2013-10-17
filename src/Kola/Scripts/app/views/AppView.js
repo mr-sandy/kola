@@ -102,7 +102,7 @@
         editTemplate: function (templatePath) {
             var self = this;
 
-            var template = new Template({}, { url: this.combineUrls(Config.templatesRoot, templatePath) });
+            var template = new Template({}, { url: this.combineUrls(Config.kolaRoot, templatePath) });
 
             if (this.closeCurrentView()) {
                 template.fetch()

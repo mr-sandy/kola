@@ -27,7 +27,7 @@
 
             e.preventDefault();
 
-            var url = this.combineUrls(Config.templatesRoot, this.$('#path').val().trim());
+            var url = this.combineUrls(Config.kolaRoot, this.$('#path').val().trim());
 
             this.model.url = url;
             this.model.set('id', url);

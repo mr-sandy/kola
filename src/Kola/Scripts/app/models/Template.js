@@ -30,7 +30,7 @@
             initialize: function () {
                 var self = this;
 
-//                _.bindAll(this, '_updateModel', '_showFailure');
+                //                _.bindAll(this, '_updateModel', '_showFailure');
 
                 if (!Component) { Component = require('app/models/Component'); }
 
@@ -44,6 +44,16 @@
                 this.get('components').set(resp.components, { parse: true });
                 this.amendmentsUrl = _.find(resp.links, function (l) { return l.rel == "amendments"; }).href;
                 return _.omit(resp, 'components');
+            },
+
+            refresh: function (componentUrl) {
+                var componentPath = componentUrl
+                    ? componentUrl.split('/')
+                    : [];
+                var component = this._findChild(componentPath);
+                component.fetch().then(function () {
+                    component.trigger('change');
+                });
             }
 
             //            addComponent: function (args) {

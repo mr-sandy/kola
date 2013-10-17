@@ -25,6 +25,7 @@
         initialize: function (args) {
             if (!ComponentView) { ComponentView = require('app/views/ComponentView'); }
 
+
             _.bindAll(this, 'handleStop');
 
             this.isRoot = args.isRoot;
@@ -64,7 +65,7 @@
         },
 
         renderChild: function (component) {
-            var view = new ComponentView({ model: component });
+            var view = new ComponentView({ model: component, amendments: this.options.amendments });
             this.$container.append('<li class="placeholder"></li>');
             view.setElement(this.$container.find('li.placeholder')).render();
         },
@@ -72,7 +73,7 @@
         handleStop: function (event, ui) {
 
             if (ui.item.attr('data-type') == 'toolbox-item') {
-                this.model.addComponent(
+                this.options.amendments.addComponent(
                 {
                     componentType: ui.item.attr('data-href'),
                     componentPath: ui.item.closest('[data-component-path]').attr('data-component-path'),
@@ -80,7 +81,7 @@
                 });
             }
             else {
-                this.model.moveComponent(
+                this.options.amendments.moveComponent(
                 {
                     componentPath: ui.item.attr('data-component-path'),
                     parentComponentPath: ui.item.parent().closest('[data-component-path]').attr('data-component-path'),
@@ -90,7 +91,7 @@
         },
 
         handleDelete: function(e){
-            this.model.deleteComponent({
+            this.options.amendments.deleteComponent({
                 componentPath: $(e.target).parent().attr('data-component-path')
             });
         }

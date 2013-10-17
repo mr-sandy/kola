@@ -1,12 +1,11 @@
-﻿define(['backbone',
-], function (Backbone) {
+﻿define(function () {
     'use strict';
 
-    return Backbone.Model.extend(
-    {
+    return {
         parse: function (resp, xhr) {
+            this.subject = _.find(resp.links, function (l) { return l.rel == "subject"; }).href;
+            this.url = _.find(resp.links, function (l) { return l.rel == "self"; }).href;
             return resp;
         }
-
-    });
+    }
 });

@@ -1,4 +1,4 @@
 ﻿define({
-    templatesRoot: '/_kola/templates/'
+    kolaRoot: '/_kola/templates/'
 }
 );

@@ -10,6 +10,10 @@
     {
         url: function () {
             return this.combineUrls(_.result(this.collection, 'url'), 'apply')
+        },
+
+        parse: function () {
+            this.trigger('change');
         }
     });
 });
