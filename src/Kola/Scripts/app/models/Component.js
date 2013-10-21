@@ -35,18 +35,6 @@
                 return _.omit(resp, 'components', 'amendments');
             },
 
-            addComponent: function (args) {
-                this.collection.template.addComponent(args);
-            },
-
-            moveComponent: function (args) {
-                this.collection.template.moveComponent(args);
-            },
-
-            deleteComponent: function (args) {
-                this.collection.template.deleteComponent(args);
-            },
-
             _getOrSetComponents: function () {
 
                 var components = this.get('components');

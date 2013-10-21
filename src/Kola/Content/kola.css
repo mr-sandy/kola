@@ -67,3 +67,32 @@
       background-color: #fee;
       border: 3px #755 solid; }
 
+#amendments {
+  margin: 20px;
+  padding: 0;
+  border: 3px #755 solid;
+  width: 25%;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px; }
+  #amendments ul {
+    margin: 0;
+    padding: 15px;
+    list-style-type: none;
+    overflow: auto;
+    background-color: #dcc;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px; }
+    #amendments ul li {
+      padding: 10px 15px;
+      border: 3px #755 solid;
+      background-color: #fee;
+      font-weight: bold;
+      color: #755;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px; }
+    #amendments ul li + li {
+      margin-top: 10px; }
+

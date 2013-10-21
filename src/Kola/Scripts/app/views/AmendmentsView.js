@@ -19,8 +19,22 @@
             this.collection.on('change', this.render, this);
         },
 
+        events: {
+            'click .apply': 'apply',
+            'click .undo': 'undo'
+        },
+
         render: function () {
             this.$el.html(this.template(this.collection.toJSON()));
+        },
+
+        apply: function () {
+            this.collection.apply();
+        },
+
+        undo: function () {
+            var amendment = this.collection.at(this.collection.length - 1);
+            amendment.destroy();
         }
     });
 });

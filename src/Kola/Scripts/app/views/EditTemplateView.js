@@ -26,24 +26,20 @@
             var self = this;
 
             this.amendments = new Amendments([], { url: this.combineUrls(Config.kolaRoot, this.model.amendmentsUrl) });
+
             this.amendmentsView = new AmendmentsView({
                 collection: this.amendments
             });
+
             this.componentView = new ComponentView({
                 model: this.model,
                 isRoot: true,
                 amendments: this.amendments
             });
+
             this.toolboxView = new ToolboxView();
 
             this.amendments.fetch().done(function () { self.listenTo(self.amendments, 'sync', self.refresh); });
-
-
-        },
-
-        events: {
-            'click #apply': 'apply',
-            'click #undo': 'undo'
         },
 
         render: function () {
@@ -53,16 +49,8 @@
             this.assign(this.toolboxView, '#toolbox');
         },
 
-        apply: function () {
-            this.amendments.apply();
-        },
-
-        undo: function () {
-            this.model.undo();
-        },
-
         refresh: function (amendment) {
-            this.model.refresh(amendment.subject)
+            this.model.refresh(amendment.get('subject'))
         }
     });
 });

@@ -82,3 +82,33 @@
 		}
 	}
 }
+
+#amendments {
+    margin: 20px;
+    padding: 0;
+    border: 3px #755 solid;
+	width: 25%;
+	@include border-radius();
+
+	ul {
+		margin: 0;
+	    padding: 15px;
+	    list-style-type: none;
+		overflow: auto;
+		background-color: #dcc;
+		@include border-radius();
+
+		li {
+			padding: 10px 15px;
+		    border: 3px #755 solid;
+			background-color: #fee;
+			font-weight: bold;
+			color: #755;
+			@include border-radius();
+		}
+
+        li + li {
+			margin-top: 10px
+		}
+	}
+}
