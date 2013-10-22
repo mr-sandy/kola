@@ -1,0 +1,100 @@
+﻿@mixin border-radius() {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;		
+}
+
+#editTemplate {
+    background-color: #333;
+	color: #fff;
+
+    #toolbox {
+		border-bottom: 2px #555 solid;
+		font-size: 12px;
+
+	    ul {
+		    margin: 0;
+	        padding: 15px;
+	        list-style-type: none;
+		    overflow: auto;
+
+		    li {
+                float: left;
+			    padding: 5px 8px;
+		        border: 2px #9bc solid;
+			    @include border-radius();
+		    }
+
+		    li + li {
+			    margin-left: 10px
+		    }
+	    }
+    }
+
+	#wysiwygEditor {
+		width: 55%;
+		height: 500px;
+		float: left
+	}
+
+    #blockEditor {
+		width: 30%;
+		float: left;
+
+	    ul {
+		    margin: 0;
+	        padding: 15px;
+	        list-style-type: none;
+		    overflow: auto;
+
+		    ul {
+			    margin-top: 10px;
+		        border: 3px #557 solid;
+		    }
+
+		    li {
+			    padding: 10px 15px;
+		        border: 3px #557 solid;
+				@include border-radius();
+
+			    .delete {
+                }
+
+			    &.new {
+				    border: 3px #557 dotted;
+				    min-height: 20px;
+			    }		
+		    }
+
+            li + li {
+			    margin-top: 10px
+		    }
+
+		    li[data-type=toolbox-item] {
+                border: 3px #755 solid;
+		    }
+	    }
+    }
+
+    #amendments {
+		width: 15%;
+		float: left;
+
+	    ul {
+		    margin: 0;
+	        padding: 15px;
+	        list-style-type: none;
+		    overflow: auto;
+
+		    li {
+			    padding: 10px 15px;
+		        border: 3px #755 solid;
+			    @include border-radius();
+		    }
+
+            li + li {
+			    margin-top: 10px
+		    }
+	    }
+    }
+}

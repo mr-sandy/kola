@@ -24,6 +24,7 @@
         {
             return new AddComponentAmendmentResource
             {
+                Id = index,
                 Type = "Add Component",
                 ComponentPath = amendment.ComponentPath.ToComponentPathString(),
                 ComponentType = amendment.ComponentType,
@@ -36,6 +37,7 @@
         {
             return new MoveComponentAmendmentResource
             {
+                Id = index,
                 Type = "Move Component",
                 ComponentPath = amendment.ComponentPath.ToComponentPathString(),
                 Index = amendment.Index,
@@ -47,6 +49,7 @@
         {
             return new DeleteComponentAmendmentResource
             {
+                Id = index,
                 Type = "Delete Component",
                 ComponentPath = amendment.ComponentPath.ToComponentPathString(),
                 Links = BuildLinks(templatePath, amendment.GetRootComponent(), index, isLast)

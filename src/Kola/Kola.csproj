@@ -165,6 +165,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Configuration\Ideas\ReadMe.txt" />
+    <EmbeddedResource Include="Scripts\app\templates\AmendmentTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\AmendmentView.js" />
     <EmbeddedResource Include="Scripts\app\models\Amendment.js" />
     <EmbeddedResource Include="Scripts\app\views\AmendmentsView.js" />
     <EmbeddedResource Include="Scripts\app\templates\AmendmentsTemplate.html" />
@@ -243,6 +245,18 @@
     <None Include="app.config" />
     <None Include="App_Readme\Handlebarsjs_LICENSE" />
     <None Include="App_Readme\Handlebarsjs_README.md" />
+    <None Include="Content\kola\edit.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="Content\kola\all.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

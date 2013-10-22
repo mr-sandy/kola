@@ -1,11 +1,11 @@
 ﻿define([
     'backbone',
     'handlebars',
-    'app/collections/ComponentTypes',
+    'app/views/AmendmentView',
     'text!app/templates/AmendmentsTemplate.html'
 ], function (Backbone,
     Handlebars,
-    ComponentTypes,
+    AmendmentView,
     AmendmentsTemplate) {
 
     "use strict";
@@ -21,20 +21,23 @@
 
         events: {
             'click .apply': 'apply',
-            'click .undo': 'undo'
         },
 
         render: function () {
-            this.$el.html(this.template(this.collection.toJSON()));
+            var self = this;
+
+            this.$el.html(this.template());
+            var $list = this.$el.find('ul');
+
+            this.collection.each(function (amendment) {
+                self.assign(new AmendmentView({ model: amendment }), $list);
+            });
+
+            return this;
         },
 
         apply: function () {
             this.collection.apply();
-        },
-
-        undo: function () {
-            var amendment = this.collection.at(this.collection.length - 1);
-            amendment.destroy();
         }
     });
 });
