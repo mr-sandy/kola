@@ -25,7 +25,6 @@
         initialize: function (args) {
             if (!ComponentView) { ComponentView = require('app/views/ComponentView'); }
 
-
             _.bindAll(this, 'handleStop');
 
             this.isRoot = args.isRoot;

@@ -2,8 +2,6 @@
     'backbone',
     'handlebars',
     'app/Config',
-    'app/collections/Amendments',
-    'app/collections/ComponentTypes',
     'app/views/AmendmentsView',
     'app/views/ComponentView',
     'app/views/ToolboxView',
@@ -11,8 +9,6 @@
 ], function (Backbone,
     Handlebars,
     Config,
-    Amendments,
-    ComponentTypes,
     AmendmentsView,
     ComponentView,
     ToolboxView,
@@ -26,34 +22,20 @@
 
         initialize: function () {
 
-            var amendments = new Amendments();
-            var componentTypes = new ComponentTypes();
-
             this.amendmentsView = new AmendmentsView({
-                collection: amendments
+                collection: this.options.amendments
             });
 
             this.componentView = new ComponentView({
                 model: this.model,
-                isRoot: true,
-                amendments: amendments
+                amendments: this.options.amendments,
+                isRoot: true
             });
 
             this.toolboxView = new ToolboxView(
             {
-                collection: componentTypes
+                collection: this.options.componentTypes
             });
-
-            componentTypes.fetch();
-            this.listenToOnce(this.model, 'sync', this.initialiseAmendments);
-        },
-
-        initialiseAmendments: function () {
-            var self = this;
-            var amendments = this.amendmentsView.collection;
-
-            amendments.url = this.combineUrls(Config.kolaRoot, this.model.amendmentsUrl)
-            amendments.fetch().done(function () { self.listenTo(amendments, 'sync', self.refresh); });
         },
 
         render: function () {
@@ -61,10 +43,6 @@
             this.assign(this.amendmentsView, '#amendments');
             this.assign(this.componentView, '#blockEditor');
             this.assign(this.toolboxView, '#toolbox');
-        },
-
-        refresh: function (amendment) {
-            this.model.refresh(amendment.get('subject'))
         }
     });
 });

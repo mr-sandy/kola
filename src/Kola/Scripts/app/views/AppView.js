@@ -3,26 +3,31 @@
     'handlebars',
     'jquery',
     'app/Config',
+    'app/models/Template',
+    'app/collections/Amendments',
+    'app/collections/ComponentTypes',
     'app/views/LoadingView',
     'app/views/HomeView',
     'app/views/NavigationView',
     'app/views/TemplatesView',
     'app/views/CreateTemplateView',
     'app/views/EditTemplateView',
-    'app/models/Template',
     'bootstrap',
     'jqueryui'
 ], function (Backbone,
     Handlebars,
     $,
     Config,
+    Template,
+    Amendments,
+    ComponentTypes,
     LoadingView,
     HomeView,
     NavigationView,
     TemplatesView,
     CreateTemplateView,
-    EditTemplateView,
-    Template) {
+    EditTemplateView
+) {
 
     'use strict';
 
@@ -59,28 +64,13 @@
         },
 
         home: function () {
-            var self = this;
-
             if (this.closeCurrentView()) {
                 var homeView = new HomeView({ router: this.options.router });
                 this.showView(homeView);
             }
-
-            //            this.showView(homeView);
-            //            this.showView(new LoadingView());
-            //            if (this.closeCurrentView()) {
-            //                //                this.showView(new LoadingView());
-
-            //                //                this.collection.fetch().then(function () {
-            //                self.closeCurrentView();
-            //                self.showView(homeView);
-            //                //                });
-            //            }
         },
 
         templates: function () {
-            var self = this;
-
             if (this.closeCurrentView()) {
                 var templatesView = new TemplatesView({ router: this.options.router });
                 this.showView(templatesView);
@@ -88,8 +78,6 @@
         },
 
         createTemplate: function () {
-            var self = this;
-
             if (this.closeCurrentView()) {
                 var createTemplateView = new CreateTemplateView({
                     model: new Template(),
@@ -103,16 +91,24 @@
             var self = this;
 
             var template = new Template({}, { url: this.combineUrls(Config.kolaRoot, templatePath) });
+            var amendments = new Amendments([], { url: this.combineUrls(template.url, '_amendments') });
+            var componentTypes = new ComponentTypes();
 
             var editTemplateView = new EditTemplateView({
                 model: template,
-                router: self.options.router
+                router: this.options.router,
+                amendments: amendments,
+                componentTypes: componentTypes
             });
 
             if (this.closeCurrentView()) {
-                template.fetch()
+                $.when(template.fetch(), amendments.fetch(), componentTypes.fetch())
                     .done(function () {
                         self.showView(editTemplateView);
+
+                        template.listenTo(amendments, 'sync', function (amendment) {
+                            template.refresh(amendment.get('subject'));
+                        });
                     })
                     .fail(function () {
                         alert('failure!');

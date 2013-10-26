@@ -27,17 +27,3 @@
         }
     });
 });
-
-//            var $self = this;
-//            if (this.collection.size() == 0) {
-//                this.collection.fetch({ reset: true }).then(function () {
-//                    $self._doRender();
-//                });
-//            }
-//            else {
-//                this._doRender();
-//            }
-//        },
-
-//_doRender: function () {
-//}
