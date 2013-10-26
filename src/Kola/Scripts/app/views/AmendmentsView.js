@@ -15,12 +15,11 @@
         template: Handlebars.compile(AmendmentsTemplate),
 
         initialize: function () {
-            this.collection.on('sync', this.render, this);
-            this.collection.on('change', this.render, this);
+            this.listenTo(this.collection, 'sync', this.render);
         },
 
         events: {
-            'click .apply': 'apply',
+            'click .apply': 'apply'
         },
 
         render: function () {

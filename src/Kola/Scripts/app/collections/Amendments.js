@@ -28,7 +28,6 @@
             return null;
         },
 
-
         addComponent: function (args) {
             var amendment = new AddComponentAmendment(args);
             this.add(amendment);

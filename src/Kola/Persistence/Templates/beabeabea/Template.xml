@@ -197,5 +197,72 @@
       <componentPath>0</componentPath>
       <index>1</index>
     </addComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>0/0</componentPath>
+      <index>0</index>
+    </moveComponent>
+    <deleteComponent>
+      <componentPath>0</componentPath>
+    </deleteComponent>
+    <deleteComponent>
+      <componentPath>0</componentPath>
+    </deleteComponent>
+    <deleteComponent>
+      <componentPath>0</componentPath>
+    </deleteComponent>
+    <deleteComponent>
+      <componentPath>0</componentPath>
+    </deleteComponent>
+    <deleteComponent>
+      <componentPath>0</componentPath>
+    </deleteComponent>
+    <deleteComponent>
+      <componentPath>0</componentPath>
+    </deleteComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>0/0/0</componentPath>
+      <index>0</index>
+    </moveComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>0/0</componentPath>
+      <index>0</index>
+    </moveComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>2/0</componentPath>
+      <index>3</index>
+    </moveComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-1</componentType>
+      <componentPath />
+      <index>0</index>
+    </addComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-2</componentType>
+      <componentPath />
+      <index>1</index>
+    </addComponent>
+    <deleteComponent>
+      <componentPath>3</componentPath>
+    </deleteComponent>
+    <deleteComponent>
+      <componentPath>3</componentPath>
+    </deleteComponent>
+    <deleteComponent>
+      <componentPath>3</componentPath>
+    </deleteComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-3</componentType>
+      <componentPath>0</componentPath>
+      <index>0</index>
+    </addComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-3</componentType>
+      <componentPath>0</componentPath>
+      <index>0</index>
+    </addComponent>
   </amendments>
 </template>
