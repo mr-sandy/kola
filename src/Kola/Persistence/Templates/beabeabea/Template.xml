@@ -172,5 +172,30 @@
       <componentPath />
       <index>0</index>
     </addComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-3</componentType>
+      <componentPath>0</componentPath>
+      <index>0</index>
+    </addComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-3</componentType>
+      <componentPath>0</componentPath>
+      <index>1</index>
+    </addComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-3</componentType>
+      <componentPath />
+      <index>0</index>
+    </addComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-2</componentType>
+      <componentPath>0</componentPath>
+      <index>0</index>
+    </addComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-3</componentType>
+      <componentPath>0</componentPath>
+      <index>1</index>
+    </addComponent>
   </amendments>
 </template>

@@ -23,23 +23,25 @@
         template: Handlebars.compile(EditTemplateTemplate),
 
         initialize: function () {
-            var self = this;
-
-            this.amendments = new Amendments([], { url: this.combineUrls(Config.kolaRoot, this.model.amendmentsUrl) });
+            var amendments = new Amendments();
 
             this.amendmentsView = new AmendmentsView({
-                collection: this.amendments
+                collection: amendments
             });
 
             this.componentView = new ComponentView({
                 model: this.model,
                 isRoot: true,
-                amendments: this.amendments
+                amendments: amendments
             });
 
             this.toolboxView = new ToolboxView();
 
-            this.amendments.fetch().done(function () { self.listenTo(self.amendments, 'sync', self.refresh); });
+            var self = this;
+            this.listenToOnce(this.model, 'sync', function () {
+                amendments.url = self.combineUrls(Config.kolaRoot, self.model.amendmentsUrl)
+                amendments.fetch().done(function () { self.listenTo(amendments, 'sync', self.refresh); });
+            });
         },
 
         render: function () {

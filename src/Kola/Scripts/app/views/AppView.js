@@ -104,13 +104,15 @@
 
             var template = new Template({}, { url: this.combineUrls(Config.kolaRoot, templatePath) });
 
+            var editTemplateView = new EditTemplateView({
+                model: template,
+                router: self.options.router
+            });
+
             if (this.closeCurrentView()) {
                 template.fetch()
-                    .then(function () {
-                        self.showView(new EditTemplateView({
-                            model: template,
-                            router: self.options.router
-                        }));
+                    .done(function () {
+                        self.showView(editTemplateView);
                     })
                     .fail(function () {
                         alert('failure!');
