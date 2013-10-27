@@ -9,13 +9,12 @@
 
             var index = componentPath[0];
             var remainder = componentPath.slice(1);
-            var components = this.get('components');
 
-            if (index >= components.length) {
+            if (index >= this.components.length) {
                 throw "Component index outside bounds";
             }
 
-            var component = components.at(index);
+            var component = this.components.at(index);
 
             if (remainder.length == 0) {
                 return component;

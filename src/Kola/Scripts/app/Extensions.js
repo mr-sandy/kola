@@ -1,8 +1,10 @@
 ﻿define([
     'jquery',
-    'backbone'
+    'backbone',
+    'underscore'
 ], function ($,
-    Backbone) {
+    Backbone,
+    _) {
     "use strict";
 
     Backbone.View.prototype.canClose = function () {
@@ -27,6 +29,12 @@
 
     Backbone.View.prototype.assign = function (view, selector) {
         view.setElement(selector).render();
+    };
+
+    Backbone.Model.prototype.getLink = function (links, rel) {
+        var link = _.find(links, function (l) { return l.rel == rel; });
+
+        return (link) ? link.href : '';
     };
 
     Backbone.View.prototype.combineUrls = urlCombine;

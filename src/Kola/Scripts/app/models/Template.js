@@ -15,13 +15,9 @@
         {
             componentPath: '',
 
-            initialize: function () {
-                this.set('components', new Components());
-            },
-
             parse: function (resp, options) {
 
-                this.get('components').set(resp.components, { parse: true });
+                this.components = new Components(resp.components, { parse: true });
                 return _.omit(resp, 'components');
             },
 

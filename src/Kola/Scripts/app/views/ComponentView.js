@@ -37,7 +37,7 @@
         },
 
         render: function () {
-            var $element = $(this.template(this.model.omit('components')));
+            var $element = $(this.template(this.model.toJSON()));
 
             this.$container = (this.isRoot)
                 ? $element
@@ -58,7 +58,7 @@
                 this.$el = $element;
             }
 
-            this.model.get('components').each(this.renderChild, this);
+            this.model.components.each(this.renderChild, this);
 
             return this;
         },

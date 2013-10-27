@@ -474,5 +474,142 @@
       <componentPath>0/1/0</componentPath>
       <index>0</index>
     </moveComponent>
+    <deleteComponent>
+      <componentPath>0/0/0</componentPath>
+    </deleteComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-1</componentType>
+      <componentPath>0/0</componentPath>
+      <index>0</index>
+    </addComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>0/0</componentPath>
+      <index>0</index>
+    </moveComponent>
+    <moveComponent>
+      <parentComponentPath>1</parentComponentPath>
+      <componentPath>1/1</componentPath>
+      <index>1</index>
+    </moveComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>1/1</componentPath>
+      <index>1</index>
+    </moveComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>2/0</componentPath>
+      <index>1</index>
+    </moveComponent>
+    <deleteComponent>
+      <componentPath>3</componentPath>
+    </deleteComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-2</componentType>
+      <componentPath>1</componentPath>
+      <index>0</index>
+    </addComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-3</componentType>
+      <componentPath>0/0</componentPath>
+      <index>0</index>
+    </addComponent>
+    <deleteComponent>
+      <componentPath>0/0/0</componentPath>
+    </deleteComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-3</componentType>
+      <componentPath>0/0</componentPath>
+      <index>0</index>
+    </addComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-1</componentType>
+      <componentPath>0/0</componentPath>
+      <index>0</index>
+    </addComponent>
+    <moveComponent>
+      <parentComponentPath>0</parentComponentPath>
+      <componentPath>0/0/1</componentPath>
+      <index>0</index>
+    </moveComponent>
+    <deleteComponent>
+      <componentPath>0/0</componentPath>
+    </deleteComponent>
+    <deleteComponent>
+      <componentPath>0/0/0</componentPath>
+    </deleteComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>0/0</componentPath>
+      <index>0</index>
+    </moveComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>1</componentPath>
+      <index>0</index>
+    </moveComponent>
+    <moveComponent>
+      <parentComponentPath>0</parentComponentPath>
+      <componentPath>1</componentPath>
+      <index>0</index>
+    </moveComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>1</componentPath>
+      <index>0</index>
+    </moveComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-2</componentType>
+      <componentPath />
+      <index>2</index>
+    </addComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-2</componentType>
+      <componentPath />
+      <index>2</index>
+    </addComponent>
+    <deleteComponent>
+      <componentPath>0/0</componentPath>
+    </deleteComponent>
+    <deleteComponent>
+      <componentPath>0</componentPath>
+    </deleteComponent>
+    <moveComponent>
+      <parentComponentPath>1</parentComponentPath>
+      <componentPath>2</componentPath>
+      <index>0</index>
+    </moveComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>1</componentPath>
+      <index>0</index>
+    </moveComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-2</componentType>
+      <componentPath />
+      <index>2</index>
+    </addComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-2</componentType>
+      <componentPath>2</componentPath>
+      <index>0</index>
+    </addComponent>
+    <deleteComponent>
+      <componentPath>0/0</componentPath>
+    </deleteComponent>
+    <deleteComponent>
+      <componentPath>0</componentPath>
+    </deleteComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-2</componentType>
+      <componentPath />
+      <index>0</index>
+    </addComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-1</componentType>
+      <componentPath>0</componentPath>
+      <index>0</index>
+    </addComponent>
   </amendments>
 </template>

@@ -17,19 +17,16 @@
 
             parse: function (resp, options) {
 
-                var components = new Components(resp.components, { parse: true });
-                this.set('components', components);
+                this.components = new Components(resp.components, { parse: true });
 
-                var componentPath = _.find(resp.links, function (l) { return l.rel == "self"; }).href;
-                this.url = this.combineUrls(Config.kolaRoot, componentPath);
+                this.url = this.combineUrls(Config.kolaRoot, this.getLink(resp.links, 'self'));
 
                 resp = _.extend(resp,
                             {
-                                'componentPath': _.find(resp.links, function (l) { return l.rel == "componentPath"; }).href,
-                                'path': this.url
+                                'componentPath': this.getLink(resp.links, 'componentPath')
                             });
 
-                return _.omit(resp, 'components', 'amendments');
+                return _.omit(resp, 'components');
             }
         },
         CompositeComponent));
