@@ -311,5 +311,21 @@
     <deleteComponent>
       <componentPath>2</componentPath>
     </deleteComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-3</componentType>
+      <componentPath>0</componentPath>
+      <index>0</index>
+    </addComponent>
+    <deleteComponent>
+      <componentPath>0/0</componentPath>
+    </deleteComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-3</componentType>
+      <componentPath />
+      <index>3</index>
+    </addComponent>
+    <deleteComponent>
+      <componentPath>3</componentPath>
+    </deleteComponent>
   </amendments>
 </template>

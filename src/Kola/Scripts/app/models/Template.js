@@ -1,13 +1,11 @@
 ﻿define([
     'backbone',
     'underscore',
-    'app/models/Component',
     'app/models/CompositeComponent',
     'app/collections/Components'
 ], function (
     Backbone,
     _,
-    Component,
     CompositeComponent,
     Components) {
     'use strict';
@@ -20,9 +18,7 @@
             initialize: function () {
                 var self = this;
 
-                if (!Component) { Component = require('app/models/Component'); }
-
-                var components = new Components([], { model: Component });
+                var components = new Components();
                 components.template = this;
                 this.set('components', components);
             },

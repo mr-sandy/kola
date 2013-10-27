@@ -1,13 +1,11 @@
 ﻿define([
     'backbone',
     'app/Config',
-    'app/models/Component',
     'app/models/CompositeComponent',
     'app/collections/Components'
 ], function (
     Backbone,
     Config,
-    Component,
     CompositeComponent,
     Components) {
     'use strict';
@@ -40,9 +38,7 @@
                 var components = this.get('components');
 
                 if (!components) {
-                    if (!Component) { Component = require('app/models/Component'); }
-
-                    components = new Components([], { model: Component });
+                    components = new Components();
                     components.template = this.collection.template;
                     if (!this.collection.template) { alert("holy moly!") }
                     this.set('components', components);
