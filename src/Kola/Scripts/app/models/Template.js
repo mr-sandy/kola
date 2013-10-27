@@ -16,17 +16,12 @@
             componentPath: '',
 
             initialize: function () {
-                var self = this;
-
-                var components = new Components();
-                components.template = this;
-                this.set('components', components);
+                this.set('components', new Components());
             },
 
             parse: function (resp, xhr) {
 
                 this.get('components').set(resp.components, { parse: true });
-                this.amendmentsUrl = _.find(resp.links, function (l) { return l.rel == "amendments"; }).href;
                 return _.omit(resp, 'components');
             },
 

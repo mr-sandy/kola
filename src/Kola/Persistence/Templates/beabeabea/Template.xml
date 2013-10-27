@@ -327,5 +327,33 @@
     <deleteComponent>
       <componentPath>3</componentPath>
     </deleteComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>1</componentPath>
+      <index>2</index>
+    </moveComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>2</componentPath>
+      <index>1</index>
+    </moveComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>1</componentPath>
+      <index>0</index>
+    </moveComponent>
+    <moveComponent>
+      <parentComponentPath />
+      <componentPath>0</componentPath>
+      <index>1</index>
+    </moveComponent>
+    <addComponent>
+      <componentType>/_kola/component-types/component-type-3</componentType>
+      <componentPath />
+      <index>0</index>
+    </addComponent>
+    <deleteComponent>
+      <componentPath>0</componentPath>
+    </deleteComponent>
   </amendments>
 </template>

@@ -39,8 +39,6 @@
 
                 if (!components) {
                     components = new Components();
-                    components.template = this.collection.template;
-                    if (!this.collection.template) { alert("holy moly!") }
                     this.set('components', components);
                 }
 
