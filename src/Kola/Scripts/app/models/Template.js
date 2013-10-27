@@ -19,7 +19,7 @@
                 this.set('components', new Components());
             },
 
-            parse: function (resp, xhr) {
+            parse: function (resp, options) {
 
                 this.get('components').set(resp.components, { parse: true });
                 return _.omit(resp, 'components');

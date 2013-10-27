@@ -2,7 +2,7 @@
     'use strict';
 
     return {
-        parse: function (resp, xhr) {
+        parse: function (resp, options) {
             var subject = _.find(resp.links, function (l) { return l.rel == "subject"; }).href;
             var url = _.find(resp.links, function (l) { return l.rel == "self"; }).href;
             var undoLink = _.find(resp.links, function (l) { return l.rel == "undo"; });

@@ -15,11 +15,10 @@
         {
             idAttribute: 'componentPath',
 
-            parse: function (resp, xhr) {
+            parse: function (resp, options) {
 
-                var components = this._getOrSetComponents();
-
-                components.set(resp.components, { parse: true });
+                var components = new Components(resp.components, { parse: true });
+                this.set('components', components);
 
                 var componentPath = _.find(resp.links, function (l) { return l.rel == "self"; }).href;
                 this.url = this.combineUrls(Config.kolaRoot, componentPath);
@@ -31,20 +30,7 @@
                             });
 
                 return _.omit(resp, 'components', 'amendments');
-            },
-
-            _getOrSetComponents: function () {
-
-                var components = this.get('components');
-
-                if (!components) {
-                    components = new Components();
-                    this.set('components', components);
-                }
-
-                return components;
             }
-
         },
         CompositeComponent));
 });
