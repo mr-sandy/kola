@@ -52,6 +52,9 @@
   #editTemplate #amendments {
     width: 15%;
     float: left; }
+    #editTemplate #amendments .apply {
+      margin-left: 30px;
+      margin-top: 20px; }
     #editTemplate #amendments ul {
       margin: 0;
       padding: 15px;

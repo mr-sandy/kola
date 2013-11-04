@@ -67,7 +67,15 @@
 
         private dynamic DeleteAmendment(string rawTemplatePath, int amendmentIndex)
         {
-            throw new Exception("is this right?");
+            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var template = this.templateRepository.Get(templatePath);
+
+            if (template == null) return HttpStatusCode.NotFound;
+
+            var amendment = template.Amendments.ElementAt(amendmentIndex);
+            template.RemoveAmendment(amendment);
+
+            return HttpStatusCode.OK;
         }
 
         private dynamic GetComponent(string rawTemplatePath, string rawComponentPath)

@@ -48,6 +48,11 @@
             }
         }
 
+        public void RemoveAmendment(Amendment amendment)
+        {
+            this.amendments.Remove(amendment);
+        }
+
         public Amendment UndoAmendment()
         {
             if (this.amendments.Count > 0)

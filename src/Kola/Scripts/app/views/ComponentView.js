@@ -2,12 +2,18 @@
     'backbone',
     'handlebars',
     'app/models/Component',
+    'app/models/AddComponentAmendment',
+    'app/models/MoveComponentAmendment',
+    'app/models/DeleteComponentAmendment',
     'app/views/ComponentView',
     'text!app/templates/RootComponentTemplate.html',
     'text!app/templates/ComponentTemplate.html'
 ], function (Backbone,
     Handlebars,
     Component,
+    AddComponentAmendment,
+    MoveComponentAmendment,
+    DeleteComponentAmendment,
     ComponentView,
     RootComponentTemplate,
     ComponentTemplate) {
@@ -72,27 +78,30 @@
         handleStop: function (event, ui) {
 
             if (ui.item.attr('data-type') == 'toolbox-item') {
-                this.options.amendments.addComponent(
+                var amendment = new AddComponentAmendment(
                 {
                     componentType: ui.item.attr('data-href'),
                     componentPath: ui.item.closest('[data-component-path]').attr('data-component-path'),
                     index: ui.item.index()
                 });
+                this.options.amendments.addAmendment(amendment);
             }
             else {
-                this.options.amendments.moveComponent(
+                var amendment = new MoveComponentAmendment(
                 {
                     componentPath: ui.item.attr('data-component-path'),
                     parentComponentPath: ui.item.parent().closest('[data-component-path]').attr('data-component-path'),
                     index: ui.item.index()
                 });
+                this.options.amendments.addAmendment(amendment);
             }
         },
 
         handleDelete: function(e){
-            this.options.amendments.deleteComponent({
+            var amendment = new DeleteComponentAmendment({
                 componentPath: $(e.target).parent().attr('data-component-path')
             });
+            this.options.amendments.addAmendment(amendment);
         }
     });
 });
