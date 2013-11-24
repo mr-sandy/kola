@@ -19,9 +19,7 @@
         {
             var componentTypes = this.componentTypeRepository.FindAll();
 
-            var result = this.Response.AsJson(componentTypes.ToResource());
-
-            return result;
+            return this.Negotiate.WithModel(componentTypes.ToResource());
         }
     }
 }

@@ -121,6 +121,7 @@
     <Compile Include="Persistence\Surrogates\TemplateSurrogate.cs" />
     <Compile Include="Processing\Caching\ICacheSetting.cs" />
     <Compile Include="Processing\Dependencies\IDependency.cs" />
+    <Compile Include="Processing\IObjectFactory.cs" />
     <Compile Include="Processing\IRenderingResponse.cs" />
     <Compile Include="Processing\CacheManager.cs" />
     <Compile Include="Processing\HandlerFactory.cs" />

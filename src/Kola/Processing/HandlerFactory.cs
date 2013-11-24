@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using Kola.Domain;
-
-namespace Kola.Processing
+﻿namespace Kola.Processing
 {
+    using System;
+    using System.Collections.Generic;
+
+    using Kola.Domain;
+
     public class HandlerFactory : IHandlerFactory
     {
         private readonly IDictionary<string, Type> handlerMappings;
@@ -19,16 +20,11 @@ namespace Kola.Processing
         {
             if (this.handlerMappings.ContainsKey(component.Name))
             {
-                var handlerType = handlerMappings[component.Name];
+                var handlerType = this.handlerMappings[component.Name];
                 return this.objectFactory.Resolve<IHandler>(handlerType);
             }
 
             throw new Exception("No handler found for component '" + component.Name + "'");
         }
-    }
-
-    public interface IObjectFactory
-    {
-        T Resolve<T>(Type type);
     }
 }
