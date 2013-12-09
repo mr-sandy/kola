@@ -19,7 +19,7 @@ namespace Kola.Configuration.Fluent
         {
             var componentConfiguration = new ComponentConfiguration(componentName);
 
-            configuration.Add(componentConfiguration);
+            this.configuration.Add(componentConfiguration);
 
             return new ComponentConfigurer(componentConfiguration);
         }
@@ -28,7 +28,7 @@ namespace Kola.Configuration.Fluent
         {
             var parameterTypeConfiguration = new ParameterTypeConfiguration(parameterName);
 
-            configuration.Add(parameterTypeConfiguration);
+            this.configuration.Add(parameterTypeConfiguration);
 
             return new ParameterTypeConfigurer(parameterTypeConfiguration);
         }

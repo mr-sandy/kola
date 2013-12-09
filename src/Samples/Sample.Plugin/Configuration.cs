@@ -1,8 +1,9 @@
-﻿using Kola.Configuration;
-using Sample.Plugin.Handlers;
-
-namespace Sample.Plugin
+﻿namespace Sample.Plugin
 {
+    using Kola.Configuration;
+
+    using Sample.Plugin.Handlers;
+
     public class Configuration : PluginConfiguration
     {
         public Configuration()

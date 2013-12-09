@@ -1,14 +1,14 @@
-﻿using System.Reflection;
-
-namespace Kola.Configuration.Ideas
+﻿namespace Kola.Configuration.Ideas
 {
+    using System.Reflection;
+
     public class ViewLocation
     {
 
         public ViewLocation(Assembly assembly, string location)
         {
-            Assembly = assembly;
-            Location = location;
+            this.Assembly = assembly;
+            this.Location = location;
         }
 
         public Assembly Assembly { get; private set; }

@@ -60,6 +60,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrapping\Experimental\Class1.cs" />
+    <Compile Include="Bootstrapping\WhenRetrievingATemplate.cs" />
     <Content Include="Tests.txt" />
     <Compile Include="Nancy\Modules\ComponentTypesModuleSpecs\ContextBase.cs" />
     <Compile Include="Nancy\Modules\ComponentTypesModuleSpecs\WhenRetrievingAllComponentTypes.cs" />

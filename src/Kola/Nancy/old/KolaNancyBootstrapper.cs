@@ -18,7 +18,6 @@
 
     public class KolaNancyBootstrapper : DefaultNancyBootstrapper
     {
-
         // TODO : A better way of adding plugins to AppDomainAssemblyTypeScanner is required :)
         public static Func<Assembly, bool>[] CandidatePluginAssemblies = new Func<Assembly, bool>[]
         {

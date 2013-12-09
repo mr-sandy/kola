@@ -20,12 +20,12 @@ namespace Kola.Configuration.Ideas
     {
         public static KolaHostConfiguration Bootstrap(IObjectFactory objectFactory)
         {
-            var kolaConfiguration = new KolaHostConfiguration();
+            var kolaHostConfiguration = new KolaHostConfiguration();
             var handlerMappings = new Dictionary<string, Type>();
 
             foreach (var plugin in FindPlugins())
             {
-                kolaConfiguration.AddPlugInConfiguration(plugin);
+                kolaHostConfiguration.AddPlugInConfiguration(plugin);
 
                 foreach (var atom in plugin.ComponentConfigurations)
                 {
@@ -35,7 +35,7 @@ namespace Kola.Configuration.Ideas
 
             KolaRegistry.KolaEngine = new KolaEngine(new HandlerFactory(handlerMappings, objectFactory));
 
-            return kolaConfiguration;
+            return kolaHostConfiguration;
         }
 
         private static IEnumerable<PluginConfiguration> FindPlugins()
