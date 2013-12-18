@@ -1,8 +1,8 @@
-﻿using Kola.Domain;
-using Kola.Processing;
-
-namespace Sample.Plugin.Handlers
+﻿namespace Sample.Plugin.Handlers
 {
+    using Kola.Domain;
+    using Kola.Processing;
+
     public class Atom1Handler : IHandler
     {
         private readonly IAtom1Dependency atom1Dependency;

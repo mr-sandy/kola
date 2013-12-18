@@ -1,8 +1,8 @@
-﻿using Nancy;
-using Nancy.Responses.Negotiation;
-
-namespace Kola.Nancy.Modules
+﻿namespace Kola.Nancy.Modules
 {
+    using global::Nancy;
+    using global::Nancy.Responses.Negotiation;
+
     public class RenderingModule : NancyModule
     {
         private readonly IPageHandler pageHandler;

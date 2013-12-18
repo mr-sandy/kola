@@ -73,6 +73,7 @@
     <Compile Include="Domain\old\Page.cs" />
     <Compile Include="Domain\old\SimpleComponent.cs" />
     <Compile Include="Domain\old\Template.cs" />
+    <Compile Include="Experimental\Class1.cs" />
     <Compile Include="Extensions\old\AmendmentExtensions.cs" />
     <Compile Include="Extensions\old\AmendmentResourceBuildingVisitor.cs" />
     <Compile Include="Extensions\old\CompositeExtensions.cs" />
@@ -99,7 +100,7 @@
     <Compile Include="Persistence\old\ITemplateRepository.cs" />
     <Compile Include="Nancy\Modules\old\AcceptHeaderFilters.cs" />
     <Compile Include="Nancy\Modules\old\TemplateModule.cs" />
-    <Compile Include="Nancy\Modules\old\RenderingModule.cs" />
+    <Compile Include="Nancy\Modules\RenderingModule.cs" />
     <Compile Include="Nancy\old\NancyRazorViewHelper.cs" />
     <Compile Include="Persistence\old\SerializationHelper.cs" />
     <Compile Include="Persistence\Surrogates\old\AddComponentAmendmentSurrogate.cs" />
@@ -144,7 +145,7 @@
     <Compile Include="Configuration\PluginConfiguration.cs" />
     <Compile Include="Processing\old\DefaultHandler.cs" />
     <Compile Include="Processing\old\IHandler.cs" />
-    <Compile Include="IPageHandler.cs" />
+    <Compile Include="Experimental\IPageHandler.cs" />
     <Compile Include="Processing\old\PageRenderer.cs" />
     <Compile Include="Processing\old\CompositeRenderingResponse.cs" />
     <Compile Include="Processing\old\PageRenderingResponse.cs" />
@@ -241,7 +242,7 @@
     <EmbeddedResource Include="Scripts\require.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Nancy\Views\Page.cshtml" />
+    <EmbeddedResource Include="Nancy\Views\Page2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -259,6 +260,7 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
+    <EmbeddedResource Include="Nancy\Views\Page.cshtml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
