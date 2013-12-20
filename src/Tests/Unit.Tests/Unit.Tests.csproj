@@ -50,6 +50,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\WhenConfiguringAPlugInAtom.cs" />
+    <Compile Include="Experimental\Framework\AtomView.cs" />
+    <Compile Include="Experimental\Framework\ContainerView.cs" />
+    <Compile Include="Experimental\Framework\IComponent.cs" />
+    <Compile Include="Experimental\Framework\PageView.cs" />
+    <Compile Include="Experimental\Framework\TestComponent.cs" />
+    <Compile Include="Experimental\Framework\TestViewFactory.cs" />
+    <Compile Include="Experimental\AllNewWhenRenderingAPage.cs" />
+    <Compile Include="Experimental\Framework\IViewHelper.cs" />
+    <Compile Include="Experimental\Framework\TestViewHelper.cs" />
+    <Compile Include="Experimental\Framework\View.cs" />
+    <Compile Include="Experimental\Framework\IPage.cs" />
+    <Compile Include="Experimental\Stubs\TestKolaComponent.cs" />
+    <Compile Include="Experimental\Stubs\TestAtomView.cs" />
+    <Compile Include="Experimental\Stubs\TestContainerView.cs" />
+    <Compile Include="Experimental\Stubs\TestKolaResponse.cs" />
+    <Compile Include="Experimental\Stubs\TestView.cs" />
+    <Compile Include="Experimental\Stubs\TestViewHelper.cs" />
+    <Compile Include="Experimental\Framework\TestPage.cs" />
+    <Compile Include="Experimental\TestViewEngine.cs" />
+    <Compile Include="Experimental\WhenGettingA.cs" />
     <Compile Include="Experimental\WhenGettingAPage.cs" />
     <Compile Include="Experimental\WhenRenderingAComponent.cs" />
     <Compile Include="Experimental\WhenRenderingAPage.cs" />

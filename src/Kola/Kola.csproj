@@ -73,7 +73,13 @@
     <Compile Include="Domain\old\Page.cs" />
     <Compile Include="Domain\old\SimpleComponent.cs" />
     <Compile Include="Domain\old\Template.cs" />
-    <Compile Include="Experimental\Class1.cs" />
+    <Compile Include="Experimental\KolaRenderer.cs" />
+    <Compile Include="Experimental\DefaultHandler.cs" />
+    <Compile Include="Experimental\IKolaComponent.cs" />
+    <Compile Include="Experimental\IKolaHandler.cs" />
+    <Compile Include="Experimental\IKolaPage.cs" />
+    <Compile Include="Experimental\IKolaResponse.cs" />
+    <Compile Include="Experimental\IViewHelper.cs" />
     <Compile Include="Extensions\old\AmendmentExtensions.cs" />
     <Compile Include="Extensions\old\AmendmentResourceBuildingVisitor.cs" />
     <Compile Include="Extensions\old\CompositeExtensions.cs" />

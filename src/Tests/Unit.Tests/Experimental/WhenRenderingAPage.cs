@@ -2,18 +2,20 @@
 {
     using FluentAssertions;
 
+    using Kola.Experimental;
+
     using NUnit.Framework;
 
     using Rhino.Mocks;
 
     public class WhenRenderingAPage
     {
-        private IResponse result;
+        private IKolaResponse result;
 
         [SetUp]
         public void EstablishContext()
         {
-            var page = MockRepository.GenerateStub<IPage>();
+            var page = MockRepository.GenerateStub<IKolaPage>();
 
             var renderer = new KolaRenderer();
 

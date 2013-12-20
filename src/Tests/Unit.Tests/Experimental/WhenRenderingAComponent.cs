@@ -2,22 +2,24 @@
 {
     using FluentAssertions;
 
+    using Kola.Experimental;
+
     using NUnit.Framework;
 
     using Rhino.Mocks;
 
     public class WhenRenderingAComponent
     {
-        private IResponse result;
+        private IKolaResponse result;
 
         [SetUp]
         public void EstablishContext()
         {
             var handler = new DefaultHandler();
 
-            var component = MockRepository.GenerateStub<IComponent>();
+            var component = MockRepository.GenerateStub<IKolaComponent>();
             var viewHelper = MockRepository.GenerateStub<IViewHelper>();
-            var response = MockRepository.GenerateStub<IResponse>();
+            var response = MockRepository.GenerateStub<IKolaResponse>();
 
             component.Stub(c => c.Name).Return("component name");
             viewHelper.Stub(v => v.RenderPartial("component name", component)).Return(response);
