@@ -1,37 +1,37 @@
-﻿namespace Unit.Tests.Experimental
-{
-    using FluentAssertions;
+﻿//namespace Unit.Tests.Experimental
+//{
+//    using FluentAssertions;
 
-    using Kola.Experimental;
+//    using Kola.Experimental;
 
-    using NUnit.Framework;
+//    using NUnit.Framework;
 
-    using Rhino.Mocks;
+//    using Rhino.Mocks;
 
-    public class WhenGettingAPage
-    {
-        private IKolaResponse result;
+//    public class WhenGettingAPage
+//    {
+//        private IKolaResponse result;
 
-        [SetUp]
-        public void EstablishContext()
-        {
-            var page = MockRepository.GenerateStub<IKolaPage>();
+//        [SetUp]
+//        public void EstablishContext()
+//        {
+//            var page = MockRepository.GenerateStub<IKolaPage>();
 
-            var renderer = new KolaRenderer();
+//            var renderer = new KolaRenderer();
 
-            this.result = renderer.Render(page);
-        }
+//            this.result = renderer.Render(page);
+//        }
 
-        [Test]
-        public void ShouldReturnSomething()
-        {
-            this.result.ToHtml().Should().NotBeNullOrEmpty();
-        }
+//        [Test]
+//        public void ShouldReturnSomething()
+//        {
+//            this.result.ToHtml().Should().NotBeNullOrEmpty();
+//        }
 
-        [Test]
-        public void ShouldReturnHtml()
-        {
-            this.result.ToHtml().Should().Contain("<html");
-        }
-    }
-}
+//        [Test]
+//        public void ShouldReturnHtml()
+//        {
+//            this.result.ToHtml().Should().Contain("<html");
+//        }
+//    }
+//}

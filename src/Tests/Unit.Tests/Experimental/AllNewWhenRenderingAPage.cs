@@ -1,13 +1,13 @@
 ﻿namespace Unit.Tests.Experimental
 {
-    using System;
-    using System.Collections.Generic;
-
     using FluentAssertions;
 
     using NUnit.Framework;
 
+    using Rhino.Mocks;
+
     using Unit.Tests.Experimental.Framework;
+    using Unit.Tests.Experimental.Test;
 
     public class AllNewWhenRenderingAPage
     {
@@ -16,18 +16,35 @@
         [SetUp]
         public void EstablishContext()
         {
-            var mappings = new Dictionary<string, Func<IViewHelper, View>>
-            { 
-                { "page", h => new PageView(h) }, 
-                { "atom1", h => new AtomView(h, "<atom1/>") } 
-            };
+            var handlerFactory = MockRepository.GenerateStub<IHandlerFactory>();
+            handlerFactory.Stub(h => h.Create(Arg<string>.Is.Anything)).Return(new DefaultHandler());
 
-            var viewHelper = new TestViewHelper();
-            var viewFactory = new TestViewFactory(viewHelper, mappings);
+            var processor = new Processor(handlerFactory);
+            var engine = new KolaEngine(processor);
+            var page = new TestPage
+                {
+                    Components =
+                        new[]
+                            {
+                                new TestComponent { Name = "atom1" }, 
+                                new TestComponent { Name = "atom2" }, 
+                                new TestComponent 
+                                { 
+                                    Name = "container1", 
+                                    Children = new[]
+                                        {
+                                            new TestComponent { Name = "atom3" }
+                                        }
+                                }
+                            }
+                };
 
-            var page = new TestPage { Components = new[] { new TestComponent { Name = "atom1" } } };
+            var viewFactory = new TestViewFactory(engine);
+            var viewHelper = new TestViewHelper(viewFactory);
 
-            this.result = viewFactory["page"].Render(page);
+
+            var renderedPage = engine.Render(page);
+            this.result = renderedPage.ToHtml(viewHelper);
         }
 
         [Test]
@@ -40,6 +57,30 @@
         public void ResultShouldIncludeHtmlForAtom1()
         {
             this.result.Should().Contain("<atom1/>");
+        }
+
+        [Test]
+        public void ResultShouldIncludeHtmlForAtom2()
+        {
+            this.result.Should().Contain("<atom2/>");
+        }
+
+        [Test]
+        public void ResultShouldIncludeHtmlForStartOfContainer1()
+        {
+            this.result.Should().Contain("<container1>");
+        }
+
+        [Test]
+        public void ResultShouldIncludeHtmlForEndOfContainer1()
+        {
+            this.result.Should().Contain("</container1>");
+        }
+
+        [Test]
+        public void ResultShouldIncludeHtmlForAtom3()
+        {
+            this.result.Should().Contain("<atom3/>");
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿namespace Unit.Tests.Experimental.Framework
 {
-    internal interface IViewHelper
+    public interface IViewHelper
     {
+        string RenderPartial(string viewName, IComponent component);
     }
 }

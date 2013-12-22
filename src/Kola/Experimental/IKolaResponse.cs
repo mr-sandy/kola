@@ -2,6 +2,6 @@
 {
     public interface IKolaResponse
     {
-        string ToHtml();
+        string ToHtml(IViewHelper helper);
     }
 }

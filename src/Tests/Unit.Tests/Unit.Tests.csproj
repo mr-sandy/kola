@@ -50,24 +50,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\WhenConfiguringAPlugInAtom.cs" />
-    <Compile Include="Experimental\Framework\AtomView.cs" />
-    <Compile Include="Experimental\Framework\ContainerView.cs" />
-    <Compile Include="Experimental\Framework\IComponent.cs" />
-    <Compile Include="Experimental\Framework\PageView.cs" />
-    <Compile Include="Experimental\Framework\TestComponent.cs" />
-    <Compile Include="Experimental\Framework\TestViewFactory.cs" />
     <Compile Include="Experimental\AllNewWhenRenderingAPage.cs" />
+    <Compile Include="Experimental\Framework\CachingProcessor.cs" />
+    <Compile Include="Experimental\Framework\CompositeResult.cs" />
+    <Compile Include="Experimental\Framework\IHandlerFactory.cs" />
+    <Compile Include="Experimental\Framework\IProcessor.cs" />
     <Compile Include="Experimental\Framework\IViewHelper.cs" />
-    <Compile Include="Experimental\Framework\TestViewHelper.cs" />
-    <Compile Include="Experimental\Framework\View.cs" />
+    <Compile Include="Experimental\Framework\Processor.cs" />
+    <Compile Include="Experimental\Test\TestAtomView.cs" />
+    <Compile Include="Experimental\Test\TestContainerView.cs" />
+    <Compile Include="Experimental\Test\TestView.cs" />
+    <Compile Include="Experimental\Test\TestViewFactory.cs" />
+    <Compile Include="Experimental\Test\TestViewHelper.cs" />
+    <Compile Include="Experimental\Framework\IComponent.cs" />
+    <Compile Include="Experimental\Framework\KolaEngine.cs" />
+    <Compile Include="Experimental\Framework\IHandler.cs" />
     <Compile Include="Experimental\Framework\IPage.cs" />
-    <Compile Include="Experimental\Stubs\TestKolaComponent.cs" />
-    <Compile Include="Experimental\Stubs\TestAtomView.cs" />
-    <Compile Include="Experimental\Stubs\TestContainerView.cs" />
-    <Compile Include="Experimental\Stubs\TestKolaResponse.cs" />
-    <Compile Include="Experimental\Stubs\TestView.cs" />
-    <Compile Include="Experimental\Stubs\TestViewHelper.cs" />
-    <Compile Include="Experimental\Framework\TestPage.cs" />
+    <Compile Include="Experimental\Framework\IResult.cs" />
+    <Compile Include="Experimental\Test\TestComponent.cs" />
+    <Compile Include="Experimental\Test\TestPage.cs" />
+    <Compile Include="Experimental\Test\TestViewEngine.cs" />
     <Compile Include="Experimental\TestViewEngine.cs" />
     <Compile Include="Experimental\WhenGettingA.cs" />
     <Compile Include="Experimental\WhenGettingAPage.cs" />
@@ -93,6 +95,7 @@
       <Name>Kola</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

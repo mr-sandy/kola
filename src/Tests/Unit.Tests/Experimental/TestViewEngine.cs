@@ -1,21 +1,21 @@
-﻿namespace Unit.Tests.Experimental
-{
-    using System;
+﻿//namespace Unit.Tests.Experimental
+//{
+//    using System;
 
-    using Kola.Experimental;
+//    using Kola.Experimental;
 
-    internal class TestViewEngine
-    {
-        private readonly IViewHelper viewHelper;
+//    internal class TestViewEngine
+//    {
+//        private readonly IViewHelper viewHelper;
 
-        public TestViewEngine(IViewHelper viewHelper)
-        {
-            this.viewHelper = viewHelper;
-        }
+//        public TestViewEngine(IViewHelper viewHelper)
+//        {
+//            this.viewHelper = viewHelper;
+//        }
 
-        public IKolaResponse Render(IKolaComponent outerComponent)
-        {
-            return this.viewHelper.RenderPartial(outerComponent.Name, outerComponent);
-        }
-    }
-}
+//        public IKolaResponse Render(IKolaComponent outerComponent)
+//        {
+//            return this.viewHelper.RenderPartial(outerComponent.Name, outerComponent);
+//        }
+//    }
+//}

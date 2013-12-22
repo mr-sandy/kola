@@ -1,6 +1,8 @@
-﻿namespace Unit.Tests.Experimental.Framework
+﻿namespace Unit.Tests.Experimental.Test
 {
     using System.Collections.Generic;
+
+    using Unit.Tests.Experimental.Framework;
 
     internal class TestComponent : IComponent
     {
