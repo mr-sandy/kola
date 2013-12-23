@@ -6,10 +6,10 @@
 
     internal class HtmlReponseWrapper : IHtmlString
     {
-        private readonly IHtmlResponse renderPageReponse;
+        private readonly IResult renderPageReponse;
         private readonly IViewHelper viewHelper;
 
-        public HtmlReponseWrapper(IHtmlResponse renderPageReponse, IViewHelper viewHelper)
+        public HtmlReponseWrapper(IResult renderPageReponse, IViewHelper viewHelper)
         {
             this.renderPageReponse = renderPageReponse;
             this.viewHelper = viewHelper;

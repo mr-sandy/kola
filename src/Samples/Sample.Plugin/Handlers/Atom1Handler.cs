@@ -1,5 +1,7 @@
 ﻿namespace Sample.Plugin.Handlers
 {
+    using System;
+
     using Kola.Domain;
     using Kola.Processing;
 
@@ -12,9 +14,9 @@
             this.atom1Dependency = atom1Dependency;
         }
 
-        public IRenderingResponse HandleRequest(Component component, RequestContext context)
+        public IResult HandleRequest(IComponent component)
         {
-            return new RenderingResponse(viewHelper => viewHelper.RenderPartial("atom-1", component), null);
+            return new Result(viewHelper => viewHelper.RenderPartial("atom-1", component));
         }
     }
 }

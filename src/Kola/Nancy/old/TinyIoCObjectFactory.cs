@@ -4,6 +4,8 @@ using Nancy.TinyIoc;
 
 namespace Kola.Nancy
 {
+    using Kola.Processing.old;
+
     public class TinyIoCObjectFactory : IObjectFactory
     {
         private readonly TinyIoCContainer container;

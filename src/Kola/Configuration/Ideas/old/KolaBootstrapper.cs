@@ -15,6 +15,7 @@ namespace Kola.Configuration.Ideas
     using System.Reflection;
 
     using Kola.Processing;
+    using Kola.Processing.old;
 
     public static class KolaBootstrapper
     {
@@ -33,7 +34,7 @@ namespace Kola.Configuration.Ideas
                 }
             }
 
-            KolaRegistry.KolaEngine = new KolaEngine(new HandlerFactory(handlerMappings, objectFactory));
+//            KolaRegistry.KolaEngine = new KolaEngine(new HandlerFactory(handlerMappings, objectFactory));
 
             return kolaHostConfiguration;
         }

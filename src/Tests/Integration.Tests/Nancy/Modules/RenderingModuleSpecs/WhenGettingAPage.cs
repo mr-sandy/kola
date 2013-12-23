@@ -4,11 +4,7 @@
 
     using global::Nancy;
 
-    using Kola.Domain;
-
     using NUnit.Framework;
-
-    using Rhino.Mocks;
 
     public class WhenGettingAPage : ContextBase
     {
@@ -29,7 +25,7 @@
         [Test]
         public void ShouldReturnHtml()
         {
-            //this.Response.Body.As<>()
+            //this.Response.Body.As<this.ShouldReturnHtml()>()
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Kola.Processing
+﻿namespace Kola.Processing.old
 {
     using System;
     using System.Collections.Generic;
@@ -25,6 +25,11 @@
             }
 
             throw new Exception("No handler found for component '" + component.Name + "'");
+        }
+
+        public IHandler Create(string name)
+        {
+            throw new NotImplementedException();
         }
     }
 }
