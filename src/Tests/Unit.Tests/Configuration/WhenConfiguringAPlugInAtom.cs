@@ -8,6 +8,8 @@ using NUnit.Framework;
 
 namespace Unit.Tests.Configuration
 {
+    using Kola.Configuration.Plugins;
+
     [TestFixture]
     public class WhenConfiguringAnAtom
     {

@@ -1,5 +1,7 @@
 ﻿namespace Kola.Nancy.Modules
 {
+    using Kola.Processing;
+
     using global::Nancy;
     using global::Nancy.Responses.Negotiation;
 
@@ -19,7 +21,9 @@
             var page = this.pageHandler.GetPage((string)parameters.templatePath);
 
             return this.Negotiate
-                .WithMediaRangeModel("text/html", page).WithView("Page");
+                .WithStatusCode(HttpStatusCode.OK)
+                .WithMediaRangeModel("text/html", page)
+                .WithView("Page");
         }
     }
 }

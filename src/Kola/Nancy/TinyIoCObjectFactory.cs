@@ -1,10 +1,10 @@
-﻿using System;
-using Kola.Processing;
-using Nancy.TinyIoc;
-
-namespace Kola.Nancy
+﻿namespace Kola.Nancy
 {
-    using Kola.Processing.old;
+    using System;
+
+    using Kola.Processing;
+
+    using global::Nancy.TinyIoc;
 
     public class TinyIoCObjectFactory : IObjectFactory
     {
@@ -18,11 +18,6 @@ namespace Kola.Nancy
         public T Resolve<T>(Type type)
         {
             return (T)this.container.Resolve(type);
-        }
-
-        public void RegisterSingleton(Type type)
-        {
-            this.container.Register(type, type).AsSingleton();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Sample.Plugin
 {
-    using Kola.Configuration;
+    using Kola.Configuration.Plugins;
 
     using Sample.Plugin.Handlers;
 
@@ -23,6 +23,8 @@
             this.Configure.Component("container-1")
                 .WithView("Container1")
                 .WithParameter("parameter-name-1", "parameter-type-1", "parameter-value-1");
+
+            this.Configure.Component("container-2").WithView("Container2");
 
             this.Configure.ParameterType("parameter-1")
                 .WithDefault("default")

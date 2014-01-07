@@ -3,6 +3,8 @@ using Kola.Plugins.Core.Handlers;
 
 namespace Kola.Plugins.Core
 {
+    using Kola.Configuration.Plugins;
+
     public class Configuration : PluginConfiguration
     {
         public Configuration()

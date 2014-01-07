@@ -4,8 +4,6 @@
     using System.Linq;
     using System.Reflection;
 
-    using Kola.Configuration.Ideas;
-
     using global::Nancy;
     using global::Nancy.Bootstrapper;
     using global::Nancy.Conventions;
@@ -14,12 +12,14 @@
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
 
+    using Kola.Configuration;
+
     using ServiceStack.Text;
 
     public class KolaNancyBootstrapper : DefaultNancyBootstrapper
     {
         // TODO : A better way of adding plugins to AppDomainAssemblyTypeScanner is required :)
-        public static Func<Assembly, bool>[] CandidatePluginAssemblies = new Func<Assembly, bool>[]
+        private static readonly Func<Assembly, bool>[] CandidatePluginAssemblies = new Func<Assembly, bool>[]
         {
             x => x.GetReferencedAssemblies().Any(r => r.Name.StartsWith("Kola"))
         };
@@ -37,11 +37,13 @@
 
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
-            var kolaHostConfiguration = KolaBootstrapper.Bootstrap(new TinyIoCObjectFactory(container));
+            var configurationBuilder = new DefaultKolaConfigurationBuilder(new PluginFinder(), new TinyIoCObjectFactory(container));
+            var kolaConfiguration = configurationBuilder.Build();
+            NancyKolaRegistry.KolaEngine = kolaConfiguration.KolaEngine;
 
-            foreach (var viewLocation in kolaHostConfiguration.ViewLocations)
+            foreach (var pluginSummary in kolaConfiguration.PluginSummaries)
             {
-                ResourceViewLocationProvider.RootNamespaces.Add(viewLocation.Assembly, viewLocation.Location);
+                ResourceViewLocationProvider.RootNamespaces.Add(pluginSummary.Assembly, pluginSummary.ViewLocation);
             }
 
             ResourceViewLocationProvider.RootNamespaces.Add(typeof(KolaNancyBootstrapper).Assembly, "Kola.Nancy");

@@ -1,6 +1,8 @@
 ﻿
 namespace Kola.Configuration.Fluent
 {
+    using Kola.Configuration.Plugins;
+
     public class PluginConfigurer
     {
         private readonly PluginConfiguration configuration;

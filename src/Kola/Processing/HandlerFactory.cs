@@ -1,4 +1,4 @@
-﻿namespace Kola.Processing.old
+﻿namespace Kola.Processing
 {
     using System;
     using System.Collections.Generic;
@@ -16,20 +16,15 @@
             this.objectFactory = objectFactory;
         }
 
-        public IHandler GetHandler(Component component)
+        public IHandler Create(string name)
         {
-            if (this.handlerMappings.ContainsKey(component.Name))
+            if (this.handlerMappings.ContainsKey(name))
             {
-                var handlerType = this.handlerMappings[component.Name];
+                var handlerType = this.handlerMappings[name];
                 return this.objectFactory.Resolve<IHandler>(handlerType);
             }
 
-            throw new Exception("No handler found for component '" + component.Name + "'");
-        }
-
-        public IHandler Create(string name)
-        {
-            throw new NotImplementedException();
+            throw new Exception("No handler found for component '" + name + "'");
         }
     }
 }

@@ -55,10 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\Copy of PluginConfiguration.cs" />
+    <Compile Include="Configuration\DefaultKolaConfigurationBuilder.cs" />
+    <Compile Include="Configuration\IPluginFinder.cs" />
+    <Compile Include="Configuration\KolaConfigurationBuilder.cs" />
+    <Compile Include="Configuration\KolaConfiguration.cs" />
     <Compile Include="Configuration\old\CacheType.cs" />
     <Compile Include="Configuration\old\ComponentConfiguration.cs" />
-    <Compile Include="Configuration\Ideas\old\KolaBootstrapper.cs" />
+    <Compile Include="Configuration\PluginFinder.cs" />
     <Compile Include="Domain\old\AddComponentAmendment.cs" />
     <Compile Include="Domain\old\Amendment.cs" />
     <Compile Include="Domain\old\AmendmentProcessingVisitor.cs" />
@@ -73,13 +76,6 @@
     <Compile Include="Domain\old\Page.cs" />
     <Compile Include="Domain\old\SimpleComponent.cs" />
     <Compile Include="Domain\old\Template.cs" />
-    <Compile Include="Experimental\KolaRenderer.cs" />
-    <Compile Include="Experimental\DefaultHandler.cs" />
-    <Compile Include="Experimental\IKolaComponent.cs" />
-    <Compile Include="Experimental\IKolaHandler.cs" />
-    <Compile Include="Experimental\IKolaPage.cs" />
-    <Compile Include="Experimental\IKolaResponse.cs" />
-    <Compile Include="Experimental\IViewHelper.cs" />
     <Compile Include="Extensions\old\AmendmentExtensions.cs" />
     <Compile Include="Extensions\old\AmendmentResourceBuildingVisitor.cs" />
     <Compile Include="Extensions\old\CompositeExtensions.cs" />
@@ -90,10 +86,12 @@
     <Compile Include="Extensions\old\EnumerableExtensions.cs" />
     <Compile Include="Nancy\Extensions\old\NancyRazorViewBaseExtensions.cs" />
     <Compile Include="Extensions\old\StringExtensions.cs" />
-    <Compile Include="Nancy\Extensions\old\HtmlHelpersExtensions.cs" />
-    <Compile Include="Nancy\Extensions\old\HtmlReponseWrapper.cs" />
+    <Compile Include="Nancy\Extensions\HtmlHelpersExtensions.cs" />
+    <Compile Include="Nancy\HtmlReponseWrapper.cs" />
     <Compile Include="Extensions\old\TemplateExtensions.cs" />
-    <Compile Include="Nancy\old\KolaNancyBootstrapper.cs" />
+    <Compile Include="Nancy\NancyKolaRegistry.cs" />
+    <Compile Include="Processing\IPageHandler.cs" />
+    <Compile Include="Nancy\KolaNancyBootstrapper.cs" />
     <Compile Include="Nancy\Modules\old\AdminModule.cs" />
     <Compile Include="Nancy\Modules\old\ComponentExtensions.cs" />
     <Compile Include="Nancy\Modules\old\ComponentFactory.cs" />
@@ -107,7 +105,7 @@
     <Compile Include="Nancy\Modules\old\AcceptHeaderFilters.cs" />
     <Compile Include="Nancy\Modules\old\TemplateModule.cs" />
     <Compile Include="Nancy\Modules\RenderingModule.cs" />
-    <Compile Include="Nancy\old\NancyRazorViewHelper.cs" />
+    <Compile Include="Nancy\NancyRazorViewHelper.cs" />
     <Compile Include="Persistence\old\SerializationHelper.cs" />
     <Compile Include="Persistence\Surrogates\old\AddComponentAmendmentSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\old\AmendmentSurrogate.cs" />
@@ -127,8 +125,7 @@
     <Compile Include="Persistence\Surrogates\old\SimpleComponentSurrogate.cs" />
     <Compile Include="Persistence\old\TemplateRepository.cs" />
     <Compile Include="Persistence\Surrogates\old\TemplateSurrogate.cs" />
-    <Compile Include="Configuration\Ideas\old\KolaHostConfiguration.cs" />
-    <Compile Include="Configuration\Ideas\old\ViewLocation.cs" />
+    <Compile Include="Configuration\PluginSummary.cs" />
     <Compile Include="Configuration\old\ParameterConfiguration.cs" />
     <Compile Include="Configuration\old\ParameterTypeConfiguration.cs" />
     <Compile Include="Configuration\Fluent\old\ComponentConfigurer.cs" />
@@ -136,8 +133,7 @@
     <Compile Include="Configuration\Fluent\old\CacheConfigurer.cs" />
     <Compile Include="Configuration\Fluent\old\PluginConfigurer.cs" />
     <Compile Include="Configuration\Fluent\old\ParameterTypeConfigurer.cs" />
-    <Compile Include="Configuration\PluginConfiguration.cs" />
-    <Compile Include="Experimental\IPageHandler.cs" />
+    <Compile Include="Configuration\Plugins\PluginConfiguration.cs" />
     <Compile Include="Processing\Caching\CachingProcessor.cs" />
     <Compile Include="Processing\Caching\CachingResult.cs" />
     <Compile Include="Processing\CompositeResult.cs" />
@@ -151,14 +147,13 @@
     <Compile Include="Processing\IResult.cs" />
     <Compile Include="Processing\IViewHelper.cs" />
     <Compile Include="Processing\KolaEngine.cs" />
-    <Compile Include="Processing\old\HandlerFactory.cs" />
-    <Compile Include="Processing\old\IObjectFactory.cs" />
+    <Compile Include="Processing\HandlerFactory.cs" />
+    <Compile Include="Processing\IObjectFactory.cs" />
     <Compile Include="Processing\old\IRenderingResponse.cs" />
-    <Compile Include="Processing\old\KolaRegistry.cs" />
     <Compile Include="Processing\Processor.cs" />
     <Compile Include="Processing\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Nancy\old\TinyIoCObjectFactory.cs" />
+    <Compile Include="Nancy\TinyIoCObjectFactory.cs" />
     <Compile Include="Resources\old\AddComponentAmendmentResource.cs" />
     <Compile Include="Resources\old\AmendmentResource.cs" />
     <Compile Include="Resources\old\ComponentResource.cs" />
@@ -173,7 +168,6 @@
     <EmbeddedResource Include="Nancy\Views\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Configuration\Ideas\old\ReadMe.txt" />
     <EmbeddedResource Include="Scripts\app\templates\AmendmentTemplate.html" />
     <EmbeddedResource Include="Scripts\app\views\AmendmentView.js" />
     <EmbeddedResource Include="Scripts\app\models\Amendment.js" />
@@ -276,7 +270,9 @@
     <EmbeddedResource Include="Scripts\underscore-min.map" />
     <None Include="web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Nancy\old\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

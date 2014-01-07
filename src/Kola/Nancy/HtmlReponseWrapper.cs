@@ -1,4 +1,4 @@
-﻿namespace Kola.Nancy.Extensions
+﻿namespace Kola.Nancy
 {
     using Kola.Processing;
 
@@ -6,18 +6,18 @@
 
     internal class HtmlReponseWrapper : IHtmlString
     {
-        private readonly IResult renderPageReponse;
+        private readonly IResult result;
         private readonly IViewHelper viewHelper;
 
-        public HtmlReponseWrapper(IResult renderPageReponse, IViewHelper viewHelper)
+        public HtmlReponseWrapper(IResult result, IViewHelper viewHelper)
         {
-            this.renderPageReponse = renderPageReponse;
+            this.result = result;
             this.viewHelper = viewHelper;
         }
 
         public string ToHtmlString()
         {
-            return this.renderPageReponse.ToHtml(this.viewHelper);
+            return this.result.ToHtml(this.viewHelper);
         }
     }
 }

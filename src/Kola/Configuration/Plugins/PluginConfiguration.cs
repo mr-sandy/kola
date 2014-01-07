@@ -1,4 +1,4 @@
-﻿namespace Kola.Configuration
+﻿namespace Kola.Configuration.Plugins
 {
     using System.Collections.Generic;
 
