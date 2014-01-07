@@ -1,6 +1,6 @@
 ﻿namespace Sample.Host.Temporary
 {
-    using Kola.Processing;
+    using Kola.Rendering;
 
     public class PageHandler : IPageHandler
     {

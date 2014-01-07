@@ -1,9 +1,9 @@
 ﻿namespace Kola.Nancy
 {
-    using Kola.Processing;
+    using Kola.Configuration;
 
     public static class NancyKolaRegistry
     {
-        public static KolaEngine KolaEngine { get; set; }
+        public static KolaConfiguration KolaConfiguration { get; set; }
     }
 }

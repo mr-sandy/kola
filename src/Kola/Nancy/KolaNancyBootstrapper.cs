@@ -38,8 +38,9 @@
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
             var configurationBuilder = new DefaultKolaConfigurationBuilder(new PluginFinder(), new TinyIoCObjectFactory(container));
-            var kolaConfiguration = configurationBuilder.Build();
-            NancyKolaRegistry.KolaEngine = kolaConfiguration.KolaEngine;
+            KolaConfiguration kolaConfiguration = configurationBuilder.Build();
+            //TODO {SC} Us ethe IOC container to hold the Kola configuration
+            NancyKolaRegistry.KolaConfiguration = kolaConfiguration;
 
             foreach (var pluginSummary in kolaConfiguration.PluginSummaries)
             {

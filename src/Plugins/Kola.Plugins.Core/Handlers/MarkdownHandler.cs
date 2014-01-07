@@ -1,6 +1,6 @@
 ﻿namespace Kola.Plugins.Core.Handlers
 {
-    using Kola.Processing;
+    using Kola.Rendering;
 
     public class MarkdownHandler : IHandler
     {

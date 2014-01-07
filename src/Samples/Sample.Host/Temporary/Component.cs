@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Processing;
+    using Kola.Rendering;
 
     public class Component : IComponent
     {

@@ -2,8 +2,7 @@
 {
     using System;
 
-    using Kola.Domain;
-    using Kola.Processing;
+    using Kola.Rendering;
 
     public class Atom1Handler : IHandler
     {

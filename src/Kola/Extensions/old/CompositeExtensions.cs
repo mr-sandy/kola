@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Domain;
+    using Kola.Editing;
 
     internal static class CompositeExtensions
     {
@@ -20,7 +20,7 @@
 
             if (index >= composite.Components.Count())
             {
-                throw new DomainException("Component index outside bounds");
+                throw new KolaException("Component index outside bounds");
             }
 
             var component = composite.Components.ElementAt(index);
@@ -34,7 +34,7 @@
 
             if (childAsComposite == null)
             {
-                throw new DomainException("Component path includes non-composite as parent");
+                throw new KolaException("Component path includes non-composite as parent");
             }
 
             return childAsComposite.FindChild(remainder);

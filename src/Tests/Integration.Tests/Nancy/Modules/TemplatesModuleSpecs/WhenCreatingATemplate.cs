@@ -2,9 +2,9 @@
 {
     using FluentAssertions;
 
-    using Kola.Domain;
-    
     using global::Nancy;
+
+    using Kola.Editing;
 
     using NUnit.Framework;
 

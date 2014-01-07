@@ -2,8 +2,7 @@
 using System;
 using System.Linq;
 using Kola.Configuration;
-using Kola.Domain;
-using Kola.Processing;
+using Kola.Rendering;
 using NUnit.Framework;
 
 namespace Unit.Tests.Configuration

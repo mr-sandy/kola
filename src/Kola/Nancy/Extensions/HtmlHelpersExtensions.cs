@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Processing;
+    using Kola.Rendering;
 
     using global::Nancy.ViewEngines.Razor;
 
@@ -10,14 +10,14 @@
     {
         public static IHtmlString RenderPage<T>(this HtmlHelpers<T> helpers, IPage page)
         {
-            var engine = NancyKolaRegistry.KolaEngine;
-            return new HtmlReponseWrapper(engine.Render(page), new NancyRazorViewHelper<T>(helpers));
+            var engine = NancyKolaRegistry.KolaConfiguration.KolaEngine;
+            return new ResultWrapper(engine.Render(page), new NancyRazorViewHelper<T>(helpers));
         }
 
         public static IHtmlString RenderComponents<T>(this HtmlHelpers<T> helpers, IEnumerable<IComponent> components)
         {
-            var engine = NancyKolaRegistry.KolaEngine;
-            return new HtmlReponseWrapper(engine.Render(components), new NancyRazorViewHelper<T>(helpers));
+            var engine = NancyKolaRegistry.KolaConfiguration.KolaEngine;
+            return new ResultWrapper(engine.Render(components), new NancyRazorViewHelper<T>(helpers));
         }
     }
 }

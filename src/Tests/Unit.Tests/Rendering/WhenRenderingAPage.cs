@@ -2,7 +2,7 @@
 {
     using FluentAssertions;
 
-    using Kola.Processing;
+    using Kola.Rendering;
 
     using NUnit.Framework;
 

@@ -1,6 +1,6 @@
 ﻿namespace Unit.Tests.Rendering.Framework
 {
-    using Kola.Processing;
+    using Kola.Rendering;
 
     internal class TestViewFactory : ITestViewFactory
     {

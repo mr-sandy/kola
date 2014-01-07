@@ -4,7 +4,8 @@
 
     using FluentAssertions;
 
-    using Kola.Domain;
+    using Kola.Editing;
+    using Kola.Editing.Amendments;
     using Kola.Nancy.Modules;
 
     using NUnit.Framework;

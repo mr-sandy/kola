@@ -4,7 +4,7 @@
 
     using Integration.Tests.Nancy.Modules.RenderingModuleSpecs.Framework;
 
-    using Kola.Processing;
+    using Kola.Rendering;
 
     using global::Nancy;
     using global::Nancy.Testing;

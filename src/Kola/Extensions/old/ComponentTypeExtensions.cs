@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Domain;
+    using Kola.Editing;
     using Kola.Resources;
 
     internal static class ComponentTypeExtensions

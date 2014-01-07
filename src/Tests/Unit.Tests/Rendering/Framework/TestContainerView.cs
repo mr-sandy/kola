@@ -2,7 +2,7 @@
 {
     using System.Text;
 
-    using Kola.Processing;
+    using Kola.Rendering;
 
     internal class TestContainerView : TestView
     {

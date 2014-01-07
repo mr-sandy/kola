@@ -1,6 +1,6 @@
 ﻿namespace Kola.Extensions
 {
-    using Kola.Domain;
+    using Kola.Editing.Amendments;
     using Kola.Resources;
 
     internal static class AmendmentResourceExtensions

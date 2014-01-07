@@ -1,6 +1,6 @@
 ﻿namespace Kola.Nancy.Modules
 {
-    using Kola.Processing;
+    using Kola.Rendering;
 
     using global::Nancy;
     using global::Nancy.Responses.Negotiation;

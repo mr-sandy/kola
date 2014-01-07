@@ -1,8 +1,9 @@
 ﻿namespace Integration.Tests.Nancy.Modules.RenderingModuleSpecs
 {
+    using Kola.Configuration;
     using Kola.Nancy;
     using Kola.Nancy.Modules;
-    using Kola.Processing;
+    using Kola.Rendering;
 
     using global::Nancy.Testing;
     using global::Nancy.ViewEngines;
@@ -38,7 +39,7 @@
                         with.ViewLocationProvider(new ResourceViewLocationProvider());
                     });
 
-            NancyKolaRegistry.KolaEngine = new KolaEngine(new Processor(this.HandlerFactory));
+            NancyKolaRegistry.KolaConfiguration = new KolaConfiguration(new KolaEngine(new Processor(this.HandlerFactory)), null);
             this.Browser = new Browser(bootstrapper);
         }
     }

@@ -4,7 +4,7 @@
 
     using Kola.Configuration;
     using Kola.Configuration.Plugins;
-    using Kola.Processing;
+    using Kola.Rendering;
 
     using NUnit.Framework;
 

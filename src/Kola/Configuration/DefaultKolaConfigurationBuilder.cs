@@ -4,7 +4,7 @@
     using System.Collections.Generic;
 
     using Kola.Configuration.Plugins;
-    using Kola.Processing;
+    using Kola.Rendering;
 
     public class DefaultKolaConfigurationBuilder : KolaConfigurationBuilder
     {

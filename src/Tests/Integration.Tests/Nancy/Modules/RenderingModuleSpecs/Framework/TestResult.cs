@@ -1,6 +1,6 @@
 ﻿namespace Integration.Tests.Nancy.Modules.RenderingModuleSpecs.Framework
 {
-    using Kola.Processing;
+    using Kola.Rendering;
 
     public class TestResult : IResult
     {

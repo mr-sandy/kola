@@ -2,7 +2,7 @@
 {
     using System;
 
-    using Kola.Processing;
+    using Kola.Rendering;
 
     using global::Nancy.TinyIoc;
 

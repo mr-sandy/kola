@@ -1,6 +1,6 @@
 ﻿namespace Unit.Tests.Templates
 {
-    using Kola.Domain;
+    using Kola.Editing;
 
     using NUnit.Framework;
 

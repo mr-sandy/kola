@@ -1,8 +1,8 @@
 ﻿namespace Kola.Nancy.Modules
 {
-    using Kola.Domain;
+    using Kola.Editing;
 
-    using IComponent = Kola.Domain.Component;
+    using IComponent = Kola.Editing.Component;
 
     public class ComponentFactory : IComponentFactory
     {
