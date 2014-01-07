@@ -1,10 +1,12 @@
 ﻿namespace Sample.Host.Temporary
 {
+    using System.Collections.Generic;
+
     using Kola.Rendering;
 
     public class PageHandler : IPageHandler
     {
-        public IPage GetPage(string templatePath)
+        public IPage GetPage(IEnumerable<string> templatePath)
         {
             return new Page
                 {

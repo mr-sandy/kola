@@ -23,68 +23,68 @@ namespace Unit.Tests.Configuration
         [Test]
         public void ThereShouldBeAConfigEntryForAnAtom()
         {
-            Assert.AreEqual(1, this.configuration.ComponentConfigurations.Count()); 
+            Assert.AreEqual(1, this.configuration.Components.Count()); 
         }
 
         [Test]
         public void TheAtomNameShouldBeSet()
         {
-            var config = this.configuration.ComponentConfigurations.ElementAt(0);
+            var config = this.configuration.Components.ElementAt(0);
             Assert.AreEqual("atom-1", config.Name);
         }
 
         [Test]
         public void TheViewNameShouldBeSet()
         {
-            var config = this.configuration.ComponentConfigurations.ElementAt(0);
+            var config = this.configuration.Components.ElementAt(0);
             Assert.AreEqual("viewName", config.ViewName);
         }
 
         [Test]
         public void TheHandlerShouldBeSet()
         {
-            var config = this.configuration.ComponentConfigurations.ElementAt(0);
+            var config = this.configuration.Components.ElementAt(0);
             Assert.AreEqual(typeof(TestHandler), config.HandlerType);
         }
 
         [Test]
         public void ThereShouldBeAConfigEntryForTheParameter()
         {
-            Assert.AreEqual(1, this.configuration.ComponentConfigurations.ElementAt(0).Parameters.Count());
+            Assert.AreEqual(1, this.configuration.Components.ElementAt(0).Parameters.Count());
         }
 
         [Test]
         public void TheParameterNameShouldBeSet()
         {
-            var config = this.configuration.ComponentConfigurations.ElementAt(0).Parameters.ElementAt(0);
+            var config = this.configuration.Components.ElementAt(0).Parameters.ElementAt(0);
             Assert.AreEqual("parameterName", config.ParameterName);
         }
 
         [Test]
         public void TheParameterTypeShouldBeSet()
         {
-            var config = this.configuration.ComponentConfigurations.ElementAt(0).Parameters.ElementAt(0);
+            var config = this.configuration.Components.ElementAt(0).Parameters.ElementAt(0);
             Assert.AreEqual("parameterType", config.ParameterType);
         }
 
         [Test]
         public void TheParameterValueShouldBeSet()
         {
-            var config = this.configuration.ComponentConfigurations.ElementAt(0).Parameters.ElementAt(0);
+            var config = this.configuration.Components.ElementAt(0).Parameters.ElementAt(0);
             Assert.AreEqual("parameterValue", config.ParameterValue);
         }
 
         [Test]
         public void TheCacheTypeShouldBeSet()
         {
-            var config = this.configuration.ComponentConfigurations.ElementAt(0);
+            var config = this.configuration.Components.ElementAt(0);
             Assert.AreEqual(CacheType.PerUser, config.CacheType);
         }
 
         [Test]
         public void TheCacheDurationShouldBeSet()
         {
-            var config = this.configuration.ComponentConfigurations.ElementAt(0);
+            var config = this.configuration.Components.ElementAt(0);
             Assert.AreEqual(100, config.CacheDuration);
         }
     }

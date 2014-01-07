@@ -1,25 +1,25 @@
-﻿using System;
-
-namespace Kola.Configuration.Fluent
+﻿namespace Kola.Configuration.Fluent
 {
+    using System;
+
     public class ParameterTypeConfigurer : Exception
     {
-        private readonly ParameterTypeConfiguration configuration;
+        private readonly ParameterTypeSpecification specification;
 
-        internal ParameterTypeConfigurer(ParameterTypeConfiguration parameterTypeConfiguration)
+        internal ParameterTypeConfigurer(ParameterTypeSpecification parameterTypeSpecification)
         {
-            this.configuration = parameterTypeConfiguration;
+            this.specification = parameterTypeSpecification;
         }
 
         public ParameterTypeConfigurer WithDefault(string value)
         {
-            this.configuration.DefaultValue = value;
+            this.specification.DefaultValue = value;
             return this;
         }
 
         public ParameterTypeConfigurer WithEditor(string editor)
         {
-            this.configuration.EditorName = editor;
+            this.specification.EditorName = editor;
             return this;
         }
     }

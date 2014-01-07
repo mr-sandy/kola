@@ -1,16 +1,14 @@
 ﻿namespace Kola.Nancy.Modules
 {
-    using Kola.Configuration;
     using Kola.Extensions;
-    using Kola.Persistence;
 
     using global::Nancy;
 
     public class ComponentTypeModule : NancyModule
     {
-        private readonly IComponentTypeRegistry componentTypeRepository;
+        private readonly IComponentRegistry componentTypeRepository;
 
-        public ComponentTypeModule(IComponentTypeRegistry componentTypeRepository)
+        public ComponentTypeModule(IComponentRegistry componentTypeRepository)
         {
             this.componentTypeRepository = componentTypeRepository;
             this.Get["/_kola/component-types", AcceptHeaderFilters.NotHtml] = p => this.GetComponentTypes();

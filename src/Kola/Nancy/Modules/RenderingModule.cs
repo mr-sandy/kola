@@ -1,5 +1,6 @@
 ﻿namespace Kola.Nancy.Modules
 {
+    using Kola.Extensions;
     using Kola.Rendering;
 
     using global::Nancy;
@@ -12,13 +13,14 @@
         public RenderingModule(IPageHandler pageHandler)
         {
             this.pageHandler = pageHandler;
-            this.Get["(?<templatePath>.*)"] = this.GetPage;
-            this.Get["/"] = this.GetPage;
+            this.Get["(?<rawPath>.*)", AcceptHeaderFilters.Html] = p => this.GetPage(p.rawPath);
+            this.Get["/", AcceptHeaderFilters.Html] = p => this.GetPage(string.Empty);
         }
 
-        private Negotiator GetPage(dynamic parameters)
+        private Negotiator GetPage(string rawPath)
         {
-            var page = this.pageHandler.GetPage((string)parameters.templatePath);
+            var path = rawPath.ParsePath();
+            var page = this.pageHandler.GetPage(path);
 
             return this.Negotiate
                 .WithStatusCode(HttpStatusCode.OK)

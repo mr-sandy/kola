@@ -1,21 +1,21 @@
-﻿using Kola.Rendering;
-
-namespace Kola.Configuration.Fluent
+﻿namespace Kola.Configuration.Fluent
 {
+    using Kola.Rendering;
+
     public class ComponentConfigurer
     {
-        private readonly ComponentConfiguration configuration;
+        private readonly ComponentSpecification specification;
 
-        internal ComponentConfigurer(ComponentConfiguration componentConfiguration)
+        internal ComponentConfigurer(ComponentSpecification specification)
         {
-            this.configuration = componentConfiguration;
+            this.specification = specification;
         }
 
         public ComponentHandlerConfigurer WithHandler<T>(string viewName = "")
         {
-            this.configuration.HandlerType = typeof(T);
-            this.configuration.ViewName = viewName;
-            return new ComponentHandlerConfigurer(this.configuration);
+            this.specification.HandlerType = typeof(T);
+            this.specification.ViewName = viewName;
+            return new ComponentHandlerConfigurer(this.specification);
         }
 
         public ComponentHandlerConfigurer WithView(string viewName)

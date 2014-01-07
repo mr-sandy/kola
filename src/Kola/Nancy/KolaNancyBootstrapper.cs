@@ -42,9 +42,9 @@
             //TODO {SC} Us ethe IOC container to hold the Kola configuration
             NancyKolaRegistry.KolaConfiguration = kolaConfiguration;
 
-            foreach (var pluginSummary in kolaConfiguration.PluginSummaries)
+            foreach (var pluginSummary in kolaConfiguration.Plugins)
             {
-                ResourceViewLocationProvider.RootNamespaces.Add(pluginSummary.Assembly, pluginSummary.ViewLocation);
+                ResourceViewLocationProvider.RootNamespaces.Add(pluginSummary.GetType().Assembly, pluginSummary.ViewLocation);
             }
 
             ResourceViewLocationProvider.RootNamespaces.Add(typeof(KolaNancyBootstrapper).Assembly, "Kola.Nancy");

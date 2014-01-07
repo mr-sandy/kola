@@ -3,16 +3,16 @@ namespace Kola.Configuration.Fluent
 {
     public class ComponentHandlerConfigurer
     {
-        private readonly ComponentConfiguration configuration;
+        private readonly ComponentSpecification configuration;
 
-        internal ComponentHandlerConfigurer(ComponentConfiguration componentConfiguration)
+        internal ComponentHandlerConfigurer(ComponentSpecification componentConfiguration)
         {
             this.configuration = componentConfiguration;
         }
 
         public ComponentHandlerConfigurer WithParameter(string parameterName, string parameterType, string parameterValue = "")
         {
-            this.configuration.AddParameter(new ParameterConfiguration(parameterName, parameterType, parameterValue));
+            this.configuration.AddParameter(new ParameterSpecification(parameterName, parameterType, parameterValue));
             return this;
         }
 

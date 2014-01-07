@@ -1,5 +1,7 @@
 ﻿namespace Integration.Tests.Nancy.Modules.RenderingModuleSpecs
 {
+    using System.Collections.Generic;
+
     using FluentAssertions;
 
     using Integration.Tests.Nancy.Modules.RenderingModuleSpecs.Framework;
@@ -23,7 +25,7 @@
             var atom1Handler = MockRepository.GenerateMock<IHandler>();
             atom1Handler.Stub(h => h.HandleRequest(Arg<IComponent>.Is.Anything)).Return(new TestResult("<atom1/>"));
 
-            this.PageHandler.Stub(h => h.GetPage(Arg<string>.Is.Anything)).Return(page);
+            this.PageHandler.Stub(h => h.GetPage(Arg<IEnumerable<string>>.Is.Anything)).Return(page);
             this.HandlerFactory.Stub(f => f.Create("atom1")).Return(atom1Handler);
 
             this.Response = this.Browser.Get("/", with => with.Header("Accept", "text/html"));

@@ -10,6 +10,7 @@ namespace Kola.Configuration
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using Kola.Configuration.Plugins;
     using Kola.Rendering;
@@ -18,20 +19,13 @@ namespace Kola.Configuration
     {
         public KolaConfiguration Build()
         {
-            var pluginSummaries = new List<PluginSummary>();
-            var handlerMappings = new Dictionary<string, Type>();
+            var plugins = this.FindPlugins();
+            
+            var handlerMappings = plugins
+                .SelectMany(c => c.Components)
+                .ToDictionary(c => c.Name, c => c.HandlerType);
 
-            foreach (var pluginConfiguration in this.FindPlugins())
-            {
-                pluginSummaries.Add(new PluginSummary(pluginConfiguration.GetType().Assembly, pluginConfiguration.ViewLocation));
-
-                foreach (var componentConfiguration in pluginConfiguration.ComponentConfigurations)
-                {
-                    handlerMappings.Add(componentConfiguration.Name, componentConfiguration.HandlerType);
-                }
-            }
-
-            return new KolaConfiguration(new KolaEngine(this.BuildProcessor(handlerMappings)), pluginSummaries);
+            return new KolaConfiguration(new KolaEngine(this.BuildProcessor(handlerMappings)), plugins);
         }
 
         protected abstract IEnumerable<PluginConfiguration> FindPlugins();

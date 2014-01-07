@@ -5,6 +5,7 @@
 
     using FluentAssertions;
 
+    using Kola.Configuration;
     using Kola.Editing;
     using Kola.Resources;
 
@@ -15,15 +16,15 @@
 
     using Rhino.Mocks;
 
-    public class WhenRetrievingAllComponentTypes : ContextBase
+    internal class WhenRetrievingAllComponentTypes : ContextBase
     {
         [SetUp]
         public void EstablishContext()
         {
             var components = new[]
                 {
-                    new ComponentType("Component A"), 
-                    new ComponentType("Component B") 
+                    new ComponentSpecification("Component A"), 
+                    new ComponentSpecification("Component B") 
                 };
 
             this.ComponentTypeRepository.Stub(r => r.FindAll()).Return(components);

@@ -35,7 +35,7 @@
 
         private dynamic GetTemplate(string rawTemplatePath)
         {
-            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
             if (template == null) return HttpStatusCode.NotFound;
@@ -51,7 +51,7 @@
 
         private dynamic GetAmendments(string rawTemplatePath)
         {
-            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
             if (template == null) return HttpStatusCode.NotFound;
@@ -65,7 +65,7 @@
 
         private dynamic DeleteAmendment(string rawTemplatePath, int amendmentIndex)
         {
-            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
             if (template == null) return HttpStatusCode.NotFound;
@@ -78,7 +78,7 @@
 
         private dynamic GetComponent(string rawTemplatePath, string rawComponentPath)
         {
-            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
             if (template == null) return HttpStatusCode.NotFound;
@@ -98,7 +98,7 @@
 
         private dynamic PutTemplate(string rawTemplatePath)
         {
-            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var templatePath = rawTemplatePath.ParsePath();
 
             var existingTemplate = this.templateRepository.Get(templatePath);
             if (existingTemplate != null)
@@ -119,7 +119,7 @@
         {
             var amendment = this.Bind<AddComponentAmendmentResource>().ToDomain();
 
-            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
             if (template == null) return HttpStatusCode.NotFound;
@@ -139,7 +139,7 @@
         {
             var amendment = this.Bind<MoveComponentAmendmentResource>().ToDomain();
 
-            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
             if (template == null) return HttpStatusCode.NotFound;
@@ -159,7 +159,7 @@
         {
             var amendment = this.Bind<DeleteComponentAmendmentResource>().ToDomain();
 
-            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
             if (template == null) return HttpStatusCode.NotFound;
@@ -177,7 +177,7 @@
 
         private dynamic PostApplyAmendments(string rawTemplatePath)
         {
-            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
             if (template == null) return HttpStatusCode.NotFound;
@@ -192,7 +192,7 @@
 
         private dynamic PostUndoAmendments(string rawTemplatePath)
         {
-            var templatePath = rawTemplatePath.ParseTemplatePath();
+            var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
             if (template == null) return HttpStatusCode.NotFound;

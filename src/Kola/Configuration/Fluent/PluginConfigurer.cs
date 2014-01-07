@@ -19,20 +19,20 @@ namespace Kola.Configuration.Fluent
 
         public ComponentConfigurer Component(string componentName)
         {
-            var componentConfiguration = new ComponentConfiguration(componentName);
+            var componentSpecification = new ComponentSpecification(componentName);
 
-            this.configuration.Add(componentConfiguration);
+            this.configuration.Add(componentSpecification);
 
-            return new ComponentConfigurer(componentConfiguration);
+            return new ComponentConfigurer(componentSpecification);
         }
 
         public ParameterTypeConfigurer ParameterType(string parameterName)
         {
-            var parameterTypeConfiguration = new ParameterTypeConfiguration(parameterName);
+            var parameterTypeSpecification = new ParameterTypeSpecification(parameterName);
 
-            this.configuration.Add(parameterTypeConfiguration);
+            this.configuration.Add(parameterTypeSpecification);
 
-            return new ParameterTypeConfigurer(parameterTypeConfiguration);
+            return new ParameterTypeConfigurer(parameterTypeSpecification);
         }
     }
 }

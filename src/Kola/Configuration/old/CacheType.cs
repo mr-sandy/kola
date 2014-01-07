@@ -1,7 +1,7 @@
 ﻿
 namespace Kola.Configuration
 {
-    internal enum CacheType
+    public enum CacheType
     {
         PerUser
     }

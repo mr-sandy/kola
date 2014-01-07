@@ -22,7 +22,7 @@
             return string.Format("/{0}", string.Join(@"/", elements));
         }
 
-        public static IEnumerable<string> ParseTemplatePath(this string path)
+        public static IEnumerable<string> ParsePath(this string path)
         {
             return path.Split('\\', '/');
         }

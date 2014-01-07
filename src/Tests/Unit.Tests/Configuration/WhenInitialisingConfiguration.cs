@@ -38,7 +38,7 @@
         [Test]
         public void TheListOfPluginSummariesShouldBeSet()
         {
-            this.configuration.PluginSummaries.Should().HaveCount(2);
+            this.configuration.Plugins.Should().HaveCount(2);
         }
     }
 }
