@@ -1,6 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
+    <compositeComponent name="/_kola/component-types/markdown">
+      <components />
+    </compositeComponent>
+    <compositeComponent name="/_kola/component-types/container-2">
+      <components>
+        <compositeComponent name="/_kola/component-types/container-1">
+          <components>
+            <compositeComponent name="/_kola/component-types/atom-1">
+              <components>
+                <compositeComponent name="/_kola/component-types/container-2">
+                  <components />
+                </compositeComponent>
+              </components>
+            </compositeComponent>
+          </components>
+        </compositeComponent>
+        <compositeComponent name="/_kola/component-types/container-2">
+          <components>
+            <compositeComponent name="/_kola/component-types/atom-2">
+              <components />
+            </compositeComponent>
+          </components>
+        </compositeComponent>
+      </components>
+    </compositeComponent>
     <compositeComponent name="/_kola/component-types/component-type-3">
       <components />
     </compositeComponent>
@@ -27,36 +52,5 @@
       </components>
     </compositeComponent>
   </components>
-  <amendments>
-    <addComponent>
-      <componentType>/_kola/component-types/container-2</componentType>
-      <componentPath />
-      <index>0</index>
-    </addComponent>
-    <addComponent>
-      <componentType>/_kola/component-types/container-2</componentType>
-      <componentPath>0</componentPath>
-      <index>0</index>
-    </addComponent>
-    <addComponent>
-      <componentType>/_kola/component-types/container-1</componentType>
-      <componentPath>0</componentPath>
-      <index>0</index>
-    </addComponent>
-    <addComponent>
-      <componentType>/_kola/component-types/atom-1</componentType>
-      <componentPath>0/0</componentPath>
-      <index>0</index>
-    </addComponent>
-    <addComponent>
-      <componentType>/_kola/component-types/atom-2</componentType>
-      <componentPath>0/1</componentPath>
-      <index>0</index>
-    </addComponent>
-    <addComponent>
-      <componentType>/_kola/component-types/markdown</componentType>
-      <componentPath />
-      <index>0</index>
-    </addComponent>
-  </amendments>
+  <amendments />
 </template>

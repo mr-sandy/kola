@@ -62,18 +62,18 @@
     <Compile Include="Configuration\old\CacheType.cs" />
     <Compile Include="Configuration\ComponentSpecification.cs" />
     <Compile Include="Configuration\PluginFinder.cs" />
-    <Compile Include="Editing\Amendments\AddComponentAmendment.cs" />
-    <Compile Include="Editing\Amendments\Amendment.cs" />
-    <Compile Include="Editing\AmendmentProcessingVisitor.cs" />
-    <Compile Include="Editing\CompositeComponent.cs" />
-    <Compile Include="Editing\Component.cs" />
-    <Compile Include="Editing\Amendments\DeleteComponentAmendment.cs" />
+    <Compile Include="Domain\Amendments\AddComponentAmendment.cs" />
+    <Compile Include="Domain\Amendments\Amendment.cs" />
+    <Compile Include="Domain\AmendmentProcessingVisitor.cs" />
+    <Compile Include="Domain\CompositeComponent.cs" />
+    <Compile Include="Domain\Component.cs" />
+    <Compile Include="Domain\Amendments\DeleteComponentAmendment.cs" />
     <Compile Include="KolaException.cs" />
-    <Compile Include="Editing\IAmendmentVisitor.cs" />
-    <Compile Include="Editing\IComponentVisitor.cs" />
-    <Compile Include="Editing\Amendments\MoveComponentAmendment.cs" />
-    <Compile Include="Editing\SimpleComponent.cs" />
-    <Compile Include="Editing\Template.cs" />
+    <Compile Include="Domain\IAmendmentVisitor.cs" />
+    <Compile Include="Domain\IComponentVisitor.cs" />
+    <Compile Include="Domain\Amendments\MoveComponentAmendment.cs" />
+    <Compile Include="Domain\SimpleComponent.cs" />
+    <Compile Include="Domain\Template.cs" />
     <Compile Include="Extensions\old\AmendmentExtensions.cs" />
     <Compile Include="Extensions\old\AmendmentResourceBuildingVisitor.cs" />
     <Compile Include="Extensions\old\CompositeExtensions.cs" />
@@ -96,7 +96,7 @@
     <Compile Include="Nancy\Modules\old\ComponentFactory.cs" />
     <Compile Include="Extensions\old\ComponentResourceExtensions.cs" />
     <Compile Include="Nancy\Modules\ComponentTypeModule.cs" />
-    <Compile Include="Nancy\Modules\old\IComponentFactory.cs" />
+    <Compile Include="Domain\IComponentFactory.cs" />
     <Compile Include="Persistence\FileSystemHelper.cs" />
     <Compile Include="Persistence\ITemplateRepository.cs" />
     <Compile Include="Nancy\Modules\AcceptHeaderFilters.cs" />
@@ -135,10 +135,10 @@
     <Compile Include="Rendering\CompositeResult.cs" />
     <Compile Include="Rendering\DefaultHandler.cs" />
     <Compile Include="Rendering\Caching\ICacheManager.cs" />
-    <Compile Include="Rendering\IComponent.cs" />
+    <Compile Include="Domain\IComponent.cs" />
     <Compile Include="Rendering\IHandler.cs" />
     <Compile Include="Rendering\IHandlerFactory.cs" />
-    <Compile Include="Rendering\IPage.cs" />
+    <Compile Include="Domain\IPage.cs" />
     <Compile Include="Rendering\IProcessor.cs" />
     <Compile Include="Rendering\IResult.cs" />
     <Compile Include="Rendering\IViewHelper.cs" />
@@ -263,7 +263,9 @@
     <EmbeddedResource Include="Scripts\underscore-min.map" />
     <None Include="web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Editing\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

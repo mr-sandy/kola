@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Editing;
+    using Kola.Domain;
 
     internal static class CompositeExtensions
     {

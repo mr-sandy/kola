@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    using Kola.Editing;
+    using Kola.Domain;
     using Kola.Persistence;
 
     public class PageHandler : IPageHandler

@@ -1,6 +1,6 @@
 ﻿namespace Unit.Tests.Templates
 {
-    using Kola.Editing;
+    using Kola.Domain;
 
     public class ContextBase
     {

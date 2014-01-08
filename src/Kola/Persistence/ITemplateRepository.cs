@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Editing;
+    using Kola.Domain;
 
     public interface ITemplateRepository
     {

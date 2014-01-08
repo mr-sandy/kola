@@ -1,5 +1,7 @@
 ﻿namespace Kola.Rendering
 {
+    using Kola.Domain;
+
     public class Processor : IProcessor
     {
         private readonly IHandlerFactory handlerFactory;

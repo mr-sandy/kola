@@ -4,7 +4,7 @@
 
     using FluentAssertions;
 
-    using Kola.Editing;
+    using Kola.Domain;
     using Kola.Extensions;
     using Kola.Resources;
 

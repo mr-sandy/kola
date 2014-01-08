@@ -2,8 +2,8 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Editing;
-    using Kola.Editing.Amendments;
+    using Kola.Domain;
+    using Kola.Domain.Amendments;
     using Kola.Resources;
 
     internal class AmendmentResourceBuildingVisitor : IAmendmentVisitor

@@ -1,5 +1,6 @@
 ﻿namespace Kola.Rendering.Caching
 {
+    using Kola.Domain;
     using Kola.Rendering;
 
     public class CachingProcessor : IProcessor

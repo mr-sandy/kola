@@ -2,8 +2,8 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Editing;
-    using Kola.Editing.Amendments;
+    using Kola.Domain;
+    using Kola.Domain.Amendments;
     using Kola.Persistence.Extensions;
     using Kola.Persistence.Surrogates;
 

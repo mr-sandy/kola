@@ -1,11 +1,10 @@
-﻿namespace Kola.Editing
+﻿namespace Kola.Domain
 {
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Editing.Amendments;
+    using Kola.Domain.Amendments;
     using Kola.Extensions;
-    using Kola.Nancy.Modules;
 
     public class AmendmentProcessingVisitor : IAmendmentVisitor
     {

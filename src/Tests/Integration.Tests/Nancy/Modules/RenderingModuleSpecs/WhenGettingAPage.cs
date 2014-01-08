@@ -6,6 +6,7 @@
 
     using Integration.Tests.Nancy.Modules.RenderingModuleSpecs.Framework;
 
+    using Kola.Domain;
     using Kola.Rendering;
 
     using global::Nancy;

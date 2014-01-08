@@ -1,6 +1,6 @@
-﻿namespace Kola.Editing
+﻿namespace Kola.Domain
 {
-    using Kola.Editing.Amendments;
+    using Kola.Domain.Amendments;
 
     public interface IAmendmentVisitor
     {

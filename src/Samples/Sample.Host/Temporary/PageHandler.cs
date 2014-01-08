@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
 
+    using Kola.Domain;
     using Kola.Rendering;
 
     public class PageHandler : IPageHandler

@@ -1,4 +1,4 @@
-﻿namespace Kola.Editing
+﻿namespace Kola.Domain
 {
     public interface IComponentVisitor
     {

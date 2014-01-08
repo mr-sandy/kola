@@ -6,7 +6,7 @@
     using FluentAssertions;
 
     using Kola.Configuration;
-    using Kola.Editing;
+    using Kola.Domain;
     using Kola.Resources;
 
     using global::Nancy;

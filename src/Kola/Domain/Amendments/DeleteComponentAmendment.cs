@@ -1,7 +1,8 @@
-﻿namespace Kola.Editing.Amendments
+﻿namespace Kola.Domain.Amendments
 {
     using System.Collections.Generic;
 
+    using Kola.Domain;
     using Kola.Extensions;
 
     public class DeleteComponentAmendment : Amendment

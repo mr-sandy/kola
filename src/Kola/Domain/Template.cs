@@ -1,10 +1,9 @@
-﻿namespace Kola.Editing
+﻿namespace Kola.Domain
 {
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Editing.Amendments;
-    using Kola.Nancy.Modules;
+    using Kola.Domain.Amendments;
 
     public class Template : CompositeComponent
     {

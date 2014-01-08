@@ -2,7 +2,7 @@
 {
     using System.Linq;
 
-    using Kola.Editing;
+    using Kola.Domain;
 
     using NUnit.Framework;
 

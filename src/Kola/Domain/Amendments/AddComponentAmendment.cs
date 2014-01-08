@@ -1,6 +1,8 @@
-﻿namespace Kola.Editing.Amendments
+﻿namespace Kola.Domain.Amendments
 {
     using System.Collections.Generic;
+
+    using Kola.Domain;
 
     public class AddComponentAmendment : Amendment
     {

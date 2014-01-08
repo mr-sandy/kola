@@ -1,5 +1,6 @@
 ﻿namespace Integration.Tests.Nancy.Modules.TemplatesModuleSpecs
 {
+    using Kola.Domain;
     using Kola.Nancy.Modules;
     using Kola.Persistence;
     using global::Nancy.Testing;

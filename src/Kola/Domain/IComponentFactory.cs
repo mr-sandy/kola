@@ -1,7 +1,5 @@
-﻿namespace Kola.Nancy.Modules
+﻿namespace Kola.Domain
 {
-    using Kola.Editing;
-
     public interface IComponentFactory
     {
         Component Create(string type);

@@ -4,7 +4,7 @@
 
     using global::Nancy;
 
-    using Kola.Editing;
+    using Kola.Domain;
 
     using NUnit.Framework;
 

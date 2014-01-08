@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Editing;
+    using Kola.Domain;
     using Kola.Persistence.Surrogates;
 
     public static class TemplateExtensions
