@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Templates
+﻿namespace Unit.Tests.Domain.Templates
 {
     using System.Linq;
 
@@ -8,22 +8,24 @@
 
     using AssertionExtensions = FluentAssertions.AssertionExtensions;
 
-    public class WhenAddingTheFirstComponentToATemplate : ContextBase
+    public class WhenAddingTheFirstComponentToATemplate
     {
+        private Template template;
+
         [SetUp]
         public void EstablishContext()
         {
             var templatePath = new[] { "test", "path" };
-            this.Template = new Template(templatePath);
+            this.template = new Template(templatePath);
 
             var newComponent = new SimpleComponent("component1");
-            this.Template.AddComponent(newComponent);
+            this.template.AddComponent(newComponent);
         }
 
         [Test]
         public void ShouldHaveOneComponent()
         {
-            AssertionExtensions.Should((int)this.Template.Components.Count()).Be(1);
+            AssertionExtensions.Should((int)this.template.Components.Count()).Be(1);
         }
     }
 }

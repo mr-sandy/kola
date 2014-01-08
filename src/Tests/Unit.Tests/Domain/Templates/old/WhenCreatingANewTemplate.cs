@@ -1,16 +1,18 @@
-﻿namespace Unit.Tests.Templates
+﻿namespace Unit.Tests.Domain.Templates
 {
     using Kola.Domain;
 
     using NUnit.Framework;
 
-    public class WhenCreatingANewTemplate : ContextBase
+    public class WhenCreatingANewTemplate
     {
+        private Template template;
+
         [SetUp]
         public void EstablishContext()
         {
             var templatePath = new[] { "test", "path" };
-            this.Template = new Template(templatePath);
+            this.template = new Template(templatePath);
         }
     }
 }

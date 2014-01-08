@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Templates
+﻿namespace Unit.Tests.Domain.Templates
 {
     using System.Linq;
 
@@ -10,30 +10,32 @@
 
     using NUnit.Framework;
 
-    public class WhenApplyingAnAddComponentAmendmentToTheRoot : ContextBase
+    public class WhenApplyingAnAddComponentAmendmentToTheRoot
     {
+        private Template template;
+
         [SetUp]
         public void EstablishContext()
         {
             var templatePath = new[] { "test", "path" };
-            this.Template = new Template(templatePath);
+            this.template = new Template(templatePath);
 
             var amendment = new AddComponentAmendment("componentType", Enumerable.Empty<int>(), 0);
-            this.Template.AddAmendment(amendment);
+            this.template.AddAmendment(amendment);
 
-            this.Template.ApplyAmendments(new ComponentFactory());
+            this.template.ApplyAmendments(new ComponentFactory());
         }
 
         [Test]
         public void ShouldHaveOneComponent()
         {
-            this.Template.Components.Should().HaveCount(1);
+            this.template.Components.Should().HaveCount(1);
         }
 
         [Test]
         public void ShouldHaveCorrectComponentType()
         {
-            this.Template.Components.ElementAt(0).Name.Should().Be("componentType");
+            this.template.Components.ElementAt(0).Name.Should().Be("componentType");
         }
     }
 }
