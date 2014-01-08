@@ -145,6 +145,7 @@
     <Compile Include="Rendering\KolaEngine.cs" />
     <Compile Include="Rendering\HandlerFactory.cs" />
     <Compile Include="Rendering\IObjectFactory.cs" />
+    <Compile Include="Rendering\PageHandler.cs" />
     <Compile Include="Rendering\Processor.cs" />
     <Compile Include="Rendering\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
