@@ -4,6 +4,6 @@
 
     public interface IProcessor
     {
-        IResult Process(IComponent component);
+        IResult Process(IComponentInstance component);
     }
 }

@@ -14,7 +14,7 @@
             this.cacheManager = cacheManager;
         }
 
-        public IResult Process(IComponent component)
+        public IResult Process(IComponentInstance component)
         {
             return new CachingResult(this.inner.Process(component), this.cacheManager, component);
         }

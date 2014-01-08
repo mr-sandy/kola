@@ -2,10 +2,10 @@
 {
     using System.Collections.Generic;
 
-    public interface IComponent
+    public interface IComponentInstance
     {
         string Name { get; }
 
-        IEnumerable<IComponent> Children { get; }
+        IEnumerable<IComponentInstance> Children { get; }
     }
 }

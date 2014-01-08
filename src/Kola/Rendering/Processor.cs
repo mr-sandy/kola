@@ -11,7 +11,7 @@
             this.handlerFactory = handlerFactory;
         }
 
-        public IResult Process(IComponent component)
+        public IResult Process(IComponentInstance component)
         {
             var handler = this.handlerFactory.Create(component.Name);
             return handler.HandleRequest(component);

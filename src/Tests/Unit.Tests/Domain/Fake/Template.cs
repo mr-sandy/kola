@@ -37,9 +37,9 @@
             this.amendments.Add(amendment);
         }
 
-        public void ApplyAmendments(IComponentFactory componentFactory)
+        public void ApplyAmendments(IComponentLibrary componentLibrary)
         {
-            var visitor = new AmendmentApplyingVisitor(this, componentFactory);
+            var visitor = new AmendmentApplyingVisitor(this, componentLibrary);
 
             foreach (var amendment in this.amendments)
             {

@@ -7,18 +7,19 @@
     {
         private readonly Template template;
 
-        private readonly IComponentFactory componentFactory;
+        private readonly IComponentLibrary componentLibrary;
 
-        public AmendmentApplyingVisitor(Template template, IComponentFactory componentFactory)
+        public AmendmentApplyingVisitor(Template template, IComponentLibrary componentLibrary)
         {
             this.template = template;
-            this.componentFactory = componentFactory;
+            this.componentLibrary = componentLibrary;
         }
 
         public void Visit(AddComponentAmendment amendment)
         {
             var parent = this.template.FindComponent(amendment.ParentPath);
-            var component = this.componentFactory.Create(amendment.ComponentName);
+            var specification = this.componentLibrary.Lookup(amendment.ComponentName);
+            var component = specification.Create();
             parent.AddComponent(component, amendment.Index);
         }
     }

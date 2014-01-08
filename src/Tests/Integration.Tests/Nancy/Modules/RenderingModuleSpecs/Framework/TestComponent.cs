@@ -4,10 +4,10 @@
 
     using Kola.Domain;
 
-    internal class TestComponent : IComponent
+    internal class TestComponent : IComponentInstance
     {
         public string Name { get; set; }
 
-        public IEnumerable<IComponent> Children { get; set; }
+        public IEnumerable<IComponentInstance> Children { get; set; }
     }
 }

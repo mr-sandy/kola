@@ -21,7 +21,7 @@
             return new CompositeResult(results);
         }
 
-        public IResult Render(IEnumerable<IComponent> children)
+        public IResult Render(IEnumerable<IComponentInstance> children)
         {
             var results = children.Select(this.processor.Process);
 

@@ -5,7 +5,7 @@
 
     public class MarkdownHandler : IHandler
     {
-        public IResult HandleRequest(IComponent component)
+        public IResult HandleRequest(IComponentInstance component)
         {
             var transformer = new MarkdownSharp.Markdown();
 

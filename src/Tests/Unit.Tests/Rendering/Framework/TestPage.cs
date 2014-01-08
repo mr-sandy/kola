@@ -7,6 +7,6 @@
 
     internal class TestPage : IPage
     {
-        public IEnumerable<IComponent> Components { get; set; }
+        public IEnumerable<IComponentInstance> Components { get; set; }
     }
 }

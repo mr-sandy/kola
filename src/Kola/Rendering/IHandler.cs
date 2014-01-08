@@ -4,6 +4,6 @@
 
     public interface IHandler
     {
-        IResult HandleRequest(IComponent component);
+        IResult HandleRequest(IComponentInstance component);
     }
 }

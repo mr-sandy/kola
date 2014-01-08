@@ -5,6 +5,6 @@
 
     public interface ICacheManager
     {
-        void Record(IComponent component, string value);
+        void Record(IComponentInstance component, string value);
     }
 }

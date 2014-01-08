@@ -12,7 +12,7 @@
             this.atom1Dependency = atom1Dependency;
         }
 
-        public IResult HandleRequest(IComponent component)
+        public IResult HandleRequest(IComponentInstance component)
         {
             return new Result(viewHelper => viewHelper.RenderPartial("atom-1", component));
         }

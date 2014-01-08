@@ -135,7 +135,7 @@
     <Compile Include="Rendering\CompositeResult.cs" />
     <Compile Include="Rendering\DefaultHandler.cs" />
     <Compile Include="Rendering\Caching\ICacheManager.cs" />
-    <Compile Include="Domain\IComponent.cs" />
+    <Compile Include="Domain\IComponentInstance.cs" />
     <Compile Include="Rendering\IHandler.cs" />
     <Compile Include="Rendering\IHandlerFactory.cs" />
     <Compile Include="Domain\IPage.cs" />

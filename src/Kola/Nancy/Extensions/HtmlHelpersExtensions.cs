@@ -15,7 +15,7 @@
             return new ResultWrapper(engine.Render(page), new NancyRazorViewHelper<T>(helpers));
         }
 
-        public static IHtmlString RenderComponents<T>(this HtmlHelpers<T> helpers, IEnumerable<IComponent> components)
+        public static IHtmlString RenderComponents<T>(this HtmlHelpers<T> helpers, IEnumerable<IComponentInstance> components)
         {
             var engine = NancyKolaRegistry.KolaConfiguration.KolaEngine;
             return new ResultWrapper(engine.Render(components), new NancyRazorViewHelper<T>(helpers));

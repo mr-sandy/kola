@@ -4,7 +4,7 @@
 
     public class DefaultHandler : IHandler
     {
-        public IResult HandleRequest(IComponent component)
+        public IResult HandleRequest(IComponentInstance component)
         {
             return new Result(h => h.RenderPartial(component.Name, component));
         }

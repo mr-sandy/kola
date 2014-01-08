@@ -24,7 +24,7 @@
             var page = new TestPage { Components = new[] { new TestComponent { Name = "atom1" } } };
 
             var atom1Handler = MockRepository.GenerateMock<IHandler>();
-            atom1Handler.Stub(h => h.HandleRequest(Arg<IComponent>.Is.Anything)).Return(new TestResult("<atom1/>"));
+            atom1Handler.Stub(h => h.HandleRequest(Arg<IComponentInstance>.Is.Anything)).Return(new TestResult("<atom1/>"));
 
             this.PageHandler.Stub(h => h.GetPage(Arg<IEnumerable<string>>.Is.Anything)).Return(page);
             this.HandlerFactory.Stub(f => f.Create("atom1")).Return(atom1Handler);

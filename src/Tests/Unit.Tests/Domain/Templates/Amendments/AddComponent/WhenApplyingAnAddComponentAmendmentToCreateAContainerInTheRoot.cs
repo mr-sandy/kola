@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Domain.Templates.Amendments
+﻿namespace Unit.Tests.Domain.Templates.Amendments.AddComponent
 {
     using System.Linq;
 
@@ -23,10 +23,12 @@
 
             var newComponent = new Container();
 
-            var componentFactory = MockRepository.GenerateStub<IComponentFactory>();
-            componentFactory.Stub(f => f.Create("container name")).Return(newComponent);
+            var componentLibrary = MockRepository.GenerateStub<IComponentLibrary>();
+            var componentSpecification = MockRepository.GenerateStub<IComponentSpecification>();
+            componentLibrary.Stub(l => l.Lookup("container name")).Return(componentSpecification);
+            componentSpecification.Stub(s => s.Create()).Return(newComponent);
 
-            this.template.ApplyAmendments(componentFactory);
+            this.template.ApplyAmendments(componentLibrary);
         }
 
         [Test]

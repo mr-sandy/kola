@@ -4,6 +4,6 @@
 
     public interface IPage
     {
-        IEnumerable<IComponent> Components { get; }
+        IEnumerable<IComponentInstance> Components { get; }
     }
 }
