@@ -3,6 +3,7 @@
     using System.Linq;
 
     using Kola.Domain;
+    using Kola.Domain.Extensions;
     using Kola.Extensions;
     using Kola.Persistence;
     using Kola.Resources;
@@ -14,16 +15,12 @@
     {
         private readonly ITemplateRepository templateRepository;
 
-        private readonly IComponentFactory componentFactory;
-
-        public TemplateModule(ITemplateRepository templateRepository, IComponentFactory componentFactory)
+        public TemplateModule(ITemplateRepository templateRepository)
         {
             this.templateRepository = templateRepository;
-            this.componentFactory = componentFactory;
 
             this.Get["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
             this.Get["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.GetComponent(p.templatePath, p.componentPath);
-            this.Delete["/_kola/templates/{templatePath*}/_amendments/{amendmentIndex}", AcceptHeaderFilters.NotHtml] = p => this.DeleteAmendment(p.templatePath, p.amendmentIndex);
             this.Get["/_kola/templates/{templatePath*}/_amendments", AcceptHeaderFilters.NotHtml] = p => this.GetAmendments(p.templatePath);
             this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.PutTemplate(p.templatePath);
             this.Post["/_kola/templates/{templatePath*}/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAddComponentAmendment(p.templatePath);
@@ -40,7 +37,8 @@
 
             if (template == null) return HttpStatusCode.NotFound;
 
-            template.ApplyAmendments(this.componentFactory);
+            // TODO FIX NEXT
+            //template.ApplyAmendments(this.componentFactory);
 
             var resource = template.ToResource();
 
@@ -63,19 +61,6 @@
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
 
-        private dynamic DeleteAmendment(string rawTemplatePath, int amendmentIndex)
-        {
-            var templatePath = rawTemplatePath.ParsePath();
-            var template = this.templateRepository.Get(templatePath);
-
-            if (template == null) return HttpStatusCode.NotFound;
-
-            var amendment = template.Amendments.ElementAt(amendmentIndex);
-            template.RemoveAmendment(amendment);
-
-            return HttpStatusCode.OK;
-        }
-
         private dynamic GetComponent(string rawTemplatePath, string rawComponentPath)
         {
             var templatePath = rawTemplatePath.ParsePath();
@@ -83,11 +68,12 @@
 
             if (template == null) return HttpStatusCode.NotFound;
 
-            template.ApplyAmendments(this.componentFactory);
+            // TODO FIX NEXT
+            //template.ApplyAmendments(this.componentFactory);
 
             var componentPath = rawComponentPath.ParseComponentPath();
 
-            var component = template.FindChild(componentPath);
+            var component = template.FindComponent(componentPath);
 
             var resource = component.ToResource(template.Path, componentPath);
 
@@ -128,7 +114,8 @@
 
             this.templateRepository.Update(template);
 
-            template.ApplyAmendments(this.componentFactory);
+            // TODO FIX NEXT
+            //template.ApplyAmendments(this.componentFactory);
 
             var resource = amendment.ToResource(template.Path, template.Amendments.Count() - 1, true);
 
@@ -148,7 +135,8 @@
 
             this.templateRepository.Update(template);
 
-            template.ApplyAmendments(this.componentFactory);
+            // TODO FIX NEXT
+            //template.ApplyAmendments(this.componentFactory);
 
             var resource = amendment.ToResource(template.Path, template.Amendments.Count() - 1, true);
 
@@ -168,7 +156,8 @@
 
             this.templateRepository.Update(template);
 
-            template.ApplyAmendments(this.componentFactory);
+            // TODO FIX NEXT
+            //template.ApplyAmendments(this.componentFactory);
 
             var resource = amendment.ToResource(template.Path, template.Amendments.Count() - 1, true);
 
@@ -182,7 +171,9 @@
 
             if (template == null) return HttpStatusCode.NotFound;
 
-            template.ApplyAmendments(this.componentFactory, reset: true);
+            // TODO FIX NEXT
+            //template.ApplyAmendments(this.componentFactory);
+            //template.ApplyAmendments(this.componentFactory, reset: true);
 
             this.templateRepository.Update(template);
 
@@ -201,13 +192,13 @@
 
             this.templateRepository.Update(template);
 
-            template.ApplyAmendments(this.componentFactory);
+            //template.ApplyAmendments(this.componentFactory);
 
             var rootComponentIndex = (lastAmendment == null)
                                          ? Enumerable.Empty<int>()
                                          : lastAmendment.GetRootComponent();
 
-            var snippet = template.FindChild(rootComponentIndex);
+            var snippet = template.FindComponent(rootComponentIndex);
 
             return this.Response.AsJson(snippet.ToResource(Enumerable.Empty<string>(), rootComponentIndex)).WithStatusCode(HttpStatusCode.Created);
         }

@@ -20,14 +20,14 @@
             var templatePath = new[] { "test", "path" };
             var template = new Template(templatePath);
 
-            var child1 = new CompositeComponent("child1");
-            template.AddComponent(child1);
+            var child1 = new Container("child1");
+            template.AddComponent(child1, 0);
 
-            var grandchild1 = new SimpleComponent("grandchild1");
-            child1.AddComponent(grandchild1);
+            var grandchild1 = new Atom("grandchild1");
+            child1.AddComponent(grandchild1, 0);
 
-            var child2 = new SimpleComponent("child2");
-            template.AddComponent(child2);
+            var child2 = new Atom("child2");
+            template.AddComponent(child2, 0);
 
             this.templateResource = template.ToResource();
         }

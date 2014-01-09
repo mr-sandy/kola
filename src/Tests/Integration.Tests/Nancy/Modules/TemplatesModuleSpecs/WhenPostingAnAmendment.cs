@@ -25,7 +25,7 @@
 
             this.template = new Template(new[] { "test", "path" });
             this.TemplateRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(this.template);
-            this.ComponentFactory.Stub(r => r.Create(Arg<string>.Is.Anything)).Return(new CompositeComponent());
+            //this.ComponentFactory.Stub(r => r.Create(Arg<string>.Is.Anything)).Return(new CompositeComponent());
 
             var request = new AddComponentAmendmentResource
             {

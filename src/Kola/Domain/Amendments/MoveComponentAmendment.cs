@@ -1,11 +1,11 @@
 ﻿namespace Kola.Domain.Amendments
 {
+    using System;
     using System.Collections.Generic;
 
-    using Kola.Domain;
     using Kola.Extensions;
 
-    public class MoveComponentAmendment : Amendment
+    public class MoveComponentAmendment : IAmendment
     {
         public MoveComponentAmendment(IEnumerable<int> parentComponentPath, IEnumerable<int> componentPath, int index)
         {
@@ -20,12 +20,12 @@
 
         public int Index { get; private set; }
 
-        public override void Accept(IAmendmentVisitor visitor)
+        public void Accept(IAmendmentVisitor visitor)
         {
             visitor.Visit(this);
         }
 
-        public override IEnumerable<int> GetRootComponent()
+        public IEnumerable<int> GetRootComponent()
         {
             return this.ComponentPath.GetOverlap(this.ParentComponentPath);
         }

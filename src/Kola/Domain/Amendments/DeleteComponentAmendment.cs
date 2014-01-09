@@ -1,11 +1,11 @@
 ﻿namespace Kola.Domain.Amendments
 {
+    using System;
     using System.Collections.Generic;
 
-    using Kola.Domain;
     using Kola.Extensions;
 
-    public class DeleteComponentAmendment : Amendment
+    public class DeleteComponentAmendment : IAmendment
     {
         public DeleteComponentAmendment(IEnumerable<int> componentPath)
         {
@@ -14,12 +14,12 @@
 
         public IEnumerable<int> ComponentPath { get; private set; }
 
-        public override void Accept(IAmendmentVisitor visitor)
+        public void Accept(IAmendmentVisitor visitor)
         {
             visitor.Visit(this);
         }
 
-        public override IEnumerable<int> GetRootComponent()
+        public IEnumerable<int> GetRootComponent()
         {
             return this.ComponentPath.TakeAllButLast();
         }

@@ -4,12 +4,13 @@
 
     using FluentAssertions;
 
+    using Kola.Domain.Amendments;
+
     using NUnit.Framework;
 
     using Rhino.Mocks;
 
-    using Unit.Tests.Domain.Fake;
-    using Unit.Tests.Domain.Fake.Amendments;
+    using Kola.Domain;
 
     public class WhenApplyingAnAddComponentAmendmentToCreateASecondAtomInAChildComponent
     {
@@ -18,15 +19,15 @@
         [SetUp]
         public void EstablishContext()
         {
-            this.container = new Container();
+            this.container = new Container("container 1");
 
             var amendment = new AddComponentAmendment("atom name", new[] { 0 }, 1);
-            var template = new Template(new[] { this.container }, new[] { amendment });
+            var template = new Template(new[] { "path" }, new[] { this.container }, new[] { amendment });
 
-            var existingComponent = new Container();
+            var existingComponent = new Container("container 0");
             this.container.AddComponent(existingComponent, 0);
 
-            var newComponent = new Atom();
+            var newComponent = new Atom("atom 1");
 
             var componentLibrary = MockRepository.GenerateStub<IComponentLibrary>();
             var componentSpecification = MockRepository.GenerateStub<IComponentSpecification>();

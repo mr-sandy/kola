@@ -2,15 +2,16 @@
 {
     using System.Collections.Generic;
 
+    using Kola.Domain;
     using Kola.Domain.Amendments;
     using Kola.Persistence.Extensions;
     using Kola.Persistence.Surrogates;
 
     internal class AmendmentBuildingVisitor : IAmendmentSurrogateVisitor
     {
-        private readonly List<Amendment> amendments = new List<Amendment>();
+        private readonly List<IAmendment> amendments = new List<IAmendment>();
 
-        public IEnumerable<Amendment> Amendments
+        public IEnumerable<IAmendment> Amendments
         {
             get { return this.amendments; }
         }

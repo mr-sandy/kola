@@ -1,12 +1,10 @@
-﻿namespace Unit.Tests.Domain.Templates
+﻿namespace Unit.Tests.Domain.Templates.old
 {
-    using System.Linq;
+    using FluentAssertions;
 
     using Kola.Domain;
 
     using NUnit.Framework;
-
-    using AssertionExtensions = FluentAssertions.AssertionExtensions;
 
     public class WhenAddingTheFirstComponentToATemplate
     {
@@ -18,14 +16,14 @@
             var templatePath = new[] { "test", "path" };
             this.template = new Template(templatePath);
 
-            var newComponent = new SimpleComponent("component1");
-            this.template.AddComponent(newComponent);
+            var newComponent = new Atom("component1");
+            this.template.AddComponent(newComponent, 0);
         }
 
         [Test]
         public void ShouldHaveOneComponent()
         {
-            AssertionExtensions.Should((int)this.template.Components.Count()).Be(1);
+            this.template.Components.Should().HaveCount(1);
         }
     }
 }

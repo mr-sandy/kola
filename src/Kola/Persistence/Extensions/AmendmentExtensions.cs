@@ -8,7 +8,7 @@
 
     public static class AmendmentExtensions
     {
-        public static IEnumerable<AmendmentSurrogate> ToSurrogate(this IEnumerable<Amendment> amendments)
+        public static IEnumerable<AmendmentSurrogate> ToSurrogate(this IEnumerable<IAmendment> amendments)
         {
             var visitor = new AmendmentSurrogateBuildingVisitor();
 
@@ -20,7 +20,7 @@
             return visitor.AmendmentSurrogates;
         }
 
-        public static IEnumerable<Amendment> ToDomain(this IEnumerable<AmendmentSurrogate> surrogates)
+        public static IEnumerable<IAmendment> ToDomain(this IEnumerable<AmendmentSurrogate> surrogates)
         {
             var visitor = new AmendmentBuildingVisitor();
 
@@ -36,8 +36,8 @@
         {
             return new AddComponentAmendmentSurrogate
             {
-                ComponentPath = amendment.ComponentPath.ToComponentPathString(),
-                ComponentType = amendment.ComponentType,
+                ComponentPath = amendment.ParentPath.ToComponentPathString(),
+                ComponentType = amendment.ComponentName,
                 Index = amendment.Index
             };
         }

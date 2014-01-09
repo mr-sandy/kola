@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Domain.Fake
+﻿namespace Kola.Domain
 {
     using System.Collections.Generic;
 
@@ -7,5 +7,7 @@
         IEnumerable<IComponent> Components { get; }
 
         void AddComponent(IComponent component, int index);
+
+        void RemoveComponentAt(int index);
     }
 }

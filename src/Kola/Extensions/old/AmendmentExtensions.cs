@@ -8,7 +8,7 @@
 
     internal static class AmendmentExtensions
     {
-        public static IEnumerable<AmendmentResource> ToResource(this IEnumerable<Amendment> amendments, IEnumerable<string> templatePath)
+        public static IEnumerable<AmendmentResource> ToResource(this IEnumerable<IAmendment> amendments, IEnumerable<string> templatePath)
         {
             var visitor = new AmendmentResourceBuildingVisitor(templatePath, amendments.Count());
 
@@ -26,8 +26,8 @@
             {
                 Id = index,
                 Type = "Add Component",
-                ComponentPath = amendment.ComponentPath.ToComponentPathString(),
-                ComponentType = amendment.ComponentType,
+                ComponentPath = amendment.ParentPath.ToComponentPathString(),
+                ComponentType = amendment.ComponentName,
                 Index = amendment.Index,
                 Links = BuildLinks(templatePath, amendment.GetRootComponent(), index, isLast)
             };

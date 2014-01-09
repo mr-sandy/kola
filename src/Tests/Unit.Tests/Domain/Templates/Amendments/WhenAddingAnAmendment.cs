@@ -2,11 +2,13 @@
 {
     using FluentAssertions;
 
+    using Kola.Domain.Amendments;
+
     using NUnit.Framework;
 
     using Rhino.Mocks;
 
-    using Unit.Tests.Domain.Fake;
+    using Kola.Domain;
 
     public class WhenAddingAnAmendment
     {
@@ -15,7 +17,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            this.template = new Template();
+            this.template = new Template(new[] { "path" });
 
             var amendment = MockRepository.GenerateStub<IAmendment>();
 

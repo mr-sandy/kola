@@ -1,18 +1,24 @@
 ﻿namespace Kola.Domain
 {
+    using System;
     using System.Collections.Generic;
-    using System.Linq;
 
+    using Kola;
     using Kola.Domain.Amendments;
 
-    public class Template : CompositeComponent
+    public class Template : IComponentCollection
     {
-        private readonly List<Amendment> amendments = new List<Amendment>();
+        private readonly List<IAmendment> amendments = new List<IAmendment>();
+        private readonly List<IComponent> components = new List<IComponent>();
 
-        public Template(IEnumerable<string> path, IEnumerable<Amendment> amendments = null, IEnumerable<Component> components = null)
-            : base(string.Empty, components)
+        public Template(IEnumerable<string> path, IEnumerable<IComponent> components = null, IEnumerable<IAmendment> amendments = null)
         {
             this.Path = path;
+
+            if (components != null)
+            {
+                this.components.AddRange(components);
+            }
 
             if (amendments != null)
             {
@@ -20,48 +26,51 @@
             }
         }
 
-        public IEnumerable<string> Path { get; private set; }
-
-        public IEnumerable<Amendment> Amendments
+        public IEnumerable<IAmendment> Amendments
         {
             get { return this.amendments; }
         }
 
-        public void AddAmendment(Amendment amendment)
+        public IEnumerable<IComponent> Components
+        {
+            get { return this.components; }
+        }
+
+        public IEnumerable<string> Path { get; private set; }
+
+        public void AddAmendment(IAmendment amendment)
         {
             this.amendments.Add(amendment);
         }
 
-        public void ApplyAmendments(IComponentFactory componentFactory, bool reset = false)
+        public void ApplyAmendments(IComponentLibrary componentLibrary)
         {
-            var processor = new AmendmentProcessingVisitor(this, componentFactory);
+            var visitor = new AmendmentApplyingVisitor(this, componentLibrary);
 
-            foreach (var amendment in this.Amendments)
+            foreach (var amendment in this.amendments)
             {
-                amendment.Accept(processor);
-            }
-
-            if (reset)
-            {
-                this.amendments.Clear();
+                amendment.Accept(visitor);
             }
         }
 
-        public void RemoveAmendment(Amendment amendment)
+        public void AddComponent(IComponent component, int index)
         {
-            this.amendments.Remove(amendment);
-        }
-
-        public Amendment UndoAmendment()
-        {
-            if (this.amendments.Count > 0)
+            if (index > this.components.Count)
             {
-                var lastAmendment = this.amendments.Last();
-                this.amendments.Remove(lastAmendment);
-                return lastAmendment;
+                throw new KolaException("Specified index outwith bounds of component collection");
             }
 
-            return null;
+            this.components.Insert(index, component);
+        }
+
+        public void RemoveComponentAt(int index)
+        {
+            this.components.RemoveAt(index);
+        }
+
+        public IAmendment UndoAmendment()
+        {
+            throw new NotImplementedException();
         }
     }
 }

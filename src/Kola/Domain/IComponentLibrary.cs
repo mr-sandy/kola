@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Domain.Fake
+﻿namespace Kola.Domain
 {
     public interface IComponentLibrary
     {

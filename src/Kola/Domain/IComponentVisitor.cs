@@ -2,8 +2,8 @@
 {
     public interface IComponentVisitor
     {
-        void Visit(CompositeComponent component);
+        void Visit(Atom atom);
 
-        void Visit(SimpleComponent component);
+        void Visit(Container container);
     }
 }

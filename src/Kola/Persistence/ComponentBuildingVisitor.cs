@@ -8,9 +8,9 @@
 
     public class ComponentBuildingVisitor : IComponentSurrogateVisitor
     {
-        private readonly List<Component> components = new List<Component>();
+        private readonly List<IComponent> components = new List<IComponent>();
 
-        public IEnumerable<Component> Components
+        public IEnumerable<IComponent> Components
         {
             get { return this.components; }
         }

@@ -1,32 +1,33 @@
 ﻿namespace Kola.Domain.Amendments
 {
+    using System;
     using System.Collections.Generic;
 
     using Kola.Domain;
 
-    public class AddComponentAmendment : Amendment
+    public class AddComponentAmendment : IAmendment
     {
-        public AddComponentAmendment(string componentType, IEnumerable<int> componentPath, int index)
+        public AddComponentAmendment(string componentName, IEnumerable<int> parentPath, int index)
         {
-            this.ComponentType = componentType;
-            this.ComponentPath = componentPath;
+            this.ComponentName = componentName;
+            this.ParentPath = parentPath;
             this.Index = index;
         }
 
-        public string ComponentType { get; private set; }
+        public string ComponentName { get; private set; }
 
-        public IEnumerable<int> ComponentPath { get; private set; }
+        public IEnumerable<int> ParentPath { get; internal set; }
 
         public int Index { get; private set; }
 
-        public override void Accept(IAmendmentVisitor visitor)
+        public IEnumerable<int> GetRootComponent()
         {
-            visitor.Visit(this);
+            return this.ParentPath;
         }
 
-        public override IEnumerable<int> GetRootComponent()
+        public void Accept(IAmendmentVisitor visitor)
         {
-            return this.ComponentPath;
+            visitor.Visit(this);
         }
     }
 }

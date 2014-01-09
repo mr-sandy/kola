@@ -1,23 +1,16 @@
-﻿namespace Unit.Tests.Domain.Templates.Amendments
+﻿namespace Unit.Tests.Domain.Templates.Amendments.UpdateParameters
 {
-    using System.Linq;
-
-    using FluentAssertions;
+    using Kola.Domain;
 
     using NUnit.Framework;
-
-    using Rhino.Mocks;
-
-    using Unit.Tests.Domain.Fake;
-    using Unit.Tests.Domain.Fake.Amendments;
 
     public class WhenApplyingAnUpdateParametersAmendmentForASingleParameter
     {
         [SetUp]
         public void EstablishContext()
         {
-            var component = new Atom();
-            var template = new Template(components: new[] { component });
+            var component = new Atom("atom1");
+            var template = new Template(new[] { "path" }, components: new[] { component });
         }
 
         [Test]

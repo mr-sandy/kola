@@ -8,7 +8,7 @@
 
     public static class ComponentExtensions
     {
-        public static IEnumerable<ComponentSurrogate> ToSurrogate(this IEnumerable<Component> components)
+        public static IEnumerable<ComponentSurrogate> ToSurrogate(this IEnumerable<IComponent> components)
         {
             var visitor = new ComponentSurrogateBuildingVisitor();
 
@@ -20,7 +20,7 @@
             return visitor.ComponentSurrogates;
         }
 
-        public static IEnumerable<Component> ToDomain(this IEnumerable<ComponentSurrogate> surrogates)
+        public static IEnumerable<IComponent> ToDomain(this IEnumerable<ComponentSurrogate> surrogates)
         {
             var visitor = new ComponentBuildingVisitor();
 
@@ -32,17 +32,17 @@
             return visitor.Components;
         }
 
-        public static CompositeComponent ToDomain(this CompositeComponentSurrogate surrogate)
+        public static Container ToDomain(this CompositeComponentSurrogate surrogate)
         {
-            return new CompositeComponent(surrogate.Name, surrogate.Components.ToDomain());
+            return new Container(surrogate.Name, surrogate.Components.ToDomain());
         }
 
-        public static SimpleComponent ToDomain(this SimpleComponentSurrogate surrogate)
+        public static Atom ToDomain(this SimpleComponentSurrogate surrogate)
         {
-            return new SimpleComponent(surrogate.Name);
+            return new Atom(surrogate.Name);
         }
 
-        public static CompositeComponentSurrogate ToSurrogate(this CompositeComponent component)
+        public static CompositeComponentSurrogate ToSurrogate(this Container component)
         {
             return new CompositeComponentSurrogate
                 {
@@ -51,7 +51,7 @@
                 };
         }
 
-        public static SimpleComponentSurrogate ToSurrogate(this SimpleComponent component)
+        public static SimpleComponentSurrogate ToSurrogate(this Atom component)
         {
             return new SimpleComponentSurrogate { Name = component.Name };
         }

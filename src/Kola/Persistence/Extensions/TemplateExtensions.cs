@@ -21,8 +21,8 @@
         {
             return new Template(
                 path, 
-                surrogate.Amendments.ToDomain(),
-                surrogate.Components.ToDomain());
+                surrogate.Components.ToDomain(),
+                surrogate.Amendments.ToDomain());
         }
     }
 }

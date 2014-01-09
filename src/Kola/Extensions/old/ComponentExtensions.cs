@@ -8,9 +8,9 @@
 
     internal static class ComponentExtensions
     {
-        public static ComponentResource ToResource(this Component component, IEnumerable<string> templatePath, IEnumerable<int> componentIndices)
+        public static ComponentResource ToResource(this IComponent component, IEnumerable<string> templatePath, IEnumerable<int> componentIndices)
         {
-            var composite = component as CompositeComponent;
+            var composite = component as IComponentCollection;
             var components = (composite == null)
                                  ? Enumerable.Empty<ComponentResource>()
                                  : composite.Components.ToResource(templatePath, componentIndices);
@@ -37,7 +37,7 @@
             };
         }
 
-        public static IEnumerable<ComponentResource> ToResource(this IEnumerable<Component> components, IEnumerable<string> templatePath, IEnumerable<int> componentIndices = null)
+        public static IEnumerable<ComponentResource> ToResource(this IEnumerable<IComponent> components, IEnumerable<string> templatePath, IEnumerable<int> componentIndices = null)
         {
             var result = new List<ComponentResource>();
 
