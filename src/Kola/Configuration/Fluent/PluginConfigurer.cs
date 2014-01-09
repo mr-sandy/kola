@@ -17,9 +17,18 @@ namespace Kola.Configuration.Fluent
             this.configuration.ViewLocation = viewLocation;
         }
 
-        public ComponentConfigurer Component(string componentName)
+        public ComponentConfigurer Container(string componentName)
         {
-            var componentSpecification = new ComponentSpecification(componentName);
+            var componentSpecification = new ContainerSpecification(componentName);
+
+            this.configuration.Add(componentSpecification);
+
+            return new ComponentConfigurer(componentSpecification);
+        }
+
+        public ComponentConfigurer Atom(string componentName)
+        {
+            var componentSpecification = new AtomSpecification(componentName);
 
             this.configuration.Add(componentSpecification);
 

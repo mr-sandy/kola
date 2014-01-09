@@ -8,11 +8,8 @@
         [XmlElement("componentType")]
         public string ComponentType { get; set; }
 
-        [XmlElement("componentPath")]
-        public string ComponentPath { get; set; }
-
-        [XmlElement("index")]
-        public int Index { get; set; }
+        [XmlElement("targetPath")]
+        public string TargetPath { get; set; }
 
         public override void Accept(IAmendmentSurrogateVisitor visitor)
         {

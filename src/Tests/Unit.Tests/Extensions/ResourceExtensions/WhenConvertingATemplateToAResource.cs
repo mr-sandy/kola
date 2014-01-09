@@ -27,7 +27,7 @@
             child1.AddComponent(grandchild1, 0);
 
             var child2 = new Atom("child2");
-            template.AddComponent(child2, 0);
+            template.AddComponent(child2, 1);
 
             this.templateResource = template.ToResource();
         }

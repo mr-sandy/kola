@@ -7,18 +7,15 @@
 
     public class MoveComponentAmendment : IAmendment
     {
-        public MoveComponentAmendment(IEnumerable<int> parentComponentPath, IEnumerable<int> componentPath, int index)
+        public MoveComponentAmendment(IEnumerable<int> sourcePath, IEnumerable<int> targetPath)
         {
-            this.ParentComponentPath = parentComponentPath;
-            this.ComponentPath = componentPath;
-            this.Index = index;
+            this.TargetPath = targetPath;
+            this.SourcePath = sourcePath;
         }
 
-        public IEnumerable<int> ParentComponentPath { get; private set; }
+        public IEnumerable<int> TargetPath { get; private set; }
 
-        public IEnumerable<int> ComponentPath { get; private set; }
-
-        public int Index { get; private set; }
+        public IEnumerable<int> SourcePath { get; private set; }
 
         public void Accept(IAmendmentVisitor visitor)
         {
@@ -27,7 +24,7 @@
 
         public IEnumerable<int> GetRootComponent()
         {
-            return this.ComponentPath.GetOverlap(this.ParentComponentPath);
+            return this.SourcePath.GetOverlap(this.TargetPath);
         }
     }
 }

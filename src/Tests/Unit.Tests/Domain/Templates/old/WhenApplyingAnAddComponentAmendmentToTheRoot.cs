@@ -10,6 +10,8 @@
 
     using NUnit.Framework;
 
+    using Rhino.Mocks;
+
     public class WhenApplyingAnAddComponentAmendmentToTheRoot
     {
         private Template template;
@@ -20,11 +22,17 @@
             var templatePath = new[] { "test", "path" };
             this.template = new Template(templatePath);
 
-            var amendment = new AddComponentAmendment("componentType", Enumerable.Empty<int>(), 0);
+            var amendment = new AddComponentAmendment("component name", new[] { 0 });
             this.template.AddAmendment(amendment);
 
-            //TODO FIX THIS NEXT
-            //this.template.ApplyAmendments(new ComponentFactory());
+            var newComponent = new Atom("component name");
+
+            var componentLibrary = MockRepository.GenerateStub<IComponentLibrary>();
+            var componentSpecification = MockRepository.GenerateStub<IComponentSpecification>();
+            componentLibrary.Stub(l => l.Lookup("component name")).Return(componentSpecification);
+            componentSpecification.Stub(s => s.Create()).Return(newComponent);
+
+            this.template.ApplyAmendments(componentLibrary);
         }
 
         [Test]
@@ -36,7 +44,7 @@
         [Test]
         public void ShouldHaveCorrectComponentType()
         {
-            this.template.Components.ElementAt(0).Name.Should().Be("componentType");
+            this.template.Components.ElementAt(0).Name.Should().Be("component name");
         }
     }
 }

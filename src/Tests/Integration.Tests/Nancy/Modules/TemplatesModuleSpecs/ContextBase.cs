@@ -15,16 +15,18 @@
 
         protected ITemplateRepository TemplateRepository { get; set; }
 
+        protected IComponentLibrary ComponentLibrary { get; set; }
+
         [SetUp]
         public void EstablishBaseContext()
         {
             this.TemplateRepository = MockRepository.GenerateMock<ITemplateRepository>();
+            this.ComponentLibrary = MockRepository.GenerateMock<IComponentLibrary>();
 
             var bootstrapper = new ConfigurableBootstrapper(
                 with =>
                     {
-                        //with.Dependencies(new object[] { this.TemplateRepository, this.ComponentFactory });
-                        with.Dependencies(new object[] { this.TemplateRepository });
+                        with.Dependencies(new object[] { this.TemplateRepository, this.ComponentLibrary });
                         with.Module<TemplateModule>();
                     });
 

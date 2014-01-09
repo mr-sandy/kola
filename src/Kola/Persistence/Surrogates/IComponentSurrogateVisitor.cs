@@ -2,8 +2,8 @@
 {
     public interface IComponentSurrogateVisitor
     {
-        void Visit(CompositeComponentSurrogate surrogate);
+        void Visit(ContainerSurrogate surrogate);
 
-        void Visit(SimpleComponentSurrogate surrogate);
+        void Visit(AtomSurrogate surrogate);
     }
 }

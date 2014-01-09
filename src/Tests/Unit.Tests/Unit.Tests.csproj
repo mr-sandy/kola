@@ -51,17 +51,21 @@
   <ItemGroup>
     <Compile Include="Configuration\WhenConfiguringAPlugInAtom.cs" />
     <Compile Include="Configuration\WhenInitialisingConfiguration.cs" />
-    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenApplyingAnAddComponentAmendmentToAddAnAtomInAChildComponent.cs" />
-    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenApplyingAnAddComponentAmendmentToCreateAContainerInAChildComponent.cs" />
-    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenApplyingAnAddComponentAmendmentToCreateAContainerInTheRoot.cs" />
-    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenApplyingAnAddComponentAmendmentToCreateAnAtomInAChildComponent.cs" />
-    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenApplyingAnAddComponentAmendmentToCreateAnAtomInTheRoot.cs" />
+    <Compile Include="Domain\Templates\Amendments\ContextBase.cs" />
+    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateASecondAtomInAChildComponent.cs" />
+    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAContainerInAChildComponent.cs" />
+    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAContainerInTheRoot.cs" />
+    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAnAtomInAChildComponent.cs" />
+    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAnAtomInTheRoot.cs" />
+    <Compile Include="Domain\Templates\Amendments\MoveComponent\WhenProcessingAMoveComponentAmendment.cs" />
+    <Compile Include="Domain\Templates\Amendments\RemoveComponent\WhenProcessingARemoveComponentAmendment.cs" />
     <Compile Include="Domain\Templates\Amendments\WhenAddingAnAmendment.cs" />
     <Compile Include="Domain\Templates\Amendments\UpdateParameters\WhenApplyingAnUpdateParametersAmendment.cs" />
     <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapOfEqualLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapOfNonEmptyLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapWithOneEmptyLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapWithTwoeEmptyLists.cs" />
+    <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="Rendering\Framework\ITestViewFactory.cs" />
     <Compile Include="Rendering\Framework\TestAtomView.cs" />
     <Compile Include="Rendering\Framework\TestComponent.cs" />
@@ -90,10 +94,7 @@
   <ItemGroup>
     <Content Include="Domain\Templates\Templates.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\Templates\Amendments\MoveComponent\" />
-    <Folder Include="Domain\Templates\Amendments\RemoveComponent\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

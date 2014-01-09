@@ -22,6 +22,11 @@
 
         public static IEnumerable<IAmendment> ToDomain(this IEnumerable<AmendmentSurrogate> surrogates)
         {
+            if (surrogates == null)
+            {
+                return null;
+            }
+
             var visitor = new AmendmentBuildingVisitor();
 
             foreach (var surrogate in surrogates)
@@ -36,9 +41,8 @@
         {
             return new AddComponentAmendmentSurrogate
             {
-                ComponentPath = amendment.ParentPath.ToComponentPathString(),
+                TargetPath = amendment.TargetPath.ToComponentPathString(),
                 ComponentType = amendment.ComponentName,
-                Index = amendment.Index
             };
         }
 
@@ -46,15 +50,14 @@
         {
             return new MoveComponentAmendmentSurrogate
             {
-                ParentComponentPath = amendment.ParentComponentPath.ToComponentPathString(),
-                ComponentPath = amendment.ComponentPath.ToComponentPathString(),
-                Index = amendment.Index
+                SourcePath = amendment.SourcePath.ToComponentPathString(),
+                TargetPath = amendment.TargetPath.ToComponentPathString()
             };
         }
 
-        public static DeleteComponentAmendmentSurrogate ToSurrogate(this DeleteComponentAmendment amendment)
+        public static RemoveComponentAmendmentSurrogate ToSurrogate(this RemoveComponentAmendment amendment)
         {
-            return new DeleteComponentAmendmentSurrogate
+            return new RemoveComponentAmendmentSurrogate
             {
                 ComponentPath = amendment.ComponentPath.ToComponentPathString(),
             };
@@ -62,17 +65,17 @@
 
         public static AddComponentAmendment ToDomain(this AddComponentAmendmentSurrogate surrogate)
         {
-            return new AddComponentAmendment(surrogate.ComponentType, surrogate.ComponentPath.ParseComponentPath(), surrogate.Index);
+            return new AddComponentAmendment(surrogate.ComponentType, surrogate.TargetPath.ParseComponentPath());
         }
 
         public static MoveComponentAmendment ToDomain(this MoveComponentAmendmentSurrogate surrogate)
         {
-            return new MoveComponentAmendment(surrogate.ParentComponentPath.ParseComponentPath(), surrogate.ComponentPath.ParseComponentPath(), surrogate.Index);
+            return new MoveComponentAmendment(surrogate.SourcePath.ParseComponentPath(), surrogate.TargetPath.ParseComponentPath());
         }
 
-        public static DeleteComponentAmendment ToDomain(this DeleteComponentAmendmentSurrogate surrogate)
+        public static RemoveComponentAmendment ToDomain(this RemoveComponentAmendmentSurrogate surrogate)
         {
-            return new DeleteComponentAmendment(surrogate.ComponentPath.ParseComponentPath());
+            return new RemoveComponentAmendment(surrogate.ComponentPath.ParseComponentPath());
         }
     }
 }

@@ -26,7 +26,7 @@
             this.amendmentSurrogates.Add(amendment.ToSurrogate());
         }
 
-        public void Visit(DeleteComponentAmendment amendment)
+        public void Visit(RemoveComponentAmendment amendment)
         {
             this.amendmentSurrogates.Add(amendment.ToSurrogate());
         }

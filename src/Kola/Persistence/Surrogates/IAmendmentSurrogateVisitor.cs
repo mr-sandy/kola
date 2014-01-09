@@ -6,6 +6,6 @@
 
         void Visit(MoveComponentAmendmentSurrogate amendment);
 
-        void Visit(DeleteComponentAmendmentSurrogate amendment);
+        void Visit(RemoveComponentAmendmentSurrogate amendment);
     }
 }

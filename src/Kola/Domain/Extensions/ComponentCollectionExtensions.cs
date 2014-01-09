@@ -7,35 +7,39 @@
 
     using Kola.Domain;
 
+    // TODO {SC} Refactor this mess once I've implemented widgets (because a placeholder should be an IComponentCollection but not an IComponent)
     public static class ComponentCollectionExtensions
     {
-        public static IComponent FindComponent(this IComponentCollection container, IEnumerable<int> path)
+        public static IComponent FindComponent(this IComponentCollection collection, IEnumerable<int> path)
         {
             if (path.Count() == 0)
             {
-                if (container is IComponent)
+                if (collection is IComponent)
                 {
-                    return container as IComponent;
+                    return collection as IComponent;
                 }
-
-                throw new KolaException("Specified item is not a component");
             }
-
-            var index = path.First();
-
-            if (container.Components.Count() < index)
+            else
             {
-                throw new KolaException("No component exists at specified path");
+                var index = path.First();
+
+                if (collection.Components.Count() >= index)
+                {
+                    if (path.Count() == 1)
+                    {
+                        return collection.Components.ElementAt(index);
+                    }
+
+                    var childCollection = collection.Components.ElementAt(index) as IComponentCollection;
+
+                    if (childCollection != null)
+                    {
+                        return childCollection.FindComponent(path.Skip(1));
+                    }
+                }
             }
 
-            var childCollection = container.Components.ElementAt(index) as IComponentCollection;
-
-            if (childCollection == null)
-            {
-                throw new KolaException("No component collection exists at specified path");
-            }
-            
-            return childCollection.FindComponent(path.Skip(1));
+            throw new KolaException("No component exists at specified path");
         }
 
         public static IComponentCollection FindCollection(this IComponentCollection container, IEnumerable<int> path)

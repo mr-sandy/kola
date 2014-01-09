@@ -1,18 +1,21 @@
 ﻿namespace Kola.Rendering
 {
-    using System;
     using System.Collections.Generic;
 
     using Kola.Domain;
     using Kola.Persistence;
+    using Kola.Rendering.Extensions;
 
     public class PageHandler : IPageHandler
     {
         private readonly ITemplateRepository templateRepository;
 
-        public PageHandler(ITemplateRepository templateRepository)
+        private readonly IComponentLibrary componentLibrary;
+
+        public PageHandler(ITemplateRepository templateRepository, IComponentLibrary componentLibrary)
         {
             this.templateRepository = templateRepository;
+            this.componentLibrary = componentLibrary;
         }
 
         public IPage GetPage(IEnumerable<string> path)
@@ -24,12 +27,8 @@
                 return null;
             }
 
-            return this.MakePage(template);
-        }
-
-        private IPage MakePage(Template template)
-        {
-            throw new NotImplementedException();
+            template.ApplyAmendments(this.componentLibrary);
+            return template.ToPage();
         }
     }
 }

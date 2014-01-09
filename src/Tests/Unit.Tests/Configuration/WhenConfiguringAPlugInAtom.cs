@@ -94,7 +94,7 @@ namespace Unit.Tests.Configuration
     {
         public TestPluginConfiguration()
         {
-            this.Configure.Component("atom-1")
+            this.Configure.Container("atom-1")
                 .WithHandler<TestHandler>("viewName")
                 .WithParameter("parameterName", "parameterType", "parameterValue")
                 .Cache.PerUser.For(100);

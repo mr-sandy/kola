@@ -43,13 +43,18 @@
             this.amendments.Add(amendment);
         }
 
-        public void ApplyAmendments(IComponentLibrary componentLibrary)
+        public void ApplyAmendments(IComponentLibrary componentLibrary, bool reset = false)
         {
             var visitor = new AmendmentApplyingVisitor(this, componentLibrary);
 
             foreach (var amendment in this.amendments)
             {
                 amendment.Accept(visitor);
+            }
+
+            if (reset)
+            {
+                this.amendments.Clear();
             }
         }
 

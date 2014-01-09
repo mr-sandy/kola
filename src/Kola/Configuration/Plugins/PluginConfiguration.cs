@@ -3,14 +3,15 @@
     using System.Collections.Generic;
 
     using Kola.Configuration.Fluent;
+    using Kola.Domain;
 
     public abstract class PluginConfiguration
     {
-        private readonly List<ComponentSpecification> components = new List<ComponentSpecification>();
+        private readonly List<IPluginComponentSpecification> components = new List<IPluginComponentSpecification>();
 
         public string ViewLocation { get; set; }
 
-        internal IEnumerable<ComponentSpecification> Components
+        internal IEnumerable<IPluginComponentSpecification> Components
         {
             get { return this.components; }
         }
@@ -20,7 +21,7 @@
             get { return new PluginConfigurer(this); }
         }
 
-        internal void Add(ComponentSpecification component)
+        internal void Add(IPluginComponentSpecification component)
         {
             this.components.Add(component);
         }

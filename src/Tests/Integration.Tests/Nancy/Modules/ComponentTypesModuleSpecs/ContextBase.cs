@@ -1,5 +1,6 @@
 ﻿namespace Integration.Tests.Nancy.Modules.ComponentTypesModuleSpecs
 {
+    using Kola.Domain;
     using Kola.Nancy;
     using Kola.Nancy.Modules;
 
@@ -15,17 +16,17 @@
 
         protected BrowserResponse Response { get; set; }
 
-        protected IComponentRegistry ComponentTypeRepository { get; set; }
+        protected IComponentLibrary ComponentLibrary { get; set; }
 
         [SetUp]
         public void EstablishBaseContext()
         {
-            this.ComponentTypeRepository = MockRepository.GenerateMock<IComponentRegistry>();
+            this.ComponentLibrary = MockRepository.GenerateMock<IComponentLibrary>();
 
             var bootstrapper = new ConfigurableBootstrapper(
                 with =>
                 {
-                    with.Dependencies(new object[] { this.ComponentTypeRepository });
+                    with.Dependencies(new object[] { this.ComponentLibrary });
                     with.Module<ComponentTypeModule>();
                 });
 

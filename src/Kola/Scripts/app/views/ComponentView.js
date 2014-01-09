@@ -81,17 +81,15 @@
                 var amendment = new AddComponentAmendment(
                 {
                     componentType: ui.item.attr('data-href'),
-                    componentPath: ui.item.closest('[data-component-path]').attr('data-component-path'),
-                    index: ui.item.index()
+                    targetPath: this.combineUrls(ui.item.parent().closest('[data-component-path]').attr('data-component-path'), ui.item.index().toString())
                 });
                 this.options.amendments.addAmendment(amendment);
             }
             else {
                 var amendment = new MoveComponentAmendment(
                 {
-                    componentPath: ui.item.attr('data-component-path'),
-                    parentComponentPath: ui.item.parent().closest('[data-component-path]').attr('data-component-path'),
-                    index: ui.item.index()
+                    sourcePath: ui.item.attr('data-component-path'),
+                    targetPath: this.combineUrls(ui.item.parent().closest('[data-component-path]').attr('data-component-path'), ui.item.index().toString())
                 });
                 this.options.amendments.addAmendment(amendment);
             }

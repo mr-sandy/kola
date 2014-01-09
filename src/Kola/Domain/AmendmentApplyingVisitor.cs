@@ -21,23 +21,27 @@
 
         public void Visit(AddComponentAmendment amendment)
         {
-            var parent = this.template.FindCollection(amendment.ParentPath);
             var specification = this.componentLibrary.Lookup(amendment.ComponentName);
             var component = specification.Create();
-            parent.AddComponent(component, amendment.Index);
+
+            var parent = this.template.FindCollection(amendment.TargetPath.TakeAllButLast());
+            var targetIndex = amendment.TargetPath.Last();
+
+            parent.AddComponent(component, targetIndex);
         }
 
         public void Visit(MoveComponentAmendment amendment)
         {
-            var component = this.template.FindComponent(amendment.ComponentPath);
-            var sourceParent = this.template.FindCollection(amendment.ComponentPath.TakeAllButLast());
-            var targetParent = this.template.FindCollection(amendment.ParentComponentPath);
+            var component = this.template.FindComponent(amendment.SourcePath);
+            var sourceParent = this.template.FindCollection(amendment.SourcePath.TakeAllButLast());
+            var targetParent = this.template.FindCollection(amendment.TargetPath.TakeAllButLast());
+            var targetIndex = amendment.TargetPath.Last();
 
-            sourceParent.RemoveComponentAt(amendment.ComponentPath.Last());
-            targetParent.AddComponent(component, amendment.Index);
+            sourceParent.RemoveComponentAt(amendment.SourcePath.Last());
+            targetParent.AddComponent(component, targetIndex);
         }
 
-        public void Visit(DeleteComponentAmendment amendment)
+        public void Visit(RemoveComponentAmendment amendment)
         {
             var index = amendment.ComponentPath.Last();
             var parent = this.template.FindCollection(amendment.ComponentPath.TakeAllButLast());

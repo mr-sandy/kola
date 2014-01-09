@@ -20,7 +20,7 @@ namespace Kola.Configuration
         public KolaConfiguration Build()
         {
             var plugins = this.FindPlugins();
-            
+
             var handlerMappings = plugins
                 .SelectMany(c => c.Components)
                 .ToDictionary(c => c.Name, c => c.HandlerType);

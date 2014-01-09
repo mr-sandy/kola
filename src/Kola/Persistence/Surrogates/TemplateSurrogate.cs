@@ -6,14 +6,14 @@
     public class TemplateSurrogate
     {
         [XmlArray("components")]
-        [XmlArrayItem(typeof(SimpleComponentSurrogate))]
-        [XmlArrayItem(typeof(CompositeComponentSurrogate))]
+        [XmlArrayItem(typeof(AtomSurrogate))]
+        [XmlArrayItem(typeof(ContainerSurrogate))]
         public ComponentSurrogate[] Components { get; set; }
 
         [XmlArray("amendments")]
         [XmlArrayItem(typeof(AddComponentAmendmentSurrogate))]
         [XmlArrayItem(typeof(MoveComponentAmendmentSurrogate))]
-        [XmlArrayItem(typeof(DeleteComponentAmendmentSurrogate))]
+        [XmlArrayItem(typeof(RemoveComponentAmendmentSurrogate))]
         public AmendmentSurrogate[] Amendments { get; set; }
 
     }

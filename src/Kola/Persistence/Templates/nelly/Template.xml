@@ -1,56 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
-    <compositeComponent name="/_kola/component-types/markdown">
+    <container name="container-1">
+      <components>
+        <atom name="atom-1" />
+        <atom name="atom-2" />
+      </components>
+    </container>
+    <container name="markdown">
       <components />
-    </compositeComponent>
-    <compositeComponent name="/_kola/component-types/container-2">
+    </container>
+    <container name="container-2">
       <components>
-        <compositeComponent name="/_kola/component-types/container-1">
-          <components>
-            <compositeComponent name="/_kola/component-types/atom-1">
-              <components>
-                <compositeComponent name="/_kola/component-types/container-2">
-                  <components />
-                </compositeComponent>
-              </components>
-            </compositeComponent>
-          </components>
-        </compositeComponent>
-        <compositeComponent name="/_kola/component-types/container-2">
-          <components>
-            <compositeComponent name="/_kola/component-types/atom-2">
-              <components />
-            </compositeComponent>
-          </components>
-        </compositeComponent>
+        <atom name="atom-1" />
+        <atom name="atom-2" />
       </components>
-    </compositeComponent>
-    <compositeComponent name="/_kola/component-types/component-type-3">
-      <components />
-    </compositeComponent>
-    <compositeComponent name="/_kola/component-types/component-type-3">
-      <components>
-        <compositeComponent name="/_kola/component-types/component-type-1">
-          <components>
-            <compositeComponent name="/_kola/component-types/markdown">
-              <components>
-                <compositeComponent name="/_kola/component-types/atom-2">
-                  <components />
-                </compositeComponent>
-              </components>
-            </compositeComponent>
-          </components>
-        </compositeComponent>
-      </components>
-    </compositeComponent>
-    <compositeComponent name="/_kola/component-types/component-type-1">
-      <components>
-        <compositeComponent name="/_kola/component-types/component-type-2">
-          <components />
-        </compositeComponent>
-      </components>
-    </compositeComponent>
+    </container>
   </components>
-  <amendments />
+  <amendments>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>1</targetPath>
+    </addComponent>
+    <removeComponent>
+      <componentPath>1</componentPath>
+    </removeComponent>
+  </amendments>
 </template>

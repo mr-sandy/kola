@@ -5,14 +5,11 @@
     [XmlType(Namespace = "http://www.kolacms.com/2013/kola", TypeName = "moveComponent")]
     public class MoveComponentAmendmentSurrogate : AmendmentSurrogate
     {
-        [XmlElement("parentComponentPath")]
-        public string ParentComponentPath { get; set; }
+        [XmlElement("sourcePath")]
+        public string SourcePath { get; set; }
 
-        [XmlElement("componentPath")]
-        public string ComponentPath { get; set; }
-
-        [XmlElement("index")]
-        public int Index { get; set; }
+        [XmlElement("targetPath")]
+        public string TargetPath { get; set; }
 
         public override void Accept(IAmendmentSurrogateVisitor visitor)
         {

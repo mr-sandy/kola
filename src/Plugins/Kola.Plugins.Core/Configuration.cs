@@ -11,7 +11,7 @@ namespace Kola.Plugins.Core
         {
             this.Configure.ViewLocation("Kola.Plugins.Core.Views");
 
-            this.Configure.Component("markdown")
+            this.Configure.Container("markdown")
                 .WithHandler<MarkdownHandler>();
         }
     }

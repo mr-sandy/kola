@@ -15,12 +15,12 @@
             get { return this.components; }
         }
 
-        public void Visit(CompositeComponentSurrogate surrogate)
+        public void Visit(ContainerSurrogate surrogate)
         {
             this.components.Add(surrogate.ToDomain());
         }
 
-        public void Visit(SimpleComponentSurrogate surrogate)
+        public void Visit(AtomSurrogate surrogate)
         {
             this.components.Add(surrogate.ToDomain());
         }

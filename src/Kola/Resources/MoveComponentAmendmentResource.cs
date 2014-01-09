@@ -2,10 +2,8 @@
 {
     public class MoveComponentAmendmentResource : AmendmentResource
     {
-        public string ParentComponentPath { get; set; }
+        public string SourcePath { get; set; }
 
-        public string ComponentPath { get; set; }
-
-        public int Index { get; set; }
+        public string TargetPath { get; set; }
     }
 }

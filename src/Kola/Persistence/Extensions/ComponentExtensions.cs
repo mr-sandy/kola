@@ -22,6 +22,11 @@
 
         public static IEnumerable<IComponent> ToDomain(this IEnumerable<ComponentSurrogate> surrogates)
         {
+            if (surrogates == null)
+            {
+                return null;
+            }
+
             var visitor = new ComponentBuildingVisitor();
 
             foreach (var surrogate in surrogates)
@@ -32,28 +37,28 @@
             return visitor.Components;
         }
 
-        public static Container ToDomain(this CompositeComponentSurrogate surrogate)
+        public static Container ToDomain(this ContainerSurrogate surrogate)
         {
             return new Container(surrogate.Name, surrogate.Components.ToDomain());
         }
 
-        public static Atom ToDomain(this SimpleComponentSurrogate surrogate)
+        public static Atom ToDomain(this AtomSurrogate surrogate)
         {
             return new Atom(surrogate.Name);
         }
 
-        public static CompositeComponentSurrogate ToSurrogate(this Container component)
+        public static ContainerSurrogate ToSurrogate(this Container component)
         {
-            return new CompositeComponentSurrogate
+            return new ContainerSurrogate
                 {
                     Name = component.Name,
                     Components = component.Components.ToSurrogate().ToArray()
                 };
         }
 
-        public static SimpleComponentSurrogate ToSurrogate(this Atom component)
+        public static AtomSurrogate ToSurrogate(this Atom component)
         {
-            return new SimpleComponentSurrogate { Name = component.Name };
+            return new AtomSurrogate { Name = component.Name };
         }
     }
 }

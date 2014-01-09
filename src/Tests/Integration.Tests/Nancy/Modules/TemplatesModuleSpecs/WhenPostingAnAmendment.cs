@@ -24,14 +24,18 @@
             var templatePath = @"test/path";
 
             this.template = new Template(new[] { "test", "path" });
+
+            var component = MockRepository.GenerateStub<IComponent>();
+            var componentSpecification = MockRepository.GenerateStub<IComponentSpecification>();
+
+            componentSpecification.Stub(s => s.Create()).Return(component);
             this.TemplateRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(this.template);
-            //this.ComponentFactory.Stub(r => r.Create(Arg<string>.Is.Anything)).Return(new CompositeComponent());
+            this.ComponentLibrary.Stub(r => r.Lookup("component name")).Return(componentSpecification);
 
             var request = new AddComponentAmendmentResource
             {
-                ComponentPath = string.Empty,
-                ComponentType = "component-type",
-                Index = 0
+                TargetPath = "0",
+                ComponentType = "component name"
             };
 
             this.Response = this.Browser.Post(string.Format("/_kola/templates/{0}/_amendments/addComponent", templatePath), with => with.JsonBody(request));

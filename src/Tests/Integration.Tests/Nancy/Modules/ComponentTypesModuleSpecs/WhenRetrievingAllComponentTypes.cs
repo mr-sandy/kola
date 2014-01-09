@@ -23,11 +23,11 @@
         {
             var components = new[]
                 {
-                    new ComponentSpecification("Component A"), 
-                    new ComponentSpecification("Component B") 
+                    new ContainerSpecification("Component A"), 
+                    new ContainerSpecification("Component B") 
                 };
 
-            this.ComponentTypeRepository.Stub(r => r.FindAll()).Return(components);
+            this.ComponentLibrary.Stub(r => r.FindAll()).Return(components);
             this.Response = this.Browser.Get("/_kola/component-types", b => b.Header("Accept", "application/json"));
         }
 

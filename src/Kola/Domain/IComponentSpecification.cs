@@ -2,6 +2,8 @@
 {
     public interface IComponentSpecification
     {
+        string Name { get; }
+
         IComponent Create();
     }
 }
