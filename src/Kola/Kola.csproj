@@ -55,22 +55,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\PluginComponentSpecification.cs" />
-    <Compile Include="Configuration\AtomSpecification.cs" />
+    <Compile Include="Domain\PluginComponentSpecification.cs" />
+    <Compile Include="Domain\AtomSpecification.cs" />
     <Compile Include="Configuration\DefaultKolaConfigurationBuilder.cs" />
     <Compile Include="Configuration\IPluginFinder.cs" />
     <Compile Include="Configuration\KolaConfigurationBuilder.cs" />
     <Compile Include="Configuration\KolaConfiguration.cs" />
-    <Compile Include="Configuration\old\CacheType.cs" />
-    <Compile Include="Configuration\ContainerSpecification.cs" />
+    <Compile Include="Domain\CacheType.cs" />
+    <Compile Include="Domain\ContainerSpecification.cs" />
     <Compile Include="Configuration\PluginFinder.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitor.cs" />
     <Compile Include="Domain\Amendments\AddComponentAmendment.cs" />
     <Compile Include="Domain\Amendments\RemoveComponentAmendment.cs" />
     <Compile Include="Domain\Amendments\MoveComponentAmendment.cs" />
     <Compile Include="Domain\Atom.cs" />
-    <Compile Include="Configuration\IPluginComponentSpecification.cs" />
     <Compile Include="Domain\Widget.cs" />
+    <Compile Include="Domain\WidgetSpecification.cs" />
     <Compile Include="Nancy\ComponentLibrary.cs" />
     <Compile Include="Domain\Container.cs" />
     <Compile Include="Domain\Extensions\ComponentCollectionExtensions.cs" />
@@ -96,8 +96,14 @@
     <Compile Include="Nancy\ResultWrapper.cs" />
     <Compile Include="Extensions\TemplateExtensions.cs" />
     <Compile Include="Nancy\NancyKolaRegistry.cs" />
+    <Compile Include="Persistence\Extensions\WidgetSpecificationExtensions.cs" />
+    <Compile Include="Persistence\IWidgetSpecificationRepository.cs" />
+    <Compile Include="Persistence\Surrogates\WidgetSurrogate.cs" />
+    <Compile Include="Persistence\WidgetSpecificationRepository.cs" />
+    <Compile Include="Persistence\Surrogates\WidgetSpecificationSurrogate.cs" />
     <Compile Include="Rendering\ComponentInstance.cs" />
     <Compile Include="Rendering\Extensions\ComponentExtensions.cs" />
+    <Compile Include="Rendering\ComponentInstanceBuildingVisitor.cs" />
     <Compile Include="Rendering\IPageHandler.cs" />
     <Compile Include="Nancy\KolaNancyBootstrapper.cs" />
     <Compile Include="Nancy\Modules\AdminModule.cs" />
@@ -128,7 +134,7 @@
     <Compile Include="Persistence\Surrogates\AtomSurrogate.cs" />
     <Compile Include="Persistence\TemplateRepository.cs" />
     <Compile Include="Persistence\Surrogates\TemplateSurrogate.cs" />
-    <Compile Include="Configuration\ParameterSpecification.cs" />
+    <Compile Include="Domain\ParameterSpecification.cs" />
     <Compile Include="Configuration\ParameterTypeSpecification.cs" />
     <Compile Include="Configuration\Fluent\ComponentConfigurer.cs" />
     <Compile Include="Configuration\Fluent\ComponentHandlerConfigurer.cs" />
@@ -270,7 +276,9 @@
     <EmbeddedResource Include="Scripts\underscore-min.map" />
     <None Include="web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Configuration\old\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

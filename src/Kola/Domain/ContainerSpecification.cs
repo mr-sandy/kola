@@ -1,7 +1,5 @@
-﻿namespace Kola.Configuration
+﻿namespace Kola.Domain
 {
-    using Kola.Domain;
-
     public class ContainerSpecification : PluginComponentSpecification
     {
         public ContainerSpecification(string name)

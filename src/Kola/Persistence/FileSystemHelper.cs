@@ -1,5 +1,6 @@
 ﻿namespace Kola.Persistence
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
@@ -37,6 +38,11 @@
         public void DeleteFile(string path)
         {
             File.Delete(path);
+        }
+
+        public IEnumerable<string> GetFiles(string path)
+        {
+            return Directory.GetFiles(path);
         }
     }
 }

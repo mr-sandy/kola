@@ -1,6 +1,8 @@
 ﻿
 namespace Kola.Configuration.Fluent
 {
+    using Kola.Domain;
+
     public class CacheConfigurer
     {
         private readonly PluginComponentSpecification componentConfiguration;

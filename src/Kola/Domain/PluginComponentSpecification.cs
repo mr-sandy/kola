@@ -1,11 +1,9 @@
-﻿namespace Kola.Configuration
+﻿namespace Kola.Domain
 {
     using System;
     using System.Collections.Generic;
 
-    using Kola.Domain;
-
-    public abstract class PluginComponentSpecification : IPluginComponentSpecification
+    public abstract class PluginComponentSpecification : IComponentSpecification
     {
         private readonly List<ParameterSpecification> parameters = new List<ParameterSpecification>();
 

@@ -1,5 +1,6 @@
 ﻿namespace Kola.Configuration.Fluent
 {
+    using Kola.Domain;
     using Kola.Rendering;
 
     public class ComponentConfigurer

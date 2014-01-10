@@ -10,11 +10,14 @@
     {
         private readonly ITemplateRepository templateRepository;
 
+        private readonly IWidgetSpecificationRepository widgetSpecificationRepository;
+
         private readonly IComponentLibrary componentLibrary;
 
-        public PageHandler(ITemplateRepository templateRepository, IComponentLibrary componentLibrary)
+        public PageHandler(ITemplateRepository templateRepository, IWidgetSpecificationRepository widgetSpecificationRepository, IComponentLibrary componentLibrary)
         {
             this.templateRepository = templateRepository;
+            this.widgetSpecificationRepository = widgetSpecificationRepository;
             this.componentLibrary = componentLibrary;
         }
 
@@ -28,7 +31,7 @@
             }
 
             template.ApplyAmendments(this.componentLibrary);
-            return template.ToPage();
+            return template.ToPage(this.widgetSpecificationRepository);
         }
     }
 }

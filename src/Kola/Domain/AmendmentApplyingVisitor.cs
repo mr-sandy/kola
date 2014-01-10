@@ -1,6 +1,5 @@
 ﻿namespace Kola.Domain
 {
-    using System;
     using System.Linq;
 
     using Kola.Domain.Amendments;
@@ -25,9 +24,9 @@
             var component = specification.Create();
 
             var parent = this.template.FindCollection(amendment.TargetPath.TakeAllButLast());
-            var targetIndex = amendment.TargetPath.Last();
+            var index = amendment.TargetPath.Last();
 
-            parent.AddComponent(component, targetIndex);
+            parent.AddComponent(component, index);
         }
 
         public void Visit(MoveComponentAmendment amendment)

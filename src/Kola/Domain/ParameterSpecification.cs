@@ -1,5 +1,4 @@
-﻿
-namespace Kola.Configuration
+﻿namespace Kola.Domain
 {
     public class ParameterSpecification
     {

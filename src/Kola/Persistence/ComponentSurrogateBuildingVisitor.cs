@@ -1,5 +1,6 @@
 ﻿namespace Kola.Persistence
 {
+    using System;
     using System.Collections.Generic;
 
     using Kola.Domain;
@@ -18,6 +19,11 @@
         public void Visit(Container component)
         {
             this.componentSurrogates.Add(component.ToSurrogate());
+        }
+
+        public void Visit(Widget widget)
+        {
+            this.componentSurrogates.Add(widget.ToSurrogate());
         }
 
         public void Visit(Atom component)

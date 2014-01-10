@@ -4,34 +4,18 @@
     <container name="container-1">
       <components>
         <atom name="atom-1" />
-        <atom name="atom-2" />
       </components>
     </container>
-    <container name="markdown">
-      <components />
-    </container>
-    <container name="container-2">
-      <components>
-        <atom name="atom-1" />
-        <atom name="atom-2" />
-      </components>
-    </container>
+    <atom name="atom-2" />
   </components>
   <amendments>
     <addComponent>
-      <componentType>markdown</componentType>
+      <componentType>atom-2</componentType>
+      <targetPath>2</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>atom-2</componentType>
       <targetPath>1</targetPath>
     </addComponent>
-    <removeComponent>
-      <componentPath>1</componentPath>
-    </removeComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
   </amendments>
 </template>

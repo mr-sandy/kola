@@ -1,15 +1,15 @@
 ﻿namespace Kola.Rendering.Extensions
 {
     using System;
-    using System.Collections.Generic;
 
     using Kola.Domain;
+    using Kola.Persistence;
 
     internal static class ComponentExtensions
     {
-        public static Page ToPage(this Template template)
+        public static Page ToPage(this Template template, IWidgetSpecificationRepository widgetSpecificationRepository)
         {
-            var visitor = new ComponentInstanceBuilingVisitor();
+            var visitor = new ComponentInstanceBuildingVisitor(widgetSpecificationRepository);
 
             foreach (var component in template.Components)
             {
@@ -24,9 +24,9 @@
             return new ComponentInstance(atom.Name);
         }
 
-        public static ComponentInstance ToInstance(this Container container)
+        public static ComponentInstance ToInstance(this Container container, IWidgetSpecificationRepository widgetSpecificationRepository)
         {
-            var visitor = new ComponentInstanceBuilingVisitor();
+            var visitor = new ComponentInstanceBuildingVisitor(widgetSpecificationRepository);
 
             foreach (var component in container.Components)
             {
@@ -35,25 +35,19 @@
 
             return new ComponentInstance(container.Name, visitor.Components);
         }
-    }
 
-    internal class ComponentInstanceBuilingVisitor : IComponentVisitor
-    {
-        private readonly List<IComponentInstance> components = new List<IComponentInstance>();
-
-        public IEnumerable<IComponentInstance> Components
+        public static ComponentInstance ToInstance(this Widget widget, IWidgetSpecificationRepository widgetSpecificationRepository)
         {
-            get { return this.components; }
-        }
+            var specification = widgetSpecificationRepository.Find(widget.Name);
 
-        public void Visit(Atom atom)
-        {
-            this.components.Add(atom.ToInstance());
-        }
+            var visitor = new ComponentInstanceBuildingVisitor(widgetSpecificationRepository);
 
-        public void Visit(Container container)
-        {
-            this.components.Add(container.ToInstance());
+            foreach (var component in specification.Components)
+            {
+                component.Accept(visitor);
+            }
+
+            return new ComponentInstance(widget.Name, visitor.Components);
         }
     }
 }

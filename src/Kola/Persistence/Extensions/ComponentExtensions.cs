@@ -47,6 +47,11 @@
             return new Atom(surrogate.Name);
         }
 
+        public static Widget ToDomain(this WidgetSurrogate surrogate)
+        {
+            return new Widget(surrogate.Name);
+        }
+
         public static ContainerSurrogate ToSurrogate(this Container component)
         {
             return new ContainerSurrogate
@@ -59,6 +64,11 @@
         public static AtomSurrogate ToSurrogate(this Atom component)
         {
             return new AtomSurrogate { Name = component.Name };
+        }
+
+        public static WidgetSurrogate ToSurrogate(this Widget component)
+        {
+            return new WidgetSurrogate { Name = component.Name };
         }
     }
 }

@@ -1,9 +1,7 @@
-﻿using Kola.Configuration;
-using Kola.Plugins.Core.Handlers;
-
-namespace Kola.Plugins.Core
+﻿namespace Kola.Plugins.Core
 {
     using Kola.Configuration.Plugins;
+    using Kola.Plugins.Core.Handlers;
 
     public class Configuration : PluginConfiguration
     {
@@ -11,7 +9,7 @@ namespace Kola.Plugins.Core
         {
             this.Configure.ViewLocation("Kola.Plugins.Core.Views");
 
-            this.Configure.Container("markdown")
+            this.Configure.Atom("markdown")
                 .WithHandler<MarkdownHandler>();
         }
     }
