@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Domain.Templates.Amendments
+﻿namespace Unit.Tests.Domain.AmendmentApplyingVisitorTests
 {
     using Kola.Domain;
 

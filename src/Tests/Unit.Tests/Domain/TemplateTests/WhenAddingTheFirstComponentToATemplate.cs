@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Domain.Templates.old
+﻿namespace Unit.Tests.Domain.TemplateTests
 {
     using FluentAssertions;
 

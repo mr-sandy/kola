@@ -51,16 +51,16 @@
   <ItemGroup>
     <Compile Include="Configuration\WhenConfiguringAPlugInAtom.cs" />
     <Compile Include="Configuration\WhenInitialisingConfiguration.cs" />
-    <Compile Include="Domain\Templates\Amendments\ContextBase.cs" />
-    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateASecondAtomInAChildComponent.cs" />
-    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAContainerInAChildComponent.cs" />
-    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAContainerInTheRoot.cs" />
-    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAnAtomInAChildComponent.cs" />
-    <Compile Include="Domain\Templates\Amendments\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAnAtomInTheRoot.cs" />
-    <Compile Include="Domain\Templates\Amendments\MoveComponent\WhenProcessingAMoveComponentAmendment.cs" />
-    <Compile Include="Domain\Templates\Amendments\RemoveComponent\WhenProcessingARemoveComponentAmendment.cs" />
-    <Compile Include="Domain\Templates\Amendments\WhenAddingAnAmendment.cs" />
-    <Compile Include="Domain\Templates\Amendments\UpdateParameters\WhenApplyingAnUpdateParametersAmendment.cs" />
+    <Compile Include="Domain\AmendmentApplyingVisitorTests\ContextBase.cs" />
+    <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateASecondAtomInAChildComponent.cs" />
+    <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAContainerInAChildComponent.cs" />
+    <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAContainerInTheRoot.cs" />
+    <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAnAtomInAChildComponent.cs" />
+    <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAnAtomInTheRoot.cs" />
+    <Compile Include="Domain\AmendmentApplyingVisitorTests\MoveComponent\WhenProcessingAMoveComponentAmendment.cs" />
+    <Compile Include="Domain\AmendmentApplyingVisitorTests\RemoveComponent\WhenProcessingARemoveComponentAmendment.cs" />
+    <Compile Include="Domain\TemplateTests\WhenAddingAnAmendment.cs" />
+    <Compile Include="Domain\AmendmentApplyingVisitorTests\UpdateParameters\WhenApplyingAnUpdateParametersAmendment.cs" />
     <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapOfEqualLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapOfNonEmptyLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapWithOneEmptyLists.cs" />
@@ -78,9 +78,9 @@
     <Compile Include="Rendering\WhenRenderingAPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\ResourceExtensions\WhenConvertingATemplateToAResource.cs" />
-    <Compile Include="Domain\Templates\old\WhenApplyingAnAddComponentAmendmentToTheRoot.cs" />
-    <Compile Include="Domain\Templates\old\WhenAddingTheFirstComponentToATemplate.cs" />
-    <Compile Include="Domain\Templates\old\WhenCreatingANewTemplate.cs" />
+    <Compile Include="Domain\TemplateTests\WhenApplyingAnAddComponentAmendmentToTheRoot.cs" />
+    <Compile Include="Domain\TemplateTests\WhenAddingTheFirstComponentToATemplate.cs" />
+    <Compile Include="Domain\TemplateTests\WhenCreatingANewTemplate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -90,9 +90,6 @@
       <Project>{22D48FD5-8CA9-4B0E-9090-742C9A064833}</Project>
       <Name>Kola</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Domain\Templates\Templates.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

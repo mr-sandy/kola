@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Domain.Templates.Amendments.AddComponent
+﻿namespace Unit.Tests.Domain.AmendmentApplyingVisitorTests.AddComponent
 {
     using System.Linq;
 

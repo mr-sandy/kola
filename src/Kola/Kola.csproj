@@ -70,6 +70,7 @@
     <Compile Include="Domain\Amendments\MoveComponentAmendment.cs" />
     <Compile Include="Domain\Atom.cs" />
     <Compile Include="Configuration\IPluginComponentSpecification.cs" />
+    <Compile Include="Domain\Widget.cs" />
     <Compile Include="Nancy\ComponentLibrary.cs" />
     <Compile Include="Domain\Container.cs" />
     <Compile Include="Domain\Extensions\ComponentCollectionExtensions.cs" />

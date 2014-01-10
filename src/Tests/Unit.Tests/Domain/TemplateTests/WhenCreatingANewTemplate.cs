@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Domain.Templates
+﻿namespace Unit.Tests.Domain.TemplateTests
 {
     using Kola.Domain;
 

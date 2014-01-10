@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Domain.Templates.Amendments.MoveComponent
+﻿namespace Unit.Tests.Domain.AmendmentApplyingVisitorTests.MoveComponent
 {
     using System.Linq;
 
@@ -8,8 +8,6 @@
     using Kola.Domain.Amendments;
 
     using NUnit.Framework;
-
-    using Rhino.Mocks;
 
     public class WhenProcessingAMoveComponentAmendment : ContextBase
     {

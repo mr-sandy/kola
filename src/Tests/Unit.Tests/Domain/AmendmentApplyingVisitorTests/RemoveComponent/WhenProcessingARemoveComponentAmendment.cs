@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Domain.Templates.Amendments.RemoveComponent
+﻿namespace Unit.Tests.Domain.AmendmentApplyingVisitorTests.RemoveComponent
 {
     using FluentAssertions;
 

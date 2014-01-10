@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Domain.Templates.Amendments.AddComponent
+﻿namespace Unit.Tests.Domain.AmendmentApplyingVisitorTests.AddComponent
 {
     using System.Linq;
 
@@ -11,7 +11,7 @@
 
     using Rhino.Mocks;
 
-    public class WhenProcessingAnAddComponentAmendmentToCreateAContainerInAChildComponent : ContextBase
+    public class WhenProcessingAnAddComponentAmendmentToCreateAnAtomInAChildComponent : ContextBase
     {
         private Container container;
 
@@ -21,9 +21,11 @@
             this.container = new Container("existing container");
             this.Template.AddComponent(this.container, 0);
 
-            this.ComponentSpecification.Stub(s => s.Create()).Return(new Container("new container"));
+            var newComponent = new Atom("new atom");
 
-            var amendment = new AddComponentAmendment("new container", new[] { 0, 0 });
+            this.ComponentSpecification.Stub(s => s.Create()).Return(newComponent);
+
+            var amendment = new AddComponentAmendment("new atom", new[] { 0, 0 });
 
             this.Visitor.Visit(amendment);
         }
@@ -35,9 +37,9 @@
         }
 
         [Test]
-        public void TheComponentShouldBeAContainer()
+        public void TheComponentShouldBeAnAtom()
         {
-            this.container.Components.Single().Should().BeOfType<Container>();
+            this.container.Components.Single().Should().BeOfType<Atom>();
         }
     }
 }

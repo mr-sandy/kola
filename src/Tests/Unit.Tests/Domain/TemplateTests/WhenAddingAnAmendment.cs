@@ -1,14 +1,13 @@
-﻿namespace Unit.Tests.Domain.Templates.Amendments
+﻿namespace Unit.Tests.Domain.TemplateTests
 {
     using FluentAssertions;
 
+    using Kola.Domain;
     using Kola.Domain.Amendments;
 
     using NUnit.Framework;
 
     using Rhino.Mocks;
-
-    using Kola.Domain;
 
     public class WhenAddingAnAmendment
     {

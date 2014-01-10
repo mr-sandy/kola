@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Domain.Templates
+﻿namespace Unit.Tests.Domain.TemplateTests
 {
     using System.Linq;
 
@@ -6,7 +6,6 @@
 
     using Kola.Domain;
     using Kola.Domain.Amendments;
-    using Kola.Nancy.Modules;
 
     using NUnit.Framework;
 
