@@ -4,6 +4,8 @@
     using System.Linq;
     using System.Reflection;
 
+    using Kola.Configuration;
+
     using global::Nancy;
     using global::Nancy.Bootstrapper;
     using global::Nancy.Conventions;
@@ -11,8 +13,6 @@
     using global::Nancy.TinyIoc;
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
-
-    using Kola.Configuration;
 
     using ServiceStack.Text;
 
@@ -40,7 +40,7 @@
             var configurationBuilder = new DefaultKolaConfigurationBuilder(new PluginFinder(), new TinyIoCObjectFactory(container));
             KolaConfiguration kolaConfiguration = configurationBuilder.Build();
             //TODO {SC} Us ethe IOC container to hold the Kola configuration
-            NancyKolaRegistry.KolaConfiguration = kolaConfiguration;
+            NancyKolaConfigurationRegistry.Instance = kolaConfiguration;
 
             foreach (var pluginSummary in kolaConfiguration.Plugins)
             {

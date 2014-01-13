@@ -1,7 +1,9 @@
 ﻿namespace Kola.Rendering
 {
+    using Kola.Domain;
+
     public interface IHandlerFactory
     {
-        IHandler Create(string name);
+        IHandler Create(IComponentInstance component);
     }
 }

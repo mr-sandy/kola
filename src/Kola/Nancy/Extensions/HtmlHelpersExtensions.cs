@@ -11,13 +11,13 @@
     {
         public static IHtmlString RenderPage<T>(this HtmlHelpers<T> helpers, IPage page)
         {
-            var engine = NancyKolaRegistry.KolaConfiguration.KolaEngine;
+            var engine = NancyKolaConfigurationRegistry.Instance.KolaEngine;
             return new ResultWrapper(engine.Render(page), new NancyRazorViewHelper<T>(helpers));
         }
 
         public static IHtmlString RenderComponents<T>(this HtmlHelpers<T> helpers, IEnumerable<IComponentInstance> components)
         {
-            var engine = NancyKolaRegistry.KolaConfiguration.KolaEngine;
+            var engine = NancyKolaConfigurationRegistry.Instance.KolaEngine;
             return new ResultWrapper(engine.Render(components), new NancyRazorViewHelper<T>(helpers));
         }
     }

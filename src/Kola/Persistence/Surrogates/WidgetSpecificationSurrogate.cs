@@ -8,6 +8,7 @@
         [XmlArray("components")]
         [XmlArrayItem(typeof(AtomSurrogate))]
         [XmlArrayItem(typeof(ContainerSurrogate))]
+        [XmlArrayItem(typeof(WidgetSurrogate))]
         public ComponentSurrogate[] Components { get; set; }
     }
 }

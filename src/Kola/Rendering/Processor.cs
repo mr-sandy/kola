@@ -13,7 +13,7 @@
 
         public IResult Process(IComponentInstance component)
         {
-            var handler = this.handlerFactory.Create(component.Name);
+            var handler = this.handlerFactory.Create(component);
             return handler.HandleRequest(component);
         }
     }

@@ -21,13 +21,13 @@
         [SetUp]
         public void EstablishContext()
         {
-            var page = new TestPage { Components = new[] { new TestComponent { Name = "atom1" } } };
+            var page = new Page(new[] { new AtomInstance("atom1") });
 
             var atom1Handler = MockRepository.GenerateMock<IHandler>();
-            atom1Handler.Stub(h => h.HandleRequest(Arg<IComponentInstance>.Is.Anything)).Return(new TestResult("<atom1/>"));
+            atom1Handler.Stub(h => h.HandleRequest(Arg<IComponentInstance>.Is.Anything)).Return(new Result(h => "<atom1/>"));
 
             this.PageHandler.Stub(h => h.GetPage(Arg<IEnumerable<string>>.Is.Anything)).Return(page);
-            this.HandlerFactory.Stub(f => f.Create("atom1")).Return(atom1Handler);
+            this.HandlerFactory.Stub(f => f.Create(Arg<IComponentInstance>.Is.Anything)).Return(atom1Handler);
 
             this.Response = this.Browser.Get("/", with => with.Header("Accept", "text/html"));
         }

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<InfoWarnings>
+  <Info>01/10/2014 23:24:08 Begin full analysis with NDepend v5.1.0.8180</Info>
+  <Info>No Baseline for Comparison loaded.</Info>
+  <Info>Concurrent mode</Info>
+  <Info>.NET Assemblies loaded from {C:\projects\kola\src\Samples\Sample.Host\bin} 
+   Kola.dll   v1.0.0.0
+   Nancy.dll   v0.18.0.0
+   Nancy.ViewEngines.Razor.dll   v0.18.0.0
+   ServiceStack.Text.dll   v3.9.59.0</Info>
+  <Info>.NET Assemblies loaded from {C:\Windows\Microsoft.NET\Framework\v4.0.30319} 
+   mscorlib.dll   v4.0.0.0
+   System.dll   v4.0.0.0
+   System.Core.dll   v4.0.0.0
+   System.Xml.dll   v4.0.0.0
+   Microsoft.CSharp.dll   v4.0.0.0</Info>
+  <Warning>No application or third party assembly found in folder {C:\Windows\Microsoft.NET\Framework\v4.0.30319\WPF}</Warning>
+  <Warning>The source file {C:\projects\kola\src\Kola\Rendering\WidgetHandler.cs} (last modified 10/01/2014 23:06:31) and the PDB file of the assembly {Kola} (last modified 10/01/2014 19:01:18) are not in-sync.</Warning>
+  <Info>118 source files parsed ; all source files found ; 1 source file not in-sync with PDB</Info>
+  <Info>0 code rule has been extracted from code.</Info>
+  <Info>No dependency cycle detected in assemblies referencement graph.</Info>
+  <Info>01/10/2014 23:24:08 Analyse dependencies of your application.</Info>
+  <Info>01/10/2014 23:24:09 Execute queries and rules</Info>
+  <Warning>5 critical rules are violated.
+  - Avoid namespaces mutually dependent
+  - Potentially dead Types
+  - Potentially dead Methods
+  - Exception class name should be suffixed with 'Exception'
+  - Avoid having different types with same name</Warning>
+  <Info>01/10/2014 23:24:10 NDepend analysis done. Duration: 00:02</Info>
+  <Info>01/10/2014 23:24:10 Building the report (standard).</Info>
+</InfoWarnings>

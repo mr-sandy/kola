@@ -19,12 +19,12 @@
             return new Page(visitor.Components);
         }
 
-        public static ComponentInstance ToInstance(this Atom atom)
+        public static AtomInstance ToInstance(this Atom atom)
         {
-            return new ComponentInstance(atom.Name);
+            return new AtomInstance(atom.Name);
         }
 
-        public static ComponentInstance ToInstance(this Container container, IWidgetSpecificationRepository widgetSpecificationRepository)
+        public static ContainerInstance ToInstance(this Container container, IWidgetSpecificationRepository widgetSpecificationRepository)
         {
             var visitor = new ComponentInstanceBuildingVisitor(widgetSpecificationRepository);
 
@@ -33,10 +33,10 @@
                 component.Accept(visitor);
             }
 
-            return new ComponentInstance(container.Name, visitor.Components);
+            return new ContainerInstance(container.Name, visitor.Components);
         }
 
-        public static ComponentInstance ToInstance(this Widget widget, IWidgetSpecificationRepository widgetSpecificationRepository)
+        public static WidgetInstance ToInstance(this Widget widget, IWidgetSpecificationRepository widgetSpecificationRepository)
         {
             var specification = widgetSpecificationRepository.Find(widget.Name);
 
@@ -47,7 +47,7 @@
                 component.Accept(visitor);
             }
 
-            return new ComponentInstance(widget.Name, visitor.Components);
+            return new WidgetInstance(widget.Name, visitor.Components);
         }
     }
 }

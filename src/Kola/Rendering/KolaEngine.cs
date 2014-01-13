@@ -5,7 +5,7 @@
 
     using Kola.Domain;
 
-    public class KolaEngine
+    public class KolaEngine : IKolaEngine
     {
         private readonly IProcessor processor;
 

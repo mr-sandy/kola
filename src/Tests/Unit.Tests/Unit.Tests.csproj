@@ -68,9 +68,7 @@
     <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="Rendering\Framework\ITestViewFactory.cs" />
     <Compile Include="Rendering\Framework\TestAtomView.cs" />
-    <Compile Include="Rendering\Framework\TestComponent.cs" />
     <Compile Include="Rendering\Framework\TestContainerView.cs" />
-    <Compile Include="Rendering\Framework\TestPage.cs" />
     <Compile Include="Rendering\Framework\TestView.cs" />
     <Compile Include="Rendering\Framework\TestViewEngine.cs" />
     <Compile Include="Rendering\Framework\TestViewFactory.cs" />

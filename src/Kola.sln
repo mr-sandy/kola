@@ -66,4 +66,7 @@ Global
 		{61B22E63-05EB-4479-9033-B7A37D62EEF0} = {FF152348-3D66-4057-A7F9-948CDEC3731A}
 		{F1BC4866-B5D6-41C9-9866-435927CCB399} = {59DCFBA1-03F4-4015-A94C-1A5E3A62B272}
 	EndGlobalSection
+	GlobalSection(NDepend) = preSolution
+		Project = ".\Kola.ndproj"
+	EndGlobalSection
 EndGlobal

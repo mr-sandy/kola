@@ -20,7 +20,7 @@
 
         public override string Render<T>(T model, IViewHelper viewHelper)
         {
-            var component = model as IComponentInstance;
+            var component = model as ContainerInstance;
             var sb = new StringBuilder();
 
             sb.Append(this.openingHtml);

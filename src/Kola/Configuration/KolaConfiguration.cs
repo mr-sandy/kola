@@ -7,13 +7,13 @@
 
     public class KolaConfiguration 
     {
-        public KolaConfiguration(KolaEngine kolaEngine, IEnumerable<PluginConfiguration> plugins)
+        public KolaConfiguration(IKolaEngine kolaEngine, IEnumerable<PluginConfiguration> plugins)
         {
             this.KolaEngine = kolaEngine;
             this.Plugins = plugins;
         }
 
-        public KolaEngine KolaEngine { get; private set; }
+        public IKolaEngine KolaEngine { get; private set; }
 
         public IEnumerable<PluginConfiguration> Plugins { get; private set; }
     }

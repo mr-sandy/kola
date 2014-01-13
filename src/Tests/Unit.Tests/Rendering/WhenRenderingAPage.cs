@@ -2,6 +2,7 @@
 {
     using FluentAssertions;
 
+    using Kola.Domain;
     using Kola.Rendering;
 
     using NUnit.Framework;
@@ -18,27 +19,18 @@
         public void EstablishContext()
         {
             var handlerFactory = MockRepository.GenerateStub<IHandlerFactory>();
-            handlerFactory.Stub(h => h.Create(Arg<string>.Is.Anything)).Return(new DefaultHandler());
+            handlerFactory.Stub(h => h.Create(Arg<IComponentInstance>.Is.Anything)).Return(new DefaultHandler());
 
             var processor = new Processor(handlerFactory);
             var engine = new KolaEngine(processor);
-            var page = new TestPage
-                {
-                    Components =
-                        new[]
-                            {
-                                new TestComponent { Name = "atom1" }, 
-                                new TestComponent { Name = "atom2" }, 
-                                new TestComponent 
-                                { 
-                                    Name = "container1", 
-                                    Children = new[]
-                                        {
-                                            new TestComponent { Name = "atom3" }
-                                        }
-                                }
-                            }
-                };
+            var page =
+                new Page(
+                    new IComponentInstance[]
+                        {
+                            new AtomInstance("atom1"), 
+                            new AtomInstance("atom2"),
+                            new ContainerInstance("container1", new[] { new AtomInstance("atom3") })
+                        });
 
             var viewFactory = new TestViewFactory(engine);
             var viewHelper = new TestViewHelper(viewFactory);

@@ -1,21 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
-  <components>
-    <container name="container-1">
-      <components>
-        <atom name="atom-1" />
-      </components>
-    </container>
-    <atom name="atom-2" />
-  </components>
+  <components />
   <amendments>
     <addComponent>
-      <componentType>atom-2</componentType>
-      <targetPath>2</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>atom-2</componentType>
-      <targetPath>1</targetPath>
+      <componentType>c:\projects\kola\src\kola\persistence\widgets\badger</componentType>
+      <targetPath>0</targetPath>
     </addComponent>
   </amendments>
 </template>

@@ -25,11 +25,14 @@ namespace Kola.Configuration
                 .SelectMany(c => c.Components)
                 .ToDictionary(c => c.Name, c => c.HandlerType);
 
-            return new KolaConfiguration(new KolaEngine(this.BuildProcessor(handlerMappings)), plugins);
+            KolaEngine engine = null;
+            var engineLocator = new EngineLocator(() => engine);
+            engine = new KolaEngine(this.BuildProcessor(handlerMappings, engineLocator));
+            return new KolaConfiguration(engine, plugins);
         }
 
         protected abstract IEnumerable<PluginConfiguration> FindPlugins();
 
-        protected abstract IProcessor BuildProcessor(Dictionary<string, Type> handlerMappings);
+        protected abstract IProcessor BuildProcessor(Dictionary<string, Type> handlerMappings, EngineLocator engineLocator);
     }
 }
