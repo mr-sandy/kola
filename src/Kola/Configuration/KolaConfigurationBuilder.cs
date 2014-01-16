@@ -25,9 +25,11 @@ namespace Kola.Configuration
                 .SelectMany(c => c.Components)
                 .ToDictionary(c => c.Name, c => c.HandlerType);
 
+            // TODO {SC} Review this gubbins
             KolaEngine engine = null;
             var engineLocator = new EngineLocator(() => engine);
             engine = new KolaEngine(this.BuildProcessor(handlerMappings, engineLocator));
+
             return new KolaConfiguration(engine, plugins);
         }
 

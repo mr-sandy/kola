@@ -69,13 +69,6 @@ namespace Unit.Tests.Configuration
         }
 
         [Test]
-        public void TheParameterValueShouldBeSet()
-        {
-            var config = this.configuration.Components.ElementAt(0).Parameters.ElementAt(0);
-            Assert.AreEqual("parameterValue", config.ParameterValue);
-        }
-
-        [Test]
         public void TheCacheTypeShouldBeSet()
         {
             var config = this.configuration.Components.ElementAt(0);
@@ -96,7 +89,7 @@ namespace Unit.Tests.Configuration
         {
             this.Configure.Container("atom-1")
                 .WithHandler<TestHandler>("viewName")
-                .WithParameter("parameterName", "parameterType", "parameterValue")
+                .WithParameter("parameterName", "parameterType")
                 .Cache.PerUser.For(100);
         }
     }

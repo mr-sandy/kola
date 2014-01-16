@@ -6,5 +6,20 @@
       <componentType>c:\projects\kola\src\kola\persistence\widgets\badger</componentType>
       <targetPath>0</targetPath>
     </addComponent>
+    <removeComponent>
+      <componentPath>0</componentPath>
+    </removeComponent>
+    <addComponent>
+      <componentType>container-1</componentType>
+      <targetPath>0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>atom-1</componentType>
+      <targetPath>0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>0/1</targetPath>
+    </addComponent>
   </amendments>
 </template>

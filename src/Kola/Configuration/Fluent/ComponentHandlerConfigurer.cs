@@ -12,9 +12,9 @@ namespace Kola.Configuration.Fluent
             this.configuration = componentConfiguration;
         }
 
-        public ComponentHandlerConfigurer WithParameter(string parameterName, string parameterType, string parameterValue = "")
+        public ComponentHandlerConfigurer WithParameter(string parameterName, string parameterType)
         {
-            this.configuration.AddParameter(new ParameterSpecification(parameterName, parameterType, parameterValue));
+            this.configuration.AddParameter(new ParameterSpecification(parameterName, parameterType));
             return this;
         }
 

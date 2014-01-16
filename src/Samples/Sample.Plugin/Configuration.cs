@@ -16,13 +16,13 @@
 
             this.Configure.Atom("atom-2")
                 .WithView("Atom2")
-                .WithParameter("parameter-name-1", "parameter-type-1", "parameter-value-1")
+                .WithParameter("parameter-name-1", "parameter-type-1")
                 .WithParameter("parameter-name-2", "parameter-type-2")
                 .Cache.PerUser.For(100);
 
             this.Configure.Container("container-1")
                 .WithView("Container1")
-                .WithParameter("parameter-name-1", "parameter-type-1", "parameter-value-1");
+                .WithParameter("parameter-name-1", "parameter-type-1");
 
             this.Configure.Container("container-2")
                 .WithView("Container2");
