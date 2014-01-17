@@ -6,3 +6,4 @@ bin/
 *_ReSharper.*
 *.idea*
 *.ncrunchsolution
+NDependOut/
