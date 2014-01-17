@@ -1,7 +1,5 @@
 ﻿namespace Kola.Rendering.Extensions
 {
-    using System;
-
     using Kola.Domain;
     using Kola.Persistence;
 

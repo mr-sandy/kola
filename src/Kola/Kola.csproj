@@ -61,6 +61,7 @@
     <Compile Include="Domain\IComponentInstanceVisitor.cs" />
     <Compile Include="Domain\IPluginComponentSpecification.cs" />
     <Compile Include="Domain\Parameter.cs" />
+    <Compile Include="Domain\ParameterInstance.cs" />
     <Compile Include="Domain\PluginComponentSpecification.cs" />
     <Compile Include="Domain\Test.cs" />
     <Compile Include="Domain\AtomSpecification.cs" />

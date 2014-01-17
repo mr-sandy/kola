@@ -31,6 +31,7 @@
             }
 
             template.ApplyAmendments(this.componentLibrary);
+
             return template.ToPage(this.widgetSpecificationRepository);
         }
     }

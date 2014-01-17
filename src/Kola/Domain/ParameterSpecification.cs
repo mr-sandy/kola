@@ -11,5 +11,10 @@
         public string ParameterName { get; private set; }
 
         public string ParameterType { get; private set; }
+
+        public Parameter Create()
+        {
+            return new Parameter();
+        }
     }
 }

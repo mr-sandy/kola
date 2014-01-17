@@ -59,7 +59,10 @@
     <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAnAtomInTheRoot.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\MoveComponent\WhenProcessingAMoveComponentAmendment.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\RemoveComponent\WhenProcessingARemoveComponentAmendment.cs" />
-    <Compile Include="Domain\ComponentSpecifications\WhenConfiguringAPlugInAtom.cs" />
+    <Compile Include="Domain\ComponentSpecifications\WhenCreatingAnAtomFromItsSpecification.cs" />
+    <Compile Include="Domain\ComponentSpecifications\WhenCreatingAParameterFromItsSpecification.cs" />
+    <Compile Include="Domain\ParameterTests\WhenCreatingAParameterInstance.cs" />
+    <Compile Include="Domain\ParameterTests\WhenSettingAFixedValueForAParameter.cs" />
     <Compile Include="Domain\TemplateTests\WhenAddingAnAmendment.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\UpdateParameters\WhenApplyingAnUpdateParametersAmendment.cs" />
     <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapOfEqualLists.cs" />

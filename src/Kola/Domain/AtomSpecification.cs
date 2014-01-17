@@ -11,7 +11,7 @@
 
         public override Atom Create()
         {
-            var parameters = this.Parameters.Select(parameter => new Parameter());
+            var parameters = this.Parameters.Select(p => p.Create());
 
             return new Atom(this.Name, parameters);
         }
