@@ -20,7 +20,7 @@ namespace Kola.Configuration.Fluent
 
         public ComponentConfigurer Container(string componentName)
         {
-            var componentSpecification = new ContainerSpecification(componentName);
+            IPluginComponentSpecification<IComponent> componentSpecification = new ContainerSpecification(componentName);
 
             this.configuration.Add(componentSpecification);
 

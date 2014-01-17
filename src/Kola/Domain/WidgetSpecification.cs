@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public class WidgetSpecification : IComponentSpecification, IComponentCollection
+    public class WidgetSpecification : IComponentSpecification<Widget>, IComponentCollection
     {
         private readonly List<IComponent> components = new List<IComponent>();
 
@@ -38,7 +38,7 @@
             this.components.RemoveAt(index);
         }
 
-        public IComponent Create()
+        public Widget Create()
         {
             return new Widget(this.Name);
         }

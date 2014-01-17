@@ -3,7 +3,8 @@
     using System;
     using System.Collections.Generic;
 
-    public abstract class PluginComponentSpecification : IComponentSpecification
+    public abstract class PluginComponentSpecification<T> : IPluginComponentSpecification<T>
+        where T : IComponent
     {
         private readonly List<ParameterSpecification> parameters = new List<ParameterSpecification>();
 
@@ -32,6 +33,6 @@
             this.parameters.Add(parameter);
         }
 
-        public abstract IComponent Create();
+        public abstract T Create();
     }
 }

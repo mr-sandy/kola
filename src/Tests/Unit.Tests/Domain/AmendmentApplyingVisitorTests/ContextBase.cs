@@ -14,7 +14,7 @@
 
         protected IComponentLibrary ComponentLibrary { get; private set; }
 
-        protected IComponentSpecification ComponentSpecification { get; private set; }
+        protected IComponentSpecification<IComponent> ComponentSpecification { get; private set; }
 
         [SetUp]
         public void EstablishBaseContext()
@@ -23,7 +23,7 @@
 
             this.ComponentLibrary = MockRepository.GenerateStub<IComponentLibrary>();
 
-            this.ComponentSpecification = MockRepository.GenerateStub<IComponentSpecification>();
+            this.ComponentSpecification = MockRepository.GenerateStub<IComponentSpecification<IComponent>>();
 
             this.ComponentLibrary.Stub(l => l.Lookup(Arg<string>.Is.Anything)).Return(this.ComponentSpecification);
             

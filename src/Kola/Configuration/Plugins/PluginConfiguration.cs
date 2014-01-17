@@ -7,11 +7,11 @@
 
     public abstract class PluginConfiguration
     {
-        private readonly List<PluginComponentSpecification> components = new List<PluginComponentSpecification>();
+        private readonly List<IPluginComponentSpecification<IComponent>> components = new List<IPluginComponentSpecification<IComponent>>();
 
         public string ViewLocation { get; set; }
 
-        internal IEnumerable<PluginComponentSpecification> Components
+        internal IEnumerable<IPluginComponentSpecification<IComponent>> Components
         {
             get { return this.components; }
         }
@@ -21,7 +21,7 @@
             get { return new PluginConfigurer(this); }
         }
 
-        internal void Add(PluginComponentSpecification component)
+        internal void Add(IPluginComponentSpecification<IComponent> component)
         {
             this.components.Add(component);
         }

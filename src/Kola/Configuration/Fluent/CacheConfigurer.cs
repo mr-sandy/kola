@@ -5,9 +5,9 @@ namespace Kola.Configuration.Fluent
 
     public class CacheConfigurer
     {
-        private readonly PluginComponentSpecification componentConfiguration;
+        private readonly IPluginComponentSpecification<IComponent> componentConfiguration;
 
-        internal CacheConfigurer(PluginComponentSpecification componentConfiguration)
+        internal CacheConfigurer(IPluginComponentSpecification<IComponent> componentConfiguration)
         {
             this.componentConfiguration = componentConfiguration;
         }

@@ -4,8 +4,8 @@
 
     public interface IComponentLibrary
     {
-        IEnumerable<IComponentSpecification> FindAll();
+        IEnumerable<IComponentSpecification<IComponent>> FindAll();
 
-        IComponentSpecification Lookup(string componentName);
+        IComponentSpecification<IComponent> Lookup(string componentName);
     }
 }

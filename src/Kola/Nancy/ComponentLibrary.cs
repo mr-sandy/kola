@@ -19,24 +19,24 @@
             this.widgetRepository = widgetRepository;
         }
 
-        public IEnumerable<IComponentSpecification> FindAll()
+        public IEnumerable<IComponentSpecification<IComponent>> FindAll()
         {
-            var pluggedInComponents = this.registry.KolaConfiguration.Plugins
+            IEnumerable<IComponentSpecification<IComponent>> pluggedInComponents = this.registry.KolaConfiguration.Plugins
                 .SelectMany(plugin => plugin.Components);
 
             var widgets = this.widgetRepository.FindAll();
 
-            return pluggedInComponents.Concat<IComponentSpecification>(widgets);
+            return pluggedInComponents.Concat(widgets);
         }
 
-        public IComponentSpecification Lookup(string componentName)
+        public IComponentSpecification<IComponent> Lookup(string componentName)
         {
             var component = this.registry.KolaConfiguration.Plugins
                 .SelectMany(plugin => plugin.Components)
                 .FirstOrDefault(c => c.Name == componentName);
 
-            return component != null 
-                ? (IComponentSpecification)component 
+            return component != null
+                ? (IComponentSpecification<IComponent>)component
                 : this.widgetRepository.Find(componentName);
         }
     }

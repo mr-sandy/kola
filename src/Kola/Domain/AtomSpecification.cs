@@ -1,15 +1,19 @@
 ﻿namespace Kola.Domain
 {
-    public class AtomSpecification : PluginComponentSpecification
+    using System.Linq;
+
+    public class AtomSpecification : PluginComponentSpecification<Atom>
     {
         public AtomSpecification(string name)
             : base(name)
         {
         }
 
-        public override IComponent Create()
+        public override Atom Create()
         {
-            return new Atom(this.Name);
+            var parameters = this.Parameters.Select(parameter => new Parameter());
+
+            return new Atom(this.Name, parameters);
         }
     }
 }

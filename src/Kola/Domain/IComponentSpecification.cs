@@ -1,9 +1,9 @@
 ﻿namespace Kola.Domain
 {
-    public interface IComponentSpecification
+    public interface IComponentSpecification<out T> where T : IComponent
     {
         string Name { get; }
 
-        IComponent Create();
+        T Create();
     }
 }

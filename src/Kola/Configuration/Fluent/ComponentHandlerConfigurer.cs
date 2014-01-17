@@ -5,9 +5,9 @@ namespace Kola.Configuration.Fluent
 
     public class ComponentHandlerConfigurer
     {
-        private readonly PluginComponentSpecification configuration;
+        private readonly IPluginComponentSpecification<IComponent> configuration;
 
-        internal ComponentHandlerConfigurer(PluginComponentSpecification componentConfiguration)
+        internal ComponentHandlerConfigurer(IPluginComponentSpecification<IComponent> componentConfiguration)
         {
             this.configuration = componentConfiguration;
         }
