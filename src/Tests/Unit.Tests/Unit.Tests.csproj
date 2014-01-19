@@ -61,6 +61,8 @@
     <Compile Include="Domain\AmendmentApplyingVisitorTests\RemoveComponent\WhenProcessingARemoveComponentAmendment.cs" />
     <Compile Include="Domain\ComponentSpecifications\WhenCreatingAnAtomFromItsSpecification.cs" />
     <Compile Include="Domain\ComponentSpecifications\WhenCreatingAParameterFromItsSpecification.cs" />
+    <Compile Include="Domain\ParameterTests\WhenCreatingAnInstanceOfAParameterWithAMultilingualVariableParameterValue.cs" />
+    <Compile Include="Domain\ParameterTests\WhenCreatingAnInstanceOfAParameterWithAnInheritedParameterValue.cs" />
     <Compile Include="Domain\ParameterTests\WhenCreatingAParameterInstance.cs" />
     <Compile Include="Domain\ParameterTests\WhenSettingAFixedValueForAParameter.cs" />
     <Compile Include="Domain\TemplateTests\WhenAddingAnAmendment.cs" />

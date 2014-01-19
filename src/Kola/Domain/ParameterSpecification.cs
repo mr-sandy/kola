@@ -2,19 +2,19 @@
 {
     public class ParameterSpecification
     {
-        public ParameterSpecification(string parameterName, string parameterType)
+        public ParameterSpecification(string name, string type)
         {
-            this.ParameterName = parameterName;
-            this.ParameterType = parameterType;
+            this.Name = name;
+            this.Type = type;
         }
 
-        public string ParameterName { get; private set; }
+        public string Name { get; private set; }
 
-        public string ParameterType { get; private set; }
+        public string Type { get; private set; }
 
         public Parameter Create()
         {
-            return new Parameter();
+            return new Parameter(this.Name);
         }
     }
 }

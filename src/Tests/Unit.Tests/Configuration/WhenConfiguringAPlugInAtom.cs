@@ -58,14 +58,14 @@ namespace Unit.Tests.Configuration
         public void TheParameterNameShouldBeSet()
         {
             var config = this.configuration.Components.ElementAt(0).Parameters.ElementAt(0);
-            Assert.AreEqual("parameterName", config.ParameterName);
+            Assert.AreEqual("parameterName", config.Name);
         }
 
         [Test]
         public void TheParameterTypeShouldBeSet()
         {
             var config = this.configuration.Components.ElementAt(0).Parameters.ElementAt(0);
-            Assert.AreEqual("parameterType", config.ParameterType);
+            Assert.AreEqual("parameterType", config.Type);
         }
 
         [Test]

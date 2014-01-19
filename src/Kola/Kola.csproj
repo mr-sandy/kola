@@ -58,8 +58,15 @@
     <Compile Include="Configuration\EngineLocator.cs" />
     <Compile Include="Domain\AtomInstance.cs" />
     <Compile Include="Domain\ContainerInstance.cs" />
+    <Compile Include="Domain\Context.cs" />
+    <Compile Include="Domain\ContextItem.cs" />
+    <Compile Include="Domain\FixedParameterValue.cs" />
     <Compile Include="Domain\IComponentInstanceVisitor.cs" />
+    <Compile Include="Domain\InheritedParameterValue.cs" />
+    <Compile Include="Domain\IParameterValue.cs" />
     <Compile Include="Domain\IPluginComponentSpecification.cs" />
+    <Compile Include="Domain\MultilingualParameterValue.cs" />
+    <Compile Include="Domain\MultilingualVariant.cs" />
     <Compile Include="Domain\Parameter.cs" />
     <Compile Include="Domain\ParameterInstance.cs" />
     <Compile Include="Domain\PluginComponentSpecification.cs" />

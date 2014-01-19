@@ -6,7 +6,7 @@
 
     using NUnit.Framework;
 
-    public class WhenCreatingAnInstanceOfAParameterWithAFixedParameterValue
+    public class WhenCreatingAnInstanceOfAParameterWithAMultilingualVariableParameterValue
     {
         private ParameterInstance parameterInstance;
 
@@ -15,10 +15,18 @@
         {
             var parameter = new Parameter("parameter name")
                 {
-                    Value = new FixedParameterValue("parameter value")
+                    Value =
+                        new MultilingualParameterValue(
+                        new[]
+                            {
+                                new MultilingualVariant("en", "English"), 
+                                new MultilingualVariant("fr", "Français")
+                            })
                 };
 
-            this.parameterInstance = parameter.CreateInstance(null);
+            var context = new Context { LanguageCode = "fr" };
+
+            this.parameterInstance = parameter.CreateInstance(new[] { context });
         }
 
         [Test]
@@ -36,7 +44,7 @@
         [Test]
         public void TheParameterInstanceShouldHaveTheCorrectValue()
         {
-            this.parameterInstance.Value.Should().Be("parameter value");
+            this.parameterInstance.Value.Should().Be("Français");
         }
     }
 }

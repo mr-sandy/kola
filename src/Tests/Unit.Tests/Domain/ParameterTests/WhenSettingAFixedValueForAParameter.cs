@@ -14,7 +14,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            var parameter = new Parameter();
+            var parameter = new Parameter("");
         }
 
         [Test]
