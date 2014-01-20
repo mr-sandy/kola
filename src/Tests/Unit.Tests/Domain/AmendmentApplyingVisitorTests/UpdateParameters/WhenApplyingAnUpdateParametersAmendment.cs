@@ -1,6 +1,7 @@
 ﻿namespace Unit.Tests.Domain.AmendmentApplyingVisitorTests.UpdateParameters
 {
     using Kola.Domain;
+    using Kola.Domain.Templates;
 
     using NUnit.Framework;
 

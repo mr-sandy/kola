@@ -3,6 +3,8 @@
     using System.Collections.Generic;
 
     using Kola.Domain;
+    using Kola.Domain.Instances;
+    using Kola.Domain.Templates;
     using Kola.Persistence;
     using Kola.Rendering.Extensions;
 

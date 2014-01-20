@@ -3,6 +3,7 @@
     using FluentAssertions;
 
     using Kola.Domain;
+    using Kola.Domain.Instances;
     using Kola.Rendering;
 
     using NUnit.Framework;

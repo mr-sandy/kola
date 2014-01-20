@@ -4,6 +4,8 @@
 
     using Kola.Configuration.Fluent;
     using Kola.Domain;
+    using Kola.Domain.Specifications;
+    using Kola.Domain.Templates;
 
     public abstract class PluginConfiguration
     {

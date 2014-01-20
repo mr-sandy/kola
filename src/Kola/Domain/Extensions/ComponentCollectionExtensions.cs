@@ -6,6 +6,7 @@
     using Kola;
 
     using Kola.Domain;
+    using Kola.Domain.Templates;
 
     // TODO {SC} Refactor this mess once I've implemented widgets (because a placeholder should be an IComponentCollection but not an IComponent)
     public static class ComponentCollectionExtensions

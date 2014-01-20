@@ -1,6 +1,7 @@
 ﻿namespace Kola.Plugins.Core.Handlers
 {
     using Kola.Domain;
+    using Kola.Domain.Instances;
     using Kola.Rendering;
 
     public class MarkdownHandler : IHandler

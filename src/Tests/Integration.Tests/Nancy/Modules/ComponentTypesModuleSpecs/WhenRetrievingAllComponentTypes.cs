@@ -7,6 +7,7 @@
 
     using Kola.Configuration;
     using Kola.Domain;
+    using Kola.Domain.Specifications;
     using Kola.Resources;
 
     using global::Nancy;

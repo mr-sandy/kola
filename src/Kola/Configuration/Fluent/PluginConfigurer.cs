@@ -3,6 +3,8 @@ namespace Kola.Configuration.Fluent
 {
     using Kola.Configuration.Plugins;
     using Kola.Domain;
+    using Kola.Domain.Specifications;
+    using Kola.Domain.Templates;
 
     public class PluginConfigurer
     {

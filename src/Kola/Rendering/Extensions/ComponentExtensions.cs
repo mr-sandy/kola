@@ -1,6 +1,8 @@
 ﻿namespace Kola.Rendering.Extensions
 {
     using Kola.Domain;
+    using Kola.Domain.Instances;
+    using Kola.Domain.Templates;
     using Kola.Persistence;
 
     internal static class ComponentExtensions

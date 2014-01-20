@@ -3,6 +3,9 @@
     using FluentAssertions;
 
     using Kola.Domain;
+    using Kola.Domain.Instances;
+    using Kola.Domain.Templates;
+    using Kola.Domain.Templates.ParameterValues;
 
     using NUnit.Framework;
 

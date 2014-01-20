@@ -4,6 +4,7 @@
     using System.Linq;
 
     using Kola.Domain;
+    using Kola.Domain.Templates;
     using Kola.Persistence.Surrogates;
 
     public static class TemplateExtensions

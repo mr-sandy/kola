@@ -4,6 +4,7 @@
     using System.Linq;
 
     using Kola.Domain;
+    using Kola.Domain.Templates;
     using Kola.Resources;
 
     internal static class ComponentExtensions

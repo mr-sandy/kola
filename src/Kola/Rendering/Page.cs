@@ -3,6 +3,7 @@
     using System.Collections.Generic;
 
     using Kola.Domain;
+    using Kola.Domain.Instances;
 
     internal class Page : IPage
     {

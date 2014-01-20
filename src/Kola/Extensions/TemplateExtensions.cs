@@ -1,6 +1,7 @@
 ﻿namespace Kola.Extensions
 {
     using Kola.Domain;
+    using Kola.Domain.Templates;
     using Kola.Resources;
 
     internal static class TemplateExtensions

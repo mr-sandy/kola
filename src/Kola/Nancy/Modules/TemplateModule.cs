@@ -4,6 +4,7 @@
 
     using Kola.Domain;
     using Kola.Domain.Extensions;
+    using Kola.Domain.Templates;
     using Kola.Extensions;
     using Kola.Persistence;
     using Kola.Resources;

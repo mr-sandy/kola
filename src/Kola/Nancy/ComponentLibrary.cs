@@ -5,6 +5,8 @@
 
     using Kola.Configuration;
     using Kola.Domain;
+    using Kola.Domain.Specifications;
+    using Kola.Domain.Templates;
     using Kola.Persistence;
 
     public class ComponentLibrary : IComponentLibrary

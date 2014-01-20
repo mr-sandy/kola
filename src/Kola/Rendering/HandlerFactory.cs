@@ -5,6 +5,7 @@
 
     using Kola.Configuration;
     using Kola.Domain;
+    using Kola.Domain.Instances;
 
     public class HandlerFactory : IHandlerFactory, IComponentInstanceVisitor<IHandler>
     {

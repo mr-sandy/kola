@@ -4,6 +4,7 @@
     using System.Linq;
 
     using Kola.Domain;
+    using Kola.Domain.Specifications;
     using Kola.Persistence.Extensions;
     using Kola.Persistence.Surrogates;
 

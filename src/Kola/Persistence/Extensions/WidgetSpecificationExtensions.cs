@@ -3,6 +3,7 @@
     using System.Linq;
 
     using Kola.Domain;
+    using Kola.Domain.Specifications;
     using Kola.Persistence.Surrogates;
 
     public static class WidgetSpecificationExtensions

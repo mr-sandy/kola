@@ -9,6 +9,7 @@ namespace Unit.Tests.Configuration
 {
     using Kola.Configuration.Plugins;
     using Kola.Domain;
+    using Kola.Domain.Instances;
 
     [TestFixture]
     public class WhenConfiguringAnAtom
