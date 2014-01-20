@@ -28,7 +28,7 @@
 
             var newComponent = new Atom("component name");
 
-            var componentLibrary = MockRepository.GenerateStub<IComponentLibrary>();
+            var componentLibrary = MockRepository.GenerateStub<IComponentSpecificationLibrary>();
             var componentSpecification = MockRepository.GenerateStub<IComponentSpecification<Atom>>();
             componentLibrary.Stub(l => l.Lookup("component name")).Return(componentSpecification);
             componentSpecification.Stub(s => s.Create()).Return(newComponent);

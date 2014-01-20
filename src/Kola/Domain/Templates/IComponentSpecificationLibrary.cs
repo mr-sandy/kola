@@ -4,7 +4,7 @@
 
     using Kola.Domain.Specifications;
 
-    public interface IComponentLibrary
+    public interface IComponentSpecificationLibrary
     {
         IEnumerable<IComponentSpecification<IComponent>> FindAll();
 

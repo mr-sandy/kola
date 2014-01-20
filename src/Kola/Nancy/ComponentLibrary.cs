@@ -9,7 +9,7 @@
     using Kola.Domain.Templates;
     using Kola.Persistence;
 
-    public class ComponentLibrary : IComponentLibrary
+    public class ComponentLibrary : IComponentSpecificationLibrary
     {
         private readonly IKolaConfigurationRegistry registry;
 

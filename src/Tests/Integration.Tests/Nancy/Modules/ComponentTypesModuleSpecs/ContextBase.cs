@@ -17,12 +17,12 @@
 
         protected BrowserResponse Response { get; set; }
 
-        protected IComponentLibrary ComponentLibrary { get; set; }
+        protected IComponentSpecificationLibrary ComponentLibrary { get; set; }
 
         [SetUp]
         public void EstablishBaseContext()
         {
-            this.ComponentLibrary = MockRepository.GenerateMock<IComponentLibrary>();
+            this.ComponentLibrary = MockRepository.GenerateMock<IComponentSpecificationLibrary>();
 
             var bootstrapper = new ConfigurableBootstrapper(
                 with =>

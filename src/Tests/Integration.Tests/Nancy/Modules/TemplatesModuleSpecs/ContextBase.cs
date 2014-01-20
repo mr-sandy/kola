@@ -16,13 +16,13 @@
 
         protected ITemplateRepository TemplateRepository { get; set; }
 
-        protected IComponentLibrary ComponentLibrary { get; set; }
+        protected IComponentSpecificationLibrary ComponentLibrary { get; set; }
 
         [SetUp]
         public void EstablishBaseContext()
         {
             this.TemplateRepository = MockRepository.GenerateMock<ITemplateRepository>();
-            this.ComponentLibrary = MockRepository.GenerateMock<IComponentLibrary>();
+            this.ComponentLibrary = MockRepository.GenerateMock<IComponentSpecificationLibrary>();
 
             var bootstrapper = new ConfigurableBootstrapper(
                 with =>

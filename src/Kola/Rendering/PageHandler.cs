@@ -14,9 +14,9 @@
 
         private readonly IWidgetSpecificationRepository widgetSpecificationRepository;
 
-        private readonly IComponentLibrary componentLibrary;
+        private readonly IComponentSpecificationLibrary componentLibrary;
 
-        public PageHandler(ITemplateRepository templateRepository, IWidgetSpecificationRepository widgetSpecificationRepository, IComponentLibrary componentLibrary)
+        public PageHandler(ITemplateRepository templateRepository, IWidgetSpecificationRepository widgetSpecificationRepository, IComponentSpecificationLibrary componentLibrary)
         {
             this.templateRepository = templateRepository;
             this.widgetSpecificationRepository = widgetSpecificationRepository;

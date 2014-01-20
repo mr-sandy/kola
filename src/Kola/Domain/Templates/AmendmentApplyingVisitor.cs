@@ -10,9 +10,9 @@
     {
         private readonly Template template;
 
-        private readonly IComponentLibrary componentLibrary;
+        private readonly IComponentSpecificationLibrary componentLibrary;
 
-        public AmendmentApplyingVisitor(Template template, IComponentLibrary componentLibrary)
+        public AmendmentApplyingVisitor(Template template, IComponentSpecificationLibrary componentLibrary)
         {
             this.template = template;
             this.componentLibrary = componentLibrary;

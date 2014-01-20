@@ -14,7 +14,7 @@
 
         protected Template Template { get; private set; }
 
-        protected IComponentLibrary ComponentLibrary { get; private set; }
+        protected IComponentSpecificationLibrary ComponentLibrary { get; private set; }
 
         protected IComponentSpecification<IComponent> ComponentSpecification { get; private set; }
 
@@ -23,7 +23,7 @@
         {
             this.Template = new Template(new[] { "path" });
 
-            this.ComponentLibrary = MockRepository.GenerateStub<IComponentLibrary>();
+            this.ComponentLibrary = MockRepository.GenerateStub<IComponentSpecificationLibrary>();
 
             this.ComponentSpecification = MockRepository.GenerateStub<IComponentSpecification<IComponent>>();
 

@@ -16,9 +16,9 @@
     {
         private readonly ITemplateRepository templateRepository;
 
-        private readonly IComponentLibrary componentLibrary;
+        private readonly IComponentSpecificationLibrary componentLibrary;
 
-        public TemplateModule(ITemplateRepository templateRepository, IComponentLibrary componentLibrary)
+        public TemplateModule(ITemplateRepository templateRepository, IComponentSpecificationLibrary componentLibrary)
         {
             this.templateRepository = templateRepository;
             this.componentLibrary = componentLibrary;

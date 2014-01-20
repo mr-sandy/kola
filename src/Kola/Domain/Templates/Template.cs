@@ -43,7 +43,7 @@
             this.amendments.Add(amendment);
         }
 
-        public void ApplyAmendments(IComponentLibrary componentLibrary, bool reset = false)
+        public void ApplyAmendments(IComponentSpecificationLibrary componentLibrary, bool reset = false)
         {
             var visitor = new AmendmentApplyingVisitor(this, componentLibrary);
 

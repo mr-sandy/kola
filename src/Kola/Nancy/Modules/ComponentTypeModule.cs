@@ -8,9 +8,9 @@
 
     public class ComponentTypeModule : NancyModule
     {
-        private readonly IComponentLibrary componentLibrary;
+        private readonly IComponentSpecificationLibrary componentLibrary;
 
-        public ComponentTypeModule(IComponentLibrary componentLibrary)
+        public ComponentTypeModule(IComponentSpecificationLibrary componentLibrary)
         {
             this.componentLibrary = componentLibrary;
             this.Get["/_kola/component-types", AcceptHeaderFilters.NotHtml] = p => this.GetComponentTypes();

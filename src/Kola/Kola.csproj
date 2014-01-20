@@ -93,7 +93,7 @@
     <Compile Include="Domain\Amendments\IAmendmentVisitor.cs" />
     <Compile Include="Domain\Templates\IComponent.cs" />
     <Compile Include="Domain\Templates\IComponentCollection.cs" />
-    <Compile Include="Domain\Templates\IComponentLibrary.cs" />
+    <Compile Include="Domain\Templates\IComponentSpecificationLibrary.cs" />
     <Compile Include="Domain\Specifications\IComponentSpecification.cs" />
     <Compile Include="Domain\Templates\IComponentVisitor.cs" />
     <Compile Include="Domain\Templates\Template.cs" />
@@ -117,7 +117,7 @@
     <Compile Include="Persistence\WidgetSpecificationRepository.cs" />
     <Compile Include="Persistence\Surrogates\WidgetSpecificationSurrogate.cs" />
     <Compile Include="Rendering\Extensions\ComponentExtensions.cs" />
-    <Compile Include="Rendering\ComponentInstanceBuildingVisitor.cs" />
+    <Compile Include="Domain\Instances\ComponentInstanceBuildingVisitor.cs" />
     <Compile Include="Rendering\IKolaEngine.cs" />
     <Compile Include="Configuration\IKolaConfigurationRegistry.cs" />
     <Compile Include="Rendering\IPageHandler.cs" />
