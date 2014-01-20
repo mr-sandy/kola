@@ -10,9 +10,10 @@
     {
         private readonly List<IComponent> components = new List<IComponent>();
 
-        public Container(string name, IEnumerable<IComponent> components = null)
+        public Container(string name, IEnumerable<Parameter> parameters, IEnumerable<IComponent> components = null)
         {
             this.Name = name;
+            this.Parameters = parameters;
 
             if (components != null)
             {
@@ -21,6 +22,8 @@
         }
 
         public string Name { get; private set; }
+
+        public IEnumerable<Parameter> Parameters { get; private set; }
 
         public IEnumerable<IComponent> Components
         {
@@ -49,9 +52,10 @@
 
         public IComponentInstance Build(BuildContext buildContext)
         {
-            var children = this.Components.Select(c => c.Build(buildContext));
-
-            return new ContainerInstance(this.Name, children);
+            return new ContainerInstance(
+                this.Name, 
+                this.Parameters.Select(p => p.Build(buildContext)), 
+                this.Components.Select(c => c.Build(buildContext)));
         }
     }
 }

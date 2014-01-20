@@ -8,6 +8,8 @@
     {
         string Name { get; }
 
+        IEnumerable<Parameter> Parameters { get; }
+
         void Accept(IComponentVisitor visitor);
 
         IComponentInstance Build(BuildContext buildContext);

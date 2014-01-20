@@ -10,7 +10,8 @@
             this.Configure.ViewLocation("Kola.Plugins.Core.Views");
 
             this.Configure.Atom("markdown")
-                .WithHandler<MarkdownHandler>();
+                .WithHandler<MarkdownHandler>()
+                .WithParameter("markdown", "markdown");
         }
     }
 }

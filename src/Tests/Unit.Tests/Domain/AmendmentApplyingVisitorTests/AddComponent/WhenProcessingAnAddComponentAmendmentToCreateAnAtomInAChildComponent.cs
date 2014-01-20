@@ -5,8 +5,8 @@
     using FluentAssertions;
 
     using Kola.Domain;
-    using Kola.Domain.Amendments;
     using Kola.Domain.Templates;
+    using Kola.Domain.Templates.Amendments;
 
     using NUnit.Framework;
 
@@ -19,10 +19,10 @@
         [SetUp]
         public void EstablishContext()
         {
-            this.container = new Container("existing container");
+            this.container = new Container("existing container", null);
             this.Template.AddComponent(this.container, 0);
 
-            var newComponent = new Atom("new atom");
+            var newComponent = new Atom("new atom", null);
 
             this.ComponentSpecification.Stub(s => s.Create()).Return(newComponent);
 

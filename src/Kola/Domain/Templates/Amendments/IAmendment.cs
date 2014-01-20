@@ -1,4 +1,4 @@
-﻿namespace Kola.Domain.Amendments
+﻿namespace Kola.Domain.Templates.Amendments
 {
     using System.Collections.Generic;
 

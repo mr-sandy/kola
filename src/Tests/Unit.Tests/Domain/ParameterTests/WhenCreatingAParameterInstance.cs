@@ -16,12 +16,12 @@
         [SetUp]
         public void EstablishContext()
         {
-            var parameter = new Parameter("parameter name")
+            var parameter = new Parameter("parameter name", "parameter type")
                 {
                     Value = new FixedParameterValue("parameter value")
                 };
 
-            this.parameterInstance = parameter.CreateInstance(null);
+            this.parameterInstance = parameter.Build(null);
         }
 
         [Test]

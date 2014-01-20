@@ -3,7 +3,6 @@
     using FluentAssertions;
 
     using Kola.Domain;
-    using Kola.Domain.Amendments;
     using Kola.Domain.Templates;
 
     using NUnit.Framework;
@@ -15,7 +14,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            var parameter = new Parameter("");
+            var parameter = new Parameter(string.Empty, string.Empty);
         }
 
         [Test]

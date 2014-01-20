@@ -16,14 +16,14 @@
         [SetUp]
         public void EstablishContext()
         {
-            var parameter = new Parameter("parameter name")
+            var parameter = new Parameter("parameter name", "parameter type")
                 {
                     Value = new InheritedParameterValue("key")
                 };
 
             var context = new Context { Items = new[] { new ContextItem("key", "result") } };
 
-            this.parameterInstance = parameter.CreateInstance(new[] { context });
+            this.parameterInstance = parameter.Build(new BuildContext { Contexts = new[] { context } });
         }
 
         [Test]

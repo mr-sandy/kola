@@ -1,6 +1,7 @@
 ﻿namespace Kola.Domain.Specifications
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using Kola.Domain.Templates;
 
@@ -42,7 +43,10 @@
 
         public Widget Create()
         {
-            return new Widget(this.Name);
+            // TODO {SC} Add widget parameters
+            var parameters = Enumerable.Empty<Parameter>();
+
+            return new Widget(this.Name, parameters);
         }
     }
 }

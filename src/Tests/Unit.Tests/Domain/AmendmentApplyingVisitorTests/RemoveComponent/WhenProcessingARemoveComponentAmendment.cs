@@ -3,8 +3,8 @@
     using FluentAssertions;
 
     using Kola.Domain;
-    using Kola.Domain.Amendments;
     using Kola.Domain.Templates;
+    using Kola.Domain.Templates.Amendments;
 
     using NUnit.Framework;
 
@@ -13,7 +13,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            this.Template.AddComponent(new Atom("existing"), 0);
+            this.Template.AddComponent(new Atom("existing", null), 0);
 
             var amendment = new RemoveComponentAmendment(new[] { 0 });
 

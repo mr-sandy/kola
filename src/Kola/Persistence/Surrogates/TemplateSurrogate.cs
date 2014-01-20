@@ -2,6 +2,8 @@
 {
     using System.Xml.Serialization;
 
+    using Kola.Persistence.Surrogates.Amendments;
+
     [XmlRoot(Namespace = "http://www.kolacms.com/2013/kola", ElementName = "template")]
     public class TemplateSurrogate
     {

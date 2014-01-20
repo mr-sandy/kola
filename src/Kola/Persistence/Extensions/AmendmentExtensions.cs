@@ -2,9 +2,10 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Domain.Amendments;
+    using Kola.Domain.Templates.Amendments;
     using Kola.Extensions;
     using Kola.Persistence.Surrogates;
+    using Kola.Persistence.Surrogates.Amendments;
 
     public static class AmendmentExtensions
     {

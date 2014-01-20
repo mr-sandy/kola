@@ -17,7 +17,7 @@
             var templatePath = new[] { "test", "path" };
             this.template = new Template(templatePath);
 
-            var newComponent = new Atom("component1");
+            var newComponent = new Atom("component1", null);
             this.template.AddComponent(newComponent, 0);
         }
 

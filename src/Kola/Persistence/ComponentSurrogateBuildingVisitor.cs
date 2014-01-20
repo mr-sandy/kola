@@ -17,9 +17,9 @@
             get { return this.componentSurrogates; }
         }
 
-        public void Visit(Container component)
+        public void Visit(Container container)
         {
-            this.componentSurrogates.Add(component.ToSurrogate());
+            this.componentSurrogates.Add(container.ToSurrogate());
         }
 
         public void Visit(Widget widget)
@@ -27,9 +27,9 @@
             this.componentSurrogates.Add(widget.ToSurrogate());
         }
 
-        public void Visit(Atom component)
+        public void Visit(Atom atom)
         {
-            this.componentSurrogates.Add(component.ToSurrogate());
+            this.componentSurrogates.Add(atom.ToSurrogate());
         }
     }
 }

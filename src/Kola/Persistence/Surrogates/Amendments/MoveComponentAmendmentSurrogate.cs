@@ -1,4 +1,4 @@
-﻿namespace Kola.Persistence.Surrogates
+﻿namespace Kola.Persistence.Surrogates.Amendments
 {
     using System.Xml.Serialization;
 

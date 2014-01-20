@@ -1,19 +1,10 @@
 ﻿namespace Kola.Domain.Templates.ParameterValues
 {
-    using System;
-
-    public class FixedParameterValue : IParameterValue
+    public class UndefinedParameterValue : IParameterValue
     {
-        public FixedParameterValue(string value)
-        {
-            this.Value = value;
-        }
-
-        public string Value { get; set; }
-
         public string Resolve(BuildContext buildContext)
         {
-            return this.Value;
+            return null;
         }
 
         public T Accept<T>(IParameterValueVisitor<T> visitor)

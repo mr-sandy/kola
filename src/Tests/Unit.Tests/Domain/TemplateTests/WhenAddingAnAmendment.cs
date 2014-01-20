@@ -3,8 +3,8 @@
     using FluentAssertions;
 
     using Kola.Domain;
-    using Kola.Domain.Amendments;
     using Kola.Domain.Templates;
+    using Kola.Domain.Templates.Amendments;
 
     using NUnit.Framework;
 

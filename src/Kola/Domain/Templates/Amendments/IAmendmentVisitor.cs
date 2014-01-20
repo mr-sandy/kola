@@ -1,4 +1,4 @@
-﻿namespace Kola.Domain.Amendments
+﻿namespace Kola.Domain.Templates.Amendments
 {
     public interface IAmendmentVisitor
     {
@@ -7,5 +7,7 @@
         void Visit(MoveComponentAmendment amendment);
 
         void Visit(RemoveComponentAmendment amendment);
+
+        void Visit(UpdateParameterAmendment amendment);
     }
 }

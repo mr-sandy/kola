@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Domain;
     using Kola.Domain.Templates;
     using Kola.Persistence.Surrogates;
 
@@ -40,17 +39,24 @@
 
         public static Container ToDomain(this ContainerSurrogate surrogate)
         {
-            return new Container(surrogate.Name, surrogate.Components.ToDomain());
+            return new Container(
+                surrogate.Name, 
+                surrogate.Parameters.ToDomain(), 
+                surrogate.Components.ToDomain());
         }
 
         public static Atom ToDomain(this AtomSurrogate surrogate)
         {
-            return new Atom(surrogate.Name);
+            return new Atom(
+                surrogate.Name, 
+                surrogate.Parameters.ToDomain());
         }
 
         public static Widget ToDomain(this WidgetSurrogate surrogate)
         {
-            return new Widget(surrogate.Name);
+            return new Widget(
+                surrogate.Name,
+                surrogate.Parameters.ToDomain());
         }
 
         public static ContainerSurrogate ToSurrogate(this Container component)
@@ -58,13 +64,18 @@
             return new ContainerSurrogate
                 {
                     Name = component.Name,
+                    Parameters = component.Parameters.ToSurrogate().ToArray(),
                     Components = component.Components.ToSurrogate().ToArray()
                 };
         }
 
         public static AtomSurrogate ToSurrogate(this Atom component)
         {
-            return new AtomSurrogate { Name = component.Name };
+            return new AtomSurrogate
+                {
+                    Name = component.Name, 
+                    Parameters = component.Parameters.ToSurrogate().ToArray()
+                };
         }
 
         public static WidgetSurrogate ToSurrogate(this Widget component)

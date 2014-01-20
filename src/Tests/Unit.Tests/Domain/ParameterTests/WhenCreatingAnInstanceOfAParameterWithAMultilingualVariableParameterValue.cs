@@ -16,7 +16,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            var parameter = new Parameter("parameter name")
+            var parameter = new Parameter("parameter name", "parameter type")
                 {
                     Value =
                         new MultilingualParameterValue(
@@ -29,7 +29,7 @@
 
             var context = new Context { LanguageCode = "fr" };
 
-            this.parameterInstance = parameter.CreateInstance(new[] { context });
+            this.parameterInstance = parameter.Build(new BuildContext { Contexts = new[] { context } });
         }
 
         [Test]

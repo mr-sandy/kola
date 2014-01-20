@@ -12,9 +12,9 @@
 
         public string Key { get; set; }
 
-        public string Resolve(IEnumerable<Context> contexts)
+        public string Resolve(BuildContext buildContext)
         {
-            foreach (var context in contexts)
+            foreach (var context in buildContext.Contexts)
             {
                 var item = context.Items.Where(i => i.Key.Equals(this.Key)).FirstOrDefault();
 
@@ -25,6 +25,11 @@
             }
 
             return string.Empty;
+        }
+
+        public T Accept<T>(IParameterValueVisitor<T> visitor)
+        {
+            return visitor.Visit(this);
         }
     }
 }

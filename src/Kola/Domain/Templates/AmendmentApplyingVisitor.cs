@@ -1,9 +1,11 @@
 ﻿namespace Kola.Domain.Templates
 {
+    using System;
     using System.Linq;
 
-    using Kola.Domain.Amendments;
     using Kola.Domain.Extensions;
+    using Kola.Domain.Templates.Amendments;
+    using Kola.Domain.Templates.ParameterValues;
     using Kola.Extensions;
 
     public class AmendmentApplyingVisitor : IAmendmentVisitor
@@ -46,6 +48,15 @@
             var parent = this.template.FindCollection(amendment.ComponentPath.TakeAllButLast());
 
             parent.RemoveComponentAt(index);
+        }
+
+        public void Visit(UpdateParameterAmendment amendment)
+        {
+            var component = this.template.FindComponent(amendment.ComponentPath);
+
+            var parameter = component.Parameters.Where(p => p.Name.Equals(amendment.ParameterName, StringComparison.OrdinalIgnoreCase)).Single();
+
+            parameter.Value = new FixedParameterValue(amendment.UpdatedValue);
         }
     }
 }

@@ -1,9 +1,10 @@
 ﻿namespace Kola.Extensions
 {
+    using System;
     using System.Collections.Generic;
 
     using Kola.Domain;
-    using Kola.Domain.Amendments;
+    using Kola.Domain.Templates.Amendments;
     using Kola.Resources;
 
     internal class AmendmentResourceBuildingVisitor : IAmendmentVisitor
@@ -38,6 +39,11 @@
         public void Visit(RemoveComponentAmendment amendment)
         {
             this.amendmentResources.Add(amendment.ToResource(this.templatePath, ++this.count, this.count == this.total));
+        }
+
+        public void Visit(UpdateParameterAmendment amendment)
+        {
+            throw new NotImplementedException();
         }
     }
 }

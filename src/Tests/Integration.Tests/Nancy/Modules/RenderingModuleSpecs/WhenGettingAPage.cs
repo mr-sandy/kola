@@ -1,12 +1,10 @@
 ﻿namespace Integration.Tests.Nancy.Modules.RenderingModuleSpecs
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using FluentAssertions;
 
-    using Integration.Tests.Nancy.Modules.RenderingModuleSpecs.Framework;
-
-    using Kola.Domain;
     using Kola.Domain.Instances;
     using Kola.Rendering;
 
@@ -22,7 +20,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            var page = new Page(new[] { new AtomInstance("atom1") });
+            var page = new Page(new[] { new AtomInstance("atom1", Enumerable.Empty<ParameterInstance>()) });
 
             var atom1Handler = MockRepository.GenerateMock<IHandler>();
             atom1Handler.Stub(h => h.HandleRequest(Arg<IComponentInstance>.Is.Anything)).Return(new Result(h => "<atom1/>"));

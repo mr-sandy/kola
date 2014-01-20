@@ -1,24 +1,25 @@
 ﻿namespace Kola.Domain.Templates
 {
-    using System.Collections.Generic;
-
     using Kola.Domain.Instances;
     using Kola.Domain.Templates.ParameterValues;
 
     public class Parameter
     {
-        public Parameter(string name)
+        public Parameter(string name, string type)
         {
             this.Name = name;
+            this.Type = type;
         }
 
         public string Name { get; private set; }
 
+        public string Type { get; private set; }
+
         public IParameterValue Value { get; set; }
 
-        public ParameterInstance CreateInstance(IEnumerable<Context> contexts)
+        public ParameterInstance Build(BuildContext buildContext)
         {
-            return new ParameterInstance(this.Name, this.Value.Resolve(contexts));
+            return new ParameterInstance(this.Name, this.Value.Resolve(buildContext));
         }
     }
 }

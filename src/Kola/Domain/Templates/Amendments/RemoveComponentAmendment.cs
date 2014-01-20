@@ -1,6 +1,5 @@
-﻿namespace Kola.Domain.Amendments
+﻿namespace Kola.Domain.Templates.Amendments
 {
-    using System;
     using System.Collections.Generic;
 
     using Kola.Extensions;

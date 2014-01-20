@@ -1,6 +1,7 @@
 ﻿namespace Kola.Domain.Specifications
 {
     using Kola.Domain.Templates;
+    using Kola.Domain.Templates.ParameterValues;
 
     public class ParameterSpecification
     {
@@ -16,7 +17,11 @@
 
         public Parameter Create()
         {
-            return new Parameter(this.Name);
+            return new Parameter(this.Name, this.Type)
+                {
+                    //Value = new UndefinedParameterValue()
+                    Value = new FixedParameterValue(@"##This is the value##\n\nHere is *the stuff*")
+                };
         }
     }
 }

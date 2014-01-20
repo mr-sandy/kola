@@ -1,5 +1,7 @@
 ﻿namespace Kola.Domain.Specifications
 {
+    using System.Linq;
+
     using Kola.Domain.Templates;
 
     public class ContainerSpecification : PluginComponentSpecification<Container>
@@ -11,7 +13,9 @@
 
         public override Container Create()
         {
-            return new Container(this.Name);
+            var parameters = this.Parameters.Select(p => p.Create());
+
+            return new Container(this.Name, parameters);
         }
     }
 }

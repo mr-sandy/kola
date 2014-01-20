@@ -5,9 +5,9 @@
     using FluentAssertions;
 
     using Kola.Domain;
-    using Kola.Domain.Amendments;
     using Kola.Domain.Specifications;
     using Kola.Domain.Templates;
+    using Kola.Domain.Templates.Amendments;
 
     using NUnit.Framework;
 
@@ -26,7 +26,7 @@
             var amendment = new AddComponentAmendment("component name", new[] { 0 });
             this.template.AddAmendment(amendment);
 
-            var newComponent = new Atom("component name");
+            var newComponent = new Atom("component name", null);
 
             var componentLibrary = MockRepository.GenerateStub<IComponentSpecificationLibrary>();
             var componentSpecification = MockRepository.GenerateStub<IComponentSpecification<Atom>>();

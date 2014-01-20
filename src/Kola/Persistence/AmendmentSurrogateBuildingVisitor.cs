@@ -1,11 +1,13 @@
 ﻿namespace Kola.Persistence
 {
+    using System;
     using System.Collections.Generic;
 
     using Kola.Domain;
-    using Kola.Domain.Amendments;
+    using Kola.Domain.Templates.Amendments;
     using Kola.Persistence.Extensions;
     using Kola.Persistence.Surrogates;
+    using Kola.Persistence.Surrogates.Amendments;
 
     internal class AmendmentSurrogateBuildingVisitor : IAmendmentVisitor
     {
@@ -29,6 +31,11 @@
         public void Visit(RemoveComponentAmendment amendment)
         {
             this.amendmentSurrogates.Add(amendment.ToSurrogate());
+        }
+
+        public void Visit(UpdateParameterAmendment amendment)
+        {
+            throw new NotImplementedException();
         }
     }
 }

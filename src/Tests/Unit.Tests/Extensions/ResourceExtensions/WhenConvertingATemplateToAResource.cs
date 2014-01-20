@@ -21,13 +21,13 @@
             var templatePath = new[] { "test", "path" };
             var template = new Template(templatePath);
 
-            var child1 = new Container("child1");
+            var child1 = new Container("child1", null);
             template.AddComponent(child1, 0);
 
-            var grandchild1 = new Atom("grandchild1");
+            var grandchild1 = new Atom("grandchild1", null);
             child1.AddComponent(grandchild1, 0);
 
-            var child2 = new Atom("child2");
+            var child2 = new Atom("child2", null);
             template.AddComponent(child2, 1);
 
             this.templateResource = template.ToResource();

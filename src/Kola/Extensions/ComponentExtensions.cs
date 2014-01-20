@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Domain;
     using Kola.Domain.Templates;
     using Kola.Resources;
 
@@ -13,7 +12,7 @@
         {
             var composite = component as IComponentCollection;
             var components = (composite == null)
-                                 ? Enumerable.Empty<ComponentResource>()
+                                 ? null
                                  : composite.Components.ToResource(templatePath, componentIndices);
 
             return new ComponentResource
@@ -21,6 +20,8 @@
                 Name = component.Name,
 
                 Components = components,
+
+                Parameters = component.Parameters.ToResource(),
 
                 Links = new[]
                             {

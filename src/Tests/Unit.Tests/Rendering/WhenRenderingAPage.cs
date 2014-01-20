@@ -1,5 +1,7 @@
 ﻿namespace Unit.Tests.Rendering
 {
+    using System.Linq;
+
     using FluentAssertions;
 
     using Kola.Domain;
@@ -28,9 +30,9 @@
                 new Page(
                     new IComponentInstance[]
                         {
-                            new AtomInstance("atom1"), 
-                            new AtomInstance("atom2"),
-                            new ContainerInstance("container1", new[] { new AtomInstance("atom3") })
+                            new AtomInstance("atom1", Enumerable.Empty<ParameterInstance>()), 
+                            new AtomInstance("atom2", Enumerable.Empty<ParameterInstance>()),
+                            new ContainerInstance("container1", null, new[] { new AtomInstance("atom3", Enumerable.Empty<ParameterInstance>()) })
                         });
 
             var viewFactory = new TestViewFactory(engine);

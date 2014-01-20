@@ -5,8 +5,8 @@
     using FluentAssertions;
 
     using Kola.Domain;
-    using Kola.Domain.Amendments;
     using Kola.Domain.Templates;
+    using Kola.Domain.Templates.Amendments;
 
     using NUnit.Framework;
 
@@ -15,8 +15,8 @@
         [SetUp]
         public void EstablishContext()
         {
-            this.Template.AddComponent(new Atom("first"), 0);
-            this.Template.AddComponent(new Atom("second"), 1);
+            this.Template.AddComponent(new Atom("first", null), 0);
+            this.Template.AddComponent(new Atom("second", null), 1);
 
             var amendment = new MoveComponentAmendment(new[] { 0 }, new[] { 1 });
 

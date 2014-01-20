@@ -5,8 +5,8 @@
     using System.Linq;
 
     using Kola;
-    using Kola.Domain.Amendments;
     using Kola.Domain.Instances;
+    using Kola.Domain.Templates.Amendments;
     using Kola.Rendering;
 
     public class Template : IComponentCollection

@@ -1,9 +1,9 @@
 ﻿namespace Kola.Domain.Templates.ParameterValues
 {
-    using System.Collections.Generic;
-
     public interface IParameterValue
     {
-        string Resolve(IEnumerable<Context> contexts);
+        string Resolve(BuildContext buildContext);
+
+        T Accept<T>(IParameterValueVisitor<T> visitor);
     }
 }

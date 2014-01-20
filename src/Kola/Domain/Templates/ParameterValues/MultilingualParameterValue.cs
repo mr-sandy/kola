@@ -13,9 +13,9 @@
 
         public IEnumerable<MultilingualVariant> Variants { get; private set; }
 
-        public string Resolve(IEnumerable<Context> contexts)
+        public string Resolve(BuildContext buildContext)
         {
-            var candidateLanguages = contexts.Where(c => !string.IsNullOrEmpty(c.LanguageCode)).Select(c => c.LanguageCode);
+            var candidateLanguages = buildContext.Contexts.Where(c => !string.IsNullOrEmpty(c.LanguageCode)).Select(c => c.LanguageCode);
 
             foreach (var candidateLanguage in candidateLanguages)
             {
@@ -31,6 +31,11 @@
             }
 
             return string.Empty;
+        }
+
+        public T Accept<T>(IParameterValueVisitor<T> visitor)
+        {
+            return visitor.Visit(this);
         }
     }
 }

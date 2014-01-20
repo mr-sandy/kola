@@ -3,9 +3,11 @@
     using System.Collections.Generic;
 
     using Kola.Domain;
-    using Kola.Domain.Amendments;
+    using Kola.Domain.Templates.Amendments;
+    using Kola.Domain.Templates.ParameterValues;
     using Kola.Persistence.Extensions;
     using Kola.Persistence.Surrogates;
+    using Kola.Persistence.Surrogates.Amendments;
 
     internal class AmendmentBuildingVisitor : IAmendmentSurrogateVisitor
     {

@@ -5,8 +5,8 @@
     using FluentAssertions;
 
     using Kola.Domain;
-    using Kola.Domain.Amendments;
     using Kola.Domain.Templates;
+    using Kola.Domain.Templates.Amendments;
 
     using NUnit.Framework;
 
@@ -17,7 +17,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            ComponentSpecification.Stub(s => s.Create()).Return(new Atom("new atom"));
+            ComponentSpecification.Stub(s => s.Create()).Return(new Atom("new atom", null));
 
             var amendment = new AddComponentAmendment("new atom", new[] { 0 });
 
