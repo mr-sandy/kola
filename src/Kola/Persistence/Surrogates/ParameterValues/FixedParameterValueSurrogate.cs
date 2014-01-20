@@ -6,22 +6,24 @@
     [XmlType(Namespace = "http://www.kolacms.com/2013/kola", TypeName = "fixed")]
     public class FixedParameterValueSurrogate : ParameterValueSurrogate
     {
-        [XmlText]
+        [XmlIgnore]
         public string Value { get; set; }
 
-        //TODO {SC} Put my own CDATA wrappers here?
-        [XmlIgnore]
-        public XmlCDataSection ValueAsCData
+
+        [XmlText]
+        public XmlNode[] CDataContent
         {
             get
             {
-                var doc = new XmlDocument();
-                return doc.CreateCDataSection(this.Value);
+                var dummy = new XmlDocument();
+                return new XmlNode[] { dummy.CreateCDataSection(this.Value) };
             }
 
             set
             {
-                this.Value = value.Value;
+                this.Value = value == null 
+                    ? null 
+                    : value[0].Value;
             }
         }
 

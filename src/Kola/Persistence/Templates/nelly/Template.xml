@@ -4,15 +4,16 @@
     <atom name="markdown">
       <parameters>
         <parameter name="markdown" type="markdown">
-          <value xsi:type="fixed">
-  <![CDATA[##This is the value##
-
-<?xml version="1.0" encoding="utf-8"?>
-<document>
-  <node1>Badgers!</node1>
-</document>
-Here is *the stuff*]]>
-          </value>
+          <value xsi:type="fixed"><![CDATA[##This is the value##\n\nHere is *the stuff*]]></value>
+        </parameter>
+      </parameters>
+    </atom>
+    <atom name="markdown">
+      <parameters>
+        <parameter name="markdown" type="markdown">
+          <value xsi:type="fixed"><![CDATA[##This is the value##
+          
+Here is *the stuff*]]></value>
         </parameter>
       </parameters>
     </atom>

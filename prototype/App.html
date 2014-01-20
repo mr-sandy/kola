@@ -1,0 +1,108 @@
+<!DOCTYPE html />
+<html>
+<head>
+    <title>Kola CMS</title>
+    <style type="text/css">
+        body 
+        {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .clear 
+        {
+            clear: both;
+        }
+        
+        .navbar 
+        {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+        }
+        
+        .navbar ul.nav 
+        {
+            list-style: none;
+        }
+
+        .navbar ul.nav li
+        {
+            float: left;
+            padding: 10px;
+        }
+        
+        #content 
+        {
+            background-color: #999;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="navigation">
+        <div class="navbar">
+            <ul class="nav">
+                <li class="active"><a href="http://localhost:51969/_kola">Home</a> </li>
+                <li><a href="http://localhost:51969/_kola/templates">Templates</a> </li>
+            </ul>
+            <div class="clear" />
+        </div>
+    </div>
+    <div id="content">
+        <div id="editTemplate">
+            <div id="toolbox">
+                <ul>
+                    <li class="component ui-draggable" data-type="toolbox-item" data-href="http://localhost:51969/_kola/component-types/markdown">
+                        markdown</li>
+                    <li class="component ui-draggable" data-type="toolbox-item" data-href="http://localhost:51969/_kola/component-types/atom-1">
+                        atom-1</li>
+                    <li class="component ui-draggable" data-type="toolbox-item" data-href="http://localhost:51969/_kola/component-types/atom-2">
+                        atom-2</li>
+                    <li class="component ui-draggable" data-type="toolbox-item" data-href="http://localhost:51969/_kola/component-types/container-1">
+                        container-1</li>
+                    <li class="component ui-draggable" data-type="toolbox-item" data-href="http://localhost:51969/_kola/component-types/container-2">
+                        container-2</li>
+                    <li class="component ui-draggable" data-type="toolbox-item" data-href="http://localhost:51969/_kola/component-types/c:\projects\kola\src\kola\persistence\widgets\badger">
+                        C:\projects\kola\src\Kola\Persistence\Widgets\Badger</li>
+                </ul>
+            </div>
+            <div id="wysiwygEditor">
+            </div>
+            <div id="blockEditor">
+                <ul data-component-path="" class="ui-sortable">
+                    <li data-component-path="0"><span>0 - markdown</span>
+                        <button class="delete btn btn-mini btn-link" type="button">
+                            Delete</button>
+                        <ul class="ui-sortable">
+                        </ul>
+                    </li>
+                    <li data-component-path="1"><span>1 - markdown</span>
+                        <button class="delete btn btn-mini btn-link" type="button">
+                            Delete</button>
+                        <ul class="ui-sortable">
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="amendments">
+                <button class="btn btn-success apply">
+                    Apply</button>
+                <ul>
+                    <li class="component" data-href=""></li>
+                    <li class="component" data-href="">Move Component</li>
+                    <li class="component" data-href="">Move Component</li>
+                    <li class="component" data-href=""></li>
+                    <li class="component" data-href="/nelly/_amendments/1">Move Component <a class="btn btn-danger undo">
+                        undo</a></li>
+                </ul>
+            </div>
+            <div class="clear">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://localhost:51969/_kola/Scripts/require.js" data-main="http://localhost:51969/_kola/Scripts/main"></script>
+</body>
+</html>
