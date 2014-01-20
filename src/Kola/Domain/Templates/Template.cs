@@ -2,9 +2,12 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using Kola;
     using Kola.Domain.Amendments;
+    using Kola.Domain.Instances;
+    using Kola.Rendering;
 
     public class Template : IComponentCollection
     {
@@ -76,6 +79,11 @@
         public IAmendment UndoAmendment()
         {
             throw new NotImplementedException();
+        }
+
+        public IPage Build(BuildContext buildContext)
+        {
+            return new Page(this.Components.Select(c => c.Build(buildContext)));
         }
     }
 }

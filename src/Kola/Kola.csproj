@@ -60,6 +60,7 @@
     <Compile Include="Domain\Instances\ContainerInstance.cs" />
     <Compile Include="Domain\Context.cs" />
     <Compile Include="Domain\ContextItem.cs" />
+    <Compile Include="Domain\BuildContext.cs" />
     <Compile Include="Domain\Templates\ParameterValues\FixedParameterValue.cs" />
     <Compile Include="Domain\Instances\IComponentInstanceVisitor.cs" />
     <Compile Include="Domain\Templates\ParameterValues\InheritedParameterValue.cs" />
@@ -116,8 +117,6 @@
     <Compile Include="Persistence\Surrogates\WidgetSurrogate.cs" />
     <Compile Include="Persistence\WidgetSpecificationRepository.cs" />
     <Compile Include="Persistence\Surrogates\WidgetSpecificationSurrogate.cs" />
-    <Compile Include="Rendering\Extensions\ComponentExtensions.cs" />
-    <Compile Include="Domain\Instances\ComponentInstanceBuildingVisitor.cs" />
     <Compile Include="Rendering\IKolaEngine.cs" />
     <Compile Include="Configuration\IKolaConfigurationRegistry.cs" />
     <Compile Include="Rendering\IPageHandler.cs" />
@@ -173,7 +172,7 @@
     <Compile Include="Rendering\KolaEngine.cs" />
     <Compile Include="Rendering\HandlerFactory.cs" />
     <Compile Include="Rendering\IObjectFactory.cs" />
-    <Compile Include="Rendering\Page.cs" />
+    <Compile Include="Domain\Instances\Page.cs" />
     <Compile Include="Rendering\PageHandler.cs" />
     <Compile Include="Rendering\Processor.cs" />
     <Compile Include="Rendering\Result.cs" />

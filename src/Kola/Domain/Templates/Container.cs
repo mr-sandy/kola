@@ -1,8 +1,10 @@
 ﻿namespace Kola.Domain.Templates
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using Kola;
+    using Kola.Domain.Instances;
 
     public class Container : IComponent, IComponentCollection
     {
@@ -43,6 +45,13 @@
         public void Accept(IComponentVisitor visitor)
         {
             visitor.Visit(this);
+        }
+
+        public IComponentInstance Build(BuildContext buildContext)
+        {
+            var children = this.Components.Select(c => c.Build(buildContext));
+
+            return new ContainerInstance(this.Name, children);
         }
     }
 }

@@ -6,7 +6,6 @@
     using Kola.Domain.Instances;
     using Kola.Domain.Templates;
     using Kola.Persistence;
-    using Kola.Rendering.Extensions;
 
     public class PageHandler : IPageHandler
     {
@@ -34,7 +33,12 @@
 
             template.ApplyAmendments(this.componentLibrary);
 
-            return template.ToPage(this.widgetSpecificationRepository);
+            var buildContext = new BuildContext
+                {
+                    WidgetSpecificationFinder = n => this.widgetSpecificationRepository.Find(n)
+                };
+
+            return template.Build(buildContext);
         }
     }
 }

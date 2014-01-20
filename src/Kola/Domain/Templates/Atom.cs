@@ -1,6 +1,9 @@
 ﻿namespace Kola.Domain.Templates
 {
+    using System;
     using System.Collections.Generic;
+
+    using Kola.Domain.Instances;
 
     public class Atom : IComponent
     {
@@ -17,6 +20,11 @@
         public void Accept(IComponentVisitor visitor)
         {
             visitor.Visit(this);
+        }
+
+        public IComponentInstance Build(BuildContext buildContext)
+        {
+            return new AtomInstance(this.Name);
         }
     }
 }

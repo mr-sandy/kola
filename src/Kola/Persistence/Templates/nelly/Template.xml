@@ -25,5 +25,9 @@
       <componentType>markdown</componentType>
       <targetPath>0</targetPath>
     </addComponent>
+    <addComponent>
+      <componentType>atom-2</componentType>
+      <targetPath>1</targetPath>
+    </addComponent>
   </amendments>
 </template>
