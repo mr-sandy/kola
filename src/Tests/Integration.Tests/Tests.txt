@@ -1,3 +1,4 @@
 ﻿Tests:
 
 1. When adding a component that has not been registered, receive some 4xx code
+
