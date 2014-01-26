@@ -15,13 +15,14 @@
                                  ? null
                                  : composite.Components.ToResource(templatePath, componentIndices);
 
+            //TO DO {SC} Replace with visitor
             return new ComponentResource
             {
-                Name = component.Name,
+                //Name = component.Name,
 
                 Components = components,
 
-                Parameters = component.Parameters.ToResource(),
+                //Parameters = component.Parameters.ToResource(),
 
                 Links = new[]
                             {

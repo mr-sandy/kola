@@ -52,7 +52,7 @@
 
         public void Visit(UpdateParameterAmendment amendment)
         {
-            var component = this.template.FindComponent(amendment.ComponentPath);
+            var component = this.template.FindComponent<IParameterisedComponent>(amendment.ComponentPath);
 
             var parameter = component.Parameters.Where(p => p.Name.Equals(amendment.ParameterName, StringComparison.OrdinalIgnoreCase)).Single();
 

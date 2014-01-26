@@ -5,7 +5,7 @@
 
     using Kola.Domain.Instances;
 
-    public class Widget : IComponent
+    public class Widget : IParameterisedComponent
     {
         public Widget(string name, IEnumerable<Parameter> parameters)
         {

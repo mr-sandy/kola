@@ -27,13 +27,13 @@
         [Test]
         public void TheParameterShouldBeOfTheCorrectType()
         {
-            this.Template.Components.First().Parameters.Single().Value.Should().BeOfType<FixedParameterValue>();
+            this.Template.Components.First().As<Atom>().Parameters.Single().Value.Should().BeOfType<FixedParameterValue>();
         }
 
         [Test]
         public void TheParameterShouldHaveTheCorrectValue()
         {
-            var value = (FixedParameterValue)this.Template.Components.First().Parameters.Single().Value;
+            var value = (FixedParameterValue)this.Template.Components.First().As<Atom>().Parameters.Single().Value;
 
             value.Value.Should().Be("updated value");
         }

@@ -45,7 +45,7 @@
         [Test]
         public void ShouldHaveCorrectComponentType()
         {
-            this.template.Components.ElementAt(0).Name.Should().Be("component name");
+            this.template.Components.ElementAt(0).As<Atom>().Name.Should().Be("component name");
         }
     }
 }

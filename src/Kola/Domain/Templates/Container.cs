@@ -6,7 +6,7 @@
     using Kola;
     using Kola.Domain.Instances;
 
-    public class Container : IComponent, IComponentCollection
+    public class Container : IParameterisedComponent, IComponentCollection
     {
         private readonly List<IComponent> components = new List<IComponent>();
 

@@ -5,7 +5,7 @@
 
     using Kola.Domain.Instances;
 
-    public class Atom : IComponent
+    public class Atom : IParameterisedComponent
     {
         public Atom(string name, IEnumerable<Parameter> parameters)
         {

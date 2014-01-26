@@ -26,13 +26,13 @@
         [Test]
         public void TheTemplatesFirstAtomShouldBecomeItsSecond()
         {
-            this.Template.Components.Second().Name.Should().Be("first");
+            this.Template.Components.Second().As<Atom>().Name.Should().Be("first");
         }
 
         [Test]
         public void TheTemplatesSecondAtomShouldBecomeItsFirst()
         {
-            this.Template.Components.First().Name.Should().Be("second");
+            this.Template.Components.First().As<Atom>().Name.Should().Be("second");
         }
     }
 }
