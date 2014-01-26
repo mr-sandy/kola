@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Domain;
     using Kola.Domain.Templates;
     using Kola.Extensions;
     using Kola.Persistence.Extensions;

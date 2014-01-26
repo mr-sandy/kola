@@ -40,15 +40,15 @@
         public static Container ToDomain(this ContainerSurrogate surrogate)
         {
             return new Container(
-                surrogate.Name, 
-                surrogate.Parameters.ToDomain(), 
+                surrogate.Name,
+                surrogate.Parameters.ToDomain(),
                 surrogate.Components.ToDomain());
         }
 
         public static Atom ToDomain(this AtomSurrogate surrogate)
         {
             return new Atom(
-                surrogate.Name, 
+                surrogate.Name,
                 surrogate.Parameters.ToDomain());
         }
 
@@ -56,7 +56,8 @@
         {
             return new Widget(
                 surrogate.Name,
-                surrogate.Parameters.ToDomain());
+                surrogate.Parameters.ToDomain(),
+                 Enumerable.Empty<Area>());
         }
 
         public static ContainerSurrogate ToSurrogate(this Container component)
@@ -73,7 +74,7 @@
         {
             return new AtomSurrogate
                 {
-                    Name = component.Name, 
+                    Name = component.Name,
                     Parameters = component.Parameters.ToSurrogate().ToArray()
                 };
         }

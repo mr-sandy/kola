@@ -67,7 +67,10 @@
     <Compile Include="Domain\ParameterTests\WhenSettingAFixedValueForAParameter.cs" />
     <Compile Include="Domain\TemplateTests\WhenAddingAnAmendment.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\UpdateParameters\WhenApplyingAnUpdateParametersAmendmentForAFixedParameterValue.cs" />
-    <Compile Include="Domain\WidgetTests\WhenAddingAnAmendment.cs" />
+    <Compile Include="Domain\WidgetTests\WhenAddingAPlaceholderToAWidget.cs" />
+    <Compile Include="Domain\WidgetTests\WhenAddingContentToAWidgetPlaceholderInATemplate.cs" />
+    <Compile Include="Domain\WidgetTests\WhenAddingAnAtomToAWidgetSpecification.cs" />
+    <Compile Include="Domain\WidgetTests\WhenCreatingAWidgetFromItsSpecification.cs" />
     <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapOfEqualLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapOfNonEmptyLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\WhenFindingOverlapWithOneEmptyLists.cs" />

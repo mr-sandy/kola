@@ -62,6 +62,8 @@
     <Compile Include="Domain\ContextItem.cs" />
     <Compile Include="Domain\BuildContext.cs" />
     <Compile Include="Domain\Templates\Amendments\UpdateParameterAmendment.cs" />
+    <Compile Include="Domain\Templates\Area.cs" />
+    <Compile Include="Domain\Templates\IParameterisedComponent.cs" />
     <Compile Include="Domain\Templates\ParameterValues\FixedParameterValue.cs" />
     <Compile Include="Domain\Instances\IComponentInstanceVisitor.cs" />
     <Compile Include="Domain\Templates\ParameterValues\InheritedParameterValue.cs" />
@@ -87,6 +89,7 @@
     <Compile Include="Domain\Templates\Amendments\MoveComponentAmendment.cs" />
     <Compile Include="Domain\Templates\Atom.cs" />
     <Compile Include="Domain\Templates\ParameterValues\UndefinedParameterValue.cs" />
+    <Compile Include="Domain\Templates\Placeholder.cs" />
     <Compile Include="Domain\Templates\Widget.cs" />
     <Compile Include="Domain\Instances\WidgetInstance.cs" />
     <Compile Include="Domain\Specifications\WidgetSpecification.cs" />
@@ -113,6 +116,7 @@
     <Compile Include="Nancy\Extensions\old\NancyRazorViewBaseExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Nancy\Extensions\HtmlHelpersExtensions.cs" />
+    <Compile Include="Nancy\Modules\WidgetModule.cs" />
     <Compile Include="Nancy\ResultWrapper.cs" />
     <Compile Include="Extensions\TemplateExtensions.cs" />
     <Compile Include="Nancy\NancyKolaConfigurationRegistry.cs" />

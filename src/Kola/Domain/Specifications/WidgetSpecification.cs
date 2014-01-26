@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    using Kola.Domain.Extensions;
     using Kola.Domain.Templates;
 
     public class WidgetSpecification : IComponentSpecification<Widget>, IComponentCollection
@@ -45,8 +46,9 @@
         {
             // TODO {SC} Add widget parameters
             var parameters = Enumerable.Empty<Parameter>();
+            var areas = this.FindAll<Placeholder>();
 
-            return new Widget(this.Name, parameters);
+            return new Widget(this.Name, parameters, areas.Select(p => p.Create()));
         }
     }
 }

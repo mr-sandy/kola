@@ -13,15 +13,15 @@
     {
         public static IComponent FindComponent(this IComponentCollection collection, IEnumerable<int> path)
         {
-            return collection.FindComponent<IComponent>(path);
+            return collection.Find<IComponent>(path);
         }
 
         public static IComponentCollection FindCollection(this IComponentCollection collection, IEnumerable<int> path)
         {
-            return collection.FindComponent<IComponentCollection>(path);
+            return collection.Find<IComponentCollection>(path);
         }
 
-        public static T FindComponent<T>(this IComponentCollection collection, IEnumerable<int> path)
+        public static T Find<T>(this IComponentCollection collection, IEnumerable<int> path)
         {
             if (path.Count() == 0 && collection is T)
             {
@@ -42,7 +42,7 @@
 
                     if (childCollection != null)
                     {
-                        return childCollection.FindComponent<T>(path.Skip(1));
+                        return childCollection.Find<T>(path.Skip(1));
                     }
                 }
             }
@@ -50,90 +50,30 @@
             throw new KolaException("No component exists at specified path");
         }
 
-        //public static T FindCollection2<T>(this IComponentCollection container, IEnumerable<int> path)
-        //{
-        //    if (path.Count() == 0 && container is T)
-        //    {
-        //        return (T)container;
-        //    }
-        //    else
-        //    {
-        //        var index = path.First();
+        public static IEnumerable<T> FindAll<T>(this IComponentCollection collection)
+        {
+            if (collection is T)
+            {
+                yield return (T)collection;
+            }
 
-        //        if (container.Components.Count() >= index)
-        //        {
-        //            if (path.Count() == 1 && container.Components.ElementAt(index) is T)
-        //            {
-        //                return (T)container.Components.ElementAt(index);
-        //            }
+            foreach (var component in collection.Components)
+            {
+                if (component is T)
+                {
+                    yield return (T)component;
+                }
 
-        //            var childCollection = container.Components.ElementAt(index) as IComponentCollection;
+                var childCollection = component as IComponentCollection;
 
-        //            if (childCollection != null)
-        //            {
-        //                return childCollection.FindCollection2<T>(path.Skip(1));
-        //            }
-        //        }
-        //    }
-
-        //    throw new KolaException("No component exists at specified path");
-        //}
-
-
-        //public static IComponentCollection FindCollection(this IComponentCollection container, IEnumerable<int> path)
-        //{
-        //    if (path.Count() == 0)
-        //    {
-        //        return container;
-        //    }
-
-        //    var index = path.First();
-
-        //    if (container.Components.Count() < index)
-        //    {
-        //        throw new KolaException("No component exists at specified path");
-        //    }
-
-        //    var childCollection = container.Components.ElementAt(index) as IComponentCollection;
-
-        //    if (childCollection == null)
-        //    {
-        //        throw new KolaException("No component collection exists at specified path");
-        //    }
-
-        //    return childCollection.FindCollection(path.Skip(1));
-        //}
-
-        //public static IComponent FindComponent(this IComponentCollection collection, IEnumerable<int> path)
-        //{
-        //    if (path.Count() == 0)
-        //    {
-        //        if (collection is IComponent)
-        //        {
-        //            return collection as IComponent;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        var index = path.First();
-
-        //        if (collection.Components.Count() >= index)
-        //        {
-        //            if (path.Count() == 1)
-        //            {
-        //                return collection.Components.ElementAt(index);
-        //            }
-
-        //            var childCollection = collection.Components.ElementAt(index) as IComponentCollection;
-
-        //            if (childCollection != null)
-        //            {
-        //                return childCollection.FindComponent(path.Skip(1));
-        //            }
-        //        }
-        //    }
-
-        //    throw new KolaException("No component exists at specified path");
-        //}
+                if (childCollection != null)
+                {
+                    foreach (var result in childCollection.FindAll<T>())
+                    {
+                        yield return result;
+                    }
+                }
+            }
+        }
     }
 }

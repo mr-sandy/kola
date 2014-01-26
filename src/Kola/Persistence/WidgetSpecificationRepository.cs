@@ -1,5 +1,6 @@
 ﻿namespace Kola.Persistence
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -39,6 +40,22 @@
             return this.fileSystemHelper
                 .GetFiles(RootDirectory)
                 .Select(f => this.Find(f.Replace(".xml", string.Empty)));
+        }
+
+        public void Add(WidgetSpecification widgetSpecification)
+        {
+            throw new NotImplementedException();
+
+            //var surrogate = widgetSpecification.ToSurrogate();
+            //var directoryPath = this.fileSystemHelper.CombinePaths(RootDirectory, widgetSpecification.Path.ToFileSystemPath());
+
+            //if (!this.fileSystemHelper.DirectoryExists(directoryPath))
+            //{
+            //    this.fileSystemHelper.CreateDirectory(directoryPath);
+            //}
+
+            //var path = this.fileSystemHelper.CombinePaths(directoryPath, TemplateFileName);
+            //this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
         }
     }
 }

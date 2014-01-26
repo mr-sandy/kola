@@ -12,17 +12,17 @@
     {
         private readonly Template template;
 
-        private readonly IComponentSpecificationLibrary componentLibrary;
+        private readonly IComponentSpecificationLibrary specificationLibrary;
 
-        public AmendmentApplyingVisitor(Template template, IComponentSpecificationLibrary componentLibrary)
+        public AmendmentApplyingVisitor(Template template, IComponentSpecificationLibrary specificationLibrary)
         {
             this.template = template;
-            this.componentLibrary = componentLibrary;
+            this.specificationLibrary = specificationLibrary;
         }
 
         public void Visit(AddComponentAmendment amendment)
         {
-            var specification = this.componentLibrary.Lookup(amendment.ComponentName);
+            var specification = this.specificationLibrary.Lookup(amendment.ComponentName);
             var component = specification.Create();
 
             var parent = this.template.FindCollection(amendment.TargetPath.TakeAllButLast());
@@ -52,7 +52,7 @@
 
         public void Visit(UpdateParameterAmendment amendment)
         {
-            var component = this.template.FindComponent<IParameterisedComponent>(amendment.ComponentPath);
+            var component = this.template.Find<IParameterisedComponent>(amendment.ComponentPath);
 
             var parameter = component.Parameters.Where(p => p.Name.Equals(amendment.ParameterName, StringComparison.OrdinalIgnoreCase)).Single();
 

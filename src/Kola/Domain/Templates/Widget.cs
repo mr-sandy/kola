@@ -1,5 +1,6 @@
 ﻿namespace Kola.Domain.Templates
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -7,15 +8,18 @@
 
     public class Widget : IParameterisedComponent
     {
-        public Widget(string name, IEnumerable<Parameter> parameters)
+        public Widget(string name, IEnumerable<Parameter> parameters, IEnumerable<Area> areas)
         {
             this.Name = name;
             this.Parameters = parameters;
+            this.Areas = areas;
         }
 
         public string Name { get; private set; }
 
         public IEnumerable<Parameter> Parameters { get; private set; }
+
+        public IEnumerable<Area> Areas { get; private set; }
 
         public void Accept(IComponentVisitor visitor)
         {
