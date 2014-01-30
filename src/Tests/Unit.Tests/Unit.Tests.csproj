@@ -89,6 +89,26 @@
     <Compile Include="Domain\TemplateTests\WhenApplyingAnAddComponentAmendmentToTheRoot.cs" />
     <Compile Include="Domain\TemplateTests\WhenAddingTheFirstComponentToATemplate.cs" />
     <Compile Include="Domain\TemplateTests\WhenCreatingANewTemplate.cs" />
+    <Compile Include="Temp\Domain\IInstance.cs" />
+    <Compile Include="Temp\Domain\Instances\AtomInstance.cs" />
+    <Compile Include="Temp\Domain\ISpecification.cs" />
+    <Compile Include="Temp\Domain\ITemplate.cs" />
+    <Compile Include="Temp\Domain\Specifications\AtomSpecification.cs" />
+    <Compile Include="Temp\Domain\Templates\AtomTemplate.cs" />
+    <Compile Include="Temp\Domain\Instances\ContainerInstance.cs" />
+    <Compile Include="Temp\Domain\Homeless\Area.cs" />
+    <Compile Include="Temp\Domain\Specifications\ContainerSpecification.cs" />
+    <Compile Include="Temp\Domain\Templates\ContainerTemplate.cs" />
+    <Compile Include="Temp\Domain\Templates\PageTemplate.cs" />
+    <Compile Include="Temp\Domain\Specifications\ParameterSpecification.cs" />
+    <Compile Include="Temp\Domain\Templates\ParameterTemplate.cs" />
+    <Compile Include="Temp\Domain\Homeless\Placeholder.cs" />
+    <Compile Include="Temp\Domain\Instances\ParameterInstance.cs" />
+    <Compile Include="Temp\Domain\Framework.cs" />
+    <Compile Include="Temp\Domain\Instances\PageInstance.cs" />
+    <Compile Include="Temp\Domain\Instances\WidgetInstance.cs" />
+    <Compile Include="Temp\Domain\Specifications\WidgetSpecification.cs" />
+    <Compile Include="Temp\Domain\Templates\WidgetTemplate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -99,7 +119,9 @@
       <Name>Kola</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Temp\Tests\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

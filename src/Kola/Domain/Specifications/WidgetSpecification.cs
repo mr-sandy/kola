@@ -1,5 +1,6 @@
 ﻿namespace Kola.Domain.Specifications
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -48,7 +49,9 @@
             var parameters = Enumerable.Empty<Parameter>();
             var areas = this.FindAll<Placeholder>();
 
-            return new Widget(this.Name, parameters, areas.Select(p => p.Create()));
+            // TODO {SC} Don't dp this
+            throw new Exception("Arse");
+            // return new Widget(this.Name, parameters, areas.Select(p => p.Create()));
         }
     }
 }
