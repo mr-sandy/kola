@@ -1,14 +1,12 @@
 ﻿namespace Unit.Tests.Temp.Domain.Templates
 {
-    using System;
-
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class ContainerTemplate : ITemplate<ContainerInstance>
+    public class ContainerTemplate : ITemplate
     {
-        public ContainerInstance Build()
+        public IInstance Build(IBuildContext buildContext)
         {
-            throw new NotImplementedException();
+            return new ContainerInstance();
         }
     }
 }

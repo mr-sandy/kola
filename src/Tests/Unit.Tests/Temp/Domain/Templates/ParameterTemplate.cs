@@ -1,14 +1,12 @@
 ﻿namespace Unit.Tests.Temp.Domain.Templates
 {
-    using System;
-
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class ParameterTemplate : ITemplate<ParameterInstance>
+    public class ParameterTemplate : ITemplate
     {
-        public ParameterInstance Build()
+        public IInstance Build(IBuildContext buildContext)
         {
-            throw new NotImplementedException();
+            return new ParameterInstance();
         }
     }
 }

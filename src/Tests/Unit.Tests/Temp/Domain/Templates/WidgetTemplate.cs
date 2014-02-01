@@ -1,14 +1,22 @@
 ﻿namespace Unit.Tests.Temp.Domain.Templates
 {
-    using System;
+    using System.Collections.Generic;
 
+    using Unit.Tests.Temp.Domain.Homeless;
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class WidgetTemplate : ITemplate<WidgetInstance>
+    public class WidgetTemplate : ITemplate
     {
-        public WidgetInstance Build()
+        public WidgetTemplate(IEnumerable<Area> areas)
         {
-            throw new NotImplementedException();
+            this.Areas = areas;
+        }
+
+        public IEnumerable<Area> Areas { get; private set; }
+
+        public IInstance Build(IBuildContext buildContext)
+        {
+            return new WidgetInstance();
         }
     }
 }

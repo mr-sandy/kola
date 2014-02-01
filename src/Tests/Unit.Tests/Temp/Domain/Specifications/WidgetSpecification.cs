@@ -1,14 +1,15 @@
 ﻿namespace Unit.Tests.Temp.Domain.Specifications
 {
-    using System;
+    using System.Linq;
 
-    using Unit.Tests.Temp.Domain.Instances;
+    using Unit.Tests.Temp.Domain.Homeless;
+    using Unit.Tests.Temp.Domain.Templates;
 
-    public class WidgetSpecification : ISpecification<WidgetInstance>
+    public class WidgetSpecification : ISpecification<WidgetTemplate>
     {
-        public ITemplate<WidgetInstance> Create()
+        public WidgetTemplate Create()
         {
-            throw new NotImplementedException();
+            return new WidgetTemplate(Enumerable.Empty<Area>());
         }
     }
 }

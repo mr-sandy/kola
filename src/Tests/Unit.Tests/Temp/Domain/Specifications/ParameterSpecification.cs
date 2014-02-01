@@ -1,14 +1,12 @@
 ﻿namespace Unit.Tests.Temp.Domain.Specifications
 {
-    using System;
+    using Unit.Tests.Temp.Domain.Templates;
 
-    using Unit.Tests.Temp.Domain.Instances;
-
-    public class ParameterSpecification : ISpecification<ParameterInstance>
+    public class ParameterSpecification : ISpecification<ParameterTemplate>
     {
-        public ITemplate<ParameterInstance> Create()
+        public ParameterTemplate Create()
         {
-            throw new NotImplementedException();
+            return new ParameterTemplate();
         }
     }
 }

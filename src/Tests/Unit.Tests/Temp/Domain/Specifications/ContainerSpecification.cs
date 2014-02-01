@@ -1,14 +1,12 @@
 ﻿namespace Unit.Tests.Temp.Domain.Specifications
 {
-    using System;
+    using Unit.Tests.Temp.Domain.Templates;
 
-    using Unit.Tests.Temp.Domain.Instances;
-
-    public class ContainerSpecification : ISpecification<ContainerInstance>
+    public class ContainerSpecification : ISpecification<ContainerTemplate>
     {
-        public ITemplate<ContainerInstance> Create()
+        public ContainerTemplate Create()
         {
-            throw new NotImplementedException();
+            return new ContainerTemplate();
         }
     }
 }

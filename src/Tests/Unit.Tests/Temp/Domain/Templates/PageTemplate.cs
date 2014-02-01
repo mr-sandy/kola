@@ -1,14 +1,12 @@
 ﻿namespace Unit.Tests.Temp.Domain.Templates
 {
-    using System;
-
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class PageTemplate : ITemplate<PageInstance>
+    public class PageTemplate : ITemplate
     {
-        public PageInstance Build()
+        public IInstance Build(IBuildContext buildContext)
         {
-            throw new NotImplementedException();
+            return new PageInstance();
         }
     }
 }

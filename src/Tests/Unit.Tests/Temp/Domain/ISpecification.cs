@@ -1,8 +1,8 @@
 ﻿namespace Unit.Tests.Temp.Domain
 {
     public interface ISpecification<out T>
-        where T : IInstance
+        where T : ITemplate
     {
-        ITemplate<T> Create();
+        T Create();
     }
 }

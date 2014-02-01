@@ -1,14 +1,12 @@
 ﻿namespace Unit.Tests.Temp.Domain.Specifications
 {
-    using System;
+    using Unit.Tests.Temp.Domain.Templates;
 
-    using Unit.Tests.Temp.Domain.Instances;
-
-    public class AtomSpecification : ISpecification<AtomInstance>
+    public class AtomSpecification : ISpecification<AtomTemplate>
     {
-        public ITemplate<AtomInstance> Create()
+        public AtomTemplate Create()
         {
-            throw new NotImplementedException();
+            return new AtomTemplate();
         }
     }
 }

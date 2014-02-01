@@ -1,8 +1,7 @@
 ﻿namespace Unit.Tests.Temp.Domain
 {
-    public interface ITemplate<out T>
-        where T : IInstance
+    public interface ITemplate
     {
-        T Build();
+        IInstance Build(IBuildContext buildContext);
     }
 }

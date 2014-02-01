@@ -1,14 +1,12 @@
 ﻿namespace Unit.Tests.Temp.Domain.Templates
 {
-    using System;
-
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class AtomTemplate : ITemplate<AtomInstance>
+    public class AtomTemplate : ITemplate
     {
-        public AtomInstance Build()
+        public IInstance Build(IBuildContext buildContext)
         {
-            throw new NotImplementedException();
+            return new AtomInstance();
         }
     }
 }
