@@ -90,6 +90,7 @@
     <Compile Include="Domain\TemplateTests\WhenAddingTheFirstComponentToATemplate.cs" />
     <Compile Include="Domain\TemplateTests\WhenCreatingANewTemplate.cs" />
     <Compile Include="Temp\Domain\IBuildContext.cs" />
+    <Compile Include="Temp\Domain\IContainer.cs" />
     <Compile Include="Temp\Domain\IInstance.cs" />
     <Compile Include="Temp\Domain\Instances\AtomInstance.cs" />
     <Compile Include="Temp\Domain\ISpecification.cs" />
@@ -97,21 +98,22 @@
     <Compile Include="Temp\Domain\Specifications\AtomSpecification.cs" />
     <Compile Include="Temp\Domain\Templates\AtomTemplate.cs" />
     <Compile Include="Temp\Domain\Instances\ContainerInstance.cs" />
-    <Compile Include="Temp\Domain\Homeless\Area.cs" />
+    <Compile Include="Temp\Domain\Templates\Area.cs" />
     <Compile Include="Temp\Domain\Specifications\ContainerSpecification.cs" />
     <Compile Include="Temp\Domain\Templates\ContainerTemplate.cs" />
     <Compile Include="Temp\Domain\Templates\PageTemplate.cs" />
     <Compile Include="Temp\Domain\Specifications\ParameterSpecification.cs" />
     <Compile Include="Temp\Domain\Templates\ParameterTemplate.cs" />
-    <Compile Include="Temp\Domain\Homeless\Placeholder.cs" />
+    <Compile Include="Temp\Domain\Templates\Placeholder.cs" />
     <Compile Include="Temp\Domain\Instances\ParameterInstance.cs" />
-    <Compile Include="Temp\Domain\Framework.cs" />
+    <Compile Include="Temp\Domain\IComponent.cs" />
     <Compile Include="Temp\Domain\Instances\PageInstance.cs" />
     <Compile Include="Temp\Domain\Instances\WidgetInstance.cs" />
     <Compile Include="Temp\Domain\Specifications\WidgetSpecification.cs" />
     <Compile Include="Temp\Domain\Templates\WidgetTemplate.cs" />
     <Compile Include="Temp\Tests\WidgetTests\WhenBuildingAWidgetInstance.cs" />
-    <Compile Include="Temp\Tests\WidgetTests\WhenRenderingAPage.cs" />
+    <Compile Include="Temp\Tests\WidgetTests\WhenComposingAWidgetSpecification.cs" />
+    <Compile Include="Temp\Tests\WidgetTests\WhenCreatingAWidget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

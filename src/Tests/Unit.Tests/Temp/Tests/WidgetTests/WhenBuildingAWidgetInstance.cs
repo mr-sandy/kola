@@ -7,7 +7,6 @@
     using Rhino.Mocks;
 
     using Unit.Tests.Temp.Domain;
-    using Unit.Tests.Temp.Domain.Homeless;
     using Unit.Tests.Temp.Domain.Instances;
     using Unit.Tests.Temp.Domain.Specifications;
     using Unit.Tests.Temp.Domain.Templates;

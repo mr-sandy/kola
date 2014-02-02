@@ -2,7 +2,7 @@
 {
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class AtomTemplate : ITemplate
+    public class AtomTemplate : ITemplate, IComponent
     {
         public IInstance Build(IBuildContext buildContext)
         {

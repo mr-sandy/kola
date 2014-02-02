@@ -3,9 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    using Unit.Tests.Temp.Domain.Instances;
-
-    public class ContainerTemplate : ITemplate, IComponent, IContainer
+    public class Area : IContainer
     {
         public IEnumerable<IComponent> Children
         {
@@ -13,11 +11,6 @@
             {
                 throw new NotImplementedException();
             }
-        }
-
-        public IInstance Build(IBuildContext buildContext)
-        {
-            return new ContainerInstance();
         }
     }
 }

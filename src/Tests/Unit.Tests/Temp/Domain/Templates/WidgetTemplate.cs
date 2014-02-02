@@ -2,10 +2,9 @@
 {
     using System.Collections.Generic;
 
-    using Unit.Tests.Temp.Domain.Homeless;
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class WidgetTemplate : ITemplate
+    public class WidgetTemplate : ITemplate, IComponent
     {
         public WidgetTemplate(IEnumerable<Area> areas)
         {
