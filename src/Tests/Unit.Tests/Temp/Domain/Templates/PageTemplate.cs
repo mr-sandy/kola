@@ -1,36 +1,32 @@
 ﻿namespace Unit.Tests.Temp.Domain.Templates
 {
-    using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using Unit.Tests.Temp.Domain.Instances;
 
     public class PageTemplate : ITemplate
     {
-        public IEnumerable<IComponent> Components
+        private readonly List<IComponent> components = new List<IComponent>();
+
+        public PageTemplate(IEnumerable<IComponent> components)
         {
-            get
+            if (components != null)
             {
-                throw new NotImplementedException();
+                this.components.AddRange(components);
             }
         }
 
-
-        public void Add(AtomTemplate atom, IEnumerable<int> path)
+        public IEnumerable<IComponent> Components
         {
-        }
-
-        public void Add(ContainerTemplate container, IEnumerable<int> path)
-        {
-        }
-
-        public void Add(WidgetTemplate widget, IEnumerable<int> path)
-        {
+            get { return this.components; }
         }
 
         public IInstance Build(IBuildContext buildContext)
         {
-            return new PageInstance();
+            var instances = this.components.Select(c => c.Build(buildContext)).ToList();
+
+            return new PageInstance(instances);
         }
     }
 }

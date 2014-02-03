@@ -93,6 +93,7 @@
     <Compile Include="Temp\Domain\IContainer.cs" />
     <Compile Include="Temp\Domain\IInstance.cs" />
     <Compile Include="Temp\Domain\Instances\AtomInstance.cs" />
+    <Compile Include="Temp\Domain\Instances\PlaceholderInstance.cs" />
     <Compile Include="Temp\Domain\ISpecification.cs" />
     <Compile Include="Temp\Domain\ITemplate.cs" />
     <Compile Include="Temp\Domain\Specifications\AtomSpecification.cs" />
@@ -112,7 +113,6 @@
     <Compile Include="Temp\Domain\Specifications\WidgetSpecification.cs" />
     <Compile Include="Temp\Domain\Templates\WidgetTemplate.cs" />
     <Compile Include="Temp\Tests\WidgetTests\WhenBuildingAWidgetInstance.cs" />
-    <Compile Include="Temp\Tests\WidgetTests\WhenComposingAWidgetSpecification.cs" />
     <Compile Include="Temp\Tests\WidgetTests\WhenCreatingAWidget.cs" />
   </ItemGroup>
   <ItemGroup>

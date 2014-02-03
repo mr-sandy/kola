@@ -1,6 +1,6 @@
 ﻿namespace Unit.Tests.Temp.Domain
 {
-    public interface IComponent
+    public interface IComponent : ITemplate
     {
     }
 }

@@ -2,9 +2,9 @@
 {
     using System.Collections.Generic;
 
-    public class WidgetInstance : IInstance
+    public class PlaceholderInstance : IInstance
     {
-        public WidgetInstance(IEnumerable<IInstance> components)
+        public PlaceholderInstance(IEnumerable<IInstance> components)
         {
             this.Components = components;
         }
