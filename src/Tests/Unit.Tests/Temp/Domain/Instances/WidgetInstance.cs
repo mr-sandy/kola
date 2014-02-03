@@ -2,13 +2,13 @@
 {
     using System.Collections.Generic;
 
-    public class WidgetInstance : IInstance
+    public class WidgetInstance : IComponentInstance
     {
-        public WidgetInstance(IEnumerable<IInstance> components)
+        public WidgetInstance(IEnumerable<IComponentInstance> components)
         {
             this.Components = components;
         }
 
-        public IEnumerable<IInstance> Components { get; private set; }
+        public IEnumerable<IComponentInstance> Components { get; private set; }
     }
 }

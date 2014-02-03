@@ -18,10 +18,10 @@
             var specification =
                 new WidgetSpecification(
                     "widget name",
-                    new IComponent[]
+                    new IComponentTemplate[]
                         {
                             new Placeholder(), 
-                            new ContainerTemplate(new IComponent[] { new Placeholder() }) 
+                            new ContainerTemplate(new IComponentTemplate[] { new Placeholder() }) 
                         });
 
             this.widget = specification.Create();

@@ -2,7 +2,7 @@
 {
     using Unit.Tests.Temp.Domain.Templates;
 
-    public class ParameterSpecification : ISpecification<ParameterTemplate>
+    public class ParameterSpecification
     {
         public ParameterTemplate Create()
         {

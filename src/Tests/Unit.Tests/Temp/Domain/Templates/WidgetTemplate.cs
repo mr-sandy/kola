@@ -5,7 +5,7 @@
 
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class WidgetTemplate : IComponent
+    public class WidgetTemplate : IComponentTemplate
     {
         public WidgetTemplate(string name, IEnumerable<Area> areas)
         {
@@ -17,7 +17,7 @@
 
         public IEnumerable<Area> Areas { get; private set; }
 
-        public IInstance Build(IBuildContext buildContext)
+        public IComponentInstance Build(IBuildContext buildContext)
         {
             var specification = buildContext.WidgetSpecificationLocator(this.Name);
 

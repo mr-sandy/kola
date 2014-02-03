@@ -2,7 +2,7 @@
 {
     using Unit.Tests.Temp.Domain.Templates;
 
-    public class AtomSpecification : ISpecification<AtomTemplate>
+    public class AtomSpecification : IComponentSpecification<AtomTemplate>
     {
         public AtomTemplate Create()
         {

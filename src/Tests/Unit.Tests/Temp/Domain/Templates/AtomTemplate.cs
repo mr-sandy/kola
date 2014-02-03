@@ -2,9 +2,9 @@
 {
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class AtomTemplate : IComponent
+    public class AtomTemplate : IComponentTemplate
     {
-        public IInstance Build(IBuildContext buildContext)
+        public IComponentInstance Build(IBuildContext buildContext)
         {
             return new AtomInstance();
         }

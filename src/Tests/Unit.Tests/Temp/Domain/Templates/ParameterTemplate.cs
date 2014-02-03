@@ -2,9 +2,9 @@
 {
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class ParameterTemplate : ITemplate
+    public class ParameterTemplate 
     {
-        public IInstance Build(IBuildContext buildContext)
+        public ParameterInstance Build(IBuildContext buildContext)
         {
             return new ParameterInstance();
         }

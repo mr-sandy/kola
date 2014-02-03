@@ -4,9 +4,9 @@
 
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class Placeholder : IComponent
+    public class Placeholder : IComponentTemplate
     {
-        public IInstance Build(IBuildContext buildContext)
+        public IComponentInstance Build(IBuildContext buildContext)
         {
             var area = buildContext.Areas.Peek().Dequeue();
 

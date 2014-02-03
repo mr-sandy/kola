@@ -2,13 +2,13 @@
 {
     using System.Collections.Generic;
 
-    public class ContainerInstance : IInstance
+    public class ContainerInstance : IComponentInstance
     {
-        public ContainerInstance(IEnumerable<IInstance> children)
+        public ContainerInstance(IEnumerable<IComponentInstance> children)
         {
             this.Children = children;
         }
 
-        public IEnumerable<IInstance> Children { get; private set; }
+        public IEnumerable<IComponentInstance> Children { get; private set; }
     }
 }

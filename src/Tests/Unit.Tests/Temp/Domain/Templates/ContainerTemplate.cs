@@ -5,11 +5,11 @@
 
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class ContainerTemplate : IComponent, IContainer
+    public class ContainerTemplate : IComponentTemplate, IContainer
     {
-        private readonly List<IComponent> children = new List<IComponent>();
+        private readonly List<IComponentTemplate> children = new List<IComponentTemplate>();
 
-        public ContainerTemplate(IEnumerable<IComponent> children)
+        public ContainerTemplate(IEnumerable<IComponentTemplate> children)
         {
             if (children != null)
             {
@@ -17,12 +17,12 @@
             }
         }
 
-        public IEnumerable<IComponent> Children
+        public IEnumerable<IComponentTemplate> Children
         {
             get { return this.children; }
         }
 
-        public IInstance Build(IBuildContext buildContext)
+        public IComponentInstance Build(IBuildContext buildContext)
         {
             var instances = this.children.Select(c => c.Build(buildContext)).ToList();
             

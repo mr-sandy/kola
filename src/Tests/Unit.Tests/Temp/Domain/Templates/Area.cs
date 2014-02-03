@@ -4,9 +4,9 @@
 
     public class Area : IContainer
     {
-        private readonly List<IComponent> children = new List<IComponent>();
+        private readonly List<IComponentTemplate> children = new List<IComponentTemplate>();
 
-        public Area(IEnumerable<IComponent> children)
+        public Area(IEnumerable<IComponentTemplate> children)
         {
             if (children != null)
             {
@@ -14,7 +14,7 @@
             }
         }
 
-        public IEnumerable<IComponent> Children
+        public IEnumerable<IComponentTemplate> Children
         {
             get { return this.children; }
         }

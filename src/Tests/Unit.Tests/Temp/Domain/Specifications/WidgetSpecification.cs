@@ -1,16 +1,15 @@
 ﻿namespace Unit.Tests.Temp.Domain.Specifications
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
     using Unit.Tests.Temp.Domain.Templates;
 
-    public class WidgetSpecification : ISpecification<WidgetTemplate>
+    public class WidgetSpecification : IComponentSpecification<WidgetTemplate>
     {
-        private readonly List<IComponent> components = new List<IComponent>();
+        private readonly List<IComponentTemplate> components = new List<IComponentTemplate>();
 
-        public WidgetSpecification(string name, IEnumerable<IComponent> components)
+        public WidgetSpecification(string name, IEnumerable<IComponentTemplate> components)
         {
             this.Name = name;
 
@@ -22,7 +21,7 @@
 
         public string Name { get; private set; }
 
-        public IEnumerable<IComponent> Components
+        public IEnumerable<IComponentTemplate> Components
         {
             get { return this.components; }
         }
@@ -31,7 +30,7 @@
         {
             var placeholders = new PlaceholderFinder().FindPlaceholders(this.components);
 
-            var areas = placeholders.Select(p => new Area(Enumerable.Empty<IComponent>()));
+            var areas = placeholders.Select(p => new Area(Enumerable.Empty<IComponentTemplate>()));
 
             return new WidgetTemplate(this.Name, areas);
         }
@@ -39,7 +38,7 @@
 
     internal class PlaceholderFinder
     {
-        public IEnumerable<Placeholder> FindPlaceholders(IEnumerable<IComponent> components)
+        public IEnumerable<Placeholder> FindPlaceholders(IEnumerable<IComponentTemplate> components)
         {
             foreach (var component in components)
             {

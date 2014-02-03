@@ -2,13 +2,13 @@
 {
     using System.Collections.Generic;
 
-    public class PageInstance : IInstance
+    public class PageInstance
     {
-        public PageInstance(IEnumerable<IInstance> children)
+        public PageInstance(IEnumerable<IComponentInstance> children)
         {
             this.Children = children;
         }
 
-        public IEnumerable<IInstance> Children { get; private set; }
+        public IEnumerable<IComponentInstance> Children { get; private set; }
     }
 }

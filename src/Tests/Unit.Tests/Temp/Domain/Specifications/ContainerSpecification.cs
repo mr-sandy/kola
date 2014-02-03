@@ -4,11 +4,11 @@
 
     using Unit.Tests.Temp.Domain.Templates;
 
-    public class ContainerSpecification : ISpecification<ContainerTemplate>
+    public class ContainerSpecification : IComponentSpecification<ContainerTemplate>
     {
         public ContainerTemplate Create()
         {
-            return new ContainerTemplate(Enumerable.Empty<IComponent>());
+            return new ContainerTemplate(Enumerable.Empty<IComponentTemplate>());
         }
     }
 }

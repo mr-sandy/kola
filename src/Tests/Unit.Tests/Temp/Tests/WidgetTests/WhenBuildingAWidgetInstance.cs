@@ -23,7 +23,7 @@
         {
             var specification = new WidgetSpecification(
                 "widget name",
-                new IComponent[]
+                new IComponentTemplate[]
                     {
                         new AtomTemplate(), 
                         new Placeholder(), 
@@ -34,8 +34,8 @@
                 "widget name",
                 new[]
                     {
-                        new Area(new IComponent[] { new AtomTemplate(), new AtomTemplate() }),
-                        new Area(new IComponent[] { new AtomTemplate(), new AtomTemplate(), new AtomTemplate() })
+                        new Area(new IComponentTemplate[] { new AtomTemplate(), new AtomTemplate() }),
+                        new Area(new IComponentTemplate[] { new AtomTemplate(), new AtomTemplate(), new AtomTemplate() })
                     });
 
             var buildContext = MockRepository.GenerateStub<IBuildContext>();

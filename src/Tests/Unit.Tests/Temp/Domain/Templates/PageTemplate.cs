@@ -5,11 +5,11 @@
 
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class PageTemplate : ITemplate
+    public class PageTemplate
     {
-        private readonly List<IComponent> components = new List<IComponent>();
+        private readonly List<IComponentTemplate> components = new List<IComponentTemplate>();
 
-        public PageTemplate(IEnumerable<IComponent> components)
+        public PageTemplate(IEnumerable<IComponentTemplate> components)
         {
             if (components != null)
             {
@@ -17,12 +17,12 @@
             }
         }
 
-        public IEnumerable<IComponent> Components
+        public IEnumerable<IComponentTemplate> Components
         {
             get { return this.components; }
         }
 
-        public IInstance Build(IBuildContext buildContext)
+        public PageInstance Build(IBuildContext buildContext)
         {
             var instances = this.components.Select(c => c.Build(buildContext)).ToList();
 
