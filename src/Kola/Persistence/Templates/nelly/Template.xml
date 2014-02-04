@@ -27,5 +27,10 @@ Here is *the stuff*]]></value>
       </parameters>
     </atom>
   </components>
-  <amendments />
+  <amendments>
+    <addComponent>
+      <componentType>c:\projects\kola\src\kola\persistence\widgets\badger</componentType>
+      <targetPath>0</targetPath>
+    </addComponent>
+  </amendments>
 </template>

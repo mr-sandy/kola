@@ -13,7 +13,7 @@
         public ContainerTemplate(string name, IEnumerable<ParameterTemplate> parameters, IEnumerable<IComponentTemplate> components = null)
         {
             this.Name = name;
-            this.Parameters = parameters;
+            this.Parameters = parameters ?? Enumerable.Empty<ParameterTemplate>();
 
             if (components != null)
             {

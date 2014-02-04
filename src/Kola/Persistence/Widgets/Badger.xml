@@ -7,9 +7,13 @@
         <atom name="atom-2" />
       </components>
     </container>
-    <container name="markdown">
-      <components />
-    </container>
+    <atom name="markdown">
+      <parameters>
+        <parameter name="markdown" type="markdown">
+          <value xsi:type="fixed"><![CDATA[*from the widget*]]></value>
+        </parameter>
+      </parameters>
+    </atom>
     <container name="container-2">
       <components>
         <atom name="atom-1" />

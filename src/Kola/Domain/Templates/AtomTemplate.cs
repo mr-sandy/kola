@@ -10,7 +10,7 @@
         public AtomTemplate(string name, IEnumerable<ParameterTemplate> parameters)
         {
             this.Name = name;
-            this.Parameters = parameters;
+            this.Parameters = parameters ?? Enumerable.Empty<ParameterTemplate>();
         }
 
         public string Name { get; private set; }

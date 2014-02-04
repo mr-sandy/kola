@@ -5,5 +5,6 @@
         string Name { get; }
 
         T Accept<T>(IComponentInstanceVisitor<T> visitor);
+
     }
 }

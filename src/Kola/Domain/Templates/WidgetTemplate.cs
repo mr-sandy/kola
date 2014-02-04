@@ -11,7 +11,7 @@
         public WidgetTemplate(string name, IEnumerable<ParameterTemplate> parameters, IEnumerable<Area> areas)
         {
             this.Name = name;
-            this.Parameters = parameters;
+            this.Parameters = parameters ?? Enumerable.Empty<ParameterTemplate>();
             this.Areas = areas;
         }
 
