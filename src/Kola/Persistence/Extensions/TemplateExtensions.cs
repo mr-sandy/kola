@@ -9,7 +9,7 @@
 
     public static class TemplateExtensions
     {
-        public static TemplateSurrogate ToSurrogate(this Template template)
+        public static TemplateSurrogate ToSurrogate(this PageTemplate template)
         {
             return new TemplateSurrogate
                 {
@@ -18,9 +18,9 @@
                 };
         }
 
-        public static Template ToDomain(this TemplateSurrogate surrogate, IEnumerable<string> path)
+        public static PageTemplate ToDomain(this TemplateSurrogate surrogate, IEnumerable<string> path)
         {
-            return new Template(
+            return new PageTemplate(
                 path, 
                 surrogate.Components.ToDomain(),
                 surrogate.Amendments.ToDomain());

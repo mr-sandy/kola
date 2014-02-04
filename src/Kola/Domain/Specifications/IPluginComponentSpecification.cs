@@ -6,7 +6,7 @@
     using Kola.Domain.Templates;
 
     public interface IPluginComponentSpecification<out T> : IComponentSpecification<T>
-        where T : IComponent
+        where T : IComponentTemplate
     {
         Type HandlerType { get; set; }
 

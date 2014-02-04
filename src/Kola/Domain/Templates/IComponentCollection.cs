@@ -4,9 +4,9 @@
 
     public interface IComponentCollection
     {
-        IEnumerable<IComponent> Components { get; }
+        IEnumerable<IComponentTemplate> Components { get; }
 
-        void AddComponent(IComponent component, int index);
+        void AddComponent(IComponentTemplate component, int index);
 
         void RemoveComponentAt(int index);
     }

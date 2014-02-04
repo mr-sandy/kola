@@ -7,6 +7,6 @@
 
     public interface IPageHandler
     {
-        IPage GetPage(IEnumerable<string> path);
+        PageInstance GetPage(IEnumerable<string> path);
     }
 }

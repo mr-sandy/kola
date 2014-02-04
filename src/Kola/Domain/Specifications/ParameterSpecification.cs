@@ -15,9 +15,9 @@
 
         public string Type { get; private set; }
 
-        public Parameter Create()
+        public ParameterTemplate Create()
         {
-            return new Parameter(this.Name, this.Type)
+            return new ParameterTemplate(this.Name, this.Type)
                 {
                     //Value = new UndefinedParameterValue()
                     Value = new FixedParameterValue(@"##This is the value##\n\nHere is *the stuff*")

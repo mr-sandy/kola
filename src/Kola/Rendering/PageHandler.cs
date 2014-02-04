@@ -22,7 +22,7 @@
             this.componentLibrary = componentLibrary;
         }
 
-        public IPage GetPage(IEnumerable<string> path)
+        public PageInstance GetPage(IEnumerable<string> path)
         {
             var template = this.templateRepository.Get(path);
 

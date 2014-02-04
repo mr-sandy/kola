@@ -1,12 +1,13 @@
-﻿namespace Unit.Tests.Temp.Tests.WidgetTests
+﻿namespace Unit.Tests.Domain.WidgetTests
 {
+    using System.Linq;
+
     using FluentAssertions;
 
-    using NUnit.Framework;
+    using Kola.Domain.Specifications;
+    using Kola.Domain.Templates;
 
-    using Unit.Tests.Temp.Domain;
-    using Unit.Tests.Temp.Domain.Specifications;
-    using Unit.Tests.Temp.Domain.Templates;
+    using NUnit.Framework;
 
     public class WhenCreatingAWidget
     {
@@ -21,7 +22,10 @@
                     new IComponentTemplate[]
                         {
                             new PlaceholderTemplate(), 
-                            new ContainerTemplate(new IComponentTemplate[] { new PlaceholderTemplate() }) 
+                            new ContainerTemplate(
+                                "container name", 
+                                Enumerable.Empty<ParameterTemplate>(),
+                                new IComponentTemplate[] { new PlaceholderTemplate() }) 
                         });
 
             this.widget = specification.Create();

@@ -4,18 +4,18 @@
 
     using Kola.Domain.Templates;
 
-    public class AtomSpecification : PluginComponentSpecification<Atom>
+    public class AtomSpecification : PluginComponentSpecification<AtomTemplate>
     {
         public AtomSpecification(string name)
             : base(name)
         {
         }
 
-        public override Atom Create()
+        public override AtomTemplate Create()
         {
             var parameters = this.Parameters.Select(p => p.Create());
 
-            return new Atom(this.Name, parameters);
+            return new AtomTemplate(this.Name, parameters);
         }
     }
 }

@@ -14,7 +14,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            var parameter = new Parameter(string.Empty, string.Empty);
+            var parameter = new ParameterTemplate(string.Empty, string.Empty);
         }
 
         [Test]

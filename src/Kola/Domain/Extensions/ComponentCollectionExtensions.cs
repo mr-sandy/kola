@@ -11,9 +11,9 @@
     // TODO {SC} Refactor this mess once I've implemented widgets (because a placeholder should be an IComponentCollection but not an IComponent)
     public static class ComponentCollectionExtensions
     {
-        public static IComponent FindComponent(this IComponentCollection collection, IEnumerable<int> path)
+        public static IComponentTemplate FindComponent(this IComponentCollection collection, IEnumerable<int> path)
         {
-            return collection.Find<IComponent>(path);
+            return collection.Find<IComponentTemplate>(path);
         }
 
         public static IComponentCollection FindCollection(this IComponentCollection collection, IEnumerable<int> path)

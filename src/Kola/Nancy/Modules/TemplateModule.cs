@@ -93,7 +93,7 @@
                 return HttpStatusCode.Conflict;
             }
 
-            var template = new Template(templatePath);
+            var template = new PageTemplate(templatePath);
 
             this.templateRepository.Add(template);
 

@@ -14,18 +14,18 @@
 
     public class WhenProcessingAnAddComponentAmendmentToCreateASecondAtomInAChildComponent : ContextBase
     {
-        private Container container;
+        private ContainerTemplate container;
 
         [SetUp]
         public void EstablishContext()
         {
-            this.container = new Container("existing container", null);
+            this.container = new ContainerTemplate("existing container", null);
             this.Template.AddComponent(this.container, 0);
 
-            var existingComponent = new Container("existing sub-container", null);
+            var existingComponent = new ContainerTemplate("existing sub-container", null);
             this.container.AddComponent(existingComponent, 0);
 
-            this.ComponentSpecification.Stub(s => s.Create()).Return(new Atom("new atom", null));
+            this.ComponentSpecification.Stub(s => s.Create()).Return(new AtomTemplate("new atom", null));
 
             var amendment = new AddComponentAmendment("atom name", new[] { 0, 1 });
 
@@ -41,7 +41,7 @@
         [Test]
         public void TheComponentShouldBeAnAtom()
         {
-            this.container.Components.ElementAt(1).Should().BeOfType<Atom>();
+            this.container.Components.ElementAt(1).Should().BeOfType<AtomTemplate>();
         }
     }
 }

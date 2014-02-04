@@ -8,6 +8,6 @@
     {
         IResult Render(IEnumerable<IComponentInstance> children);
 
-        IResult Render(IPage page);
+        IResult Render(PageInstance page);
     }
 }

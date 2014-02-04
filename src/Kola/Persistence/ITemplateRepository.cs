@@ -6,10 +6,10 @@
 
     public interface ITemplateRepository
     {
-        void Add(Template template);
+        void Add(PageTemplate template);
         
-        Template Get(IEnumerable<string> path);
+        PageTemplate Get(IEnumerable<string> path);
         
-        void Update(Template template);
+        void Update(PageTemplate template);
     }
 }

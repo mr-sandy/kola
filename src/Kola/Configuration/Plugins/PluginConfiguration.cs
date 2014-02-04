@@ -9,11 +9,11 @@
 
     public abstract class PluginConfiguration
     {
-        private readonly List<IPluginComponentSpecification<IComponent>> components = new List<IPluginComponentSpecification<IComponent>>();
+        private readonly List<IPluginComponentSpecification<IComponentTemplate>> components = new List<IPluginComponentSpecification<IComponentTemplate>>();
 
         public string ViewLocation { get; set; }
 
-        internal IEnumerable<IPluginComponentSpecification<IComponent>> Components
+        internal IEnumerable<IPluginComponentSpecification<IComponentTemplate>> Components
         {
             get { return this.components; }
         }
@@ -23,7 +23,7 @@
             get { return new PluginConfigurer(this); }
         }
 
-        internal void Add(IPluginComponentSpecification<IComponent> component)
+        internal void Add(IPluginComponentSpecification<IComponentTemplate> component)
         {
             this.components.Add(component);
         }

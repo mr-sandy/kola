@@ -12,7 +12,7 @@
 
         public string Key { get; set; }
 
-        public string Resolve(BuildContext buildContext)
+        public string Resolve(IBuildContext buildContext)
         {
             foreach (var context in buildContext.Contexts)
             {

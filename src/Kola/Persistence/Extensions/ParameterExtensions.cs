@@ -9,26 +9,26 @@
 
     public static class ParameterExtensions
     {
-        public static Parameter ToDomain(this ParameterSurrogate surrogate)
+        public static ParameterTemplate ToDomain(this ParameterSurrogate surrogate)
         {
             var value = surrogate.Value == null
                 ? new UndefinedParameterValue()
                 : surrogate.Value.Accept(new ParameterValueBuildingVisitor());
 
-            return new Parameter(surrogate.Name, surrogate.Type)
+            return new ParameterTemplate(surrogate.Name, surrogate.Type)
                 {
                     Value = value
                 };
         }
 
-        public static IEnumerable<Parameter> ToDomain(this IEnumerable<ParameterSurrogate> surrogates)
+        public static IEnumerable<ParameterTemplate> ToDomain(this IEnumerable<ParameterSurrogate> surrogates)
         {
             return surrogates == null
                 ? null
                 : surrogates.Select(ToDomain);
         }
 
-        public static ParameterSurrogate ToSurrogate(this Parameter parameter)
+        public static ParameterSurrogate ToSurrogate(this ParameterTemplate parameter)
         {
             return new ParameterSurrogate
                 {
@@ -38,7 +38,7 @@
                 };
         }
 
-        public static IEnumerable<ParameterSurrogate> ToSurrogate(this IEnumerable<Parameter> parameters)
+        public static IEnumerable<ParameterSurrogate> ToSurrogate(this IEnumerable<ParameterTemplate> parameters)
         {
             return parameters == null
                 ? null

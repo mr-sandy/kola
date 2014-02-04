@@ -10,7 +10,7 @@
 
     public static class HtmlHelpersExtensions
     {
-        public static IHtmlString RenderPage<T>(this HtmlHelpers<T> helpers, IPage page)
+        public static IHtmlString RenderPage<T>(this HtmlHelpers<T> helpers, PageInstance page)
         {
             var engine = NancyKolaConfigurationRegistry.Instance.KolaEngine;
             return new ResultWrapper(engine.Render(page), new NancyRazorViewHelper<T>(helpers));

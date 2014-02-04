@@ -6,7 +6,7 @@
     using Kola.Domain.Templates;
 
     public abstract class PluginComponentSpecification<T> : IPluginComponentSpecification<T>
-        where T : IComponent
+        where T : IComponentTemplate
     {
         private readonly List<ParameterSpecification> parameters = new List<ParameterSpecification>();
 

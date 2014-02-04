@@ -40,6 +40,11 @@
             return new WidgetHandler(this.engineLocator.Invoke());
         }
 
+        public IHandler Visit(PlaceholderInstance placeholderInstance)
+        {
+            throw new NotImplementedException();
+        }
+
         private IHandler GetHandler(string componentName)
         {
             if (this.handlerMappings.ContainsKey(componentName))

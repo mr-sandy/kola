@@ -7,5 +7,7 @@
         void Visit(AtomSurrogate surrogate);
 
         void Visit(WidgetSurrogate surrogate);
+
+        void Visit(PlaceholderSurrogate surrogate);
     }
 }

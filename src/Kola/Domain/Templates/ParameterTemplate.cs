@@ -3,9 +3,9 @@
     using Kola.Domain.Instances;
     using Kola.Domain.Templates.ParameterValues;
 
-    public class Parameter
+    public class ParameterTemplate
     {
-        public Parameter(string name, string type)
+        public ParameterTemplate(string name, string type)
         {
             this.Name = name;
             this.Type = type;
@@ -17,7 +17,7 @@
 
         public IParameterValue Value { get; set; }
 
-        public ParameterInstance Build(BuildContext buildContext)
+        public ParameterInstance Build(IBuildContext buildContext)
         {
             return new ParameterInstance(this.Name, this.Value.Resolve(buildContext));
         }

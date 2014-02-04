@@ -21,7 +21,7 @@
             this.fileSystemHelper = fileSystemHelper;
         }
 
-        public void Add(Template template)
+        public void Add(PageTemplate template)
         {
             var surrogate = template.ToSurrogate();
             var directoryPath = this.fileSystemHelper.CombinePaths(RootDirectory, template.Path.ToFileSystemPath());
@@ -35,7 +35,7 @@
             this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
         }
 
-        public Template Get(IEnumerable<string> templatePath)
+        public PageTemplate Get(IEnumerable<string> templatePath)
         {
             var path = this.fileSystemHelper.CombinePaths(RootDirectory, templatePath.ToFileSystemPath(), TemplateFileName);
 
@@ -48,7 +48,7 @@
             return surrogate.ToDomain(templatePath);
         }
 
-        public void Update(Template template)
+        public void Update(PageTemplate template)
         {
             var surrogate = template.ToSurrogate();
             var path = this.fileSystemHelper.CombinePaths(RootDirectory, template.Path.ToFileSystemPath(), TemplateFileName);

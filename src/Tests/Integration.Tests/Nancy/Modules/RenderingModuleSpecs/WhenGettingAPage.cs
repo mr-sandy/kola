@@ -20,7 +20,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            var page = new Page(new[] { new AtomInstance("atom1", Enumerable.Empty<ParameterInstance>()) });
+            var page = new PageInstance(new[] { new AtomInstance("atom1", Enumerable.Empty<ParameterInstance>()) });
 
             var atom1Handler = MockRepository.GenerateMock<IHandler>();
             atom1Handler.Stub(h => h.HandleRequest(Arg<IComponentInstance>.Is.Anything)).Return(new Result(h => "<atom1/>"));

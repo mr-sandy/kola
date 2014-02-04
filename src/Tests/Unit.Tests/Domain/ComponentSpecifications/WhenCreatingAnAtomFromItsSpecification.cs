@@ -11,7 +11,7 @@
     [TestFixture]
     public class WhenCreatingAnAtomFromItsSpecification
     {
-        private Atom atom;
+        private AtomTemplate atom;
 
         [SetUp]
         public void SetUp()

@@ -17,7 +17,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            ComponentSpecification.Stub(s => s.Create()).Return(new Atom("new atom", null));
+            ComponentSpecification.Stub(s => s.Create()).Return(new AtomTemplate("new atom", null));
 
             var amendment = new AddComponentAmendment("new atom", new[] { 0 });
 
@@ -33,7 +33,7 @@
         [Test]
         public void TheComponentShouldBeAnAtom()
         {
-            this.Template.Components.Single().Should().BeOfType<Atom>();
+            this.Template.Components.Single().Should().BeOfType<AtomTemplate>();
         }
     }
 }

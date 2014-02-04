@@ -11,7 +11,7 @@
 
         public string Value { get; set; }
 
-        public string Resolve(BuildContext buildContext)
+        public string Resolve(IBuildContext buildContext)
         {
             return this.Value;
         }

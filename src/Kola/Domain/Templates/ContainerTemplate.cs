@@ -6,11 +6,11 @@
     using Kola;
     using Kola.Domain.Instances;
 
-    public class Container : IParameterisedComponent, IComponentCollection
+    public class ContainerTemplate : IParameterisedComponent, IComponentCollection
     {
-        private readonly List<IComponent> components = new List<IComponent>();
+        private readonly List<IComponentTemplate> components = new List<IComponentTemplate>();
 
-        public Container(string name, IEnumerable<Parameter> parameters, IEnumerable<IComponent> components = null)
+        public ContainerTemplate(string name, IEnumerable<ParameterTemplate> parameters, IEnumerable<IComponentTemplate> components = null)
         {
             this.Name = name;
             this.Parameters = parameters;
@@ -23,14 +23,14 @@
 
         public string Name { get; private set; }
 
-        public IEnumerable<Parameter> Parameters { get; private set; }
+        public IEnumerable<ParameterTemplate> Parameters { get; private set; }
 
-        public IEnumerable<IComponent> Components
+        public IEnumerable<IComponentTemplate> Components
         {
             get { return this.components; }
         }
 
-        public void AddComponent(IComponent component, int index)
+        public void AddComponent(IComponentTemplate component, int index)
         {
             if (index > this.components.Count)
             {
@@ -45,17 +45,17 @@
             this.components.RemoveAt(index);
         }
 
-        public void Accept(IComponentVisitor visitor)
+        public void Accept(IComponentTemplateVisitor visitor)
         {
             visitor.Visit(this);
         }
 
-        public IComponentInstance Build(BuildContext buildContext)
+        public IComponentInstance Build(IBuildContext buildContext)
         {
             return new ContainerInstance(
                 this.Name, 
                 this.Parameters.Select(p => p.Build(buildContext)), 
-                this.Components.Select(c => c.Build(buildContext)));
+                this.Components.Select(c => c.Build(buildContext)).ToList());
         }
     }
 }

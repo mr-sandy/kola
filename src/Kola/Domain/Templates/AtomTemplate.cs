@@ -5,9 +5,9 @@
 
     using Kola.Domain.Instances;
 
-    public class Atom : IParameterisedComponent
+    public class AtomTemplate : IParameterisedComponent
     {
-        public Atom(string name, IEnumerable<Parameter> parameters)
+        public AtomTemplate(string name, IEnumerable<ParameterTemplate> parameters)
         {
             this.Name = name;
             this.Parameters = parameters;
@@ -15,14 +15,14 @@
 
         public string Name { get; private set; }
 
-        public IEnumerable<Parameter> Parameters { get; private set; }
+        public IEnumerable<ParameterTemplate> Parameters { get; private set; }
 
-        public void Accept(IComponentVisitor visitor)
+        public void Accept(IComponentTemplateVisitor visitor)
         {
             visitor.Visit(this);
         }
 
-        public IComponentInstance Build(BuildContext buildContext)
+        public IComponentInstance Build(IBuildContext buildContext)
         {
             return new AtomInstance(
                 this.Name,

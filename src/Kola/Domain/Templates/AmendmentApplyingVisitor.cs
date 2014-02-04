@@ -10,11 +10,11 @@
 
     public class AmendmentApplyingVisitor : IAmendmentVisitor
     {
-        private readonly Template template;
+        private readonly PageTemplate template;
 
         private readonly IComponentSpecificationLibrary specificationLibrary;
 
-        public AmendmentApplyingVisitor(Template template, IComponentSpecificationLibrary specificationLibrary)
+        public AmendmentApplyingVisitor(PageTemplate template, IComponentSpecificationLibrary specificationLibrary)
         {
             this.template = template;
             this.specificationLibrary = specificationLibrary;

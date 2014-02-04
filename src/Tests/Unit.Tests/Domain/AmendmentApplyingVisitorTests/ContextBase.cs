@@ -12,20 +12,20 @@
     {
         protected AmendmentApplyingVisitor Visitor { get; private set; }
 
-        protected Template Template { get; private set; }
+        protected PageTemplate Template { get; private set; }
 
         protected IComponentSpecificationLibrary ComponentLibrary { get; private set; }
 
-        protected IComponentSpecification<IComponent> ComponentSpecification { get; private set; }
+        protected IComponentSpecification<IComponentTemplate> ComponentSpecification { get; private set; }
 
         [SetUp]
         public void EstablishBaseContext()
         {
-            this.Template = new Template(new[] { "path" });
+            this.Template = new PageTemplate(new[] { "path" });
 
             this.ComponentLibrary = MockRepository.GenerateStub<IComponentSpecificationLibrary>();
 
-            this.ComponentSpecification = MockRepository.GenerateStub<IComponentSpecification<IComponent>>();
+            this.ComponentSpecification = MockRepository.GenerateStub<IComponentSpecification<IComponentTemplate>>();
 
             this.ComponentLibrary.Stub(l => l.Lookup(Arg<string>.Is.Anything)).Return(this.ComponentSpecification);
             

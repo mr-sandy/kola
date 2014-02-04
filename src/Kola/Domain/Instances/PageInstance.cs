@@ -2,9 +2,9 @@
 {
     using System.Collections.Generic;
 
-    internal class Page : IPage
+    public class PageInstance
     {
-        public Page(IEnumerable<IComponentInstance> components = null)
+        public PageInstance(IEnumerable<IComponentInstance> components = null)
         {
             this.Components = components;
         }

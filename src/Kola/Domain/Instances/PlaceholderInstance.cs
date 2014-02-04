@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Temp.Domain.Instances
+﻿namespace Kola.Domain.Instances
 {
     using System.Collections.Generic;
 
@@ -10,5 +10,15 @@
         }
 
         public IEnumerable<IComponentInstance> Components { get; private set; }
+
+        public string Name
+        {
+            get { return string.Empty; } 
+        }
+
+        public T Accept<T>(IComponentInstanceVisitor<T> visitor)
+        {
+            return visitor.Visit(this);
+        }
     }
 }

@@ -17,7 +17,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            this.ComponentSpecification.Stub(s => s.Create()).Return(new Container("new container", null));
+            this.ComponentSpecification.Stub(s => s.Create()).Return(new ContainerTemplate("new container", null));
 
             var amendment = new AddComponentAmendment("new container", new[] { 0 });
 
@@ -33,7 +33,7 @@
         [Test]
         public void TheComponentShouldBeAContainer()
         {
-            this.Template.Components.Single().Should().BeOfType<Container>();
+            this.Template.Components.Single().Should().BeOfType<ContainerTemplate>();
         }
     }
 }

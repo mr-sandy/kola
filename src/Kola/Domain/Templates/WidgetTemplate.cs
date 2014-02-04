@@ -6,9 +6,9 @@
 
     using Kola.Domain.Instances;
 
-    public class Widget : IParameterisedComponent
+    public class WidgetTemplate : IParameterisedComponent
     {
-        public Widget(string name, IEnumerable<Parameter> parameters, IEnumerable<Area> areas)
+        public WidgetTemplate(string name, IEnumerable<ParameterTemplate> parameters, IEnumerable<Area> areas)
         {
             this.Name = name;
             this.Parameters = parameters;
@@ -17,20 +17,24 @@
 
         public string Name { get; private set; }
 
-        public IEnumerable<Parameter> Parameters { get; private set; }
+        public IEnumerable<ParameterTemplate> Parameters { get; private set; }
 
         public IEnumerable<Area> Areas { get; private set; }
 
-        public void Accept(IComponentVisitor visitor)
+        public void Accept(IComponentTemplateVisitor visitor)
         {
             visitor.Visit(this);
         }
 
-        public IComponentInstance Build(BuildContext buildContext)
+        public IComponentInstance Build(IBuildContext buildContext)
         {
             var specification = buildContext.WidgetSpecificationFinder(this.Name);
 
-            var children = specification.Components.Select(c => c.Build(buildContext));
+            buildContext.Areas.Push(new Queue<Area>(this.Areas));
+
+            var children = specification.Components.Select(c => c.Build(buildContext)).ToList();
+
+            buildContext.Areas.Pop();
 
             return new WidgetInstance(this.Name, children);
         }

@@ -16,7 +16,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            var parameter = new Parameter("parameter name", "parameter type")
+            var parameter = new ParameterTemplate("parameter name", "parameter type")
                 {
                     Value = new InheritedParameterValue("key")
                 };

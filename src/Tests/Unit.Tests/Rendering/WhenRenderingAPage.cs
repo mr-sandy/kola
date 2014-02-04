@@ -27,7 +27,7 @@
             var processor = new Processor(handlerFactory);
             var engine = new KolaEngine(processor);
             var page =
-                new Page(
+                new PageInstance(
                     new IComponentInstance[]
                         {
                             new AtomInstance("atom1", Enumerable.Empty<ParameterInstance>()), 

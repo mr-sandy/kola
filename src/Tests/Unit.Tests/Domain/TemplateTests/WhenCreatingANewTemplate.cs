@@ -7,13 +7,13 @@
 
     public class WhenCreatingANewTemplate
     {
-        private Template template;
+        private PageTemplate template;
 
         [SetUp]
         public void EstablishContext()
         {
             var templatePath = new[] { "test", "path" };
-            this.template = new Template(templatePath);
+            this.template = new PageTemplate(templatePath);
         }
     }
 }

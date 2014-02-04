@@ -2,7 +2,8 @@
 {
     using Kola.Domain.Templates;
 
-    public interface IComponentSpecification<out T> where T : IComponent
+    public interface IComponentSpecification<out T> 
+        where T : IComponentTemplate
     {
         string Name { get; }
 

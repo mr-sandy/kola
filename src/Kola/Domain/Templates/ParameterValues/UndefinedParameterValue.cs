@@ -2,7 +2,7 @@
 {
     public class UndefinedParameterValue : IParameterValue
     {
-        public string Resolve(BuildContext buildContext)
+        public string Resolve(IBuildContext buildContext)
         {
             return null;
         }

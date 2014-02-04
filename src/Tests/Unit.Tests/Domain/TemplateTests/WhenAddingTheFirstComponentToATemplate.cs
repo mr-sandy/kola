@@ -9,15 +9,15 @@
 
     public class WhenAddingTheFirstComponentToATemplate
     {
-        private Template template;
+        private PageTemplate template;
 
         [SetUp]
         public void EstablishContext()
         {
             var templatePath = new[] { "test", "path" };
-            this.template = new Template(templatePath);
+            this.template = new PageTemplate(templatePath);
 
-            var newComponent = new Atom("component1", null);
+            var newComponent = new AtomTemplate("component1", null);
             this.template.AddComponent(newComponent, 0);
         }
 

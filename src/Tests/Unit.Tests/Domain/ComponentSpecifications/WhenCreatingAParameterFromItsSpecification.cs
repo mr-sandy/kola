@@ -11,7 +11,7 @@
     [TestFixture]
     public class WhenCreatingAParameterFromItsSpecification
     {
-        private Parameter parameter;
+        private ParameterTemplate parameter;
 
         [SetUp]
         public void SetUp()

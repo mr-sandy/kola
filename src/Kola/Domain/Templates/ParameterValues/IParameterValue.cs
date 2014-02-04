@@ -2,7 +2,7 @@
 {
     public interface IParameterValue
     {
-        string Resolve(BuildContext buildContext);
+        string Resolve(IBuildContext buildContext);
 
         T Accept<T>(IParameterValueVisitor<T> visitor);
     }

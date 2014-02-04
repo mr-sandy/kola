@@ -10,7 +10,7 @@
 
     internal static class ComponentTypeExtensions
     {
-        public static ComponentTypeResource ToResource(this IComponentSpecification<IComponent> component)
+        public static ComponentTypeResource ToResource(this IComponentSpecification<IComponentTemplate> component)
         {
             return new ComponentTypeResource
                 {
@@ -22,7 +22,7 @@
                 };
         }
 
-        public static IEnumerable<ComponentTypeResource> ToResource(this IEnumerable<IComponentSpecification<IComponent>> components)
+        public static IEnumerable<ComponentTypeResource> ToResource(this IEnumerable<IComponentSpecification<IComponentTemplate>> components)
         {
             return components.Select(ToResource);
         }

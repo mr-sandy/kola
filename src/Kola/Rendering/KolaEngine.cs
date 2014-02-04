@@ -15,7 +15,7 @@
             this.processor = processor;
         }
 
-        public IResult Render(IPage page)
+        public IResult Render(PageInstance page)
         {
             var results = page.Components.Select(this.processor.Process);
 

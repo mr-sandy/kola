@@ -89,31 +89,9 @@
     <Compile Include="Domain\TemplateTests\WhenApplyingAnAddComponentAmendmentToTheRoot.cs" />
     <Compile Include="Domain\TemplateTests\WhenAddingTheFirstComponentToATemplate.cs" />
     <Compile Include="Domain\TemplateTests\WhenCreatingANewTemplate.cs" />
-    <Compile Include="Temp\Domain\IBuildContext.cs" />
-    <Compile Include="Temp\Domain\Instances\IComponentInstance.cs" />
-    <Compile Include="Temp\Domain\Templates\IComponentCollection.cs" />
-    <Compile Include="Temp\Domain\Instances\AtomInstance.cs" />
-    <Compile Include="Temp\Domain\Instances\PlaceholderInstance.cs" />
-    <Compile Include="Temp\Domain\Specifications\IComponentSpecification.cs" />
-    <Compile Include="Temp\Domain\Specifications\AtomSpecification.cs" />
-    <Compile Include="Temp\Domain\Templates\AtomTemplate.cs" />
-    <Compile Include="Temp\Domain\Instances\ContainerInstance.cs" />
-    <Compile Include="Temp\Domain\Templates\Area.cs" />
-    <Compile Include="Temp\Domain\Specifications\ContainerSpecification.cs" />
-    <Compile Include="Temp\Domain\Templates\ContainerTemplate.cs" />
-    <Compile Include="Temp\Domain\Templates\PageTemplate.cs" />
-    <Compile Include="Temp\Domain\Specifications\ParameterSpecification.cs" />
-    <Compile Include="Temp\Domain\Templates\ParameterTemplate.cs" />
-    <Compile Include="Temp\Domain\Templates\PlaceholderTemplate.cs" />
-    <Compile Include="Temp\Domain\Instances\ParameterInstance.cs" />
-    <Compile Include="Temp\Domain\Templates\IComponentTemplate.cs" />
-    <Compile Include="Temp\Domain\Instances\PageInstance.cs" />
-    <Compile Include="Temp\Domain\Instances\WidgetInstance.cs" />
-    <Compile Include="Temp\Domain\Specifications\WidgetSpecification.cs" />
-    <Compile Include="Temp\Domain\Templates\WidgetTemplate.cs" />
-    <Compile Include="Temp\Tests\WidgetTests\WhenBuildingANestedWidgetInstance.cs" />
-    <Compile Include="Temp\Tests\WidgetTests\WhenBuildingAWidgetInstance.cs" />
-    <Compile Include="Temp\Tests\WidgetTests\WhenCreatingAWidget.cs" />
+    <Compile Include="Domain\WidgetTests\WhenBuildingANestedWidgetInstance.cs" />
+    <Compile Include="Domain\WidgetTests\WhenBuildingAWidgetInstance.cs" />
+    <Compile Include="Domain\WidgetTests\WhenCreatingAWidget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

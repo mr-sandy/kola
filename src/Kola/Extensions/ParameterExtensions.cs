@@ -8,7 +8,7 @@
 
     internal static class ParameterExtensions
     {
-        public static ParameterResource ToResource(this Parameter parameter)
+        public static ParameterResource ToResource(this ParameterTemplate parameter)
         {
             if (parameter == null)
             {
@@ -22,7 +22,7 @@
                 };
         }
 
-        public static IEnumerable<ParameterResource> ToResource(this IEnumerable<Parameter> parameters)
+        public static IEnumerable<ParameterResource> ToResource(this IEnumerable<ParameterTemplate> parameters)
         {
             return parameters == null 
                 ? null 

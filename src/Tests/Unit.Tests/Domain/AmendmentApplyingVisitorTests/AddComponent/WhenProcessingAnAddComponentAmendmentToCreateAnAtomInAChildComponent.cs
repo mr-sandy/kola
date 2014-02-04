@@ -14,15 +14,15 @@
 
     public class WhenProcessingAnAddComponentAmendmentToCreateAnAtomInAChildComponent : ContextBase
     {
-        private Container container;
+        private ContainerTemplate container;
 
         [SetUp]
         public void EstablishContext()
         {
-            this.container = new Container("existing container", null);
+            this.container = new ContainerTemplate("existing container", null);
             this.Template.AddComponent(this.container, 0);
 
-            var newComponent = new Atom("new atom", null);
+            var newComponent = new AtomTemplate("new atom", null);
 
             this.ComponentSpecification.Stub(s => s.Create()).Return(newComponent);
 
@@ -40,7 +40,7 @@
         [Test]
         public void TheComponentShouldBeAnAtom()
         {
-            this.container.Components.Single().Should().BeOfType<Atom>();
+            this.container.Components.Single().Should().BeOfType<AtomTemplate>();
         }
     }
 }

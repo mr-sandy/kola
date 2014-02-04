@@ -7,9 +7,9 @@
 
     public class ComponentConfigurer
     {
-        private readonly IPluginComponentSpecification<IComponent> specification;
+        private readonly IPluginComponentSpecification<IComponentTemplate> specification;
 
-        internal ComponentConfigurer(IPluginComponentSpecification<IComponent> specification)
+        internal ComponentConfigurer(IPluginComponentSpecification<IComponentTemplate> specification)
         {
             this.specification = specification;
         }

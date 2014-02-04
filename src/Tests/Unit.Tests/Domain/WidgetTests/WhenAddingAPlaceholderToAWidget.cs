@@ -17,7 +17,7 @@
         public void EstablishContext()
         {
             this.widgetSpecification = new WidgetSpecification("widgetName");
-            var placeholder = new Placeholder();
+            var placeholder = new PlaceholderTemplate();
 
             this.widgetSpecification.AddComponent(placeholder, 0);
         }
@@ -31,7 +31,7 @@
         [Test]
         public void TheComponentShouldBeAPlaceholder()
         {
-            this.widgetSpecification.Components.Single().Should().BeOfType<Placeholder>();
+            this.widgetSpecification.Components.Single().Should().BeOfType<PlaceholderTemplate>();
         }
     }
 }

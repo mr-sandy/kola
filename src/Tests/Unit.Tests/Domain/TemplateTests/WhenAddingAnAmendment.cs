@@ -12,12 +12,12 @@
 
     public class WhenAddingAnAmendment
     {
-        private Template template;
+        private PageTemplate template;
 
         [SetUp]
         public void EstablishContext()
         {
-            this.template = new Template(new[] { "path" });
+            this.template = new PageTemplate(new[] { "path" });
 
             var amendment = MockRepository.GenerateStub<IAmendment>();
 

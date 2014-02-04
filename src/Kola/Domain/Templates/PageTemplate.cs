@@ -7,14 +7,13 @@
     using Kola;
     using Kola.Domain.Instances;
     using Kola.Domain.Templates.Amendments;
-    using Kola.Rendering;
 
-    public class Template : IComponentCollection
+    public class PageTemplate : IComponentCollection
     {
         private readonly List<IAmendment> amendments = new List<IAmendment>();
-        private readonly List<IComponent> components = new List<IComponent>();
+        private readonly List<IComponentTemplate> components = new List<IComponentTemplate>();
 
-        public Template(IEnumerable<string> path, IEnumerable<IComponent> components = null, IEnumerable<IAmendment> amendments = null)
+        public PageTemplate(IEnumerable<string> path, IEnumerable<IComponentTemplate> components = null, IEnumerable<IAmendment> amendments = null)
         {
             this.Path = path;
 
@@ -34,7 +33,7 @@
             get { return this.amendments; }
         }
 
-        public IEnumerable<IComponent> Components
+        public IEnumerable<IComponentTemplate> Components
         {
             get { return this.components; }
         }
@@ -61,7 +60,7 @@
             }
         }
 
-        public void AddComponent(IComponent component, int index)
+        public void AddComponent(IComponentTemplate component, int index)
         {
             if (index > this.components.Count)
             {
@@ -81,9 +80,9 @@
             throw new NotImplementedException();
         }
 
-        public IPage Build(BuildContext buildContext)
+        public PageInstance Build(IBuildContext buildContext)
         {
-            return new Page(this.Components.Select(c => c.Build(buildContext)));
+            return new PageInstance(this.Components.Select(c => c.Build(buildContext)).ToList());
         }
     }
 }

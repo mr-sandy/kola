@@ -8,7 +8,7 @@
 
     internal static class ComponentExtensions
     {
-        public static ComponentResource ToResource(this IComponent component, IEnumerable<string> templatePath, IEnumerable<int> componentIndices)
+        public static ComponentResource ToResource(this IComponentTemplate component, IEnumerable<string> templatePath, IEnumerable<int> componentIndices)
         {
             var composite = component as IComponentCollection;
             var components = (composite == null)
@@ -40,7 +40,7 @@
             };
         }
 
-        public static IEnumerable<ComponentResource> ToResource(this IEnumerable<IComponent> components, IEnumerable<string> templatePath, IEnumerable<int> componentIndices = null)
+        public static IEnumerable<ComponentResource> ToResource(this IEnumerable<IComponentTemplate> components, IEnumerable<string> templatePath, IEnumerable<int> componentIndices = null)
         {
             var result = new List<ComponentResource>();
 

@@ -1,17 +1,16 @@
 ﻿namespace Kola.Domain.Specifications
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kola.Domain.Extensions;
     using Kola.Domain.Templates;
 
-    public class WidgetSpecification : IComponentSpecification<Widget>, IComponentCollection
+    public class WidgetSpecification : IComponentSpecification<WidgetTemplate>, IComponentCollection
     {
-        private readonly List<IComponent> components = new List<IComponent>();
+        private readonly List<IComponentTemplate> components = new List<IComponentTemplate>();
 
-        public WidgetSpecification(string name, IEnumerable<IComponent> components = null)
+        public WidgetSpecification(string name, IEnumerable<IComponentTemplate> components = null)
         {
             this.Name = name;
 
@@ -23,12 +22,12 @@
 
         public string Name { get; private set; }
 
-        public IEnumerable<IComponent> Components
+        public IEnumerable<IComponentTemplate> Components
         {
             get { return this.components; }
         }
 
-        public void AddComponent(IComponent component, int index)
+        public void AddComponent(IComponentTemplate component, int index)
         {
             if (index > this.components.Count)
             {
@@ -43,15 +42,15 @@
             this.components.RemoveAt(index);
         }
 
-        public Widget Create()
+        public WidgetTemplate Create()
         {
             // TODO {SC} Add widget parameters
-            var parameters = Enumerable.Empty<Parameter>();
-            var areas = this.FindAll<Placeholder>();
+            var parameters = Enumerable.Empty<ParameterTemplate>();
 
-            // TODO {SC} Don't dp this
-            throw new Exception("Arse");
-            // return new Widget(this.Name, parameters, areas.Select(p => p.Create()));
+            var placeholders = this.FindAll<PlaceholderTemplate>();
+            var areas = placeholders.Select(p => new Area(Enumerable.Empty<IComponentTemplate>()));
+
+            return new WidgetTemplate(this.Name, parameters, areas);
         }
     }
 }

@@ -15,21 +15,21 @@
 
     public class WhenApplyingAnAddComponentAmendmentToTheRoot
     {
-        private Template template;
+        private PageTemplate template;
 
         [SetUp]
         public void EstablishContext()
         {
             var templatePath = new[] { "test", "path" };
-            this.template = new Template(templatePath);
+            this.template = new PageTemplate(templatePath);
 
             var amendment = new AddComponentAmendment("component name", new[] { 0 });
             this.template.AddAmendment(amendment);
 
-            var newComponent = new Atom("component name", null);
+            var newComponent = new AtomTemplate("component name", null);
 
             var componentLibrary = MockRepository.GenerateStub<IComponentSpecificationLibrary>();
-            var componentSpecification = MockRepository.GenerateStub<IComponentSpecification<Atom>>();
+            var componentSpecification = MockRepository.GenerateStub<IComponentSpecification<AtomTemplate>>();
             componentLibrary.Stub(l => l.Lookup("component name")).Return(componentSpecification);
             componentSpecification.Stub(s => s.Create()).Return(newComponent);
 
@@ -45,7 +45,7 @@
         [Test]
         public void ShouldHaveCorrectComponentType()
         {
-            this.template.Components.ElementAt(0).As<Atom>().Name.Should().Be("component name");
+            this.template.Components.ElementAt(0).As<AtomTemplate>().Name.Should().Be("component name");
         }
     }
 }

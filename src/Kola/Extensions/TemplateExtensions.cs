@@ -6,7 +6,7 @@
 
     internal static class TemplateExtensions
     {
-        public static TemplateResource ToResource(this Template template)
+        public static TemplateResource ToResource(this PageTemplate template)
         {
             return new TemplateResource
                 {

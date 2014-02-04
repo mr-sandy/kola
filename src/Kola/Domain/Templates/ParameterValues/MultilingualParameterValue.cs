@@ -13,7 +13,7 @@
 
         public IEnumerable<MultilingualVariant> Variants { get; private set; }
 
-        public string Resolve(BuildContext buildContext)
+        public string Resolve(IBuildContext buildContext)
         {
             var candidateLanguages = buildContext.Contexts.Where(c => !string.IsNullOrEmpty(c.LanguageCode)).Select(c => c.LanguageCode);
 

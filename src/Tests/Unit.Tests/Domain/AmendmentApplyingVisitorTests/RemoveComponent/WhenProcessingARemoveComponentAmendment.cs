@@ -13,7 +13,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            this.Template.AddComponent(new Atom("existing", null), 0);
+            this.Template.AddComponent(new AtomTemplate("existing", null), 0);
 
             var amendment = new RemoveComponentAmendment(new[] { 0 });
 

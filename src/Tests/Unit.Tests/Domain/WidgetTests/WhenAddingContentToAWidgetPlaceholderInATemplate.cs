@@ -8,7 +8,7 @@
 
     public class WhenAddingContentToAWidgetPlaceholderInATemplate
     {
-        private Template template;
+        private PageTemplate template;
 
         [SetUp]
         public void EstablishContext()
