@@ -111,6 +111,7 @@
     <Compile Include="Temp\Domain\Instances\WidgetInstance.cs" />
     <Compile Include="Temp\Domain\Specifications\WidgetSpecification.cs" />
     <Compile Include="Temp\Domain\Templates\WidgetTemplate.cs" />
+    <Compile Include="Temp\Tests\WidgetTests\WhenBuildingANestedWidgetInstance.cs" />
     <Compile Include="Temp\Tests\WidgetTests\WhenBuildingAWidgetInstance.cs" />
     <Compile Include="Temp\Tests\WidgetTests\WhenCreatingAWidget.cs" />
   </ItemGroup>

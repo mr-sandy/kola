@@ -47,7 +47,7 @@
         }
 
         [Test]
-        public void WidgetInstanceShouldHaveFourChildren()
+        public void WidgetInstanceShouldHaveThreeChildren()
         {
             this.instance.Components.Should().HaveCount(3);
         }
