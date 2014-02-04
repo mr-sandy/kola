@@ -20,8 +20,8 @@
                     "widget name",
                     new IComponentTemplate[]
                         {
-                            new Placeholder(), 
-                            new ContainerTemplate(new IComponentTemplate[] { new Placeholder() }) 
+                            new PlaceholderTemplate(), 
+                            new ContainerTemplate(new IComponentTemplate[] { new PlaceholderTemplate() }) 
                         });
 
             this.widget = specification.Create();

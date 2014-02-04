@@ -5,26 +5,26 @@
 
     using Unit.Tests.Temp.Domain.Instances;
 
-    public class ContainerTemplate : IComponentTemplate, IContainer
+    public class ContainerTemplate : IComponentTemplate, IComponentCollection
     {
-        private readonly List<IComponentTemplate> children = new List<IComponentTemplate>();
+        private readonly List<IComponentTemplate> components = new List<IComponentTemplate>();
 
-        public ContainerTemplate(IEnumerable<IComponentTemplate> children)
+        public ContainerTemplate(IEnumerable<IComponentTemplate> components)
         {
-            if (children != null)
+            if (components != null)
             {
-                this.children.AddRange(children);
+                this.components.AddRange(components);
             }
         }
 
-        public IEnumerable<IComponentTemplate> Children
+        public IEnumerable<IComponentTemplate> Components
         {
-            get { return this.children; }
+            get { return this.components; }
         }
 
         public IComponentInstance Build(IBuildContext buildContext)
         {
-            var instances = this.children.Select(c => c.Build(buildContext)).ToList();
+            var instances = this.components.Select(c => c.Build(buildContext)).ToList();
             
             return new ContainerInstance(instances);
         }

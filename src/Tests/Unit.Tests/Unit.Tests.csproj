@@ -91,7 +91,7 @@
     <Compile Include="Domain\TemplateTests\WhenCreatingANewTemplate.cs" />
     <Compile Include="Temp\Domain\IBuildContext.cs" />
     <Compile Include="Temp\Domain\Instances\IComponentInstance.cs" />
-    <Compile Include="Temp\Domain\Templates\IContainer.cs" />
+    <Compile Include="Temp\Domain\Templates\IComponentCollection.cs" />
     <Compile Include="Temp\Domain\Instances\AtomInstance.cs" />
     <Compile Include="Temp\Domain\Instances\PlaceholderInstance.cs" />
     <Compile Include="Temp\Domain\Specifications\IComponentSpecification.cs" />
@@ -104,7 +104,7 @@
     <Compile Include="Temp\Domain\Templates\PageTemplate.cs" />
     <Compile Include="Temp\Domain\Specifications\ParameterSpecification.cs" />
     <Compile Include="Temp\Domain\Templates\ParameterTemplate.cs" />
-    <Compile Include="Temp\Domain\Templates\Placeholder.cs" />
+    <Compile Include="Temp\Domain\Templates\PlaceholderTemplate.cs" />
     <Compile Include="Temp\Domain\Instances\ParameterInstance.cs" />
     <Compile Include="Temp\Domain\Templates\IComponentTemplate.cs" />
     <Compile Include="Temp\Domain\Instances\PageInstance.cs" />

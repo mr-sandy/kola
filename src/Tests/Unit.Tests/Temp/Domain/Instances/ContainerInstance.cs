@@ -4,11 +4,11 @@
 
     public class ContainerInstance : IComponentInstance
     {
-        public ContainerInstance(IEnumerable<IComponentInstance> children)
+        public ContainerInstance(IEnumerable<IComponentInstance> components)
         {
-            this.Children = children;
+            this.Components = components;
         }
 
-        public IEnumerable<IComponentInstance> Children { get; private set; }
+        public IEnumerable<IComponentInstance> Components { get; private set; }
     }
 }

@@ -2,21 +2,21 @@
 {
     using System.Collections.Generic;
 
-    public class Area : IContainer
+    public class Area : IComponentCollection
     {
-        private readonly List<IComponentTemplate> children = new List<IComponentTemplate>();
+        private readonly List<IComponentTemplate> components = new List<IComponentTemplate>();
 
-        public Area(IEnumerable<IComponentTemplate> children)
+        public Area(IEnumerable<IComponentTemplate> components)
         {
-            if (children != null)
+            if (components != null)
             {
-                this.children.AddRange(children);
+                this.components.AddRange(components);
             }
         }
 
-        public IEnumerable<IComponentTemplate> Children
+        public IEnumerable<IComponentTemplate> Components
         {
-            get { return this.children; }
+            get { return this.components; }
         }
     }
 }

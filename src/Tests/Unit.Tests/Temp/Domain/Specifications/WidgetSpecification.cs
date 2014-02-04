@@ -38,17 +38,17 @@
 
     internal class PlaceholderFinder
     {
-        public IEnumerable<Placeholder> FindPlaceholders(IEnumerable<IComponentTemplate> components)
+        public IEnumerable<PlaceholderTemplate> FindPlaceholders(IEnumerable<IComponentTemplate> components)
         {
             foreach (var component in components)
             {
-                if (component is Placeholder)
+                if (component is PlaceholderTemplate)
                 {
-                    yield return (Placeholder)component;
+                    yield return (PlaceholderTemplate)component;
                 }
-                else if (component is IContainer)
+                else if (component is IComponentCollection)
                 {
-                    foreach (var childPlaceholder in this.FindPlaceholders(((IContainer)component).Children))
+                    foreach (var childPlaceholder in this.FindPlaceholders(((IComponentCollection)component).Components))
                     {
                         yield return childPlaceholder;
                     }

@@ -4,11 +4,11 @@
 
     public class PageInstance
     {
-        public PageInstance(IEnumerable<IComponentInstance> children)
+        public PageInstance(IEnumerable<IComponentInstance> components)
         {
-            this.Children = children;
+            this.Components = components;
         }
 
-        public IEnumerable<IComponentInstance> Children { get; private set; }
+        public IEnumerable<IComponentInstance> Components { get; private set; }
     }
 }
