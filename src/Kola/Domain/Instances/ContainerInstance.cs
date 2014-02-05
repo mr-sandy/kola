@@ -6,18 +6,18 @@
 
     public class ContainerInstance : IComponentInstance
     {
-        public ContainerInstance(string name, IEnumerable<ParameterInstance> parameters, IEnumerable<IComponentInstance> children = null)
+        public ContainerInstance(string name, IEnumerable<ParameterInstance> parameters, IEnumerable<IComponentInstance> components = null)
         {
             this.Name = name;
             this.Parameters = parameters;
-            this.Children = children;
+            this.Components = components;
         }
 
         public string Name { get; private set; }
 
         public IEnumerable<ParameterInstance> Parameters { get; private set; }
 
-        public IEnumerable<IComponentInstance> Children { get; private set; }
+        public IEnumerable<IComponentInstance> Components { get; private set; }
 
         public IResult Render(IRenderer renderer)
         {

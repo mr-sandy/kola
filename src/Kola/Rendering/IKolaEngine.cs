@@ -6,8 +6,8 @@
 
     public interface IKolaEngine
     {
-        IResult Render(IEnumerable<IComponentInstance> children);
-
         IResult Render(PageInstance page);
+
+        IResult Render(IEnumerable<IComponentInstance> components);
     }
 }

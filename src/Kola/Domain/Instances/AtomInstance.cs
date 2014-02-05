@@ -1,6 +1,5 @@
 ﻿namespace Kola.Domain.Instances
 {
-    using System;
     using System.Collections.Generic;
 
     using Kola.Rendering;

@@ -136,8 +136,6 @@
     <Compile Include="Persistence\Surrogates\WidgetSurrogate.cs" />
     <Compile Include="Persistence\WidgetSpecificationRepository.cs" />
     <Compile Include="Persistence\Surrogates\WidgetSpecificationSurrogate.cs" />
-    <Compile Include="Rendering\IRenderer.cs" />
-    <Compile Include="Rendering\Renderer.cs" />
     <Compile Include="Rendering\IKolaEngine.cs" />
     <Compile Include="Configuration\IKolaConfigurationRegistry.cs" />
     <Compile Include="Rendering\IPageHandler.cs" />
@@ -178,7 +176,7 @@
     <Compile Include="Configuration\Fluent\PluginConfigurer.cs" />
     <Compile Include="Configuration\Fluent\ParameterTypeConfigurer.cs" />
     <Compile Include="Configuration\Plugins\PluginConfiguration.cs" />
-    <Compile Include="Rendering\Caching\CachingProcessor.cs" />
+    <Compile Include="Rendering\Caching\CachingRenderer.cs" />
     <Compile Include="Rendering\Caching\CachingResult.cs" />
     <Compile Include="Rendering\CompositeResult.cs" />
     <Compile Include="Rendering\DefaultHandler.cs" />
@@ -186,7 +184,7 @@
     <Compile Include="Domain\Instances\IComponentInstance.cs" />
     <Compile Include="Rendering\IHandler.cs" />
     <Compile Include="Rendering\IHandlerFactory.cs" />
-    <Compile Include="Rendering\IProcessor.cs" />
+    <Compile Include="Rendering\IRenderer.cs" />
     <Compile Include="Rendering\IResult.cs" />
     <Compile Include="Rendering\IViewHelper.cs" />
     <Compile Include="Rendering\KolaEngine.cs" />
@@ -194,7 +192,7 @@
     <Compile Include="Rendering\IObjectFactory.cs" />
     <Compile Include="Domain\Instances\PageInstance.cs" />
     <Compile Include="Rendering\PageHandler.cs" />
-    <Compile Include="Rendering\Processor.cs" />
+    <Compile Include="Rendering\Renderer.cs" />
     <Compile Include="Rendering\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Nancy\TinyIoCObjectFactory.cs" />

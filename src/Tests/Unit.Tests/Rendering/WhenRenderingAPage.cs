@@ -24,7 +24,7 @@
             handlerFactory.Stub(h => h.GetAtomHandler(Arg<string>.Is.Anything)).Return(new DefaultHandler());
             handlerFactory.Stub(h => h.GetContainerHandler(Arg<string>.Is.Anything)).Return(new DefaultHandler());
 
-            var processor = new Processor(handlerFactory);
+            var processor = new Renderer(handlerFactory);
             var engine = new KolaEngine(processor);
             var page =
                 new PageInstance(

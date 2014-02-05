@@ -65,14 +65,14 @@
         {
             var containerInstance = (ContainerInstance)this.instance.Components.ElementAt(2);
 
-            containerInstance.Children.Single().Should().BeOfType<PlaceholderInstance>();
+            containerInstance.Components.Single().Should().BeOfType<PlaceholderInstance>();
         }
 
         [Test]
         public void SecondPlaceholderInstanceShouldHaveThreeChildren()
         {
             var containerInstance = (ContainerInstance)this.instance.Components.ElementAt(2);
-            var placeholder = containerInstance.Children.Single() as PlaceholderInstance;
+            var placeholder = containerInstance.Components.Single() as PlaceholderInstance;
             placeholder.Components.Should().HaveCount(3);
         }
     }

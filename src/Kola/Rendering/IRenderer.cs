@@ -1,6 +1,6 @@
 ﻿namespace Kola.Rendering
 {
-    using System;
+    using System.Collections.Generic;
 
     using Kola.Domain.Instances;
 
@@ -13,5 +13,9 @@
         IResult Render(WidgetInstance widget);
 
         IResult Render(PlaceholderInstance placeholder);
+
+        //IResult Render(PageInstance page);
+
+        //IResult Render(IEnumerable<IComponentInstance> components);
     }
 }

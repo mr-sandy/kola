@@ -26,7 +26,7 @@
 
             sb.Append(this.openingHtml);
 
-            var children = this.kolaEngine.Render(component.Children);
+            var children = this.kolaEngine.Render(component.Components);
 
             sb.Append(children.ToHtml(viewHelper));
 

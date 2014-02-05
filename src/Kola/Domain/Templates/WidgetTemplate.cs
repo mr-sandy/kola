@@ -32,11 +32,11 @@
 
             buildContext.Areas.Push(new Queue<Area>(this.Areas));
 
-            var children = specification.Components.Select(c => c.Build(buildContext)).ToList();
+            var components = specification.Components.Select(c => c.Build(buildContext)).ToList();
 
             buildContext.Areas.Pop();
 
-            return new WidgetInstance(this.Name, children);
+            return new WidgetInstance(this.Name, components);
         }
     }
 }

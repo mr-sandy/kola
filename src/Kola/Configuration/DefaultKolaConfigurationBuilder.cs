@@ -23,10 +23,10 @@
             return this.pluginFinder.FindPlugins();
         }
 
-        protected override IProcessor BuildProcessor(Dictionary<string, Type> handlerMappings)
+        protected override IRenderer BuildRenderer(Dictionary<string, Type> handlerMappings)
         {
             var handlerFactory = new HandlerFactory(handlerMappings, this.objectFactory);
-            return new Processor(handlerFactory);
+            return new Renderer(handlerFactory);
         }
     }
 }

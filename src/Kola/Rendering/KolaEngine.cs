@@ -7,25 +7,21 @@
 
     public class KolaEngine : IKolaEngine
     {
-        private readonly IProcessor processor;
+        private readonly IRenderer renderer;
 
-        public KolaEngine(IProcessor processor)
+        public KolaEngine(IRenderer renderer)
         {
-            this.processor = processor;
+            this.renderer = renderer;
         }
 
         public IResult Render(PageInstance page)
         {
-            var results = page.Components.Select(this.processor.Process);
-
-            return new CompositeResult(results);
+            return new CompositeResult(page.Components.Select(c => c.Render(this.renderer)));
         }
 
-        public IResult Render(IEnumerable<IComponentInstance> children)
+        public IResult Render(IEnumerable<IComponentInstance> components)
         {
-            var results = children.Select(this.processor.Process);
-
-            return new CompositeResult(results);
+            return new CompositeResult(components.Select(c => c.Render(this.renderer)));
         }
     }
 }

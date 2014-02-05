@@ -1,5 +1,7 @@
 ﻿namespace Kola.Rendering
 {
+    using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     using Kola.Domain.Instances;
@@ -8,32 +10,43 @@
     {
         private readonly IHandlerFactory handlerFactory;
 
-        private readonly IProcessor processor;
-
-        public Renderer(IHandlerFactory handlerFactory, IProcessor processor)
+        public Renderer(IHandlerFactory handlerFactory)
         {
             this.handlerFactory = handlerFactory;
-            this.processor = processor;
         }
 
         public IResult Render(AtomInstance atom)
         {
+            System.Diagnostics.Debug.WriteLine(string.Format("Processing atom {0}", atom.Name));
             return this.handlerFactory.GetAtomHandler(atom.Name).Render(atom);
         }
 
         public IResult Render(ContainerInstance container)
         {
+            System.Diagnostics.Debug.WriteLine(string.Format("Processing container {0}", container.Name));
             return this.handlerFactory.GetContainerHandler(container.Name).Render(container);
         }
 
         public IResult Render(WidgetInstance widget)
         {
-            return new CompositeResult(widget.Components.Select(c => this.processor.Process(c)));
+            System.Diagnostics.Debug.WriteLine(string.Format("Processing widget {0}", widget.Name));
+            return new CompositeResult(widget.Components.Select(c => c.Render(this)));
         }
 
         public IResult Render(PlaceholderInstance placeholder)
         {
-            return new CompositeResult(placeholder.Components.Select(c => this.processor.Process(c)));
+            System.Diagnostics.Debug.WriteLine(string.Format("Processing placeholder {0}", placeholder.Name));
+            return new CompositeResult(placeholder.Components.Select(c => c.Render(this)));
         }
+
+        //public IResult Render(PageInstance page)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public IResult Render(IEnumerable<IComponentInstance> components)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

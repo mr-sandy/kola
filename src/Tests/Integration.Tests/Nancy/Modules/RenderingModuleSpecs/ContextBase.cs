@@ -39,7 +39,7 @@
                         with.ViewLocationProvider(new ResourceViewLocationProvider());
                     });
 
-            NancyKolaConfigurationRegistry.Instance = new KolaConfiguration(new KolaEngine(new Processor(this.HandlerFactory)), null);
+            NancyKolaConfigurationRegistry.Instance = new KolaConfiguration(new KolaEngine(new Renderer(this.HandlerFactory)), null);
             this.Browser = new Browser(bootstrapper);
         }
     }
