@@ -1,9 +1,10 @@
-﻿namespace Kola.Rendering.Caching
+﻿namespace Kola.Domain.Rendering.Caching
 {
     using System;
+    using System.Collections.Generic;
 
     using Kola.Domain.Instances;
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     public class CachingRenderer : IRenderer
     {
@@ -37,6 +38,16 @@
         }
 
         public IResult Render(PlaceholderInstance placeholder)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult Render(PageInstance page)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult Render(IEnumerable<IComponentInstance> components)
         {
             throw new NotImplementedException();
         }

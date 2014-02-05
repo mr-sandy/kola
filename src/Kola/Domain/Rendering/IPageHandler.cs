@@ -1,4 +1,4 @@
-﻿namespace Kola.Rendering
+﻿namespace Kola.Domain.Rendering
 {
     using System.Collections.Generic;
 

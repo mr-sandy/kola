@@ -4,6 +4,7 @@
     using System.Linq;
 
     using Kola.Domain.Instances;
+    using Kola.Domain.Instances.Building;
 
     public class PlaceholderTemplate : IComponentTemplate
     {

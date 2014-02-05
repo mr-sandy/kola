@@ -13,7 +13,7 @@ namespace Kola.Configuration
     using System.Linq;
 
     using Kola.Configuration.Plugins;
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     public abstract class KolaConfigurationBuilder
     {
@@ -25,10 +25,9 @@ namespace Kola.Configuration
                 .SelectMany(c => c.Components)
                 .ToDictionary(c => c.Name, c => c.HandlerType);
 
-            // TODO {SC} Review this gubbins
-            var engine = new KolaEngine(this.BuildRenderer(handlerMappings));
+            var renderer = this.BuildRenderer(handlerMappings);
 
-            return new KolaConfiguration(engine, plugins);
+            return new KolaConfiguration(renderer, plugins);
         }
 
         protected abstract IEnumerable<PluginConfiguration> FindPlugins();

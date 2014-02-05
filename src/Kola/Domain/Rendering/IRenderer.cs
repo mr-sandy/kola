@@ -1,4 +1,4 @@
-﻿namespace Kola.Rendering
+﻿namespace Kola.Domain.Rendering
 {
     using System.Collections.Generic;
 
@@ -14,8 +14,8 @@
 
         IResult Render(PlaceholderInstance placeholder);
 
-        //IResult Render(PageInstance page);
+        IResult Render(PageInstance page);
 
-        //IResult Render(IEnumerable<IComponentInstance> components);
+        IResult Render(IEnumerable<IComponentInstance> components);
     }
 }

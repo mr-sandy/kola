@@ -5,6 +5,7 @@
 
     using Kola;
     using Kola.Domain.Instances;
+    using Kola.Domain.Instances.Building;
 
     public class ContainerTemplate : IParameterisedComponent, IComponentCollection
     {

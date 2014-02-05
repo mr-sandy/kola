@@ -5,7 +5,7 @@
     using FluentAssertions;
 
     using Kola.Domain.Instances;
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     using NUnit.Framework;
 
@@ -24,8 +24,7 @@
             handlerFactory.Stub(h => h.GetAtomHandler(Arg<string>.Is.Anything)).Return(new DefaultHandler());
             handlerFactory.Stub(h => h.GetContainerHandler(Arg<string>.Is.Anything)).Return(new DefaultHandler());
 
-            var processor = new Renderer(handlerFactory);
-            var engine = new KolaEngine(processor);
+            var renderer = new Renderer(handlerFactory);
             var page =
                 new PageInstance(
                     new IComponentInstance[]
@@ -35,11 +34,11 @@
                             new ContainerInstance("container1", null, new[] { new AtomInstance("atom3", Enumerable.Empty<ParameterInstance>()) })
                         });
 
-            var viewFactory = new TestViewFactory(engine);
+            var viewFactory = new TestViewFactory(renderer);
             var viewHelper = new TestViewHelper(viewFactory);
 
 
-            var renderedPage = engine.Render(page);
+            var renderedPage = renderer.Render(page);
             this.result = renderedPage.ToHtml(viewHelper);
         }
 

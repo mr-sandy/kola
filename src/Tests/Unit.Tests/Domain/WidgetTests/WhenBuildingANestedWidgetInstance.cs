@@ -7,6 +7,7 @@
 
     using Kola.Domain;
     using Kola.Domain.Instances;
+    using Kola.Domain.Instances.Building;
     using Kola.Domain.Specifications;
     using Kola.Domain.Templates;
 

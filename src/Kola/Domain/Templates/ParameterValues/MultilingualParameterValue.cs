@@ -4,6 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    using Kola.Domain.Instances.Building;
+
     public class MultilingualParameterValue : IParameterValue
     {
         public MultilingualParameterValue(IEnumerable<MultilingualVariant> variants)

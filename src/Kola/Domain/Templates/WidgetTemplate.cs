@@ -1,10 +1,10 @@
 ﻿namespace Kola.Domain.Templates
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kola.Domain.Instances;
+    using Kola.Domain.Instances.Building;
 
     public class WidgetTemplate : IParameterisedComponent
     {
@@ -36,7 +36,7 @@
 
             buildContext.Areas.Pop();
 
-            return new WidgetInstance(this.Name, components);
+            return new WidgetInstance(components);
         }
     }
 }

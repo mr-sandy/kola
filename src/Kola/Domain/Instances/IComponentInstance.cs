@@ -1,11 +1,9 @@
 ﻿namespace Kola.Domain.Instances
 {
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     public interface IComponentInstance
     {
-        string Name { get; }
-
         IResult Render(IRenderer renderer);
     }
 }

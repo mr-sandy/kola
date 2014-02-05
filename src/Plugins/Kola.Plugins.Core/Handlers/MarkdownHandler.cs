@@ -4,7 +4,7 @@
     using System.Linq;
 
     using Kola.Domain.Instances;
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     public class MarkdownHandler : IHandler<AtomInstance>
     {

@@ -10,14 +10,14 @@
     {
         public static IHtmlString RenderPage<T>(this HtmlHelpers<T> helpers, PageInstance page)
         {
-            var engine = NancyKolaConfigurationRegistry.Instance.KolaEngine;
-            return new ResultWrapper(engine.Render(page), new NancyRazorViewHelper<T>(helpers));
+            var result = NancyKolaConfigurationRegistry.Instance.Renderer.Render(page);
+            return new ResultWrapper(result, new NancyRazorViewHelper<T>(helpers));
         }
 
         public static IHtmlString RenderComponents<T>(this HtmlHelpers<T> helpers, IEnumerable<IComponentInstance> components)
         {
-            var engine = NancyKolaConfigurationRegistry.Instance.KolaEngine;
-            return new ResultWrapper(engine.Render(components), new NancyRazorViewHelper<T>(helpers));
+            var result = NancyKolaConfigurationRegistry.Instance.Renderer.Render(components);
+            return new ResultWrapper(result, new NancyRazorViewHelper<T>(helpers));
         }
     }
 }

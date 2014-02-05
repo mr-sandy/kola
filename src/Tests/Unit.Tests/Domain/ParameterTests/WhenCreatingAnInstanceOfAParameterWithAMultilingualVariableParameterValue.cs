@@ -4,6 +4,7 @@
 
     using Kola.Domain;
     using Kola.Domain.Instances;
+    using Kola.Domain.Instances.Building;
     using Kola.Domain.Templates;
     using Kola.Domain.Templates.ParameterValues;
 

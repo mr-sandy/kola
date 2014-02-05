@@ -2,6 +2,8 @@
 {
     using System;
 
+    using Kola.Domain.Instances.Building;
+
     public class FixedParameterValue : IParameterValue
     {
         public FixedParameterValue(string value)

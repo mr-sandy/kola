@@ -1,6 +1,6 @@
 ﻿namespace Unit.Tests.Rendering.Framework
 {
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     internal class TestViewHelper : IViewHelper
     {

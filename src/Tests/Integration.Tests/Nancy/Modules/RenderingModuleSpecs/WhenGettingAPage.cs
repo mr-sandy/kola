@@ -6,7 +6,7 @@
     using FluentAssertions;
 
     using Kola.Domain.Instances;
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     using global::Nancy;
     using global::Nancy.Testing;

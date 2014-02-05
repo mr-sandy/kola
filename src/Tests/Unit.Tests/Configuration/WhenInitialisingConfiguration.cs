@@ -4,7 +4,7 @@
 
     using Kola.Configuration;
     using Kola.Configuration.Plugins;
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     using NUnit.Framework;
 
@@ -30,9 +30,9 @@
         }
 
         [Test]
-        public void TheKolaEngineShouldBeSet()
+        public void TheRendererShouldBeSet()
         {
-            this.configuration.KolaEngine.Should().NotBeNull();
+            this.configuration.Renderer.Should().NotBeNull();
         }
 
         [Test]

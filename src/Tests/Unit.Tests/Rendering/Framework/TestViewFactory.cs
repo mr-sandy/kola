@@ -1,14 +1,14 @@
 ﻿namespace Unit.Tests.Rendering.Framework
 {
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     internal class TestViewFactory : ITestViewFactory
     {
-        private readonly KolaEngine kolaEngine;
+        private readonly Renderer renderer;
 
-        public TestViewFactory(KolaEngine kolaEngine)
+        public TestViewFactory(Renderer renderer)
         {
-            this.kolaEngine = kolaEngine;
+            this.renderer = renderer;
         }
 
         public TestView Create(string viewName)
@@ -20,7 +20,7 @@
 
             if (viewName.Contains("container"))
             {
-                return new TestContainerView(this.kolaEngine, string.Format("<{0}>", viewName), string.Format("</{0}>", viewName));
+                return new TestContainerView(this.renderer, string.Format("<{0}>", viewName), string.Format("</{0}>", viewName));
             }
 
             return null;

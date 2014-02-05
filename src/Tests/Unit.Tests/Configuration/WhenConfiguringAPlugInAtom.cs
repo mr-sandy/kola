@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 using Kola.Configuration;
-using Kola.Rendering;
+using Kola.Domain.Rendering;
 using NUnit.Framework;
 
 namespace Unit.Tests.Configuration
@@ -10,6 +10,7 @@ namespace Unit.Tests.Configuration
     using Kola.Configuration.Plugins;
     using Kola.Domain;
     using Kola.Domain.Instances;
+    using Kola.Domain.Specifications;
 
     [TestFixture]
     public class WhenConfiguringAnAtom
@@ -73,7 +74,7 @@ namespace Unit.Tests.Configuration
         public void TheCacheTypeShouldBeSet()
         {
             var config = this.configuration.Components.ElementAt(0);
-            Assert.AreEqual(CacheType.PerUser, config.CacheType);
+            Assert.AreEqual(CacheType.Cache, config.CacheType);
         }
 
         [Test]
@@ -91,7 +92,7 @@ namespace Unit.Tests.Configuration
             this.Configure.Container("atom-1")
                 .WithHandler<TestHandler>("viewName")
                 .WithParameter("parameterName", "parameterType")
-                .Cache.PerUser.For(100);
+                .Cache.Cache.For(100);
         }
     }
 

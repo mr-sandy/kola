@@ -3,7 +3,7 @@
     using Kola.Configuration;
     using Kola.Nancy;
     using Kola.Nancy.Modules;
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     using global::Nancy.Testing;
     using global::Nancy.ViewEngines;
@@ -39,7 +39,7 @@
                         with.ViewLocationProvider(new ResourceViewLocationProvider());
                     });
 
-            NancyKolaConfigurationRegistry.Instance = new KolaConfiguration(new KolaEngine(new Renderer(this.HandlerFactory)), null);
+            NancyKolaConfigurationRegistry.Instance = new KolaConfiguration(new Renderer(this.HandlerFactory), null);
             this.Browser = new Browser(bootstrapper);
         }
     }

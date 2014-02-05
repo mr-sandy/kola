@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     public class PlaceholderInstance : IComponentInstance
     {
@@ -12,11 +12,6 @@
         }
 
         public IEnumerable<IComponentInstance> Components { get; private set; }
-
-        public string Name
-        {
-            get { return string.Empty; } 
-        }
 
         public IResult Render(IRenderer renderer)
         {

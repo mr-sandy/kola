@@ -1,4 +1,4 @@
-﻿namespace Kola.Domain
+﻿namespace Kola.Domain.Instances.Building
 {
     using System;
     using System.Collections.Generic;

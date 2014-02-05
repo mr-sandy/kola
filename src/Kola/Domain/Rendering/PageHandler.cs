@@ -1,9 +1,10 @@
-﻿namespace Kola.Rendering
+﻿namespace Kola.Domain.Rendering
 {
     using System.Collections.Generic;
 
     using Kola.Domain;
     using Kola.Domain.Instances;
+    using Kola.Domain.Instances.Building;
     using Kola.Domain.Templates;
     using Kola.Persistence;
 

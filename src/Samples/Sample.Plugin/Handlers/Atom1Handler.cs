@@ -1,7 +1,7 @@
 ﻿namespace Sample.Plugin.Handlers
 {
     using Kola.Domain.Instances;
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     public class Atom1Handler : IHandler<AtomInstance>
     {

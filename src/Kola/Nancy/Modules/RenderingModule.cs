@@ -1,7 +1,7 @@
 ﻿namespace Kola.Nancy.Modules
 {
     using Kola.Extensions;
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     using global::Nancy;
     using global::Nancy.Responses.Negotiation;

@@ -2,7 +2,7 @@
 {
     using Kola.Domain.Specifications;
     using Kola.Domain.Templates;
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     public class ComponentConfigurer
     {

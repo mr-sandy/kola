@@ -1,4 +1,4 @@
-﻿namespace Kola.Domain
+﻿namespace Kola.Domain.Instances.Building
 {
     public class ContextItem
     {

@@ -18,7 +18,7 @@
                 .WithView("Atom2")
                 .WithParameter("parameter-name-1", "parameter-type-1")
                 .WithParameter("parameter-name-2", "parameter-type-2")
-                .Cache.PerUser.For(100);
+                .Cache.Cache.For(100);
 
             this.Configure.Container("container-1")
                 .WithView("Container1")

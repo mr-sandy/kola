@@ -6,6 +6,7 @@
 
     using Kola;
     using Kola.Domain.Instances;
+    using Kola.Domain.Instances.Building;
     using Kola.Domain.Templates.Amendments;
 
     public class PageTemplate : IComponentCollection

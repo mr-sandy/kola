@@ -3,17 +3,17 @@
     using System.Collections.Generic;
 
     using Kola.Configuration.Plugins;
-    using Kola.Rendering;
+    using Kola.Domain.Rendering;
 
     public class KolaConfiguration 
     {
-        public KolaConfiguration(IKolaEngine kolaEngine, IEnumerable<PluginConfiguration> plugins)
+        public KolaConfiguration(IRenderer renderer, IEnumerable<PluginConfiguration> plugins)
         {
-            this.KolaEngine = kolaEngine;
+            this.Renderer = renderer;
             this.Plugins = plugins;
         }
 
-        public IKolaEngine KolaEngine { get; private set; }
+        public IRenderer Renderer { get; private set; }
 
         public IEnumerable<PluginConfiguration> Plugins { get; private set; }
     }

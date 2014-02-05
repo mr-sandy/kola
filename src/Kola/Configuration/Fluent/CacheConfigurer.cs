@@ -14,11 +14,11 @@ namespace Kola.Configuration.Fluent
             this.componentConfiguration = componentConfiguration;
         }
 
-        public CacheConfigurer PerUser
+        public CacheConfigurer Cache
         {
             get
             {
-                this.componentConfiguration.CacheType = CacheType.PerUser;
+                this.componentConfiguration.CacheType = CacheType.Cache;
                 return this;
             }
         }

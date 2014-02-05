@@ -1,5 +1,7 @@
 ﻿namespace Kola.Domain.Templates.ParameterValues
 {
+    using Kola.Domain.Instances.Building;
+
     public class UndefinedParameterValue : IParameterValue
     {
         public string Resolve(IBuildContext buildContext)
