@@ -21,7 +21,7 @@
 
         public IResult Render(IHandlerFactory handlerFactory)
         {
-            return handlerFactory.GetHandler(this.Name).Render(this);
+            return handlerFactory.GetContainerHandler(this.Name).Render(this);
         }
     }
 }

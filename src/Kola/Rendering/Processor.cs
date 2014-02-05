@@ -13,6 +13,7 @@
 
         public IResult Process(IComponentInstance component)
         {
+            System.Diagnostics.Debug.WriteLine(string.Format("Processing component {0}", component.Name));
             return component.Render(this.handlerFactory);
         }
     }

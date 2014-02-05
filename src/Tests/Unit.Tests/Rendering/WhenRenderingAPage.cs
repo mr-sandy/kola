@@ -4,7 +4,6 @@
 
     using FluentAssertions;
 
-    using Kola.Domain;
     using Kola.Domain.Instances;
     using Kola.Rendering;
 
@@ -22,7 +21,8 @@
         public void EstablishContext()
         {
             var handlerFactory = MockRepository.GenerateStub<IHandlerFactory>();
-            handlerFactory.Stub(h => h.GetHandler(Arg<string>.Is.Anything)).Return(new DefaultHandler());
+            handlerFactory.Stub(h => h.GetAtomHandler(Arg<string>.Is.Anything)).Return(new DefaultHandler());
+            handlerFactory.Stub(h => h.GetContainerHandler(Arg<string>.Is.Anything)).Return(new DefaultHandler());
 
             var processor = new Processor(handlerFactory);
             var engine = new KolaEngine(processor);

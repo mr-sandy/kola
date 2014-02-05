@@ -2,8 +2,9 @@
 {
     using Kola.Domain.Instances;
 
-    public interface IHandler
+    public interface IHandler<T>
+        where T : IComponentInstance
     {
-        IResult Render(IComponentInstance component);
+        IResult Render(T component);
     }
 }

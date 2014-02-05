@@ -95,9 +95,9 @@ namespace Unit.Tests.Configuration
         }
     }
 
-    internal class TestHandler : IHandler
+    internal class TestHandler : IHandler<AtomInstance>
     {
-        public IResult Render(IComponentInstance component)
+        public IResult Render(AtomInstance component)
         {
             throw new NotImplementedException();
         }

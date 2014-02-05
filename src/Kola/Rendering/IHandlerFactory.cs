@@ -1,7 +1,11 @@
 ﻿namespace Kola.Rendering
 {
+    using Kola.Domain.Instances;
+
     public interface IHandlerFactory
     {
-        IHandler GetHandler(string componentName);
+        IHandler<AtomInstance> GetAtomHandler(string atomName);
+
+        IHandler<ContainerInstance> GetContainerHandler(string containerName);
     }
 }

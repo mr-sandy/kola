@@ -6,14 +6,13 @@
     using Kola.Domain.Instances;
     using Kola.Rendering;
 
-    public class MarkdownHandler : IHandler
+    public class MarkdownHandler : IHandler<AtomInstance>
     {
-        public IResult Render(IComponentInstance component)
+        public IResult Render(AtomInstance atom)
         {
             var transformer = new MarkdownSharp.Markdown();
 
-            // TODO {SC} Anyway of not having to cast here?  Different types of IHandler?
-            var markdownParameter = ((AtomInstance)component).Parameters.Where(p => p.Name.Equals("markdown", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            var markdownParameter = atom.Parameters.Where(p => p.Name.Equals("markdown", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
 
             var markdown = markdownParameter == null
                 ? string.Empty

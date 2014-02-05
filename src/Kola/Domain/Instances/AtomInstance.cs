@@ -18,7 +18,7 @@
 
         public IResult Render(IHandlerFactory handlerFactory)
         {
-            return handlerFactory.GetHandler(this.Name).Render(this);
+            return handlerFactory.GetAtomHandler(this.Name).Render(this);
         }
     }
 }

@@ -1,10 +1,9 @@
 ﻿namespace Sample.Plugin.Handlers
 {
-    using Kola.Domain;
     using Kola.Domain.Instances;
     using Kola.Rendering;
 
-    public class Atom1Handler : IHandler
+    public class Atom1Handler : IHandler<AtomInstance>
     {
         private readonly IAtom1Dependency atom1Dependency;
 
@@ -13,9 +12,9 @@
             this.atom1Dependency = atom1Dependency;
         }
 
-        public IResult Render(IComponentInstance component)
+        public IResult Render(AtomInstance atom)
         {
-            return new Result(viewHelper => viewHelper.RenderPartial("atom-1", component));
+            return new Result(viewHelper => viewHelper.RenderPartial("atom-1", atom));
         }
     }
 }
