@@ -1,7 +1,6 @@
 ﻿namespace Kola.Domain.Instances
 {
     using System.Collections.Generic;
-    using System.Linq;
 
     using Kola.Rendering;
 
@@ -17,9 +16,9 @@
 
         public IEnumerable<IComponentInstance> Components { get; private set; }
 
-        public IResult Render(IHandlerFactory handlerFactory)
+        public IResult Render(IRenderer renderer)
         {
-            return new CompositeResult(this.Components.Select(c => c.Render(handlerFactory)));
+            return renderer.Render(this);
         }
     }
 }

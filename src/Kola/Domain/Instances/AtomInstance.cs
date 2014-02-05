@@ -1,5 +1,6 @@
 ﻿namespace Kola.Domain.Instances
 {
+    using System;
     using System.Collections.Generic;
 
     using Kola.Rendering;
@@ -16,9 +17,9 @@
 
         public IEnumerable<ParameterInstance> Parameters { get; private set; }
 
-        public IResult Render(IHandlerFactory handlerFactory)
+        public IResult Render(IRenderer renderer)
         {
-            return handlerFactory.GetAtomHandler(this.Name).Render(this);
+            return renderer.Render(this);
         }
     }
 }

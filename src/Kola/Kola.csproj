@@ -136,6 +136,8 @@
     <Compile Include="Persistence\Surrogates\WidgetSurrogate.cs" />
     <Compile Include="Persistence\WidgetSpecificationRepository.cs" />
     <Compile Include="Persistence\Surrogates\WidgetSpecificationSurrogate.cs" />
+    <Compile Include="Rendering\IRenderer.cs" />
+    <Compile Include="Rendering\Renderer.cs" />
     <Compile Include="Rendering\IKolaEngine.cs" />
     <Compile Include="Configuration\IKolaConfigurationRegistry.cs" />
     <Compile Include="Rendering\IPageHandler.cs" />

@@ -1,8 +1,6 @@
 ﻿namespace Kola.Domain.Instances
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     using Kola.Rendering;
 
@@ -20,9 +18,9 @@
             get { return string.Empty; } 
         }
 
-        public IResult Render(IHandlerFactory handlerFactory)
+        public IResult Render(IRenderer renderer)
         {
-            return new CompositeResult(this.Components.Select(c => c.Render(handlerFactory)));
+            return renderer.Render(this);
         }
     }
 }

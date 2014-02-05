@@ -19,9 +19,9 @@
 
         public IEnumerable<IComponentInstance> Children { get; private set; }
 
-        public IResult Render(IHandlerFactory handlerFactory)
+        public IResult Render(IRenderer renderer)
         {
-            return handlerFactory.GetContainerHandler(this.Name).Render(this);
+            return renderer.Render(this);
         }
     }
 }

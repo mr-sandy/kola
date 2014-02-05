@@ -6,6 +6,6 @@
     {
         string Name { get; }
 
-        IResult Render(IHandlerFactory handlerFactory);
+        IResult Render(IRenderer renderer);
     }
 }
