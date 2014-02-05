@@ -2,9 +2,7 @@
 namespace Kola.Configuration.Fluent
 {
     using Kola.Configuration.Plugins;
-    using Kola.Domain;
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
 
     public class PluginConfigurer
     {
@@ -22,29 +20,29 @@ namespace Kola.Configuration.Fluent
 
         public ComponentConfigurer Container(string componentName)
         {
-            IPluginComponentSpecification<IComponentTemplate> componentSpecification = new ContainerSpecification(componentName);
+            var specification = new ContainerSpecification(componentName);
 
-            this.configuration.Add(componentSpecification);
+            this.configuration.Add(specification);
 
-            return new ComponentConfigurer(componentSpecification);
+            return new ComponentConfigurer(specification);
         }
 
         public ComponentConfigurer Atom(string componentName)
         {
-            var componentSpecification = new AtomSpecification(componentName);
+            var specification = new AtomSpecification(componentName);
 
-            this.configuration.Add(componentSpecification);
+            this.configuration.Add(specification);
 
-            return new ComponentConfigurer(componentSpecification);
+            return new ComponentConfigurer(specification);
         }
 
         public ParameterTypeConfigurer ParameterType(string parameterName)
         {
-            var parameterTypeSpecification = new ParameterTypeSpecification(parameterName);
+            var specification = new ParameterTypeSpecification(parameterName);
 
-            this.configuration.Add(parameterTypeSpecification);
+            this.configuration.Add(specification);
 
-            return new ParameterTypeConfigurer(parameterTypeSpecification);
+            return new ParameterTypeConfigurer(specification);
         }
     }
 }

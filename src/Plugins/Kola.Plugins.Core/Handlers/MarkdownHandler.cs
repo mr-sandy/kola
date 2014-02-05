@@ -3,7 +3,6 @@
     using System;
     using System.Linq;
 
-    using Kola.Domain;
     using Kola.Domain.Instances;
     using Kola.Rendering;
 
