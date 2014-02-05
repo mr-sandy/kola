@@ -1,6 +1,10 @@
 ﻿namespace Kola.Domain.Instances
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
+
+    using Kola.Rendering;
 
     public class PlaceholderInstance : IComponentInstance
     {
@@ -16,9 +20,9 @@
             get { return string.Empty; } 
         }
 
-        public T Accept<T>(IComponentInstanceVisitor<T> visitor)
+        public IResult Render(IHandlerFactory handlerFactory)
         {
-            return visitor.Visit(this);
+            return new CompositeResult(this.Components.Select(c => c.Render(handlerFactory)));
         }
     }
 }

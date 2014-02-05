@@ -26,15 +26,13 @@ namespace Kola.Configuration
                 .ToDictionary(c => c.Name, c => c.HandlerType);
 
             // TODO {SC} Review this gubbins
-            KolaEngine engine = null;
-            var engineLocator = new EngineLocator(() => engine);
-            engine = new KolaEngine(this.BuildProcessor(handlerMappings, engineLocator));
+            var engine = new KolaEngine(this.BuildProcessor(handlerMappings));
 
             return new KolaConfiguration(engine, plugins);
         }
 
         protected abstract IEnumerable<PluginConfiguration> FindPlugins();
 
-        protected abstract IProcessor BuildProcessor(Dictionary<string, Type> handlerMappings, EngineLocator engineLocator);
+        protected abstract IProcessor BuildProcessor(Dictionary<string, Type> handlerMappings);
     }
 }

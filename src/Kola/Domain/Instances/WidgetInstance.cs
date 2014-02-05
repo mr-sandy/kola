@@ -1,22 +1,25 @@
 ﻿namespace Kola.Domain.Instances
 {
     using System.Collections.Generic;
+    using System.Linq;
+
+    using Kola.Rendering;
 
     public class WidgetInstance : IComponentInstance
     {
-        public WidgetInstance(string name, IEnumerable<IComponentInstance> children = null)
+        public WidgetInstance(string name, IEnumerable<IComponentInstance> components = null)
         {
             this.Name = name;
-            this.Children = children;
+            this.Components = components;
         }
 
         public string Name { get; private set; }
 
-        public IEnumerable<IComponentInstance> Children { get; private set; }
+        public IEnumerable<IComponentInstance> Components { get; private set; }
 
-        public T Accept<T>(IComponentInstanceVisitor<T> visitor)
+        public IResult Render(IHandlerFactory handlerFactory)
         {
-            return visitor.Visit(this);
+            return new CompositeResult(this.Components.Select(c => c.Render(handlerFactory)));
         }
     }
 }

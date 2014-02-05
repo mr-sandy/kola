@@ -1,6 +1,5 @@
 ﻿namespace Kola.Rendering
 {
-    using Kola.Domain;
     using Kola.Domain.Instances;
 
     public class Processor : IProcessor
@@ -14,8 +13,7 @@
 
         public IResult Process(IComponentInstance component)
         {
-            var handler = this.handlerFactory.Create(component);
-            return handler.HandleRequest(component);
+            return component.Render(this.handlerFactory);
         }
     }
 }

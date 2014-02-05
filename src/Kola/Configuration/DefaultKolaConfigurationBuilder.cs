@@ -23,9 +23,9 @@
             return this.pluginFinder.FindPlugins();
         }
 
-        protected override IProcessor BuildProcessor(Dictionary<string, Type> handlerMappings, EngineLocator engineLocator)
+        protected override IProcessor BuildProcessor(Dictionary<string, Type> handlerMappings)
         {
-            var handlerFactory = new HandlerFactory(handlerMappings, this.objectFactory, engineLocator);
+            var handlerFactory = new HandlerFactory(handlerMappings, this.objectFactory);
             return new Processor(handlerFactory);
         }
     }

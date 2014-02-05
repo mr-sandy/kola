@@ -116,59 +116,59 @@
         [Test]
         public void WidgetInstanceShouldHaveThreeComponents()
         {
-            this.instance.Children.Should().HaveCount(3);
+            this.instance.Components.Should().HaveCount(3);
         }
 
         [Test]
         public void Component_0_ShouldBeAnAtomInstance()
         {
-            this.instance.Children.ElementAt(0).Should().BeOfType<AtomInstance>();
+            this.instance.Components.ElementAt(0).Should().BeOfType<AtomInstance>();
         }
 
         [Test]
         public void Component_1_ShouldBeAnPlaceholderInstance()
         {
-            this.instance.Children.ElementAt(1).Should().BeOfType<PlaceholderInstance>();
+            this.instance.Components.ElementAt(1).Should().BeOfType<PlaceholderInstance>();
         }
 
         [Test]
         public void Component_2_ShouldBeAnContainerInstance()
         {
-            this.instance.Children.ElementAt(2).Should().BeOfType<ContainerInstance>();
+            this.instance.Components.ElementAt(2).Should().BeOfType<ContainerInstance>();
         }
 
         [Test]
         public void Component_1_ShouldHaveOneComponent()
         {
-            var placeholder = this.instance.Children.ElementAt(1) as PlaceholderInstance;
+            var placeholder = this.instance.Components.ElementAt(1) as PlaceholderInstance;
             placeholder.Components.Should().HaveCount(1);
         }
 
         [Test]
         public void Component_1_0_ShouldBeAnAtomInstance()
         {
-            var placeholder = this.instance.Children.ElementAt(1) as PlaceholderInstance;
+            var placeholder = this.instance.Components.ElementAt(1) as PlaceholderInstance;
             placeholder.Components.ElementAt(0).Should().BeOfType<AtomInstance>();
         }
 
         [Test]
         public void Component_2_ShouldHaveOneComponent()
         {
-            var container = this.instance.Children.ElementAt(2) as ContainerInstance;
+            var container = this.instance.Components.ElementAt(2) as ContainerInstance;
             container.Children.Should().HaveCount(1);
         }
 
         [Test]
         public void Component_2_0_ShouldBeAPlaceholderInstance()
         {
-            var container = this.instance.Children.ElementAt(2) as ContainerInstance;
+            var container = this.instance.Components.ElementAt(2) as ContainerInstance;
             container.Children.ElementAt(0).Should().BeOfType<PlaceholderInstance>();
         }
 
         [Test]
         public void Component_2_0_ShouldHaveThreeComponents()
         {
-            var container = this.instance.Children.ElementAt(2) as ContainerInstance;
+            var container = this.instance.Components.ElementAt(2) as ContainerInstance;
             var placeholder = container.Children.ElementAt(0) as PlaceholderInstance;
             placeholder.Components.Should().HaveCount(3);
         }
@@ -176,7 +176,7 @@
         [Test]
         public void Component_2_0_0_ShouldBeAnAtomInstance()
         {
-            var container = this.instance.Children.ElementAt(2) as ContainerInstance;
+            var container = this.instance.Components.ElementAt(2) as ContainerInstance;
             var placeholder = container.Children.ElementAt(0) as PlaceholderInstance;
             placeholder.Components.ElementAt(0).Should().BeOfType<AtomInstance>();
         }
@@ -184,7 +184,7 @@
         [Test]
         public void Component_2_0_1_ShouldBeAnAtomInstance()
         {
-            var container = this.instance.Children.ElementAt(2) as ContainerInstance;
+            var container = this.instance.Components.ElementAt(2) as ContainerInstance;
             var placeholder = container.Children.ElementAt(0) as PlaceholderInstance;
             placeholder.Components.ElementAt(1).Should().BeOfType<AtomInstance>();
         }
@@ -192,7 +192,7 @@
         [Test]
         public void Component_2_0_2_ShouldBeAWidgetInstance()
         {
-            var container = this.instance.Children.ElementAt(2) as ContainerInstance;
+            var container = this.instance.Components.ElementAt(2) as ContainerInstance;
             var placeholder = container.Children.ElementAt(0) as PlaceholderInstance;
             placeholder.Components.ElementAt(2).Should().BeOfType<WidgetInstance>();
         }
@@ -200,47 +200,47 @@
         [Test]
         public void Component_2_0_2_ShouldHaveTwoComponents()
         {
-            var container = this.instance.Children.ElementAt(2) as ContainerInstance;
+            var container = this.instance.Components.ElementAt(2) as ContainerInstance;
             var placeholder = container.Children.ElementAt(0) as PlaceholderInstance;
             var widget = placeholder.Components.ElementAt(2) as WidgetInstance;
-            widget.Children.Should().HaveCount(2);
+            widget.Components.Should().HaveCount(2);
         }
 
         [Test]
         public void Component_2_0_2_0_ShouldBeAnAtomInstance()
         {
-            var container = this.instance.Children.ElementAt(2) as ContainerInstance;
+            var container = this.instance.Components.ElementAt(2) as ContainerInstance;
             var placeholder = container.Children.ElementAt(0) as PlaceholderInstance;
             var widget = placeholder.Components.ElementAt(2) as WidgetInstance;
-            widget.Children.ElementAt(0).Should().BeOfType<AtomInstance>();
+            widget.Components.ElementAt(0).Should().BeOfType<AtomInstance>();
         }
 
         [Test]
         public void Component_2_0_2_1_ShouldBeAPlaceholderInstance()
         {
-            var container = this.instance.Children.ElementAt(2) as ContainerInstance;
+            var container = this.instance.Components.ElementAt(2) as ContainerInstance;
             var placeholder = container.Children.ElementAt(0) as PlaceholderInstance;
             var widget = placeholder.Components.ElementAt(2) as WidgetInstance;
-            widget.Children.ElementAt(1).Should().BeOfType<PlaceholderInstance>();
+            widget.Components.ElementAt(1).Should().BeOfType<PlaceholderInstance>();
         }
 
         [Test]
         public void Component_2_0_2_1_ShouldBeHaveOneComponent()
         {
-            var container = this.instance.Children.ElementAt(2) as ContainerInstance;
+            var container = this.instance.Components.ElementAt(2) as ContainerInstance;
             var placeholder = container.Children.ElementAt(0) as PlaceholderInstance;
             var widget = placeholder.Components.ElementAt(2) as WidgetInstance;
-            var placeholder2 = widget.Children.ElementAt(1) as PlaceholderInstance;
+            var placeholder2 = widget.Components.ElementAt(1) as PlaceholderInstance;
             placeholder2.Components.Should().HaveCount(1);
         }
 
         [Test]
         public void Component_2_0_2_1_0_ShouldBeAnAtomInstance()
         {
-            var container = this.instance.Children.ElementAt(2) as ContainerInstance;
+            var container = this.instance.Components.ElementAt(2) as ContainerInstance;
             var placeholder = container.Children.ElementAt(0) as PlaceholderInstance;
             var widget = placeholder.Components.ElementAt(2) as WidgetInstance;
-            var placeholder2 = widget.Children.ElementAt(1) as PlaceholderInstance;
+            var placeholder2 = widget.Components.ElementAt(1) as PlaceholderInstance;
             placeholder2.Components.ElementAt(0).Should().BeOfType<AtomInstance>();
         }
     }

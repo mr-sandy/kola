@@ -1,10 +1,11 @@
 ﻿namespace Kola.Domain.Instances
 {
+    using Kola.Rendering;
+
     public interface IComponentInstance
     {
         string Name { get; }
 
-        T Accept<T>(IComponentInstanceVisitor<T> visitor);
-
+        IResult Render(IHandlerFactory handlerFactory);
     }
 }

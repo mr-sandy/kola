@@ -9,7 +9,7 @@
 
     public class MarkdownHandler : IHandler
     {
-        public IResult HandleRequest(IComponentInstance component)
+        public IResult Render(IComponentInstance component)
         {
             var transformer = new MarkdownSharp.Markdown();
 

@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
 
+    using Kola.Rendering;
+
     public class AtomInstance : IComponentInstance
     {
         public AtomInstance(string name, IEnumerable<ParameterInstance> parameters)
@@ -14,9 +16,9 @@
 
         public IEnumerable<ParameterInstance> Parameters { get; private set; }
 
-        public T Accept<T>(IComponentInstanceVisitor<T> visitor)
+        public IResult Render(IHandlerFactory handlerFactory)
         {
-            return visitor.Visit(this);
+            return handlerFactory.GetHandler(this.Name).Render(this);
         }
     }
 }

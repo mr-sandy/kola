@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
+    <atom name="atom-1">
+      <parameters />
+    </atom>
     <atom name="markdown">
       <parameters>
         <parameter name="markdown" type="markdown">
@@ -10,6 +13,7 @@
         </parameter>
       </parameters>
     </atom>
+    <widget name="c:\projects\kola\src\kola\persistence\widgets\badger" />
     <atom name="markdown">
       <parameters>
         <parameter name="markdown" type="markdown">
@@ -27,10 +31,5 @@ Here is *the stuff*]]></value>
       </parameters>
     </atom>
   </components>
-  <amendments>
-    <addComponent>
-      <componentType>c:\projects\kola\src\kola\persistence\widgets\badger</componentType>
-      <targetPath>0</targetPath>
-    </addComponent>
-  </amendments>
+  <amendments />
 </template>

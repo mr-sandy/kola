@@ -3,7 +3,6 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Domain;
     using Kola.Domain.Instances;
 
     public class KolaEngine : IKolaEngine

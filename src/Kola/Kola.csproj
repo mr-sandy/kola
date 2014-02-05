@@ -67,7 +67,6 @@
     <Compile Include="Domain\Templates\Area.cs" />
     <Compile Include="Domain\Templates\IParameterisedComponent.cs" />
     <Compile Include="Domain\Templates\ParameterValues\FixedParameterValue.cs" />
-    <Compile Include="Domain\Instances\IComponentInstanceVisitor.cs" />
     <Compile Include="Domain\Templates\ParameterValues\InheritedParameterValue.cs" />
     <Compile Include="Domain\Templates\ParameterValues\IParameterValue.cs" />
     <Compile Include="Domain\Specifications\IPluginComponentSpecification.cs" />

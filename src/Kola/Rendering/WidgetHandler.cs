@@ -11,11 +11,11 @@
             this.kolaEngine = kolaEngine;
         }
 
-        public IResult HandleRequest(IComponentInstance component)
+        public IResult Render(IComponentInstance component)
         {
             var widgetInstance = (WidgetInstance)component;
 
-            return this.kolaEngine.Render(widgetInstance.Children);
+            return this.kolaEngine.Render(widgetInstance.Components);
         }
     }
 }

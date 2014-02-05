@@ -50,20 +50,20 @@
         [Test]
         public void WidgetInstanceShouldHaveThreeChildren()
         {
-            this.instance.Children.Should().HaveCount(3);
+            this.instance.Components.Should().HaveCount(3);
         }
 
         [Test]
         public void FirstPlaceholderInstanceShouldHaveTwoChildren()
         {
-            var placeholder = this.instance.Children.ElementAt(1) as PlaceholderInstance;
+            var placeholder = this.instance.Components.ElementAt(1) as PlaceholderInstance;
             placeholder.Components.Should().HaveCount(2);
         }
 
         [Test]
         public void ContainerIntanceShouldContainPlaceholderInstance()
         {
-            var containerInstance = (ContainerInstance)this.instance.Children.ElementAt(2);
+            var containerInstance = (ContainerInstance)this.instance.Components.ElementAt(2);
 
             containerInstance.Children.Single().Should().BeOfType<PlaceholderInstance>();
         }
@@ -71,7 +71,7 @@
         [Test]
         public void SecondPlaceholderInstanceShouldHaveThreeChildren()
         {
-            var containerInstance = (ContainerInstance)this.instance.Children.ElementAt(2);
+            var containerInstance = (ContainerInstance)this.instance.Components.ElementAt(2);
             var placeholder = containerInstance.Children.Single() as PlaceholderInstance;
             placeholder.Components.Should().HaveCount(3);
         }

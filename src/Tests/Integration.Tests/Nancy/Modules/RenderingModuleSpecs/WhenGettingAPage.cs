@@ -23,10 +23,10 @@
             var page = new PageInstance(new[] { new AtomInstance("atom1", Enumerable.Empty<ParameterInstance>()) });
 
             var atom1Handler = MockRepository.GenerateMock<IHandler>();
-            atom1Handler.Stub(h => h.HandleRequest(Arg<IComponentInstance>.Is.Anything)).Return(new Result(h => "<atom1/>"));
+            atom1Handler.Stub(h => h.Render(Arg<IComponentInstance>.Is.Anything)).Return(new Result(h => "<atom1/>"));
 
             this.PageHandler.Stub(h => h.GetPage(Arg<IEnumerable<string>>.Is.Anything)).Return(page);
-            this.HandlerFactory.Stub(f => f.Create(Arg<IComponentInstance>.Is.Anything)).Return(atom1Handler);
+            this.HandlerFactory.Stub(f => f.GetHandler(Arg<string>.Is.Anything)).Return(atom1Handler);
 
             this.Response = this.Browser.Get("/", with => with.Header("Accept", "text/html"));
         }

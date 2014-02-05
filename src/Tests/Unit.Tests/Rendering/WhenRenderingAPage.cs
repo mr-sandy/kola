@@ -22,7 +22,7 @@
         public void EstablishContext()
         {
             var handlerFactory = MockRepository.GenerateStub<IHandlerFactory>();
-            handlerFactory.Stub(h => h.Create(Arg<IComponentInstance>.Is.Anything)).Return(new DefaultHandler());
+            handlerFactory.Stub(h => h.GetHandler(Arg<string>.Is.Anything)).Return(new DefaultHandler());
 
             var processor = new Processor(handlerFactory);
             var engine = new KolaEngine(processor);
