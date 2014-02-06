@@ -57,13 +57,19 @@
             return new WidgetTemplate(
                 surrogate.Name,
                 surrogate.Parameters.ToDomain(),
-                 Enumerable.Empty<Area>());
+                surrogate.Areas.Select(a => a.ToDomain()));
         }
 
         public static PlaceholderTemplate ToDomain(this PlaceholderSurrogate surrogate)
         {
             return new PlaceholderTemplate();
         }
+
+        public static Area ToDomain(this AreaSurrogate surrogate)
+        {
+            return new Area(surrogate.Components.ToDomain());
+        }
+
 
         public static ContainerSurrogate ToSurrogate(this ContainerTemplate component)
         {

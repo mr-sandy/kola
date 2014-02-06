@@ -28,10 +28,14 @@
 
         public IComponentInstance Build(IBuildContext buildContext)
         {
+            // Build the content of each area, 
+            // before adding it to the context to be 
+            // picked up by any corresponding placeholders
+            var areas = this.Areas.Select(a => a.Components.Select(c => c.Build(buildContext)).ToList());
+
+            buildContext.Areas.Push(new Queue<IEnumerable<IComponentInstance>>(areas));
+
             var specification = buildContext.WidgetSpecificationFinder(this.Name);
-
-            buildContext.Areas.Push(new Queue<Area>(this.Areas));
-
             var components = specification.Components.Select(c => c.Build(buildContext)).ToList();
 
             buildContext.Areas.Pop();

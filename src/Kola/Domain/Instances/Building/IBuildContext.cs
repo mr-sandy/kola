@@ -10,7 +10,7 @@
     {
         Func<string, WidgetSpecification> WidgetSpecificationFinder { get; }
 
-        Stack<Queue<Area>> Areas { get; }
+        Stack<Queue<IEnumerable<IComponentInstance>>> Areas { get; }
 
         IEnumerable<Context> Contexts { get; }
     }

@@ -13,7 +13,7 @@
 
         private Negotiator GetPage(dynamic parameters)
         {
-            return View["Admin"];
+            return this.View["Admin"];
         }
     }
 }

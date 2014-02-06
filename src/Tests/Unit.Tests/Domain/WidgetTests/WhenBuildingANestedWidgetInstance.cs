@@ -5,7 +5,6 @@
 
     using FluentAssertions;
 
-    using Kola.Domain;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
     using Kola.Domain.Specifications;
@@ -109,7 +108,7 @@
 
             var buildContext = MockRepository.GenerateStub<IBuildContext>();
             buildContext.Stub(c => c.WidgetSpecificationFinder).Return(n => n == "widget 1" ? specification1 : specification2);
-            buildContext.Stub(c => c.Areas).Return(new Stack<Queue<Area>>());
+            buildContext.Stub(c => c.Areas).Return(new Stack<Queue<IEnumerable<IComponentInstance>>>());
 
             this.instance = (WidgetInstance)widget.Build(buildContext);
         }

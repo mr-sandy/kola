@@ -1,25 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <widgetSpecification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
-    <container name="container-1">
-      <components>
-        <atom name="atom-1" />
-        <atom name="atom-2" />
-      </components>
-    </container>
+
     <atom name="markdown">
       <parameters>
         <parameter name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[*from the widget*]]></value>
+          <value xsi:type="fixed"><![CDATA[I am from the widget]]></value>
         </parameter>
       </parameters>
     </atom>
-    <container name="container-2">
-      <components>
-        <atom name="atom-1" />
-        <placeholder />
-        <atom name="atom-2" />
-      </components>
-    </container>
+
+    <widget name="c:\projects\kola\src\kola\persistence\widgets\badger">
+      <areas>
+        <area>
+          <components>
+
+            <placeholder />
+          
+          </components>
+        </area>
+      </areas>
+    </widget>
+
   </components>
 </widgetSpecification>

@@ -129,7 +129,6 @@
     <Compile Include="Extensions\ComponentExtensions.cs" />
     <Compile Include="Extensions\ComponentTypeExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Nancy\Extensions\old\NancyRazorViewBaseExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Nancy\Extensions\HtmlHelpersExtensions.cs" />
     <Compile Include="Nancy\Modules\WidgetModule.cs" />
@@ -139,6 +138,7 @@
     <Compile Include="Persistence\Extensions\ParameterExtensions.cs" />
     <Compile Include="Persistence\Extensions\WidgetSpecificationExtensions.cs" />
     <Compile Include="Persistence\ParameterValueSurrogateBuildingVisitor.cs" />
+    <Compile Include="Persistence\Surrogates\AreaSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\ParameterValues\FixedParameterValueSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\ParameterValues\InheritedParameterValueSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\ParameterValues\MultilingualParameterValueSurrogate.cs" />

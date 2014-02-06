@@ -1,6 +1,5 @@
 ﻿namespace Kola.Domain.Templates
 {
-    using System;
     using System.Linq;
 
     using Kola.Domain.Instances;
@@ -15,9 +14,11 @@
 
         public IComponentInstance Build(IBuildContext buildContext)
         {
-            var area = buildContext.Areas.Peek().Dequeue();
+            var components = buildContext.Areas.Peek().Count() == 0
+                ? Enumerable.Empty<IComponentInstance>()
+                : buildContext.Areas.Peek().Dequeue();
 
-            return new PlaceholderInstance(area.Components.Select(c => c.Build(buildContext)).ToList());
+            return new PlaceholderInstance(components);
         }
     }
 }

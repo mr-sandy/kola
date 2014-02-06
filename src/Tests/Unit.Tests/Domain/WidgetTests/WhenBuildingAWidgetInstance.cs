@@ -41,7 +41,7 @@
                     });
 
             var buildContext = MockRepository.GenerateStub<IBuildContext>();
-            var widgetStack = new Stack<Queue<Area>>();
+            var widgetStack = new Stack<Queue<IEnumerable<IComponentInstance>>>();
             buildContext.Stub(c => c.WidgetSpecificationFinder).Return(n => specification);
             buildContext.Stub(c => c.Areas).Return(widgetStack);
 

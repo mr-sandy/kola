@@ -23,7 +23,21 @@
         </parameter>
       </parameters>
     </atom>
-    <widget name="c:\projects\kola\src\kola\persistence\widgets\badger" />
+    <widget name="c:\projects\kola\src\kola\persistence\widgets\badger">
+      <areas>
+        <area>
+          <components>
+            <atom name="markdown">
+              <parameters>
+                <parameter name="markdown" type="markdown">
+                  <value xsi:type="fixed"><![CDATA[I have been placed!]]></value>
+                </parameter>
+              </parameters>
+            </atom>
+          </components>
+        </area>
+      </areas>
+    </widget>
     <atom name="markdown">
       <parameters>
         <parameter name="markdown" type="markdown">

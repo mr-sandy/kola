@@ -38,7 +38,7 @@
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
             var configurationBuilder = new DefaultKolaConfigurationBuilder(new PluginFinder(), new TinyIoCObjectFactory(container));
-            KolaConfiguration kolaConfiguration = configurationBuilder.Build();
+            var kolaConfiguration = configurationBuilder.Build();
             //TODO {SC} Us ethe IOC container to hold the Kola configuration
             NancyKolaConfigurationRegistry.Instance = kolaConfiguration;
 
