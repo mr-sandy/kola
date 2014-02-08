@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Extensions\ParameterInstanceExtensions.cs" />
     <Compile Include="Domain\Instances\Building\IBuildContext.cs" />
     <Compile Include="Domain\Instances\AtomInstance.cs" />
     <Compile Include="Domain\Instances\ContainerInstance.cs" />

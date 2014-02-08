@@ -1,8 +1,6 @@
 ﻿namespace Kola.Plugins.Core.Renderers
 {
-    using System;
-    using System.Linq;
-
+    using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
     using Kola.Domain.Rendering;
 
@@ -12,11 +10,7 @@
         {
             var transformer = new MarkdownSharp.Markdown();
 
-            var markdownParameter = atom.Parameters.Where(p => p.Name.Equals("markdown", StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
-
-            var markdown = markdownParameter == null
-                ? string.Empty
-                : markdownParameter.Value;
+            var markdown = atom.Parameters.Get("markdown");
 
             var html = transformer.Transform(markdown);
 
