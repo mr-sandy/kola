@@ -2,8 +2,10 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     using Kola.Domain.Templates;
+    using Kola.Domain.Templates.ParameterValues;
 
     public abstract class PluginComponentSpecification<T> : IPluginComponentSpecification<T>
         where T : IComponentTemplate
@@ -36,5 +38,10 @@
         }
 
         public abstract T Create();
+
+        protected IEnumerable<ParameterTemplate> CreateParameters()
+        {
+            return this.Parameters.Select(p => p.Create()).Where(p => !(p.Value is UndefinedParameterValue));
+        }
     }
 }

@@ -1,9 +1,9 @@
 ﻿namespace Integration.Tests.Nancy.Modules.RenderingModuleSpecs
 {
     using Kola.Configuration;
+    using Kola.Domain.Rendering;
     using Kola.Nancy;
     using Kola.Nancy.Modules;
-    using Kola.Domain.Rendering;
 
     using global::Nancy.Testing;
     using global::Nancy.ViewEngines;
