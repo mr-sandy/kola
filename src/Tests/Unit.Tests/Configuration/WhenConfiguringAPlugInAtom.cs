@@ -47,7 +47,7 @@ namespace Unit.Tests.Configuration
         public void TheHandlerShouldBeSet()
         {
             var config = this.configuration.Components.ElementAt(0);
-            Assert.AreEqual(typeof(TestHandler), config.HandlerType);
+            Assert.AreEqual(typeof(TestHandler), config.RendererType);
         }
 
         [Test]
@@ -90,13 +90,13 @@ namespace Unit.Tests.Configuration
         public TestPluginConfiguration()
         {
             this.Configure.Container("atom-1")
-                .WithHandler<TestHandler>("viewName")
+                .WithRenderer<TestHandler>("viewName")
                 .WithParameter("parameterName", "parameterType")
                 .Cache.Cache.For(100);
         }
     }
 
-    internal class TestHandler : IHandler<AtomInstance>
+    internal class TestHandler : IRenderer<AtomInstance>
     {
         public IResult Render(AtomInstance component)
         {

@@ -66,10 +66,9 @@
     <Compile Include="Domain\Rendering\Caching\CachingResult.cs" />
     <Compile Include="Domain\Rendering\Caching\ICacheManager.cs" />
     <Compile Include="Domain\Rendering\CompositeResult.cs" />
-    <Compile Include="Domain\Rendering\DefaultHandler.cs" />
-    <Compile Include="Domain\Rendering\HandlerFactory.cs" />
-    <Compile Include="Domain\Rendering\IHandler.cs" />
-    <Compile Include="Domain\Rendering\IHandlerFactory.cs" />
+    <Compile Include="Domain\Rendering\DefaultRenderer.cs" />
+    <Compile Include="Domain\Rendering\RendererFactory.cs" />
+    <Compile Include="Domain\Rendering\IRendererFactory.cs" />
     <Compile Include="Domain\Rendering\IObjectFactory.cs" />
     <Compile Include="Domain\Rendering\IPageHandler.cs" />
     <Compile Include="Domain\Rendering\IRenderer.cs" />
@@ -184,7 +183,7 @@
     <Compile Include="Domain\Specifications\ParameterSpecification.cs" />
     <Compile Include="Configuration\ParameterTypeSpecification.cs" />
     <Compile Include="Configuration\Fluent\ComponentConfigurer.cs" />
-    <Compile Include="Configuration\Fluent\ComponentHandlerConfigurer.cs" />
+    <Compile Include="Configuration\Fluent\ComponentRendererConfigurer.cs" />
     <Compile Include="Configuration\Fluent\CacheConfigurer.cs" />
     <Compile Include="Configuration\Fluent\PluginConfigurer.cs" />
     <Compile Include="Configuration\Fluent\ParameterTypeConfigurer.cs" />

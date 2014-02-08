@@ -7,21 +7,21 @@
 
     public class Renderer : IRenderer
     {
-        private readonly IHandlerFactory handlerFactory;
+        private readonly IRendererFactory rendererFactory;
 
-        public Renderer(IHandlerFactory handlerFactory)
+        public Renderer(IRendererFactory rendererFactory)
         {
-            this.handlerFactory = handlerFactory;
+            this.rendererFactory = rendererFactory;
         }
 
         public IResult Render(AtomInstance atom)
         {
-            return this.handlerFactory.GetAtomHandler(atom.Name).Render(atom);
+            return this.rendererFactory.GetAtomRenderer(atom.Name).Render(atom);
         }
 
         public IResult Render(ContainerInstance container)
         {
-            return this.handlerFactory.GetContainerHandler(container.Name).Render(container);
+            return this.rendererFactory.GetContainerRenderer(container.Name).Render(container);
         }
 
         public IResult Render(WidgetInstance widget)

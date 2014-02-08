@@ -23,10 +23,10 @@
             return this.pluginFinder.FindPlugins();
         }
 
-        protected override IRenderer BuildRenderer(Dictionary<string, Type> handlerMappings)
+        protected override IRenderer BuildRenderer(Dictionary<string, Type> rendererMappings)
         {
-            var handlerFactory = new HandlerFactory(handlerMappings, this.objectFactory);
-            return new Renderer(handlerFactory);
+            var rendererFactory = new RendererFactory(rendererMappings, this.objectFactory);
+            return new Renderer(rendererFactory);
         }
     }
 }

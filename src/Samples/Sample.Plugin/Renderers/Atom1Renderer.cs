@@ -1,13 +1,13 @@
-﻿namespace Sample.Plugin.Handlers
+﻿namespace Sample.Plugin.Renderers
 {
     using Kola.Domain.Instances;
     using Kola.Domain.Rendering;
 
-    public class Atom1Handler : IHandler<AtomInstance>
+    public class Atom1Renderer : IRenderer<AtomInstance>
     {
         private readonly IAtom1Dependency atom1Dependency;
 
-        public Atom1Handler(IAtom1Dependency atom1Dependency)
+        public Atom1Renderer(IAtom1Dependency atom1Dependency)
         {
             this.atom1Dependency = atom1Dependency;
         }

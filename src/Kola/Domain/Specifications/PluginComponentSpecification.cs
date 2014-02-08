@@ -17,7 +17,7 @@
             this.Name = name;
         }
 
-        public Type HandlerType { get; set; }
+        public Type RendererType { get; set; }
 
         public string Name { get; private set; }
 

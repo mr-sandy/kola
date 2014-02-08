@@ -20,13 +20,13 @@
 
         protected IPageHandler PageHandler { get; set; }
 
-        protected IHandlerFactory HandlerFactory { get; set; }
+        protected IRendererFactory HandlerFactory { get; set; }
 
         [SetUp]
         public void EstablishBaseContext()
         {
             this.PageHandler = MockRepository.GenerateMock<IPageHandler>();
-            this.HandlerFactory = MockRepository.GenerateMock<IHandlerFactory>();
+            this.HandlerFactory = MockRepository.GenerateMock<IRendererFactory>();
 
             var bootstrapper = new ConfigurableBootstrapper(
                 with =>

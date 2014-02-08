@@ -1,20 +1,18 @@
-﻿
-namespace Kola.Configuration.Fluent
+﻿namespace Kola.Configuration.Fluent
 {
-    using Kola.Domain;
     using Kola.Domain.Specifications;
     using Kola.Domain.Templates;
 
-    public class ComponentHandlerConfigurer
+    public class ComponentRendererConfigurer
     {
         private readonly IPluginComponentSpecification<IComponentTemplate> configuration;
 
-        internal ComponentHandlerConfigurer(IPluginComponentSpecification<IComponentTemplate> componentConfiguration)
+        internal ComponentRendererConfigurer(IPluginComponentSpecification<IComponentTemplate> componentConfiguration)
         {
             this.configuration = componentConfiguration;
         }
 
-        public ComponentHandlerConfigurer WithParameter(string parameterName, string parameterType)
+        public ComponentRendererConfigurer WithParameter(string parameterName, string parameterType)
         {
             this.configuration.AddParameter(new ParameterSpecification(parameterName, parameterType));
             return this;

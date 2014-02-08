@@ -2,7 +2,7 @@
 {
     using Kola.Domain.Instances;
 
-    public class DefaultHandler : IHandler<AtomInstance>, IHandler<ContainerInstance>
+    public class DefaultRenderer : IRenderer<AtomInstance>, IRenderer<ContainerInstance>
     {
         public IResult Render(AtomInstance atom)
         {

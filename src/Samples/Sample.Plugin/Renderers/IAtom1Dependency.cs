@@ -1,4 +1,4 @@
-﻿namespace Sample.Plugin.Handlers
+﻿namespace Sample.Plugin.Renderers
 {
     public interface IAtom1Dependency
     {

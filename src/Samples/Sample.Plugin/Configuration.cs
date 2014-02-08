@@ -2,7 +2,7 @@
 {
     using Kola.Configuration.Plugins;
 
-    using Sample.Plugin.Handlers;
+    using Sample.Plugin.Renderers;
 
     public class Configuration : PluginConfiguration
     {
@@ -11,7 +11,7 @@
             this.Configure.ViewLocation("Sample.Plugin.Views");
 
             this.Configure.Atom("atom-1")
-                .WithHandler<Atom1Handler>()
+                .WithRenderer<Atom1Renderer>()
                 .Cache.For(100);
 
             this.Configure.Atom("atom-2")

@@ -53,7 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
-    <Compile Include="Handlers\MarkdownHandler.cs" />
+    <Compile Include="Renderers\MarkdownHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

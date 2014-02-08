@@ -8,7 +8,7 @@
     public interface IPluginComponentSpecification<out T> : IComponentSpecification<T>
         where T : IComponentTemplate
     {
-        Type HandlerType { get; set; }
+        Type RendererType { get; set; }
 
         CacheType CacheType { get; set; }
 

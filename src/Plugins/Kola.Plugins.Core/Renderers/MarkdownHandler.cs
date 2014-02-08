@@ -1,4 +1,4 @@
-﻿namespace Kola.Plugins.Core.Handlers
+﻿namespace Kola.Plugins.Core.Renderers
 {
     using System;
     using System.Linq;
@@ -6,7 +6,7 @@
     using Kola.Domain.Instances;
     using Kola.Domain.Rendering;
 
-    public class MarkdownHandler : IHandler<AtomInstance>
+    public class MarkdownRenderer : IRenderer<AtomInstance>
     {
         public IResult Render(AtomInstance atom)
         {

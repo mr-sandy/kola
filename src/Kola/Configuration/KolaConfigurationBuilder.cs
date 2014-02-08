@@ -13,17 +13,17 @@
         {
             var plugins = this.FindPlugins();
 
-            var handlerMappings = plugins
+            var rendererMappings = plugins
                 .SelectMany(c => c.Components)
-                .ToDictionary(c => c.Name, c => c.HandlerType);
+                .ToDictionary(c => c.Name, c => c.RendererType);
 
-            var renderer = this.BuildRenderer(handlerMappings);
+            var renderer = this.BuildRenderer(rendererMappings);
 
             return new KolaConfiguration(renderer, plugins);
         }
 
         protected abstract IEnumerable<PluginConfiguration> FindPlugins();
 
-        protected abstract IRenderer BuildRenderer(Dictionary<string, Type> handlerMappings);
+        protected abstract IRenderer BuildRenderer(Dictionary<string, Type> rendererMappings);
     }
 }

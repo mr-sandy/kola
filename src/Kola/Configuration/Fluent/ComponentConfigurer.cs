@@ -13,16 +13,16 @@
             this.specification = specification;
         }
 
-        public ComponentHandlerConfigurer WithHandler<T>(string viewName = "")
+        public ComponentRendererConfigurer WithRenderer<T>(string viewName = "")
         {
-            this.specification.HandlerType = typeof(T);
+            this.specification.RendererType = typeof(T);
             this.specification.ViewName = viewName;
-            return new ComponentHandlerConfigurer(this.specification);
+            return new ComponentRendererConfigurer(this.specification);
         }
 
-        public ComponentHandlerConfigurer WithView(string viewName)
+        public ComponentRendererConfigurer WithView(string viewName)
         {
-            return this.WithHandler<DefaultHandler>(viewName);
+            return this.WithRenderer<DefaultRenderer>(viewName);
         }
     }
 }

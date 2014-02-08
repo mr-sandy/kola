@@ -20,9 +20,9 @@
         [SetUp]
         public void EstablishContext()
         {
-            var handlerFactory = MockRepository.GenerateStub<IHandlerFactory>();
-            handlerFactory.Stub(h => h.GetAtomHandler(Arg<string>.Is.Anything)).Return(new DefaultHandler());
-            handlerFactory.Stub(h => h.GetContainerHandler(Arg<string>.Is.Anything)).Return(new DefaultHandler());
+            var handlerFactory = MockRepository.GenerateStub<IRendererFactory>();
+            handlerFactory.Stub(h => h.GetAtomRenderer(Arg<string>.Is.Anything)).Return(new DefaultRenderer());
+            handlerFactory.Stub(h => h.GetContainerRenderer(Arg<string>.Is.Anything)).Return(new DefaultRenderer());
 
             var renderer = new Renderer(handlerFactory);
             var page =
