@@ -5,11 +5,16 @@
 
     public class ComponentRendererConfigurer
     {
-        private readonly IPluginComponentSpecification<IComponentTemplate> configuration;
+        private readonly IPluginComponentSpecification<INamedComponentTemplate> configuration;
 
-        internal ComponentRendererConfigurer(IPluginComponentSpecification<IComponentTemplate> componentConfiguration)
+        internal ComponentRendererConfigurer(IPluginComponentSpecification<INamedComponentTemplate> componentConfiguration)
         {
             this.configuration = componentConfiguration;
+        }
+
+        public CacheConfigurer Cache
+        {
+            get { return new CacheConfigurer(this.configuration); }
         }
 
         public ComponentRendererConfigurer WithParameter(string parameterName, string parameterType)
@@ -18,9 +23,5 @@
             return this;
         }
 
-        public CacheConfigurer Cache
-        {
-            get { return new CacheConfigurer(this.configuration); }
-        }
     }
 }

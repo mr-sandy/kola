@@ -6,8 +6,8 @@
 
     public interface IComponentSpecificationLibrary
     {
-        IEnumerable<IComponentSpecification<IComponentTemplate>> FindAll();
+        IEnumerable<INamedComponentSpecification<INamedComponentTemplate>> FindAll();
 
-        IComponentSpecification<IComponentTemplate> Lookup(string componentName);
+        INamedComponentSpecification<INamedComponentTemplate> Lookup(string componentName);
     }
 }

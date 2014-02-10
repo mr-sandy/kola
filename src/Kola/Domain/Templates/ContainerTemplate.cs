@@ -7,24 +7,18 @@
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
 
-    public class ContainerTemplate : IParameterisedComponent, IComponentCollection
+    public class ContainerTemplate : NamedComponentTemplate, IComponentCollection
     {
         private readonly List<IComponentTemplate> components = new List<IComponentTemplate>();
 
         public ContainerTemplate(string name, IEnumerable<ParameterTemplate> parameters, IEnumerable<IComponentTemplate> components = null)
+            : base(name, parameters)
         {
-            this.Name = name;
-            this.Parameters = parameters ?? Enumerable.Empty<ParameterTemplate>();
-
             if (components != null)
             {
                 this.components.AddRange(components);
             }
         }
-
-        public string Name { get; private set; }
-
-        public IEnumerable<ParameterTemplate> Parameters { get; private set; }
 
         public IEnumerable<IComponentTemplate> Components
         {
@@ -46,12 +40,12 @@
             this.components.RemoveAt(index);
         }
 
-        public void Accept(IComponentTemplateVisitor visitor)
+        public override void Accept(IComponentTemplateVisitor visitor)
         {
             visitor.Visit(this);
         }
 
-        public IComponentInstance Build(IBuildContext buildContext)
+        public override IComponentInstance Build(IBuildContext buildContext)
         {
             return new ContainerInstance(
                 this.Name, 

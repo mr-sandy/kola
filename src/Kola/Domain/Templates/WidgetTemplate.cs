@@ -6,27 +6,22 @@
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
 
-    public class WidgetTemplate : IParameterisedComponent
+    public class WidgetTemplate : NamedComponentTemplate
     {
         public WidgetTemplate(string name, IEnumerable<ParameterTemplate> parameters, IEnumerable<Area> areas)
+            : base(name, parameters)
         {
-            this.Name = name;
-            this.Parameters = parameters ?? Enumerable.Empty<ParameterTemplate>();
             this.Areas = areas;
         }
 
-        public string Name { get; private set; }
-
-        public IEnumerable<ParameterTemplate> Parameters { get; private set; }
-
         public IEnumerable<Area> Areas { get; private set; }
 
-        public void Accept(IComponentTemplateVisitor visitor)
+        public override void Accept(IComponentTemplateVisitor visitor)
         {
             visitor.Visit(this);
         }
 
-        public IComponentInstance Build(IBuildContext buildContext)
+        public override IComponentInstance Build(IBuildContext buildContext)
         {
             // Build the content of each area, 
             // before adding it to the context to be 

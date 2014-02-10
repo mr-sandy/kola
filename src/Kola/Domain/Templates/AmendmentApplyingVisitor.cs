@@ -52,11 +52,14 @@
 
         public void Visit(UpdateParameterAmendment amendment)
         {
-            var component = this.template.Find<IParameterisedComponent>(amendment.ComponentPath);
+            var component = this.template.Find<INamedComponentTemplate>(amendment.ComponentPath);
+            var specification = this.specificationLibrary.Lookup(component.Name);
 
-            var parameter = component.Parameters.Where(p => p.Name.Equals(amendment.ParameterName, StringComparison.OrdinalIgnoreCase)).Single();
+            component.SetParameter(amendment.ParameterName, new FixedParameterValue(amendment.UpdatedValue), specification);
 
-            parameter.Value = new FixedParameterValue(amendment.UpdatedValue);
+            //var parameter = component.Parameters.Where(p => p.Name.Equals(amendment.ParameterName, StringComparison.OrdinalIgnoreCase)).Single();
+
+            //parameter.Value = new FixedParameterValue(amendment.UpdatedValue);
         }
     }
 }

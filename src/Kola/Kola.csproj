@@ -56,6 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Extensions\ParameterInstanceExtensions.cs" />
+    <Compile Include="Domain\Extensions\ParameterSpecificationExtensions.cs" />
+    <Compile Include="Domain\Extensions\ParameterTemplateExtensions.cs" />
     <Compile Include="Domain\Instances\Building\IBuildContext.cs" />
     <Compile Include="Domain\Instances\AtomInstance.cs" />
     <Compile Include="Domain\Instances\ContainerInstance.cs" />
@@ -78,9 +80,11 @@
     <Compile Include="Domain\Rendering\PageHandler.cs" />
     <Compile Include="Domain\Rendering\Renderer.cs" />
     <Compile Include="Domain\Rendering\Result.cs" />
+    <Compile Include="Domain\Specifications\NamedComponentSpecification.cs" />
     <Compile Include="Domain\Templates\Amendments\UpdateParameterAmendment.cs" />
     <Compile Include="Domain\Templates\Area.cs" />
-    <Compile Include="Domain\Templates\IParameterisedComponent.cs" />
+    <Compile Include="Domain\Templates\INamedComponentTemplate.cs" />
+    <Compile Include="Domain\Templates\NamedComponentTemplate.cs" />
     <Compile Include="Domain\Templates\ParameterValues\FixedParameterValue.cs" />
     <Compile Include="Domain\Templates\ParameterValues\InheritedParameterValue.cs" />
     <Compile Include="Domain\Templates\ParameterValues\IParameterValue.cs" />
@@ -118,7 +122,7 @@
     <Compile Include="Domain\Templates\IComponentTemplate.cs" />
     <Compile Include="Domain\Templates\IComponentCollection.cs" />
     <Compile Include="Domain\Templates\IComponentSpecificationLibrary.cs" />
-    <Compile Include="Domain\Specifications\IComponentSpecification.cs" />
+    <Compile Include="Domain\Specifications\INamedComponentSpecification.cs" />
     <Compile Include="Domain\Templates\IComponentTemplateVisitor.cs" />
     <Compile Include="Domain\Templates\PageTemplate.cs" />
     <Compile Include="KolaException.cs" />

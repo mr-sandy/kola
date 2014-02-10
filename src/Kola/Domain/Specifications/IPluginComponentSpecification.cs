@@ -1,12 +1,11 @@
 ﻿namespace Kola.Domain.Specifications
 {
     using System;
-    using System.Collections.Generic;
 
     using Kola.Domain.Templates;
 
-    public interface IPluginComponentSpecification<out T> : IComponentSpecification<T>
-        where T : IComponentTemplate
+    public interface IPluginComponentSpecification<out T> : INamedComponentSpecification<T>
+        where T : INamedComponentTemplate
     {
         Type RendererType { get; set; }
 
@@ -15,9 +14,5 @@
         int CacheDuration { get; set; }
 
         string ViewName { get; set;  }
-
-        IEnumerable<ParameterSpecification> Parameters { get; }
-
-        void AddParameter(ParameterSpecification parameter);
     }
 }

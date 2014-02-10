@@ -6,24 +6,19 @@
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
 
-    public class AtomTemplate : IParameterisedComponent
+    public class AtomTemplate : NamedComponentTemplate
     {
         public AtomTemplate(string name, IEnumerable<ParameterTemplate> parameters)
+            : base(name, parameters)
         {
-            this.Name = name;
-            this.Parameters = parameters ?? Enumerable.Empty<ParameterTemplate>();
         }
 
-        public string Name { get; private set; }
-
-        public IEnumerable<ParameterTemplate> Parameters { get; private set; }
-
-        public void Accept(IComponentTemplateVisitor visitor)
+        public override void Accept(IComponentTemplateVisitor visitor)
         {
             visitor.Visit(this);
         }
 
-        public IComponentInstance Build(IBuildContext buildContext)
+        public override IComponentInstance Build(IBuildContext buildContext)
         {
             return new AtomInstance(
                 this.Name,

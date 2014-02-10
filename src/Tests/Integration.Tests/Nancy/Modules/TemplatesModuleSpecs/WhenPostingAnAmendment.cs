@@ -27,8 +27,8 @@
 
             this.template = new PageTemplate(new[] { "test", "path" });
 
-            var component = MockRepository.GenerateStub<IComponentTemplate>();
-            var componentSpecification = MockRepository.GenerateStub<IComponentSpecification<IComponentTemplate>>();
+            var component = MockRepository.GenerateStub<INamedComponentTemplate>();
+            var componentSpecification = MockRepository.GenerateStub<INamedComponentSpecification<INamedComponentTemplate>>();
 
             componentSpecification.Stub(s => s.Create()).Return(component);
             this.TemplateRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(this.template);

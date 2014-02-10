@@ -6,21 +6,18 @@
     using Kola.Domain.Extensions;
     using Kola.Domain.Templates;
 
-    public class WidgetSpecification : IComponentSpecification<WidgetTemplate>, IComponentCollection
+    public class WidgetSpecification : NamedComponentSpecification<WidgetTemplate>, IComponentCollection
     {
         private readonly List<IComponentTemplate> components = new List<IComponentTemplate>();
 
         public WidgetSpecification(string name, IEnumerable<IComponentTemplate> components = null)
+            : base(name)
         {
-            this.Name = name;
-
             if (components != null)
             {
                 this.components.AddRange(components);
             }
         }
-
-        public string Name { get; private set; }
 
         public IEnumerable<IComponentTemplate> Components
         {
@@ -42,10 +39,9 @@
             this.components.RemoveAt(index);
         }
 
-        public WidgetTemplate Create()
+        public override WidgetTemplate Create()
         {
-            // TODO {SC} Add widget parameters
-            var parameters = Enumerable.Empty<ParameterTemplate>();
+            var parameters = this.CreateParameters();
 
             var placeholders = this.FindAll<PlaceholderTemplate>();
             var areas = placeholders.Select(p => new Area(Enumerable.Empty<IComponentTemplate>()));

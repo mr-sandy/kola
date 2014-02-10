@@ -3,14 +3,13 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Domain;
     using Kola.Domain.Specifications;
     using Kola.Domain.Templates;
     using Kola.Resources;
 
     internal static class ComponentTypeExtensions
     {
-        public static ComponentTypeResource ToResource(this IComponentSpecification<IComponentTemplate> component)
+        public static ComponentTypeResource ToResource(this INamedComponentSpecification<INamedComponentTemplate> component)
         {
             return new ComponentTypeResource
                 {
@@ -22,7 +21,7 @@
                 };
         }
 
-        public static IEnumerable<ComponentTypeResource> ToResource(this IEnumerable<IComponentSpecification<IComponentTemplate>> components)
+        public static IEnumerable<ComponentTypeResource> ToResource(this IEnumerable<INamedComponentSpecification<INamedComponentTemplate>> components)
         {
             return components.Select(ToResource);
         }

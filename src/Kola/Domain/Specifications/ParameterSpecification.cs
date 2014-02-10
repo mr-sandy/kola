@@ -18,13 +18,15 @@
 
         public string DefaultValue { get; private set; }
 
-        public ParameterTemplate Create()
+        public ParameterTemplate Create(IParameterValue parameterValue = null)
         {
+            var value = parameterValue ?? (string.IsNullOrEmpty(this.DefaultValue)
+                ? (IParameterValue)new UndefinedParameterValue()
+                : new FixedParameterValue(this.DefaultValue));
+
             return new ParameterTemplate(this.Name, this.Type)
                 {
-                    Value = string.IsNullOrEmpty(this.DefaultValue)
-                            ? (IParameterValue)new UndefinedParameterValue()
-                            : new FixedParameterValue(this.DefaultValue)
+                    Value = value
                 };
         }
     }
