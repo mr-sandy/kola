@@ -7,3 +7,4 @@ bin/
 *.idea*
 *.ncrunchsolution
 NDependOut/
+*/_NCrunch_*
