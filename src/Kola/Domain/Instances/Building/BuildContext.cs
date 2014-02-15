@@ -4,7 +4,7 @@
     using System.Collections.Generic;
 
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     public class BuildContext : IBuildContext
     {

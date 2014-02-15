@@ -1,13 +1,13 @@
 ﻿namespace Kola.Configuration.Fluent
 {
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     public class ComponentRendererConfigurer
     {
-        private readonly IPluginComponentSpecification<INamedComponentTemplate> configuration;
+        private readonly IPluginComponentSpecification<IParameterisedComponent> configuration;
 
-        internal ComponentRendererConfigurer(IPluginComponentSpecification<INamedComponentTemplate> componentConfiguration)
+        internal ComponentRendererConfigurer(IPluginComponentSpecification<IParameterisedComponent> componentConfiguration)
         {
             this.configuration = componentConfiguration;
         }

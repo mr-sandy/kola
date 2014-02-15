@@ -3,8 +3,8 @@
     using System.Collections.Generic;
 
     using Kola.Domain;
-    using Kola.Domain.Templates.Amendments;
-    using Kola.Domain.Templates.ParameterValues;
+    using Kola.Domain.Composition.Amendments;
+    using Kola.Domain.Composition.ParameterValues;
     using Kola.Persistence.Extensions;
     using Kola.Persistence.Surrogates;
     using Kola.Persistence.Surrogates.Amendments;

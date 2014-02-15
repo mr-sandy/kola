@@ -3,13 +3,13 @@ namespace Kola.Configuration.Fluent
 {
     using Kola.Domain;
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     public class CacheConfigurer
     {
-        private readonly IPluginComponentSpecification<INamedComponentTemplate> componentConfiguration;
+        private readonly IPluginComponentSpecification<IParameterisedComponent> componentConfiguration;
 
-        internal CacheConfigurer(IPluginComponentSpecification<INamedComponentTemplate> componentConfiguration)
+        internal CacheConfigurer(IPluginComponentSpecification<IParameterisedComponent> componentConfiguration)
         {
             this.componentConfiguration = componentConfiguration;
         }

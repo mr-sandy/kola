@@ -6,15 +6,15 @@
 
     using Kola.Domain;
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
-    using Kola.Domain.Templates.ParameterValues;
+    using Kola.Domain.Composition;
+    using Kola.Domain.Composition.ParameterValues;
 
     using NUnit.Framework;
 
     [TestFixture]
     public class WhenCreatingAnAtomFromItsSpecification
     {
-        private AtomTemplate atom;
+        private Atom atom;
 
         [SetUp]
         public void SetUp()

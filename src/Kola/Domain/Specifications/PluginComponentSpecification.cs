@@ -2,10 +2,10 @@
 {
     using System;
 
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
-    public abstract class PluginComponentSpecification<T> : NamedComponentSpecification<T>, IPluginComponentSpecification<T>
-        where T : INamedComponentTemplate
+    public abstract class PluginComponentSpecification<T> : ParameterisedComponentSpecification<T>, IPluginComponentSpecification<T>
+        where T : IParameterisedComponent
     {
         protected PluginComponentSpecification(string name)
             : base(name)

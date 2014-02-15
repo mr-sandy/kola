@@ -6,8 +6,8 @@
 
     using Kola.Domain;
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
-    using Kola.Domain.Templates.Amendments;
+    using Kola.Domain.Composition;
+    using Kola.Domain.Composition.Amendments;
 
     using NUnit.Framework;
 
@@ -15,21 +15,21 @@
 
     public class WhenApplyingAnAddComponentAmendmentToTheRoot
     {
-        private PageTemplate template;
+        private Template template;
 
         [SetUp]
         public void EstablishContext()
         {
             var templatePath = new[] { "test", "path" };
-            this.template = new PageTemplate(templatePath);
+            this.template = new Template(templatePath);
 
             var amendment = new AddComponentAmendment("component name", new[] { 0 });
             this.template.AddAmendment(amendment);
 
-            var newComponent = new AtomTemplate("component name", null);
+            var newComponent = new Atom("component name", null);
 
             var componentLibrary = MockRepository.GenerateStub<IComponentSpecificationLibrary>();
-            var componentSpecification = MockRepository.GenerateStub<INamedComponentSpecification<AtomTemplate>>();
+            var componentSpecification = MockRepository.GenerateStub<IParameterisedComponentSpecification<Atom>>();
             componentLibrary.Stub(l => l.Lookup("component name")).Return(componentSpecification);
             componentSpecification.Stub(s => s.Create()).Return(newComponent);
 
@@ -45,7 +45,7 @@
         [Test]
         public void ShouldHaveCorrectComponentType()
         {
-            this.template.Components.ElementAt(0).As<AtomTemplate>().Name.Should().Be("component name");
+            this.template.Components.ElementAt(0).As<Atom>().Name.Should().Be("component name");
         }
     }
 }

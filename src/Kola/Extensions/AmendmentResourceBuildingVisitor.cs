@@ -4,7 +4,7 @@
     using System.Collections.Generic;
 
     using Kola.Domain;
-    using Kola.Domain.Templates.Amendments;
+    using Kola.Domain.Composition.Amendments;
     using Kola.Resources;
 
     internal class AmendmentResourceBuildingVisitor : IAmendmentVisitor

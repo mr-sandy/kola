@@ -2,13 +2,13 @@
 {
     using Kola.Domain.Rendering;
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     public class ComponentConfigurer
     {
-        private readonly IPluginComponentSpecification<INamedComponentTemplate> specification;
+        private readonly IPluginComponentSpecification<IParameterisedComponent> specification;
 
-        internal ComponentConfigurer(IPluginComponentSpecification<INamedComponentTemplate> specification)
+        internal ComponentConfigurer(IPluginComponentSpecification<IParameterisedComponent> specification)
         {
             this.specification = specification;
         }

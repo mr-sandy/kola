@@ -2,11 +2,11 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
     using Kola.Persistence.Extensions;
     using Kola.Persistence.Surrogates;
 
-    internal class ComponentSurrogateBuildingVisitor : IComponentTemplateVisitor
+    internal class ComponentSurrogateBuildingVisitor : IComponentVisitor
     {
         private readonly List<ComponentSurrogate> componentSurrogates = new List<ComponentSurrogate>();
 
@@ -15,22 +15,22 @@
             get { return this.componentSurrogates; }
         }
 
-        public void Visit(ContainerTemplate container)
+        public void Visit(Container container)
         {
             this.componentSurrogates.Add(container.ToSurrogate());
         }
 
-        public void Visit(WidgetTemplate widget)
+        public void Visit(Widget widget)
         {
             this.componentSurrogates.Add(widget.ToSurrogate());
         }
 
-        public void Visit(PlaceholderTemplate placeholder)
+        public void Visit(Placeholder placeholder)
         {
             this.componentSurrogates.Add(placeholder.ToSurrogate());
         }
 
-        public void Visit(AtomTemplate atom)
+        public void Visit(Atom atom)
         {
             this.componentSurrogates.Add(atom.ToSurrogate());
         }

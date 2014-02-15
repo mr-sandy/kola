@@ -5,8 +5,8 @@
     using FluentAssertions;
 
     using Kola.Domain;
-    using Kola.Domain.Templates;
-    using Kola.Domain.Templates.Amendments;
+    using Kola.Domain.Composition;
+    using Kola.Domain.Composition.Amendments;
 
     using NUnit.Framework;
 
@@ -15,8 +15,8 @@
         [SetUp]
         public void EstablishContext()
         {
-            this.Template.AddComponent(new AtomTemplate("first", null), 0);
-            this.Template.AddComponent(new AtomTemplate("second", null), 1);
+            this.Template.AddComponent(new Atom("first", null), 0);
+            this.Template.AddComponent(new Atom("second", null), 1);
 
             var amendment = new MoveComponentAmendment(new[] { 0 }, new[] { 1 });
 
@@ -26,13 +26,13 @@
         [Test]
         public void TheTemplatesFirstAtomShouldBecomeItsSecond()
         {
-            this.Template.Components.Second().As<AtomTemplate>().Name.Should().Be("first");
+            this.Template.Components.Second().As<Atom>().Name.Should().Be("first");
         }
 
         [Test]
         public void TheTemplatesSecondAtomShouldBecomeItsFirst()
         {
-            this.Template.Components.First().As<AtomTemplate>().Name.Should().Be("second");
+            this.Template.Components.First().As<Atom>().Name.Should().Be("second");
         }
     }
 }

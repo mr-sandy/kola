@@ -4,14 +4,14 @@
 
     using Kola.Domain;
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     using NUnit.Framework;
 
     [TestFixture]
     public class WhenCreatingAParameterFromItsSpecification
     {
-        private ParameterTemplate parameter;
+        private Parameter parameter;
 
         [SetUp]
         public void SetUp()

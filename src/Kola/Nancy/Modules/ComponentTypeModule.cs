@@ -1,7 +1,7 @@
 ﻿namespace Kola.Nancy.Modules
 {
     using Kola.Domain;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
     using Kola.Extensions;
 
     using global::Nancy;

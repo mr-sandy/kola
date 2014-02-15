@@ -2,7 +2,7 @@
 {
     using System;
 
-    using Kola.Domain.Templates.ParameterValues;
+    using Kola.Domain.Composition.ParameterValues;
     using Kola.Persistence.Surrogates.ParameterValues;
 
     internal class ParameterValueBuildingVisitor : IParameterValueSurrogateVisitor<IParameterValue>

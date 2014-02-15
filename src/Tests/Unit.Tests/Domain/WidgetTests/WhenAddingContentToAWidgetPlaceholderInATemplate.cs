@@ -2,13 +2,13 @@
 {
     using System.Linq;
 
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     using NUnit.Framework;
 
     public class WhenAddingContentToAWidgetPlaceholderInATemplate
     {
-        private PageTemplate template;
+        private Template template;
 
         [SetUp]
         public void EstablishContext()

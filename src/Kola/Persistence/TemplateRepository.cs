@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
     using Kola.Extensions;
     using Kola.Persistence.Extensions;
     using Kola.Persistence.Surrogates;
@@ -21,7 +21,7 @@
             this.fileSystemHelper = fileSystemHelper;
         }
 
-        public void Add(PageTemplate template)
+        public void Add(Template template)
         {
             var surrogate = template.ToSurrogate();
             var directoryPath = this.fileSystemHelper.CombinePaths(RootDirectory, template.Path.ToFileSystemPath());
@@ -35,7 +35,7 @@
             this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
         }
 
-        public PageTemplate Get(IEnumerable<string> templatePath)
+        public Template Get(IEnumerable<string> templatePath)
         {
             var path = this.fileSystemHelper.CombinePaths(RootDirectory, templatePath.ToFileSystemPath(), TemplateFileName);
 
@@ -48,7 +48,7 @@
             return surrogate.ToDomain(templatePath);
         }
 
-        public void Update(PageTemplate template)
+        public void Update(Template template)
         {
             var surrogate = template.ToSurrogate();
             var path = this.fileSystemHelper.CombinePaths(RootDirectory, template.Path.ToFileSystemPath(), TemplateFileName);

@@ -1,7 +1,7 @@
 ﻿namespace Integration.Tests.Nancy.Modules.ComponentTypesModuleSpecs
 {
     using Kola.Domain;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
     using Kola.Nancy;
     using Kola.Nancy.Modules;
 

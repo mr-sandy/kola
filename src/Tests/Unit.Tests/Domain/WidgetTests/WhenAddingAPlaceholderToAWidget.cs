@@ -5,7 +5,7 @@
     using FluentAssertions;
 
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     using NUnit.Framework;
 
@@ -17,7 +17,7 @@
         public void EstablishContext()
         {
             this.widgetSpecification = new WidgetSpecification("widgetName");
-            var placeholder = new PlaceholderTemplate();
+            var placeholder = new Placeholder();
 
             this.widgetSpecification.AddComponent(placeholder, 0);
         }
@@ -31,7 +31,7 @@
         [Test]
         public void TheComponentShouldBeAPlaceholder()
         {
-            this.widgetSpecification.Components.Single().Should().BeOfType<PlaceholderTemplate>();
+            this.widgetSpecification.Components.Single().Should().BeOfType<Placeholder>();
         }
     }
 }

@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Domain.Templates.Amendments;
+    using Kola.Domain.Composition.Amendments;
     using Kola.Extensions;
     using Kola.Persistence.Surrogates;
     using Kola.Persistence.Surrogates.Amendments;

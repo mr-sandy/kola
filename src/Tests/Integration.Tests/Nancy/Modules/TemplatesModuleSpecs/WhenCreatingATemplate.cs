@@ -5,7 +5,7 @@
     using global::Nancy;
 
     using Kola.Domain;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     using NUnit.Framework;
 
@@ -30,14 +30,14 @@
         [Test]
         public void ShouldAddTemplateToRepository()
         {
-            this.TemplateRepository.AssertWasCalled(r => r.Add(Arg<PageTemplate>.Is.Anything));
+            this.TemplateRepository.AssertWasCalled(r => r.Add(Arg<Page>.Is.Anything));
         }
 
         [Test]
         public void ShouldAddTemplateWithCorrectPath()
         {
-            var args = this.TemplateRepository.GetArgumentsForCallsMadeOn(r => r.Add(Arg<PageTemplate>.Is.Anything));
-            var template = (PageTemplate)args[0][0];
+            var args = this.TemplateRepository.GetArgumentsForCallsMadeOn(r => r.Add(Arg<Page>.Is.Anything));
+            var template = (Template)args[0][0];
             template.Path.Should().BeEquivalentTo(new[] { "test", "path" });
         }
     }

@@ -4,15 +4,15 @@
     using System.Collections.Generic;
 
     using Kola.Domain;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
     using Kola.Persistence.Extensions;
     using Kola.Persistence.Surrogates;
 
     public class ComponentBuildingVisitor : IComponentSurrogateVisitor
     {
-        private readonly List<IComponentTemplate> components = new List<IComponentTemplate>();
+        private readonly List<IComponent> components = new List<IComponent>();
 
-        public IEnumerable<IComponentTemplate> Components
+        public IEnumerable<IComponent> Components
         {
             get { return this.components; }
         }

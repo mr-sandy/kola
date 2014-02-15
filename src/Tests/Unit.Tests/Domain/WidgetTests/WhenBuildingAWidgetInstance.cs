@@ -9,7 +9,7 @@
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     using NUnit.Framework;
 
@@ -24,20 +24,20 @@
         {
             var specification = new WidgetSpecification(
                 "widget name",
-                new IComponentTemplate[]
+                new IComponent[]
                     {
-                        new AtomTemplate("atom", Enumerable.Empty<ParameterTemplate>()), 
-                        new PlaceholderTemplate(), 
-                        new ContainerTemplate("container", Enumerable.Empty<ParameterTemplate>(), new[] { new PlaceholderTemplate() }) 
+                        new Atom("atom", Enumerable.Empty<Parameter>()), 
+                        new Placeholder(), 
+                        new Container("container", Enumerable.Empty<Parameter>(), new[] { new Placeholder() }) 
                     });
 
-            var widget = new WidgetTemplate(
+            var widget = new Widget(
                 "widget name",
-                Enumerable.Empty<ParameterTemplate>(),
+                Enumerable.Empty<Parameter>(),
                 new[]
                     {
-                        new Area(new IComponentTemplate[] { new AtomTemplate("atom", Enumerable.Empty<ParameterTemplate>()), new AtomTemplate("atom", Enumerable.Empty<ParameterTemplate>()) }),
-                        new Area(new IComponentTemplate[] { new AtomTemplate("atom", Enumerable.Empty<ParameterTemplate>()), new AtomTemplate("atom", Enumerable.Empty<ParameterTemplate>()), new AtomTemplate("atom", Enumerable.Empty<ParameterTemplate>()) })
+                        new Area(new IComponent[] { new Atom("atom", Enumerable.Empty<Parameter>()), new Atom("atom", Enumerable.Empty<Parameter>()) }),
+                        new Area(new IComponent[] { new Atom("atom", Enumerable.Empty<Parameter>()), new Atom("atom", Enumerable.Empty<Parameter>()), new Atom("atom", Enumerable.Empty<Parameter>()) })
                     });
 
             var buildContext = MockRepository.GenerateStub<IBuildContext>();

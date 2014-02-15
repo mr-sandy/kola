@@ -3,12 +3,12 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
     using Kola.Resources;
 
     internal static class ParameterExtensions
     {
-        public static ParameterResource ToResource(this ParameterTemplate parameter)
+        public static ParameterResource ToResource(this Parameter parameter)
         {
             if (parameter == null)
             {
@@ -22,7 +22,7 @@
                 };
         }
 
-        public static IEnumerable<ParameterResource> ToResource(this IEnumerable<ParameterTemplate> parameters)
+        public static IEnumerable<ParameterResource> ToResource(this IEnumerable<Parameter> parameters)
         {
             return parameters == null 
                 ? null 

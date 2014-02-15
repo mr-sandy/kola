@@ -3,32 +3,32 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Domain.Templates;
-    using Kola.Domain.Templates.ParameterValues;
+    using Kola.Domain.Composition;
+    using Kola.Domain.Composition.ParameterValues;
     using Kola.Persistence.Surrogates;
 
     public static class ParameterExtensions
     {
-        public static ParameterTemplate ToDomain(this ParameterSurrogate surrogate)
+        public static Parameter ToDomain(this ParameterSurrogate surrogate)
         {
             var value = surrogate.Value == null
                 ? new UndefinedParameterValue()
                 : surrogate.Value.Accept(new ParameterValueBuildingVisitor());
 
-            return new ParameterTemplate(surrogate.Name, surrogate.Type)
+            return new Parameter(surrogate.Name, surrogate.Type)
                 {
                     Value = value
                 };
         }
 
-        public static IEnumerable<ParameterTemplate> ToDomain(this IEnumerable<ParameterSurrogate> surrogates)
+        public static IEnumerable<Parameter> ToDomain(this IEnumerable<ParameterSurrogate> surrogates)
         {
             return surrogates == null
                 ? null
                 : surrogates.Select(ToDomain);
         }
 
-        public static ParameterSurrogate ToSurrogate(this ParameterTemplate parameter)
+        public static ParameterSurrogate ToSurrogate(this Parameter parameter)
         {
             return new ParameterSurrogate
                 {
@@ -38,7 +38,7 @@
                 };
         }
 
-        public static IEnumerable<ParameterSurrogate> ToSurrogate(this IEnumerable<ParameterTemplate> parameters)
+        public static IEnumerable<ParameterSurrogate> ToSurrogate(this IEnumerable<Parameter> parameters)
         {
             return parameters == null
                 ? null

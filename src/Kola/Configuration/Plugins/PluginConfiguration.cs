@@ -5,15 +5,15 @@
     using Kola.Configuration.Fluent;
     using Kola.Domain;
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     public abstract class PluginConfiguration
     {
-        private readonly List<IPluginComponentSpecification<INamedComponentTemplate>> components = new List<IPluginComponentSpecification<INamedComponentTemplate>>();
+        private readonly List<IPluginComponentSpecification<IParameterisedComponent>> components = new List<IPluginComponentSpecification<IParameterisedComponent>>();
 
         public string ViewLocation { get; set; }
 
-        internal IEnumerable<IPluginComponentSpecification<INamedComponentTemplate>> Components
+        internal IEnumerable<IPluginComponentSpecification<IParameterisedComponent>> Components
         {
             get { return this.components; }
         }
@@ -23,7 +23,7 @@
             get { return new PluginConfigurer(this); }
         }
 
-        internal void Add(IPluginComponentSpecification<INamedComponentTemplate> component)
+        internal void Add(IPluginComponentSpecification<IParameterisedComponent> component)
         {
             this.components.Add(component);
         }

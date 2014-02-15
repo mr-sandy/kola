@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Domain.Templates.Amendments;
+    using Kola.Domain.Composition.Amendments;
     using Kola.Resources;
 
     internal static class AmendmentExtensions

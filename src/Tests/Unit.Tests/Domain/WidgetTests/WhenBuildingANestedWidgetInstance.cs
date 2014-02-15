@@ -8,7 +8,7 @@
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     using NUnit.Framework;
 
@@ -60,47 +60,47 @@
         {
             var specification1 = new WidgetSpecification(
                 "widget 1",
-                new IComponentTemplate[]
+                new IComponent[]
                     {
-                        new AtomTemplate("atom", Enumerable.Empty<ParameterTemplate>()), 
-                        new PlaceholderTemplate(), 
-                        new ContainerTemplate(
+                        new Atom("atom", Enumerable.Empty<Parameter>()), 
+                        new Placeholder(), 
+                        new Container(
                             "container",
-                            Enumerable.Empty<ParameterTemplate>(),
-                            new[] { new PlaceholderTemplate() }) 
+                            Enumerable.Empty<Parameter>(),
+                            new[] { new Placeholder() }) 
                     });
 
             var specification2 = new WidgetSpecification(
                 "widget 2",
-                new IComponentTemplate[]
+                new IComponent[]
                     {
-                        new AtomTemplate("atom", Enumerable.Empty<ParameterTemplate>()), 
-                        new PlaceholderTemplate()
+                        new Atom("atom", Enumerable.Empty<Parameter>()), 
+                        new Placeholder()
                     });
 
-            var widget = new WidgetTemplate(
+            var widget = new Widget(
                 "widget 1",
-                Enumerable.Empty<ParameterTemplate>(),
+                Enumerable.Empty<Parameter>(),
                 new[]
                     {
                         new Area(
-                            new IComponentTemplate[]
+                            new IComponent[]
                             {
-                                new AtomTemplate("atom", Enumerable.Empty<ParameterTemplate>())
+                                new Atom("atom", Enumerable.Empty<Parameter>())
                             }),
                         new Area(
-                            new IComponentTemplate[]
+                            new IComponent[]
                             {
-                                new AtomTemplate("atom", Enumerable.Empty<ParameterTemplate>()),
-                                new AtomTemplate("atom", Enumerable.Empty<ParameterTemplate>()),
-                                new WidgetTemplate(
+                                new Atom("atom", Enumerable.Empty<Parameter>()),
+                                new Atom("atom", Enumerable.Empty<Parameter>()),
+                                new Widget(
                                     "widget 2", 
-                                    Enumerable.Empty<ParameterTemplate>(),
+                                    Enumerable.Empty<Parameter>(),
                                     new[]
                                         {
                                             new Area(new[]
                                                 {
-                                                    new AtomTemplate("atom", Enumerable.Empty<ParameterTemplate>())
+                                                    new Atom("atom", Enumerable.Empty<Parameter>())
                                                 })
                                         })
                             })

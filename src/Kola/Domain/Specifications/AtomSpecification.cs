@@ -1,17 +1,17 @@
 ﻿namespace Kola.Domain.Specifications
 {
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
-    public class AtomSpecification : PluginComponentSpecification<AtomTemplate>
+    public class AtomSpecification : PluginComponentSpecification<Atom>
     {
         public AtomSpecification(string name)
             : base(name)
         {
         }
 
-        public override AtomTemplate Create()
+        public override Atom Create()
         {
-            return new AtomTemplate(this.Name, this.CreateParameters());
+            return new Atom(this.Name, this.CreateParameters());
         }
     }
 }

@@ -5,9 +5,9 @@
     using FluentAssertions;
 
     using Kola.Domain;
-    using Kola.Domain.Templates;
-    using Kola.Domain.Templates.Amendments;
-    using Kola.Domain.Templates.ParameterValues;
+    using Kola.Domain.Composition;
+    using Kola.Domain.Composition.Amendments;
+    using Kola.Domain.Composition.ParameterValues;
 
     using NUnit.Framework;
 
@@ -17,7 +17,7 @@
         public void EstablishContext()
         {
             this.Template.AddComponent(
-                new AtomTemplate("existing", new[] { new ParameterTemplate("parameter name", "parameter type"), }), 0);
+                new Atom("existing", new[] { new Parameter("parameter name", "parameter type"), }), 0);
 
             var amendment = new UpdateParameterAmendment("parameter name", "updated value", new[] { 0 });
 
@@ -27,13 +27,13 @@
         [Test]
         public void TheParameterShouldBeOfTheCorrectType()
         {
-            this.Template.Components.First().As<AtomTemplate>().Parameters.Single().Value.Should().BeOfType<FixedParameterValue>();
+            this.Template.Components.First().As<Atom>().Parameters.Single().Value.Should().BeOfType<FixedParameterValue>();
         }
 
         [Test]
         public void TheParameterShouldHaveTheCorrectValue()
         {
-            var value = (FixedParameterValue)this.Template.Components.First().As<AtomTemplate>().Parameters.Single().Value;
+            var value = (FixedParameterValue)this.Template.Components.First().As<Atom>().Parameters.Single().Value;
 
             value.Value.Should().Be("updated value");
         }

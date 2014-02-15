@@ -3,7 +3,7 @@
     using System.Linq;
 
     using Kola.Domain.Extensions;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
     using Kola.Extensions;
     using Kola.Persistence;
     using Kola.Resources;
@@ -93,7 +93,7 @@
                 return HttpStatusCode.Conflict;
             }
 
-            var template = new PageTemplate(templatePath);
+            var template = new Template(templatePath);
 
             this.templateRepository.Add(template);
 

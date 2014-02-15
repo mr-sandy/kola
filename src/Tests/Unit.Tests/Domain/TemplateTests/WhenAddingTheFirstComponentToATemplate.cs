@@ -3,21 +3,21 @@
     using FluentAssertions;
 
     using Kola.Domain;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     using NUnit.Framework;
 
     public class WhenAddingTheFirstComponentToATemplate
     {
-        private PageTemplate template;
+        private Template template;
 
         [SetUp]
         public void EstablishContext()
         {
             var templatePath = new[] { "test", "path" };
-            this.template = new PageTemplate(templatePath);
+            this.template = new Template(templatePath);
 
-            var newComponent = new AtomTemplate("component1", null);
+            var newComponent = new Atom("component1", null);
             this.template.AddComponent(newComponent, 0);
         }
 

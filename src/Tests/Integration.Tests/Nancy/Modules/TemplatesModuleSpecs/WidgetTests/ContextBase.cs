@@ -2,7 +2,7 @@
 {
     using global::Nancy.Testing;
 
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
     using Kola.Nancy.Modules;
     using Kola.Persistence;
 

@@ -5,19 +5,19 @@
     using FluentAssertions;
 
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     using NUnit.Framework;
 
     public class WhenCreatingAWidgetFromItsSpecification
     {
-        private WidgetTemplate widget;
+        private Widget widget;
 
         [SetUp]
         public void EstablishContext()
         {
-            var container1 = new ContainerTemplate("container 1", Enumerable.Empty<ParameterTemplate>(), new[] { new PlaceholderTemplate() });
-            var container2 = new ContainerTemplate("container 2", Enumerable.Empty<ParameterTemplate>(), new[] { new PlaceholderTemplate() });
+            var container1 = new Container("container 1", Enumerable.Empty<Parameter>(), new[] { new Placeholder() });
+            var container2 = new Container("container 2", Enumerable.Empty<Parameter>(), new[] { new Placeholder() });
             var specification = new WidgetSpecification("widget name", new[] { container1, container2 });
 
 //            this.widget = specification.Create();

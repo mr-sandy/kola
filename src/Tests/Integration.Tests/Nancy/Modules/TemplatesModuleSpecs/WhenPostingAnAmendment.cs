@@ -6,7 +6,7 @@
 
     using Kola.Domain;
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
     using Kola.Resources;
 
     using global::Nancy;
@@ -18,17 +18,17 @@
 
     public class WhenPostingAnAmendment : ContextBase
     {
-        private PageTemplate template;
+        private Template template;
 
         [SetUp]
         public void EstablishContext()
         {
             var templatePath = @"test/path";
 
-            this.template = new PageTemplate(new[] { "test", "path" });
+            this.template = new Template(new[] { "test", "path" });
 
-            var component = MockRepository.GenerateStub<INamedComponentTemplate>();
-            var componentSpecification = MockRepository.GenerateStub<INamedComponentSpecification<INamedComponentTemplate>>();
+            var component = MockRepository.GenerateStub<IParameterisedComponent>();
+            var componentSpecification = MockRepository.GenerateStub<IParameterisedComponentSpecification<IParameterisedComponent>>();
 
             componentSpecification.Stub(s => s.Create()).Return(component);
             this.TemplateRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(this.template);
@@ -52,14 +52,14 @@
         [Test]
         public void ShouldUpdateTemplateToRepository()
         {
-            this.TemplateRepository.AssertWasCalled(r => r.Update(Arg<PageTemplate>.Is.Anything));
+            this.TemplateRepository.AssertWasCalled(r => r.Update(Arg<Page>.Is.Anything));
         }
 
         [Test]
         public void ShouldAddAnAmendmentToTheTemplate()
         {
-            var args = this.TemplateRepository.GetArgumentsForCallsMadeOn(r => r.Update(Arg<PageTemplate>.Is.Anything));
-            var updatedTemplate = (PageTemplate)args[0][0];
+            var args = this.TemplateRepository.GetArgumentsForCallsMadeOn(r => r.Update(Arg<Page>.Is.Anything));
+            var updatedTemplate = (Template)args[0][0];
             updatedTemplate.Amendments.Should().HaveCount(1);
         }
     }

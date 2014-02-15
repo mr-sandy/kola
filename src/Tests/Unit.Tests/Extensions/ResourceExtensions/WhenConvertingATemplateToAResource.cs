@@ -5,7 +5,7 @@
     using FluentAssertions;
 
     using Kola.Domain;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
     using Kola.Extensions;
     using Kola.Resources;
 
@@ -19,15 +19,15 @@
         public void EstablishContext()
         {
             var templatePath = new[] { "test", "path" };
-            var template = new PageTemplate(templatePath);
+            var template = new Template(templatePath);
 
-            var child1 = new ContainerTemplate("child1", null);
+            var child1 = new Container("child1", null);
             template.AddComponent(child1, 0);
 
-            var grandchild1 = new AtomTemplate("grandchild1", null);
+            var grandchild1 = new Atom("grandchild1", null);
             child1.AddComponent(grandchild1, 0);
 
-            var child2 = new AtomTemplate("child2", null);
+            var child2 = new Atom("child2", null);
             template.AddComponent(child2, 1);
 
             this.templateResource = template.ToResource();

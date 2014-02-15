@@ -2,10 +2,9 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Domain;
+    using Kola.Domain.Composition;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
-    using Kola.Domain.Templates;
     using Kola.Persistence;
 
     public class PageHandler : IPageHandler

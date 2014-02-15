@@ -2,7 +2,7 @@
 {
     using Kola.Domain;
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     using NUnit.Framework;
 
@@ -12,20 +12,20 @@
     {
         protected AmendmentApplyingVisitor Visitor { get; private set; }
 
-        protected PageTemplate Template { get; private set; }
+        protected Template Template { get; private set; }
 
         protected IComponentSpecificationLibrary ComponentLibrary { get; private set; }
 
-        protected INamedComponentSpecification<INamedComponentTemplate> ComponentSpecification { get; private set; }
+        protected IParameterisedComponentSpecification<IParameterisedComponent> ComponentSpecification { get; private set; }
 
         [SetUp]
         public void EstablishBaseContext()
         {
-            this.Template = new PageTemplate(new[] { "path" });
+            this.Template = new Template(new[] { "path" });
 
             this.ComponentLibrary = MockRepository.GenerateStub<IComponentSpecificationLibrary>();
 
-            this.ComponentSpecification = MockRepository.GenerateStub<INamedComponentSpecification<INamedComponentTemplate>>();
+            this.ComponentSpecification = MockRepository.GenerateStub<IParameterisedComponentSpecification<IParameterisedComponent>>();
 
             this.ComponentLibrary.Stub(l => l.Lookup(Arg<string>.Is.Anything)).Return(this.ComponentSpecification);
             

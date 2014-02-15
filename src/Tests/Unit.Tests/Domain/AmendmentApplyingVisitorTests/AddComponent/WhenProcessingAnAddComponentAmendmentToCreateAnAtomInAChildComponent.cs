@@ -5,8 +5,8 @@
     using FluentAssertions;
 
     using Kola.Domain;
-    using Kola.Domain.Templates;
-    using Kola.Domain.Templates.Amendments;
+    using Kola.Domain.Composition;
+    using Kola.Domain.Composition.Amendments;
 
     using NUnit.Framework;
 
@@ -14,15 +14,15 @@
 
     public class WhenProcessingAnAddComponentAmendmentToCreateAnAtomInAChildComponent : ContextBase
     {
-        private ContainerTemplate container;
+        private Container container;
 
         [SetUp]
         public void EstablishContext()
         {
-            this.container = new ContainerTemplate("existing container", null);
+            this.container = new Container("existing container", null);
             this.Template.AddComponent(this.container, 0);
 
-            var newComponent = new AtomTemplate("new atom", null);
+            var newComponent = new Atom("new atom", null);
 
             this.ComponentSpecification.Stub(s => s.Create()).Return(newComponent);
 
@@ -40,7 +40,7 @@
         [Test]
         public void TheComponentShouldBeAnAtom()
         {
-            this.container.Components.Single().Should().BeOfType<AtomTemplate>();
+            this.container.Components.Single().Should().BeOfType<Atom>();
         }
     }
 }

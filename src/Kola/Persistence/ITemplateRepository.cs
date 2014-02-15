@@ -2,14 +2,14 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
     public interface ITemplateRepository
     {
-        void Add(PageTemplate template);
+        void Add(Template template);
         
-        PageTemplate Get(IEnumerable<string> path);
+        Template Get(IEnumerable<string> path);
         
-        void Update(PageTemplate template);
+        void Update(Template template);
     }
 }

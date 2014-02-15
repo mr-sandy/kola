@@ -1,17 +1,17 @@
 ﻿namespace Kola.Domain.Specifications
 {
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
-    public class ContainerSpecification : PluginComponentSpecification<ContainerTemplate>
+    public class ContainerSpecification : PluginComponentSpecification<Container>
     {
         public ContainerSpecification(string name)
             : base(name)
         {
         }
 
-        public override ContainerTemplate Create()
+        public override Container Create()
         {
-            return new ContainerTemplate(this.Name, this.CreateParameters());
+            return new Container(this.Name, this.CreateParameters());
         }
     }
 }

@@ -2,10 +2,10 @@
 {
     using System;
 
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
-    public interface IPluginComponentSpecification<out T> : INamedComponentSpecification<T>
-        where T : INamedComponentTemplate
+    public interface IPluginComponentSpecification<out T> : IParameterisedComponentSpecification<T>
+        where T : IParameterisedComponent
     {
         Type RendererType { get; set; }
 

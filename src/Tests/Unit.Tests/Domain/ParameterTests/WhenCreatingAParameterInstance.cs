@@ -4,8 +4,8 @@
 
     using Kola.Domain;
     using Kola.Domain.Instances;
-    using Kola.Domain.Templates;
-    using Kola.Domain.Templates.ParameterValues;
+    using Kola.Domain.Composition;
+    using Kola.Domain.Composition.ParameterValues;
 
     using NUnit.Framework;
 
@@ -16,7 +16,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            var parameter = new ParameterTemplate("parameter name", "parameter type")
+            var parameter = new Parameter("parameter name", "parameter type")
                 {
                     Value = new FixedParameterValue("parameter value")
                 };

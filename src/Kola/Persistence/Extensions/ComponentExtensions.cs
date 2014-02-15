@@ -3,12 +3,12 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
     using Kola.Persistence.Surrogates;
 
     public static class ComponentExtensions
     {
-        public static IEnumerable<ComponentSurrogate> ToSurrogate(this IEnumerable<IComponentTemplate> components)
+        public static IEnumerable<ComponentSurrogate> ToSurrogate(this IEnumerable<IComponent> components)
         {
             var visitor = new ComponentSurrogateBuildingVisitor();
 
@@ -20,7 +20,7 @@
             return visitor.ComponentSurrogates;
         }
 
-        public static IEnumerable<IComponentTemplate> ToDomain(this IEnumerable<ComponentSurrogate> surrogates)
+        public static IEnumerable<IComponent> ToDomain(this IEnumerable<ComponentSurrogate> surrogates)
         {
             if (surrogates == null)
             {
@@ -37,32 +37,32 @@
             return visitor.Components;
         }
 
-        public static ContainerTemplate ToDomain(this ContainerSurrogate surrogate)
+        public static Container ToDomain(this ContainerSurrogate surrogate)
         {
-            return new ContainerTemplate(
+            return new Container(
                 surrogate.Name,
                 surrogate.Parameters.ToDomain(),
                 surrogate.Components.ToDomain());
         }
 
-        public static AtomTemplate ToDomain(this AtomSurrogate surrogate)
+        public static Atom ToDomain(this AtomSurrogate surrogate)
         {
-            return new AtomTemplate(
+            return new Atom(
                 surrogate.Name,
                 surrogate.Parameters.ToDomain());
         }
 
-        public static WidgetTemplate ToDomain(this WidgetSurrogate surrogate)
+        public static Widget ToDomain(this WidgetSurrogate surrogate)
         {
-            return new WidgetTemplate(
+            return new Widget(
                 surrogate.Name,
                 surrogate.Parameters.ToDomain(),
                 surrogate.Areas.Select(a => a.ToDomain()));
         }
 
-        public static PlaceholderTemplate ToDomain(this PlaceholderSurrogate surrogate)
+        public static Placeholder ToDomain(this PlaceholderSurrogate surrogate)
         {
-            return new PlaceholderTemplate();
+            return new Placeholder();
         }
 
         public static Area ToDomain(this AreaSurrogate surrogate)
@@ -71,7 +71,7 @@
         }
 
 
-        public static ContainerSurrogate ToSurrogate(this ContainerTemplate component)
+        public static ContainerSurrogate ToSurrogate(this Container component)
         {
             return new ContainerSurrogate
                 {
@@ -81,7 +81,7 @@
                 };
         }
 
-        public static AtomSurrogate ToSurrogate(this AtomTemplate component)
+        public static AtomSurrogate ToSurrogate(this Atom component)
         {
             return new AtomSurrogate
                 {
@@ -90,12 +90,12 @@
                 };
         }
 
-        public static WidgetSurrogate ToSurrogate(this WidgetTemplate component)
+        public static WidgetSurrogate ToSurrogate(this Widget component)
         {
             return new WidgetSurrogate { Name = component.Name };
         }
 
-        public static PlaceholderSurrogate ToSurrogate(this PlaceholderTemplate component)
+        public static PlaceholderSurrogate ToSurrogate(this Placeholder component)
         {
             return new PlaceholderSurrogate();
         }

@@ -1,7 +1,7 @@
 ﻿namespace Kola.Domain.Specifications
 {
-    using Kola.Domain.Templates;
-    using Kola.Domain.Templates.ParameterValues;
+    using Kola.Domain.Composition;
+    using Kola.Domain.Composition.ParameterValues;
 
     public class ParameterSpecification
     {
@@ -18,13 +18,13 @@
 
         public string DefaultValue { get; private set; }
 
-        public ParameterTemplate Create(IParameterValue parameterValue = null)
+        public Parameter Create(IParameterValue parameterValue = null)
         {
             var value = parameterValue ?? (string.IsNullOrEmpty(this.DefaultValue)
                 ? (IParameterValue)new UndefinedParameterValue()
                 : new FixedParameterValue(this.DefaultValue));
 
-            return new ParameterTemplate(this.Name, this.Type)
+            return new Parameter(this.Name, this.Type)
                 {
                     Value = value
                 };

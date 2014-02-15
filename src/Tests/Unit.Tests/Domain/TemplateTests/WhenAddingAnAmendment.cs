@@ -3,8 +3,8 @@
     using FluentAssertions;
 
     using Kola.Domain;
-    using Kola.Domain.Templates;
-    using Kola.Domain.Templates.Amendments;
+    using Kola.Domain.Composition;
+    using Kola.Domain.Composition.Amendments;
 
     using NUnit.Framework;
 
@@ -12,12 +12,12 @@
 
     public class WhenAddingAnAmendment
     {
-        private PageTemplate template;
+        private Template template;
 
         [SetUp]
         public void EstablishContext()
         {
-            this.template = new PageTemplate(new[] { "path" });
+            this.template = new Template(new[] { "path" });
 
             var amendment = MockRepository.GenerateStub<IAmendment>();
 

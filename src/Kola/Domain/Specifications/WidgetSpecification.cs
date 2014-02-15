@@ -4,13 +4,13 @@
     using System.Linq;
 
     using Kola.Domain.Extensions;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
 
-    public class WidgetSpecification : NamedComponentSpecification<WidgetTemplate>, IComponentCollection
+    public class WidgetSpecification : ParameterisedComponentSpecification<Widget>, IComponentCollection
     {
-        private readonly List<IComponentTemplate> components = new List<IComponentTemplate>();
+        private readonly List<IComponent> components = new List<IComponent>();
 
-        public WidgetSpecification(string name, IEnumerable<IComponentTemplate> components = null)
+        public WidgetSpecification(string name, IEnumerable<IComponent> components = null)
             : base(name)
         {
             if (components != null)
@@ -19,12 +19,12 @@
             }
         }
 
-        public IEnumerable<IComponentTemplate> Components
+        public IEnumerable<IComponent> Components
         {
             get { return this.components; }
         }
 
-        public void AddComponent(IComponentTemplate component, int index)
+        public void AddComponent(IComponent component, int index)
         {
             if (index > this.components.Count)
             {
@@ -39,14 +39,14 @@
             this.components.RemoveAt(index);
         }
 
-        public override WidgetTemplate Create()
+        public override Widget Create()
         {
             var parameters = this.CreateParameters();
 
-            var placeholders = this.FindAll<PlaceholderTemplate>();
-            var areas = placeholders.Select(p => new Area(Enumerable.Empty<IComponentTemplate>()));
+            var placeholders = this.FindAll<Placeholder>();
+            var areas = placeholders.Select(p => new Area(Enumerable.Empty<IComponent>()));
 
-            return new WidgetTemplate(this.Name, parameters, areas);
+            return new Widget(this.Name, parameters, areas);
         }
     }
 }

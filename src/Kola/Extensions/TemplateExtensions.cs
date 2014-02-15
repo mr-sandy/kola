@@ -1,12 +1,12 @@
 ﻿namespace Kola.Extensions
 {
     using Kola.Domain;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
     using Kola.Resources;
 
     internal static class TemplateExtensions
     {
-        public static TemplateResource ToResource(this PageTemplate template)
+        public static TemplateResource ToResource(this Template template)
         {
             return new TemplateResource
                 {

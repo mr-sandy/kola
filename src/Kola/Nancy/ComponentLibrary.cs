@@ -6,7 +6,7 @@
     using Kola.Configuration;
     using Kola.Domain;
     using Kola.Domain.Specifications;
-    using Kola.Domain.Templates;
+    using Kola.Domain.Composition;
     using Kola.Persistence;
 
     public class ComponentLibrary : IComponentSpecificationLibrary
@@ -21,9 +21,9 @@
             this.widgetRepository = widgetRepository;
         }
 
-        public IEnumerable<INamedComponentSpecification<INamedComponentTemplate>> FindAll()
+        public IEnumerable<IParameterisedComponentSpecification<IParameterisedComponent>> FindAll()
         {
-            IEnumerable<INamedComponentSpecification<INamedComponentTemplate>> pluggedInComponents = this.registry.KolaConfiguration.Plugins
+            IEnumerable<IParameterisedComponentSpecification<IParameterisedComponent>> pluggedInComponents = this.registry.KolaConfiguration.Plugins
                 .SelectMany(plugin => plugin.Components);
 
             var widgets = this.widgetRepository.FindAll();
@@ -31,14 +31,14 @@
             return pluggedInComponents.Concat(widgets);
         }
 
-        public INamedComponentSpecification<INamedComponentTemplate> Lookup(string componentName)
+        public IParameterisedComponentSpecification<IParameterisedComponent> Lookup(string componentName)
         {
             var component = this.registry.KolaConfiguration.Plugins
                 .SelectMany(plugin => plugin.Components)
                 .FirstOrDefault(c => c.Name == componentName);
 
             return component != null
-                ? (INamedComponentSpecification<INamedComponentTemplate>)component
+                ? (IParameterisedComponentSpecification<IParameterisedComponent>)component
                 : this.widgetRepository.Find(componentName);
         }
     }
