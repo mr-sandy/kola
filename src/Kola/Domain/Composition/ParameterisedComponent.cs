@@ -40,7 +40,9 @@
             else
             {
                 // Need to build the parameter template from the specification and then add it to the component
-                this.parameters.Add(specification.Parameters.Find(parameterName).Create(parameterValue));
+                var parameterSpecification = specification.Parameters.Find(parameterName);
+                var parameter2 = parameterSpecification.Create(parameterValue);
+                this.parameters.Add(parameter2);
             }
         }
 

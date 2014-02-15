@@ -66,7 +66,7 @@
     <Compile Include="Domain\ParameterTests\WhenCreatingAParameterInstance.cs" />
     <Compile Include="Domain\ParameterTests\WhenSettingAFixedValueForAParameter.cs" />
     <Compile Include="Domain\TemplateTests\WhenAddingAnAmendment.cs" />
-    <Compile Include="Domain\AmendmentApplyingVisitorTests\UpdateParameters\WhenApplyingAnUpdateParametersAmendmentForAFixedParameterValue.cs" />
+    <Compile Include="Domain\AmendmentApplyingVisitorTests\SetParameter\WhenApplyingAnSetParametersAmendmentForAFixedParameterValueWhenNoParameterExists.cs" />
     <Compile Include="Domain\WidgetTests\WhenAddingAPlaceholderToAWidget.cs" />
     <Compile Include="Domain\WidgetTests\WhenAddingContentToAWidgetPlaceholderInATemplate.cs" />
     <Compile Include="Domain\WidgetTests\WhenAddingAnAtomToAWidgetSpecification.cs" />

@@ -8,6 +8,6 @@
 
         void Visit(RemoveComponentAmendment amendment);
 
-        void Visit(UpdateParameterAmendment amendment);
+        void Visit(SetParameterAmendment amendment);
     }
 }

@@ -33,7 +33,7 @@
             this.amendmentSurrogates.Add(amendment.ToSurrogate());
         }
 
-        public void Visit(UpdateParameterAmendment amendment)
+        public void Visit(SetParameterAmendment amendment)
         {
             throw new NotImplementedException();
         }

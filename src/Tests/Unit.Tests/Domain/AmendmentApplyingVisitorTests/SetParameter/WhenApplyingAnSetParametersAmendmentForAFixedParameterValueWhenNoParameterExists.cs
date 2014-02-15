@@ -1,24 +1,30 @@
-﻿namespace Unit.Tests.Domain.AmendmentApplyingVisitorTests.UpdateParameters
+﻿namespace Unit.Tests.Domain.AmendmentApplyingVisitorTests.SetParameter
 {
     using System.Linq;
 
     using FluentAssertions;
 
-    using Kola.Domain;
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.Amendments;
     using Kola.Domain.Composition.ParameterValues;
+    using Kola.Domain.Specifications;
 
     using NUnit.Framework;
 
-    public class WhenApplyingAnUpdateParametersAmendmentForAFixedParameterValue : ContextBase
+    using Rhino.Mocks;
+
+    public class WhenApplyingASetParametersAmendmentForAFixedParameterValueWhenNoParameterExists : ContextBase
     {
         [SetUp]
         public void EstablishContext()
         {
-            this.Template.Insert(0, new Atom("existing", new[] { new Parameter("parameter name", "parameter type"), }));
+            this.Template.Insert(0, new Atom("the atom", Enumerable.Empty<Parameter>()));
 
-            var amendment = new UpdateParameterAmendment("parameter name", "updated value", new[] { 0 });
+            var parameterSpecification = new ParameterSpecification("parameter name", "parameter type");
+
+            this.ComponentSpecification.Stub(s => s.Parameters).Return(new[] { parameterSpecification });
+
+            var amendment = new SetParameterAmendment("parameter name", "updated value", new[] { 0 });
 
             this.Visitor.Visit(amendment);
         }

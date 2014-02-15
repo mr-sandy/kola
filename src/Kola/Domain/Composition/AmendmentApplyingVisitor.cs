@@ -50,7 +50,7 @@
             parent.RemoveAt(index);
         }
 
-        public void Visit(UpdateParameterAmendment amendment)
+        public void Visit(SetParameterAmendment amendment)
         {
             var component = this.template.Find<IParameterisedComponent>(amendment.ComponentPath);
             var specification = this.specificationLibrary.Lookup(component.Name);

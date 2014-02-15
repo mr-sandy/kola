@@ -2,9 +2,9 @@
 {
     using System.Collections.Generic;
 
-    public class UpdateParameterAmendment : IAmendment
+    public class SetParameterAmendment : IAmendment
     {
-        public UpdateParameterAmendment(string parameterName, string updatedValue, IEnumerable<int> componentPath)
+        public SetParameterAmendment(string parameterName, string updatedValue, IEnumerable<int> componentPath)
         {
             this.ParameterName = parameterName;
             this.UpdatedValue = updatedValue;

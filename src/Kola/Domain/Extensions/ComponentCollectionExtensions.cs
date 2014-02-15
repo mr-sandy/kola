@@ -6,7 +6,6 @@
     using Kola;
     using Kola.Domain.Composition;
 
-    // TODO {SC} Refactor this mess once I've implemented widgets (because a placeholder should be an IComponentCollection but not an IComponent)
     public static class ComponentCollectionExtensions
     {
         public static IComponent FindComponent(this IComponentCollection collection, IEnumerable<int> path)
@@ -25,23 +24,21 @@
             {
                 return (T)collection;
             }
-            else
+            
+            var index = path.First();
+
+            if (collection.Components.Count() >= index)
             {
-                var index = path.First();
-
-                if (collection.Components.Count() >= index)
+                if (path.Count() == 1 && collection.Components.ElementAt(index) is T)
                 {
-                    if (path.Count() == 1 && collection.Components.ElementAt(index) is T)
-                    {
-                        return (T)collection.Components.ElementAt(index);
-                    }
+                    return (T)collection.Components.ElementAt(index);
+                }
 
-                    var childCollection = collection.Components.ElementAt(index) as IComponentCollection;
+                var childCollection = collection.Components.ElementAt(index) as IComponentCollection;
 
-                    if (childCollection != null)
-                    {
-                        return childCollection.Find<T>(path.Skip(1));
-                    }
+                if (childCollection != null)
+                {
+                    return childCollection.Find<T>(path.Skip(1));
                 }
             }
 

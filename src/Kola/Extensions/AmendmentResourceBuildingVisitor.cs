@@ -41,7 +41,7 @@
             this.amendmentResources.Add(amendment.ToResource(this.templatePath, ++this.count, this.count == this.total));
         }
 
-        public void Visit(UpdateParameterAmendment amendment)
+        public void Visit(SetParameterAmendment amendment)
         {
             throw new NotImplementedException();
         }

@@ -2,11 +2,10 @@
 {
     using FluentAssertions;
 
-    using Kola.Domain;
-    using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Building;
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.ParameterValues;
+    using Kola.Domain.Instances;
+    using Kola.Domain.Instances.Building;
 
     using NUnit.Framework;
 

@@ -81,7 +81,7 @@
     <Compile Include="Domain\Rendering\Renderer.cs" />
     <Compile Include="Domain\Rendering\Result.cs" />
     <Compile Include="Domain\Specifications\ParameterisedComponentSpecification.cs" />
-    <Compile Include="Domain\Composition\Amendments\UpdateParameterAmendment.cs" />
+    <Compile Include="Domain\Composition\Amendments\SetParameterAmendment.cs" />
     <Compile Include="Domain\Composition\Area.cs" />
     <Compile Include="Domain\Composition\IParameterisedComponent.cs" />
     <Compile Include="Domain\Composition\ParameterisedComponent.cs" />
