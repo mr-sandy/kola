@@ -18,7 +18,7 @@
             this.template = new Template(templatePath);
 
             var newComponent = new Atom("component1", null);
-            this.template.AddComponent(newComponent, 0);
+            this.template.Insert(0, newComponent);
         }
 
         [Test]

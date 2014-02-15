@@ -20,7 +20,7 @@
         public void EstablishContext()
         {
             this.container = new Container("existing container", null);
-            this.Template.AddComponent(this.container, 0);
+            this.Template.Insert(0, this.container);
 
             this.ComponentSpecification.Stub(s => s.Create()).Return(new Container("new container", null));
 

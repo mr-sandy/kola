@@ -52,13 +52,13 @@
         [Test]
         public void ShouldUpdateTemplateToRepository()
         {
-            this.TemplateRepository.AssertWasCalled(r => r.Update(Arg<Page>.Is.Anything));
+            this.TemplateRepository.AssertWasCalled(r => r.Update(Arg<Template>.Is.Anything));
         }
 
         [Test]
         public void ShouldAddAnAmendmentToTheTemplate()
         {
-            var args = this.TemplateRepository.GetArgumentsForCallsMadeOn(r => r.Update(Arg<Page>.Is.Anything));
+            var args = this.TemplateRepository.GetArgumentsForCallsMadeOn(r => r.Update(Arg<Template>.Is.Anything));
             var updatedTemplate = (Template)args[0][0];
             updatedTemplate.Amendments.Should().HaveCount(1);
         }

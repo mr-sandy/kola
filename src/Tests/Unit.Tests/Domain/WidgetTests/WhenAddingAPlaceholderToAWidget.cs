@@ -19,7 +19,7 @@
             this.widgetSpecification = new WidgetSpecification("widgetName");
             var placeholder = new Placeholder();
 
-            this.widgetSpecification.AddComponent(placeholder, 0);
+            this.widgetSpecification.Insert(0, placeholder);
         }
 
         [Test]

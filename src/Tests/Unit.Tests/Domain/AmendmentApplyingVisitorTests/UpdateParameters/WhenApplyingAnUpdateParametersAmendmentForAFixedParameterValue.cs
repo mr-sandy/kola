@@ -16,8 +16,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            this.Template.AddComponent(
-                new Atom("existing", new[] { new Parameter("parameter name", "parameter type"), }), 0);
+            this.Template.Insert(0, new Atom("existing", new[] { new Parameter("parameter name", "parameter type"), }));
 
             var amendment = new UpdateParameterAmendment("parameter name", "updated value", new[] { 0 });
 

@@ -30,13 +30,13 @@
         [Test]
         public void ShouldAddTemplateToRepository()
         {
-            this.TemplateRepository.AssertWasCalled(r => r.Add(Arg<Page>.Is.Anything));
+            this.TemplateRepository.AssertWasCalled(r => r.Add(Arg<Template>.Is.Anything));
         }
 
         [Test]
         public void ShouldAddTemplateWithCorrectPath()
         {
-            var args = this.TemplateRepository.GetArgumentsForCallsMadeOn(r => r.Add(Arg<Page>.Is.Anything));
+            var args = this.TemplateRepository.GetArgumentsForCallsMadeOn(r => r.Add(Arg<Template>.Is.Anything));
             var template = (Template)args[0][0];
             template.Path.Should().BeEquivalentTo(new[] { "test", "path" });
         }

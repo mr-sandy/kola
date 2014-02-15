@@ -25,7 +25,7 @@
             get { return this.components; }
         }
 
-        public void AddComponent(IComponent component, int index)
+        public void Insert(int index, IComponent component)
         {
             if (index > this.components.Count)
             {
@@ -35,7 +35,7 @@
             this.components.Insert(index, component);
         }
 
-        public void RemoveComponentAt(int index)
+        public void RemoveAt(int index)
         {
             this.components.RemoveAt(index);
         }

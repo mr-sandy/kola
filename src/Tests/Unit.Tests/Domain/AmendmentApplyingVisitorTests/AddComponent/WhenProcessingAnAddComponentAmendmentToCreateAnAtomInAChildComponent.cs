@@ -20,7 +20,7 @@
         public void EstablishContext()
         {
             this.container = new Container("existing container", null);
-            this.Template.AddComponent(this.container, 0);
+            this.Template.Insert(0, this.container);
 
             var newComponent = new Atom("new atom", null);
 

@@ -6,8 +6,8 @@
     {
         IEnumerable<IComponent> Components { get; }
 
-        void AddComponent(IComponent component, int index);
+        void Insert(int index, IComponent component);
 
-        void RemoveComponentAt(int index);
+        void RemoveAt(int index);
     }
 }

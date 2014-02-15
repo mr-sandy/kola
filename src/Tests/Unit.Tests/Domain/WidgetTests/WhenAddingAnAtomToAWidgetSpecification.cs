@@ -17,7 +17,7 @@
         public void EstablishContext()
         {
             this.widgetSpecification = new WidgetSpecification("widget name");
-            this.widgetSpecification.AddComponent(new Atom("atom name", Enumerable.Empty<Parameter>()), 0);
+            this.widgetSpecification.Insert(0, new Atom("atom name", Enumerable.Empty<Parameter>()));
         }
 
         [Test]

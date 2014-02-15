@@ -22,13 +22,13 @@
             var template = new Template(templatePath);
 
             var child1 = new Container("child1", null);
-            template.AddComponent(child1, 0);
+            template.Insert(0, child1);
 
             var grandchild1 = new Atom("grandchild1", null);
-            child1.AddComponent(grandchild1, 0);
+            child1.Insert(0, grandchild1);
 
             var child2 = new Atom("child2", null);
-            template.AddComponent(child2, 1);
+            template.Insert(1, child2);
 
             this.templateResource = template.ToResource();
         }

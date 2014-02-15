@@ -20,10 +20,10 @@
         public void EstablishContext()
         {
             this.container = new Container("existing container", null);
-            this.Template.AddComponent(this.container, 0);
+            this.Template.Insert(0, this.container);
 
             var existingComponent = new Container("existing sub-container", null);
-            this.container.AddComponent(existingComponent, 0);
+            this.container.Insert(0, existingComponent);
 
             this.ComponentSpecification.Stub(s => s.Create()).Return(new Atom("new atom", null));
 

@@ -15,8 +15,8 @@
         [SetUp]
         public void EstablishContext()
         {
-            this.Template.AddComponent(new Atom("first", null), 0);
-            this.Template.AddComponent(new Atom("second", null), 1);
+            this.Template.Insert(0, new Atom("first", null));
+            this.Template.Insert(1, new Atom("second", null));
 
             var amendment = new MoveComponentAmendment(new[] { 0 }, new[] { 1 });
 

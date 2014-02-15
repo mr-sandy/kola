@@ -28,7 +28,7 @@
             var parent = this.template.FindCollection(amendment.TargetPath.TakeAllButLast());
             var index = amendment.TargetPath.Last();
 
-            parent.AddComponent(component, index);
+            parent.Insert(index, component);
         }
 
         public void Visit(MoveComponentAmendment amendment)
@@ -38,8 +38,8 @@
             var targetParent = this.template.FindCollection(amendment.TargetPath.TakeAllButLast());
             var targetIndex = amendment.TargetPath.Last();
 
-            sourceParent.RemoveComponentAt(amendment.SourcePath.Last());
-            targetParent.AddComponent(component, targetIndex);
+            sourceParent.RemoveAt(amendment.SourcePath.Last());
+            targetParent.Insert(targetIndex, component);
         }
 
         public void Visit(RemoveComponentAmendment amendment)
@@ -47,7 +47,7 @@
             var index = amendment.ComponentPath.Last();
             var parent = this.template.FindCollection(amendment.ComponentPath.TakeAllButLast());
 
-            parent.RemoveComponentAt(index);
+            parent.RemoveAt(index);
         }
 
         public void Visit(UpdateParameterAmendment amendment)
