@@ -24,10 +24,5 @@
         {
             throw new NotImplementedException();
         }
-
-        public ParameterValueSurrogate Visit(UndefinedParameterValue undefinedParameterValue)
-        {
-            return null;
-        }
     }
 }

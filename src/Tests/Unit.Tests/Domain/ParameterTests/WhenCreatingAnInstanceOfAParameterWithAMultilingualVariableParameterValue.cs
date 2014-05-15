@@ -16,16 +16,15 @@
         [SetUp]
         public void EstablishContext()
         {
-            var parameter = new Parameter("parameter name", "parameter type")
-                {
-                    Value =
-                        new MultilingualParameterValue(
-                        new[]
-                            {
-                                new MultilingualVariant("en", "English"), 
-                                new MultilingualVariant("fr", "Français")
-                            })
-                };
+            var parameter = new Parameter(
+                "parameter name",
+                "parameter type",
+                new MultilingualParameterValue(
+                    new[]
+                        {
+                            new MultilingualVariant("en", "English"), 
+                            new MultilingualVariant("fr", "Français")
+                        }));
 
             var context = new Context { LanguageCode = "fr" };
 

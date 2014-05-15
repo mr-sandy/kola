@@ -1,13 +1,9 @@
 ﻿namespace Unit.Tests.Domain.ComponentSpecifications
 {
-    using System.Linq;
-
     using FluentAssertions;
 
-    using Kola.Domain;
-    using Kola.Domain.Specifications;
     using Kola.Domain.Composition;
-    using Kola.Domain.Composition.ParameterValues;
+    using Kola.Domain.Specifications;
 
     using NUnit.Framework;
 
@@ -21,7 +17,7 @@
         {
             var atomSpecification = new AtomSpecification("atom 1");
             atomSpecification.AddParameter(new ParameterSpecification("parameter 1 name", "parameter 1 type"));
-            atomSpecification.AddParameter(new ParameterSpecification("parameter 2 name", "parameter 2 type", "default value"));
+            atomSpecification.AddParameter(new ParameterSpecification("parameter 2 name", "parameter 2 type"));
 
             this.atom = atomSpecification.Create();
         }
@@ -33,22 +29,9 @@
         }
 
         [Test]
-        public void TheAtomShouldContainOnlyParametersWithDefaultValues()
+        public void TheAtomShouldNotYetContainAnyParamters()
         {
-            this.atom.Parameters.Should().HaveCount(1);
-        }
-
-        [Test]
-        public void TheParaetersDefaultValuesShouldBeFixed()
-        {
-            this.atom.Parameters.Single().Value.Should().BeOfType<FixedParameterValue>();
-        }
-
-        [Test]
-        public void TheParaetersDefaultValuesShouldBeSet()
-        {
-            var value = this.atom.Parameters.Single().Value as FixedParameterValue;
-            value.Value.Should().Be("default value");
+            this.atom.Parameters.Should().HaveCount(0);
         }
     }
 }

@@ -8,7 +8,7 @@
 
     public class Atom : ParameterisedComponent
     {
-        public Atom(string name, IEnumerable<Parameter> parameters)
+        public Atom(string name, IEnumerable<Parameter> parameters = null)
             : base(name, parameters)
         {
         }

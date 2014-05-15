@@ -23,7 +23,7 @@
             var templatePath = new[] { "test", "path" };
             this.template = new Template(templatePath);
 
-            var amendment = new AddComponentAmendment("component name", new[] { 0 });
+            var amendment = new AddComponentAmendment(new[] { 0 }, "component name");
             this.template.AddAmendment(amendment);
 
             var newComponent = new Atom("component name", null);

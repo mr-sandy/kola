@@ -2,8 +2,8 @@
 {
     using System.Linq;
 
-    using Kola.Domain.Extensions;
     using Kola.Domain.Composition;
+    using Kola.Domain.Extensions;
     using Kola.Extensions;
     using Kola.Persistence;
     using Kola.Resources;

@@ -11,14 +11,9 @@
     {
         public static Parameter ToDomain(this ParameterSurrogate surrogate)
         {
-            var value = surrogate.Value == null
-                ? new UndefinedParameterValue()
-                : surrogate.Value.Accept(new ParameterValueBuildingVisitor());
+            var value = surrogate.Value.Accept(new ParameterValueBuildingVisitor());
 
-            return new Parameter(surrogate.Name, surrogate.Type)
-                {
-                    Value = value
-                };
+            return new Parameter(surrogate.Name, surrogate.Type, value);
         }
 
         public static IEnumerable<Parameter> ToDomain(this IEnumerable<ParameterSurrogate> surrogates)

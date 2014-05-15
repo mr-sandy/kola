@@ -7,7 +7,5 @@
         T Visit(InheritedParameterValue inheritedParameterValue);
 
         T Visit(MultilingualParameterValue multilingualParameterValue);
-
-        T Visit(UndefinedParameterValue undefinedParameterValue);
     }
 }

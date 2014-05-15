@@ -8,6 +8,10 @@
 
         void Visit(RemoveComponentAmendment amendment);
 
-        void Visit(SetParameterAmendment amendment);
+        void Visit(SetParameterFixedAmendment amendment);
+
+        void Visit(SetParameterInheritedAmendment amendment);
+
+        void Visit(SetParameterMultilingualAmendment amendment);
     }
 }

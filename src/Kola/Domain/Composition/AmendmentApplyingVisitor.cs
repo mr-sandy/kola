@@ -50,16 +50,27 @@
             parent.RemoveAt(index);
         }
 
-        public void Visit(SetParameterAmendment amendment)
+        public void Visit(SetParameterFixedAmendment amendment)
         {
             var component = this.template.Find<IParameterisedComponent>(amendment.ComponentPath);
             var specification = this.specificationLibrary.Lookup(component.Name);
 
-            component.SetParameter(amendment.ParameterName, new FixedParameterValue(amendment.UpdatedValue), specification);
+            var parameter = component.Parameters.Find(amendment.ParameterName) ?? component.AddParameter(amendment.ParameterName, specification);
 
-            //var parameter = component.Parameters.Where(p => p.Name.Equals(amendment.ParameterName, StringComparison.OrdinalIgnoreCase)).Single();
+            parameter.Value = new FixedParameterValue(amendment.FixedValue);
+        }
 
-            //parameter.Value = new FixedParameterValue(amendment.UpdatedValue);
+        public void Visit(SetParameterInheritedAmendment amendment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Visit(SetParameterMultilingualAmendment amendment)
+        {
+            var component = this.template.Find<IParameterisedComponent>(amendment.ComponentPath);
+            var specification = this.specificationLibrary.Lookup(component.Name);
+
+            //component.SetParameter(amendment.ParameterName, new MultilingualParameterValue(amendment.FixedValue), specification);
         }
     }
 }

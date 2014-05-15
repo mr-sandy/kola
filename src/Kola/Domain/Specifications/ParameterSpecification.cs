@@ -5,29 +5,21 @@
 
     public class ParameterSpecification
     {
-        public ParameterSpecification(string name, string type, string defaultValue = "")
+        public ParameterSpecification(string name, string type)
         {
             this.Name = name;
             this.Type = type;
-            this.DefaultValue = defaultValue;
         }
 
         public string Name { get; private set; }
 
         public string Type { get; private set; }
 
-        public string DefaultValue { get; private set; }
-
-        public Parameter Create(IParameterValue parameterValue = null)
+        public Parameter Create()
         {
-            var value = parameterValue ?? (string.IsNullOrEmpty(this.DefaultValue)
-                ? (IParameterValue)new UndefinedParameterValue()
-                : new FixedParameterValue(this.DefaultValue));
+            var value = new FixedParameterValue(string.Empty);
 
-            return new Parameter(this.Name, this.Type)
-                {
-                    Value = value
-                };
+            return new Parameter(this.Name, this.Type, value);
         }
     }
 }

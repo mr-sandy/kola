@@ -11,7 +11,7 @@
     {
         private readonly List<IComponent> components = new List<IComponent>();
 
-        public Container(string name, IEnumerable<Parameter> parameters, IEnumerable<IComponent> components = null)
+        public Container(string name, IEnumerable<Parameter> parameters = null, IEnumerable<IComponent> components = null)
             : base(name, parameters)
         {
             if (components != null)

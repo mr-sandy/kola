@@ -11,7 +11,7 @@
 
         public override Container Create()
         {
-            return new Container(this.Name, this.CreateParameters());
+            return new Container(this.Name);
         }
     }
 }

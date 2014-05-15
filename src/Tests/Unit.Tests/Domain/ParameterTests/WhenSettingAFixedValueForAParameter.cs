@@ -1,20 +1,16 @@
 ﻿namespace Unit.Tests.Domain.ParameterTests
 {
-    using FluentAssertions;
-
-    using Kola.Domain;
     using Kola.Domain.Composition;
+    using Kola.Domain.Composition.ParameterValues;
 
     using NUnit.Framework;
-
-    using Rhino.Mocks;
 
     public class WhenSettingAFixedValueForAParameter
     {
         [SetUp]
         public void EstablishContext()
         {
-            var parameter = new Parameter(string.Empty, string.Empty);
+            var parameter = new Parameter(string.Empty, string.Empty, new FixedParameterValue("value"));
         }
 
         [Test]

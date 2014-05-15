@@ -56,8 +56,8 @@
         {
             return new Widget(
                 surrogate.Name,
-                surrogate.Parameters.ToDomain(),
-                surrogate.Areas.Select(a => a.ToDomain()));
+                surrogate.Areas != null ? surrogate.Areas.Select(a => a.ToDomain()) : Enumerable.Empty<Area>(),
+                surrogate.Parameters != null ? surrogate.Parameters.ToDomain() : Enumerable.Empty<Parameter>());
         }
 
         public static Placeholder ToDomain(this PlaceholderSurrogate surrogate)

@@ -32,8 +32,7 @@
                 isRoot: true
             });
 
-            this.toolboxView = new ToolboxView(
-            {
+            this.toolboxView = new ToolboxView({
                 collection: this.options.componentTypes
             });
         },

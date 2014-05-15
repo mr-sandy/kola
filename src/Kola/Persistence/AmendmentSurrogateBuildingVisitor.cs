@@ -33,7 +33,17 @@
             this.amendmentSurrogates.Add(amendment.ToSurrogate());
         }
 
-        public void Visit(SetParameterAmendment amendment)
+        public void Visit(SetParameterFixedAmendment amendment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Visit(SetParameterInheritedAmendment amendment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Visit(SetParameterMultilingualAmendment amendment)
         {
             throw new NotImplementedException();
         }

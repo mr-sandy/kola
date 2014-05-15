@@ -66,7 +66,7 @@
 
         public static AddComponentAmendment ToDomain(this AddComponentAmendmentSurrogate surrogate)
         {
-            return new AddComponentAmendment(surrogate.ComponentType, surrogate.TargetPath.ParseComponentPath());
+            return new AddComponentAmendment(surrogate.TargetPath.ParseComponentPath(), surrogate.ComponentType);
         }
 
         public static MoveComponentAmendment ToDomain(this MoveComponentAmendmentSurrogate surrogate)

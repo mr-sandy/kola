@@ -15,10 +15,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            var parameter = new Parameter("parameter name", "parameter type")
-                {
-                    Value = new FixedParameterValue("parameter value")
-                };
+            var parameter = new Parameter("parameter name", "parameter type", new FixedParameterValue("parameter value"));
 
             this.parameterInstance = parameter.Build(null);
         }

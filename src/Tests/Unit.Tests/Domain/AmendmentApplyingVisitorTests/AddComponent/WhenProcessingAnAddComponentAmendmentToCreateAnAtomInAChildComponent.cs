@@ -26,7 +26,7 @@
 
             this.ComponentSpecification.Stub(s => s.Create()).Return(newComponent);
 
-            var amendment = new AddComponentAmendment("new atom", new[] { 0, 0 });
+            var amendment = new AddComponentAmendment(new[] { 0, 0 }, "new atom");
 
             this.Visitor.Visit(amendment);
         }

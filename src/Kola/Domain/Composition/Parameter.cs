@@ -6,17 +6,37 @@
 
     public class Parameter
     {
-        public Parameter(string name, string type)
+        private IParameterValue value;
+
+        public Parameter(string name, string type, IParameterValue value)
         {
             this.Name = name;
             this.Type = type;
+            this.Value = value;
         }
 
         public string Name { get; private set; }
 
         public string Type { get; private set; }
 
-        public IParameterValue Value { get; set; }
+
+        public IParameterValue Value
+        {
+            get
+            {
+                return this.value;
+            }
+            
+            set
+            {
+                if (value == null)
+                {
+                    throw new KolaException("Parameter must have a value");
+                }
+
+                this.value = value;
+            }
+        }
 
         public ParameterInstance Build(IBuildContext buildContext)
         {

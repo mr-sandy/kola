@@ -24,7 +24,7 @@
 
             this.ComponentSpecification.Stub(s => s.Create()).Return(new Container("new container", null));
 
-            var amendment = new AddComponentAmendment("new container", new[] { 0, 0 });
+            var amendment = new AddComponentAmendment(new[] { 0, 0 }, "new container");
 
             this.Visitor.Visit(amendment);
         }

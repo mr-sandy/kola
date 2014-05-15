@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Composition\Amendments\SetParameterInheritedAmendment.cs" />
+    <Compile Include="Domain\Composition\Amendments\SetParameterMultilingualAmendment.cs" />
     <Compile Include="Domain\Extensions\ParameterInstanceExtensions.cs" />
     <Compile Include="Domain\Extensions\ParameterSpecificationExtensions.cs" />
     <Compile Include="Domain\Extensions\ParameterExtensions.cs" />
@@ -81,7 +83,7 @@
     <Compile Include="Domain\Rendering\Renderer.cs" />
     <Compile Include="Domain\Rendering\Result.cs" />
     <Compile Include="Domain\Specifications\ParameterisedComponentSpecification.cs" />
-    <Compile Include="Domain\Composition\Amendments\SetParameterAmendment.cs" />
+    <Compile Include="Domain\Composition\Amendments\SetParameterFixedAmendment.cs" />
     <Compile Include="Domain\Composition\Area.cs" />
     <Compile Include="Domain\Composition\IParameterisedComponent.cs" />
     <Compile Include="Domain\Composition\ParameterisedComponent.cs" />
@@ -108,7 +110,6 @@
     <Compile Include="Domain\Composition\Amendments\RemoveComponentAmendment.cs" />
     <Compile Include="Domain\Composition\Amendments\MoveComponentAmendment.cs" />
     <Compile Include="Domain\Composition\Atom.cs" />
-    <Compile Include="Domain\Composition\ParameterValues\UndefinedParameterValue.cs" />
     <Compile Include="Domain\Composition\Placeholder.cs" />
     <Compile Include="Domain\Composition\Widget.cs" />
     <Compile Include="Domain\Instances\WidgetInstance.cs" />

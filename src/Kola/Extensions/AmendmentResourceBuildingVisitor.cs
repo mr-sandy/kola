@@ -41,7 +41,17 @@
             this.amendmentResources.Add(amendment.ToResource(this.templatePath, ++this.count, this.count == this.total));
         }
 
-        public void Visit(SetParameterAmendment amendment)
+        public void Visit(SetParameterFixedAmendment amendment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Visit(SetParameterInheritedAmendment amendment)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Visit(SetParameterMultilingualAmendment amendment)
         {
             throw new NotImplementedException();
         }

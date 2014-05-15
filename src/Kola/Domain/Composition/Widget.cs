@@ -8,7 +8,7 @@
 
     public class Widget : ParameterisedComponent
     {
-        public Widget(string name, IEnumerable<Parameter> parameters, IEnumerable<Area> areas)
+        public Widget(string name, IEnumerable<Area> areas, IEnumerable<Parameter> parameters = null)
             : base(name, parameters)
         {
             this.Areas = areas;

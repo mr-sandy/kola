@@ -16,10 +16,7 @@
         [SetUp]
         public void EstablishContext()
         {
-            var parameter = new Parameter("parameter name", "parameter type")
-                {
-                    Value = new InheritedParameterValue("key")
-                };
+            var parameter = new Parameter("parameter name", "parameter type", new InheritedParameterValue("key"));
 
             var context = new Context { Items = new[] { new ContextItem("key", "result") } };
 

@@ -24,7 +24,7 @@
 
             this.ComponentSpecification.Stub(s => s.Parameters).Return(new[] { parameterSpecification });
 
-            var amendment = new SetParameterAmendment("parameter name", "updated value", new[] { 0 });
+            var amendment = new SetParameterFixedAmendment(new[] { 0 }, "parameter name", "updated value");
 
             this.Visitor.Visit(amendment);
         }

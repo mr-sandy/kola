@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Domain.Composition.ParameterValues;
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
@@ -29,21 +28,12 @@
             get { return this.parameters; }
         }
 
-        public void SetParameter(string parameterName, IParameterValue parameterValue, IParameterisedComponentSpecification<IParameterisedComponent> specification)
+        public Parameter AddParameter(string parameterName, IParameterisedComponentSpecification<IParameterisedComponent> specification)
         {
-            // See if the parameter is already set for this component
-            var parameter = this.Parameters.Find(parameterName);
-            if (parameter != null)
-            {
-                parameter.Value = parameterValue;
-            }
-            else
-            {
-                // Need to build the parameter template from the specification and then add it to the component
-                var parameterSpecification = specification.Parameters.Find(parameterName);
-                var parameter2 = parameterSpecification.Create(parameterValue);
-                this.parameters.Add(parameter2);
-            }
+            var parameter = specification.Parameters.Find(parameterName).Create();
+            this.parameters.Add(parameter);
+
+            return parameter;
         }
 
         public abstract void Accept(IComponentVisitor visitor);

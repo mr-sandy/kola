@@ -4,7 +4,7 @@
 
     public class AddComponentAmendment : IAmendment
     {
-        public AddComponentAmendment(string componentName, IEnumerable<int> targetPath)
+        public AddComponentAmendment(IEnumerable<int> targetPath, string componentName)
         {
             this.ComponentName = componentName;
             this.TargetPath = targetPath;

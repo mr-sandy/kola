@@ -2,7 +2,6 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Domain.Composition.ParameterValues;
     using Kola.Domain.Specifications;
 
     public interface IParameterisedComponent : IComponent
@@ -11,6 +10,6 @@
 
         IEnumerable<Parameter> Parameters { get; }
 
-        void SetParameter(string parameterName, IParameterValue parameterValue, IParameterisedComponentSpecification<IParameterisedComponent> specification);
+        Parameter AddParameter(string parameterName, IParameterisedComponentSpecification<IParameterisedComponent> specification);
     }
 }

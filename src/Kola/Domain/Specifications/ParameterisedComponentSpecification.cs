@@ -1,10 +1,8 @@
 ﻿namespace Kola.Domain.Specifications
 {
     using System.Collections.Generic;
-    using System.Linq;
 
     using Kola.Domain.Composition;
-    using Kola.Domain.Composition.ParameterValues;
 
     public abstract class ParameterisedComponentSpecification<T> : IParameterisedComponentSpecification<T>
         where T : IParameterisedComponent
@@ -34,10 +32,5 @@
         }
 
         public abstract T Create();
-
-        protected IEnumerable<Parameter> CreateParameters()
-        {
-            return this.Parameters.Select(p => p.Create()).Where(p => !(p.Value is UndefinedParameterValue));
-        }
     }
 }

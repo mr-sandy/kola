@@ -1,59 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
-  <components>
-    <atom name="atom-2">
-      <parameters>
-        <parameter name="parameter-name-1" type="parameter-type-1">
-          <value xsi:type="fixed"><![CDATA[##This is the value##\n\nHere is *the stuff*]]></value>
-        </parameter>
-        <parameter name="parameter-name-2" type="parameter-type-2">
-          <value xsi:type="fixed"><![CDATA[##This is the value##\n\nHere is *the stuff*]]></value>
-        </parameter>
-      </parameters>
-    </atom>
-    <atom name="atom-1">
-      <parameters />
-    </atom>
-    <atom name="markdown">
-      <parameters>
-        <parameter name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[##I like cheese
-          
-####You like badgers####]]></value>
-        </parameter>
-      </parameters>
-    </atom>
-    <widget name="c:\projects\kola\src\kola\persistence\widgets\badger">
-      <areas>
-        <area>
-          <components>
-            <atom name="markdown">
-              <parameters>
-                <parameter name="markdown" type="markdown">
-                  <value xsi:type="fixed"><![CDATA[I have been placed!]]></value>
-                </parameter>
-              </parameters>
-            </atom>
-          </components>
-        </area>
-      </areas>
-    </widget>
-    <atom name="markdown">
-      <parameters>
-        <parameter name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[##This is the value##\n\nHere is *the stuff*]]></value>
-        </parameter>
-      </parameters>
-    </atom>
-    <atom name="markdown">
-      <parameters>
-        <parameter name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[##This is the value##
-          
-Here is *the stuff*]]></value>
-        </parameter>
-      </parameters>
-    </atom>
-  </components>
-  <amendments />
+  <components />
+  <amendments>
+    <addComponent>
+      <componentType>container-1</componentType>
+      <targetPath>0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>atom-1</componentType>
+      <targetPath>0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>container-2</componentType>
+      <targetPath>0/1</targetPath>
+    </addComponent>
+  </amendments>
 </template>

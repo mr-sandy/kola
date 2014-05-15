@@ -12,6 +12,9 @@
             this.Configure.Atom("markdown")
                 .WithRenderer<MarkdownRenderer>()
                 .WithParameter("markdown", "markdown");
+
+            this.Configure.ParameterType("markdown")
+                .WithDefault("Placeholder text.");
         }
     }
 }

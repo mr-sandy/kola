@@ -7,9 +7,7 @@
     {
         public static AddComponentAmendment ToDomain(this AddComponentAmendmentResource resource)
         {
-            return new AddComponentAmendment(
-                resource.ComponentType.ToComponentName(), 
-                resource.TargetPath.ParseComponentPath());
+            return new AddComponentAmendment(resource.TargetPath.ParseComponentPath(), resource.ComponentType.ToComponentName());
         }
 
         public static MoveComponentAmendment ToDomain(this MoveComponentAmendmentResource resource)

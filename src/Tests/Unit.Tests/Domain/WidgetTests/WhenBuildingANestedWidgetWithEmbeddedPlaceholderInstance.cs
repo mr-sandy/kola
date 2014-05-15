@@ -5,10 +5,10 @@
 
     using FluentAssertions;
 
+    using Kola.Domain.Composition;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
     using Kola.Domain.Specifications;
-    using Kola.Domain.Composition;
 
     using NUnit.Framework;
 
@@ -79,7 +79,6 @@
                         new Placeholder(), 
                         new Widget(
                             "widget 1", 
-                            Enumerable.Empty<Parameter>(),
                             new[]
                                 {
                                     new Area(new[]
@@ -95,7 +94,6 @@
 
             var widget = new Widget(
                 "widget 2",
-                Enumerable.Empty<Parameter>(),
                 new[]
                     {
                         new Area(

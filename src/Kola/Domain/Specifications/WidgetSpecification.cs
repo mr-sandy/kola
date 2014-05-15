@@ -3,8 +3,8 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Domain.Extensions;
     using Kola.Domain.Composition;
+    using Kola.Domain.Extensions;
 
     public class WidgetSpecification : ParameterisedComponentSpecification<Widget>, IComponentCollection
     {
@@ -41,12 +41,10 @@
 
         public override Widget Create()
         {
-            var parameters = this.CreateParameters();
-
             var placeholders = this.FindAll<Placeholder>();
             var areas = placeholders.Select(p => new Area(Enumerable.Empty<IComponent>()));
 
-            return new Widget(this.Name, parameters, areas);
+            return new Widget(this.Name, areas);
         }
     }
 }

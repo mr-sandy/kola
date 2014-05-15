@@ -1,27 +1,26 @@
 ﻿namespace Kola.Configuration.Fluent
 {
-    using Kola.Domain.Specifications;
     using Kola.Domain.Composition;
+    using Kola.Domain.Specifications;
 
     public class ComponentRendererConfigurer
     {
-        private readonly IPluginComponentSpecification<IParameterisedComponent> configuration;
+        private readonly IPluginComponentSpecification<IParameterisedComponent> specification;
 
-        internal ComponentRendererConfigurer(IPluginComponentSpecification<IParameterisedComponent> componentConfiguration)
+        internal ComponentRendererConfigurer(IPluginComponentSpecification<IParameterisedComponent> specification)
         {
-            this.configuration = componentConfiguration;
+            this.specification = specification;
         }
 
         public CacheConfigurer Cache
         {
-            get { return new CacheConfigurer(this.configuration); }
+            get { return new CacheConfigurer(this.specification); }
         }
 
         public ComponentRendererConfigurer WithParameter(string parameterName, string parameterType)
         {
-            this.configuration.AddParameter(new ParameterSpecification(parameterName, parameterType));
+            this.specification.AddParameter(new ParameterSpecification(parameterName, parameterType));
             return this;
         }
-
     }
 }

@@ -11,7 +11,7 @@
 
         public override Atom Create()
         {
-            return new Atom(this.Name, this.CreateParameters());
+            return new Atom(this.Name);
         }
     }
 }
