@@ -4,10 +4,8 @@
 
     using FluentAssertions;
 
-    using Kola.Domain;
-    using Kola.Domain.Specifications;
     using Kola.Domain.Composition;
-    using Kola.Resources;
+    using Kola.Domain.Specifications;
 
     using global::Nancy;
     using global::Nancy.Testing;
@@ -34,13 +32,15 @@
             this.TemplateRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(this.template);
             this.ComponentLibrary.Stub(r => r.Lookup("component name")).Return(componentSpecification);
 
-            var request = new AddComponentAmendmentResource
+            var request = new 
             {
-                TargetPath = "0",
-                ComponentType = "component name"
+                targetPath = "0",
+                componentType = "component name"
             };
 
-            this.Response = this.Browser.Post(string.Format("/_kola/templates/{0}/_amendments/addComponent", templatePath), with => with.JsonBody(request));
+            this.Response = this.Browser.Post(
+                string.Format("/_kola/templates/{0}/_amendments/addComponent", templatePath), 
+                with => with.JsonBody(request));
         }
 
         [Test]

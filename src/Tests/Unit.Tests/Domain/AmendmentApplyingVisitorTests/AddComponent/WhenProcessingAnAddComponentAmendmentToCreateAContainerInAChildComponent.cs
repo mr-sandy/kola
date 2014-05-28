@@ -4,7 +4,6 @@
 
     using FluentAssertions;
 
-    using Kola.Domain;
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.Amendments;
 

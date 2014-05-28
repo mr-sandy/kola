@@ -1,10 +1,10 @@
 ﻿namespace Kola.Nancy.Modules
 {
-    using global::Nancy;
-
     using Kola.Domain.Specifications;
     using Kola.Extensions;
     using Kola.Persistence;
+
+    using global::Nancy;
 
     public class WidgetModule : NancyModule
     {
