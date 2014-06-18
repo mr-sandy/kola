@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+  <components />
+  <amendments>
+    <addComponent>
+      <componentType>atom-1</componentType>
+      <targetPath>0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>atom-2</componentType>
+      <targetPath>1</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>container-1</componentType>
+      <targetPath>2</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>2/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+  </amendments>
+</template>

@@ -137,6 +137,7 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Nancy\Extensions\HtmlHelpersExtensions.cs" />
     <Compile Include="Nancy\Modules\WidgetModule.cs" />
+    <Compile Include="Nancy\ResponseProcessors\Class1.cs" />
     <Compile Include="Nancy\ResultWrapper.cs" />
     <Compile Include="Extensions\TemplateExtensions.cs" />
     <Compile Include="Nancy\NancyKolaConfigurationRegistry.cs" />
