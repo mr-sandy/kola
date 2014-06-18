@@ -3,6 +3,7 @@
     using System.Linq;
 
     using Kola.Domain.Composition;
+    using Kola.Domain.Composition.Amendments;
     using Kola.Domain.Extensions;
     using Kola.Extensions;
     using Kola.Persistence;
@@ -18,19 +19,20 @@
         private readonly IComponentSpecificationLibrary componentLibrary;
 
         public TemplateModule(ITemplateRepository templateRepository, IComponentSpecificationLibrary componentLibrary)
+            : base("/_kola/templates/{templatePath*}")
         {
             this.templateRepository = templateRepository;
             this.componentLibrary = componentLibrary;
 
-            this.Get["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
-            this.Get["/_kola/templates/{templatePath*}/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.GetComponent(p.templatePath, p.componentPath);
-            this.Get["/_kola/templates/{templatePath*}/_amendments", AcceptHeaderFilters.NotHtml] = p => this.GetAmendments(p.templatePath);
-            this.Put["/_kola/templates/{templatePath*}", AcceptHeaderFilters.NotHtml] = p => this.PutTemplate(p.templatePath);
-            this.Post["/_kola/templates/{templatePath*}/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAddComponentAmendment(p.templatePath);
-            this.Post["/_kola/templates/{templatePath*}/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostMoveComponentAmendment(p.templatePath);
-            this.Post["/_kola/templates/{templatePath*}/_amendments/deleteComponent", AcceptHeaderFilters.NotHtml] = p => this.PostDeleteComponentAmendment(p.templatePath);
-            this.Post["/_kola/templates/{templatePath*}/_amendments/apply", AcceptHeaderFilters.NotHtml] = p => this.PostApplyAmendments(p.templatePath);
-            this.Post["/_kola/templates/{templatePath*}/_amendments/undo", AcceptHeaderFilters.NotHtml] = p => this.PostUndoAmendments(p.templatePath);
+            this.Get["/", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
+            this.Get["/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.GetComponent(p.templatePath, p.componentPath);
+            this.Get["/_amendments", AcceptHeaderFilters.NotHtml] = p => this.GetAmendments(p.templatePath);
+            this.Put["/", AcceptHeaderFilters.NotHtml] = p => this.PutTemplate(p.templatePath);
+            this.Post["/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAddComponentAmendment(p.templatePath);
+            this.Post["/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostMoveComponentAmendment(p.templatePath);
+            this.Post["/_amendments/deleteComponent", AcceptHeaderFilters.NotHtml] = p => this.PostDeleteComponentAmendment(p.templatePath);
+            this.Post["/_amendments/apply", AcceptHeaderFilters.NotHtml] = p => this.PostApplyAmendments(p.templatePath);
+            this.Post["/_amendments/undo", AcceptHeaderFilters.NotHtml] = p => this.PostUndoAmendments(p.templatePath);
         }
 
         private dynamic GetTemplate(string rawTemplatePath)
@@ -101,6 +103,28 @@
                 .WithStatusCode(HttpStatusCode.Created)
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
+
+        //private dynamic PostAmendment<T>(string rawTemplatePath)
+        //    where T : AmendmentResource
+        //{
+        //    var template = this.templateRepository.Get(rawTemplatePath.ParsePath());
+
+        //    if (template == null) return HttpStatusCode.NotFound;
+
+        //    var amendment = this.amendmentFactory.Build(this.Bind<T>());
+
+        //    template.AddAmendment(amendment);
+
+        //    this.templateRepository.Update(template);
+
+        //    template.ApplyAmendments(this.componentLibrary);
+
+        //    var resource = this.amendmentResourceBuilder.Build(amendment);
+
+        //    return this.Negotiate
+        //        .WithModel(resource)
+        //        .WithStatusCode(HttpStatusCode.Created);
+        //}
 
         private dynamic PostAddComponentAmendment(string rawTemplatePath)
         {
@@ -198,5 +222,15 @@
 
             return this.Response.AsJson(snippet.ToResource(Enumerable.Empty<string>(), rootComponentIndex)).WithStatusCode(HttpStatusCode.Created);
         }
+    }
+
+    public interface DomainBuildingAmendmentResourceFactory
+    {
+        IAmendment Build(AmendmentResource resource);
+    }
+
+    public interface IAmendmentResourceBuilder
+    {
+        AmendmentResource Build(IAmendment amendment);
     }
 }
