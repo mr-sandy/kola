@@ -20,7 +20,8 @@
 
         template: Handlebars.compile(EditTemplateTemplate),
 
-        initialize: function () {
+        initialize: function (options) {
+            this.options = options;
 
             this.amendmentsView = new AmendmentsView({
                 collection: this.options.amendments

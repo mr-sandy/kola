@@ -33,7 +33,8 @@
 
     return Backbone.View.extend({
 
-        initialize: function () {
+        initialize: function (options) {
+            this.options = options;
             //            $('.loading').remove(); // remove server delivered loading spinner
 
             this.navigationView = new NavigationView({
@@ -90,8 +91,12 @@
         editTemplate: function (templatePath) {
             var self = this;
 
-            var template = new Template({}, { url: this.combineUrls(Config.kolaRoot, templatePath) });
-            var amendments = new Amendments([], { url: this.combineUrls(template.url, '_amendments') });
+            var template = new Template();
+            template.url = this.combineUrls(Config.kolaRoot, templatePath);
+
+            var amendments = new Amendments();
+            amendments.url = this.combineUrls(template.url, '_amendments');
+
             var componentTypes = new ComponentTypes();
 
             var editTemplateView = new EditTemplateView({

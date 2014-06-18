@@ -28,12 +28,14 @@
                 : Handlebars.compile(ComponentTemplate)(data);
         },
 
-        initialize: function (args) {
+        initialize: function (options) {
+            this.options = options;
+
             if (!ComponentView) { ComponentView = require('app/views/ComponentView'); }
 
             _.bindAll(this, 'handleStop');
 
-            this.isRoot = args.isRoot;
+            this.isRoot = options.isRoot;
 
             this.model.on('change', this.render, this);
         },

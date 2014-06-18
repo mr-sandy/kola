@@ -14,5 +14,9 @@
       <componentType>container-2</componentType>
       <targetPath>0/1</targetPath>
     </addComponent>
+    <addComponent>
+      <componentType>atom-2</componentType>
+      <targetPath>0</targetPath>
+    </addComponent>
   </amendments>
 </template>

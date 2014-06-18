@@ -282,8 +282,6 @@
     <EmbeddedResource Include="Scripts\r.js" />
     <EmbeddedResource Include="Scripts\text.js" />
     <EmbeddedResource Include="Scripts\app\Router.js" />
-    <EmbeddedResource Include="Scripts\backbone.js" />
-    <EmbeddedResource Include="Scripts\backbone.min.js" />
     <EmbeddedResource Include="Scripts\handlebars.js" />
     <EmbeddedResource Include="Scripts\handlebars.min.js" />
     <EmbeddedResource Include="Scripts\handlebars.runtime.js" />
@@ -316,11 +314,15 @@
     </None>
     <EmbeddedResource Include="Scripts\jquery-1.9.1.min.map" />
     <EmbeddedResource Include="Scripts\jquery.min.map" />
-    <EmbeddedResource Include="Scripts\underscore.min.map" />
     <EmbeddedResource Include="Scripts\underscore-min.map" />
+    <EmbeddedResource Include="Scripts\backbone.min.map" />
     <None Include="web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\backbone.js" />
+    <EmbeddedResource Include="Scripts\backbone.min.js" />
+    <EmbeddedResource Include="Scripts\underscore-min.js" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
