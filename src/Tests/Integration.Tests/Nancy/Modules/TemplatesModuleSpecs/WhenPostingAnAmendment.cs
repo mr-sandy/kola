@@ -26,21 +26,23 @@
             this.template = new Template(new[] { "test", "path" });
 
             var component = MockRepository.GenerateStub<IParameterisedComponent>();
-            var componentSpecification = MockRepository.GenerateStub<IParameterisedComponentSpecification<IParameterisedComponent>>();
+            var componentSpecification =
+                MockRepository.GenerateStub<IParameterisedComponentSpecification<IParameterisedComponent>>();
 
             componentSpecification.Stub(s => s.Create()).Return(component);
             this.TemplateRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(this.template);
             this.ComponentLibrary.Stub(r => r.Lookup("component name")).Return(componentSpecification);
 
-            var request = new 
-            {
-                targetPath = "0",
-                componentType = "component name"
-            };
+            var request = new { targetPath = "0", componentType = "component name" };
 
-            this.Response = this.Browser.Post(
-                string.Format("/_kola/templates/{0}/_amendments/addComponent", templatePath), 
-                with => with.JsonBody(request));
+            this.Response =
+                this.Browser.Post(
+                    string.Format("/_kola/templates/{0}/_amendments/addComponent", templatePath),
+                    with =>
+                        {
+                            with.JsonBody(request);
+                            with.Header("Accept", "application/json");
+                        });
         }
 
         [Test]

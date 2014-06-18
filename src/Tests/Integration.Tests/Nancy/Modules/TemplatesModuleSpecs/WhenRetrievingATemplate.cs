@@ -1,40 +1,42 @@
-﻿//namespace Integration.Tests.Nancy.Modules.TemplatesModuleSpecs
-//{
-//    using FluentAssertions;
-//    using Kola.Domain;
-//    using global::Nancy;
-//    using NUnit.Framework;
-//    using Rhino.Mocks;
+﻿namespace Integration.Tests.Nancy.Modules.TemplatesModuleSpecs
+{
+    using System.Collections.Generic;
 
-//    public class WhenRetrievingATemplate : ContextBase
-//    {
-//        private string templatePath = @"test/path";
+    using FluentAssertions;
 
-//        [SetUp]
-//        public void EstablishContext()
-//        {
+    using Kola.Domain.Composition;
 
-//            this.Response = this.Browser.Get(string.Format("/_kola/templates/{0}", templatePath));
-//        }
+    using global::Nancy;
 
-//        [Test]
-//        public void ShouldReturnOk()
-//        {
-//            this.Response.StatusCode.Should().Be(HttpStatusCode.OK);
-//        }
+    using NUnit.Framework;
 
-//        [Test]
-//        public void ShouldLookupTemplateToRepository()
-//        {
-//            this.TemplateRepository.AssertWasCalled(r => r.Get(this.templatePath.Split(new[] { '/' })));
-//        }
+    using Rhino.Mocks;
 
-//        [Test]
-//        public void ShouldAddTemplateWithCorrectPath()
-//        {
-//            var args = this.TemplateRepository.GetArgumentsForCallsMadeOn(r => r.Add(Arg<Template>.Is.Anything));
-//            var template = (Template)args[0][0];
-//            template.Path.Should().BeEquivalentTo(new[] { "test", "path" });
-//        }
-//    }
-//}
+    public class WhenRetrievingATemplate : ContextBase
+    {
+        private string templatePath = @"test/path";
+
+        [SetUp]
+        public void EstablishContext()
+        {
+            var template = new Template(new[] { "test", "path" });
+
+            this.TemplateRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(template);
+
+
+            this.Response = this.Browser.Get(string.Format("/_kola/templates/{0}", this.templatePath), with => with.Header("Accept", "application/json"));
+        }
+
+        [Test]
+        public void ShouldReturnOk()
+        {
+            this.Response.StatusCode.Should().Be(HttpStatusCode.OK);
+        }
+
+        [Test]
+        public void ShouldLookupTemplateToRepository()
+        {
+            this.TemplateRepository.AssertWasCalled(r => r.Get(this.templatePath.Split(new[] { '/' })));
+        }
+    }
+}

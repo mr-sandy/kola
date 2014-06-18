@@ -24,21 +24,20 @@
             this.templateRepository = templateRepository;
             this.componentLibrary = componentLibrary;
 
-            this.Get["/", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
-            this.Get["/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.GetComponent(p.templatePath, p.componentPath);
-            this.Get["/_amendments", AcceptHeaderFilters.NotHtml] = p => this.GetAmendments(p.templatePath);
-            this.Put["/", AcceptHeaderFilters.NotHtml] = p => this.PutTemplate(p.templatePath);
-            this.Post["/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAddComponentAmendment(p.templatePath);
-            this.Post["/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostMoveComponentAmendment(p.templatePath);
-            this.Post["/_amendments/deleteComponent", AcceptHeaderFilters.NotHtml] = p => this.PostDeleteComponentAmendment(p.templatePath);
-            this.Post["/_amendments/apply", AcceptHeaderFilters.NotHtml] = p => this.PostApplyAmendments(p.templatePath);
-            this.Post["/_amendments/undo", AcceptHeaderFilters.NotHtml] = p => this.PostUndoAmendments(p.templatePath);
+            this.Get["/"] = p => this.GetTemplate(p.templatePath);
+            this.Get["/_components/{componentPath*}"] = p => this.GetComponent(p.templatePath, p.componentPath);
+            this.Get["/_amendments"] = p => this.GetAmendments(p.templatePath);
+            this.Put["/"] = p => this.PutTemplate(p.templatePath);
+            this.Post["/_amendments/addComponent"] = p => this.PostAddComponentAmendment(p.templatePath);
+            this.Post["/_amendments/moveComponent"] = p => this.PostMoveComponentAmendment(p.templatePath);
+            this.Post["/_amendments/deleteComponent"] = p => this.PostDeleteComponentAmendment(p.templatePath);
+            this.Post["/_amendments/apply"] = p => this.PostApplyAmendments(p.templatePath);
+            this.Post["/_amendments/undo"] = p => this.PostUndoAmendments(p.templatePath);
         }
 
-        private dynamic GetTemplate(string rawTemplatePath)
+        private dynamic GetTemplate(string templatePath)
         {
-            var templatePath = rawTemplatePath.ParsePath();
-            var template = this.templateRepository.Get(templatePath);
+            var template = this.templateRepository.Get(templatePath.ParsePath());
 
             if (template == null) return HttpStatusCode.NotFound;
 
@@ -46,9 +45,8 @@
 
             var resource = template.ToResource();
 
-            return this.Response.AsJson(resource)
-                .WithStatusCode(HttpStatusCode.OK)
-                .WithHeader("location", string.Format("/{0}", rawTemplatePath));
+            return this.Negotiate.WithModel(resource)
+                .WithContentType("application/json");
         }
 
         private dynamic GetAmendments(string rawTemplatePath)
@@ -60,8 +58,8 @@
 
             var resource = template.Amendments.ToResource(template.Path);
 
-            return this.Response.AsJson(resource)
-                .WithStatusCode(HttpStatusCode.OK)
+            return this.Negotiate.WithModel(resource)
+                .WithContentType("application/json")
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
 
@@ -80,8 +78,8 @@
 
             var resource = component.ToResource(template.Path, componentPath);
 
-            return this.Response.AsJson(resource)
-                .WithStatusCode(HttpStatusCode.OK)
+            return this.Negotiate.WithModel(resource)
+                .WithContentType("application/json")
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
 
@@ -99,7 +97,8 @@
 
             this.templateRepository.Add(template);
 
-            return this.Response.AsJson(template.ToResource())
+            return this.Negotiate.WithModel(template.ToResource())
+                .WithContentType("application/json")
                 .WithStatusCode(HttpStatusCode.Created)
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
@@ -143,7 +142,9 @@
 
             var resource = amendment.ToResource(template.Path, template.Amendments.Count() - 1, true);
 
-            return this.Response.AsJson(resource).WithStatusCode(HttpStatusCode.Created);
+            return this.Negotiate.WithModel(resource)
+                .WithContentType("application/json")
+                .WithStatusCode(HttpStatusCode.Created);
         }
 
         private dynamic PostMoveComponentAmendment(string rawTemplatePath)
@@ -163,7 +164,10 @@
 
             var resource = amendment.ToResource(template.Path, template.Amendments.Count() - 1, true);
 
-            return this.Response.AsJson(resource).WithStatusCode(HttpStatusCode.Created);
+            return this.Negotiate
+                .WithContentType("application/json")
+                .WithModel(resource)
+                .WithStatusCode(HttpStatusCode.Created);
         }
 
         private dynamic PostDeleteComponentAmendment(string rawTemplatePath)
@@ -183,7 +187,10 @@
 
             var resource = amendment.ToResource(template.Path, template.Amendments.Count() - 1, true);
 
-            return this.Response.AsJson(resource).WithStatusCode(HttpStatusCode.Created);
+            return this.Negotiate
+                .WithContentType("application/json")
+                .WithModel(resource)
+                .WithStatusCode(HttpStatusCode.Created);
         }
 
         private dynamic PostApplyAmendments(string rawTemplatePath)
@@ -197,7 +204,8 @@
 
             this.templateRepository.Update(template);
 
-            return this.Response.AsJson(new { jam = "biscuits" })
+            return this.Negotiate.WithModel(new { jam = "biscuits" })
+                .WithContentType("application/json")
                 .WithStatusCode(HttpStatusCode.Created);
         }
 
@@ -220,7 +228,10 @@
 
             var snippet = template.FindComponent(rootComponentIndex);
 
-            return this.Response.AsJson(snippet.ToResource(Enumerable.Empty<string>(), rootComponentIndex)).WithStatusCode(HttpStatusCode.Created);
+            return this.Negotiate
+                .WithContentType("application/json")
+                .WithModel(snippet.ToResource(Enumerable.Empty<string>(), rootComponentIndex))
+                .WithStatusCode(HttpStatusCode.Created);
         }
     }
 

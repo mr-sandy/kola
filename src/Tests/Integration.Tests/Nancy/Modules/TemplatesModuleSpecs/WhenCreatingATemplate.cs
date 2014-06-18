@@ -2,10 +2,9 @@
 {
     using FluentAssertions;
 
-    using global::Nancy;
-
-    using Kola.Domain;
     using Kola.Domain.Composition;
+
+    using global::Nancy;
 
     using NUnit.Framework;
 
@@ -18,7 +17,9 @@
         {
             var templatePath = @"test/path";
 
-            this.Response = this.Browser.Put(string.Format("/_kola/templates/{0}", templatePath));
+            this.Response = this.Browser.Put(
+                string.Format("/_kola/templates/{0}", templatePath),
+                with => with.Header("Accept", "application/json"));
         }
 
         [Test]
