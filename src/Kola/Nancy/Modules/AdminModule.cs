@@ -7,14 +7,14 @@
     {
         public AdminModule()
         {
-            this.Get["/_kola"] = this.GetPage;
-            this.Get["/_kola/{*}"] = this.GetPage;
+            this.Get["/_kola", AcceptHeaderFilters.Html] = this.GetPage;
+            this.Get["/_kola/{*}", AcceptHeaderFilters.Html] = this.GetPage;
         }
 
         private Negotiator GetPage(dynamic parameters)
         {
             return this.Negotiate
-                .WithContentType("text/html")
+                .WithAllowedMediaRange("text/html")
                 .WithView("Admin");
         }
     }

@@ -23,8 +23,7 @@
             var page = this.pageHandler.GetPage(path);
 
             return this.Negotiate
-                .WithStatusCode(HttpStatusCode.OK)
-                .WithMediaRangeModel("text/html", page)
+                .WithModel(page)
                 .WithView("Page");
         }
     }

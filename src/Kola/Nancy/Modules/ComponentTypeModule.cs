@@ -20,7 +20,9 @@
         {
             var componentTypes = this.componentLibrary.FindAll();
 
-            return this.Negotiate.WithModel(componentTypes.ToResource());
+            return this.Negotiate
+                .WithAllowedMediaRange("application/json")
+                .WithModel(componentTypes.ToResource());
         }
     }
 }
