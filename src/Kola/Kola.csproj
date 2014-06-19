@@ -295,6 +295,9 @@
     <None Include="app.config" />
     <None Include="App_Readme\Handlebarsjs_LICENSE" />
     <None Include="App_Readme\Handlebarsjs_README.md" />
+    <EmbeddedResource Include="Content\kola2.scss" />
+    <None Include="Content\kola2\all.scss" />
+    <None Include="Content\kola2\edit.scss" />
     <None Include="Content\kola\edit.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
@@ -308,6 +311,7 @@
       <DebugInfo>False</DebugInfo>
     </None>
     <EmbeddedResource Include="Nancy\Views\Page.cshtml" />
+    <EmbeddedResource Include="Nancy\Views\Admin2.cshtml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -321,6 +325,57 @@
     <EmbeddedResource Include="Scripts\backbone.js" />
     <EmbeddedResource Include="Scripts\backbone.min.js" />
     <EmbeddedResource Include="Scripts\underscore-min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\main2.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\app2\collections\" />
+    <Folder Include="Scripts\app2\models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\app2\App.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\app2\Router.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\app2\views\AppView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\app2\handlers\HomeHandler.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\app2\Extensions.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\app2\views\HomeView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\app2\views\LoadingView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\app2\templates\HomeTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\app2\templates\LoadingTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\app2\handlers\EditTemplateHandler.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\app2\views\EditTemplateView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\app2\templates\EditTemplateTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\kola2.css">
+      <DependentUpon>kola2.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\kola2.min.css">
+      <DependentUpon>kola2.scss</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

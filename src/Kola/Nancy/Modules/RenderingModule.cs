@@ -17,6 +17,8 @@
             this.Get["/", AcceptHeaderFilters.Html] = p => this.GetPage(string.Empty);
         }
 
+        // TODO {SC} This should renamed GetContent; the pageHandler should be a content handler, 
+        // and should return different types of content: pages; redirects; and 404 content?
         private Negotiator GetPage(string rawPath)
         {
             var path = rawPath.ParsePath();
