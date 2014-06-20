@@ -1,10 +1,8 @@
 ﻿require.config({
     paths: {
-        jquery: 'jquery-1.9.1.min',
-        jqueryui: 'jquery-ui-1.10.3.custom.min',
+        jquery: 'jquery-2.1.1.min',
         underscore: 'underscore.min',
-        backbone: 'backbone',
-//        backbone: 'backbone.min',
+        backbone: 'backbone.min',
         handlebars: 'handlebars.min'
     },
     shim: {

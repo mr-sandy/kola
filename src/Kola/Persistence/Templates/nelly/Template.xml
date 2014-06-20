@@ -1,30 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
-  <components />
-  <amendments>
-    <addComponent>
-      <componentType>container-1</componentType>
-      <targetPath>0</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>atom-1</componentType>
-      <targetPath>0/0</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>container-2</componentType>
-      <targetPath>0/1</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>atom-2</componentType>
-      <targetPath>0</targetPath>
-    </addComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>1/1</targetPath>
-    </moveComponent>
-    <addComponent>
-      <componentType>atom-1</componentType>
-      <targetPath>1/0/0</targetPath>
-    </addComponent>
-  </amendments>
+  <components>
+    <atom name="atom-1">
+      <parameters />
+    </atom>
+    <atom name="atom-2">
+      <parameters />
+    </atom>
+    <atom name="atom-2">
+      <parameters />
+    </atom>
+    <container name="container-1">
+      <parameters />
+      <components>
+        <container name="container-2">
+          <parameters />
+          <components>
+            <atom name="atom-1">
+              <parameters />
+            </atom>
+          </components>
+        </container>
+        <atom name="atom-1">
+          <parameters />
+        </atom>
+      </components>
+    </container>
+  </components>
+  <amendments />
 </template>

@@ -267,17 +267,6 @@
     <EmbeddedResource Include="Scripts\app\views\HomeView.js" />
     <EmbeddedResource Include="Scripts\app\templates\TemplatesTemplate.html" />
     <EmbeddedResource Include="Scripts\app\views\TemplatesView.js" />
-    <EmbeddedResource Include="Content\bootstrap-responsive.css" />
-    <EmbeddedResource Include="Content\bootstrap-responsive.min.css" />
-    <EmbeddedResource Include="Content\bootstrap.css" />
-    <EmbeddedResource Include="Content\bootstrap.min.css" />
-    <EmbeddedResource Include="Content\images\glyphicons-halflings-white.png" />
-    <EmbeddedResource Include="Content\images\glyphicons-halflings.png" />
-    <EmbeddedResource Include="Scripts\bootstrap.js" />
-    <EmbeddedResource Include="Scripts\bootstrap.min.js" />
-    <EmbeddedResource Include="Scripts\jquery-1.9.1-vsdoc.js" />
-    <EmbeddedResource Include="Scripts\jquery-1.9.1.js" />
-    <EmbeddedResource Include="Scripts\jquery-1.9.1.min.js" />
     <EmbeddedResource Include="Scripts\r.js" />
     <EmbeddedResource Include="Scripts\text.js" />
     <EmbeddedResource Include="Scripts\app\Router.js" />
@@ -296,7 +285,10 @@
     <None Include="App_Readme\Handlebarsjs_LICENSE" />
     <None Include="App_Readme\Handlebarsjs_README.md" />
     <EmbeddedResource Include="Content\kola2.scss" />
-    <None Include="Content\kola2\all.scss" />
+    <EmbeddedResource Include="Content\bootstrap-theme.css.map" />
+    <EmbeddedResource Include="Content\bootstrap.css.map" />
+    <None Include="Content\kola2\base.scss" />
+    <None Include="Content\kola2\wysiwyg-editor.scss" />
     <None Include="Content\kola2\edit.scss" />
     <None Include="Content\kola\edit.scss">
       <Compile>False</Compile>
@@ -312,13 +304,16 @@
     </None>
     <EmbeddedResource Include="Nancy\Views\Page.cshtml" />
     <EmbeddedResource Include="Nancy\Views\Admin2.cshtml" />
+    <None Include="fonts\glyphicons-halflings-regular.eot" />
+    <None Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="fonts\glyphicons-halflings-regular.woff" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
-    <EmbeddedResource Include="Scripts\jquery-1.9.1.min.map" />
     <EmbeddedResource Include="Scripts\jquery.min.map" />
     <EmbeddedResource Include="Scripts\underscore-min.map" />
     <EmbeddedResource Include="Scripts\backbone.min.map" />
+    <EmbeddedResource Include="Scripts\jquery-2.1.1.min.map" />
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -370,12 +365,36 @@
     <EmbeddedResource Include="Scripts\app2\templates\EditTemplateTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\kola2.css">
-      <DependentUpon>kola2.scss</DependentUpon>
+    <Content Include="Content\kola2\wysiwyg-editor.css">
+      <DependentUpon>wysiwyg-editor.scss</DependentUpon>
     </Content>
-    <Content Include="Content\kola2.min.css">
-      <DependentUpon>kola2.scss</DependentUpon>
+    <Content Include="Content\kola2\wysiwyg-editor.min.css">
+      <DependentUpon>wysiwyg-editor.scss</DependentUpon>
     </Content>
+    <EmbeddedResource Include="Scripts\app2\templates\WysiwygEditorTemplate.html" />
+    <EmbeddedResource Include="Scripts\app2\templates\BlockEditorTemplate.html" />
+    <EmbeddedResource Include="Scripts\app2\templates\AmendmentsTemplate.html" />
+    <EmbeddedResource Include="Scripts\app2\templates\ToolboxTemplate.html" />
+    <EmbeddedResource Include="Scripts\app2\views\AmendmentsView.js" />
+    <EmbeddedResource Include="Scripts\app2\views\BlockEditorView.js" />
+    <EmbeddedResource Include="Scripts\app2\views\WysiwygEditorView.js" />
+    <EmbeddedResource Include="Scripts\app2\views\ToolboxView.js" />
+    <EmbeddedResource Include="Content\bootstrap-theme.css" />
+    <EmbeddedResource Include="Content\bootstrap-theme.min.css" />
+    <EmbeddedResource Include="Content\bootstrap.css" />
+    <EmbeddedResource Include="Content\bootstrap.min.css" />
+    <EmbeddedResource Include="Content\kola2.css">
+      <DependentUpon>kola2.scss</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Content\kola2.min.css">
+      <DependentUpon>kola2.scss</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <EmbeddedResource Include="Scripts\bootstrap.js" />
+    <EmbeddedResource Include="Scripts\bootstrap.min.js" />
+    <EmbeddedResource Include="Scripts\jquery-2.1.1-vsdoc.js" />
+    <EmbeddedResource Include="Scripts\jquery-2.1.1.js" />
+    <EmbeddedResource Include="Scripts\jquery-2.1.1.min.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
