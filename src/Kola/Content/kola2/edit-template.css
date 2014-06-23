@@ -1,6 +1,3 @@
-.clear {
-  clear: both; }
-
 #editTemplateView #wysiwygEditorView {
   position: absolute;
   top: 100px;
@@ -13,8 +10,4 @@
   left: 75%;
   right: 0;
   bottom: 100px; }
-
-iframe {
-  width: 100%;
-  height: 100%; }
 

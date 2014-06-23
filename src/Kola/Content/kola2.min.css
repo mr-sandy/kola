@@ -1,1 +1,1 @@
-.clear{clear:both}iframe{position:absolute;top:0;left:0;right:0;bottom:0}
+.clear{clear:both}#editTemplateView #wysiwygEditorView{position:absolute;top:100px;left:0;right:25%;bottom:100px}#editTemplateView #blockEditorView{position:absolute;top:100px;left:75%;right:0;bottom:100px}iframe{width:100%;height:100%}

@@ -288,6 +288,7 @@
     <EmbeddedResource Include="Content\bootstrap-theme.css.map" />
     <EmbeddedResource Include="Content\bootstrap.css.map" />
     <None Include="Content\kola2\base.scss" />
+    <None Include="Content\kola2\edit-template.scss" />
     <None Include="Content\kola2\wysiwyg-editor.scss" />
     <None Include="Content\kola2\edit.scss" />
     <None Include="Content\kola\edit.scss">
@@ -365,6 +366,12 @@
     <EmbeddedResource Include="Scripts\app2\templates\EditTemplateTemplate.html" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\kola2\edit-template.css">
+      <DependentUpon>edit-template.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\kola2\edit-template.min.css">
+      <DependentUpon>edit-template.scss</DependentUpon>
+    </Content>
     <Content Include="Content\kola2\wysiwyg-editor.css">
       <DependentUpon>wysiwyg-editor.scss</DependentUpon>
     </Content>

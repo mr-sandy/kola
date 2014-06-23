@@ -1,0 +1,24 @@
+﻿#editTemplateView {
+
+    #toolboxView {
+    }
+
+	#wysiwygEditorView {
+		position: absolute;
+		top: 100px;
+		left: 0;
+		right: 25%;
+		bottom: 100px;
+	}
+
+    #blockEditorView {
+		position: absolute;
+		top: 100px;
+		left: 75%;
+		right: 0;
+		bottom: 100px;
+    }
+
+    #amendmentsView {
+    }
+}
