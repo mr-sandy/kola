@@ -15,7 +15,7 @@
                                  ? null
                                  : composite.Components.ToResource(templatePath, componentIndices);
 
-            //TO DO {SC} Replace with visitor
+            //TODO {SC} Replace with visitor
             return new ComponentResource
             {
                 //Name = component.Name,

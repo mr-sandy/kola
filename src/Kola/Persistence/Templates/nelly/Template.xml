@@ -4,6 +4,13 @@
     <atom name="atom-1">
       <parameters />
     </atom>
+    <atom name="markdown">
+      <parameters>
+        <parameter name="markdown" type="markdown">
+          <value xsi:type="fixed"><![CDATA[This is markdown]]></value>
+        </parameter>
+      </parameters>
+    </atom>
     <atom name="atom-2">
       <parameters />
     </atom>

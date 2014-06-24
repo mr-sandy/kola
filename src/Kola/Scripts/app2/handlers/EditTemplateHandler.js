@@ -3,23 +3,29 @@
 
     var $ = require('jquery');
     var EditTemplateView = require('app2/views/EditTemplateView');
+    var ComponentTypes = require('app2/collections/ComponentTypes');
+    var Template = require('app2/models/Template');
 
     return {
-        execute: function (options) {
+        execute: function (options, templatePath) {
 
             var d = $.Deferred();
 
-            //            var registrations = new Registrations([], { employeeId: config.employeeId });
+            var componentTypes = new ComponentTypes();
 
-            //            registrations.fetch().then(function () {
+            var template = new Template();
+            template.url = '/_kola/templates/' + templatePath;
 
-            //                options.breadcrumbs.reset([{ label: 'Training'}]);
+            $.when(componentTypes.fetch(), template.fetch()).then(function () {
 
-            d.resolve(new EditTemplateView({
-                //                    collection: registrations,
-                router: options.router
-            }));
-            //            });
+                //                options.breadcrumbs.reset([{ label: 'Training'}]);
+
+                d.resolve(new EditTemplateView({
+                    componentTypes: componentTypes,
+                    model: template,
+                    router: options.router
+                }));
+            });
 
             return d.promise();
         }

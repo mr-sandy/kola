@@ -8,6 +8,7 @@
     var WysiwygEditorView = require('app2/views/WysiwygEditorView');
     var BlockEditorView = require('app2/views/BlockEditorView');
     var AmendmentsView = require('app2/views/AmendmentsView');
+    var PropertiesView = require('app2/views/PropertiesView');
     var ToolboxView = require('app2/views/ToolboxView');
 
     var Template = require('text!app2/templates/EditTemplateTemplate.html');
@@ -18,30 +19,32 @@
         template: Handlebars.compile(Template),
 
         initialize: function (options) {
-            this.options = options;
 
             this.amendmentsView = new AmendmentsView({
             });
 
             this.blockEditorView = new BlockEditorView({
+                model: this.model
             });
 
             this.wysiwygEditorView = new WysiwygEditorView({
             });
 
+            this.propertiesView = new PropertiesView({
+            });
+
             this.toolboxView = new ToolboxView({
+                collection: options.componentTypes
             });
         },
 
         render: function () {
-            var context = {};
-            this.$el.html(this.template(context));
-
             this.$el.html(this.template());
-            this.assign(this.amendmentsView, '#amendmentsView');
-            this.assign(this.blockEditorView, '#blockEditorView');
-            this.assign(this.wysiwygEditorView, '#wysiwygEditorView');
-            this.assign(this.toolboxView, '#toolboxView');
+            this.assign(this.amendmentsView, '#amendments');
+            this.assign(this.blockEditorView, '#block-editor');
+            this.assign(this.wysiwygEditorView, '#wysiwyg-editor');
+            this.assign(this.propertiesView, '#properties');
+            this.assign(this.toolboxView, '#toolbox');
 
             return this;
         }

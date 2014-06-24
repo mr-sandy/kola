@@ -4,9 +4,8 @@
     using System.Linq;
 
     using Kola.Configuration;
-    using Kola.Domain;
-    using Kola.Domain.Specifications;
     using Kola.Domain.Composition;
+    using Kola.Domain.Specifications;
     using Kola.Persistence;
 
     public class ComponentLibrary : IComponentSpecificationLibrary
