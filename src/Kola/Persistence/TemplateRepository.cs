@@ -4,8 +4,8 @@
 
     using Kola.Domain.Composition;
     using Kola.Extensions;
-    using Kola.Persistence.DomainBuilders;
-    using Kola.Persistence.SurrogateBuilders;
+    using Kola.Persistence.DomainBuilding;
+    using Kola.Persistence.SurrogateBuilding;
     using Kola.Persistence.Surrogates;
 
     internal class TemplateRepository : ITemplateRepository

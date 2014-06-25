@@ -6,7 +6,7 @@
 
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.ParameterValues;
-    using Kola.ResourceBuilders;
+    using Kola.ResourceBuilding;
     using Kola.Resources;
 
     using NUnit.Framework;

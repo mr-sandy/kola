@@ -1,23 +1,24 @@
-﻿namespace Kola.Extensions
+﻿namespace Kola.DomainBuilding
 {
     using Kola.Domain.Composition.Amendments;
+    using Kola.Extensions;
     using Kola.Resources;
 
-    internal static class AmendmentResourceExtensions
+    internal class DomainBuildingAmendmentResourceVisitor : IAmendmentResourceVisitor<IAmendment>
     {
-        public static AddComponentAmendment ToDomain(this AddComponentAmendmentResource resource)
+        public IAmendment Visit(AddComponentAmendmentResource resource)
         {
             return new AddComponentAmendment(resource.TargetPath.ParseComponentPath(), resource.ComponentType.ToComponentName());
         }
 
-        public static MoveComponentAmendment ToDomain(this MoveComponentAmendmentResource resource)
+        public IAmendment Visit(MoveComponentAmendmentResource resource)
         {
             return new MoveComponentAmendment(
                 resource.SourcePath.ParseComponentPath(),
                 resource.TargetPath.ParseComponentPath());
         }
 
-        public static RemoveComponentAmendment ToDomain(this DeleteComponentAmendmentResource resource)
+        public IAmendment Visit(DeleteComponentAmendmentResource resource)
         {
             return new RemoveComponentAmendment(resource.ComponentPath.ParseComponentPath());
         }

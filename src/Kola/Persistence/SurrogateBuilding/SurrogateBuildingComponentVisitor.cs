@@ -1,4 +1,4 @@
-﻿namespace Kola.Persistence.SurrogateBuilders
+﻿namespace Kola.Persistence.SurrogateBuilding
 {
     using System.Collections.Generic;
     using System.Linq;

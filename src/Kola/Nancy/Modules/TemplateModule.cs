@@ -3,11 +3,11 @@
     using System.Linq;
 
     using Kola.Domain.Composition;
-    using Kola.Domain.Composition.Amendments;
     using Kola.Domain.Extensions;
+    using Kola.DomainBuilding;
     using Kola.Extensions;
     using Kola.Persistence;
-    using Kola.ResourceBuilders;
+    using Kola.ResourceBuilding;
     using Kola.Resources;
 
     using global::Nancy;
@@ -29,9 +29,9 @@
             this.Get["/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.GetComponent(p.templatePath, p.componentPath);
             this.Get["/_amendments", AcceptHeaderFilters.NotHtml] = p => this.GetAmendments(p.templatePath);
             this.Put["/", AcceptHeaderFilters.NotHtml] = p => this.PutTemplate(p.templatePath);
-            this.Post["/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAddComponentAmendment(p.templatePath);
-            this.Post["/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostMoveComponentAmendment(p.templatePath);
-            this.Post["/_amendments/deleteComponent", AcceptHeaderFilters.NotHtml] = p => this.PostDeleteComponentAmendment(p.templatePath);
+            this.Post["/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<AddComponentAmendmentResource>(p.templatePath);
+            this.Post["/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<MoveComponentAmendmentResource>(p.templatePath);
+            this.Post["/_amendments/deleteComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<DeleteComponentAmendmentResource>(p.templatePath);
             this.Post["/_amendments/apply", AcceptHeaderFilters.NotHtml] = p => this.PostApplyAmendments(p.templatePath);
             this.Post["/_amendments/undo", AcceptHeaderFilters.NotHtml] = p => this.PostUndoAmendments(p.templatePath);
         }
@@ -57,7 +57,7 @@
 
             if (template == null) return HttpStatusCode.NotFound;
 
-            var resource = template.Amendments.ToResource(template.Path);
+            var resource = new AmendmentResourceBuilder().Build(template.Amendments, template.Path);
 
             return this.Negotiate.WithModel(resource)
                 .WithAllowedMediaRange("application/json")
@@ -106,9 +106,10 @@
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
 
-        private dynamic PostAddComponentAmendment(string rawTemplatePath)
+        private dynamic PostAmendment<T>(string rawTemplatePath)
+            where T : AmendmentResource
         {
-            var amendment = this.Bind<AddComponentAmendmentResource>().ToDomain();
+            var amendment = new AmendmentDomainBuilder().Build(this.Bind<T>());
 
             var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
@@ -121,56 +122,11 @@
 
             template.ApplyAmendments(this.componentLibrary);
 
-            var resource = amendment.ToResource(template.Path, template.Amendments.Count() - 1, true);
-
-            return this.Negotiate.WithModel(resource)
-                .WithAllowedMediaRange("application/json")
-                .WithStatusCode(HttpStatusCode.Created);
-        }
-
-        private dynamic PostMoveComponentAmendment(string rawTemplatePath)
-        {
-            var amendment = this.Bind<MoveComponentAmendmentResource>().ToDomain();
-
-            var templatePath = rawTemplatePath.ParsePath();
-            var template = this.templateRepository.Get(templatePath);
-
-            if (template == null) return HttpStatusCode.NotFound;
-
-            template.AddAmendment(amendment);
-
-            this.templateRepository.Update(template);
-
-            template.ApplyAmendments(this.componentLibrary);
-
-            var resource = amendment.ToResource(template.Path, template.Amendments.Count() - 1, true);
+            var resource = new AmendmentResourceBuilder().Build(amendment, template.Path, template.Amendments.Count() - 1);
 
             return this.Negotiate
-                .WithAllowedMediaRange("application/json")
                 .WithModel(resource)
-                .WithStatusCode(HttpStatusCode.Created);
-        }
-
-        private dynamic PostDeleteComponentAmendment(string rawTemplatePath)
-        {
-            var amendment = this.Bind<DeleteComponentAmendmentResource>().ToDomain();
-
-            var templatePath = rawTemplatePath.ParsePath();
-            var template = this.templateRepository.Get(templatePath);
-
-            if (template == null) return HttpStatusCode.NotFound;
-
-            template.AddAmendment(amendment);
-
-            this.templateRepository.Update(template);
-
-            template.ApplyAmendments(this.componentLibrary);
-
-            var resource = amendment.ToResource(template.Path, template.Amendments.Count() - 1, true);
-
-            return this.Negotiate
                 .WithAllowedMediaRange("application/json")
-                .WithModel(resource)
                 .WithStatusCode(HttpStatusCode.Created);
         }
 

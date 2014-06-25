@@ -29,4 +29,19 @@
 
         T Visit(SetParameterMultilingualAmendment amendment);
     }
+
+    public interface IAmendmentVisitor<out T, in TContext>
+    {
+        T Visit(AddComponentAmendment amendment, TContext context);
+
+        T Visit(MoveComponentAmendment amendment, TContext context);
+
+        T Visit(RemoveComponentAmendment amendment, TContext context);
+
+        T Visit(SetParameterFixedAmendment amendment, TContext context);
+
+        T Visit(SetParameterInheritedAmendment amendment, TContext context);
+
+        T Visit(SetParameterMultilingualAmendment amendment, TContext context);
+    }
 }

@@ -1,4 +1,4 @@
-﻿namespace Kola.Persistence.DomainBuilders
+﻿namespace Kola.Persistence.DomainBuilding
 {
     using Kola.Domain.Composition.Amendments;
     using Kola.Extensions;

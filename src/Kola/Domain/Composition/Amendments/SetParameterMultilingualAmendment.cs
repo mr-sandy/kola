@@ -34,5 +34,10 @@
         {
             return visitor.Visit(this);
         }
+
+        public T Accept<T, TContext>(IAmendmentVisitor<T, TContext> visitor, TContext context)
+        {
+            return visitor.Visit(this, context);
+        }
     }
 }

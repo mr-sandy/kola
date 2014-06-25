@@ -62,6 +62,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainBuilding\AmendmentDomainBuilder.cs" />
+    <Compile Include="DomainBuilding\DomainBuildingAmendmentResourceVisitor.cs" />
     <Compile Include="Domain\Composition\Amendments\SetParameterInheritedAmendment.cs" />
     <Compile Include="Domain\Composition\Amendments\SetParameterMultilingualAmendment.cs" />
     <Compile Include="Domain\Extensions\ParameterInstanceExtensions.cs" />
@@ -122,17 +124,20 @@
     <Compile Include="Domain\Instances\WidgetInstance.cs" />
     <Compile Include="Domain\Specifications\WidgetSpecification.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
-    <Compile Include="Persistence\DomainBuilders\DomainBuildingAmendmentSurrogateVisitor.cs" />
-    <Compile Include="Persistence\DomainBuilders\DomainBuildingComponentSurrogateVisitor.cs" />
-    <Compile Include="Persistence\DomainBuilders\WidgetSpecificationDomainBuilder.cs" />
-    <Compile Include="Persistence\SurrogateBuilders\SurrogateBuildingAmendmentVisitor.cs" />
-    <Compile Include="Persistence\SurrogateBuilders\SurrogateBuildingComponentVisitor.cs" />
-    <Compile Include="Persistence\DomainBuilders\TemplateDomainBuilder.cs" />
-    <Compile Include="Persistence\SurrogateBuilders\TemplateSurrogateBuilder.cs" />
-    <Compile Include="ResourceBuilders\ComponentResourceBuilder.cs" />
-    <Compile Include="ResourceBuilders\ResourceBuildingComponentVisitor.cs" />
-    <Compile Include="ResourceBuilders\ResourceBuildingParameterValueVisitor.cs" />
-    <Compile Include="ResourceBuilders\TemplateResourceBuilder.cs" />
+    <Compile Include="Persistence\DomainBuilding\DomainBuildingAmendmentSurrogateVisitor.cs" />
+    <Compile Include="Persistence\DomainBuilding\DomainBuildingComponentSurrogateVisitor.cs" />
+    <Compile Include="Persistence\DomainBuilding\WidgetSpecificationDomainBuilder.cs" />
+    <Compile Include="Persistence\SurrogateBuilding\SurrogateBuildingAmendmentVisitor.cs" />
+    <Compile Include="Persistence\SurrogateBuilding\SurrogateBuildingComponentVisitor.cs" />
+    <Compile Include="Persistence\DomainBuilding\TemplateDomainBuilder.cs" />
+    <Compile Include="Persistence\SurrogateBuilding\TemplateSurrogateBuilder.cs" />
+    <Compile Include="ResourceBuilding\AmendmentResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\ComponentResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\ComponentTypeResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\ResourceBuildingAmendmentVisitor.cs" />
+    <Compile Include="ResourceBuilding\ResourceBuildingComponentVisitor.cs" />
+    <Compile Include="ResourceBuilding\ResourceBuildingParameterValueVisitor.cs" />
+    <Compile Include="ResourceBuilding\TemplateResourceBuilder.cs" />
     <Compile Include="Nancy\ComponentLibrary.cs" />
     <Compile Include="Domain\Composition\Container.cs" />
     <Compile Include="Domain\Extensions\ComponentCollectionExtensions.cs" />
@@ -145,18 +150,14 @@
     <Compile Include="Domain\Composition\IComponentVisitor.cs" />
     <Compile Include="Domain\Composition\Template.cs" />
     <Compile Include="KolaException.cs" />
-    <Compile Include="Extensions\AmendmentExtensions.cs" />
-    <Compile Include="Extensions\AmendmentResourceBuildingVisitor.cs" />
     <Compile Include="Nancy\Conventions\EmbeddedStaticContentConventionBuilder.cs" />
-    <Compile Include="Extensions\AmendmentResourceExtensions.cs" />
-    <Compile Include="Extensions\ComponentTypeExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Nancy\Extensions\HtmlHelpersExtensions.cs" />
     <Compile Include="Nancy\Modules\WidgetModule.cs" />
     <Compile Include="Nancy\ResultWrapper.cs" />
     <Compile Include="Nancy\NancyKolaConfigurationRegistry.cs" />
-    <Compile Include="Persistence\SurrogateBuilders\SurrogateBuildingParameterValueVisitor.cs" />
+    <Compile Include="Persistence\SurrogateBuilding\SurrogateBuildingParameterValueVisitor.cs" />
     <Compile Include="Persistence\Surrogates\AreaSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\ParameterValues\FixedParameterValueSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\ParameterValues\InheritedParameterValueSurrogate.cs" />
@@ -164,7 +165,7 @@
     <Compile Include="Persistence\Surrogates\ParameterValues\ParameterValueSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\ParameterValues\IParameterValueSurrogateVisitor.cs" />
     <Compile Include="Persistence\IWidgetSpecificationRepository.cs" />
-    <Compile Include="Persistence\DomainBuilders\DomainBuildingParameterValueVisitor.cs" />
+    <Compile Include="Persistence\DomainBuilding\DomainBuildingParameterValueVisitor.cs" />
     <Compile Include="Persistence\Surrogates\ParameterSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\PlaceholderSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\WidgetSurrogate.cs" />
@@ -213,6 +214,7 @@
     <Compile Include="Resources\ContainerResource.cs" />
     <Compile Include="Resources\DeleteComponentAmendmentResource.cs" />
     <Compile Include="Resources\FixedParameterValueResource.cs" />
+    <Compile Include="Resources\IAmendmentResourceVisitor.cs" />
     <Compile Include="Resources\LinkResource.cs" />
     <Compile Include="Resources\MoveComponentAmendmentResource.cs" />
     <Compile Include="Resources\ParameterResource.cs" />

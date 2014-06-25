@@ -1,4 +1,4 @@
-﻿namespace Kola.ResourceBuilders
+﻿namespace Kola.ResourceBuilding
 {
     using System.Linq;
 

@@ -1,8 +1,8 @@
 ﻿namespace Kola.Nancy.Modules
 {
     using Kola.Domain.Specifications;
-    using Kola.Extensions;
     using Kola.Persistence;
+    using Kola.ResourceBuilding;
 
     using global::Nancy;
 
@@ -27,7 +27,11 @@
 
             this.widgetSpecificationRepository.Add(widgetSpecification);
 
-            return this.Response.AsJson(widgetSpecification.ToResource())
+            var resource = new ComponentTypeResourceBuilder().Build(widgetSpecification);
+
+            return this.Negotiate
+                .WithModel(resource)
+                .WithAllowedMediaRange("application/json")
                 .WithStatusCode(HttpStatusCode.Created)
                 .WithHeader("location", string.Format("/widgets/{0}", widgetName));
         }

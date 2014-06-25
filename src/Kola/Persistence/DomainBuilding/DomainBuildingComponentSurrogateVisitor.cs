@@ -1,4 +1,4 @@
-﻿namespace Kola.Persistence.DomainBuilders
+﻿namespace Kola.Persistence.DomainBuilding
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -42,6 +42,11 @@
 
         private IEnumerable<Parameter> BuildParameters(IEnumerable<ParameterSurrogate> surrogates)
         {
+            if (surrogates == null)
+            {
+                return Enumerable.Empty<Parameter>();
+            }
+
             return surrogates.Select(surrogate => new Parameter(
                 surrogate.Name, 
                 surrogate.Type, 

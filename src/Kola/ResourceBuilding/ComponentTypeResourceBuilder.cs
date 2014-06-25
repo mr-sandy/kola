@@ -1,15 +1,16 @@
-﻿namespace Kola.Extensions
+﻿namespace Kola.ResourceBuilding
 {
     using System.Collections.Generic;
     using System.Linq;
 
     using Kola.Domain.Composition;
     using Kola.Domain.Specifications;
+    using Kola.Extensions;
     using Kola.Resources;
 
-    internal static class ComponentTypeExtensions
+    internal class ComponentTypeResourceBuilder
     {
-        public static ComponentTypeResource ToResource(this IParameterisedComponentSpecification<IParameterisedComponent> component)
+        public ComponentTypeResource Build(IParameterisedComponentSpecification<IParameterisedComponent> component)
         {
             return new ComponentTypeResource
                 {
@@ -21,9 +22,10 @@
                 };
         }
 
-        public static IEnumerable<ComponentTypeResource> ToResource(this IEnumerable<IParameterisedComponentSpecification<IParameterisedComponent>> components)
+        public IEnumerable<ComponentTypeResource> Build(IEnumerable<IParameterisedComponentSpecification<IParameterisedComponent>> components)
         {
-            return components.Select(ToResource);
+            return components.Select(this.Build);
         }
+
     }
 }

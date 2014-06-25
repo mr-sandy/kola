@@ -1,8 +1,7 @@
 ﻿namespace Kola.Nancy.Modules
 {
-    using Kola.Domain;
     using Kola.Domain.Composition;
-    using Kola.Extensions;
+    using Kola.ResourceBuilding;
 
     using global::Nancy;
 
@@ -20,9 +19,11 @@
         {
             var componentTypes = this.componentLibrary.FindAll();
 
+            var resource = new ComponentTypeResourceBuilder().Build(componentTypes);
+
             return this.Negotiate
-                .WithAllowedMediaRange("application/json")
-                .WithModel(componentTypes.ToResource());
+                .WithModel(resource)
+                .WithAllowedMediaRange("application/json");
         }
     }
 }

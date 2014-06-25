@@ -5,7 +5,7 @@
     using System.Linq;
 
     using Kola.Domain.Specifications;
-    using Kola.Persistence.DomainBuilders;
+    using Kola.Persistence.DomainBuilding;
     using Kola.Persistence.Surrogates;
 
     public class WidgetSpecificationRepository : IWidgetSpecificationRepository

@@ -1,4 +1,4 @@
-﻿namespace Kola.Persistence.DomainBuilders
+﻿namespace Kola.Persistence.DomainBuilding
 {
     using System.Collections.Generic;
     using System.Linq;

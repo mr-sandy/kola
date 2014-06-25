@@ -18,14 +18,19 @@
             visitor.Visit(this);
         }
 
+        public IEnumerable<int> GetRootComponent()
+        {
+            return this.ComponentPath.TakeAllButLast();
+        }
+
         public T Accept<T>(IAmendmentVisitor<T> visitor)
         {
             return visitor.Visit(this);
         }
 
-        public IEnumerable<int> GetRootComponent()
+        public T Accept<T, TContext>(IAmendmentVisitor<T, TContext> visitor, TContext context)
         {
-            return this.ComponentPath.TakeAllButLast();
+            return visitor.Visit(this, context);
         }
     }
 }
