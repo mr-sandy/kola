@@ -1,12 +1,13 @@
-﻿
-namespace Kola.Resources
+﻿namespace Kola.Resources
 {
     using System.Collections.Generic;
 
-    public class ComponentResource : CompositeResource
+    public abstract class ComponentResource
     {
-        public string Name { get; set; }
+        public abstract string Type { get; }
 
-        public IEnumerable<ParameterResource> Parameters { get; set; }
+        public IEnumerable<int> Path { get; set; }
+
+        public IEnumerable<LinkResource> Links { get; set; }
     }
 }

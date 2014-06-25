@@ -18,6 +18,11 @@
             visitor.Visit(this);
         }
 
+        public override T Accept<T, TContext>(IComponentVisitor<T, TContext> visitor, TContext context)
+        {
+            return visitor.Visit(this, context);
+        }
+
         public override IComponentInstance Build(IBuildContext buildContext)
         {
             return new AtomInstance(

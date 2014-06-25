@@ -4,7 +4,6 @@
 
     using FluentAssertions;
 
-    using Kola.Domain;
     using Kola.Domain.Composition;
     using Kola.Extensions;
     using Kola.Resources;
@@ -61,25 +60,19 @@
         [Test]
         public void ShouldReturnCorrectLinkRelForFirstChild()
         {
-            var rel = this.templateResource.Components.ElementAt(0).Links.Where(l => l.Rel == "componentPath").Single();
-
-            rel.Href.Should().Be("0");
+            this.templateResource.Components.ElementAt(0).Path.Should().BeEquivalentTo(new[] { 0 });
         }
 
         [Test]
         public void ShouldReturnCorrectLinkRelForSecondChild()
         {
-            var rel = this.templateResource.Components.ElementAt(1).Links.Where(l => l.Rel == "componentPath").Single();
-
-            rel.Href.Should().Be("1");
+            this.templateResource.Components.ElementAt(1).Path.Should().BeEquivalentTo(new[] { 1 });
         }
 
         [Test]
         public void ShouldReturnCorrectLinkRelForFirstGrandchild()
         {
-            var rel = this.templateResource.Components.ElementAt(0).Components.ElementAt(0).Links.Where(l => l.Rel == "componentPath").Single();
-
-            rel.Href.Should().Be("0/0");
+            this.templateResource.Components.ElementAt(0).As<ContainerResource>().Components.ElementAt(0).As<AtomResource>().Path.Should().BeEquivalentTo(new[] { 0, 0 });
         }
     }
 }

@@ -2,10 +2,8 @@
 {
     using System.Collections.Generic;
 
-    public class CompositeResource
+    public class AreaResource
     {
         public IEnumerable<ComponentResource> Components { get; set; }
-
-        public IEnumerable<LinkResource> Links { get; set; }
     }
 }

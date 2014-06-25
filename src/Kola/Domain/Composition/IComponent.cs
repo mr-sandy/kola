@@ -8,7 +8,7 @@
     {
         void Accept(IComponentVisitor visitor);
 
-        //TResult Accept<TResult, TContext>(IComponentVisitor2<TResult, TContext> visitor, TContext context);
+        T Accept<T, TContext>(IComponentVisitor<T, TContext> visitor, TContext context);
 
         IComponentInstance Build(IBuildContext buildContext);
     }

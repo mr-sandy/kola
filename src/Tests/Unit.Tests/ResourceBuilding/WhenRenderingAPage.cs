@@ -6,6 +6,7 @@
 
     using Kola.Domain.Composition;
     using Kola.Extensions;
+    using Kola.ResourceBuilders;
     using Kola.Resources;
 
     using NUnit.Framework;
@@ -30,27 +31,107 @@
         }
 
         [Test]
-        public void ShouldHaveFourRootComponents()
+        public void ShouldSetCorrectSelfLink()
         {
-            this.resource.Components.Should().HaveCount(4);
+            this.resource.Links.Single(l => l.Rel == "self").Href.Should().Be("/test/path");
+        }
+
+        [Test]
+        public void ShouldBuildAllRootComponents()
+        {
+            this.resource.Components.Should().HaveCount(3);
         }
 
         [Test]
         public void ShouldSetCorrectNameForComponent0()
         {
-            this.resource.Components.ElementAt(0).Name.Should().Be("atom 0");
+            this.resource.Components.ElementAt(0).As<AtomResource>().Name.Should().Be("atom 0");
+        }
+
+        [Test]
+        public void ShouldSetCorrectPathForComponent0()
+        {
+            this.resource.Components.ElementAt(0).As<AtomResource>().Path.Should().BeEquivalentTo(new[] { 0 });
+        }
+
+        [Test]
+        public void ShouldSetCorrectSelfLinkForComponent0()
+        {
+            this.resource.Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/test/path/_components/0");
         }
 
         [Test]
         public void ShouldSetCorrectNameForComponent1()
         {
-            this.resource.Components.ElementAt(1).Name.Should().Be("container 1");
+            this.resource.Components.ElementAt(1).As<ContainerResource>().Name.Should().Be("container 1");
         }
+
+        [Test]
+        public void ShouldSetCorrectPathForComponent1()
+        {
+            this.resource.Components.ElementAt(1).As<ContainerResource>().Path.Should().BeEquivalentTo(new[] { 1 });
+        }
+
+        [Test]
+        public void ShouldSetCorrectSelfLinkForComponent1()
+        {
+            this.resource.Components.ElementAt(1).As<ContainerResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/test/path/_components/1");
+        }
+
+        [Test]
+        public void ShouldSetCorrectNameForComponent10()
+        {
+            this.resource.Components.ElementAt(1).As<ContainerResource>().Components.ElementAt(0).As<AtomResource>().Name.Should().Be("atom 1.0");
+        }
+
+        [Test]
+        public void ShouldSetCorrectPathForComponent10()
+        {
+            this.resource.Components.ElementAt(1).As<ContainerResource>().Components.ElementAt(0).As<AtomResource>().Path.Should().BeEquivalentTo(new[] { 1, 0 });
+        }
+
+        [Test]
+        public void ShouldSetCorrectSelfLinkForComponent10()
+        {
+            this.resource.Components.ElementAt(1).As<ContainerResource>().Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/test/path/_components/1/0");
+        }
+
 
         [Test]
         public void ShouldSetCorrectNameForComponent2()
         {
-            this.resource.Components.ElementAt(2).Name.Should().Be("widget 2");
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Name.Should().Be("widget 2");
         }
+
+        [Test]
+        public void ShouldSetCorrectPathForComponent2()
+        {
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Path.Should().BeEquivalentTo(new[] { 2 });
+        }
+
+        [Test]
+        public void ShouldSetCorrectSelfLinkForComponent2()
+        {
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/test/path/_components/2");
+        }
+
+        [Test]
+        public void ShouldSetCorrectNameForComponent200()
+        {
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).Components.ElementAt(0).As<AtomResource>().Name.Should().Be("atom 2.0.0");
+        }
+
+        [Test]
+        public void ShouldSetCorrectPathForComponent200()
+        {
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).Components.ElementAt(0).As<AtomResource>().Path.Should().BeEquivalentTo(new[] { 2, 0, 0 });
+        }
+
+        [Test]
+        public void ShouldSetCorrectSelfLinkForComponent200()
+        {
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/test/path/_components/2/0/0");
+        }
+
     }
 }

@@ -38,6 +38,8 @@
 
         public abstract void Accept(IComponentVisitor visitor);
 
+        public abstract T Accept<T, TContext>(IComponentVisitor<T, TContext> visitor, TContext context);
+
         public abstract IComponentInstance Build(IBuildContext buildContext);
     }
 }
