@@ -5,5 +5,7 @@
         public string Name { get; set; }
 
         public string Type { get; set; }
+
+        public ParameterValueResource Value { get; set; }
     }
 }

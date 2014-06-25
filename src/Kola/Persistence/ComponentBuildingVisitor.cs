@@ -1,9 +1,7 @@
 ﻿namespace Kola.Persistence
 {
-    using System;
     using System.Collections.Generic;
 
-    using Kola.Domain;
     using Kola.Domain.Composition;
     using Kola.Persistence.Extensions;
     using Kola.Persistence.Surrogates;

@@ -2,7 +2,6 @@
 {
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
-    using Kola.Extensions;
 
     public interface IComponent
     {

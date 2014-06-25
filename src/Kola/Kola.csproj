@@ -124,6 +124,7 @@
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="ResourceBuilders\ComponentResourceBuilder.cs" />
     <Compile Include="ResourceBuilders\ResourceBuildingComponentVisitor.cs" />
+    <Compile Include="ResourceBuilders\ResourceBuildingParameterValueVisitor.cs" />
     <Compile Include="ResourceBuilders\TemplateResourceBuilder.cs" />
     <Compile Include="Nancy\ComponentLibrary.cs" />
     <Compile Include="Domain\Composition\Container.cs" />
@@ -215,9 +216,11 @@
     <Compile Include="Resources\ComponentTypeResource.cs" />
     <Compile Include="Resources\ContainerResource.cs" />
     <Compile Include="Resources\DeleteComponentAmendmentResource.cs" />
+    <Compile Include="Resources\FixedParameterValueResource.cs" />
     <Compile Include="Resources\LinkResource.cs" />
     <Compile Include="Resources\MoveComponentAmendmentResource.cs" />
     <Compile Include="Resources\ParameterResource.cs" />
+    <Compile Include="Resources\ParameterValueResource.cs" />
     <Compile Include="Resources\PlacehlolderResource.cs" />
     <Compile Include="Resources\TemplateResource.cs" />
     <Compile Include="Resources\WidgetResource.cs" />
