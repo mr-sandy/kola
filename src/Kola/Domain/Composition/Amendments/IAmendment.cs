@@ -4,8 +4,10 @@
 
     public interface IAmendment
     {
-        IEnumerable<int> GetRootComponent(); 
-        
+        IEnumerable<int> GetRootComponent();
+
         void Accept(IAmendmentVisitor visitor);
+
+        T Accept<T>(IAmendmentVisitor<T> visitor);
     }
 }

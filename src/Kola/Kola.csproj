@@ -122,6 +122,9 @@
     <Compile Include="Domain\Instances\WidgetInstance.cs" />
     <Compile Include="Domain\Specifications\WidgetSpecification.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
+    <Compile Include="Persistence\SurrogateBuilders\SurrogateBuildingAmendmentVisitor.cs" />
+    <Compile Include="Persistence\SurrogateBuilders\SurrogateBuildingComponentVisitor.cs" />
+    <Compile Include="Persistence\SurrogateBuilders\TemplateSurrogateBuilder.cs" />
     <Compile Include="ResourceBuilders\ComponentResourceBuilder.cs" />
     <Compile Include="ResourceBuilders\ResourceBuildingComponentVisitor.cs" />
     <Compile Include="ResourceBuilders\ResourceBuildingParameterValueVisitor.cs" />
@@ -153,7 +156,7 @@
     <Compile Include="Nancy\NancyKolaConfigurationRegistry.cs" />
     <Compile Include="Persistence\Extensions\ParameterExtensions.cs" />
     <Compile Include="Persistence\Extensions\WidgetSpecificationExtensions.cs" />
-    <Compile Include="Persistence\ParameterValueSurrogateBuildingVisitor.cs" />
+    <Compile Include="Persistence\SurrogateBuilders\SurrogateBuildingParameterValueVisitor.cs" />
     <Compile Include="Persistence\Surrogates\AreaSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\ParameterValues\FixedParameterValueSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\ParameterValues\InheritedParameterValueSurrogate.cs" />
@@ -185,10 +188,8 @@
     <Compile Include="Persistence\Surrogates\Amendments\RemoveComponentAmendmentSurrogate.cs" />
     <Compile Include="Persistence\AmendmentBuildingVisitor.cs" />
     <Compile Include="Persistence\Extensions\AmendmentExtensions.cs" />
-    <Compile Include="Persistence\AmendmentSurrogateBuildingVisitor.cs" />
     <Compile Include="Persistence\ComponentBuildingVisitor.cs" />
     <Compile Include="Persistence\Extensions\ComponentExtensions.cs" />
-    <Compile Include="Persistence\ComponentSurrogateBuildingVisitor.cs" />
     <Compile Include="Persistence\Extensions\TemplateExtensions.cs" />
     <Compile Include="Persistence\Surrogates\Amendments\IAmendmentSurrogateVisitor.cs" />
     <Compile Include="Persistence\Surrogates\IComponentSurrogateVisitor.cs" />

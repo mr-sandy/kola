@@ -8,18 +8,6 @@
 
     public static class ComponentExtensions
     {
-        public static IEnumerable<ComponentSurrogate> ToSurrogate(this IEnumerable<IComponent> components)
-        {
-            var visitor = new ComponentSurrogateBuildingVisitor();
-
-            foreach (var component in components)
-            {
-                component.Accept(visitor);
-            }
-
-            return visitor.ComponentSurrogates;
-        }
-
         public static IEnumerable<IComponent> ToDomain(this IEnumerable<ComponentSurrogate> surrogates)
         {
             if (surrogates == null)
@@ -68,36 +56,6 @@
         public static Area ToDomain(this AreaSurrogate surrogate)
         {
             return new Area(surrogate.Components.ToDomain());
-        }
-
-
-        public static ContainerSurrogate ToSurrogate(this Container component)
-        {
-            return new ContainerSurrogate
-                {
-                    Name = component.Name,
-                    Parameters = component.Parameters.ToSurrogate().ToArray(),
-                    Components = component.Components.ToSurrogate().ToArray()
-                };
-        }
-
-        public static AtomSurrogate ToSurrogate(this Atom component)
-        {
-            return new AtomSurrogate
-                {
-                    Name = component.Name,
-                    Parameters = component.Parameters.ToSurrogate().ToArray()
-                };
-        }
-
-        public static WidgetSurrogate ToSurrogate(this Widget component)
-        {
-            return new WidgetSurrogate { Name = component.Name };
-        }
-
-        public static PlaceholderSurrogate ToSurrogate(this Placeholder component)
-        {
-            return new PlaceholderSurrogate();
         }
     }
 }

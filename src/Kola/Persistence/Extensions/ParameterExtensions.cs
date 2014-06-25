@@ -5,6 +5,7 @@
 
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.ParameterValues;
+    using Kola.Persistence.SurrogateBuilders;
     using Kola.Persistence.Surrogates;
 
     public static class ParameterExtensions
@@ -29,7 +30,7 @@
                 {
                     Name = parameter.Name,
                     Type = parameter.Type,
-                    Value = parameter.Value == null ? null : parameter.Value.Accept(new ParameterValueSurrogateBuildingVisitor())
+                    Value = parameter.Value == null ? null : parameter.Value.Accept(new SurrogateBuildingParameterValueVisitor())
                 };
         }
 

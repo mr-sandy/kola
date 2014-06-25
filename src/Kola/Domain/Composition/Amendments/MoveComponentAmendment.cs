@@ -25,5 +25,10 @@
         {
             return this.SourcePath.GetOverlap(this.TargetPath);
         }
+
+        public T Accept<T>(IAmendmentVisitor<T> visitor)
+        {
+            return visitor.Visit(this);
+        }
     }
 }

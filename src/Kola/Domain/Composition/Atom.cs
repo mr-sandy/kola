@@ -13,9 +13,9 @@
         {
         }
 
-        public override void Accept(IComponentVisitor visitor)
+        public override T Accept<T>(IComponentVisitor<T> visitor)
         {
-            visitor.Visit(this);
+            return visitor.Visit(this);
         }
 
         public override T Accept<T, TContext>(IComponentVisitor<T, TContext> visitor, TContext context)

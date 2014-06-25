@@ -1,5 +1,6 @@
 ﻿namespace Kola.Domain.Composition.Amendments
 {
+    using System;
     using System.Collections.Generic;
 
     public class AddComponentAmendment : IAmendment
@@ -22,6 +23,11 @@
         public void Accept(IAmendmentVisitor visitor)
         {
             visitor.Visit(this);
+        }
+
+        public T Accept<T>(IAmendmentVisitor<T> visitor)
+        {
+            return visitor.Visit(this);
         }
     }
 }

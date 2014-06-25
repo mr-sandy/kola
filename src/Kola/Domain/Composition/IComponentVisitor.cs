@@ -1,14 +1,14 @@
 ﻿namespace Kola.Domain.Composition
 {
-    public interface IComponentVisitor
+    public interface IComponentVisitor<out T>
     {
-        void Visit(Atom atom);
+        T Visit(Atom atom);
 
-        void Visit(Container container);
+        T Visit(Container container);
 
-        void Visit(Widget widget);
+        T Visit(Widget widget);
 
-        void Visit(Placeholder placeholder);
+        T Visit(Placeholder placeholder);
     }
 
     public interface IComponentVisitor<out T, in TContext>

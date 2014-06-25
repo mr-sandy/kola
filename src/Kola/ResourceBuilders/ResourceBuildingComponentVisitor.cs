@@ -73,11 +73,11 @@
 
         private IEnumerable<ParameterResource> BuildParameters(IEnumerable<Parameter> parameters)
         {
-            return parameters.Select(p => new ParameterResource
+            return parameters.Select(parameter => new ParameterResource
                 {
-                    Name = p.Name, 
-                    Type = p.Type,
-                    Value = p.Value.Accept(this.parameterValueBuilder)
+                    Name = parameter.Name, 
+                    Type = parameter.Type,
+                    Value = parameter.Value == null ? null : parameter.Value.Accept(this.parameterValueBuilder)
                 });
         }
 
