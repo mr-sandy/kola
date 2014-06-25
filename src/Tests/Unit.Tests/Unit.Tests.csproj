@@ -93,6 +93,7 @@
     <Compile Include="Domain\WidgetTests\WhenBuildingANestedWidgetInstance.cs" />
     <Compile Include="Domain\WidgetTests\WhenBuildingAWidgetInstance.cs" />
     <Compile Include="Domain\WidgetTests\WhenCreatingAWidget.cs" />
+    <Compile Include="ResourceBuilding\WhenRenderingAPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

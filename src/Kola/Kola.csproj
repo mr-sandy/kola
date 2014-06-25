@@ -122,7 +122,6 @@
     <Compile Include="Domain\Instances\WidgetInstance.cs" />
     <Compile Include="Domain\Specifications\WidgetSpecification.cs" />
     <Compile Include="Extensions\ParameterExtensions.cs" />
-    <Compile Include="Extensions\ResourceBuildingComponentVisitor.cs" />
     <Compile Include="Extensions\TemplateResourceBuilder.cs" />
     <Compile Include="Nancy\ComponentLibrary.cs" />
     <Compile Include="Domain\Composition\Container.cs" />
