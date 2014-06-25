@@ -1,11 +1,11 @@
-﻿namespace Kola.Persistence
+﻿namespace Kola.Persistence.DomainBuilders
 {
     using System;
 
     using Kola.Domain.Composition.ParameterValues;
     using Kola.Persistence.Surrogates.ParameterValues;
 
-    internal class ParameterValueBuildingVisitor : IParameterValueSurrogateVisitor<IParameterValue>
+    internal class DomainBuildingParameterValueVisitor : IParameterValueSurrogateVisitor<IParameterValue>
     {
         public IParameterValue Visit(FixedParameterValueSurrogate surrogate)
         {

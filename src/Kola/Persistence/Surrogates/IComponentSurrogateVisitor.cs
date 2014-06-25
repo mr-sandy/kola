@@ -1,13 +1,13 @@
 ﻿namespace Kola.Persistence.Surrogates
 {
-    public interface IComponentSurrogateVisitor
+    public interface IComponentSurrogateVisitor<out T>
     {
-        void Visit(ContainerSurrogate surrogate);
+        T Visit(ContainerSurrogate surrogate);
 
-        void Visit(AtomSurrogate surrogate);
+        T Visit(AtomSurrogate surrogate);
 
-        void Visit(WidgetSurrogate surrogate);
+        T Visit(WidgetSurrogate surrogate);
 
-        void Visit(PlaceholderSurrogate surrogate);
+        T Visit(PlaceholderSurrogate surrogate);
     }
 }

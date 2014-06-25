@@ -86,14 +86,13 @@
     <Compile Include="Rendering\Framework\TestViewHelper.cs" />
     <Compile Include="Rendering\WhenRenderingAPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Extensions\ResourceExtensions\WhenConvertingATemplateToAResource.cs" />
     <Compile Include="Domain\TemplateTests\WhenApplyingAnAddComponentAmendmentToTheRoot.cs" />
     <Compile Include="Domain\TemplateTests\WhenAddingTheFirstComponentToATemplate.cs" />
     <Compile Include="Domain\TemplateTests\WhenCreatingANewTemplate.cs" />
     <Compile Include="Domain\WidgetTests\WhenBuildingANestedWidgetInstance.cs" />
     <Compile Include="Domain\WidgetTests\WhenBuildingAWidgetInstance.cs" />
     <Compile Include="Domain\WidgetTests\WhenCreatingAWidget.cs" />
-    <Compile Include="ResourceBuilding\WhenRenderingAPage.cs" />
+    <Compile Include="ResourceBuilding\WhenBuildingATemplateResource.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

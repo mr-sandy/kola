@@ -8,9 +8,9 @@
         [XmlArray("areas")]
         public AreaSurrogate[] Areas { get; set; }
 
-        public override void Accept(IComponentSurrogateVisitor visitor)
+        public override T Accept<T>(IComponentSurrogateVisitor<T> visitor)
         {
-            visitor.Visit(this);
+            return visitor.Visit(this);
         }
     }
 }

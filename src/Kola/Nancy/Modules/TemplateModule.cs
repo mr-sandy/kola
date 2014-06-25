@@ -7,6 +7,7 @@
     using Kola.Domain.Extensions;
     using Kola.Extensions;
     using Kola.Persistence;
+    using Kola.ResourceBuilders;
     using Kola.Resources;
 
     using global::Nancy;
@@ -43,7 +44,7 @@
 
             template.ApplyAmendments(this.componentLibrary);
 
-            var resource = template.ToResource();
+            var resource = new TemplateResourceBuilder().Build(template);
 
             return this.Negotiate.WithModel(resource)
                 .WithAllowedMediaRange("application/json");
@@ -76,7 +77,7 @@
 
             var component = template.FindComponent(componentPath);
 
-            var resource = component.ToResource(template.Path, componentPath);
+            var resource = new ComponentResourceBuilder().Build(component, componentPath, template.Path);
 
             return this.Negotiate.WithModel(resource)
                 .WithAllowedMediaRange("application/json")
@@ -97,7 +98,9 @@
 
             this.templateRepository.Add(template);
 
-            return this.Negotiate.WithModel(template.ToResource())
+            var resource = new TemplateResourceBuilder().Build(template);
+
+            return this.Negotiate.WithModel(resource)
                 .WithAllowedMediaRange("application/json")
                 .WithStatusCode(HttpStatusCode.Created)
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
@@ -206,9 +209,11 @@
 
             var snippet = template.FindComponent(rootComponentIndex);
 
+            var resource = new ComponentResourceBuilder().Build(snippet, rootComponentIndex, Enumerable.Empty<string>());
+
             return this.Negotiate
+                .WithModel(resource)
                 .WithAllowedMediaRange("application/json")
-                .WithModel(snippet.ToResource(Enumerable.Empty<string>(), rootComponentIndex))
                 .WithStatusCode(HttpStatusCode.Created);
         }
     }

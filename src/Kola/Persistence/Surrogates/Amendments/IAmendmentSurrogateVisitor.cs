@@ -1,11 +1,11 @@
 ﻿namespace Kola.Persistence.Surrogates.Amendments
 {
-    public interface IAmendmentSurrogateVisitor
+    public interface IAmendmentSurrogateVisitor<out T>
     {
-        void Visit(AddComponentAmendmentSurrogate amendment);
+        T Visit(AddComponentAmendmentSurrogate amendment);
 
-        void Visit(MoveComponentAmendmentSurrogate amendment);
+        T Visit(MoveComponentAmendmentSurrogate amendment);
 
-        void Visit(RemoveComponentAmendmentSurrogate amendment);
+        T Visit(RemoveComponentAmendmentSurrogate amendment);
     }
 }

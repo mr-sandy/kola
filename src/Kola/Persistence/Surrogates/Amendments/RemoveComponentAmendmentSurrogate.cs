@@ -8,9 +8,9 @@
         [XmlElement("componentPath")]
         public string ComponentPath { get; set; }
 
-        public override void Accept(IAmendmentSurrogateVisitor visitor)
+        public override T Accept<T>(IAmendmentSurrogateVisitor<T> visitor)
         {
-            visitor.Visit(this);
+            return visitor.Visit(this);
         }
     }
 }

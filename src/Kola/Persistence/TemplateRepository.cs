@@ -4,7 +4,8 @@
 
     using Kola.Domain.Composition;
     using Kola.Extensions;
-    using Kola.Persistence.Extensions;
+    using Kola.Persistence.DomainBuilders;
+    using Kola.Persistence.SurrogateBuilders;
     using Kola.Persistence.Surrogates;
 
     internal class TemplateRepository : ITemplateRepository
@@ -23,7 +24,7 @@
 
         public void Add(Template template)
         {
-            var surrogate = template.ToSurrogate();
+            var surrogate = new TemplateSurrogateBuilder().Build(template);
             var directoryPath = this.fileSystemHelper.CombinePaths(RootDirectory, template.Path.ToFileSystemPath());
 
             if (!this.fileSystemHelper.DirectoryExists(directoryPath))
@@ -45,12 +46,12 @@
             }
 
             var surrogate = this.serializationHelper.Deserialize<TemplateSurrogate>(path);
-            return surrogate.ToDomain(templatePath);
+            return new TemplateDomainBuilder(templatePath).Build(surrogate);
         }
 
         public void Update(Template template)
         {
-            var surrogate = template.ToSurrogate();
+            var surrogate = new TemplateSurrogateBuilder().Build(template);
             var path = this.fileSystemHelper.CombinePaths(RootDirectory, template.Path.ToFileSystemPath(), TemplateFileName);
             this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
         }

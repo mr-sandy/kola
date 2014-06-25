@@ -4,9 +4,8 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Domain;
     using Kola.Domain.Specifications;
-    using Kola.Persistence.Extensions;
+    using Kola.Persistence.DomainBuilders;
     using Kola.Persistence.Surrogates;
 
     public class WidgetSpecificationRepository : IWidgetSpecificationRepository
@@ -29,7 +28,8 @@
             if (this.fileSystemHelper.FileExists(path))
             {
                 var surrogate = this.serializationHelper.Deserialize<WidgetSpecificationSurrogate>(path);
-                return surrogate.ToDomain(name);
+
+                return new WidgetSpecificationDomainBuilder(name).Build(surrogate);
             }
 
             return null;
