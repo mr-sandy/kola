@@ -10,6 +10,10 @@
 
         template: Handlebars.compile(Template),
 
+        tagName: 'li',
+
+        className: 'atom',
+
         events: {
             "boom": function (e) { e.preventDefault(); alert("hello"); }
         },

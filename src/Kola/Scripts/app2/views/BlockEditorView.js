@@ -21,7 +21,7 @@
             this.model.get('components').each(function (component) {
                 var childView = componentViewFactory.build(component);
 
-                $list.append(childView.render().$el.html());
+                $list.append(childView.render().$el);
             });
 
             this.$('ul').sortable({
@@ -35,6 +35,13 @@
         },
 
         handleStop: function (event, ui) {
+
+            if (ui.item.hasClass('tool')) {
+                alert('Add component');
+            }
+            else {
+                alert('Move component');
+            }
 
             ui.item.trigger($.Event("boom"));
         }

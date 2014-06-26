@@ -10,6 +10,10 @@
 
         template: Handlebars.compile(Template),
 
+        tagName: 'li',
+
+        className: 'widget',
+
         render: function () {
 
             this.$el.html(this.template());
@@ -19,7 +23,7 @@
             this.model.get('areas').each(function (area) {
                 var areaView = new AreaView({ model: area });
 
-                $list.append(areaView.render().$el.html());
+                $list.append(areaView.render().$el);
             });
 
             return this;
