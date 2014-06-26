@@ -258,7 +258,12 @@
     <EmbeddedResource Include="Content\kola.min.css">
       <DependentUpon>kola.scss</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Content\kola.scss" />
+    <EmbeddedResource Include="Content\kola.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </EmbeddedResource>
     <EmbeddedResource Include="Scripts\app\collections\Components.js" />
     <EmbeddedResource Include="Scripts\app\templates\ToolboxTemplate.html" />
     <EmbeddedResource Include="Scripts\app\views\ToolboxView.js" />
@@ -294,11 +299,42 @@
     <EmbeddedResource Include="Content\kola2.scss" />
     <EmbeddedResource Include="Content\bootstrap-theme.css.map" />
     <EmbeddedResource Include="Content\bootstrap.css.map" />
-    <None Include="Content\kola2\base.scss" />
-    <None Include="Content\kola2\toolbox.scss" />
-    <None Include="Content\kola2\_colours.scss" />
-    <None Include="Content\kola2\edit-template.scss" />
-    <None Include="Content\kola2\wysiwyg-editor.scss" />
+    <None Include="Content\kola2\base.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="Content\kola2\block-editor.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="Content\kola2\toolbox.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="Content\kola2\_colours.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="Content\kola2\edit-template.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
+    <None Include="Content\kola2\wysiwyg-editor.scss">
+      <Compile>False</Compile>
+      <Minify>False</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </None>
     <None Include="Content\kola\edit.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
@@ -371,31 +407,21 @@
     <EmbeddedResource Include="Scripts\app2\templates\EditTemplateTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\kola2\base.css">
-      <DependentUpon>base.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\kola2\base.min.css">
-      <DependentUpon>base.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\kola2\edit-template.css">
-      <DependentUpon>edit-template.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\kola2\edit-template.min.css">
-      <DependentUpon>edit-template.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\kola2\toolbox.css">
-      <DependentUpon>toolbox.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\kola2\toolbox.min.css">
-      <DependentUpon>toolbox.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\kola2\wysiwyg-editor.css">
-      <DependentUpon>wysiwyg-editor.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\kola2\wysiwyg-editor.min.css">
-      <DependentUpon>wysiwyg-editor.scss</DependentUpon>
-    </Content>
-    <EmbeddedResource Include="Scripts\app2\models\Component.js" />
+    <EmbeddedResource Include="Scripts\app2\views\ComponentViewFactory.js" />
+    <EmbeddedResource Include="Scripts\app2\models\ComponentFactory.js" />
+    <EmbeddedResource Include="Scripts\app2\models\Widget.js" />
+    <EmbeddedResource Include="Scripts\app2\models\Container.js" />
+    <EmbeddedResource Include="Scripts\app2\models\Area.js" />
+    <EmbeddedResource Include="Scripts\app2\collections\Areas.js" />
+    <EmbeddedResource Include="Scripts\app2\templates\AreaTemplate.html" />
+    <EmbeddedResource Include="Scripts\app2\views\AreaView.js" />
+    <EmbeddedResource Include="Scripts\app2\views\ContainerView.js" />
+    <EmbeddedResource Include="Scripts\app2\views\WidgetView.js" />
+    <EmbeddedResource Include="Scripts\app2\templates\ContainerTemplate.html" />
+    <EmbeddedResource Include="Scripts\app2\templates\WidgetTemplate.html" />
+    <EmbeddedResource Include="Scripts\app2\templates\AtomTemplate.html" />
+    <EmbeddedResource Include="Scripts\app2\views\AtomView.js" />
+    <EmbeddedResource Include="Scripts\app2\models\Atom.js" />
     <EmbeddedResource Include="Scripts\app2\collections\Components.js" />
     <EmbeddedResource Include="Scripts\app2\models\Template.js" />
     <EmbeddedResource Include="Scripts\app2\models\ComponentType.js" />

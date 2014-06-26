@@ -27,7 +27,16 @@
 
         public IComponent Visit(WidgetSurrogate surrogate)
         {
-            var areas = surrogate.Areas.Select(area => new Area(area.Components.Select(c => c.Accept(this))));
+            var areas = surrogate.Areas == null 
+                ? Enumerable.Empty<Area>() 
+                : surrogate.Areas.Select(area =>
+                    {
+                        var components = area.Components == null 
+                            ? Enumerable.Empty<IComponent>()
+                            : area.Components.Select(c => c.Accept(this));
+
+                        return new Area(components);
+                    });
 
             return new Widget(
                 surrogate.Name,

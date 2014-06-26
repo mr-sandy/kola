@@ -4,18 +4,28 @@
     <atom name="atom-1">
       <parameters />
     </atom>
+    <widget name="ferret">
+      <areas>
+        <area></area>
+        <area>
+          <components>
+            <atom name="markdown">
+              <parameters>
+                <parameter name="markdown" type="markdown">
+                  <value xsi:type="fixed"><![CDATA[I've been passed into the widget from the template]]></value>
+                </parameter>
+              </parameters>
+            </atom>
+          </components>
+        </area>
+      </areas>
+    </widget>
     <atom name="markdown">
       <parameters>
         <parameter name="markdown" type="markdown">
           <value xsi:type="fixed"><![CDATA[This is markdown]]></value>
         </parameter>
       </parameters>
-    </atom>
-    <atom name="atom-2">
-      <parameters />
-    </atom>
-    <atom name="atom-2">
-      <parameters />
     </atom>
     <container name="container-1">
       <parameters />
@@ -35,13 +45,13 @@
     </container>
   </components>
   <amendments>
-    <moveComponent>
+    <!--<moveComponent>
       <sourcePath>0</sourcePath>
       <targetPath>1</targetPath>
     </moveComponent>
     <moveComponent>
       <sourcePath>1</sourcePath>
       <targetPath>2</targetPath>
-    </moveComponent>
+    </moveComponent>-->
   </amendments>
 </template>

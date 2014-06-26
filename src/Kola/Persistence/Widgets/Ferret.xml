@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <widgetSpecification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
+    <placeholder />
     <atom name="markdown">
       <parameters>
         <parameter name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[I am from the weasel widget]]></value>
+          <value xsi:type="fixed"><![CDATA[I am from the ferret widget]]></value>
         </parameter>
       </parameters>
     </atom>

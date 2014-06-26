@@ -46,7 +46,8 @@
 
             var resource = new TemplateResourceBuilder().Build(template);
 
-            return this.Negotiate.WithModel(resource)
+            return this.Negotiate
+                .WithModel(resource)
                 .WithAllowedMediaRange("application/json");
         }
 
@@ -59,7 +60,8 @@
 
             var resource = new AmendmentResourceBuilder().Build(template.Amendments, template.Path);
 
-            return this.Negotiate.WithModel(resource)
+            return this.Negotiate
+                .WithModel(resource)
                 .WithAllowedMediaRange("application/json")
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
@@ -79,7 +81,8 @@
 
             var resource = new ComponentResourceBuilder().Build(component, componentPath, template.Path);
 
-            return this.Negotiate.WithModel(resource)
+            return this.Negotiate
+                .WithModel(resource)
                 .WithAllowedMediaRange("application/json")
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
@@ -100,7 +103,8 @@
 
             var resource = new TemplateResourceBuilder().Build(template);
 
-            return this.Negotiate.WithModel(resource)
+            return this.Negotiate
+                .WithModel(resource)
                 .WithAllowedMediaRange("application/json")
                 .WithStatusCode(HttpStatusCode.Created)
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
@@ -141,7 +145,8 @@
 
             this.templateRepository.Update(template);
 
-            return this.Negotiate.WithModel(new { jam = "biscuits" })
+            return this.Negotiate
+                .WithModel(new { jam = "biscuits" })
                 .WithAllowedMediaRange("application/json")
                 .WithStatusCode(HttpStatusCode.Created);
         }

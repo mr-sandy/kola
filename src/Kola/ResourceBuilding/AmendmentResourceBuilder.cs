@@ -12,7 +12,7 @@
         {
             var visitor = new ResourceBuildingAmendmentVisitor(templatePath);
 
-            return amendments.Select((a, i) => a.Accept(visitor, i));
+            return amendments.Select((amendment, index) => amendment.Accept(visitor, index));
         }
 
         public AmendmentResource Build(IAmendment amendment, IEnumerable<string> templatePath, int index)

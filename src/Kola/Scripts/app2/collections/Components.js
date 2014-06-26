@@ -2,9 +2,14 @@
     "use strict";
 
     var Backbone = require('backbone');
-    var Component = require('app2/models/Component');
+    var _ = require('underscore');
+    var componentFactory = require('app2/models/ComponentFactory');
 
     return Backbone.Collection.extend({
-        model: Component
+
+        parse: function (response) {
+
+            return _.map(response, componentFactory.build);
+        }
     });
 });
