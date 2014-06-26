@@ -13,6 +13,10 @@
 
         template: Handlebars.compile(Template),
 
+        initialize: function () {
+            _.bindAll(this, 'handleStop');
+        },
+
         render: function () {
             this.$el.html(this.template());
 
@@ -37,7 +41,8 @@
         handleStop: function (event, ui) {
 
             if (ui.item.hasClass('tool')) {
-                ui.item.trigger($.Event("add"));
+                alert("componentType: " + ui.item.data('href'));
+                alert("targetPath: " + this.combineUrls(ui.item.parent().closest('[data-component-path]').attr('data-component-path'), ui.item.index().toString()));
             }
             else {
                 ui.item.trigger($.Event("move"));

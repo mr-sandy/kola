@@ -12,10 +12,11 @@
 
         tagName: 'li',
 
-        className: 'atom',
+        className: function () { return 'atom' },
 
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
+            this.$el.attr('data-component-path', this.model.get('path'));
 
             return this;
         }
