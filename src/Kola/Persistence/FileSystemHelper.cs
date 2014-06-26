@@ -42,7 +42,7 @@
 
         public IEnumerable<string> GetFiles(string path)
         {
-            return Directory.GetFiles(path);
+            return Directory.GetFiles(path).Select(Path.GetFileName);
         }
     }
 }

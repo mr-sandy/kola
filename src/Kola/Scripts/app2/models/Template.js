@@ -7,7 +7,6 @@
     require('backbone-hypermedia');
 
     return Backbone.HypermediaModel.extend({
-//        return Backbone.Model.extend({
 
         links: {
             'amendments': Amendments
