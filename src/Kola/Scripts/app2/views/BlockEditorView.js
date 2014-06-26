@@ -37,13 +37,11 @@
         handleStop: function (event, ui) {
 
             if (ui.item.hasClass('tool')) {
-//                alert('Add component');
+                ui.item.trigger($.Event("add"));
             }
             else {
-//                alert('Move component');
+                ui.item.trigger($.Event("move"));
             }
-
-            ui.item.trigger($.Event("boom"));
         }
     });
 });

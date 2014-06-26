@@ -14,10 +14,6 @@
 
         className: 'atom',
 
-        events: {
-            //"boom": function (e) { e.preventDefault(); alert("hello"); }
-        },
-
         render: function () {
             this.$el.html(this.template(this.model.toJSON()));
 
