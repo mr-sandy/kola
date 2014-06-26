@@ -82,7 +82,7 @@ div, ul, li {
   #block-editor ul {
     margin: 0;
     padding: 0;
-    min-height: 20px;
+    min-height: 40px;
     list-style-type: none; }
     #block-editor ul li {
       padding: 10px 15px;
@@ -100,8 +100,12 @@ div, ul, li {
         background-color: #71b68d; }
       #block-editor ul li.widget {
         background-color: #fecf9d; }
-      #block-editor ul li.area {
-        background-color: #ffefdf; }
+  #block-editor .area {
+    padding: 10px 15px;
+    border: 3px #557 solid;
+    background-color: #ffefdf; }
+    #block-editor .area + .area {
+      margin-top: 10px; }
 
 iframe {
   width: 100%;

@@ -9,7 +9,7 @@
 
         template: Handlebars.compile(Template),
 
-        tagName: 'li',
+        tagName: 'div',
 
         className: 'area',
 

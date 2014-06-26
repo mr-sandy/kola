@@ -16,14 +16,14 @@
 
         render: function () {
 
-            this.$el.html(this.template());
+            var self = this;
 
-            var $list = this.$('ul').first();
+            this.$el.html(this.template());
 
             this.model.get('areas').each(function (area) {
                 var areaView = new AreaView({ model: area });
 
-                $list.append(areaView.render().$el);
+                self.$el.append(areaView.render().$el);
             });
 
             return this;

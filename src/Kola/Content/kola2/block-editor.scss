@@ -6,7 +6,7 @@
     ul {
         margin: 0;
         padding: 0;
-		min-height: 20px;
+		min-height: 40px;
         list-style-type: none;
 
         li {
@@ -37,10 +37,16 @@
 			&.widget {
                 background-color : $color-complement-3;
 			}
-
-			&.area {
-                background-color : $color-complement-2;
-			}
         }
+    }
+
+    .area {
+	    padding: 10px 15px;
+        border: 3px #557 solid;
+        background-color : $color-complement-2;
+
+		& + .area {
+            margin-top: 10px;
+		}
     }
 }

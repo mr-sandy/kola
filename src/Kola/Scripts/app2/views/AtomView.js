@@ -15,7 +15,7 @@
         className: 'atom',
 
         events: {
-            "boom": function (e) { e.preventDefault(); alert("hello"); }
+            //"boom": function (e) { e.preventDefault(); alert("hello"); }
         },
 
         render: function () {

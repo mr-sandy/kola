@@ -37,10 +37,10 @@
         handleStop: function (event, ui) {
 
             if (ui.item.hasClass('tool')) {
-                alert('Add component');
+//                alert('Add component');
             }
             else {
-                alert('Move component');
+//                alert('Move component');
             }
 
             ui.item.trigger($.Event("boom"));
