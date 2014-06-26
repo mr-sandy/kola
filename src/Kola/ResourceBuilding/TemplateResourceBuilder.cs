@@ -19,13 +19,13 @@
                             {
                                 new LinkResource
                                     {
-                                        Rel = "self", 
-                                        Href = template.Path.ToHttpPath()
+                                        Rel = "self",
+                                        Href = new[] { "_kola", "templates" }.Concat(template.Path).ToHttpPath()
                                     },
                                 new LinkResource
                                     {
-                                        Rel = "amendments", 
-                                        Href = template.Path.Append("_amendments").ToHttpPath() 
+                                        Rel = "amendments",
+                                        Href = new[] { "_kola", "templates" }.Concat(template.Path).Append("_amendments").ToHttpPath()
                                     }
                             }
             };

@@ -45,13 +45,13 @@
     </container>
   </components>
   <amendments>
-    <!--<moveComponent>
+    <moveComponent>
       <sourcePath>0</sourcePath>
       <targetPath>1</targetPath>
     </moveComponent>
     <moveComponent>
       <sourcePath>1</sourcePath>
       <targetPath>2</targetPath>
-    </moveComponent>-->
+    </moveComponent>
   </amendments>
 </template>

@@ -3,8 +3,15 @@
 
     var Backbone = require('backbone');
     var _ = require('underscore');
+    var Amendments = require('app2/collections/Amendments');
+    require('backbone-hypermedia');
 
-    return Backbone.Model.extend({
+    return Backbone.HypermediaModel.extend({
+//        return Backbone.Model.extend({
+
+        links: {
+            'amendments': Amendments
+        },
 
         parse: function (response) {
             var Components = require('app2/collections/Components');
@@ -13,7 +20,7 @@
             {
                 components: new Components(response.components, { parse: true })
             });
-        } 
+        }
     });
 });
 

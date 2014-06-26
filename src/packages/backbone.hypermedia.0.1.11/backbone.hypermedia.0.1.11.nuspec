@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>backbone.hypermedia</id>
+    <version>0.1.11</version>
+    <title>backbone.hypermedia</title>
+    <authors>Jim Liddell, Henry Wilson, Sandy Cormie, Richard Phillips, Barry Williams</authors>
+    <owners>Jim Liddell, Henry Wilson, Sandy Cormie, Richard Phillips, Barry Williams</owners>
+    <licenseUrl>https://github.com/linn/backbone.hypermedia/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/linn/backbone.hypermedia</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Backbone plugin providing support for following hypermedia controls from Backbone models and collections.</description>
+    <tags>backbone hypermedia REST</tags>
+    <dependencies>
+      <dependency id="Backbone.js" version="1.1.0" />
+    </dependencies>
+  </metadata>
+</package>
