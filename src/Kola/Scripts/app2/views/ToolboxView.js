@@ -21,7 +21,7 @@
                 opacity: 0.7,
                 iframeFix: true,
                 helper: "clone",
-                connectToSortable: ".component-type-target"
+                connectToSortable: ".block-editor-root"
             });
 
             return this;

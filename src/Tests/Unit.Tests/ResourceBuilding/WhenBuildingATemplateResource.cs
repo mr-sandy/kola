@@ -34,7 +34,7 @@
         [Test]
         public void ShouldSetCorrectSelfLink()
         {
-            this.resource.Links.Single(l => l.Rel == "self").Href.Should().Be("/test/path");
+            this.resource.Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates/test/path");
         }
 
         [Test]
@@ -52,7 +52,7 @@
         [Test]
         public void ShouldSetCorrectPathForComponent0()
         {
-            this.resource.Components.ElementAt(0).As<AtomResource>().Path.Should().BeEquivalentTo(new[] { 0 });
+            this.resource.Components.ElementAt(0).As<AtomResource>().Path.Should().Be("/0");
         }
 
         [Test]
@@ -94,7 +94,7 @@
         [Test]
         public void ShouldSetCorrectPathForComponent1()
         {
-            this.resource.Components.ElementAt(1).As<ContainerResource>().Path.Should().BeEquivalentTo(new[] { 1 });
+            this.resource.Components.ElementAt(1).As<ContainerResource>().Path.Should().Be("/1");
         }
 
         [Test]
@@ -112,7 +112,7 @@
         [Test]
         public void ShouldSetCorrectPathForComponent10()
         {
-            this.resource.Components.ElementAt(1).As<ContainerResource>().Components.ElementAt(0).As<AtomResource>().Path.Should().BeEquivalentTo(new[] { 1, 0 });
+            this.resource.Components.ElementAt(1).As<ContainerResource>().Components.ElementAt(0).As<AtomResource>().Path.Should().Be("/1/0");
         }
 
         [Test]
@@ -131,7 +131,7 @@
         [Test]
         public void ShouldSetCorrectPathForComponent2()
         {
-            this.resource.Components.ElementAt(2).As<WidgetResource>().Path.Should().BeEquivalentTo(new[] { 2 });
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Path.Should().Be("/2");
         }
 
         [Test]
@@ -149,7 +149,7 @@
         [Test]
         public void ShouldSetCorrectPathForComponent200()
         {
-            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).Components.ElementAt(0).As<AtomResource>().Path.Should().BeEquivalentTo(new[] { 2, 0, 0 });
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).Components.ElementAt(0).As<AtomResource>().Path.Should().Be("/2/0/0");
         }
 
         [Test]

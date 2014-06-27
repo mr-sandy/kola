@@ -6,7 +6,7 @@
     {
         public abstract string Type { get; }
 
-        public IEnumerable<int> Path { get; set; }
+        public string Path { get; set; }
 
         public IEnumerable<LinkResource> Links { get; set; }
     }

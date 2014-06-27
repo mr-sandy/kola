@@ -17,6 +17,7 @@
             var componentViewFactory = require('app2/views/ComponentViewFactory');
 
             this.$el.html(this.template());
+            this.$el.attr('data-component-path', this.model.get('path'));
 
             var $list = this.$('ul').first();
 

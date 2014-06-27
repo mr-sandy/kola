@@ -22,7 +22,7 @@
             return new AtomResource
                 {
                     Name = atom.Name,
-                    Path = context,
+                    Path = context.Select(i => i.ToString()).ToHttpPath(),
                     Parameters = this.BuildParameters(atom.Parameters),
                     Links = this.BuildLinks(context)
                 };
@@ -33,7 +33,7 @@
             return new ContainerResource
                 {
                     Name = container.Name,
-                    Path = context,
+                    Path = context.Select(i => i.ToString()).ToHttpPath(),
                     Components = container.Components.Select((c, i) => c.Accept(this, context.Append(i))),
                     Parameters = this.BuildParameters(container.Parameters),
                     Links = this.BuildLinks(context)
@@ -48,6 +48,7 @@
 
                     return new AreaResource
                         {
+                            Path = areaContext.Select(j => j.ToString()).ToHttpPath(),
                             Components = area.Components.Select((c, j) => c.Accept(this, areaContext.Append(j)))
                         };
                 });
@@ -56,7 +57,7 @@
                 {
                     Name = widget.Name,
                     Areas = areas,
-                    Path = context,
+                    Path = context.Select(i => i.ToString()).ToHttpPath(),
                     Parameters = this.BuildParameters(widget.Parameters),
                     Links = this.BuildLinks(context)
                 };
@@ -66,7 +67,7 @@
         {
             return new PlaceholderResource
                 {
-                    Path = context,
+                    Path = context.Select(i => i.ToString()).ToHttpPath(),
                     Links = this.BuildLinks(context)
                 };
         }

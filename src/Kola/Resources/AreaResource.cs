@@ -4,6 +4,8 @@
 
     public class AreaResource
     {
+        public string Path { get; set; }
+        
         public IEnumerable<ComponentResource> Components { get; set; }
     }
 }

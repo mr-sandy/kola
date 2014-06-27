@@ -31,6 +31,7 @@
             this.$('ul').sortable({
                 opacity: 0.75,
                 placeholder: 'new',
+                tolerance: 'pointer',
                 connectWith: 'ul',
                 stop: this.handleStop
             });
