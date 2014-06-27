@@ -18,9 +18,12 @@
             visitor.Visit(this);
         }
 
-        public IEnumerable<int> GetRootComponent()
+        public IEnumerable<int> SubjectPath
         {
-            return this.ComponentPath.TakeAllButLast();
+            get
+            {
+                return this.ComponentPath.TakeAllButLast();
+            }
         }
 
         public T Accept<T>(IAmendmentVisitor<T> visitor)

@@ -164,9 +164,11 @@
 
             template.ApplyAmendments(this.componentLibrary);
 
-            var rootComponentIndex = (lastAmendment == null)
-                                         ? Enumerable.Empty<int>()
-                                         : lastAmendment.GetRootComponent();
+            //var rootComponentIndex = (lastAmendment == null)
+            //                             ? Enumerable.Empty<int>()
+            //                             : lastAmendment.GetSubjects();
+
+            var rootComponentIndex = Enumerable.Empty<int>();   
 
             var snippet = template.FindComponent(rootComponentIndex);
 

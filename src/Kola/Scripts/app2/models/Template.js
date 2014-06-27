@@ -19,6 +19,18 @@
             {
                 components: new Components(response.components, { parse: true })
             });
+        },
+
+        refresh: function (componentUrl) {
+        //TODO Start here
+            alert(componentUrl);
+            //            var componentPath = componentUrl
+            //                    ? _.without(componentUrl.split('/'), '')
+            //                    : [];
+            //            var component = this._findChild(componentPath);
+            //            component.fetch().then(function () {
+            //                component.trigger('change');
+            //            });
         }
     });
 });

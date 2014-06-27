@@ -20,9 +20,12 @@
 
         public string Value { get; private set; }
 
-        public IEnumerable<int> GetRootComponent()
+        public IEnumerable<int> SubjectPath
         {
-            return this.ComponentPath;
+            get
+            {
+                return this.ComponentPath;
+            }
         }
 
         public void Accept(IAmendmentVisitor visitor)

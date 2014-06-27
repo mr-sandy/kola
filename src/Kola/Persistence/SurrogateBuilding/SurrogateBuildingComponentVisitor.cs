@@ -1,5 +1,6 @@
 ﻿namespace Kola.Persistence.SurrogateBuilding
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -34,6 +35,7 @@
             return new WidgetSurrogate
             {
                 Name = widget.Name,
+                Areas = this.BuildAreas(widget.Areas).ToArray(),
                 Parameters = this.BuildParameters(widget.Parameters).ToArray()
             };
         }
@@ -50,6 +52,14 @@
                     Name = parameter.Name,
                     Type = parameter.Type,
                     Value = parameter.Value == null ? null : parameter.Value.Accept(this.parameterValueBuilder)
+                });
+        }
+
+        private IEnumerable<AreaSurrogate> BuildAreas(IEnumerable<Area> areas)
+        {
+            return areas.Select(area => new AreaSurrogate
+                {
+                    Components = area.Components.Select(c => c.Accept(this)).ToArray()
                 });
         }
     }

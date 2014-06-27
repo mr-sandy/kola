@@ -1,5 +1,6 @@
 ﻿namespace Kola.Domain.Composition.Amendments
 {
+    using System;
     using System.Collections.Generic;
 
     using Kola.Extensions;
@@ -16,14 +17,14 @@
 
         public IEnumerable<int> SourcePath { get; private set; }
 
+        public IEnumerable<int> SubjectPath
+        {
+            get { return this.SourcePath.TakeAllButLast().GetOverlap(this.TargetPath.TakeAllButLast()); }
+        }
+
         public void Accept(IAmendmentVisitor visitor)
         {
             visitor.Visit(this);
-        }
-
-        public IEnumerable<int> GetRootComponent()
-        {
-            return this.SourcePath.GetOverlap(this.TargetPath);
         }
 
         public T Accept<T>(IAmendmentVisitor<T> visitor)

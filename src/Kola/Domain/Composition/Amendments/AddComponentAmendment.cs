@@ -3,6 +3,8 @@
     using System;
     using System.Collections.Generic;
 
+    using Kola.Extensions;
+
     public class AddComponentAmendment : IAmendment
     {
         public AddComponentAmendment(IEnumerable<int> targetPath, string componentName)
@@ -15,9 +17,12 @@
 
         public IEnumerable<int> TargetPath { get; internal set; }
 
-        public IEnumerable<int> GetRootComponent()
+        public IEnumerable<int> SubjectPath
         {
-            return this.TargetPath;
+            get
+            {
+                return this.TargetPath.TakeAllButLast();
+            }
         }
 
         public void Accept(IAmendmentVisitor visitor)

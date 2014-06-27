@@ -41,12 +41,23 @@
 
         handleStop: function (event, ui) {
 
+            var newParent = ui.item.parent().closest('[data-component-path]');
+
+            var targetPath = (newParent.length == 0)
+                        ? '/' + ui.item.index().toString()
+                        : this.combineUrls(newParent.data('component-path'), ui.item.index().toString());
+
+            //            var targetPath = this.combineUrls(ui.item.parent().closest('[data-component-path]').attr('data-component-path'), ui.item.index().toString());
+
             if (ui.item.hasClass('tool')) {
-                alert("componentType: " + ui.item.data('href'));
-                alert("targetPath: " + this.combineUrls(ui.item.parent().closest('[data-component-path]').attr('data-component-path'), ui.item.index().toString()));
+                var componentType = ui.item.data('href');
+
+                this.model.amendments.addComponent(componentType, targetPath);
             }
             else {
-                ui.item.trigger($.Event("move"));
+                var sourcePath = ui.item.attr('data-component-path');
+
+                this.model.amendments.moveComponent(sourcePath, targetPath);
             }
         }
     });
