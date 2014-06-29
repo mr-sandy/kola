@@ -47,8 +47,6 @@
                         ? '/' + ui.item.index().toString()
                         : this.combineUrls(newParent.data('component-path'), ui.item.index().toString());
 
-            //            var targetPath = this.combineUrls(ui.item.parent().closest('[data-component-path]').attr('data-component-path'), ui.item.index().toString());
-
             if (ui.item.hasClass('tool')) {
                 var componentType = ui.item.data('href');
 

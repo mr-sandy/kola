@@ -8,6 +8,8 @@
 
         parse: function (response) {
 
+            this.url = this.getLink(response.links, 'self');
+
             return response;
         }
     });

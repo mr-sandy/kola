@@ -1,6 +1,92 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
+    <atom name="atom-2">
+      <parameters />
+    </atom>
+    <container name="container-1">
+      <parameters />
+      <components>
+        <atom name="atom-2">
+          <parameters />
+        </atom>
+        <container name="container-1">
+          <parameters />
+          <components>
+            <widget name="ferret">
+              <parameters />
+              <areas>
+                <area>
+                  <components />
+                </area>
+                <area>
+                  <components />
+                </area>
+              </areas>
+            </widget>
+            <atom name="atom-1">
+              <parameters />
+            </atom>
+            <atom name="atom-1">
+              <parameters />
+            </atom>
+          </components>
+        </container>
+        <container name="container-2">
+          <parameters />
+          <components>
+            <atom name="atom-2">
+              <parameters />
+            </atom>
+            <container name="container-2">
+              <parameters />
+              <components>
+                <container name="container-1">
+                  <parameters />
+                  <components>
+                    <atom name="atom-2">
+                      <parameters />
+                    </atom>
+                    <container name="container-1">
+                      <parameters />
+                      <components>
+                        <atom name="atom-2">
+                          <parameters />
+                        </atom>
+                      </components>
+                    </container>
+                    <atom name="atom-1">
+                      <parameters />
+                    </atom>
+                    <atom name="atom-2">
+                      <parameters />
+                    </atom>
+                    <atom name="atom-1">
+                      <parameters />
+                    </atom>
+                  </components>
+                </container>
+              </components>
+            </container>
+            <atom name="atom-2">
+              <parameters />
+            </atom>
+            <atom name="atom-1">
+              <parameters />
+            </atom>
+            <atom name="atom-2">
+              <parameters />
+            </atom>
+          </components>
+        </container>
+        <atom name="atom-2">
+          <parameters />
+        </atom>
+        <atom name="atom-1">
+          <parameters />
+        </atom>
+      </components>
+    </container>
     <atom name="markdown">
       <parameters />
     </atom>
@@ -33,58 +119,14 @@
         </parameter>
       </parameters>
     </atom>
-    <container name="container-1">
+    <atom name="atom-1">
       <parameters />
-      <components>
-        <container name="container-2">
-          <parameters />
-          <components>
-            <container name="container-2">
-              <parameters />
-              <components>
-                <atom name="atom-1">
-                  <parameters />
-                </atom>
-              </components>
-            </container>
-            <atom name="atom-1">
-              <parameters />
-            </atom>
-          </components>
-        </container>
-        <atom name="atom-1">
-          <parameters />
-        </atom>
-        <atom name="atom-2">
-          <parameters />
-        </atom>
-      </components>
-    </container>
+    </atom>
   </components>
   <amendments>
-    <moveComponent>
-      <sourcePath>4/0/0/0</sourcePath>
-      <targetPath>4/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>4/1/1</sourcePath>
-      <targetPath>4</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>5/0</sourcePath>
-      <targetPath>5/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>5</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>0/0/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>0/0</targetPath>
-    </moveComponent>
+    <addComponent>
+      <componentType>atom-1</componentType>
+      <targetPath>1/1/0/0/0</targetPath>
+    </addComponent>
   </amendments>
 </template>

@@ -22,15 +22,26 @@
         },
 
         refresh: function (componentUrl) {
-        //TODO Start here
-            alert(componentUrl);
-            //            var componentPath = componentUrl
-            //                    ? _.without(componentUrl.split('/'), '')
-            //                    : [];
-            //            var component = this._findChild(componentPath);
-            //            component.fetch().then(function () {
-            //                component.trigger('change');
-            //            });
+            var componentPath = componentUrl
+                                ? _.without(componentUrl.split('/'), '')
+                                : [];
+
+            this.findChild(this, componentPath).fetch();
+        },
+
+        findChild: function (candidate, componentPath) {
+            if (componentPath.length == 0 || componentPath[0] == '') {
+                return candidate;
+            }
+
+            var index = componentPath[0];
+            var remainder = componentPath.slice(1);
+
+            var collection = candidate.get('components') || candidate.get('areas');
+
+            var item = collection.at(index);
+
+            return this.findChild(item, remainder);
         }
     });
 });

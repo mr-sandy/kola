@@ -8,6 +8,8 @@
 
         parse: function (response) {
 
+            this.url = this.getLink(response.links, 'self');
+
             var Areas = require('app2/collections/Areas');
 
             return _.extend(response,
