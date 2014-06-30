@@ -67,6 +67,7 @@
     <Compile Include="Domain\Composition\Amendments\SetParameterInheritedAmendment.cs" />
     <Compile Include="Domain\Composition\Amendments\SetParameterMultilingualAmendment.cs" />
     <Compile Include="Domain\Composition\CollectionFindingComponentVisitor.cs" />
+    <Compile Include="Domain\Composition\ComponentFindingComponentVisitor.cs" />
     <Compile Include="Domain\Extensions\ParameterInstanceExtensions.cs" />
     <Compile Include="Domain\Extensions\ParameterSpecificationExtensions.cs" />
     <Compile Include="Domain\Extensions\ParameterExtensions.cs" />

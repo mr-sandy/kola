@@ -3,6 +3,7 @@
 
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
+    require('jqueryui');
     var Template = require('text!app2/templates/AreaTemplate.html');
 
     return Backbone.View.extend({
@@ -12,6 +13,10 @@
         tagName: 'div',
 
         className: 'area',
+
+        initialize: function () {
+            this.model.on('sync', this.render, this);
+        },
 
         render: function () {
             var componentViewFactory = require('app2/views/ComponentViewFactory');
@@ -26,6 +31,14 @@
                 $list.append(childView.render().$el);
             });
 
+            $list.find('ul').sortable({
+                opacity: 0.75,
+                placeholder: 'new',
+                tolerance: 'pointer',
+                connectWith: 'ul',
+                stop: this.handleStop
+            });
+            
             return this;
         }
     });

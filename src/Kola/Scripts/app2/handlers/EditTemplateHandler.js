@@ -18,12 +18,9 @@
 
             $.when(componentTypes.fetch(), template.fetch()).then(function () {
 
-                //                options.breadcrumbs.reset([{ label: 'Training'}]);
-
                 template.listenTo(template.amendments, 'sync', function (amendment) {
                     template.refresh(amendment.get('subject'));
                 });
-
 
                 d.resolve(new EditTemplateView({
                     componentTypes: componentTypes,

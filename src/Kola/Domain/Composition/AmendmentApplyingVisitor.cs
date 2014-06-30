@@ -52,7 +52,7 @@
 
         public void Visit(SetParameterFixedAmendment amendment)
         {
-            var component = this.template.Find<IParameterisedComponent>(amendment.ComponentPath);
+            var component = this.template.FindParameterisedComponent(amendment.ComponentPath);
             var specification = this.specificationLibrary.Lookup(component.Name);
 
             var parameter = component.Parameters.Find(amendment.ParameterName) ?? component.AddParameter(amendment.ParameterName, specification);
@@ -67,7 +67,7 @@
 
         public void Visit(SetParameterMultilingualAmendment amendment)
         {
-            var component = this.template.Find<IParameterisedComponent>(amendment.ComponentPath);
+            var component = this.template.FindParameterisedComponent(amendment.ComponentPath);
             var specification = this.specificationLibrary.Lookup(component.Name);
 
             //component.SetParameter(amendment.ParameterName, new MultilingualParameterValue(amendment.FixedValue), specification);

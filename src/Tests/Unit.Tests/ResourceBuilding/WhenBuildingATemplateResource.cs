@@ -58,7 +58,7 @@
         [Test]
         public void ShouldSetCorrectSelfLinkForComponent0()
         {
-            this.resource.Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/test/path/_components/0");
+            this.resource.Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates/test/path/_components/0");
         }
 
         [Test]
@@ -100,7 +100,7 @@
         [Test]
         public void ShouldSetCorrectSelfLinkForComponent1()
         {
-            this.resource.Components.ElementAt(1).As<ContainerResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/test/path/_components/1");
+            this.resource.Components.ElementAt(1).As<ContainerResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates/test/path/_components/1");
         }
 
         [Test]
@@ -118,7 +118,7 @@
         [Test]
         public void ShouldSetCorrectSelfLinkForComponent10()
         {
-            this.resource.Components.ElementAt(1).As<ContainerResource>().Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/test/path/_components/1/0");
+            this.resource.Components.ElementAt(1).As<ContainerResource>().Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates/test/path/_components/1/0");
         }
 
 
@@ -137,7 +137,7 @@
         [Test]
         public void ShouldSetCorrectSelfLinkForComponent2()
         {
-            this.resource.Components.ElementAt(2).As<WidgetResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/test/path/_components/2");
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates/test/path/_components/2");
         }
 
         [Test]
@@ -155,7 +155,7 @@
         [Test]
         public void ShouldSetCorrectSelfLinkForComponent200()
         {
-            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/test/path/_components/2/0/0");
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates/test/path/_components/2/0/0");
         }
 
     }

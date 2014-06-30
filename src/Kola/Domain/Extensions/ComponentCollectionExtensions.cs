@@ -8,41 +8,26 @@
 
     public static class ComponentCollectionExtensions
     {
-        public static IComponent FindComponent(this IComponentCollection collection, IEnumerable<int> path)
+        public static IComponentCollection FindCollection(this Template template, IEnumerable<int> path)
         {
-            return collection.Find<IComponent>(path);
+            return new CollectionFindingComponentVisitor().Find(template, path);
         }
 
-        public static IComponentCollection FindCollection(this IComponentCollection collection, IEnumerable<int> path)
+        public static IComponent FindComponent(this Template template, IEnumerable<int> path)
         {
-            return collection.Find<IComponentCollection>(path);
+            return new ComponentFindingComponentVisitor().Find(template, path);
         }
 
-        public static T Find<T>(this IComponentCollection collection, IEnumerable<int> path)
+        public static IParameterisedComponent FindParameterisedComponent(this Template template, IEnumerable<int> path)
         {
-            if (path.Count() == 0 && collection is T)
+            var candidate = new ComponentFindingComponentVisitor().Find(template, path);
+
+            if (!(candidate is IParameterisedComponent))
             {
-                return (T)collection;
-            }
-            
-            var index = path.First();
-
-            if (collection.Components.Count() >= index)
-            {
-                if (path.Count() == 1 && collection.Components.ElementAt(index) is T)
-                {
-                    return (T)collection.Components.ElementAt(index);
-                }
-
-                var childCollection = collection.Components.ElementAt(index) as IComponentCollection;
-
-                if (childCollection != null)
-                {
-                    return childCollection.Find<T>(path.Skip(1));
-                }
+                throw new KolaException("Parameterised component not found");
             }
 
-            throw new KolaException("No component exists at specified path");
+            return candidate as IParameterisedComponent;
         }
 
         public static IEnumerable<T> FindAll<T>(this IComponentCollection collection)

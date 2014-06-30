@@ -14,6 +14,10 @@
 
         className: 'widget',
 
+        initialize: function () {
+            this.model.on('sync', this.render, this);
+        },
+
         render: function () {
 
             var self = this;

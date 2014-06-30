@@ -36,7 +36,7 @@
                             : area.Components.Select(c => c.Accept(this));
 
                         return new Area(components);
-                    });
+                    }).ToArray();
 
             return new Widget(
                 surrogate.Name,

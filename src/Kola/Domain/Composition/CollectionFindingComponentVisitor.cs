@@ -1,28 +1,80 @@
 ﻿namespace Kola.Domain.Composition
 {
-    using System;
     using System.Collections.Generic;
+    using System.Linq;
 
-    internal class CollectionFindingComponentVisitor : IComponentVisitor<IComponent, IEnumerable<int>>
+    internal class CollectionFindingComponentVisitor : IComponentVisitor<IComponentCollection, IEnumerable<int>>
     {
-        public IComponent Visit(Atom atom, IEnumerable<int> context)
+        public IComponentCollection Find(Template template, IEnumerable<int> path)
         {
-            throw new NotImplementedException();
+            if (path.Count() == 0)
+            {
+                return template;
+            }
+
+            if (template.Components.Count() < path.First())
+            {
+                throw new KolaException("No collection at specified path");
+            }
+
+            return template.Components.ElementAt(path.First()).Accept(this, path.Skip(1));
         }
 
-        public IComponent Visit(Container container, IEnumerable<int> context)
+        public IComponentCollection Visit(Atom atom, IEnumerable<int> path)
         {
-            throw new NotImplementedException();
+            throw new KolaException("No collection at specified path");
         }
 
-        public IComponent Visit(Widget widget, IEnumerable<int> context)
+        public IComponentCollection Visit(Container container, IEnumerable<int> path)
         {
-            throw new NotImplementedException();
+            if (path.Count() == 0)
+            {
+                return container;
+            }
+
+            if (container.Components.Count() < path.First())
+            {
+                throw new KolaException("No collection at specified path");
+            }
+
+            return container.Components.ElementAt(path.First()).Accept(this, path.Skip(1));
         }
 
-        public IComponent Visit(Placeholder placeholder, IEnumerable<int> context)
+        public IComponentCollection Visit(Widget widget, IEnumerable<int> path)
         {
-            throw new NotImplementedException();
+            if (path.Count() == 0)
+            {
+                throw new KolaException("No collection at specified path");
+            }
+
+            if (widget.Areas.Count() < path.First())
+            {
+                throw new KolaException("No collection at specified path");
+            }
+
+            var area = widget.Areas.ElementAt(path.First());
+
+            return this.VisitArea(area, path.Skip(1));
+        }
+
+        public IComponentCollection Visit(Placeholder placeholder, IEnumerable<int> path)
+        {
+                throw new KolaException("No collection at specified path");
+        }
+
+        private IComponentCollection VisitArea(Area area, IEnumerable<int> path)
+        {
+            if (path.Count() == 0)
+            {
+                return area;
+            }
+
+            if (area.Components.Count() < path.First())
+            {
+                throw new KolaException("No collection at specified path");
+            }
+
+            return area.Components.ElementAt(path.First()).Accept(this, path.Skip(1));
         }
     }
 }
