@@ -4,15 +4,14 @@
     using System.Collections.Generic;
 
     using Kola.Domain.Specifications;
-    using Kola.Domain.Composition;
 
     public class BuildContext : IBuildContext
     {
-        private readonly Stack<Queue<IEnumerable<IComponentInstance>>> areas = new Stack<Queue<IEnumerable<IComponentInstance>>>();
+        private readonly Stack<Queue<AreaInstance>> areas = new Stack<Queue<AreaInstance>>();
 
         public Func<string, WidgetSpecification> WidgetSpecificationFinder { get; set; }
 
-        public Stack<Queue<IEnumerable<IComponentInstance>>> Areas
+        public Stack<Queue<AreaInstance>> Areas
         {
             get { return this.areas; }
         }

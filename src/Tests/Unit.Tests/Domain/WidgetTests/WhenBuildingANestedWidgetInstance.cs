@@ -106,7 +106,7 @@
 
             var buildContext = MockRepository.GenerateStub<IBuildContext>();
             buildContext.Stub(c => c.WidgetSpecificationFinder).Return(n => n == "widget 1" ? specification1 : specification2);
-            buildContext.Stub(c => c.Areas).Return(new Stack<Queue<IEnumerable<IComponentInstance>>>());
+            buildContext.Stub(c => c.Areas).Return(new Stack<Queue<AreaInstance>>());
 
             this.instance = (WidgetInstance)widget.Build(buildContext);
         }

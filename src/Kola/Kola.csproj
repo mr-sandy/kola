@@ -71,6 +71,7 @@
     <Compile Include="Domain\Extensions\ParameterInstanceExtensions.cs" />
     <Compile Include="Domain\Extensions\ParameterSpecificationExtensions.cs" />
     <Compile Include="Domain\Extensions\ParameterExtensions.cs" />
+    <Compile Include="Domain\Instances\AreaInstance.cs" />
     <Compile Include="Domain\Instances\Building\IBuildContext.cs" />
     <Compile Include="Domain\Instances\AtomInstance.cs" />
     <Compile Include="Domain\Instances\ContainerInstance.cs" />

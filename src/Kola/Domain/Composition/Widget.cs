@@ -31,9 +31,10 @@
             // Build the content of each area, 
             // before adding it to the context to be 
             // picked up by any corresponding placeholders
-            var areas = this.Areas.Select(a => a.Components.Select(c => c.Build(buildContext)).ToList());
+            //var areas = this.Areas.Select(a => a.Components.Select(c => c.Build(buildContext)).ToList());
+            var areas = this.Areas.Select(a => a.Build(buildContext)).Cast<AreaInstance>().ToList();
 
-            buildContext.Areas.Push(new Queue<IEnumerable<IComponentInstance>>(areas));
+            buildContext.Areas.Push(new Queue<AreaInstance>(areas));
 
             var specification = buildContext.WidgetSpecificationFinder(this.Name);
             var components = specification.Components.Select(c => c.Build(buildContext)).ToList();

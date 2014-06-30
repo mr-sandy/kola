@@ -22,7 +22,7 @@
             // TODO {SC} The .Peek().Dequeue() seems wrong; surely just .Dequeue()?
             var components = buildContext.Areas.Peek().Count() == 0
                 ? Enumerable.Empty<IComponentInstance>()
-                : buildContext.Areas.Peek().Dequeue();
+                : buildContext.Areas.Peek().Dequeue().Components;
 
             return new PlaceholderInstance(components);
         }
