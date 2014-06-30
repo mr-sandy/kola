@@ -1,5 +1,6 @@
 ﻿namespace Kola.ResourceBuilding
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -10,7 +11,7 @@
     internal class ResourceBuildingComponentVisitor : IComponentVisitor<ComponentResource, IEnumerable<int>>
     {
         private readonly IEnumerable<string> templatePath;
-        private readonly ResourceBuildingParameterValueVisitor parameterValueBuilder = new ResourceBuildingParameterValueVisitor(); 
+        private readonly ResourceBuildingParameterValueVisitor parameterValueBuilder = new ResourceBuildingParameterValueVisitor();
 
         public ResourceBuildingComponentVisitor(IEnumerable<string> templatePath)
         {
@@ -42,21 +43,10 @@
 
         public ComponentResource Visit(Widget widget, IEnumerable<int> context)
         {
-            var areas = widget.Areas.Select((area, i) =>
-                {
-                    var areaContext = context.Append(i);
-
-                    return new AreaResource
-                        {
-                            Path = areaContext.Select(j => j.ToString()).ToHttpPath(),
-                            Components = area.Components.Select((c, j) => c.Accept(this, areaContext.Append(j)))
-                        };
-                });
-
             return new WidgetResource
                 {
                     Name = widget.Name,
-                    Areas = areas,
+                    Areas = widget.Areas.Select((c, i) => c.Accept(this, context.Append(i))),
                     Path = context.Select(i => i.ToString()).ToHttpPath(),
                     Parameters = this.BuildParameters(widget.Parameters),
                     Links = this.BuildLinks(context)
@@ -72,11 +62,21 @@
                 };
         }
 
+        public ComponentResource Visit(Area area, IEnumerable<int> context)
+        {
+            return new AreaResource
+            {
+                Path = context.Select(i => i.ToString()).ToHttpPath(),
+                Components = area.Components.Select((c, i) => c.Accept(this, context.Append(i))),
+                Links = this.BuildLinks(context)
+            };
+        }
+
         private IEnumerable<ParameterResource> BuildParameters(IEnumerable<Parameter> parameters)
         {
             return parameters.Select(parameter => new ParameterResource
                 {
-                    Name = parameter.Name, 
+                    Name = parameter.Name,
                     Type = parameter.Type,
                     Value = parameter.Value == null ? null : parameter.Value.Accept(this.parameterValueBuilder)
                 });
@@ -86,7 +86,7 @@
         {
             yield return new LinkResource
                 {
-                    Rel = "self", 
+                    Rel = "self",
                     Href = new[] { "_kola", "templates" }.Concat(this.templatePath).Append("_components").Concat(context.Select(i => i.ToString())).ToHttpPath()
                 };
         }

@@ -110,7 +110,7 @@
 
             var buildContext = MockRepository.GenerateStub<IBuildContext>();
             buildContext.Stub(c => c.WidgetSpecificationFinder).Return(n => n == "widget 1" ? specification1 : specification2);
-            buildContext.Stub(c => c.Areas).Return(new Stack<Queue<AreaInstance>>());
+            buildContext.Stub(c => c.AreaContents).Return(new Stack<Queue<IComponentInstance>>());
 
             this.instance = (WidgetInstance)widget.Build(buildContext);
         }
@@ -137,21 +137,21 @@
         public void Component_0_ShouldHaveOneComponent()
         {
             var placeholder = this.instance.Components.ElementAt(0) as PlaceholderInstance;
-            placeholder.Components.Should().HaveCount(1);
+            placeholder.Content.As<AreaInstance>().Components.Should().HaveCount(1);
         }
 
         [Test]
         public void Component_0_0_ShouldBeAnAtomInstance()
         {
             var placeholder = this.instance.Components.ElementAt(0) as PlaceholderInstance;
-            placeholder.Components.ElementAt(0).Should().BeOfType<AtomInstance>();
+            placeholder.Content.As<AreaInstance>().Components.ElementAt(0).Should().BeOfType<AtomInstance>();
         }
 
         [Test]
         public void Component_0_0_ShouldBeAtomInstanceC()
         {
             var placeholder = this.instance.Components.ElementAt(0) as PlaceholderInstance;
-            var atom = placeholder.Components.ElementAt(0) as AtomInstance;
+            var atom = placeholder.Content.As<AreaInstance>().Components.ElementAt(0) as AtomInstance;
             atom.Name.Should().Be("atom c");
         }
 
@@ -196,7 +196,7 @@
         {
             var widget = this.instance.Components.ElementAt(1) as WidgetInstance;
             var placeholder = widget.Components.ElementAt(1) as PlaceholderInstance;
-            placeholder.Components.Should().HaveCount(1);
+            placeholder.Content.As<AreaInstance>().Components.Should().HaveCount(1);
         }
 
         [Test]
@@ -204,7 +204,7 @@
         {
             var widget = this.instance.Components.ElementAt(1) as WidgetInstance;
             var placeholder = widget.Components.ElementAt(1) as PlaceholderInstance;
-            placeholder.Components.ElementAt(0).Should().BeOfType<PlaceholderInstance>();
+            placeholder.Content.As<AreaInstance>().Components.ElementAt(0).Should().BeOfType<PlaceholderInstance>();
         }
 
         [Test]
@@ -212,8 +212,8 @@
         {
             var widget = this.instance.Components.ElementAt(1) as WidgetInstance;
             var placeholder = widget.Components.ElementAt(1) as PlaceholderInstance;
-            var placeholder2 = placeholder.Components.ElementAt(0) as PlaceholderInstance;
-            placeholder2.Components.Should().HaveCount(1);
+            var placeholder2 = placeholder.Content.As<AreaInstance>().Components.ElementAt(0) as PlaceholderInstance;
+            placeholder2.Content.As<AreaInstance>().Components.Should().HaveCount(1);
         }
 
         [Test]
@@ -221,8 +221,8 @@
         {
             var widget = this.instance.Components.ElementAt(1) as WidgetInstance;
             var placeholder = widget.Components.ElementAt(1) as PlaceholderInstance;
-            var placeholder2 = placeholder.Components.ElementAt(0) as PlaceholderInstance;
-            placeholder2.Components.ElementAt(0).Should().BeOfType<AtomInstance>();
+            var placeholder2 = placeholder.Content.As<AreaInstance>().Components.ElementAt(0) as PlaceholderInstance;
+            placeholder2.Content.As<AreaInstance>().Components.ElementAt(0).Should().BeOfType<AtomInstance>();
         }
 
         [Test]
@@ -230,8 +230,8 @@
         {
             var widget = this.instance.Components.ElementAt(1) as WidgetInstance;
             var placeholder = widget.Components.ElementAt(1) as PlaceholderInstance;
-            var placeholder2 = placeholder.Components.ElementAt(0) as PlaceholderInstance;
-            var atom = placeholder2.Components.ElementAt(0) as AtomInstance;
+            var placeholder2 = placeholder.Content.As<AreaInstance>().Components.ElementAt(0) as PlaceholderInstance;
+            var atom = placeholder2.Content.As<AreaInstance>().Components.ElementAt(0) as AtomInstance;
             atom.Name.Should().Be("atom d");
         }
 
@@ -257,7 +257,7 @@
             var widget = this.instance.Components.ElementAt(1) as WidgetInstance;
             var container = widget.Components.ElementAt(2) as ContainerInstance;
             var placeholder = container.Components.ElementAt(0) as PlaceholderInstance;
-            placeholder.Components.Should().HaveCount(1);
+            placeholder.Content.As<AreaInstance>().Components.Should().HaveCount(1);
         }
 
         [Test]
@@ -266,7 +266,7 @@
             var widget = this.instance.Components.ElementAt(1) as WidgetInstance;
             var container = widget.Components.ElementAt(2) as ContainerInstance;
             var placeholder = container.Components.ElementAt(0) as PlaceholderInstance;
-            placeholder.Components.ElementAt(0).Should().BeOfType<AtomInstance>();
+            placeholder.Content.As<AreaInstance>().Components.ElementAt(0).Should().BeOfType<AtomInstance>();
         }
 
         [Test]
@@ -275,7 +275,7 @@
             var widget = this.instance.Components.ElementAt(1) as WidgetInstance;
             var container = widget.Components.ElementAt(2) as ContainerInstance;
             var placeholder = container.Components.ElementAt(0) as PlaceholderInstance;
-            var atom = placeholder.Components.ElementAt(0) as AtomInstance;
+            var atom = placeholder.Content.As<AreaInstance>().Components.ElementAt(0) as AtomInstance;
             atom.Name.Should().Be("atom b");
         }
     }

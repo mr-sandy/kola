@@ -9,5 +9,7 @@
         T Visit(WidgetSurrogate surrogate);
 
         T Visit(PlaceholderSurrogate surrogate);
+
+        T Visit(AreaSurrogate surrogate);
     }
 }

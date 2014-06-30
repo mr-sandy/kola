@@ -6,7 +6,8 @@
     public class WidgetSurrogate : ComponentSurrogate
     {
         [XmlArray("areas")]
-        public AreaSurrogate[] Areas { get; set; }
+        [XmlArrayItem(typeof(AreaSurrogate))]
+        public ComponentSurrogate[] Areas { get; set; }
 
         public override T Accept<T>(IComponentSurrogateVisitor<T> visitor)
         {

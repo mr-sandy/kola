@@ -20,11 +20,12 @@
         public IComponentInstance Build(IBuildContext buildContext)
         {
             // TODO {SC} The .Peek().Dequeue() seems wrong; surely just .Dequeue()?
-            var components = buildContext.Areas.Peek().Count() == 0
-                ? Enumerable.Empty<IComponentInstance>()
-                : buildContext.Areas.Peek().Dequeue().Components;
+            var componentInstance = buildContext.AreaContents.Peek().Count() == 0
+                ? null
+                : buildContext.AreaContents.Peek().Dequeue();
 
-            return new PlaceholderInstance(components);
+            // TODO anoth cast!!
+            return new PlaceholderInstance(componentInstance as AreaInstance);
         }
     }
 }

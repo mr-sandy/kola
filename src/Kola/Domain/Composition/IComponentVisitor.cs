@@ -9,6 +9,8 @@
         T Visit(Widget widget);
 
         T Visit(Placeholder placeholder);
+
+        T Visit(Area area);
     }
 
     public interface IComponentVisitor<out T, in TContext>
@@ -20,5 +22,7 @@
         T Visit(Widget widget, TContext context);
 
         T Visit(Placeholder placeholder, TContext context);
+
+        T Visit(Area area, TContext context);
     }
 }

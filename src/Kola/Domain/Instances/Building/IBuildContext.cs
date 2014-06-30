@@ -9,7 +9,7 @@
     {
         Func<string, WidgetSpecification> WidgetSpecificationFinder { get; }
 
-        Stack<Queue<AreaInstance>> Areas { get; }
+        Stack<Queue<IComponentInstance>> AreaContents { get; }
 
         IEnumerable<Context> Contexts { get; }
     }

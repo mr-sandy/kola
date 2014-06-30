@@ -29,9 +29,13 @@
             return new CompositeResult(widget.Components.Select(c => c.Render(this)));
         }
 
-        public IResult Render(PlaceholderInstance placeholder)
+        public IResult Render(AreaInstance area)
         {
-            return new CompositeResult(placeholder.Components.Select(c => c.Render(this)));
+            return new CompositeResult(area.Components.Select(c => c.Render(this)));
+
+            //return area == null
+            //    ? (IResult)new EmptyResult()
+            //    : new CompositeResult(area.Components.Select(c => c.Render(this)));
         }
 
         public IResult Render(PageInstance page)

@@ -8,7 +8,7 @@
 
         public IEnumerable<ParameterResource> Parameters { get; set; }
 
-        public IEnumerable<AreaResource> Areas { get; set; }
+        public IEnumerable<ComponentResource> Areas { get; set; }
 
         public override string Type
         {

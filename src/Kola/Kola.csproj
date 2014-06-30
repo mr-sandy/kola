@@ -84,6 +84,7 @@
     <Compile Include="Domain\Rendering\Caching\ICacheManager.cs" />
     <Compile Include="Domain\Rendering\CompositeResult.cs" />
     <Compile Include="Domain\Rendering\DefaultRenderer.cs" />
+    <Compile Include="Domain\Rendering\EmptyResult.cs" />
     <Compile Include="Domain\Rendering\RendererFactory.cs" />
     <Compile Include="Domain\Rendering\IRendererFactory.cs" />
     <Compile Include="Domain\Rendering\IObjectFactory.cs" />

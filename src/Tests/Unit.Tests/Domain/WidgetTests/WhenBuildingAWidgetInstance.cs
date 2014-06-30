@@ -39,9 +39,9 @@
                     });
 
             var buildContext = MockRepository.GenerateStub<IBuildContext>();
-            var widgetStack = new Stack<Queue<AreaInstance>>();
+            var widgetStack = new Stack<Queue<IComponentInstance>>();
             buildContext.Stub(c => c.WidgetSpecificationFinder).Return(n => specification);
-            buildContext.Stub(c => c.Areas).Return(widgetStack);
+            buildContext.Stub(c => c.AreaContents).Return(widgetStack);
 
             this.instance = (WidgetInstance)widget.Build(buildContext);
         }
@@ -53,10 +53,10 @@
         }
 
         [Test]
-        public void FirstPlaceholderInstanceShouldHaveTwoChildren()
+        public void FirstPlaceholderInstancesContentShouldHaveTwoChildren()
         {
             var placeholder = this.instance.Components.ElementAt(1) as PlaceholderInstance;
-            placeholder.Components.Should().HaveCount(2);
+            placeholder.Content.As<AreaInstance>().Components.Should().HaveCount(2);
         }
 
         [Test]
@@ -72,7 +72,7 @@
         {
             var containerInstance = (ContainerInstance)this.instance.Components.ElementAt(2);
             var placeholder = containerInstance.Components.Single() as PlaceholderInstance;
-            placeholder.Components.Should().HaveCount(3);
+            placeholder.Content.As<AreaInstance>().Components.Should().HaveCount(3);
         }
     }
 }

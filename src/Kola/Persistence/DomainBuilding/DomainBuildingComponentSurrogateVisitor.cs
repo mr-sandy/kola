@@ -1,5 +1,6 @@
 ﻿namespace Kola.Persistence.DomainBuilding
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -27,26 +28,21 @@
 
         public IComponent Visit(WidgetSurrogate surrogate)
         {
-            var areas = surrogate.Areas == null 
-                ? Enumerable.Empty<Area>() 
-                : surrogate.Areas.Select(area =>
-                    {
-                        var components = area.Components == null 
-                            ? Enumerable.Empty<IComponent>()
-                            : area.Components.Select(c => c.Accept(this));
-
-                        return new Area(components);
-                    }).ToArray();
-
+            // TODO Here is a cast!!
             return new Widget(
                 surrogate.Name,
-                areas,
+                surrogate.Areas.Select(c => c.Accept(this)).Cast<Area>().ToList(),
                 this.BuildParameters(surrogate.Parameters));
         }
 
         public IComponent Visit(PlaceholderSurrogate surrogate)
         {
             return new Placeholder();
+        }
+
+        public IComponent Visit(AreaSurrogate surrogate)
+        {
+            return new Area(surrogate.Components.Select(c => c.Accept(this)));
         }
 
         private IEnumerable<Parameter> BuildParameters(IEnumerable<ParameterSurrogate> surrogates)

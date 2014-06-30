@@ -7,11 +7,11 @@
 
     public class BuildContext : IBuildContext
     {
-        private readonly Stack<Queue<AreaInstance>> areas = new Stack<Queue<AreaInstance>>();
+        private readonly Stack<Queue<IComponentInstance>> areas = new Stack<Queue<IComponentInstance>>();
 
         public Func<string, WidgetSpecification> WidgetSpecificationFinder { get; set; }
 
-        public Stack<Queue<AreaInstance>> Areas
+        public Stack<Queue<IComponentInstance>> AreaContents
         {
             get { return this.areas; }
         }

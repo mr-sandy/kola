@@ -1,5 +1,6 @@
 ﻿namespace Kola.Domain.Composition
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -52,9 +53,7 @@
                 throw new KolaException("No collection at specified path");
             }
 
-            var area = widget.Areas.ElementAt(path.First());
-
-            return this.VisitArea(area, path.Skip(1));
+            return widget.Areas.ElementAt(path.First()).Accept(this, path.Skip(1));
         }
 
         public IComponentCollection Visit(Placeholder placeholder, IEnumerable<int> path)
@@ -62,7 +61,7 @@
                 throw new KolaException("No collection at specified path");
         }
 
-        private IComponentCollection VisitArea(Area area, IEnumerable<int> path)
+        public IComponentCollection Visit(Area area, IEnumerable<int> path)
         {
             if (path.Count() == 0)
             {

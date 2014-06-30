@@ -15,7 +15,7 @@
         IRenderer<AtomInstance>, 
         IRenderer<ContainerInstance>, 
         IRenderer<WidgetInstance>, 
-        IRenderer<PlaceholderInstance>
+        IRenderer<AreaInstance>
     {
     }
 }

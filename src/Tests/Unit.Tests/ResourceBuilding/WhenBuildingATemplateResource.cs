@@ -143,19 +143,19 @@
         [Test]
         public void ShouldSetCorrectNameForComponent200()
         {
-            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).Components.ElementAt(0).As<AtomResource>().Name.Should().Be("atom 2.0.0");
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).As<AreaResource>().Components.ElementAt(0).As<AtomResource>().Name.Should().Be("atom 2.0.0");
         }
 
         [Test]
         public void ShouldSetCorrectPathForComponent200()
         {
-            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).Components.ElementAt(0).As<AtomResource>().Path.Should().Be("/2/0/0");
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).As<AreaResource>().Components.ElementAt(0).As<AtomResource>().Path.Should().Be("/2/0/0");
         }
 
         [Test]
         public void ShouldSetCorrectSelfLinkForComponent200()
         {
-            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates/test/path/_components/2/0/0");
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).As<AreaResource>().Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates/test/path/_components/2/0/0");
         }
 
     }

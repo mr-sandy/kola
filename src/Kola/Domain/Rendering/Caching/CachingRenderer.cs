@@ -37,7 +37,7 @@
             throw new NotImplementedException();
         }
 
-        public IResult Render(PlaceholderInstance placeholder)
+        public IResult Render(AreaInstance area)
         {
             throw new NotImplementedException();
         }

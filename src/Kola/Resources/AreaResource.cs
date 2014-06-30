@@ -2,10 +2,13 @@
 {
     using System.Collections.Generic;
 
-    public class AreaResource
+    public class AreaResource : ComponentResource
     {
-        public string Path { get; set; }
-        
         public IEnumerable<ComponentResource> Components { get; set; }
+
+        public override string Type
+        {
+            get { return "area"; }
+        }
     }
 }

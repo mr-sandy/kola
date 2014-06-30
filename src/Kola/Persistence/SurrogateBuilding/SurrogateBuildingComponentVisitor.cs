@@ -35,7 +35,7 @@
             return new WidgetSurrogate
             {
                 Name = widget.Name,
-                Areas = this.BuildAreas(widget.Areas).ToArray(),
+                Areas = widget.Areas.Select(a => a.Accept(this)).ToArray(),
                 Parameters = this.BuildParameters(widget.Parameters).ToArray()
             };
         }
@@ -45,6 +45,11 @@
             return new PlaceholderSurrogate();
         }
 
+        public ComponentSurrogate Visit(Area area)
+        {
+            return new AreaSurrogate { Components = area.Components.Select(c => c.Accept(this)).ToArray() };
+        }
+
         private IEnumerable<ParameterSurrogate> BuildParameters(IEnumerable<Parameter> parameters)
         {
             return parameters.Select(parameter => new ParameterSurrogate
@@ -52,14 +57,6 @@
                     Name = parameter.Name,
                     Type = parameter.Type,
                     Value = parameter.Value == null ? null : parameter.Value.Accept(this.parameterValueBuilder)
-                });
-        }
-
-        private IEnumerable<AreaSurrogate> BuildAreas(IEnumerable<Area> areas)
-        {
-            return areas.Select(area => new AreaSurrogate
-                {
-                    Components = area.Components.Select(c => c.Accept(this)).ToArray()
                 });
         }
     }
