@@ -31,12 +31,12 @@
                 $list.append(childView.render().$el);
             });
 
-            $list.find('ul').sortable({
+            $list.sortable({
                 opacity: 0.75,
                 placeholder: 'new',
                 tolerance: 'pointer',
                 connectWith: 'ul',
-                stop: this.handleStop
+                stop: function () { alert('bingo!'); }
             });
 
             return this;

@@ -16,7 +16,7 @@
 
         public IResult Render(IRenderer renderer)
         {
-            throw new NotImplementedException();
+            return renderer.Render(this);
         }
     }
 }

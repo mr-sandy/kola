@@ -22,8 +22,8 @@
 
             return new Template(
                 this.path,
-                surrogate.Components.Select(c => c.Accept(componentBuilder)),
-                surrogate.Amendments.Select(a => a.Accept(amendmentBuilder)));
+                surrogate.Components.Select(c => c.Accept(componentBuilder)).ToArray(),
+                surrogate.Amendments.Select(a => a.Accept(amendmentBuilder)).ToArray());
         }
     }
 }

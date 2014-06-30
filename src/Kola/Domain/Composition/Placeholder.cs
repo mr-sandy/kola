@@ -1,7 +1,5 @@
 ﻿namespace Kola.Domain.Composition
 {
-    using System.Linq;
-
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
 
@@ -19,13 +17,7 @@
 
         public IComponentInstance Build(IBuildContext buildContext)
         {
-            // TODO {SC} The .Peek().Dequeue() seems wrong; surely just .Dequeue()?
-            var componentInstance = buildContext.AreaContents.Peek().Count() == 0
-                ? null
-                : buildContext.AreaContents.Peek().Dequeue();
-
-            // TODO anoth cast!!
-            return new PlaceholderInstance(componentInstance as AreaInstance);
+            return new PlaceholderInstance(buildContext.AreaContents.Peek().Dequeue());
         }
     }
 }

@@ -31,7 +31,6 @@
             // Build the content of each area, 
             // before adding it to the context to be 
             // picked up by any corresponding placeholders
-            //var areas = this.Areas.Select(a => a.Components.Select(c => c.Build(buildContext)).ToList());
             var areas = this.Areas.Select(a => a.Build(buildContext)).ToList();
 
             buildContext.AreaContents.Push(new Queue<IComponentInstance>(areas));

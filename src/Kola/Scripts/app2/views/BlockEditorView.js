@@ -15,6 +15,8 @@
 
         initialize: function () {
             _.bindAll(this, 'handleStop');
+
+            this.model.on('sync', this.render, this);
         },
 
         render: function () {
@@ -28,13 +30,21 @@
                 $list.append(childView.render().$el);
             });
 
-            this.$('ul').sortable({
+            $list.sortable({
                 opacity: 0.75,
                 placeholder: 'new',
                 tolerance: 'pointer',
                 connectWith: 'ul',
                 stop: this.handleStop
             });
+
+//            this.$('ul').sortable({
+//                opacity: 0.75,
+//                placeholder: 'new',
+//                tolerance: 'pointer',
+//                connectWith: 'ul',
+//                stop: this.handleStop
+//            });
 
             return this;
         },

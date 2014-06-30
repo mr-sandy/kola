@@ -20,7 +20,7 @@
 
             return new WidgetSpecification(
                 this.name,
-                surrogate.Components.Select(c => c.Accept(componentBuilder)));
+                surrogate.Components.Select(c => c.Accept(componentBuilder)).ToArray());
         }
     }
 }

@@ -4,16 +4,16 @@
 
     public class PlaceholderInstance : IComponentInstance
     {
-        public PlaceholderInstance(AreaInstance content)
+        public PlaceholderInstance(IComponentInstance content)
         {
             this.Content = content;
         }
 
-        public AreaInstance Content { get; private set; }
+        public IComponentInstance Content { get; private set; }
 
         public IResult Render(IRenderer renderer)
         {
-            return renderer.Render(this.Content);
+            return this.Content.Render(renderer);
         }
     }
 }

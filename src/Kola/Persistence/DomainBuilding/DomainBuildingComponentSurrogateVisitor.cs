@@ -15,15 +15,15 @@
         {
             return new Container(
                 surrogate.Name,
-                this.BuildParameters(surrogate.Parameters),
-                surrogate.Components.Select(c => c.Accept(this)));
+                this.BuildParameters(surrogate.Parameters).ToArray(),
+                surrogate.Components.Select(c => c.Accept(this)).ToArray());
         }
 
         public IComponent Visit(AtomSurrogate surrogate)
         {
             return new Atom(
                 surrogate.Name,
-                this.BuildParameters(surrogate.Parameters));
+                this.BuildParameters(surrogate.Parameters).ToArray());
         }
 
         public IComponent Visit(WidgetSurrogate surrogate)
@@ -31,8 +31,8 @@
             // TODO Here is a cast!!
             return new Widget(
                 surrogate.Name,
-                surrogate.Areas.Select(c => c.Accept(this)).Cast<Area>().ToList(),
-                this.BuildParameters(surrogate.Parameters));
+                surrogate.Areas.Select(a => a.Accept(this)).Cast<Area>().ToArray(),
+                this.BuildParameters(surrogate.Parameters).ToArray());
         }
 
         public IComponent Visit(PlaceholderSurrogate surrogate)
@@ -42,7 +42,7 @@
 
         public IComponent Visit(AreaSurrogate surrogate)
         {
-            return new Area(surrogate.Components.Select(c => c.Accept(this)));
+            return new Area(surrogate.Components.Select(c => c.Accept(this)).ToArray());
         }
 
         private IEnumerable<Parameter> BuildParameters(IEnumerable<ParameterSurrogate> surrogates)
@@ -55,7 +55,7 @@
             return surrogates.Select(surrogate => new Parameter(
                 surrogate.Name, 
                 surrogate.Type, 
-                surrogate.Value.Accept(this.parameterValueBuilder)));
+                surrogate.Value.Accept(this.parameterValueBuilder))).ToArray();
         }
     }
 }

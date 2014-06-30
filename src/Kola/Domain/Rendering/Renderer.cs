@@ -32,10 +32,6 @@
         public IResult Render(AreaInstance area)
         {
             return new CompositeResult(area.Components.Select(c => c.Render(this)));
-
-            //return area == null
-            //    ? (IResult)new EmptyResult()
-            //    : new CompositeResult(area.Components.Select(c => c.Render(this)));
         }
 
         public IResult Render(PageInstance page)
