@@ -4,9 +4,10 @@
 
     using Kola.Domain.Rendering;
 
-    public class AtomInstance : IComponentInstance
+    public class AtomInstance : ComponentInstance
     {
-        public AtomInstance(string name, IEnumerable<ParameterInstance> parameters)
+        public AtomInstance(IEnumerable<int> path, string name, IEnumerable<ParameterInstance> parameters)
+            : base(path)
         {
             this.Name = name;
             this.Parameters = parameters;
@@ -16,7 +17,7 @@
 
         public IEnumerable<ParameterInstance> Parameters { get; private set; }
 
-        public IResult Render(IRenderer renderer)
+        public override IResult Render(IRenderer renderer)
         {
             return renderer.Render(this);
         }

@@ -1,5 +1,7 @@
 ﻿namespace Kola.Domain.Composition
 {
+    using System.Collections.Generic;
+
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
 
@@ -15,9 +17,9 @@
             return visitor.Visit(this, context);
         }
 
-        public IComponentInstance Build(IBuildContext buildContext)
+        public ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext)
         {
-            return new PlaceholderInstance(buildContext.AreaContents.Peek().Dequeue());
+            return new PlaceholderInstance(path, buildContext.AreaContents.Peek().Dequeue());
         }
     }
 }

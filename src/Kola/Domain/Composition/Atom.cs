@@ -1,5 +1,6 @@
 ﻿namespace Kola.Domain.Composition
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -23,9 +24,10 @@
             return visitor.Visit(this, context);
         }
 
-        public override IComponentInstance Build(IBuildContext buildContext)
+        public override ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext)
         {
             return new AtomInstance(
+                path,
                 this.Name,
                 this.Parameters.Select(p => p.Build(buildContext)));
         }

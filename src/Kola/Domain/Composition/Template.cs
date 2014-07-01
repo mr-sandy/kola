@@ -83,7 +83,7 @@
 
         public PageInstance Build(IBuildContext buildContext)
         {
-            return new PageInstance(this.Components.Select(c => c.Build(buildContext)).ToList());
+            return new PageInstance(this.Components.Select((c, i) => c.Build(new[] { i }, buildContext)).ToList());
         }
     }
 }

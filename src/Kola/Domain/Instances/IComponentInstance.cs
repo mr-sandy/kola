@@ -1,9 +1,18 @@
 ﻿namespace Kola.Domain.Instances
 {
+    using System.Collections.Generic;
+
     using Kola.Domain.Rendering;
 
-    public interface IComponentInstance
+    public abstract class ComponentInstance
     {
-        IResult Render(IRenderer renderer);
+        protected ComponentInstance(IEnumerable<int> path)
+        {
+            this.Path = path;
+        }
+
+        public IEnumerable<int> Path { get; private set; }
+
+        public abstract IResult Render(IRenderer renderer);
     }
 }

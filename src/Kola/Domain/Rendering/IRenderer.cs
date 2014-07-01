@@ -11,7 +11,7 @@
     
     public interface IRenderer : 
         IRenderer<PageInstance>, 
-        IRenderer<IEnumerable<IComponentInstance>>, 
+        IRenderer<IEnumerable<ComponentInstance>>, 
         IRenderer<AtomInstance>, 
         IRenderer<ContainerInstance>, 
         IRenderer<WidgetInstance>, 

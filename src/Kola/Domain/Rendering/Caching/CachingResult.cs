@@ -7,9 +7,9 @@
     {
         private readonly IResult inner;
         private readonly ICacheManager cacheManager;
-        private readonly IComponentInstance component;
+        private readonly ComponentInstance component;
 
-        public CachingResult(IResult inner, ICacheManager cacheManager, IComponentInstance component)
+        public CachingResult(IResult inner, ICacheManager cacheManager, ComponentInstance component)
         {
             this.inner = inner;
             this.cacheManager = cacheManager;

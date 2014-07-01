@@ -47,7 +47,7 @@
             throw new NotImplementedException();
         }
 
-        public IResult Render(IEnumerable<IComponentInstance> components)
+        public IResult Render(IEnumerable<ComponentInstance> components)
         {
             throw new NotImplementedException();
         }

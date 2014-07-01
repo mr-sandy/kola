@@ -4,7 +4,9 @@
     using System.Linq;
 
     using Kola.Domain.Instances;
+    using Kola.Nancy;
 
+    // TODO the references to the NancyKolaConfigurationRegistry seem a bit stinky
     public class Renderer : IRenderer
     {
         private readonly IRendererFactory rendererFactory;
@@ -26,22 +28,22 @@
 
         public IResult Render(WidgetInstance widget)
         {
-            return new CompositeResult(widget.Components.Select(c => c.Render(this)));
+            return new CompositeResult(widget.Components.Select(c => c.Render(NancyKolaConfigurationRegistry.Instance.Renderer)));
         }
 
         public IResult Render(AreaInstance area)
         {
-            return new CompositeResult(area.Components.Select(c => c.Render(this)));
+            return new CompositeResult(area.Components.Select(c => c.Render(NancyKolaConfigurationRegistry.Instance.Renderer)));
         }
 
         public IResult Render(PageInstance page)
         {
-            return new CompositeResult(page.Components.Select(c => c.Render(this)));
+            return new CompositeResult(page.Components.Select(c => c.Render(NancyKolaConfigurationRegistry.Instance.Renderer)));
         }
 
-        public IResult Render(IEnumerable<IComponentInstance> components)
+        public IResult Render(IEnumerable<ComponentInstance> components)
         {
-            return new CompositeResult(components.Select(c => c.Render(this)));
+            return new CompositeResult(components.Select(c => c.Render(NancyKolaConfigurationRegistry.Instance.Renderer)));
         }
     }
 }

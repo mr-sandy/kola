@@ -26,7 +26,9 @@
         protected override IRenderer BuildRenderer(Dictionary<string, Type> rendererMappings)
         {
             var rendererFactory = new RendererFactory(rendererMappings, this.objectFactory);
-            return new Renderer(rendererFactory);
+
+            //TODO Should only annotate paths on previews, not normal page renders
+            return new PathAnnotatingRenderer(new Renderer(rendererFactory));
         }
     }
 }

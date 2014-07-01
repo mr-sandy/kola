@@ -1,5 +1,7 @@
 ﻿namespace Kola.Domain.Composition
 {
+    using System.Collections.Generic;
+
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
 
@@ -9,6 +11,6 @@
 
         T Accept<T, TContext>(IComponentVisitor<T, TContext> visitor, TContext context);
 
-        IComponentInstance Build(IBuildContext buildContext);
+        ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext);
     }
 }

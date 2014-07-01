@@ -1,11 +1,13 @@
 ﻿namespace Kola.Domain.Composition
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kola;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
+    using Kola.Extensions;
 
     public class Container : ParameterisedComponent, IComponentCollection
     {
@@ -50,12 +52,13 @@
             return visitor.Visit(this, context);
         }
 
-        public override IComponentInstance Build(IBuildContext buildContext)
+        public override ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext)
         {
             return new ContainerInstance(
+                path,
                 this.Name, 
                 this.Parameters.Select(p => p.Build(buildContext)), 
-                this.Components.Select(c => c.Build(buildContext)).ToList());
+                this.Components.Select((c, i) => c.Build(path.Append(i), buildContext)).ToList());
         }
     }
 }

@@ -39,11 +39,11 @@
                     });
 
             var buildContext = MockRepository.GenerateStub<IBuildContext>();
-            var widgetStack = new Stack<Queue<IComponentInstance>>();
+            var widgetStack = new Stack<Queue<ComponentInstance>>();
             buildContext.Stub(c => c.WidgetSpecificationFinder).Return(n => specification);
             buildContext.Stub(c => c.AreaContents).Return(widgetStack);
 
-            this.instance = (WidgetInstance)widget.Build(buildContext);
+            this.instance = (WidgetInstance)widget.Build(new[] { 0 }, buildContext);
         }
 
         [Test]

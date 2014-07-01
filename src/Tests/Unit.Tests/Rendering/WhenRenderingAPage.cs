@@ -4,8 +4,11 @@
 
     using FluentAssertions;
 
+    using Kola.Configuration;
+    using Kola.Configuration.Plugins;
     using Kola.Domain.Instances;
     using Kola.Domain.Rendering;
+    using Kola.Nancy;
 
     using NUnit.Framework;
 
@@ -25,13 +28,16 @@
             handlerFactory.Stub(h => h.GetContainerRenderer(Arg<string>.Is.Anything)).Return(new DefaultRenderer());
 
             var renderer = new Renderer(handlerFactory);
+
+            NancyKolaConfigurationRegistry.Instance = new KolaConfiguration(renderer, Enumerable.Empty<PluginConfiguration>());
+
             var page =
                 new PageInstance(
-                    new IComponentInstance[]
+                    new ComponentInstance[]
                         {
-                            new AtomInstance("atom1", Enumerable.Empty<ParameterInstance>()), 
-                            new AtomInstance("atom2", Enumerable.Empty<ParameterInstance>()),
-                            new ContainerInstance("container1", null, new[] { new AtomInstance("atom3", Enumerable.Empty<ParameterInstance>()) })
+                            new AtomInstance(new[] { 0 }, "atom1", Enumerable.Empty<ParameterInstance>()),
+                            new AtomInstance(new[] { 1 }, "atom2", Enumerable.Empty<ParameterInstance>()),
+                            new ContainerInstance(new[] { 2 }, "container1", null, new[] { new AtomInstance(new[] { 2, 0 }, "atom3", Enumerable.Empty<ParameterInstance>()) })
                         });
 
             var viewFactory = new TestViewFactory(renderer);

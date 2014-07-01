@@ -1,17 +1,20 @@
 ﻿namespace Kola.Domain.Instances
 {
+    using System.Collections.Generic;
+
     using Kola.Domain.Rendering;
 
-    public class PlaceholderInstance : IComponentInstance
+    public class PlaceholderInstance : ComponentInstance
     {
-        public PlaceholderInstance(IComponentInstance content)
+        public PlaceholderInstance(IEnumerable<int> path, ComponentInstance content)
+            : base(path)
         {
             this.Content = content;
         }
 
-        public IComponentInstance Content { get; private set; }
+        public ComponentInstance Content { get; private set; }
 
-        public IResult Render(IRenderer renderer)
+        public override IResult Render(IRenderer renderer)
         {
             return this.Content.Render(renderer);
         }

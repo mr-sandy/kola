@@ -4,16 +4,17 @@
 
     using Kola.Domain.Rendering;
 
-    public class WidgetInstance : IComponentInstance
+    public class WidgetInstance : ComponentInstance
     {
-        public WidgetInstance(IEnumerable<IComponentInstance> components = null)
+        public WidgetInstance(IEnumerable<int> path, IEnumerable<ComponentInstance> components = null)
+            : base(path)
         {
             this.Components = components;
         }
 
-        public IEnumerable<IComponentInstance> Components { get; private set; }
+        public IEnumerable<ComponentInstance> Components { get; private set; }
 
-        public IResult Render(IRenderer renderer)
+        public override IResult Render(IRenderer renderer)
         {
             return renderer.Render(this);
         }

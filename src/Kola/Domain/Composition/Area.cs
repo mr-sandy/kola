@@ -6,6 +6,7 @@
 
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
+    using Kola.Extensions;
 
     public class Area : IComponentCollection, IComponent
     {
@@ -49,9 +50,9 @@
             return visitor.Visit(this, context);
         }
 
-        public IComponentInstance Build(IBuildContext buildContext)
+        public ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext)
         {
-            return new AreaInstance(this.Components.Select(c => c.Build(buildContext)).ToList());
+            return new AreaInstance(path, this.Components.Select((c, i) => c.Build(path.Append(i), buildContext)).ToList());
         }
     }
 }

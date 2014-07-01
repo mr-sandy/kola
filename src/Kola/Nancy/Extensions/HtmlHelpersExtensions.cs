@@ -14,7 +14,7 @@
             return new ResultWrapper(result, new NancyRazorViewHelper<T>(helpers));
         }
 
-        public static IHtmlString RenderComponents<T>(this HtmlHelpers<T> helpers, IEnumerable<IComponentInstance> components)
+        public static IHtmlString RenderComponents<T>(this HtmlHelpers<T> helpers, IEnumerable<ComponentInstance> components)
         {
             var result = NancyKolaConfigurationRegistry.Instance.Renderer.Render(components);
             return new ResultWrapper(result, new NancyRazorViewHelper<T>(helpers));

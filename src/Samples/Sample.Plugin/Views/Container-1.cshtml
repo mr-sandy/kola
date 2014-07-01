@@ -1,5 +1,7 @@
 ﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.ContainerInstance>
-@using Kola.Nancy.Extensions              
-<h1>Container start...</h1>
-@Html.RenderComponents(Model.Components)
-<h1>...container end</h1>
+@using Kola.Nancy.Extensions
+<div class="container1">
+    <h1>Container start....</h1>
+    @Html.RenderComponents(Model.Components)
+    <h1>...container end</h1>
+</div>

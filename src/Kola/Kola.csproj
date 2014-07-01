@@ -79,12 +79,14 @@
     <Compile Include="Domain\Instances\Building\ContextItem.cs" />
     <Compile Include="Domain\Instances\Building\BuildContext.cs" />
     <Compile Include="Domain\Instances\PlaceholderInstance.cs" />
+    <Compile Include="Domain\Rendering\AnnotatedResult.cs" />
     <Compile Include="Domain\Rendering\Caching\CachingRenderer.cs" />
     <Compile Include="Domain\Rendering\Caching\CachingResult.cs" />
     <Compile Include="Domain\Rendering\Caching\ICacheManager.cs" />
     <Compile Include="Domain\Rendering\CompositeResult.cs" />
     <Compile Include="Domain\Rendering\DefaultRenderer.cs" />
     <Compile Include="Domain\Rendering\EmptyResult.cs" />
+    <Compile Include="Domain\Rendering\PathAnnotatingRenderer.cs" />
     <Compile Include="Domain\Rendering\RendererFactory.cs" />
     <Compile Include="Domain\Rendering\IRendererFactory.cs" />
     <Compile Include="Domain\Rendering\IObjectFactory.cs" />
