@@ -6,7 +6,7 @@
     var WidgetView = require('app2/views/WidgetView');
 
     return {
-        build: function(component) {
+        build: function(component, amendmentBroker) {
             var componentType = component.get('type');
 
             if (componentType == 'atom') {
@@ -14,11 +14,15 @@
             }
 
             if (componentType == 'container') {
-                return new ContainerView({ model: component });
+                return new ContainerView({ model: component,
+                    amendmentBroker: amendmentBroker
+                });
             }
 
             if (componentType == 'widget') {
-                return new WidgetView({ model: component });
+                return new WidgetView({ model: component,
+                    amendmentBroker: amendmentBroker
+                });
             }
         }
     };

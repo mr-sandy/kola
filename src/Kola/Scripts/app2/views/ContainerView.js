@@ -3,7 +3,6 @@
 
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
-    require('jqueryui');
     var Template = require('text!app2/templates/ContainerTemplate.html');
 
     return Backbone.View.extend({
@@ -14,11 +13,14 @@
 
         className: 'container',
 
-        initialize: function () {
+        initialize: function (options) {
+            this.amendmentBroker = options.amendmentBroker;
             this.model.on('sync', this.render, this);
         },
 
         render: function () {
+            var self = this;
+
             var componentViewFactory = require('app2/views/ComponentViewFactory');
 
             this.$el.html(this.template());
@@ -27,7 +29,7 @@
             var $list = this.$('ul').first();
 
             this.model.get('components').each(function (component) {
-                var childView = componentViewFactory.build(component);
+                var childView = componentViewFactory.build(component, self.amendmentBroker);
                 $list.append(childView.render().$el);
             });
 
@@ -36,7 +38,7 @@
                 placeholder: 'new',
                 tolerance: 'pointer',
                 connectWith: 'ul',
-                stop: function () { alert('bingo!'); }
+                stop: this.amendmentBroker.handleStop
             });
 
             return this;

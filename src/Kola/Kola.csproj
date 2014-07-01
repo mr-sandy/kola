@@ -411,6 +411,7 @@
     <EmbeddedResource Include="Scripts\app2\templates\EditTemplateTemplate.html" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Scripts\app2\views\AmendmentBroker.js" />
     <EmbeddedResource Include="Scripts\app2\models\Amendment.js" />
     <EmbeddedResource Include="Scripts\app2\collections\Amendments.js" />
     <EmbeddedResource Include="Scripts\backbone-hypermedia-amd.js" />

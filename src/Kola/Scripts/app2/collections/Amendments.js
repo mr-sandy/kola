@@ -6,6 +6,15 @@
 
     return Backbone.Collection.extend({
 
+        parse: function (response, options) {
+
+            if (options.url) {
+                this.url = options.url;
+            }
+
+            return response;
+        },
+
         addComponent: function (componentType, targetPath) {
 
             var amendment = new Amendment({
@@ -33,10 +42,13 @@
             amendment.save();
         },
 
-        parse: function (response, options) {
+        applyAmendments: function () {
+            var self = this;
+            var amendment = new Amendment();
 
-            this.url = options.url;
-            return response;
+            amendment.url = this.combineUrls(this.url, 'apply');
+
+            amendment.save().then(function () { self.fetch({ reset: true }); });
         }
     });
 });

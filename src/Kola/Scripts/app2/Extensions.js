@@ -1,11 +1,10 @@
-﻿define([
-    'jquery',
-    'backbone',
-    'underscore'
-], function ($,
-    Backbone,
-    _) {
+﻿define(function (require) {
     "use strict";
+
+    var Backbone = require('backbone');
+    var AmendmentBroker = require('app2/views/AmendmentBroker');
+    var $ = require('jquery');
+    var _ = require('underscore');
 
     Backbone.View.prototype.navigate = function (e) {
         e.preventDefault();
@@ -22,6 +21,7 @@
         return (link) ? link.href : '';
     };
 
+    AmendmentBroker.prototype.combineUrls = urlCombine;
     Backbone.View.prototype.combineUrls = urlCombine;
     Backbone.Model.prototype.combineUrls = urlCombine;
     Backbone.Collection.prototype.combineUrls = urlCombine;

@@ -21,7 +21,7 @@
         {
             // TODO This needs to return an array of paths to handle moves
             // Will need to consolidate to/from paths into a single path when appropriate
-            get { return this.SourcePath.GetOverlap(this.TargetPath); }
+            get { return this.SourcePath.TakeAllButLast().GetOverlap(this.TargetPath.TakeAllButLast()); }
         }
 
         public void Accept(IAmendmentVisitor visitor)

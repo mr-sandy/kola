@@ -11,6 +11,8 @@
     var PropertiesView = require('app2/views/PropertiesView');
     var ToolboxView = require('app2/views/ToolboxView');
 
+    var AmendmentBroker = require('app2/views/AmendmentBroker');
+
     var Template = require('text!app2/templates/EditTemplateTemplate.html');
 
 
@@ -21,10 +23,12 @@
         initialize: function (options) {
 
             this.amendmentsView = new AmendmentsView({
+                collection: this.model.amendments
             });
 
             this.blockEditorView = new BlockEditorView({
-                model: this.model
+                model: this.model,
+                amendmentBroker: new AmendmentBroker(this.model.amendments)
             });
 
             this.wysiwygEditorView = new WysiwygEditorView({
