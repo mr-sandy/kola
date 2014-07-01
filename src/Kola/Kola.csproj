@@ -128,6 +128,7 @@
     <Compile Include="Domain\Instances\WidgetInstance.cs" />
     <Compile Include="Domain\Specifications\WidgetSpecification.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
+    <Compile Include="Nancy\Modules\PreviewModule.cs" />
     <Compile Include="Persistence\DomainBuilding\DomainBuildingAmendmentSurrogateVisitor.cs" />
     <Compile Include="Persistence\DomainBuilding\DomainBuildingComponentSurrogateVisitor.cs" />
     <Compile Include="Persistence\DomainBuilding\WidgetSpecificationDomainBuilder.cs" />
