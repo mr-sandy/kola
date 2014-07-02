@@ -32,6 +32,7 @@
             });
 
             this.wysiwygEditorView = new WysiwygEditorView({
+                model: this.model
             });
 
             this.propertiesView = new PropertiesView({

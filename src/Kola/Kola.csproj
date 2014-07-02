@@ -231,56 +231,17 @@
     <Compile Include="Resources\WidgetResource.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app-old\templates\AmendmentTemplate.html" />
-    <EmbeddedResource Include="Scripts\app-old\views\AmendmentView.js" />
-    <EmbeddedResource Include="Scripts\app-old\models\Amendment.js" />
-    <EmbeddedResource Include="Scripts\app-old\views\AmendmentsView.js" />
-    <EmbeddedResource Include="Scripts\app-old\templates\AmendmentsTemplate.html" />
-    <EmbeddedResource Include="Scripts\app-old\models\UndoAmendmentRequest.js" />
-    <EmbeddedResource Include="Scripts\app-old\models\DeleteComponentAmendment.js" />
-    <EmbeddedResource Include="Scripts\app-old\models\CompositeComponent.js" />
-    <EmbeddedResource Include="Scripts\app-old\models\ApplyAmendmentRequest.js" />
-    <EmbeddedResource Include="Scripts\app-old\models\AddComponentAmendment.js" />
-    <EmbeddedResource Include="Scripts\app-old\models\MoveComponentAmendment.js" />
-    <EmbeddedResource Include="Scripts\app-old\collections\Amendments.js" />
-    <EmbeddedResource Include="Scripts\app-old\Config.js" />
-    <EmbeddedResource Include="Scripts\app-old\templates\RootComponentTemplate.html" />
-    <EmbeddedResource Include="Scripts\app-old\templates\ComponentTemplate.html" />
-    <EmbeddedResource Include="Scripts\app-old\views\ComponentView.js" />
-    <EmbeddedResource Include="Scripts\app-old\models\Template.js" />
-    <EmbeddedResource Include="Scripts\app-old\models\Component.js" />
     <EmbeddedResource Include="Scripts\underscore.js" />
     <EmbeddedResource Include="Scripts\underscore.min.js" />
     <EmbeddedResource Include="Content\jquery-ui\jquery-ui-1.10.3.custom.css" />
     <EmbeddedResource Include="Content\jquery-ui\jquery-ui-1.10.3.custom.min.css" />
-    <EmbeddedResource Include="Scripts\app-old\collections\ComponentTypes.js" />
-    <EmbeddedResource Include="Scripts\app-old\models\ComponentType.js" />
     <EmbeddedResource Include="Scripts\jquery-ui-1.10.3.custom.min.js" />
-    <EmbeddedResource Include="Scripts\app-old\collections\Components.js" />
-    <EmbeddedResource Include="Scripts\app-old\templates\ToolboxTemplate.html" />
-    <EmbeddedResource Include="Scripts\app-old\views\ToolboxView.js" />
-    <EmbeddedResource Include="Scripts\app-old\templates\EditTemplateTemplate.html" />
-    <EmbeddedResource Include="Scripts\app-old\views\EditTemplateView.js" />
-    <EmbeddedResource Include="Scripts\app-old\templates\CreateTemplateTemplate.html" />
-    <EmbeddedResource Include="Scripts\app-old\views\CreateTemplateView.js" />
-    <EmbeddedResource Include="Scripts\app-old\Extensions.js" />
     <EmbeddedResource Include="Content\images\loading.gif" />
-    <EmbeddedResource Include="Scripts\app-old\views\LoadingView.js" />
-    <EmbeddedResource Include="Scripts\app-old\templates\LoadingTemplate.html" />
-    <EmbeddedResource Include="Scripts\app-old\templates\HomeTemplate.html" />
-    <EmbeddedResource Include="Scripts\app-old\views\HomeView.js" />
-    <EmbeddedResource Include="Scripts\app-old\templates\TemplatesTemplate.html" />
-    <EmbeddedResource Include="Scripts\app-old\views\TemplatesView.js" />
     <EmbeddedResource Include="Scripts\r.js" />
     <EmbeddedResource Include="Scripts\text.js" />
-    <EmbeddedResource Include="Scripts\app-old\Router.js" />
     <EmbeddedResource Include="Scripts\handlebars.js" />
     <EmbeddedResource Include="Scripts\handlebars.min.js" />
     <EmbeddedResource Include="Scripts\handlebars.runtime.js" />
-    <EmbeddedResource Include="Scripts\app-old\templates\NavigationTemplate.html" />
-    <EmbeddedResource Include="Scripts\app-old\views\NavigationView.js" />
-    <EmbeddedResource Include="Scripts\app-old\views\AppView.js" />
-    <EmbeddedResource Include="Scripts\app-old\App.js" />
     <EmbeddedResource Include="Scripts\require.js" />
   </ItemGroup>
   <ItemGroup>
@@ -386,6 +347,7 @@
     <EmbeddedResource Include="Scripts\app\templates\EditTemplateTemplate.html" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Scripts\app\views\WysiwygComponentView.js" />
     <EmbeddedResource Include="Scripts\app\views\AmendmentBroker.js" />
     <EmbeddedResource Include="Scripts\app\models\Amendment.js" />
     <EmbeddedResource Include="Scripts\app\collections\Amendments.js" />
