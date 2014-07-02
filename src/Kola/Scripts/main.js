@@ -3,8 +3,8 @@
         jquery: 'jquery-2.1.1.min',
         jqueryui: 'jquery-ui-1.10.3.custom.min',
         underscore: 'underscore.min',
-        backbone: 'backbone',
-//        backbone: 'backbone.min',
+        backbone: 'backbone.min',
+        'backbone-hypermedia': 'backbone-hypermedia-amd',
         handlebars: 'handlebars.min'
     },
     shim: {

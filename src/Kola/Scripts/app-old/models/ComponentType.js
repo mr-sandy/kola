@@ -1,9 +1,13 @@
-﻿define(function (require) {
-    "use strict";
+﻿define([
+    'backbone',
+    'underscore'
+], function (Backbone,
+    _) {
 
-    var Backbone = require('backbone');
+    'use strict';
 
     return Backbone.Model.extend({
+
         parse: function (resp, options) {
             return _.extend(resp, { id: this.getLink(resp.links, 'self') });
         }

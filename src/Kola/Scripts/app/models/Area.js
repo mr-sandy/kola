@@ -8,11 +8,13 @@
 
         parse: function (response) {
 
+            this.url = this.getLink(response.links, 'self');
+
+            var Components = require('app/collections/Components');
+
             return _.extend(response,
             {
-                //                url: this.getLink(response.links, 'self'),
-                subject: this.getLink(response.links, 'subject')
-                //                undo: this.getLink(response.links, 'undo')
+                components: new Components(response.components, { parse: true })
             });
         }
     });

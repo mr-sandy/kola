@@ -1,48 +1,56 @@
-﻿define([
-    'backbone',
-    'handlebars',
-    'app/Config',
-    'app/views/AmendmentsView',
-    'app/views/ComponentView',
-    'app/views/ToolboxView',
-    'text!app/templates/EditTemplateTemplate.html'
-], function (Backbone,
-    Handlebars,
-    Config,
-    AmendmentsView,
-    ComponentView,
-    ToolboxView,
-    EditTemplateTemplate) {
-
+﻿define(function (require) {
     "use strict";
+
+    var Backbone = require('backbone');
+    var Handlebars = require('handlebars');
+    var $ = require('jquery');
+
+    var WysiwygEditorView = require('app/views/WysiwygEditorView');
+    var BlockEditorView = require('app/views/BlockEditorView');
+    var AmendmentsView = require('app/views/AmendmentsView');
+    var PropertiesView = require('app/views/PropertiesView');
+    var ToolboxView = require('app/views/ToolboxView');
+
+    var AmendmentBroker = require('app/views/AmendmentBroker');
+
+    var Template = require('text!app/templates/EditTemplateTemplate.html');
+
 
     return Backbone.View.extend({
 
-        template: Handlebars.compile(EditTemplateTemplate),
+        template: Handlebars.compile(Template),
 
         initialize: function (options) {
-            this.options = options;
 
             this.amendmentsView = new AmendmentsView({
-                collection: this.options.amendments
+                collection: this.model.amendments
             });
 
-            this.componentView = new ComponentView({
+            this.blockEditorView = new BlockEditorView({
                 model: this.model,
-                amendments: this.options.amendments,
-                isRoot: true
+                amendmentBroker: new AmendmentBroker(this.model.amendments)
+            });
+
+            this.wysiwygEditorView = new WysiwygEditorView({
+            });
+
+            this.propertiesView = new PropertiesView({
             });
 
             this.toolboxView = new ToolboxView({
-                collection: this.options.componentTypes
+                collection: options.componentTypes
             });
         },
 
         render: function () {
             this.$el.html(this.template());
             this.assign(this.amendmentsView, '#amendments');
-            this.assign(this.componentView, '#blockEditor');
+            this.assign(this.blockEditorView, '#block-editor');
+            this.assign(this.wysiwygEditorView, '#wysiwyg-editor');
+            this.assign(this.propertiesView, '#properties');
             this.assign(this.toolboxView, '#toolbox');
+
+            return this;
         }
     });
 });

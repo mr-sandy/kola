@@ -1,42 +1,35 @@
-﻿define([
-    'backbone',
-    'handlebars',
-    'app/views/AmendmentView',
-    'text!app/templates/AmendmentsTemplate.html'
-], function (Backbone,
-    Handlebars,
-    AmendmentView,
-    AmendmentsTemplate) {
-
+﻿define(function (require) {
     "use strict";
+
+    var Backbone = require('backbone');
+    var Handlebars = require('handlebars');
+    var _ = require('underscore');
+    var Template = require('text!app/templates/AmendmentsTemplate.html');
+
 
     return Backbone.View.extend({
 
-        template: Handlebars.compile(AmendmentsTemplate),
+        template: Handlebars.compile(Template),
 
         initialize: function () {
-            this.listenTo(this.collection, 'sync', this.render);
+            this.collection.on('sync', this.render, this);
         },
 
         events: {
-            'click .apply': 'apply'
+            'click #apply': 'apply'
         },
 
         render: function () {
-            var self = this;
+            var context = _.extend(this.collection.toJSON(),
+                { count: this.collection.length }
+            );
 
-            this.$el.html(this.template());
-            var $list = this.$el.find('ul');
-
-            this.collection.each(function (amendment) {
-                self.assign(new AmendmentView({ model: amendment }), $list);
-            });
-
+            this.$el.html(this.template(context));
             return this;
         },
 
-        apply: function () {
-            this.collection.apply();
+        apply: function (e) {
+            this.collection.applyAmendments();
         }
     });
 });

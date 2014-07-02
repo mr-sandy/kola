@@ -231,131 +231,103 @@
     <Compile Include="Resources\WidgetResource.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Nancy\Views\Admin.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Scripts\app\templates\AmendmentTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\views\AmendmentView.js" />
-    <EmbeddedResource Include="Scripts\app\models\Amendment.js" />
-    <EmbeddedResource Include="Scripts\app\views\AmendmentsView.js" />
-    <EmbeddedResource Include="Scripts\app\templates\AmendmentsTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\models\UndoAmendmentRequest.js" />
-    <EmbeddedResource Include="Scripts\app\models\DeleteComponentAmendment.js" />
-    <EmbeddedResource Include="Scripts\app\models\CompositeComponent.js" />
-    <EmbeddedResource Include="Scripts\app\models\ApplyAmendmentRequest.js" />
-    <EmbeddedResource Include="Scripts\app\models\AddComponentAmendment.js" />
-    <EmbeddedResource Include="Scripts\app\models\MoveComponentAmendment.js" />
-    <EmbeddedResource Include="Scripts\app\collections\Amendments.js" />
-    <EmbeddedResource Include="Scripts\app\Config.js" />
-    <EmbeddedResource Include="Scripts\app\templates\RootComponentTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\templates\ComponentTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\views\ComponentView.js" />
-    <EmbeddedResource Include="Scripts\app\models\Template.js" />
-    <EmbeddedResource Include="Scripts\app\models\Component.js" />
+    <EmbeddedResource Include="Scripts\app-old\templates\AmendmentTemplate.html" />
+    <EmbeddedResource Include="Scripts\app-old\views\AmendmentView.js" />
+    <EmbeddedResource Include="Scripts\app-old\models\Amendment.js" />
+    <EmbeddedResource Include="Scripts\app-old\views\AmendmentsView.js" />
+    <EmbeddedResource Include="Scripts\app-old\templates\AmendmentsTemplate.html" />
+    <EmbeddedResource Include="Scripts\app-old\models\UndoAmendmentRequest.js" />
+    <EmbeddedResource Include="Scripts\app-old\models\DeleteComponentAmendment.js" />
+    <EmbeddedResource Include="Scripts\app-old\models\CompositeComponent.js" />
+    <EmbeddedResource Include="Scripts\app-old\models\ApplyAmendmentRequest.js" />
+    <EmbeddedResource Include="Scripts\app-old\models\AddComponentAmendment.js" />
+    <EmbeddedResource Include="Scripts\app-old\models\MoveComponentAmendment.js" />
+    <EmbeddedResource Include="Scripts\app-old\collections\Amendments.js" />
+    <EmbeddedResource Include="Scripts\app-old\Config.js" />
+    <EmbeddedResource Include="Scripts\app-old\templates\RootComponentTemplate.html" />
+    <EmbeddedResource Include="Scripts\app-old\templates\ComponentTemplate.html" />
+    <EmbeddedResource Include="Scripts\app-old\views\ComponentView.js" />
+    <EmbeddedResource Include="Scripts\app-old\models\Template.js" />
+    <EmbeddedResource Include="Scripts\app-old\models\Component.js" />
     <EmbeddedResource Include="Scripts\underscore.js" />
     <EmbeddedResource Include="Scripts\underscore.min.js" />
     <EmbeddedResource Include="Content\jquery-ui\jquery-ui-1.10.3.custom.css" />
     <EmbeddedResource Include="Content\jquery-ui\jquery-ui-1.10.3.custom.min.css" />
-    <EmbeddedResource Include="Scripts\app\collections\ComponentTypes.js" />
-    <EmbeddedResource Include="Scripts\app\models\ComponentType.js" />
+    <EmbeddedResource Include="Scripts\app-old\collections\ComponentTypes.js" />
+    <EmbeddedResource Include="Scripts\app-old\models\ComponentType.js" />
     <EmbeddedResource Include="Scripts\jquery-ui-1.10.3.custom.min.js" />
-    <EmbeddedResource Include="Content\kola.css">
-      <DependentUpon>kola.scss</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Content\kola.min.css">
-      <DependentUpon>kola.scss</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Content\kola.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Scripts\app\collections\Components.js" />
-    <EmbeddedResource Include="Scripts\app\templates\ToolboxTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\views\ToolboxView.js" />
-    <EmbeddedResource Include="Scripts\app\templates\EditTemplateTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\views\EditTemplateView.js" />
-    <EmbeddedResource Include="Scripts\app\templates\CreateTemplateTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\views\CreateTemplateView.js" />
-    <EmbeddedResource Include="Scripts\app\Extensions.js" />
+    <EmbeddedResource Include="Scripts\app-old\collections\Components.js" />
+    <EmbeddedResource Include="Scripts\app-old\templates\ToolboxTemplate.html" />
+    <EmbeddedResource Include="Scripts\app-old\views\ToolboxView.js" />
+    <EmbeddedResource Include="Scripts\app-old\templates\EditTemplateTemplate.html" />
+    <EmbeddedResource Include="Scripts\app-old\views\EditTemplateView.js" />
+    <EmbeddedResource Include="Scripts\app-old\templates\CreateTemplateTemplate.html" />
+    <EmbeddedResource Include="Scripts\app-old\views\CreateTemplateView.js" />
+    <EmbeddedResource Include="Scripts\app-old\Extensions.js" />
     <EmbeddedResource Include="Content\images\loading.gif" />
-    <EmbeddedResource Include="Scripts\app\views\LoadingView.js" />
-    <EmbeddedResource Include="Scripts\app\templates\LoadingTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\templates\HomeTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\views\HomeView.js" />
-    <EmbeddedResource Include="Scripts\app\templates\TemplatesTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\views\TemplatesView.js" />
+    <EmbeddedResource Include="Scripts\app-old\views\LoadingView.js" />
+    <EmbeddedResource Include="Scripts\app-old\templates\LoadingTemplate.html" />
+    <EmbeddedResource Include="Scripts\app-old\templates\HomeTemplate.html" />
+    <EmbeddedResource Include="Scripts\app-old\views\HomeView.js" />
+    <EmbeddedResource Include="Scripts\app-old\templates\TemplatesTemplate.html" />
+    <EmbeddedResource Include="Scripts\app-old\views\TemplatesView.js" />
     <EmbeddedResource Include="Scripts\r.js" />
     <EmbeddedResource Include="Scripts\text.js" />
-    <EmbeddedResource Include="Scripts\app\Router.js" />
+    <EmbeddedResource Include="Scripts\app-old\Router.js" />
     <EmbeddedResource Include="Scripts\handlebars.js" />
     <EmbeddedResource Include="Scripts\handlebars.min.js" />
     <EmbeddedResource Include="Scripts\handlebars.runtime.js" />
-    <EmbeddedResource Include="Scripts\app\templates\NavigationTemplate.html" />
-    <EmbeddedResource Include="Scripts\app\views\NavigationView.js" />
-    <EmbeddedResource Include="Scripts\app\views\AppView.js" />
-    <EmbeddedResource Include="Scripts\app\App.js" />
-    <EmbeddedResource Include="Scripts\main.js" />
+    <EmbeddedResource Include="Scripts\app-old\templates\NavigationTemplate.html" />
+    <EmbeddedResource Include="Scripts\app-old\views\NavigationView.js" />
+    <EmbeddedResource Include="Scripts\app-old\views\AppView.js" />
+    <EmbeddedResource Include="Scripts\app-old\App.js" />
     <EmbeddedResource Include="Scripts\require.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="App_Readme\Handlebarsjs_LICENSE" />
     <None Include="App_Readme\Handlebarsjs_README.md" />
-    <EmbeddedResource Include="Content\kola2.scss" />
+    <EmbeddedResource Include="Content\kola.scss" />
     <EmbeddedResource Include="Content\bootstrap-theme.css.map" />
     <EmbeddedResource Include="Content\bootstrap.css.map" />
-    <None Include="Content\kola2\base.scss">
+    <None Include="Content\kola\base.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="Content\kola2\block-editor.scss">
+    <None Include="Content\kola\block-editor.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="Content\kola2\toolbox.scss">
+    <None Include="Content\kola\toolbox.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="Content\kola2\_colours.scss">
+    <None Include="Content\kola\_colours.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="Content\kola2\edit-template.scss">
+    <None Include="Content\kola\edit-template.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="Content\kola2\wysiwyg-editor.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
-    <None Include="Content\kola\edit.scss">
-      <Compile>False</Compile>
-      <Minify>False</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </None>
-    <None Include="Content\kola\all.scss">
+    <None Include="Content\kola\wysiwyg-editor.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
     <EmbeddedResource Include="Nancy\Views\Page.cshtml" />
-    <EmbeddedResource Include="Nancy\Views\Admin2.cshtml" />
+    <EmbeddedResource Include="Nancy\Views\Admin.cshtml" />
     <None Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="fonts\glyphicons-halflings-regular.ttf" />
     <None Include="fonts\glyphicons-halflings-regular.woff" />
@@ -374,88 +346,88 @@
     <EmbeddedResource Include="Scripts\underscore-min.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\main2.js" />
+    <EmbeddedResource Include="Scripts\main.js" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app2\App.js" />
+    <EmbeddedResource Include="Scripts\app\App.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app2\Router.js" />
+    <EmbeddedResource Include="Scripts\app\Router.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app2\views\AppView.js" />
+    <EmbeddedResource Include="Scripts\app\views\AppView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app2\handlers\HomeHandler.js" />
+    <EmbeddedResource Include="Scripts\app\handlers\HomeHandler.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app2\Extensions.js" />
+    <EmbeddedResource Include="Scripts\app\Extensions.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app2\views\HomeView.js" />
+    <EmbeddedResource Include="Scripts\app\views\HomeView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app2\views\LoadingView.js" />
+    <EmbeddedResource Include="Scripts\app\views\LoadingView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app2\templates\HomeTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\templates\HomeTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app2\templates\LoadingTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\templates\LoadingTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app2\handlers\EditTemplateHandler.js" />
+    <EmbeddedResource Include="Scripts\app\handlers\EditTemplateHandler.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app2\views\EditTemplateView.js" />
+    <EmbeddedResource Include="Scripts\app\views\EditTemplateView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app2\templates\EditTemplateTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\templates\EditTemplateTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Scripts\app2\views\AmendmentBroker.js" />
-    <EmbeddedResource Include="Scripts\app2\models\Amendment.js" />
-    <EmbeddedResource Include="Scripts\app2\collections\Amendments.js" />
+    <EmbeddedResource Include="Scripts\app\views\AmendmentBroker.js" />
+    <EmbeddedResource Include="Scripts\app\models\Amendment.js" />
+    <EmbeddedResource Include="Scripts\app\collections\Amendments.js" />
     <EmbeddedResource Include="Scripts\backbone-hypermedia-amd.js" />
-    <EmbeddedResource Include="Scripts\app2\views\ComponentViewFactory.js" />
-    <EmbeddedResource Include="Scripts\app2\models\ComponentFactory.js" />
-    <EmbeddedResource Include="Scripts\app2\models\Widget.js" />
-    <EmbeddedResource Include="Scripts\app2\models\Container.js" />
-    <EmbeddedResource Include="Scripts\app2\models\Area.js" />
-    <EmbeddedResource Include="Scripts\app2\collections\Areas.js" />
-    <EmbeddedResource Include="Scripts\app2\templates\AreaTemplate.html" />
-    <EmbeddedResource Include="Scripts\app2\views\AreaView.js" />
-    <EmbeddedResource Include="Scripts\app2\views\ContainerView.js" />
-    <EmbeddedResource Include="Scripts\app2\views\WidgetView.js" />
-    <EmbeddedResource Include="Scripts\app2\templates\ContainerTemplate.html" />
-    <EmbeddedResource Include="Scripts\app2\templates\WidgetTemplate.html" />
-    <EmbeddedResource Include="Scripts\app2\templates\AtomTemplate.html" />
-    <EmbeddedResource Include="Scripts\app2\views\AtomView.js" />
-    <EmbeddedResource Include="Scripts\app2\models\Atom.js" />
-    <EmbeddedResource Include="Scripts\app2\collections\Components.js" />
-    <EmbeddedResource Include="Scripts\app2\models\Template.js" />
-    <EmbeddedResource Include="Scripts\app2\models\ComponentType.js" />
-    <EmbeddedResource Include="Scripts\app2\collections\ComponentTypes.js" />
-    <EmbeddedResource Include="Scripts\app2\views\PropertiesView.js" />
-    <EmbeddedResource Include="Scripts\app2\templates\PropertiesTemplate.html" />
-    <EmbeddedResource Include="Scripts\app2\templates\WysiwygEditorTemplate.html" />
-    <EmbeddedResource Include="Scripts\app2\templates\BlockEditorTemplate.html" />
-    <EmbeddedResource Include="Scripts\app2\templates\AmendmentsTemplate.html" />
-    <EmbeddedResource Include="Scripts\app2\templates\ToolboxTemplate.html" />
-    <EmbeddedResource Include="Scripts\app2\views\AmendmentsView.js" />
-    <EmbeddedResource Include="Scripts\app2\views\BlockEditorView.js" />
-    <EmbeddedResource Include="Scripts\app2\views\WysiwygEditorView.js" />
-    <EmbeddedResource Include="Scripts\app2\views\ToolboxView.js" />
+    <EmbeddedResource Include="Scripts\app\views\ComponentViewFactory.js" />
+    <EmbeddedResource Include="Scripts\app\models\ComponentFactory.js" />
+    <EmbeddedResource Include="Scripts\app\models\Widget.js" />
+    <EmbeddedResource Include="Scripts\app\models\Container.js" />
+    <EmbeddedResource Include="Scripts\app\models\Area.js" />
+    <EmbeddedResource Include="Scripts\app\collections\Areas.js" />
+    <EmbeddedResource Include="Scripts\app\templates\AreaTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\AreaView.js" />
+    <EmbeddedResource Include="Scripts\app\views\ContainerView.js" />
+    <EmbeddedResource Include="Scripts\app\views\WidgetView.js" />
+    <EmbeddedResource Include="Scripts\app\templates\ContainerTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\templates\WidgetTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\templates\AtomTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\AtomView.js" />
+    <EmbeddedResource Include="Scripts\app\models\Atom.js" />
+    <EmbeddedResource Include="Scripts\app\collections\Components.js" />
+    <EmbeddedResource Include="Scripts\app\models\Template.js" />
+    <EmbeddedResource Include="Scripts\app\models\ComponentType.js" />
+    <EmbeddedResource Include="Scripts\app\collections\ComponentTypes.js" />
+    <EmbeddedResource Include="Scripts\app\views\PropertiesView.js" />
+    <EmbeddedResource Include="Scripts\app\templates\PropertiesTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\templates\WysiwygEditorTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\templates\BlockEditorTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\templates\AmendmentsTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\templates\ToolboxTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\AmendmentsView.js" />
+    <EmbeddedResource Include="Scripts\app\views\BlockEditorView.js" />
+    <EmbeddedResource Include="Scripts\app\views\WysiwygEditorView.js" />
+    <EmbeddedResource Include="Scripts\app\views\ToolboxView.js" />
     <EmbeddedResource Include="Content\bootstrap-theme.css" />
     <EmbeddedResource Include="Content\bootstrap-theme.min.css" />
     <EmbeddedResource Include="Content\bootstrap.css" />
     <EmbeddedResource Include="Content\bootstrap.min.css" />
-    <EmbeddedResource Include="Content\kola2.css">
-      <DependentUpon>kola2.scss</DependentUpon>
+    <EmbeddedResource Include="Content\kola.css">
+      <DependentUpon>kola.scss</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Content\kola2.min.css">
-      <DependentUpon>kola2.scss</DependentUpon>
+    <EmbeddedResource Include="Content\kola.min.css">
+      <DependentUpon>kola.scss</DependentUpon>
     </EmbeddedResource>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <EmbeddedResource Include="Scripts\bootstrap.js" />

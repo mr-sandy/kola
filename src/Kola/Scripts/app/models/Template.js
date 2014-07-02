@@ -1,35 +1,48 @@
-﻿define([
-    'backbone',
-    'underscore',
-    'app/models/CompositeComponent',
-    'app/collections/Components'
-], function (
-    Backbone,
-    _,
-    CompositeComponent,
-    Components) {
-    'use strict';
+﻿define(function (require) {
+    "use strict";
 
-    return Backbone.Model.extend(
-    _.extend(
-        {
-            componentPath: '',
+    var Backbone = require('backbone');
+    var _ = require('underscore');
+    var Amendments = require('app/collections/Amendments');
+    require('backbone-hypermedia');
 
-            parse: function (resp, options) {
+    return Backbone.HypermediaModel.extend({
 
-                this.components = new Components(resp.components, { parse: true });
-                return _.omit(resp, 'components');
-            },
-
-            refresh: function (componentUrl) {
-                var componentPath = componentUrl
-                    ? _.without(componentUrl.split('/'), '')
-                    : [];
-                var component = this._findChild(componentPath);
-                component.fetch().then(function () {
-                    component.trigger('change');
-                });
-            }
+        links: {
+            'amendments': Amendments
         },
-        CompositeComponent));
+
+        parse: function (response) {
+            var Components = require('app/collections/Components');
+
+            return _.extend(response,
+            {
+                components: new Components(response.components, { parse: true })
+            });
+        },
+
+        refresh: function (componentUrl) {
+            var componentPath = componentUrl
+                                ? _.without(componentUrl.split('/'), '')
+                                : [];
+
+            this.findChild(this, componentPath).fetch();
+        },
+
+        findChild: function (candidate, componentPath) {
+            if (componentPath.length == 0 || componentPath[0] == '') {
+                return candidate;
+            }
+
+            var index = componentPath[0];
+            var remainder = componentPath.slice(1);
+
+            var collection = candidate.get('components') || candidate.get('areas');
+
+            var item = collection.at(index);
+
+            return this.findChild(item, remainder);
+        }
+    });
 });
+

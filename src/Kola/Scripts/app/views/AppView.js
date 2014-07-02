@@ -1,124 +1,62 @@
-﻿define([
-    'backbone',
-    'handlebars',
-    'jquery',
-    'app/Config',
-    'app/models/Template',
-    'app/collections/Amendments',
-    'app/collections/ComponentTypes',
-    'app/views/LoadingView',
-    'app/views/HomeView',
-    'app/views/NavigationView',
-    'app/views/TemplatesView',
-    'app/views/CreateTemplateView',
-    'app/views/EditTemplateView',
-    'bootstrap',
-    'jqueryui'
-], function (Backbone,
-    Handlebars,
-    $,
-    Config,
-    Template,
-    Amendments,
-    ComponentTypes,
-    LoadingView,
-    HomeView,
-    NavigationView,
-    TemplatesView,
-    CreateTemplateView,
-    EditTemplateView
-) {
+﻿define(function (require) {
+    "use strict";
 
-    'use strict';
+    var Backbone = require('backbone');
+    var Handlebars = require('handlebars');
+    var $ = require('jquery');
+
+    var LoadingView = require('app/views/LoadingView');
+
+    var homeHandler = require('app/handlers/HomeHandler');
+    var editTemplateHandler = require('app/handlers/EditTemplateHandler');
 
     return Backbone.View.extend({
 
         initialize: function (options) {
             this.options = options;
-            //            $('.loading').remove(); // remove server delivered loading spinner
 
-            this.navigationView = new NavigationView({
-                router: this.options.router
-            });
+            var handlerMappings = {
+                'route:home': homeHandler,
+                'route:editTemplate': editTemplateHandler
+            };
 
-            this.listenTo(this.options.router, 'route:home', this.home);
-            this.listenTo(this.options.router, 'route:templates', this.templates);
-            this.listenTo(this.options.router, 'route:createTemplate', this.createTemplate);
-            this.listenTo(this.options.router, 'route:editTemplate', this.editTemplate);
+            _.each(handlerMappings, function (handler, route) {
+                options.router.on(route, function () {
+                    this.handleRoute(handler, arguments);
+                }, this);
+            }, this);
         },
 
-        render: function () {
-            this.assign(this.navigationView, '#navigation');
+        handleRoute: function (handler, args) {
+            var self = this;
+
+            this.closeCurrentView()
+
+            this.showView(new LoadingView());
+
+            var options = {
+                router: self.options.router
+            };
+
+            handler.execute.apply(null, [options].concat(_.flatten(args))).then(function (view) {
+                self.closeCurrentView();
+                self.showView(view);
+            });
         },
 
         closeCurrentView: function () {
             if (this.currentView) {
                 this.currentView.setElement('');
-                return this.currentView.close();
+                return this.currentView.remove();
             }
-            return true;
         },
 
         showView: function (view) {
+            if (this.currentView) {
+                this.currentView.undelegateEvents();
+            }
             this.currentView = view;
             this.currentView.setElement('#content').render();
-        },
-
-        home: function () {
-            if (this.closeCurrentView()) {
-                var homeView = new HomeView({ router: this.options.router });
-                this.showView(homeView);
-            }
-        },
-
-        templates: function () {
-            if (this.closeCurrentView()) {
-                var templatesView = new TemplatesView({ router: this.options.router });
-                this.showView(templatesView);
-            }
-        },
-
-        createTemplate: function () {
-            if (this.closeCurrentView()) {
-                var createTemplateView = new CreateTemplateView({
-                    model: new Template(),
-                    router: this.options.router
-                });
-                this.showView(createTemplateView);
-            }
-        },
-
-        editTemplate: function (templatePath) {
-            var self = this;
-
-            var template = new Template();
-            template.url = this.combineUrls(Config.kolaRoot, templatePath);
-
-            var amendments = new Amendments();
-            amendments.url = this.combineUrls(template.url, '_amendments');
-
-            var componentTypes = new ComponentTypes();
-
-            var editTemplateView = new EditTemplateView({
-                model: template,
-                router: this.options.router,
-                amendments: amendments,
-                componentTypes: componentTypes
-            });
-
-            if (this.closeCurrentView()) {
-                $.when(template.fetch(), amendments.fetch(), componentTypes.fetch())
-                    .done(function () {
-                        self.showView(editTemplateView);
-
-                        template.listenTo(amendments, 'sync', function (amendment) {
-                            template.refresh(amendment.get('subject'));
-                        });
-                    })
-                    .fail(function () {
-                        alert('failure!');
-                    });
-            }
         }
     });
 });

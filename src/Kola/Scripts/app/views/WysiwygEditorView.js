@@ -4,8 +4,7 @@
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
     var $ = require('jquery');
-    var Template = require('text!app/templates/HomeTemplate.html');
-
+    var Template = require('text!app/templates/WysiwygEditorTemplate.html');
 
     return Backbone.View.extend({
 

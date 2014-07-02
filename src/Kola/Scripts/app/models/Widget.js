@@ -8,11 +8,13 @@
 
         parse: function (response) {
 
+            this.url = this.getLink(response.links, 'self');
+
+            var Areas = require('app/collections/Areas');
+
             return _.extend(response,
             {
-                //                url: this.getLink(response.links, 'self'),
-                subject: this.getLink(response.links, 'subject')
-                //                undo: this.getLink(response.links, 'undo')
+                areas: new Areas(response.areas, { parse: true })
             });
         }
     });

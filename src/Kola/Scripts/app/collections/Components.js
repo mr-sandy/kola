@@ -1,16 +1,15 @@
-﻿define([
-    'backbone'
-], function (Backbone) {
+﻿define(function (require) {
+    "use strict";
 
-    'use strict';
-    var Component;
+    var Backbone = require('backbone');
+    var _ = require('underscore');
+    var componentFactory = require('app/models/ComponentFactory');
 
     return Backbone.Collection.extend({
 
-        model: function (attrs, options) {
-            if (!Component) { Component = require('app/models/Component'); }
+        parse: function (response) {
 
-            return new Component(attrs, options);
+            return _.map(response, componentFactory.build);
         }
     });
 });

@@ -2,12 +2,9 @@
     "use strict";
 
     var Backbone = require('backbone');
-    var ComponentType = require('app/models/ComponentType');
+    var Area = require('app/models/Area');
 
     return Backbone.Collection.extend({
-
-        model: ComponentType,
-
-        url: '/_kola/component-types'
+        model: Area
     });
 });
