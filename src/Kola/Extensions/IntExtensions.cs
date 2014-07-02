@@ -6,7 +6,9 @@
     {
         public static string ToHttpPath(this IEnumerable<int> elements)
         {
-            return string.Format("/{0}", string.Join(@"/", elements));
+            return elements == null 
+                ? null 
+                : string.Format("/{0}", string.Join(@"/", elements));
         }
     }
 }

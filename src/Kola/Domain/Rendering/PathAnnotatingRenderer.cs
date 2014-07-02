@@ -26,22 +26,22 @@
 
         public IResult Render(AtomInstance component)
         {
-            return new AnnotatedResult(component.Path.ToHttpPath(), this.inner.Render(component));
+            return new AnnotatedResult(this.inner.Render(component), component.Path);
         }
 
         public IResult Render(ContainerInstance component)
         {
-            return new AnnotatedResult(component.Path.ToHttpPath(), this.inner.Render(component));
+            return new AnnotatedResult(this.inner.Render(component), component.Path);
         }
 
         public IResult Render(WidgetInstance component)
         {
-            return this.inner.Render(component);
+            return new AnnotatedResult(this.inner.Render(component), component.Path);
         }
 
         public IResult Render(AreaInstance component)
         {
-            return this.inner.Render(component);
+            return new AnnotatedResult(this.inner.Render(component), component.Path);
         }
     }
 }

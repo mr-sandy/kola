@@ -6,7 +6,6 @@
     var $ = require('jquery');
     var Template = require('text!app2/templates/WysiwygEditorTemplate.html');
 
-
     return Backbone.View.extend({
 
         template: Handlebars.compile(Template),

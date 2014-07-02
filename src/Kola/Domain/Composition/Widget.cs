@@ -1,6 +1,5 @@
 ﻿namespace Kola.Domain.Composition
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -38,7 +37,10 @@
             buildContext.AreaContents.Push(new Queue<ComponentInstance>(areas));
 
             var specification = buildContext.WidgetSpecificationFinder(this.Name);
-            var components = specification.Components.Select((c, i) => c.Build(path, buildContext)).ToList();
+
+            // Notice that we're passing null as the path - we don't want to annotate the components from the widget 
+            // specification because they're not components that the editor of the current template can do anything about
+            var components = specification.Components.Select((c, i) => c.Build(null, buildContext)).ToList();
 
             buildContext.AreaContents.Pop();
 

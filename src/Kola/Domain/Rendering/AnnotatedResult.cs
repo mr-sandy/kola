@@ -1,18 +1,19 @@
 ﻿namespace Kola.Domain.Rendering
 {
-    using System.Linq;
-    using System.Xml.Linq;
+    using System.Collections.Generic;
+
+    using Kola.Extensions;
 
     public class AnnotatedResult : IResult
     {
-        private readonly string path;
-
         private readonly IResult innerResult;
 
-        public AnnotatedResult(string path, IResult innerResult)
+        private readonly IEnumerable<int> path;
+
+        public AnnotatedResult(IResult innerResult, IEnumerable<int> path)
         {
-            this.path = path;
             this.innerResult = innerResult;
+            this.path = path;
         }
 
         // TODO This is a real mess
@@ -20,17 +21,9 @@
         {
             var result = this.innerResult.ToHtml(viewHelper);
 
-            var el = XElement.Parse("<fake>" + result + "</fake>");
-
-            foreach (var decendant in el.Elements().Where(d => d.Attribute("componentPath") == null))
-            {
-                decendant.SetAttributeValue("componentPath", this.path);
-            }
-
-            var reader = el.CreateReader();
-            reader.MoveToContent();
-            return reader.ReadInnerXml();
-            //return el.Elements().Aggregate(string.Empty, (html, xel) => html + xel.ToString());
+            return (this.path == null)
+                ? result 
+                : string.Format("<!--{0}-start-->{1}<!--{0}-end-->", this.path.ToHttpPath(), result);
         }
     }
 }

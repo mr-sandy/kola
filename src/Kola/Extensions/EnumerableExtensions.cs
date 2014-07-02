@@ -12,7 +12,9 @@
 
         public static IEnumerable<T> Append<T>(this IEnumerable<T> list, T item)
         {
-            return list.Concat(new[] { item });
+            return list == null 
+                ? null 
+                : list.Concat(new[] { item });
         }
 
         public static IEnumerable<T> GetOverlap<T>(this IEnumerable<T> list1, IEnumerable<T> list2)
