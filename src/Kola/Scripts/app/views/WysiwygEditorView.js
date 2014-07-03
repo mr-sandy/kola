@@ -23,6 +23,8 @@
                     var $elements = self.findElements($iframe.contents().find('body').contents(), component.get('path'));
 
                     var wysiwygComponentView = new WysiwygComponentView({ model: component, el: $elements });
+
+                    wysiwygComponentView.render();
                 });
             });
 
@@ -63,26 +65,5 @@
 
             return $(selected);
         }
-
-        //        findElements: function (rootElement, componentPath) {
-        //            var add = false;
-        //            var elements = [];
-
-        //            _.each(rootElement.contents(), function (el, i) {
-        //                if (el.nodeType == 8 && el.nodeValue == componentPath + '-start') {
-        //                    add = true;
-        //                }
-
-        //                if (add) {
-        //                    elements.push(el);
-        //                }
-
-        //                if (el.nodeType == 8 && el.nodeValue == componentPath + '-end') {
-        //                    add = false;
-        //                }
-        //            });
-
-        //            return $(elements);
-        //        }
     });
 });

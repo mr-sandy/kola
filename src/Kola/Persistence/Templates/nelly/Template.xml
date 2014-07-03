@@ -6,7 +6,7 @@
       <areas>
         <area>
           <components>
-            <atom name="markdown">
+            <atom name="atom-2">
               <parameters />
             </atom>
           </components>
@@ -17,31 +17,15 @@
   <amendments>
     <addComponent>
       <componentType>atom-2</componentType>
+      <targetPath>0/0/1</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>0/0/1</sourcePath>
       <targetPath>0/0/0</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>atom-1</componentType>
-      <targetPath>1</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>container-2</componentType>
-      <targetPath>2</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>container-1</componentType>
-      <targetPath>2/0</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>atom-1</componentType>
-      <targetPath>2/0/0</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>ferret</componentType>
-      <targetPath>2/0/1</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>atom-2</componentType>
-      <targetPath>2/0/1/0/0</targetPath>
-    </addComponent>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0/1</sourcePath>
+      <targetPath>0/0/0</targetPath>
+    </moveComponent>
   </amendments>
 </template>

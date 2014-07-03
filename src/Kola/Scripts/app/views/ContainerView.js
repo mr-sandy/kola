@@ -18,6 +18,11 @@
             this.model.on('sync', this.render, this);
         },
 
+        events: {
+            "mouseover": "activate",
+            "mouseout": "deactivate"
+        },
+
         render: function () {
             var self = this;
 
@@ -42,6 +47,16 @@
             });
 
             return this;
+        },
+
+        activate: function (e) {
+            this.model.trigger('active');
+            e.stopPropagation();
+        },
+
+        deactivate: function (e) {
+            this.model.trigger('inactive');
+            e.stopPropagation();
         }
     });
 });
