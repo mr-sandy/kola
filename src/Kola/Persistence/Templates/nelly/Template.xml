@@ -1,127 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
-    <widget name="ferret">
+    <widget name="badger">
       <parameters />
       <areas>
-        <area>
-          <components>
-            <widget name="ferret">
-              <parameters />
-              <areas>
-                <area>
-                  <components>
-                    <atom name="atom-2">
-                      <parameters />
-                    </atom>
-                  </components>
-                </area>
-                <area>
-                  <components>
-                    <atom name="atom-2">
-                      <parameters />
-                    </atom>
-                  </components>
-                </area>
-              </areas>
-            </widget>
-            <container name="container-1">
-              <parameters />
-              <components>
-                <atom name="atom-2">
-                  <parameters />
-                </atom>
-                <atom name="atom-2">
-                  <parameters />
-                </atom>
-              </components>
-            </container>
-          </components>
-        </area>
         <area>
           <components>
             <atom name="markdown">
-              <parameters />
-            </atom>
-            <atom name="atom-2">
-              <parameters />
-            </atom>
-            <atom name="atom-2">
-              <parameters />
-            </atom>
-          </components>
-        </area>
-      </areas>
-    </widget>
-    <container name="container-1">
-      <parameters />
-      <components>
-        <atom name="atom-2">
-          <parameters />
-        </atom>
-      </components>
-    </container>
-    <container name="container-2">
-      <parameters />
-      <components>
-        <atom name="atom-1">
-          <parameters />
-        </atom>
-        <atom name="atom-2">
-          <parameters />
-        </atom>
-        <atom name="atom-1">
-          <parameters />
-        </atom>
-      </components>
-    </container>
-    <atom name="markdown">
-      <parameters>
-        <parameter name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[*Markdown* **content**
-          ]]></value>
-        </parameter>
-      </parameters>
-    </atom>
-    <container name="container-1">
-      <parameters />
-      <components>
-        <atom name="atom-1">
-          <parameters />
-        </atom>
-        <atom name="atom-1">
-          <parameters />
-        </atom>
-        <atom name="atom-2">
-          <parameters />
-        </atom>
-        <atom name="atom-1">
-          <parameters />
-        </atom>
-        <atom name="atom-2">
-          <parameters />
-        </atom>
-      </components>
-    </container>
-    <widget name="ferret">
-      <parameters />
-      <areas>
-        <area>
-          <components>
-            <atom name="atom-1">
-              <parameters />
-            </atom>
-            <atom name="atom-1">
-              <parameters />
-            </atom>
-            <atom name="atom-1">
-              <parameters />
-            </atom>
-          </components>
-        </area>
-        <area>
-          <components>
-            <atom name="atom-2">
               <parameters />
             </atom>
           </components>
@@ -130,77 +15,33 @@
     </widget>
   </components>
   <amendments>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>0/1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/1/1</sourcePath>
-      <targetPath>0/0/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0/0/0</sourcePath>
-      <targetPath>0/0/0/1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
+    <addComponent>
+      <componentType>atom-2</componentType>
+      <targetPath>0/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>atom-1</componentType>
       <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/1/1</sourcePath>
-      <targetPath>0/0/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/1</sourcePath>
-      <targetPath>1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/1</sourcePath>
-      <targetPath>1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/1</sourcePath>
-      <targetPath>1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/2</sourcePath>
-      <targetPath>1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/2</sourcePath>
-      <targetPath>1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>2/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>1/2</targetPath>
-    </moveComponent>
+    </addComponent>
+    <addComponent>
+      <componentType>container-2</componentType>
+      <targetPath>2</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>container-1</componentType>
+      <targetPath>2/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>atom-1</componentType>
+      <targetPath>2/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>ferret</componentType>
+      <targetPath>2/0/1</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>atom-2</componentType>
+      <targetPath>2/0/1/0/0</targetPath>
+    </addComponent>
   </amendments>
 </template>

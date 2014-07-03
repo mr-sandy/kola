@@ -6,8 +6,11 @@
     return Backbone.View.extend({
 
         initialize: function (options) {
-            this.model.on('sync', function () { console.log(this.model.url); }, this);
-        }
+            this.model.on('sync', this.refresh, this);
+        },
 
+        refresh: function () {
+            this.$el.html("<h1>Bang!</h1>");
+        }
     });
 });

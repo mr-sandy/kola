@@ -78,6 +78,7 @@
     <Compile Include="Domain\Instances\Building\Context.cs" />
     <Compile Include="Domain\Instances\Building\ContextItem.cs" />
     <Compile Include="Domain\Instances\Building\BuildContext.cs" />
+    <Compile Include="Domain\Instances\IComponentInstanceVisitor.cs" />
     <Compile Include="Domain\Instances\PlaceholderInstance.cs" />
     <Compile Include="Domain\Rendering\AnnotatedResult.cs" />
     <Compile Include="Domain\Rendering\Caching\CachingRenderer.cs" />
@@ -130,6 +131,7 @@
     <Compile Include="Domain\Instances\WidgetInstance.cs" />
     <Compile Include="Domain\Specifications\WidgetSpecification.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
+    <Compile Include="Nancy\Modules\ComponentFindingComponentInstanceVisitor.cs" />
     <Compile Include="Nancy\Modules\PreviewModule.cs" />
     <Compile Include="Persistence\DomainBuilding\DomainBuildingAmendmentSurrogateVisitor.cs" />
     <Compile Include="Persistence\DomainBuilding\DomainBuildingComponentSurrogateVisitor.cs" />
@@ -292,6 +294,7 @@
     <None Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="fonts\glyphicons-halflings-regular.ttf" />
     <None Include="fonts\glyphicons-halflings-regular.woff" />
+    <EmbeddedResource Include="Nancy\Views\Fragment.cshtml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

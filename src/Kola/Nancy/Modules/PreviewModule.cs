@@ -1,9 +1,14 @@
 ﻿namespace Kola.Nancy.Modules
 {
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Kola.Domain.Instances;
     using Kola.Domain.Rendering;
     using Kola.Extensions;
 
     using global::Nancy;
+    using global::Nancy.ModelBinding;
     using global::Nancy.Responses.Negotiation;
 
     public class PreviewModule : NancyModule
@@ -24,9 +29,27 @@
             var path = rawPath.ParsePath();
             var page = this.pageHandler.GetPage(path);
 
-            return this.Negotiate
-                .WithModel(page)
-                .WithView("Page");
+            var query = this.Bind<PreviewQuery>();
+
+            if (!string.IsNullOrEmpty(query.ComponentPath))
+            {
+                var fragment = this.FindComponent(page, query.ComponentPath.ParseComponentPath());
+                return this.Negotiate.WithModel(fragment).WithView("Fragment");
+            }
+
+            return this.Negotiate.WithModel(page).WithView("Page");
         }
+
+        private ComponentInstance FindComponent(PageInstance page, IEnumerable<int> componentPath)
+        {
+            var visitor = new ComponentFindingComponentInstanceVisitor();
+
+            return visitor.Find(page, componentPath);
+        }
+    }
+
+    public class PreviewQuery
+    {
+        public string ComponentPath { get; set; }
     }
 }

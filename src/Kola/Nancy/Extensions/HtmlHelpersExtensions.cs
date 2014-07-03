@@ -19,5 +19,11 @@
             var result = NancyKolaConfigurationRegistry.Instance.Renderer.Render(components);
             return new ResultWrapper(result, new NancyRazorViewHelper<T>(helpers));
         }
+
+        public static IHtmlString RenderComponent<T>(this HtmlHelpers<T> helpers, ComponentInstance component)
+        {
+            var result = component.Render(NancyKolaConfigurationRegistry.Instance.Renderer);
+            return new ResultWrapper(result, new NancyRazorViewHelper<T>(helpers));
+        }
     }
 }

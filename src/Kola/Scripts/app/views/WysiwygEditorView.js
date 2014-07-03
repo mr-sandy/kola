@@ -20,7 +20,7 @@
             $iframe.load(function () {
 
                 self.model.get('components').each(function (component) {
-                    var $elements = self.findElements($iframe.contents().find('body'), component.get('path'));
+                    var $elements = self.findElements($iframe.contents().find('body').contents(), component.get('path'));
 
                     var wysiwygComponentView = new WysiwygComponentView({ model: component, el: $elements });
                 });
@@ -31,25 +31,58 @@
             return this;
         },
 
-        findElements: function (rootElement, componentPath) {
-            var add = false;
-            var elements = [];
+        findElements: function (nodes, componentPath) {
+            var select = false;
+            var selected = [];
 
-            _.each(rootElement.contents(), function (el, i) {
-                if (el.nodeType == 8 && el.nodeValue == componentPath + '-start') {
-                    add = true;
+            for (var i = 0; i < nodes.length; i++) {
+                var node = nodes[i];
+
+                if (node.nodeType == 8 && node.nodeValue == componentPath + '-start') {
+                    select = true;
                 }
 
-                if (add) {
-                    elements.push(el);
+                if (select) {
+                    selected.push(node);
+                }
+                else {
+                    var childNodes = node.childNodes;
+                    if (childNodes) {
+                        var childResult = this.findElements(childNodes, componentPath);
+
+                        if (childResult.length > 0) {
+                            return childResult;
+                        }
+                    }
                 }
 
-                if (el.nodeType == 8 && el.nodeValue == componentPath + '-end') {
-                    add = false;
+                if (node.nodeType == 8 && node.nodeValue == componentPath + '-end') {
+                    select = false;
                 }
-            });
+            }
 
-            return $(elements);
+            return $(selected);
         }
+
+        //        findElements: function (rootElement, componentPath) {
+        //            var add = false;
+        //            var elements = [];
+
+        //            _.each(rootElement.contents(), function (el, i) {
+        //                if (el.nodeType == 8 && el.nodeValue == componentPath + '-start') {
+        //                    add = true;
+        //                }
+
+        //                if (add) {
+        //                    elements.push(el);
+        //                }
+
+        //                if (el.nodeType == 8 && el.nodeValue == componentPath + '-end') {
+        //                    add = false;
+        //                }
+        //            });
+
+        //            return $(elements);
+        //        }
     });
 });

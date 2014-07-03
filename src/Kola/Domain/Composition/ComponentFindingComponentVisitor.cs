@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    // TODO {SC} Can this and the CollectionFindingComponentVisitor be unified now that Areas are IComponents?
     internal class ComponentFindingComponentVisitor : IComponentVisitor<IComponent, IEnumerable<int>>
     {
         public IComponent Find(Template template, IEnumerable<int> path)
