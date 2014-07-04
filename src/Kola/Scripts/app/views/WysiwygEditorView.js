@@ -5,6 +5,7 @@
     var Handlebars = require('handlebars');
     var $ = require('jquery');
     var WysiwygComponentView = require('app/views/WysiwygComponentView');
+    var domHelper = require('app/views/DomHelper');
     var Template = require('text!app/templates/WysiwygEditorTemplate.html');
 
     return Backbone.View.extend({
@@ -50,46 +51,14 @@
 
         buildChildren: function ($html) {
             var self = this;
+
             self.model.get('components').each(function (component) {
-                var $elements = self.findElements($html.contents(), component.get('path'));
+                var $elements = domHelper.findElements($html.contents(), component.get('path'));
 
                 var wysiwygComponentView = new WysiwygComponentView({ model: component, el: $elements });
 
                 wysiwygComponentView.render();
             });
-        },
-
-        findElements: function (nodes, componentPath) {
-            var select = false;
-            var selected = [];
-
-            for (var i = 0; i < nodes.length; i++) {
-                var node = nodes[i];
-
-                if (node.nodeType == 8 && node.nodeValue == componentPath + '-start') {
-                    select = true;
-                }
-
-                if (select) {
-                    selected.push(node);
-                }
-                else {
-                    var childNodes = node.childNodes;
-                    if (childNodes && childNodes.length > 0) {
-                        var childResult = this.findElements(childNodes, componentPath);
-
-                        if (childResult.length > 0) {
-                            return childResult;
-                        }
-                    }
-                }
-
-                if (node.nodeType == 8 && node.nodeValue == componentPath + '-end') {
-                    select = false;
-                }
-            }
-
-            return $(selected);
         }
     });
 });

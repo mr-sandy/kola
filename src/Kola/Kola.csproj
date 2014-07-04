@@ -350,6 +350,7 @@
     <EmbeddedResource Include="Scripts\app\templates\EditTemplateTemplate.html" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Scripts\app\views\DomHelper.js" />
     <EmbeddedResource Include="Scripts\app\views\WysiwygComponentView.js" />
     <EmbeddedResource Include="Scripts\app\views\AmendmentBroker.js" />
     <EmbeddedResource Include="Scripts\app\models\Amendment.js" />
