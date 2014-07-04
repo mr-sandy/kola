@@ -1,31 +1,238 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
-    <widget name="badger">
+    <container name="container-1">
       <parameters />
-      <areas>
-        <area>
+      <components>
+        <atom name="atom-1">
+          <parameters />
+        </atom>
+        <atom name="atom-2">
+          <parameters />
+        </atom>
+      </components>
+    </container>
+    <atom name="atom-2">
+      <parameters />
+    </atom>
+    <atom name="atom-2">
+      <parameters />
+    </atom>
+    <container name="container-1">
+      <parameters />
+      <components>
+        <atom name="atom-1">
+          <parameters />
+        </atom>
+        <atom name="atom-2">
+          <parameters />
+        </atom>
+      </components>
+    </container>
+    <container name="container-1">
+      <parameters />
+      <components>
+        <atom name="atom-2">
+          <parameters />
+        </atom>
+        <atom name="atom-1">
+          <parameters />
+        </atom>
+      </components>
+    </container>
+    <container name="container-1">
+      <parameters />
+      <components>
+        <widget name="ferret">
+          <parameters />
+          <areas>
+            <area>
+              <components>
+                <atom name="atom-1">
+                  <parameters />
+                </atom>
+              </components>
+            </area>
+            <area>
+              <components>
+                <atom name="atom-2">
+                  <parameters />
+                </atom>
+              </components>
+            </area>
+          </areas>
+        </widget>
+        <widget name="badger">
+          <parameters />
+          <areas>
+            <area>
+              <components>
+                <atom name="atom-1">
+                  <parameters />
+                </atom>
+                <atom name="atom-1">
+                  <parameters />
+                </atom>
+              </components>
+            </area>
+          </areas>
+        </widget>
+        <widget name="ferret">
+          <parameters />
+          <areas>
+            <area>
+              <components>
+                <atom name="atom-1">
+                  <parameters />
+                </atom>
+                <atom name="atom-2">
+                  <parameters />
+                </atom>
+              </components>
+            </area>
+            <area>
+              <components>
+                <atom name="atom-1">
+                  <parameters />
+                </atom>
+              </components>
+            </area>
+          </areas>
+        </widget>
+        <atom name="atom-2">
+          <parameters />
+        </atom>
+        <atom name="atom-1">
+          <parameters />
+        </atom>
+        <container name="container-1">
+          <parameters />
           <components>
             <atom name="atom-2">
               <parameters />
             </atom>
           </components>
-        </area>
-      </areas>
-    </widget>
+        </container>
+        <container name="container-1">
+          <parameters />
+          <components>
+            <atom name="atom-2">
+              <parameters />
+            </atom>
+            <atom name="atom-1">
+              <parameters />
+            </atom>
+          </components>
+        </container>
+        <container name="container-1">
+          <parameters />
+          <components>
+            <atom name="atom-2">
+              <parameters />
+            </atom>
+            <atom name="atom-2">
+              <parameters />
+            </atom>
+            <atom name="atom-1">
+              <parameters />
+            </atom>
+          </components>
+        </container>
+      </components>
+    </container>
   </components>
   <amendments>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
     <addComponent>
-      <componentType>atom-2</componentType>
-      <targetPath>0/0/1</targetPath>
+      <componentType>atom-1</componentType>
+      <targetPath>0</targetPath>
     </addComponent>
     <moveComponent>
-      <sourcePath>0/0/1</sourcePath>
+      <sourcePath>2</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>container-1</componentType>
+      <targetPath>0</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>2</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>3</sourcePath>
+      <targetPath>2</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>4</sourcePath>
+      <targetPath>2</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>5</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>2</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>ferret</componentType>
+      <targetPath>0</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
       <targetPath>0/0/0</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/0/1</sourcePath>
+      <sourcePath>1</sourcePath>
       <targetPath>0/0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0/0</sourcePath>
+      <targetPath>0/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0/0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>4</sourcePath>
+      <targetPath>0/0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>5</sourcePath>
+      <targetPath>0/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0/0/0/0</targetPath>
     </moveComponent>
   </amendments>
 </template>

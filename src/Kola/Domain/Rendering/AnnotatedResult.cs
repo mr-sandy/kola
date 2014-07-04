@@ -16,7 +16,6 @@
             this.path = path;
         }
 
-        // TODO This is a real mess
         public string ToHtml(IViewHelper viewHelper)
         {
             var result = this.innerResult.ToHtml(viewHelper);

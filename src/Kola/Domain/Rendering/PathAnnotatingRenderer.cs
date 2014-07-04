@@ -3,7 +3,6 @@
     using System.Collections.Generic;
 
     using Kola.Domain.Instances;
-    using Kola.Extensions;
 
     public class PathAnnotatingRenderer : IRenderer
     {
