@@ -60,6 +60,25 @@
         },
 
         replace: function ($el, data) {
+
+            var firstOldNode = $el[0];
+            var parentNode = $el[0].parentNode;
+            var $data = $(data);
+
+            //prepend the current selection with the new nodes
+            for (var i = 0; i < $data.length; i++) {
+                //Insert into the dom
+                parentNode.insertBefore($data[i], firstOldNode);
+            }
+
+            //remove the old nodes
+            $el.remove();
+
+            //return the new nodes
+            return $data;
+        },
+
+        OLDreplace: function ($el, data) {
             //remove all but the first and last elements (the comments) from the dom using jquery remove
             $el.slice(1, $el.length - 1).remove();
 
