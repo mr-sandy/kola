@@ -88,6 +88,8 @@ div, ul, li {
     margin: 0;
     padding: 0;
     border: 3px #557 solid; }
+    #block-editor ul li.active {
+      border-color: #eee; }
     #block-editor ul li.new {
       border: 3px #557 dotted;
       min-height: 40px; }

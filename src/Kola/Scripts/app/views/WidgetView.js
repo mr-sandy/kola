@@ -17,6 +17,8 @@
         initialize: function (options) {
             this.amendmentBroker = options.amendmentBroker;
             this.model.on('sync', this.render, this);
+            this.model.on('active', this.showActive, this);
+            this.model.on('inactive', this.showInactive, this);
         },
 
         events: {
@@ -27,8 +29,12 @@
         render: function () {
             var self = this;
 
+
+
             this.$el.html(this.template());
             this.$el.attr('data-component-path', this.model.get('path'));
+
+
 
             this.model.get('areas').each(function (area) {
                 var areaView = new AreaView({ model: area,
@@ -49,6 +55,14 @@
         deactivate: function (e) {
             this.model.trigger('inactive');
             e.stopPropagation();
+        },
+
+        showActive: function () {
+            this.$el.addClass('active');
+        },
+
+        showInactive: function () {
+            this.$el.removeClass('active');
         }
     });
 });

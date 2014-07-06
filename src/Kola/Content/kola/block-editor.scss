@@ -17,6 +17,10 @@
             padding: 0;
             border: 3px #557 solid;
 
+			&.active {
+            border-color: #eee;
+			}
+
             &.new {
                 border: 3px #557 dotted;
                 min-height: 40px;

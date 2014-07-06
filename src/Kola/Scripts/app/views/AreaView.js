@@ -3,6 +3,7 @@
 
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
+
     var Template = require('text!app/templates/AreaTemplate.html');
 
     return Backbone.View.extend({
@@ -16,6 +17,8 @@
         initialize: function (options) {
             this.amendmentBroker = options.amendmentBroker;
             this.model.on('sync', this.render, this);
+            this.model.on('active', this.showActive, this);
+            this.model.on('inactive', this.showInactive, this);
         },
 
         events: {
@@ -57,6 +60,14 @@
         deactivate: function (e) {
             this.model.trigger('inactive');
             e.stopPropagation();
+        },
+
+        showActive: function () {
+            this.$el.addClass('active');
+        },
+
+        showInactive: function () {
+            this.$el.removeClass('active');
         }
     });
 });
