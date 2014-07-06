@@ -3,7 +3,6 @@
 
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
-
     var Template = require('text!app/templates/AreaTemplate.html');
 
     return Backbone.View.extend({
