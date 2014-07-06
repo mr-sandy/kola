@@ -4,6 +4,7 @@
     var AtomView = require('app/views/AtomView');
     var ContainerView = require('app/views/ContainerView');
     var WidgetView = require('app/views/WidgetView');
+    var AreaView = require('app/views/AreaView');
 
     return {
         build: function(component, amendmentBroker) {
@@ -21,6 +22,12 @@
 
             if (componentType == 'widget') {
                 return new WidgetView({ model: component,
+                    amendmentBroker: amendmentBroker
+                });
+            }
+
+            if (componentType == 'area') {
+                return new AreaView({ model: component,
                     amendmentBroker: amendmentBroker
                 });
             }

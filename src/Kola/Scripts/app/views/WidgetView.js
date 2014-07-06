@@ -3,7 +3,6 @@
 
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
-    var AreaView = require('app/views/AreaView');
     var Template = require('text!app/templates/WidgetTemplate.html');
 
     return Backbone.View.extend({
@@ -29,19 +28,16 @@
         render: function () {
             var self = this;
 
-
+            var componentViewFactory = require('app/views/ComponentViewFactory');
 
             this.$el.html(this.template());
             this.$el.attr('data-component-path', this.model.get('path'));
 
 
 
-            this.model.get('areas').each(function (area) {
-                var areaView = new AreaView({ model: area,
-                    amendmentBroker: self.amendmentBroker
-                });
-
-                self.$el.append(areaView.render().$el);
+            this.model.get('areas').each(function (component) {
+                var childView = componentViewFactory.build(component, self.amendmentBroker);
+                self.$el.append(childView.render().$el);
             });
 
             return this;

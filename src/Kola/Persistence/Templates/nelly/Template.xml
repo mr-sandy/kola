@@ -28,24 +28,19 @@
             </area>
           </areas>
         </widget>
-        <container name="container-2">
+        <atom name="atom-2">
           <parameters />
-          <components>
-            <atom name="atom-2">
-              <parameters />
-            </atom>
-          </components>
-        </container>
+        </atom>
+      </components>
+    </container>
+    <container name="container-2">
+      <parameters />
+      <components>
         <atom name="atom-2">
           <parameters />
         </atom>
       </components>
     </container>
   </components>
-  <amendments>
-    <moveComponent>
-      <sourcePath>0/1</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-  </amendments>
+  <amendments />
 </template>
