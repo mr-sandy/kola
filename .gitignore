@@ -8,3 +8,4 @@ bin/
 *.ncrunchsolution
 NDependOut/
 */_NCrunch_*
+.sass-cache/
