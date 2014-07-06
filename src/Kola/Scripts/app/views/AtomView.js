@@ -14,8 +14,6 @@
         className: function () { return 'atom' },
 
         initialize: function (options) {
-
-
             this.model.on('active', this.showActive, this);
             this.model.on('inactive', this.showInactive, this);
         },
@@ -26,27 +24,8 @@
         },
 
         render: function () {
-
-
-
-
             this.$el.html(this.template(this.model.toJSON()));
             this.$el.attr('data-component-path', this.model.get('path'));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             return this;
         },

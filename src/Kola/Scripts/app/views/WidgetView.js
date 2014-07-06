@@ -33,20 +33,10 @@
             this.$el.html(this.template(this.model.toJSON()));
             this.$el.attr('data-component-path', this.model.get('path'));
 
-
-
             this.model.get('areas').each(function (component) {
                 var childView = componentViewFactory.build(component, self.amendmentBroker);
                 self.$el.append(childView.render().$el);
             });
-
-
-
-
-
-
-
-
 
             return this;
         },
