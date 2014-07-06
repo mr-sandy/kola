@@ -3,7 +3,7 @@
 
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
-    var Template = require('text!app/templates/WidgetTemplate.html');
+    var Template = require('text!app/templates/ContainerTemplate.html');
 
     return Backbone.View.extend({
 
@@ -11,10 +11,11 @@
 
         tagName: 'li',
 
-        className: 'widget',
+        className: function () { return this.model.get('type'); },
 
         initialize: function (options) {
-            this.amendmentBroker = options.amendmentBroker;
+            this.options = options;
+
             this.model.on('sync', this.render, this);
             this.model.on('active', this.showActive, this);
             this.model.on('inactive', this.showInactive, this);
@@ -28,18 +29,29 @@
         render: function () {
             var self = this;
 
-            var componentViewFactory = require('app/views/ComponentViewFactory');
-
             this.$el.html(this.template(this.model.toJSON()));
             this.$el.attr('data-component-path', this.model.get('path'));
 
+            var $list = this.$('ul').first();
 
+            if (this.options.childAccessor) {
+                var componentViewFactory = require('app/views/ComponentViewFactory');
 
-            this.model.get('areas').each(function (component) {
-                var childView = componentViewFactory.build(component, self.amendmentBroker);
-                self.$el.append(childView.render().$el);
-            });
+                this.model.get(this.options.childAccessor).each(function (component) {
+                    var childView = componentViewFactory.build(component, self.options.amendmentBroker);
+                    $list.append(childView.render().$el);
+                });
+            }
 
+            if (this.options.sortable) {
+                $list.sortable({
+                    opacity: 0.75,
+                    placeholder: 'new',
+                    tolerance: 'pointer',
+                    connectWith: 'ul',
+                    stop: this.options.amendmentBroker.handleStop
+                });
+            }
             return this;
         },
 

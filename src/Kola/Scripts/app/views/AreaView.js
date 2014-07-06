@@ -31,7 +31,7 @@
 
             var componentViewFactory = require('app/views/ComponentViewFactory');
 
-            this.$el.html(this.template());
+            this.$el.html(this.template(this.model.toJSON()));
             this.$el.attr('data-component-path', this.model.get('path'));
 
             var $list = this.$('ul').first();

@@ -5,6 +5,7 @@
     var ContainerView = require('app/views/ContainerView');
     var WidgetView = require('app/views/WidgetView');
     var AreaView = require('app/views/AreaView');
+    var BlockComponentView = require('app/views/BlockComponentView');
 
     return {
         build: function(component, amendmentBroker) {
@@ -15,8 +16,10 @@
             }
 
             if (componentType == 'container') {
-                return new ContainerView({ model: component,
-                    amendmentBroker: amendmentBroker
+                return new BlockComponentView({ model: component,
+                    amendmentBroker: amendmentBroker,
+                    childAccessor: 'components',
+                    sortable: true
                 });
             }
 

@@ -42,5 +42,38 @@
       </components>
     </container>
   </components>
-  <amendments />
+  <amendments>
+    <moveComponent>
+      <sourcePath>0/0/0/0/0</sourcePath>
+      <targetPath>0/0/0/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0/0/1</sourcePath>
+      <targetPath>0/0/0/0</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>atom-2</componentType>
+      <targetPath>0/0/0/0/0</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>0/0/0/0/1</sourcePath>
+      <targetPath>0/0/0/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0/0/1</sourcePath>
+      <targetPath>0/0/0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0/0/1</sourcePath>
+      <targetPath>0/0/0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0/0/1</sourcePath>
+      <targetPath>0/0/0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0/0/1</sourcePath>
+      <targetPath>0/0/0/0</targetPath>
+    </moveComponent>
+  </amendments>
 </template>
