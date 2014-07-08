@@ -1,6 +1,5 @@
 ﻿namespace Kola.Domain.Composition.Amendments
 {
-    using System;
     using System.Collections.Generic;
 
     using Kola.Extensions;
@@ -17,11 +16,11 @@
 
         public IEnumerable<int> SourcePath { get; private set; }
 
-        public IEnumerable<int> SubjectPath
+        public IEnumerable<IEnumerable<int>> SubjectPaths
         {
             // TODO This needs to return an array of paths to handle moves
             // Will need to consolidate to/from paths into a single path when appropriate
-            get { return this.SourcePath.TakeAllButLast().GetOverlap(this.TargetPath.TakeAllButLast()); }
+            get { return this.SourcePath.TakeAllButLast().Consolidate(this.TargetPath.TakeAllButLast()); }
         }
 
         public void Accept(IAmendmentVisitor visitor)

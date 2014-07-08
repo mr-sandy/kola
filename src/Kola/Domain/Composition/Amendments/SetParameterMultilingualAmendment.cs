@@ -20,11 +20,11 @@
 
         public string Value { get; private set; }
 
-        public IEnumerable<int> SubjectPath
+        public IEnumerable<IEnumerable<int>> SubjectPaths
         {
             get
             {
-                return this.ComponentPath;
+                yield return this.ComponentPath;
             }
         }
 

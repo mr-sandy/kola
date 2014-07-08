@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Extensions.EnumerableExtensions
+﻿namespace Unit.Tests.Extensions.EnumerableExtensions.Overlap
 {
     using System.Collections.Generic;
 

@@ -24,7 +24,7 @@
                 Id = index,
                 TargetPath = amendment.TargetPath.ToComponentPathString(),
                 ComponentType = amendment.ComponentName,
-                Links = this.BuildLinks(amendment.SubjectPath, index)
+                Links = this.BuildLinks(amendment.SubjectPaths, index)
             };
         }
 
@@ -35,7 +35,7 @@
                 Id = index,
                 SourcePath = amendment.SourcePath.ToComponentPathString(),
                 TargetPath = amendment.TargetPath.ToComponentPathString(),
-                Links = this.BuildLinks(amendment.SubjectPath, index)
+                Links = this.BuildLinks(amendment.SubjectPaths, index)
             };
         }
 
@@ -45,7 +45,7 @@
             {
                 Id = index,
                 ComponentPath = amendment.ComponentPath.ToComponentPathString(),
-                Links = this.BuildLinks(amendment.SubjectPath, index)
+                Links = this.BuildLinks(amendment.SubjectPaths, index)
             };
         }
 
@@ -64,7 +64,7 @@
             throw new NotImplementedException();
         }
 
-        private IEnumerable<LinkResource> BuildLinks(IEnumerable<int> subjects, int index)
+        private IEnumerable<LinkResource> BuildLinks(IEnumerable<IEnumerable<int>> subjectPaths, int index)
         {
             var path = this.templatePath.Concat(new[] { "_amendments", index.ToString() }).ToHttpPath();
 
@@ -74,7 +74,10 @@
                 Href = path
             };
 
-            yield return new LinkResource { Rel = "subject", Href = subjects    .Select(i => i.ToString()).ToHttpPath() };
+            foreach (var subjectPath in subjectPaths)
+            {
+                yield return new LinkResource { Rel = "subject", Href = subjectPath.ToComponentPathString() };
+            }
 
             //if (isLast)
             //{

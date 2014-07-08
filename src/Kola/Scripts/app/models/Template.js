@@ -21,12 +21,17 @@
             });
         },
 
-        refresh: function (componentUrl) {
-            var componentPath = componentUrl
+        refresh: function (componentUrls) {
+            var self = this;
+
+            _.each(componentUrls, function (componentUrl) {
+
+                var componentPath = componentUrl
                                 ? _.without(componentUrl.split('/'), '')
                                 : [];
 
-            this.findChild(this, componentPath).fetch();
+                self.findChild(self, componentPath).fetch();
+            });
         },
 
         findChild: function (candidate, componentPath) {

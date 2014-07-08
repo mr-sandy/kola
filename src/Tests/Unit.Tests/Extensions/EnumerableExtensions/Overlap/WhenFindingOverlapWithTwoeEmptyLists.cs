@@ -1,7 +1,7 @@
-﻿namespace Unit.Tests.Extensions.EnumerableExtensions
+﻿namespace Unit.Tests.Extensions.EnumerableExtensions.Overlap
 {
-    using System.Collections;
     using System.Collections.Generic;
+    using System.Linq;
 
     using FluentAssertions;
 
@@ -9,15 +9,15 @@
 
     using NUnit.Framework;
 
-    public class WhenFindingOverlapOfNonEmptyLists
+    public class WhenFindingOverlapWithTwoeEmptyLists
     {
         private IEnumerable<int> result;
 
         [SetUp]
         public void EstablishContext()
         {
-            var list1 = new[] { 1, 2, 3, 4, 5 };
-            var list2 = new[] { 1, 2, 3 };
+            var list1 = Enumerable.Empty<int>();
+            var list2 = Enumerable.Empty<int>();
 
             this.result = list1.GetOverlap(list2);
         }
@@ -25,7 +25,7 @@
         [Test]
         public void ShouldReturnCommonElements()
         {
-            this.result.Should().ContainInOrder(new[] { 1, 2, 3 });
+            this.result.Should().BeEmpty();
         }
     }
 }

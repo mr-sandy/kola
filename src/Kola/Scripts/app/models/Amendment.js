@@ -10,9 +10,7 @@
 
             return _.extend(response,
             {
-                //                url: this.getLink(response.links, 'self'),
-                subject: this.getLink(response.links, 'subject')
-                //                undo: this.getLink(response.links, 'undo')
+                subjects: _.chain(response.links).where({ 'rel': 'subject' }).pluck('href').value()
             });
         }
     });

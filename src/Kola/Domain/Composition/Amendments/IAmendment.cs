@@ -4,7 +4,7 @@
 
     public interface IAmendment
     {
-        IEnumerable<int> SubjectPath { get; }
+        IEnumerable<IEnumerable<int>> SubjectPaths { get; }
 
         void Accept(IAmendmentVisitor visitor);
 

@@ -1,6 +1,5 @@
 ﻿namespace Kola.Domain.Composition.Amendments
 {
-    using System;
     using System.Collections.Generic;
 
     using Kola.Extensions;
@@ -17,12 +16,9 @@
 
         public IEnumerable<int> TargetPath { get; internal set; }
 
-        public IEnumerable<int> SubjectPath
+        public IEnumerable<IEnumerable<int>> SubjectPaths
         {
-            get
-            {
-                return this.TargetPath.TakeAllButLast();
-            }
+            get { yield return this.TargetPath.TakeAllButLast(); }
         }
 
         public void Accept(IAmendmentVisitor visitor)

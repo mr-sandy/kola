@@ -19,7 +19,7 @@
             $.when(componentTypes.fetch(), template.fetch()).then(function () {
 
                 template.listenTo(template.amendments, 'sync', function (amendment) {
-                    template.refresh(amendment.get('subject'));
+                    template.refresh(amendment.get('subjects'));
                 });
 
                 d.resolve(new EditTemplateView({

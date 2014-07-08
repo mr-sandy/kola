@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Extensions.EnumerableExtensions
+﻿namespace Unit.Tests.Extensions.EnumerableExtensions.Overlap
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -9,7 +9,7 @@
 
     using NUnit.Framework;
 
-    public class WhenFindingOverlapWithTwoeEmptyLists
+    public class WhenFindingOverlapWithOneEmptyLists
     {
         private IEnumerable<int> result;
 
@@ -17,7 +17,7 @@
         public void EstablishContext()
         {
             var list1 = Enumerable.Empty<int>();
-            var list2 = Enumerable.Empty<int>();
+            var list2 = new[] { 1, 2, 3 };
 
             this.result = list1.GetOverlap(list2);
         }
