@@ -15,6 +15,8 @@
         initialize: function (options) {
             this.listenTo(this.model, 'sync', this.handleSync);
 
+            _.bindAll(this, 'buildChildren');
+
             this.children = [];
         },
 
@@ -29,20 +31,15 @@
         refresh: function (html) {
 
             this.$('iframe').contents().find('html').html(html);
-
             this.buildChildren();
         },
 
         render: function () {
-            var self = this;
             this.$el.html(this.template());
 
             var $iframe = this.$('iframe');
 
-            $iframe.load(function () {
-                self.buildChildren();
-            });
-
+            $iframe.on('load', this.buildChildren);
             $iframe.attr('src', '/_kola/preview/nelly');
 
             return this;

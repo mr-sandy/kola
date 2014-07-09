@@ -1,24 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
-    <atom name="markdown">
-      <parameters>
-        <parameter name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[*Markdown*]]></value>
-        </parameter>
-      </parameters>
-    </atom>
-    <widget name="badger">
+    <atom name="atom-2">
       <parameters />
-      <areas>
-        <area>
-          <components />
-        </area>
-      </areas>
-    </widget>
+    </atom>
     <container name="container-2">
       <parameters />
-      <components />
+      <components>
+        <atom name="markdown">
+          <parameters>
+            <parameter name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[*Markdown*]]></value>
+            </parameter>
+          </parameters>
+        </atom>
+      </components>
     </container>
     <widget name="ferret">
       <parameters />
@@ -39,9 +35,14 @@
         </area>
       </areas>
     </widget>
-    <atom name="atom-2">
+    <widget name="badger">
       <parameters />
-    </atom>
+      <areas>
+        <area>
+          <components />
+        </area>
+      </areas>
+    </widget>
   </components>
   <amendments />
 </template>
