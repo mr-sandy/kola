@@ -13,24 +13,24 @@
         template: Handlebars.compile(Template),
 
         initialize: function (options) {
-            this.model.on('sync', this.refresh, this);
-            _.bindAll(this, 'buildChildren');
+            this.listenTo(this.model, 'sync', this.handleSync);
+
+            this.children = [];
         },
 
-        refresh: function () {
-            var self = this;
-            var url = '/_kola/preview/nelly';
-
-            var $html = $(this.$('iframe').contents()).find('html');
-
+        handleSync: function () {
             $.ajax({
-                url: url,
-                dataType: 'html'
-            }).done(function (data) {
+                url: '/_kola/preview/nelly',
+                dataType: 'html',
+                context: this
+            }).done(this.refresh);
+        },
 
-                $html.html(data)
-                self.buildChildren($html);
-            })
+        refresh: function (html) {
+
+            this.$('iframe').contents().find('html').html(html);
+
+            this.buildChildren();
         },
 
         render: function () {
@@ -40,8 +40,7 @@
             var $iframe = this.$('iframe');
 
             $iframe.load(function () {
-                var $html = $($iframe.contents()).find('html');
-                self.buildChildren($html);
+                self.buildChildren();
             });
 
             $iframe.attr('src', '/_kola/preview/nelly');
@@ -49,16 +48,23 @@
             return this;
         },
 
-        buildChildren: function ($html) {
-            var self = this;
+        buildChildren: function () {
 
-            self.model.get('components').each(function (component) {
-                var $elements = domHelper.findElements($html.contents(), component.get('path'));
+            var $html = this.$('iframe').contents().find('html');
 
-                var wysiwygComponentView = new WysiwygComponentView({ model: component, el: $elements });
+            this.destroyChildren();
 
-                wysiwygComponentView.render();
-            });
+            this.model.get('components').each(function (component) {
+                var $elements = domHelper.findElements($html, component.get('path'));
+                this.children.push(new WysiwygComponentView({ model: component, $html: $elements }));
+            }, this);
+        },
+
+        destroyChildren: function () {
+            var child;
+            while (child = this.children.pop()) {
+                child.destroy();
+            }
         }
     });
 });

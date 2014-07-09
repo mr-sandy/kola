@@ -7,62 +7,79 @@
 
     return Backbone.View.extend({
 
-        initialize: function (options) {
-            this.model.on('sync', this.refresh, this);
-            this.model.on('active', this.showActive, this);
-            this.model.on('inactive', this.showInactive, this);
-
-            this.initialiseMouseEventHandlers();
+        events: {
+            'mouseover': 'activate',
+            'mouseout': 'deactivate'
         },
 
-        render: function () {
-            var self = this;
-            var WysiwygComponentView = require('app/views/WysiwygComponentView');
+        initialize: function (options) {
+            this.listenTo(this.model, 'sync', this.handleSync);
+            this.listenTo(this.model, 'active', this.showActive);
+            this.listenTo(this.model, 'inactive', this.showInactive);
 
-            var children = this.model.get('components') || this.model.get('areas');
+            this.children = [];
 
-            if (children) {
+            this.setElement(domHelper.findDirectlyOwned(options.$html));
+            this.buildChildren(options.$html);
+        },
 
-                children.each(function (component) {
-                    var $elements = domHelper.findElements(self.$el, component.get('path'));
+        handleSync: function () {
+            $.ajax({
+                url: '/_kola/preview/nelly?componentPath=' + this.model.get('path'),
+                dataType: 'html',
+                context: this
+            }).done(this.refresh);
+        },
 
-                    var wysiwygComponentView = new WysiwygComponentView({ model: component, el: $elements });
+        refresh: function (html) {
 
-                    wysiwygComponentView.render();
-                });
+            var $html = $(html);
+            domHelper.replace(this.$el[0], this.$el[this.$el.length - 1], $html);
+
+            this.setElement(domHelper.findDirectlyOwned($html));
+            this.buildChildren($html)
+        },
+
+        buildChildren: function ($html) {
+
+            this.destroyChildren();
+
+            var childComponents = this.model.get('components') || this.model.get('areas');
+
+            if (childComponents) {
+
+                var WysiwygComponentView = require('app/views/WysiwygComponentView');
+
+                childComponents.each(function (component) {
+                    var $elements = domHelper.findElements($html, component.get('path'));
+                    this.children.push(new WysiwygComponentView({ model: component, $html: $elements }));
+                }, this);
             }
         },
 
-        initialiseMouseEventHandlers: function () {
-            var self = this;
-            var ownedElements = $(domHelper.findDirectlyOwned(this.$el));
-
-            ownedElements.on('mouseover', function (e) {
-                e.stopPropagation();
-                self.model.trigger('active');
-            });
-
-            ownedElements.on('mouseout', function (e) {
-                e.stopPropagation();
-                self.model.trigger('inactive');
-            });
+        destroyChildren: function () {
+            var child;
+            while (child = this.children.pop()) {
+                child.destroy();
+            }
         },
 
-        refresh: function () {
-            var self = this;
-            var url = '/_kola/preview/nelly?componentPath=' + this.model.get('path');
+        destroy: function () {
+            // don't do a backbone .remove, because that also removes the dom elements 
+            // we'll remove the dom elements ourselves once we've inserted the replacements nodes
+            this.destroyChildren();
+            this.stopListening();
+            this.setElement(null);
+        },
 
-            $.ajax({
-                url: url,
-                dataType: 'html'
-            }).done(function (data) {
+        activate: function (e) {
+            e.stopPropagation();
+            this.model.trigger('active');
+        },
 
-                self.setElement(domHelper.replace(self.$el, data));
-
-                self.initialiseMouseEventHandlers();
-
-                self.render();
-            })
+        deactivate: function (e) {
+            e.stopPropagation();
+            this.model.trigger('inactive');
         },
 
         showActive: function () {

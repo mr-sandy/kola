@@ -40,6 +40,8 @@
             var depth = 0;
             var selected = [];
 
+            selected.push(nodes[0]);
+
             for (var i = 1; i < nodes.length - 1; i++) {
                 var node = nodes[i];
 
@@ -56,26 +58,40 @@
                 }
             }
 
+            selected.push(nodes[nodes.length - 1]);
+
             return selected;
         },
 
-        replace: function ($el, data) {
+        replace: function (fromNode, toNode, newNodes) {
 
-            var firstOldNode = $el[0];
-            var parentNode = $el[0].parentNode;
-            var $data = $(data);
+            var parentNode = fromNode.parentNode;
 
             //prepend the current selection with the new nodes
-            for (var i = 0; i < $data.length; i++) {
+            for (var i = 0; i < newNodes.length; i++) {
                 //Insert into the dom
-                parentNode.insertBefore($data[i], firstOldNode);
+                parentNode.insertBefore(newNodes[i], fromNode);
             }
 
-            //remove the old nodes
-            $el.remove();
+            //remove all the nodes between the old first and last nodes
+            var oldNodes = this.findBetween(fromNode, toNode);
+            $(oldNodes).remove();
+        },
 
-            //return the new nodes
-            return $data;
+        findBetween: function (firstNode, lastNode) {
+
+            var nodes = [firstNode];
+            var node = firstNode;
+
+            while (node = node.nextSibling) {
+                nodes.push(node);
+
+                if (node.isEqualNode(lastNode)) {
+                    break;
+                }
+            }
+
+            return nodes;
         }
     };
 });
