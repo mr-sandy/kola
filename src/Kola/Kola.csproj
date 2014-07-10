@@ -350,6 +350,9 @@
     <EmbeddedResource Include="Scripts\app\templates\EditTemplateTemplate.html" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Scripts\app\models\Mask.js" />
+    <EmbeddedResource Include="Scripts\app\templates\MaskTemplate.html" />
+    <EmbeddedResource Include="Scripts\app\views\MaskView.js" />
     <EmbeddedResource Include="Scripts\app\views\DomHelper.js" />
     <EmbeddedResource Include="Scripts\app\views\WysiwygComponentView.js" />
     <EmbeddedResource Include="Scripts\app\views\AmendmentBroker.js" />

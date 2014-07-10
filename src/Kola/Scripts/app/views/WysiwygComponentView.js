@@ -15,7 +15,8 @@
         initialize: function (options) {
             this.listenTo(this.model, 'sync', this.handleSync);
             this.listenTo(this.model, 'active', this.showActive);
-            this.listenTo(this.model, 'inactive', this.showInactive);
+
+            this.mask = options.mask;
 
             this.children = [];
 
@@ -52,7 +53,7 @@
 
                 childComponents.each(function (component) {
                     var $elements = domHelper.findElements($html, component.get('path'));
-                    this.children.push(new WysiwygComponentView({ model: component, $html: $elements }));
+                    this.children.push(new WysiwygComponentView({ model: component, $html: $elements, mask: this.mask }));
                 }, this);
             }
         },
@@ -82,12 +83,44 @@
             this.model.trigger('inactive');
         },
 
-        showActive: function () {
-            this.$el.css({ "background-color": "#ccc" });
+        stretchCoords: function (coords) {
+
+            coords = coords || { top: null, bottom: null, left: null, right: null };
+
+            _.each(this.$el, function (node) {
+                if (node.nodeType == 1) {
+                    var $node = $(node);
+                    var offset = $node.offset();
+
+                    if (offset.top < coords.top || coords.top == null) {
+                        coords.top = offset.top;
+                    }
+
+                    if (offset.left < coords.left || coords.left == null) {
+                        coords.left = offset.left;
+                    }
+
+                    var bottom = offset.top + $node.outerHeight();
+                    if (bottom > coords.bottom || coords.bottom == null) {
+                        coords.bottom = bottom;
+                    }
+
+                    var right = offset.left + $node.outerWidth();
+                    if (right > coords.right || coords.right == null) {
+                        coords.right = right;
+                    }
+                }
+            });
+
+            _.each(this.children, function (child) {
+                child.stretchCoords(coords);
+            });
+
+            return coords;
         },
 
-        showInactive: function () {
-            this.$el.css({ "background-color": "transparent" });
+        showActive: function () {
+            this.mask.set(this.stretchCoords());
         }
     });
 });
