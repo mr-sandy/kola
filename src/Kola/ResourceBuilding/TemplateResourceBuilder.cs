@@ -24,6 +24,11 @@
                                     },
                                 new LinkResource
                                     {
+                                        Rel = "preview",
+                                        Href = new[] { "_kola", "preview" }.Concat(template.Path).ToHttpPath()
+                                    },
+                                new LinkResource
+                                    {
                                         Rel = "amendments",
                                         Href = new[] { "_kola", "templates" }.Concat(template.Path).Append("_amendments").ToHttpPath()
                                     }

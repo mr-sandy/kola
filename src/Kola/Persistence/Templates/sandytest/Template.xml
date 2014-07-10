@@ -30,5 +30,21 @@
       <componentType>atom-1</componentType>
       <targetPath>0</targetPath>
     </addComponent>
+    <addComponent>
+      <componentType>container-2</componentType>
+      <targetPath>1</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>2</sourcePath>
+      <targetPath>1/0</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>container-1</componentType>
+      <targetPath>1/0/1</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>1/0/1</sourcePath>
+      <targetPath>1/0</targetPath>
+    </moveComponent>
   </amendments>
 </template>

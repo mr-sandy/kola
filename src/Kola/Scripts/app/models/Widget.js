@@ -9,6 +9,7 @@
         parse: function (response) {
 
             this.url = this.getLink(response.links, 'self');
+            this.previewUrl = this.getLink(response.links, 'preview');
 
             var Areas = require('app/collections/Areas');
 

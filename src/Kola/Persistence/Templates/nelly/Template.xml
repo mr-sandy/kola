@@ -81,5 +81,14 @@
       </components>
     </container>
   </components>
-  <amendments />
+  <amendments>
+    <moveComponent>
+      <sourcePath>1/0</sourcePath>
+      <targetPath>0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/0</sourcePath>
+      <targetPath>0/0</targetPath>
+    </moveComponent>
+  </amendments>
 </template>

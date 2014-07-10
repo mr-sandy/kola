@@ -27,7 +27,7 @@
 
         handleSync: function () {
             $.ajax({
-                url: '/_kola/preview/nelly',
+                url: this.model.previewUrl,
                 dataType: 'html',
                 context: this
             }).done(this.refresh);
@@ -45,7 +45,7 @@
             var $iframe = this.$('iframe');
 
             $iframe.on('load', this.buildChildren);
-            $iframe.attr('src', '/_kola/preview/nelly');
+            $iframe.attr('src', this.model.previewUrl);
 
             return this;
         },

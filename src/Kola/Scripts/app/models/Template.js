@@ -13,6 +13,8 @@
         },
 
         parse: function (response) {
+            this.previewUrl = this.getLink(response.links, 'preview');
+
             var Components = require('app/collections/Components');
 
             return _.extend(response,

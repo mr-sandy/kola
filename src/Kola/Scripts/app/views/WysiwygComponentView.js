@@ -26,7 +26,7 @@
 
         handleSync: function () {
             $.ajax({
-                url: '/_kola/preview/nelly?componentPath=' + this.model.get('path'),
+                url: this.model.previewUrl,
                 dataType: 'html',
                 context: this
             }).done(this.refresh);

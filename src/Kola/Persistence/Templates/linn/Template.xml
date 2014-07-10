@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+  <components>
+    <container name="background">
+      <parameters>
+        <parameter name="backgroundImage" type="backgroundImage">
+          <value xsi:type="fixed"><![CDATA[fireplace]]></value>
+        </parameter>
+        <parameter name="vPadding" type="v-padding">
+          <value xsi:type="fixed"><![CDATA[top-2 bottom]]></value>
+        </parameter>
+        <parameter name="lazyLoad" type="bool">
+          <value xsi:type="fixed"><![CDATA[false]]></value>
+        </parameter>
+      </parameters>
+      <components>
+        <container name="new-page">
+          <parameters />
+          <components>
+            <container name="panel">
+              <parameters>
+                <parameter name="hPadding" type="hPadding">
+                  <value xsi:type="fixed"><![CDATA[both]]></value>
+                </parameter>
+                <parameter name="vPadding" type="vPadding">
+                  <value xsi:type="fixed"><![CDATA[both]]></value>
+                </parameter>
+                <parameter name="width" type="width">
+                  <value xsi:type="fixed"><![CDATA[16]]></value>
+                </parameter>
+                <parameter name="marginal" type="marginal">
+                  <value xsi:type="fixed"><![CDATA[both]]></value>
+                </parameter>
+                <parameter name="backgroundColour" type="colour">
+                  <value xsi:type="fixed"><![CDATA[white]]></value>
+                </parameter>
+                <parameter name="baseline" type="bool">
+                  <value xsi:type="fixed"><![CDATA[true]]></value>
+                </parameter>
+              </parameters>
+              <components>
+                <atom name="markdown">
+                  <parameters>
+                    <parameter name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[##Travelling to Linn##
+                      ]]></value>
+                    </parameter>
+                  </parameters>
+                </atom>
+                <container name="panel">
+                  <parameters>
+                    <parameter name="width" type="width">
+                      <value xsi:type="fixed"><![CDATA[6]]></value>
+                    </parameter>
+                    <parameter name="alignment" type="alignment">
+                      <value xsi:type="fixed"><![CDATA[left]]></value>
+                    </parameter>
+                  </parameters>
+                  <components>
+                    <atom name="markdown">
+                      <parameters>
+                        <parameter name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[Linn Products is situated in its own private estate approximately 7 miles south of Glasgow. The estate is surrounded by a stone wall and the factory is set in a wood. This makes it difficult to spot us from the road but all the locals are used to being asked for directions! 
+
+The full postal address for Linn HQ in Scotland is:
+
+Linn Products Ltd<br/>
+Glasgow Road<br/>
+Waterfoot<br/>
+Glasgow<br/>
+G76 0EQ
+
+*Please note there is no access to the factory from Floors Road.*
+                          ]]></value>
+                        </parameter>
+                      </parameters>
+                    </atom>
+                  </components>
+                </container>
+                <container name="panel">
+                  <parameters>
+                    <parameter name="width" type="width">
+                      <value xsi:type="fixed"><![CDATA[10]]></value>
+                    </parameter>
+                    <parameter name="alignment" type="alignment">
+                      <value xsi:type="fixed"><![CDATA[right]]></value>
+                    </parameter>
+                  </parameters>
+                  <components>
+                    <atom name="markdown">
+                      <parameters>
+                        <parameter name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[<iframe width="580" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.uk/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Linn+Products&amp;aq=&amp;sll=55.756542,-4.28873&amp;sspn=0.010372,0.027874&amp;g=g76+0eq&amp;ie=UTF8&amp;t=m&amp;cid=10947579545138871175&amp;hq=Linn+Products&amp;hnear=&amp;ll=55.818259,-4.288788&amp;spn=0.154308,0.397568&amp;z=11&amp;output=embed"></iframe><br /><small><a target="_blank" href="https://maps.google.co.uk/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Linn+Products&amp;aq=&amp;sll=55.756542,-4.28873&amp;sspn=0.010372,0.027874&amp;g=g76+0eq&amp;ie=UTF8&amp;t=m&amp;cid=10947579545138871175&amp;hq=Linn+Products&amp;hnear=&amp;ll=55.818259,-4.288788&amp;spn=0.154308,0.397568&amp;z=11" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+                          ]]></value>
+                        </parameter>
+                      </parameters>
+                    </atom>
+                  </components>
+                </container>
+              </components>
+            </container>
+          </components>
+        </container>
+      </components>
+    </container>
+  </components>
+  <amendments />
+</template>
