@@ -36,18 +36,18 @@
         },
 
         activate: function (e) {
-            this.model.trigger('active');
             e.stopPropagation();
+            this.model.trigger('active');
         },
 
         deactivate: function (e) {
-            this.model.trigger('inactive');
             e.stopPropagation();
+            this.model.trigger('inactive');
         },
 
         select: function (e) {
-            this.stateBroker.select(this.model);
             e.stopPropagation();
+            this.stateBroker.select(this.model);
         },
 
         showActive: function () {

@@ -54,13 +54,13 @@
         },
 
         activate: function (e) {
-            this.model.trigger('active');
             e.stopPropagation();
+            this.model.trigger('active');
         },
 
         deactivate: function (e) {
-            this.model.trigger('inactive');
             e.stopPropagation();
+            this.model.trigger('inactive');
         },
 
         showActive: function () {
