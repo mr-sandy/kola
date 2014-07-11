@@ -27,7 +27,7 @@
 
             var component = MockRepository.GenerateStub<IParameterisedComponent>();
             var componentSpecification =
-                MockRepository.GenerateStub<IParameterisedComponentSpecification<IParameterisedComponent>>();
+                MockRepository.GenerateStub<IComponentSpecification<IParameterisedComponent>>();
 
             componentSpecification.Stub(s => s.Create()).Return(component);
             this.TemplateRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(this.template);

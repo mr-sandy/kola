@@ -10,7 +10,7 @@
 
     internal class ComponentTypeResourceBuilder
     {
-        public ComponentTypeResource Build(IParameterisedComponentSpecification<IParameterisedComponent> component)
+        public ComponentTypeResource Build(IComponentSpecification<IParameterisedComponent> component)
         {
             return new ComponentTypeResource
                 {
@@ -22,7 +22,7 @@
                 };
         }
 
-        public IEnumerable<ComponentTypeResource> Build(IEnumerable<IParameterisedComponentSpecification<IParameterisedComponent>> components)
+        public IEnumerable<ComponentTypeResource> Build(IEnumerable<IComponentSpecification<IParameterisedComponent>> components)
         {
             return components.Select(this.Build);
         }

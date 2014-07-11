@@ -10,6 +10,6 @@
 
         IEnumerable<Parameter> Parameters { get; }
 
-        Parameter AddParameter(string parameterName, IParameterisedComponentSpecification<IParameterisedComponent> specification);
+        Parameter AddParameter(string parameterName, IComponentSpecification<IParameterisedComponent> specification);
     }
 }

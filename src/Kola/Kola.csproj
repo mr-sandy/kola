@@ -99,7 +99,7 @@
     <Compile Include="Domain\Rendering\PageHandler.cs" />
     <Compile Include="Domain\Rendering\MultiRenderer.cs" />
     <Compile Include="Domain\Rendering\Result.cs" />
-    <Compile Include="Domain\Specifications\ParameterisedComponentSpecification.cs" />
+    <Compile Include="Domain\Specifications\ComponentSpecification.cs" />
     <Compile Include="Domain\Composition\Amendments\SetParameterFixedAmendment.cs" />
     <Compile Include="Domain\Composition\Area.cs" />
     <Compile Include="Domain\Composition\IParameterisedComponent.cs" />
@@ -148,7 +148,7 @@
     <Compile Include="ResourceBuilding\ResourceBuildingComponentVisitor.cs" />
     <Compile Include="ResourceBuilding\ResourceBuildingParameterValueVisitor.cs" />
     <Compile Include="ResourceBuilding\TemplateResourceBuilder.cs" />
-    <Compile Include="Nancy\ComponentLibrary.cs" />
+    <Compile Include="Nancy\ComponentSpecificationLibrary.cs" />
     <Compile Include="Domain\Composition\Container.cs" />
     <Compile Include="Domain\Extensions\ComponentCollectionExtensions.cs" />
     <Compile Include="Domain\Composition\Amendments\IAmendment.cs" />
@@ -156,7 +156,7 @@
     <Compile Include="Domain\Composition\IComponent.cs" />
     <Compile Include="Domain\Composition\IComponentCollection.cs" />
     <Compile Include="Domain\Composition\IComponentSpecificationLibrary.cs" />
-    <Compile Include="Domain\Specifications\IParameterisedComponentSpecification.cs" />
+    <Compile Include="Domain\Specifications\IComponentSpecification.cs" />
     <Compile Include="Domain\Composition\IComponentVisitor.cs" />
     <Compile Include="Domain\Composition\Template.cs" />
     <Compile Include="KolaException.cs" />

@@ -4,7 +4,7 @@
 
     using Kola.Domain.Composition;
 
-    public abstract class PluginComponentSpecification<T> : ParameterisedComponentSpecification<T>, IPluginComponentSpecification<T>
+    public abstract class PluginComponentSpecification<T> : ComponentSpecification<T>, IPluginComponentSpecification<T>
         where T : IParameterisedComponent
     {
         protected PluginComponentSpecification(string name)

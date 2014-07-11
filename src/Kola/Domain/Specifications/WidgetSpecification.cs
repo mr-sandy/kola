@@ -6,7 +6,7 @@
     using Kola.Domain.Composition;
     using Kola.Domain.Extensions;
 
-    public class WidgetSpecification : ParameterisedComponentSpecification<Widget>, IComponentCollection
+    public class WidgetSpecification : ComponentSpecification<Widget>, IComponentCollection
     {
         private readonly List<IComponent> components = new List<IComponent>();
 

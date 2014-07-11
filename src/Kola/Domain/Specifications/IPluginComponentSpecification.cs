@@ -4,7 +4,7 @@
 
     using Kola.Domain.Composition;
 
-    public interface IPluginComponentSpecification<out T> : IParameterisedComponentSpecification<T>
+    public interface IPluginComponentSpecification<out T> : IComponentSpecification<T>
         where T : IParameterisedComponent
     {
         Type RendererType { get; set; }

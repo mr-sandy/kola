@@ -4,7 +4,7 @@
 
     using Kola.Domain.Composition;
 
-    public interface IParameterisedComponentSpecification<out T> 
+    public interface IComponentSpecification<out T> 
         where T : IParameterisedComponent
     {
         string Name { get; }

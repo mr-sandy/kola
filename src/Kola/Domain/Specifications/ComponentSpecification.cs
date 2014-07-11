@@ -4,12 +4,12 @@
 
     using Kola.Domain.Composition;
 
-    public abstract class ParameterisedComponentSpecification<T> : IParameterisedComponentSpecification<T>
+    public abstract class ComponentSpecification<T> : IComponentSpecification<T>
         where T : IParameterisedComponent
     {
         private readonly List<ParameterSpecification> parameters = new List<ParameterSpecification>();
 
-        protected ParameterisedComponentSpecification(string name, IEnumerable<ParameterSpecification> parameters = null)
+        protected ComponentSpecification(string name, IEnumerable<ParameterSpecification> parameters = null)
         {
             this.Name = name;
 

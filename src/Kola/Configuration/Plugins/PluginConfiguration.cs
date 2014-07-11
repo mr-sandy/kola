@@ -3,9 +3,8 @@
     using System.Collections.Generic;
 
     using Kola.Configuration.Fluent;
-    using Kola.Domain;
-    using Kola.Domain.Specifications;
     using Kola.Domain.Composition;
+    using Kola.Domain.Specifications;
 
     public abstract class PluginConfiguration
     {
