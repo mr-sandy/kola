@@ -4,9 +4,9 @@
 
     internal class TestViewFactory : ITestViewFactory
     {
-        private readonly Renderer renderer;
+        private readonly MultiRenderer renderer;
 
-        public TestViewFactory(Renderer renderer)
+        public TestViewFactory(MultiRenderer renderer)
         {
             this.renderer = renderer;
         }

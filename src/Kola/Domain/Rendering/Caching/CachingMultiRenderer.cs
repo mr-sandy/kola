@@ -6,12 +6,12 @@
     using Kola.Domain.Instances;
     using Kola.Domain.Rendering;
 
-    public class CachingRenderer : IRenderer
+    public class CachingMultiRenderer : IMultiRenderer
     {
-        private readonly IRenderer inner;
+        private readonly IMultiRenderer inner;
         private readonly ICacheManager cacheManager;
 
-        public CachingRenderer(IRenderer inner, ICacheManager cacheManager)
+        public CachingMultiRenderer(IMultiRenderer inner, ICacheManager cacheManager)
         {
             this.inner = inner;
             this.cacheManager = cacheManager;

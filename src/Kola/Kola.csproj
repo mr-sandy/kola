@@ -81,13 +81,14 @@
     <Compile Include="Domain\Instances\IComponentInstanceVisitor.cs" />
     <Compile Include="Domain\Instances\PlaceholderInstance.cs" />
     <Compile Include="Domain\Rendering\AnnotatedResult.cs" />
-    <Compile Include="Domain\Rendering\Caching\CachingRenderer.cs" />
+    <Compile Include="Domain\Rendering\Caching\CachingMultiRenderer.cs" />
     <Compile Include="Domain\Rendering\Caching\CachingResult.cs" />
     <Compile Include="Domain\Rendering\Caching\ICacheManager.cs" />
     <Compile Include="Domain\Rendering\CompositeResult.cs" />
     <Compile Include="Domain\Rendering\DefaultRenderer.cs" />
     <Compile Include="Domain\Rendering\EmptyResult.cs" />
-    <Compile Include="Domain\Rendering\PathAnnotatingRenderer.cs" />
+    <Compile Include="Domain\Rendering\IMultiRenderer.cs" />
+    <Compile Include="Domain\Rendering\PathAnnotatingMultiRenderer.cs" />
     <Compile Include="Domain\Rendering\RendererFactory.cs" />
     <Compile Include="Domain\Rendering\IRendererFactory.cs" />
     <Compile Include="Domain\Rendering\IObjectFactory.cs" />
@@ -96,7 +97,7 @@
     <Compile Include="Domain\Rendering\IResult.cs" />
     <Compile Include="Domain\Rendering\IViewHelper.cs" />
     <Compile Include="Domain\Rendering\PageHandler.cs" />
-    <Compile Include="Domain\Rendering\Renderer.cs" />
+    <Compile Include="Domain\Rendering\MultiRenderer.cs" />
     <Compile Include="Domain\Rendering\Result.cs" />
     <Compile Include="Domain\Specifications\ParameterisedComponentSpecification.cs" />
     <Compile Include="Domain\Composition\Amendments\SetParameterFixedAmendment.cs" />

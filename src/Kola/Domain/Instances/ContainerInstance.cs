@@ -25,7 +25,7 @@
             return visitor.Visit(this, context);
         }
 
-        public override IResult Render(IRenderer renderer)
+        public override IResult Render(IMultiRenderer renderer)
         {
             return renderer.Render(this);
         }

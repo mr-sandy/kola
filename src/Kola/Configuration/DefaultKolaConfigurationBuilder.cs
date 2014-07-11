@@ -23,12 +23,12 @@
             return this.pluginFinder.FindPlugins();
         }
 
-        protected override IRenderer BuildRenderer(Dictionary<string, Type> rendererMappings)
+        protected override IMultiRenderer BuildRenderer(Dictionary<string, Type> rendererMappings)
         {
             var rendererFactory = new RendererFactory(rendererMappings, this.objectFactory);
 
             //TODO Should only annotate paths on previews, not normal page renders
-            return new PathAnnotatingRenderer(new Renderer(rendererFactory));
+            return new PathAnnotatingMultiRenderer(new MultiRenderer(rendererFactory));
         }
     }
 }

@@ -7,11 +7,11 @@
     using Kola.Nancy;
 
     // TODO the references to the NancyKolaConfigurationRegistry seem a bit stinky
-    public class Renderer : IRenderer
+    public class MultiRenderer : IMultiRenderer
     {
         private readonly IRendererFactory rendererFactory;
 
-        public Renderer(IRendererFactory rendererFactory)
+        public MultiRenderer(IRendererFactory rendererFactory)
         {
             this.rendererFactory = rendererFactory;
         }

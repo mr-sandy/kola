@@ -7,11 +7,11 @@
 
     internal class TestContainerView : TestView
     {
-        private readonly Renderer renderer;
+        private readonly MultiRenderer renderer;
         private readonly string openingHtml;
         private readonly string closingHtml;
 
-        public TestContainerView(Renderer renderer, string openingHtml, string closingHtml)
+        public TestContainerView(MultiRenderer renderer, string openingHtml, string closingHtml)
         {
             this.renderer = renderer;
             this.openingHtml = openingHtml;

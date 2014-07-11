@@ -4,11 +4,11 @@
 
     using Kola.Domain.Instances;
 
-    public class PathAnnotatingRenderer : IRenderer
+    public class PathAnnotatingMultiRenderer : IMultiRenderer
     {
-        private readonly IRenderer inner;
+        private readonly IMultiRenderer inner;
 
-        public PathAnnotatingRenderer(IRenderer inner)
+        public PathAnnotatingMultiRenderer(IMultiRenderer inner)
         {
             this.inner = inner;
         }

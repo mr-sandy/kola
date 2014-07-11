@@ -24,6 +24,6 @@
 
         protected abstract IEnumerable<PluginConfiguration> FindPlugins();
 
-        protected abstract IRenderer BuildRenderer(Dictionary<string, Type> rendererMappings);
+        protected abstract IMultiRenderer BuildRenderer(Dictionary<string, Type> rendererMappings);
     }
 }

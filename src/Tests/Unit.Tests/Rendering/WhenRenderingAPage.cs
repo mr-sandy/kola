@@ -27,7 +27,7 @@
             handlerFactory.Stub(h => h.GetAtomRenderer(Arg<string>.Is.Anything)).Return(new DefaultRenderer());
             handlerFactory.Stub(h => h.GetContainerRenderer(Arg<string>.Is.Anything)).Return(new DefaultRenderer());
 
-            var renderer = new Renderer(handlerFactory);
+            var renderer = new MultiRenderer(handlerFactory);
 
             NancyKolaConfigurationRegistry.Instance = new KolaConfiguration(renderer, Enumerable.Empty<PluginConfiguration>());
 

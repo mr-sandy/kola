@@ -7,15 +7,21 @@
         <atom name="atom-1">
           <parameters />
         </atom>
+        <atom name="button">
+          <parameters />
+        </atom>
+        <atom name="atom-2">
+          <parameters />
+        </atom>
+        <atom name="atom-1">
+          <parameters />
+        </atom>
       </components>
     </container>
     <container name="container-1">
       <parameters />
       <components>
-        <atom name="atom-2">
-          <parameters />
-        </atom>
-        <atom name="atom-1">
+        <atom name="button">
           <parameters />
         </atom>
         <widget name="ferret">
@@ -81,14 +87,5 @@
       </components>
     </container>
   </components>
-  <amendments>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>0/0</targetPath>
-    </moveComponent>
-  </amendments>
+  <amendments />
 </template>
