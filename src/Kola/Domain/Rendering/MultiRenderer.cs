@@ -6,7 +6,7 @@
     using Kola.Domain.Instances;
     using Kola.Nancy;
 
-    // TODO the references to the NancyKolaConfigurationRegistry seem a bit stinky
+    // TODO the references to the NancyKolaConfigurationRegistry seems a bit stinky
     public class MultiRenderer : IMultiRenderer
     {
         private readonly IRendererFactory rendererFactory;

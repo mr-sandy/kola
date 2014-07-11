@@ -15,14 +15,19 @@
 
         initialize: function (options) {
             this.amendmentBroker = options.amendmentBroker;
+            this.stateBroker = options.stateBroker;
+
             this.model.on('sync', this.render, this);
             this.model.on('active', this.showActive, this);
             this.model.on('inactive', this.showInactive, this);
+            this.model.on('selected', this.showSelected, this);
+            this.model.on('deselected', this.showDeselected, this);
         },
 
         events: {
             "mouseover": "activate",
-            "mouseout": "deactivate"
+            "mouseout": "deactivate",
+            "click": "select"
         },
 
         render: function () {
@@ -36,7 +41,7 @@
             var $list = this.$('ul').first();
 
             this.model.get('components').each(function (component) {
-                var childView = componentViewFactory.build(component, self.amendmentBroker);
+                var childView = componentViewFactory.build(component, self.amendmentBroker, self.stateBroker);
                 $list.append(childView.render().$el);
             });
 
@@ -61,12 +66,25 @@
             e.stopPropagation();
         },
 
+        select: function (e) {
+            this.stateBroker.select(this.model);
+            e.stopPropagation();
+        },
+
         showActive: function () {
             this.$el.addClass('active');
         },
 
         showInactive: function () {
             this.$el.removeClass('active');
+        },
+
+        showSelected: function () {
+            this.$el.addClass('selected');
+        },
+
+        showDeselected: function () {
+            this.$el.removeClass('selected');
         }
     });
 });

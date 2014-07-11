@@ -7,13 +7,13 @@
         <atom name="atom-1">
           <parameters />
         </atom>
+        <atom name="atom-1">
+          <parameters />
+        </atom>
         <atom name="button">
           <parameters />
         </atom>
         <atom name="atom-2">
-          <parameters />
-        </atom>
-        <atom name="atom-1">
           <parameters />
         </atom>
       </components>
@@ -89,16 +89,24 @@
   </components>
   <amendments>
     <moveComponent>
-      <sourcePath>0/1</sourcePath>
+      <sourcePath>0/2</sourcePath>
       <targetPath>0/0</targetPath>
     </moveComponent>
     <moveComponent>
       <sourcePath>0/0</sourcePath>
-      <targetPath>0</targetPath>
+      <targetPath>0/1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>1/0</targetPath>
+      <sourcePath>0/2</sourcePath>
+      <targetPath>0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/3</sourcePath>
+      <targetPath>0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1</sourcePath>
+      <targetPath>0/0</targetPath>
     </moveComponent>
     <moveComponent>
       <sourcePath>0/0</sourcePath>
@@ -106,11 +114,23 @@
     </moveComponent>
     <moveComponent>
       <sourcePath>0/1</sourcePath>
-      <targetPath>0/2</targetPath>
+      <targetPath>0/1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/2</sourcePath>
-      <targetPath>0/0</targetPath>
+      <sourcePath>1/3/0/0</sourcePath>
+      <targetPath>1/3/0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/3/0/0</sourcePath>
+      <targetPath>1/3/0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/3/0/0/0</sourcePath>
+      <targetPath>1/3/0/0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/3/0/0</sourcePath>
+      <targetPath>1/3/0/0</targetPath>
     </moveComponent>
   </amendments>
 </template>

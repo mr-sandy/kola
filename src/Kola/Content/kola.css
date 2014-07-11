@@ -108,16 +108,26 @@ div, ul, li {
   padding: 5px 15px; }
 #block-editor .atom {
   background-color: #d37660; }
+  #block-editor .atom.selected {
+    background-color: #feb09d; }
 #block-editor .container {
   background-color: #71b68d; }
   #block-editor .container > .chrome {
     border-bottom: 2px #557 solid;
     background-color: #459867; }
+  #block-editor .container.selected {
+    background-color: #ccead8; }
+  #block-editor .container.selected > .chrome {
+    background-color: #71b68d; }
 #block-editor .widget {
   background-color: #fecf9d; }
   #block-editor .widget > .chrome {
     border-bottom: 2px #557 solid;
     background-color: #d39b60; }
+  #block-editor .widget.selected {
+    background-color: #ffefdf; }
+  #block-editor .widget.selected > .chrome {
+    background-color: #fecf9d; }
 
 iframe {
   width: 100%;

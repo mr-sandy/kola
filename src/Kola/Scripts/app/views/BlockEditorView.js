@@ -11,6 +11,7 @@
 
         initialize: function (options) {
             this.amendmentBroker = options.amendmentBroker;
+            this.stateBroker = options.stateBroker;
             this.model.on('sync', this.render, this);
         },
 
@@ -25,7 +26,7 @@
             var $list = this.$('ul').first();
 
             this.model.get('components').each(function (component) {
-                var childView = componentViewFactory.build(component, self.amendmentBroker);
+                var childView = componentViewFactory.build(component, self.amendmentBroker, self.stateBroker);
                 $list.append(childView.render().$el);
             });
 
