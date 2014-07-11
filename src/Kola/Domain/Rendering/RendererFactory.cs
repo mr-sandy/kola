@@ -2,40 +2,42 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
+    using Kola.Domain.Composition;
     using Kola.Domain.Instances;
+    using Kola.Domain.Specifications;
 
     public class RendererFactory : IRendererFactory
     {
-        private readonly IDictionary<string, Type> rendererMappings;
+        private readonly IEnumerable<IPluginComponentSpecification<IParameterisedComponent>> componentSpecifications;
         private readonly IObjectFactory objectFactory;
 
-        public RendererFactory(IDictionary<string, Type> rendererMappings, IObjectFactory objectFactory)
+        public RendererFactory(IEnumerable<IPluginComponentSpecification<IParameterisedComponent>> componentSpecifications, IObjectFactory objectFactory)
         {
-            this.rendererMappings = rendererMappings;
+            this.componentSpecifications = componentSpecifications;
             this.objectFactory = objectFactory;
         }
 
         public IRenderer<AtomInstance> GetAtomRenderer(string atomName)
         {
-            if (this.rendererMappings.ContainsKey(atomName))
-            {
-                var rendererType = this.rendererMappings[atomName];
-                return this.objectFactory.Resolve<IRenderer<AtomInstance>>(rendererType);
-            }
-
-            throw new Exception("No renderer found for component '" + atomName + "'");
+            return this.GetRenderer<AtomInstance>(atomName);
         }
 
         public IRenderer<ContainerInstance> GetContainerRenderer(string containerName)
         {
-            if (this.rendererMappings.ContainsKey(containerName))
+            return this.GetRenderer<ContainerInstance>(containerName);
+        }
+
+        private IRenderer<T> GetRenderer<T>(string componentName)
+        {
+            var specification = this.componentSpecifications.FirstOrDefault(s => s.Name == componentName);
+            if (specification != null)
             {
-                var rendererType = this.rendererMappings[containerName];
-                return this.objectFactory.Resolve<IRenderer<ContainerInstance>>(rendererType);
+                return this.objectFactory.Resolve<IRenderer<T>>(specification.RendererType);
             }
 
-            throw new Exception("No renderer found for component '" + containerName + "'");
+            throw new Exception("No renderer found for component '" + componentName + "'");
         }
     }
 }

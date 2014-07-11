@@ -23,7 +23,7 @@
         public IEnumerable<IComponentSpecification<IParameterisedComponent>> FindAll()
         {
             IEnumerable<IComponentSpecification<IParameterisedComponent>> pluggedInComponents = this.registry.KolaConfiguration.Plugins
-                .SelectMany(plugin => plugin.Components);
+                .SelectMany(plugin => plugin.ComponentSpecifications);
 
             var widgets = this.widgetRepository.FindAll();
 
@@ -33,7 +33,7 @@
         public IComponentSpecification<IParameterisedComponent> Lookup(string componentName)
         {
             var componentSpecification = this.registry.KolaConfiguration.Plugins
-                .SelectMany(plugin => plugin.Components)
+                .SelectMany(plugin => plugin.ComponentSpecifications)
                 .FirstOrDefault(c => c.Name == componentName);
 
             return componentSpecification != null

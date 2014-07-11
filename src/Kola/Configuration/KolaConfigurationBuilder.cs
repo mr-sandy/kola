@@ -5,7 +5,9 @@
     using System.Linq;
 
     using Kola.Configuration.Plugins;
+    using Kola.Domain.Composition;
     using Kola.Domain.Rendering;
+    using Kola.Domain.Specifications;
 
     public abstract class KolaConfigurationBuilder
     {
@@ -13,9 +15,7 @@
         {
             var plugins = this.FindPlugins();
 
-            var rendererMappings = plugins
-                .SelectMany(c => c.Components)
-                .ToDictionary(c => c.Name, c => c.RendererType);
+            var rendererMappings = plugins.SelectMany(c => c.ComponentSpecifications);
 
             var renderer = this.BuildRenderer(rendererMappings);
 
@@ -24,6 +24,6 @@
 
         protected abstract IEnumerable<PluginConfiguration> FindPlugins();
 
-        protected abstract IMultiRenderer BuildRenderer(Dictionary<string, Type> rendererMappings);
+        protected abstract IMultiRenderer BuildRenderer(IEnumerable<IPluginComponentSpecification<IParameterisedComponent>> componentSpecifications);
     }
 }
