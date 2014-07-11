@@ -9,10 +9,13 @@
 
         events: {
             'mouseover': 'activate',
-            'mouseout': 'deactivate'
+            'mouseout': 'deactivate',
+            'click': 'select'
         },
 
         initialize: function (options) {
+            this.stateBroker = options.stateBroker;
+
             this.listenTo(this.model, 'sync', this.handleSync);
             this.listenTo(this.model, 'active', this.showActive);
 
@@ -53,7 +56,7 @@
 
                 childComponents.each(function (component) {
                     var $elements = domHelper.findElements($html, component.get('path'));
-                    this.children.push(new WysiwygComponentView({ model: component, $html: $elements, mask: this.mask }));
+                    this.children.push(new WysiwygComponentView({ model: component, $html: $elements, mask: this.mask, stateBroker: this.stateBroker }));
                 }, this);
             }
         },
@@ -81,6 +84,11 @@
         deactivate: function (e) {
             e.stopPropagation();
             this.model.trigger('inactive');
+        },
+
+        select: function (e) {
+            e.stopPropagation();
+            this.stateBroker.select(this.model);
         },
 
         stretchCoords: function (coords) {

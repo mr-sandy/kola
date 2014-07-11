@@ -23,6 +23,8 @@
 
         initialize: function (options) {
 
+            var stateBroker = new StateBroker();
+
             this.amendmentsView = new AmendmentsView({
                 collection: this.model.amendments
             });
@@ -30,11 +32,12 @@
             this.blockEditorView = new BlockEditorView({
                 model: this.model,
                 amendmentBroker: new AmendmentBroker(this.model.amendments),
-                stateBroker: new StateBroker()
+                stateBroker: stateBroker
             });
 
             this.wysiwygEditorView = new WysiwygEditorView({
-                model: this.model
+                model: this.model,
+                stateBroker: stateBroker
             });
 
             this.propertiesView = new PropertiesView({
