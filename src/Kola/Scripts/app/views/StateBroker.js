@@ -1,8 +1,8 @@
 ﻿define(function (require) {
     "use strict";
 
+    var Backbone = require('backbone');
     var _ = require('underscore');
-    require('jqueryui');
 
     var StateBroker = function () {
         _.bindAll(this, 'select');
@@ -22,8 +22,10 @@
                 this.selected = component;
                 this.selected.trigger('selected');
             }
+
+            this.trigger('change');
         }
-    });
+    }, Backbone.Events);
 
     return StateBroker;
 });

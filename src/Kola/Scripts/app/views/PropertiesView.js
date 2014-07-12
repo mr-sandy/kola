@@ -11,8 +11,18 @@
 
         template: Handlebars.compile(Template),
 
+        events: {
+            'click .value': function () { alert('clieckl'); }
+        },
+
+        initialize: function (options) {
+            this.stateBroker = options.stateBroker;
+            this.listenTo(options.stateBroker, 'change', this.render);
+        },
+
         render: function () {
-            this.$el.html(this.template());
+            var context = this.stateBroker.selected ? this.stateBroker.selected.toJSON() : {};
+            this.$el.html(this.template(context));
             return this;
         }
     });

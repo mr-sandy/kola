@@ -41,6 +41,7 @@
             });
 
             this.propertiesView = new PropertiesView({
+                stateBroker: stateBroker
             });
 
             this.toolboxView = new ToolboxView({

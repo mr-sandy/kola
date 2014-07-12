@@ -1,3 +1,10 @@
 ﻿<div class="container">
-    <h1>Properties</h1>
+    <table>
+    {{#each parameters}}
+        <tr><td>{{name}}</td>
+        <td>{{value.type}}</td>
+        <td class="value">{{value.value}}</td>
+    </tr>
+    {{/each}}
+    </table>
 </div>
