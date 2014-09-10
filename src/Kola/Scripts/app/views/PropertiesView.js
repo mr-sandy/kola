@@ -12,7 +12,14 @@
         template: Handlebars.compile(Template),
 
         events: {
-            'click .value': function () { alert('clieckl'); }
+            'click .value': function () {
+
+                var propertyEditorUri = '/_kola/editors/views/MarkdownEditorView.js'
+                require([propertyEditorUri], function (PropertyEditorView) {
+                    var propertyEditorView = new PropertyEditorView();
+                    //                PropertyView.test();
+                });
+            }
         },
 
         initialize: function (options) {

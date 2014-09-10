@@ -4,10 +4,36 @@
     <container name="container-1">
       <parameters />
       <components>
-        <atom name="atom-2">
+        <widget name="ferret">
           <parameters />
-        </atom>
-        <atom name="atom-1">
+          <areas>
+            <area>
+              <components>
+                <atom name="atom-2">
+                  <parameters />
+                </atom>
+                <atom name="atom-1">
+                  <parameters />
+                </atom>
+              </components>
+            </area>
+            <area>
+              <components>
+                <atom name="atom-1">
+                  <parameters />
+                </atom>
+                <atom name="markdown">
+                  <parameters>
+                    <parameter name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[*Markdown*]]></value>
+                    </parameter>
+                  </parameters>
+                </atom>
+              </components>
+            </area>
+          </areas>
+        </widget>
+        <atom name="atom-2">
           <parameters />
         </atom>
         <atom name="atom-1">
@@ -65,21 +91,22 @@
                   <components>
                     <container name="container-2">
                       <parameters />
-                      <components />
+                      <components>
+                        <atom name="button">
+                          <parameters />
+                        </atom>
+                      </components>
                     </container>
                   </components>
                 </container>
                 <container name="container-2">
                   <parameters />
-                  <components />
+                  <components>
+                    <atom name="atom-1">
+                      <parameters />
+                    </atom>
+                  </components>
                 </container>
-                <atom name="markdown">
-                  <parameters>
-                    <parameter name="markdown" type="markdown">
-                      <value xsi:type="fixed"><![CDATA[*Markdown*]]></value>
-                    </parameter>
-                  </parameters>
-                </atom>
               </components>
             </area>
           </areas>
@@ -89,8 +116,12 @@
   </components>
   <amendments>
     <moveComponent>
-      <sourcePath>1/3/0/2</sourcePath>
-      <targetPath>0/0</targetPath>
+      <sourcePath>0/0/1/1</sourcePath>
+      <targetPath>0/0/1/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0/1/1</sourcePath>
+      <targetPath>0/0/1/1</targetPath>
     </moveComponent>
   </amendments>
 </template>

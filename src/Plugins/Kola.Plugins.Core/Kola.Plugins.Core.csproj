@@ -74,7 +74,18 @@
     <EmbeddedResource Include="Views\Markdown.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\test.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\MarkdownEditorView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\test.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\MarkdownEditorTemplate.html" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
