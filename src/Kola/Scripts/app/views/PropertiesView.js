@@ -28,6 +28,20 @@
         },
 
         render: function () {
+
+            // should probably go and find a property viewer/editor for each parameter then render them all?
+            // what about grouping them?
+            if (this.stateBroker.selected) {
+                _.each(this.stateBroker.selected.get('parameters'), function (parameter) {
+                    // var propertyUri = '/_kola/editors/views/' + parameter.type + '.js'
+                    // require([propertyUri], function (PropertyEditorView) {
+                    //     var propertyEditorView = new PropertyEditorView();
+                    //     //                PropertyView.test();
+                    // });
+                    alert(parameter.type);
+                });
+            }
+
             var context = this.stateBroker.selected ? this.stateBroker.selected.toJSON() : {};
             this.$el.html(this.template(context));
             return this;

@@ -25,7 +25,10 @@
                 <atom name="markdown">
                   <parameters>
                     <parameter name="markdown" type="markdown">
-                      <value xsi:type="fixed"><![CDATA[*Markdown*]]></value>
+                      <value xsi:type="fixed"><![CDATA[*Markdowny*]]></value>
+                    </parameter>
+                    <parameter name="another" type="another">
+                      <value xsi:type="fixed"><![CDATA[*another*]]></value>
                     </parameter>
                   </parameters>
                 </atom>
@@ -122,6 +125,14 @@
     <moveComponent>
       <sourcePath>0/0/1/1</sourcePath>
       <targetPath>0/0/1/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0/0/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/0/0/0</targetPath>
     </moveComponent>
   </amendments>
 </template>
