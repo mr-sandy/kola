@@ -1,6 +1,5 @@
 ﻿namespace Kola.ResourceBuilding
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -78,7 +77,11 @@
                 {
                     Name = parameter.Name,
                     Type = parameter.Type,
-                    Value = parameter.Value == null ? null : parameter.Value.Accept(this.parameterValueBuilder)
+                    Value = parameter.Value == null ? null : parameter.Value.Accept(this.parameterValueBuilder),
+                    Links = new[]
+                        {
+                            new LinkResource { Rel = "editor", Href = "/_kola/editors/" + parameter.Type.Urlify() }
+                        }
                 });
         }
 

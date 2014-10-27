@@ -14,7 +14,8 @@
                 .WithParameter("markdown", "markdown");
 
             this.Configure.ParameterType("markdown")
-                .WithDefault("Placeholder text.");
+                .WithDefault("Placeholder text.")
+                .WithEditor("MarkdownEditorView.js");
         }
     }
 }

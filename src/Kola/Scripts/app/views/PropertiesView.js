@@ -17,6 +17,7 @@
                 var propertyEditorUri = '/_kola/editors/views/MarkdownEditorView.js'
                 require([propertyEditorUri], function (PropertyEditorView) {
                     var propertyEditorView = new PropertyEditorView();
+                    propertyEditorView.test();
                     //                PropertyView.test();
                 });
             }
@@ -30,6 +31,8 @@
         render: function () {
 
             // should probably go and find a property viewer/editor for each parameter then render them all?
+            // NOTE: the selected component will only contain entries for parameters for which values have been set;
+            // probably need to retrieve all the possble parameters for the copmonent (get them all in one call?)
             // what about grouping them?
             if (this.stateBroker.selected) {
                 _.each(this.stateBroker.selected.get('parameters'), function (parameter) {

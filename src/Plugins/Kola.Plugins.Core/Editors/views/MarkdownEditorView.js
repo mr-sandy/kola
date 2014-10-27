@@ -24,6 +24,9 @@
             this.$el.html(this.template());
 
             return this;
+        },
+        test: function () {
+            alert('click');
         }
     });
 });
