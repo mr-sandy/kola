@@ -31,6 +31,8 @@
             this.parameters.Add(parameter);
         }
 
+        public abstract TV Accept<TV>(IComponentSpecificationVisitor<TV> visitor);
+
         public abstract T Create();
     }
 }

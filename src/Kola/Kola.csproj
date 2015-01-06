@@ -107,6 +107,7 @@
     <Compile Include="Domain\Composition\ParameterValues\FixedParameterValue.cs" />
     <Compile Include="Domain\Composition\ParameterValues\InheritedParameterValue.cs" />
     <Compile Include="Domain\Composition\ParameterValues\IParameterValue.cs" />
+    <Compile Include="Domain\Specifications\IComponentSpecificationVisitor.cs" />
     <Compile Include="Domain\Specifications\IPluginComponentSpecification.cs" />
     <Compile Include="Domain\Composition\ParameterValues\IParameterValueVisitor.cs" />
     <Compile Include="Domain\Composition\ParameterValues\MultilingualParameterValue.cs" />
@@ -142,6 +143,7 @@
     <Compile Include="Persistence\DomainBuilding\TemplateDomainBuilder.cs" />
     <Compile Include="Persistence\SurrogateBuilding\TemplateSurrogateBuilder.cs" />
     <Compile Include="ResourceBuilding\AmendmentResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\ComponentNamingSpecificationVisitor.cs" />
     <Compile Include="ResourceBuilding\ComponentResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\ComponentTypeResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\ResourceBuildingAmendmentVisitor.cs" />

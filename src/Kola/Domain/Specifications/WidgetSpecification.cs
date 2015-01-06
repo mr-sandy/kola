@@ -1,5 +1,6 @@
 ﻿namespace Kola.Domain.Specifications
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -45,6 +46,11 @@
             var areas = placeholders.Select(p => new Area(Enumerable.Empty<IComponent>())).ToArray();
 
             return new Widget(this.Name, areas);
+        }
+
+        public override TV Accept<TV>(IComponentSpecificationVisitor<TV> visitor)
+        {
+            return visitor.Visit(this);
         }
     }
 }

@@ -10,11 +10,14 @@
 
     internal class ComponentTypeResourceBuilder
     {
+        private readonly ComponentNamingSpecificationVisitor namingVisitor = new ComponentNamingSpecificationVisitor();
+
         public ComponentTypeResource Build(IComponentSpecification<IParameterisedComponent> component)
         {
             return new ComponentTypeResource
                 {
                     Name = component.Name,
+                    Type = component.Accept(this.namingVisitor),
                     Links = new[]
                         {
                             new LinkResource { Rel = "self", Href = "/_kola/component-types/" + component.Name.Urlify() }
@@ -26,6 +29,5 @@
         {
             return components.Select(this.Build);
         }
-
     }
 }

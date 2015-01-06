@@ -13,6 +13,8 @@
 
         void AddParameter(ParameterSpecification parameter);
 
+        TV Accept<TV>(IComponentSpecificationVisitor<TV> visitor);
+
         T Create();
     }
 }

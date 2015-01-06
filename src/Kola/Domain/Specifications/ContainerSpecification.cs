@@ -13,5 +13,10 @@
         {
             return new Container(this.Name);
         }
+
+        public override TV Accept<TV>(IComponentSpecificationVisitor<TV> visitor)
+        {
+            return visitor.Visit(this);
+        }
     }
 }

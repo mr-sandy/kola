@@ -100,7 +100,7 @@
             {
                 var specification = this.componentLibrary.Lookup(parameterisedComponent.Name);
                 foreach (var parameterSpecification in specification.Parameters)
-                {
+                { 
                     var parameterName = parameterSpecification.Name;
                     if (parameterisedComponent.Parameters.Find(parameterName) == null)
                     {
