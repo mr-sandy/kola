@@ -41,7 +41,7 @@
                     //     var propertyEditorView = new PropertyEditorView();
                     //     //                PropertyView.test();
                     // });
-                    alert(parameter.type);
+                    //alert(parameter.type);
                 });
             }
 

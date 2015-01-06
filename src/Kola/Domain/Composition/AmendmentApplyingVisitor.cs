@@ -55,7 +55,7 @@
             var component = this.template.FindParameterisedComponent(amendment.ComponentPath);
             var specification = this.specificationLibrary.Lookup(component.Name);
 
-            var parameter = component.Parameters.Find(amendment.ParameterName) ?? component.AddParameter(amendment.ParameterName, specification);
+            var parameter = component.Parameters.Find(amendment.ParameterName) ?? component.AddParameter(specification.Parameters.Find(amendment.ParameterName));
 
             parameter.Value = new FixedParameterValue(amendment.FixedValue);
         }

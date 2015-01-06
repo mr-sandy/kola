@@ -11,19 +11,24 @@
     _.extend(StateBroker.prototype, {
 
         select: function (component) {
-            if (this.selected) {
-                this.selected.trigger('deselected');
-            }
+            var self = this;
 
-            if (this.selected == component) {
-                this.selected = null;
-            }
-            else {
-                this.selected = component;
-                this.selected.trigger('selected');
-            }
+            component.fetch().then(function () {
 
-            this.trigger('change');
+                if (self.selected) {
+                    self.selected.trigger('deselected');
+                }
+
+                if (self.selected == component) {
+                    self.selected = null;
+                }
+                else {
+                    self.selected = component;
+                    self.selected.trigger('selected');
+                }
+
+                self.trigger('change');
+            });
         }
     }, Backbone.Events);
 

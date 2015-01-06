@@ -4,6 +4,7 @@
 
     using Kola.Domain.Composition;
     using Kola.Domain.Extensions;
+    using Kola.Domain.Specifications;
     using Kola.DomainBuilding;
     using Kola.Extensions;
     using Kola.Persistence;
@@ -79,12 +80,34 @@
 
             var component = template.FindComponent(componentPath);
 
+            // Add all parameters for this compnent type (not just those with values set)
+            this.AddUnsetParameters(component);
+
             var resource = new ComponentResourceBuilder().Build(component, componentPath, template.Path);
 
             return this.Negotiate
                 .WithModel(resource)
                 .WithAllowedMediaRange("application/json")
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
+        }
+
+        // TODO {SC} Refactor into nicer code and test
+        private void AddUnsetParameters(IComponent component)
+        {
+            var parameterisedComponent = component as IParameterisedComponent;
+            
+            if (parameterisedComponent != null)
+            {
+                var specification = this.componentLibrary.Lookup(parameterisedComponent.Name);
+                foreach (var parameterSpecification in specification.Parameters)
+                {
+                    var parameterName = parameterSpecification.Name;
+                    if (parameterisedComponent.Parameters.Find(parameterName) == null)
+                    {
+                        parameterisedComponent.AddParameter(parameterSpecification);
+                    }
+                }
+            }
         }
 
         private dynamic PutTemplate(string rawTemplatePath)

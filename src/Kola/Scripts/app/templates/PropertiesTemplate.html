@@ -1,4 +1,6 @@
 ﻿<div class="container">
+{{#if name}}
+    <h3>{{type}}: {{name}} </h3>
     <table id=" ">
     {{#each parameters}}
         <tr><td>{{name}}</td>
@@ -7,4 +9,5 @@
     </tr>
     {{/each}}
     </table>
+{{/if}}
 </div>

@@ -25,8 +25,9 @@
 
             return this;
         },
+
         test: function () {
-            alert('click');
+            alert(this.template({ sandy: 'cormie' }));
         }
     });
 });

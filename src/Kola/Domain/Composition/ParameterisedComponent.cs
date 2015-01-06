@@ -29,9 +29,9 @@
             get { return this.parameters; }
         }
 
-        public Parameter AddParameter(string parameterName, IComponentSpecification<IParameterisedComponent> specification)
+        public Parameter AddParameter(ParameterSpecification specification)
         {
-            var parameter = specification.Parameters.Find(parameterName).Create();
+            var parameter = specification.Create();
             this.parameters.Add(parameter);
 
             return parameter;

@@ -254,19 +254,20 @@
     <EmbeddedResource Include="Content\kola.scss" />
     <EmbeddedResource Include="Content\bootstrap-theme.css.map" />
     <EmbeddedResource Include="Content\bootstrap.css.map" />
-    <None Include="Content\kola\base.scss">
+    <None Include="Content\kola\_base.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="Content\kola\block-editor.scss">
+    <None Include="Content\kola\_block-editor.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="Content\kola\toolbox.scss">
+    <None Include="Content\kola\_properties.scss" />
+    <None Include="Content\kola\_toolbox.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
@@ -278,13 +279,13 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="Content\kola\edit-template.scss">
+    <None Include="Content\kola\_edit-template.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </None>
-    <None Include="Content\kola\wysiwyg-editor.scss">
+    <None Include="Content\kola\_wysiwyg-editor.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>
       <CompileStyle>Nested</CompileStyle>
