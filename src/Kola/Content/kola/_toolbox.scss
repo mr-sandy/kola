@@ -20,6 +20,18 @@
 			& + li {
                 margin-left: 20px;
 		    }
+
+			&.atom {
+                background-color : $color-secondary-1-4;
+			}
+
+			&.container {
+                background-color : $color-secondary-2-3;
+			}
+
+			&.widget {
+                background-color : $color-complement-3;
+			}
         }
     }
 }

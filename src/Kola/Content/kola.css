@@ -167,6 +167,12 @@ iframe {
       padding: 5px; }
       #toolbox ul li + li {
         margin-left: 20px; }
+      #toolbox ul li.atom {
+        background-color: #d37660; }
+      #toolbox ul li.container {
+        background-color: #71b68d; }
+      #toolbox ul li.widget {
+        background-color: #fecf9d; }
 
 /* LESS - http://lesscss.org style sheet */
 /* Palette color codes */
