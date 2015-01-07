@@ -11,36 +11,13 @@
         viewTemplate: Handlebars.compile(ViewTemplate),
         editTemplate: Handlebars.compile(EditTemplate),
 
-        initialize: function () {
-            this.mode = 'view';
-        },
+        render: function (editMode) {
 
-        events: {
-            'click .value': 'edit',
-            'click .save': 'save'
-        },
+            var content = editMode ? this.editTemplate(this.model) : this.model.value.value;
 
-        render: function () {
-            if (this.mode === 'edit') {
-                this.$el.find('.value').html(this.editTemplate(this.model));
-            }
-            else {
-                this.$el.find('.value').html(this.viewTemplate(this.model));
-            }
+            this.$el.html(content);
 
             return this;
-        },
-
-        edit: function (e) {
-            if (this.mode != 'edit') {
-                this.mode = 'edit';
-                this.render();
-            }
-        },
-
-        save: function (e) {
-            var value = $('input[name=value]:checked').val();
-            this.trigger('change', value);
         }
     });
 });

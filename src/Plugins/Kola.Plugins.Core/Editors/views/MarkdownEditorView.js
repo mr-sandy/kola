@@ -20,7 +20,7 @@
         //        },
 
         render: function () {
-            this.$el.find('.value').html(this.template(this.model));
+            this.$el.html(this.template(this.model));
 
             return this;
         }
