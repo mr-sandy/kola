@@ -9,12 +9,18 @@
     public abstract class PluginConfiguration
     {
         private readonly List<IPluginComponentSpecification<IParameterisedComponent>> componentSpecifications = new List<IPluginComponentSpecification<IParameterisedComponent>>();
+        private readonly List<ParameterTypeSpecification> parameterSpecifications = new List<ParameterTypeSpecification>();
 
         public string ViewLocation { get; set; }
 
-        internal IEnumerable<IPluginComponentSpecification<IParameterisedComponent>> ComponentSpecifications
+        internal IEnumerable<IPluginComponentSpecification<IParameterisedComponent>> ComponentTypeSpecifications
         {
             get { return this.componentSpecifications; }
+        }
+
+        internal IEnumerable<ParameterTypeSpecification> ParameterTypeSpecifications
+        {
+            get { return this.parameterSpecifications; }
         }
 
         protected PluginConfigurer Configure
@@ -27,8 +33,9 @@
             this.componentSpecifications.Add(componentSpecification);
         }
 
-        internal void Add(ParameterTypeSpecification parameterType)
+        internal void Add(ParameterTypeSpecification parameterTypeSpecification)
         {
+            this.parameterSpecifications.Add(parameterTypeSpecification);
         }
     }
 }

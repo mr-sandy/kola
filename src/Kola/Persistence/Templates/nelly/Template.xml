@@ -3,137 +3,14 @@
   <components>
     <atom name="markdown">
       <parameters>
-        <parameter name="another" type="another">
-          <value xsi:type="fixed"><![CDATA[*another*]]></value>
-        </parameter>
-      </parameters>
-    </atom>
-    <atom name="markdown">
-      <parameters>
         <parameter name="markdown" type="markdown">
           <value xsi:type="fixed"><![CDATA[*Hello Weasels!*]]></value>
         </parameter>
-      </parameters>
-    </atom>
-    <atom name="button">
-      <parameters />
-    </atom>
-    <atom name="markdown">
-      <parameters>
-        <parameter name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[*Markdowny*]]></value>
-        </parameter>
-        <parameter name="another" type="another">
-          <value xsi:type="fixed"><![CDATA[*another*]]></value>
+        <parameter name="lovely" type="boolean">
+          <value xsi:type="fixed"><![CDATA[false]]></value>
         </parameter>
       </parameters>
     </atom>
-    <container name="container-1">
-      <parameters />
-      <components>
-        <widget name="ferret">
-          <parameters />
-          <areas>
-            <area>
-              <components>
-                <atom name="atom-1">
-                  <parameters />
-                </atom>
-                <container name="container-2">
-                  <parameters />
-                  <components />
-                </container>
-                <atom name="atom-2">
-                  <parameters />
-                </atom>
-              </components>
-            </area>
-            <area>
-              <components>
-                <atom name="atom-1">
-                  <parameters />
-                </atom>
-              </components>
-            </area>
-          </areas>
-        </widget>
-        <atom name="atom-2">
-          <parameters />
-        </atom>
-        <atom name="atom-1">
-          <parameters />
-        </atom>
-        <atom name="button">
-          <parameters />
-        </atom>
-      </components>
-    </container>
-    <container name="container-1">
-      <parameters />
-      <components>
-        <widget name="ferret">
-          <parameters />
-          <areas>
-            <area>
-              <components>
-                <atom name="atom-1">
-                  <parameters />
-                </atom>
-              </components>
-            </area>
-            <area>
-              <components>
-                <atom name="atom-2">
-                  <parameters />
-                </atom>
-              </components>
-            </area>
-          </areas>
-        </widget>
-        <widget name="badger">
-          <parameters />
-          <areas>
-            <area>
-              <components>
-                <atom name="atom-2">
-                  <parameters />
-                </atom>
-              </components>
-            </area>
-          </areas>
-        </widget>
-        <widget name="badger">
-          <parameters />
-          <areas>
-            <area>
-              <components>
-                <container name="container-2">
-                  <parameters />
-                  <components>
-                    <container name="container-2">
-                      <parameters />
-                      <components>
-                        <atom name="button">
-                          <parameters />
-                        </atom>
-                      </components>
-                    </container>
-                  </components>
-                </container>
-                <container name="container-2">
-                  <parameters />
-                  <components>
-                    <atom name="atom-1">
-                      <parameters />
-                    </atom>
-                  </components>
-                </container>
-              </components>
-            </area>
-          </areas>
-        </widget>
-      </components>
-    </container>
   </components>
   <amendments />
 </template>

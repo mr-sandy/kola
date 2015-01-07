@@ -1,4 +1,4 @@
-﻿namespace Kola.Nancy
+﻿namespace Kola.Service
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -23,7 +23,7 @@
         public IEnumerable<IComponentSpecification<IParameterisedComponent>> FindAll()
         {
             IEnumerable<IComponentSpecification<IParameterisedComponent>> pluggedInComponents = this.registry.KolaConfiguration.Plugins
-                .SelectMany(plugin => plugin.ComponentSpecifications);
+                .SelectMany(plugin => plugin.ComponentTypeSpecifications);
 
             var widgets = this.widgetRepository.FindAll();
 
@@ -33,7 +33,7 @@
         public IComponentSpecification<IParameterisedComponent> Lookup(string componentName)
         {
             var componentSpecification = this.registry.KolaConfiguration.Plugins
-                .SelectMany(plugin => plugin.ComponentSpecifications)
+                .SelectMany(plugin => plugin.ComponentTypeSpecifications)
                 .FirstOrDefault(c => c.Name == componentName);
 
             return componentSpecification != null

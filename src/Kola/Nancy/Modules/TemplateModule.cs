@@ -14,6 +14,7 @@
     using global::Nancy;
     using global::Nancy.ModelBinding;
 
+    // TODO {SC} Refactor bulk of code into a service independent of Nancy (add to the Kola.Services namespace); make this module as lightweight as possible
     public class TemplateModule : NancyModule
     {
         private readonly ITemplateRepository templateRepository;

@@ -81,10 +81,16 @@
     <EmbeddedResource Include="Editors\views\MarkdownEditorView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\test.js" />
+    <EmbeddedResource Include="Editors\templates\MarkdownEditorTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\MarkdownEditorTemplate.html" />
+    <EmbeddedResource Include="Editors\views\BooleanEditorView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\BooleanEditorEditTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\BooleanEditorViewTemplate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

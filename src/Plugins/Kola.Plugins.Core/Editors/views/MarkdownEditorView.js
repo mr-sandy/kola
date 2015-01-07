@@ -20,14 +20,9 @@
         //        },
 
         render: function () {
-            //            this.$el.html(this.template(this.model.toJSON()));
-            this.$el.html(this.template());
+            this.$el.find('.value').html(this.template(this.model));
 
             return this;
-        },
-
-        test: function () {
-            alert(this.template({ sandy: 'cormie' }));
         }
     });
 });

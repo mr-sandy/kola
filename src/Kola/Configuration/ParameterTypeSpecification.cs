@@ -1,14 +1,14 @@
 ﻿
 namespace Kola.Configuration
 {
-    internal class ParameterTypeSpecification
+    public class ParameterTypeSpecification
     {
-        public ParameterTypeSpecification(string parameterTypeName)
+        public ParameterTypeSpecification(string name)
         {
-            this.ParameterTypeName = parameterTypeName;
+            this.Name = name;
         }
 
-        public string ParameterTypeName { get; private set; }
+        public string Name { get; private set; }
 
         public string DefaultValue { get; set; }
 

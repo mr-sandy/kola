@@ -11,11 +11,16 @@
 
             this.Configure.Atom("markdown")
                 .WithRenderer<MarkdownRenderer>()
-                .WithParameter("markdown", "markdown");
+                .WithParameter("markdown", "markdown")
+                .WithParameter("lovely", "boolean");
 
             this.Configure.ParameterType("markdown")
                 .WithDefault("Placeholder text.")
                 .WithEditor("MarkdownEditorView.js");
+
+            this.Configure.ParameterType("boolean")
+                .WithDefault("false")
+                .WithEditor("BooleanEditorView.js");
         }
     }
 }

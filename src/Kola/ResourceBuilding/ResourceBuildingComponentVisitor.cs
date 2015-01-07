@@ -80,7 +80,7 @@
                     Value = parameter.Value == null ? null : parameter.Value.Accept(this.parameterValueBuilder),
                     Links = new[]
                         {
-                            new LinkResource { Rel = "editor", Href = "/_kola/editors/" + parameter.Type.Urlify() }
+                            new LinkResource { Rel = "type", Href = "/_kola/parameter-types/" + parameter.Type.Urlify() }
                         }
                 });
         }

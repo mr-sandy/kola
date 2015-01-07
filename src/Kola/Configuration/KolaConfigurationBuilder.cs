@@ -15,7 +15,7 @@
         {
             var plugins = this.FindPlugins();
 
-            var rendererMappings = plugins.SelectMany(c => c.ComponentSpecifications);
+            var rendererMappings = plugins.SelectMany(c => c.ComponentTypeSpecifications);
 
             var renderer = this.BuildRenderer(rendererMappings);
 

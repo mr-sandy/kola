@@ -47,9 +47,4 @@
             return visitor.Find(page, componentPath);
         }
     }
-
-    public class PreviewQuery
-    {
-        public string ComponentPath { get; set; }
-    }
 }
