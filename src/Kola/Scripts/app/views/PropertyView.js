@@ -15,6 +15,7 @@
         initialize: function (options) {
             this.editMode = false;
             this.amendments = options.amendments;
+            this.componentPath = options.componentPath;
         },
 
         events: {
@@ -85,6 +86,7 @@
             e.preventDefault();
             this.amendments.setProperty({
                 propertyName: this.model.name,
+                componentPath: this.componentPath,
                 value: this.editorView.value()
             });
         }

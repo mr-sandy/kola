@@ -67,7 +67,6 @@
     <Compile Include="DomainBuilding\DomainBuildingAmendmentResourceVisitor.cs" />
     <Compile Include="Domain\Composition\Amendments\SetParameterInheritedAmendment.cs" />
     <Compile Include="Domain\Composition\Amendments\SetParameterMultilingualAmendment.cs" />
-    <Compile Include="Domain\Composition\Amendments\SetPropertyAmendment.cs" />
     <Compile Include="Domain\Composition\CollectionFindingComponentVisitor.cs" />
     <Compile Include="Domain\Composition\ComponentFindingComponentVisitor.cs" />
     <Compile Include="Domain\Composition\IParameterSpecificationLibrary.cs" />
@@ -140,6 +139,7 @@
     <Compile Include="Nancy\Modules\ParameterTypeModule.cs" />
     <Compile Include="Nancy\Modules\PreviewModule.cs" />
     <Compile Include="Nancy\Modules\PreviewQuery.cs" />
+    <Compile Include="Persistence\Surrogates\Amendments\SetParameterFixedAmendmentSurrogate.cs" />
     <Compile Include="Resources\SetPropertyAmendmentResource.cs" />
     <Compile Include="Service\ParameterSpecificationLibrary.cs" />
     <Compile Include="Persistence\DomainBuilding\DomainBuildingAmendmentSurrogateVisitor.cs" />

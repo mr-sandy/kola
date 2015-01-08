@@ -51,7 +51,14 @@
 
         public AmendmentResource Visit(SetParameterFixedAmendment amendment, int index)
         {
-            throw new NotImplementedException();
+            return new SetPropertyAmendmentResource
+                {
+                    Id = index,
+                    ComponentPath = amendment.ComponentPath.ToComponentPathString(),
+                    PropertyName = amendment.ParameterName,
+                    Value = amendment.FixedValue,
+                    Links = this.BuildLinks(amendment.SubjectPaths, index)
+                };
         }
 
         public AmendmentResource Visit(SetParameterInheritedAmendment amendment, int index)

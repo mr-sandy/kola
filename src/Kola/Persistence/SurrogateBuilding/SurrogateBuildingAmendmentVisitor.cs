@@ -36,7 +36,12 @@
 
         public AmendmentSurrogate Visit(SetParameterFixedAmendment amendment)
         {
-            throw new NotImplementedException();
+            return new SetParameterFixedAmendmentSurrogate
+            {
+                ComponentPath = amendment.ComponentPath.ToComponentPathString(),
+                ParameterName = amendment.ParameterName,
+                FixedValue = amendment.FixedValue
+            };
         }
 
         public AmendmentSurrogate Visit(SetParameterInheritedAmendment amendment)

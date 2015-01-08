@@ -53,7 +53,7 @@
 
         setProperty: function (event) {
             var amendment = new Amendment({
-                componentPath: 0,
+                componentPath: event.componentPath,
                 propertyName: event.propertyName,
                 value: event.value
             });

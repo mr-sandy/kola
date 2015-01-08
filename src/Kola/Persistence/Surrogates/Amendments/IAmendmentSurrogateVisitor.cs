@@ -7,5 +7,7 @@
         T Visit(MoveComponentAmendmentSurrogate amendment);
 
         T Visit(RemoveComponentAmendmentSurrogate amendment);
+
+        T Visit(SetParameterFixedAmendmentSurrogate amendment);
     }
 }

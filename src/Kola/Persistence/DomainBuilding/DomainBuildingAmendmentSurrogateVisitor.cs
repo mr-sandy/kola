@@ -1,5 +1,7 @@
 ﻿namespace Kola.Persistence.DomainBuilding
 {
+    using System;
+
     using Kola.Domain.Composition.Amendments;
     using Kola.Extensions;
     using Kola.Persistence.Surrogates.Amendments;
@@ -19,6 +21,11 @@
         public IAmendment Visit(RemoveComponentAmendmentSurrogate surrogate)
         {
             return new RemoveComponentAmendment(surrogate.ComponentPath.ParseComponentPath());
+        }
+
+        public IAmendment Visit(SetParameterFixedAmendmentSurrogate surrogate)
+        {
+            return new SetParameterFixedAmendment(surrogate.ComponentPath.ParseComponentPath(), surrogate.ParameterName, surrogate.FixedValue);
         }
     }
 }

@@ -33,13 +33,15 @@
                 this.$el.html(this.template(this.model.toJSON()));
 
                 var $tbody = this.$el.find('tbody').first();
+                var componentPath = this.model.get('path');
 
                 _.each(this.model.get('parameters'), function (parameter) {
                     var $row = $tbody.append('<tr></tr>').find('tr').last();
                     var propertyView = new PropertyView({
                         model: parameter,
                         el: $row,
-                        amendments: self.amendments
+                        amendments: self.amendments,
+                        componentPath: componentPath
                     });
 
                     propertyView.render();
