@@ -3,11 +3,11 @@
   <components>
 
     <atom name="markdown">
-      <parameters>
-        <parameter name="markdown" type="markdown">
+      <properties>
+        <property name="markdown" type="markdown">
           <value xsi:type="fixed"><![CDATA[I am from the widget]]></value>
-        </parameter>
-      </parameters>
+        </property>
+      </properties>
     </atom>
 
     <widget name="c:\projects\kola\src\kola\persistence\widgets\badger">

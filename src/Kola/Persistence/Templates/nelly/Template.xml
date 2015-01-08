@@ -1,6 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
+    <atom name="label">
+      <properties>
+        <property name="caption" type="text">
+          <value xsi:type="fixed"><![CDATA[Fishcake wonker]]></value>
+        </property>
+      </properties>
+    </atom>
+    <atom name="label">
+      <properties>
+        <property name="caption" type="text">
+          <value xsi:type="fixed"><![CDATA[Badgers!]]></value>
+        </property>
+      </properties>
+    </atom>
     <atom name="markdown">
       <properties>
         <property name="markdown" type="markdown">
@@ -8,13 +22,21 @@
         </property>
       </properties>
     </atom>
-    <atom name="label">
-      <properties>
-        <property name="caption" type="text">
-          <value xsi:type="fixed"><![CDATA[Wowzer! Again!]]></value>
-        </property>
-      </properties>
-    </atom>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0</componentPath>
+      <PropertyName>caption</PropertyName>
+      <FixedValue>Fishcake wizard?</FixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0</componentPath>
+      <PropertyName>caption</PropertyName>
+      <FixedValue>Fishcake wizardly?</FixedValue>
+    </setPropertyFixed>
+    <moveComponent>
+      <sourcePath>2</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+  </amendments>
 </template>

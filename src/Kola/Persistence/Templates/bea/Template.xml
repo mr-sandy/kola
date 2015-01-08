@@ -6,11 +6,11 @@
         <area>
           <components>
             <atom name="markdown">
-              <parameters>
-                <parameter name="markdown" type="markdown">
+              <properties>
+                <property name="markdown" type="markdown">
                   <value xsi:type="fixed"><![CDATA[I am from the template]]></value>
-                </parameter>
-              </parameters>
+                </property>
+              </properties>
             </atom>
           </components>
         </area>

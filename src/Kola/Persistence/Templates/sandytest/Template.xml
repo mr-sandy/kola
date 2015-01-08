@@ -2,27 +2,27 @@
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <atom name="atom-1">
-      <parameters />
+      <properties />
     </atom>
     <container name="container-2">
-      <parameters />
+      <properties />
       <components>
         <container name="container-1">
-          <parameters />
+          <properties />
           <components />
         </container>
         <container name="container-1">
-          <parameters />
+          <properties />
           <components>
             <atom name="atom-2">
-              <parameters />
+              <properties />
             </atom>
           </components>
         </container>
       </components>
     </container>
     <atom name="atom-1">
-      <parameters />
+      <properties />
     </atom>
   </components>
   <amendments />
