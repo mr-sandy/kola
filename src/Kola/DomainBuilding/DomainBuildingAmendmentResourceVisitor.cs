@@ -22,5 +22,10 @@
         {
             return new RemoveComponentAmendment(resource.ComponentPath.ParseComponentPath());
         }
+
+        public IAmendment Visit(SetPropertyAmendmentResource resource)
+        {
+            return new SetPropertyAmendment(resource.ComponentPath.ParseComponentPath(), resource.PropertyName, resource.Value);
+        }
     }
 }

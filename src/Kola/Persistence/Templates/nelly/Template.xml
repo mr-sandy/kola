@@ -1,38 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
-    <atom name="label">
+    <atom name="markdown">
       <parameters>
-        <parameter name="caption" type="text">
-          <value xsi:type="fixed">Wow!</value>
+        <parameter name="markdown" type="markdown">
+          <value xsi:type="fixed"><![CDATA[*markdown*]]></value>
         </parameter>
       </parameters>
     </atom>
-    <container name="container-1">
-      <parameters />
-      <components>
-        <atom name="markdown">
-          <parameters>
-            <parameter name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[*Hello Weasels!*]]></value>
-            </parameter>
-            <parameter name="lovely" type="boolean">
-              <value xsi:type="fixed"><![CDATA[false]]></value>
-            </parameter>
-          </parameters>
-        </atom>
-        <atom name="markdown">
-          <parameters>
-            <parameter name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[*Goodbye Badgers!*]]></value>
-            </parameter>
-            <parameter name="lovely" type="boolean">
-              <value xsi:type="fixed"><![CDATA[true]]></value>
-            </parameter>
-          </parameters>
-        </atom>
-      </components>
-    </container>
+    <atom name="label">
+      <parameters>
+        <parameter name="caption" type="text">
+          <value xsi:type="fixed"><![CDATA[Wow!]]></value>
+        </parameter>
+      </parameters>
+    </atom>
   </components>
   <amendments />
 </template>

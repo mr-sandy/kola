@@ -41,7 +41,8 @@
             });
 
             this.propertiesView = new PropertiesView({
-                stateBroker: stateBroker
+                stateBroker: stateBroker,
+                amendments: this.model.amendments
             });
 
             this.toolboxView = new ToolboxView({

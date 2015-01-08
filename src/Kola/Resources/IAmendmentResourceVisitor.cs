@@ -7,5 +7,7 @@
         T Visit(MoveComponentAmendmentResource resource);
 
         T Visit(DeleteComponentAmendmentResource resource);
+
+        T Visit(SetPropertyAmendmentResource resource);
     }
 }

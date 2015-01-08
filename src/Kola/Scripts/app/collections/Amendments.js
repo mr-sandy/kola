@@ -49,6 +49,20 @@
             amendment.url = this.combineUrls(this.url, 'apply');
 
             amendment.save().then(function () { self.fetch({ reset: true }); });
+        },
+
+        setProperty: function (event) {
+            var amendment = new Amendment({
+                componentPath: 0,
+                propertyName: event.propertyName,
+                value: event.value
+            });
+
+            amendment.url = this.combineUrls(this.url, 'setProperty');
+
+            this.add(amendment);
+
+            amendment.save();
         }
     });
 });

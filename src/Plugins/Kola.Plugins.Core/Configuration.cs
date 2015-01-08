@@ -15,7 +15,7 @@
                 .WithParameter("lovely", "boolean");
 
             this.Configure.Atom("label")
-                .WithRenderer<LabelRenderer>()
+                .WithView("Label")
                 .WithParameter("caption", "text");
 
             this.Configure.ParameterType("markdown")

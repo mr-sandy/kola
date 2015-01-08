@@ -12,12 +12,14 @@
 
         template: Handlebars.compile(Template),
 
-        initialize: function () {
+        initialize: function (options) {
             this.editMode = false;
+            this.amendments = options.amendments;
         },
 
         events: {
-            'click .value': 'edit'
+            'click .value': 'edit',
+            'submit .value': 'submit'
         },
 
         render: function () {
@@ -76,6 +78,14 @@
         getEditorInfo: function (parameterType) {
             return _.find(parameterEditors, function (parameterEditor) {
                 return parameterEditor.name == parameterType;
+            });
+        },
+
+        submit: function (e) {
+            e.preventDefault();
+            this.amendments.setProperty({
+                propertyName: this.model.name,
+                value: this.editorView.value()
             });
         }
     });
