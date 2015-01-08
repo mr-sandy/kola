@@ -14,20 +14,28 @@
 
         initialize: function (options) {
             this.stateBroker = options.stateBroker;
-            this.listenTo(options.stateBroker, 'change', this.render);
+            this.listenTo(options.stateBroker, 'change', this.handleSelectionChange);
+        },
+
+        handleSelectionChange: function () {
+            this.model = this.stateBroker.selected;
+            this.render();
         },
 
         render: function () {
-            var model = this.stateBroker.selected ? this.stateBroker.selected.toJSON() : {};
-            this.$el.html(this.template(model));
 
-            if (this.stateBroker.selected) {
+            var context = this.model ? this.model.toJSON() : {};
+
+            this.$el.html(this.template(context));
+
+            if (this.model) {
                 var $tbody = this.$('tbody').first();
 
-                _.each(model.parameters, function (parameter) {
+                _.each(this.model.get('parameters'), function (parameter) {
+                    var $row = $tbody.append('<tr></tr>').find('tr').last();
                     var propertyView = new PropertyView({
                         model: parameter,
-                        el: $tbody
+                        el: $row
                     });
 
                     propertyView.render();

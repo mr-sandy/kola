@@ -12,35 +12,71 @@
 
         template: Handlebars.compile(Template),
 
+        initialize: function () {
+            this.editMode = false;
+        },
+
         events: {
             'click .value': 'edit'
         },
 
-        render: function (editMode) {
+        render: function () {
             var self = this;
 
-            this.$el.append(this.template(this.model));
+            var context = _.extend(this.model, { editMode: this.editMode });
 
-            var $child = this.$el.find('.value').last();
+            this.$el.html(this.template(context));
 
-            var parameter = this.model;
-            var editor = _.find(parameterEditors, function (parameterEditor) { return parameterEditor.name == parameter.type; });
-
-            if (editor) {
-                require([editor.url], function (EditorView) {
-                    var editorView = new EditorView({
-                        model: parameter,
-                        el: $child
-                    });
-                    editorView.render(editMode);
-                });
-            }
+            this.loadEditor().then($.proxy(this.renderEditor, this));
 
             return this;
         },
 
         edit: function (e) {
-            this.render(true);
+            if (!this.editMode) {
+                this.editMode = true;
+                this.render();
+            }
+        },
+
+        loadEditor: function () {
+            var self = this;
+            var d = $.Deferred();
+
+            var parameter = this.model;
+            var editorInfo = this.getEditorInfo(this.model.type);
+            var $child = this.$el.find('.value').last();
+
+            if (this.editorView) {
+                this.editorView.remove();
+            }
+
+            if (editorInfo) {
+                require([editorInfo.url], function (EditorView) {
+                    self.editorView = new EditorView({
+                        model: parameter,
+                        el: $child
+                    });
+                    d.resolve();
+                });
+            }
+            else {
+                d.resolve();
+            }
+
+            return d.promise();
+        },
+
+        renderEditor: function () {
+            if (this.editorView) {
+                this.editorView.render(this.editMode);
+            }
+        },
+
+        getEditorInfo: function (parameterType) {
+            return _.find(parameterEditors, function (parameterEditor) {
+                return parameterEditor.name == parameterType;
+            });
         }
     });
 });

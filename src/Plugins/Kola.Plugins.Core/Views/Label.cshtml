@@ -1,0 +1,6 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.AtomInstance>
+@using Kola.Domain.Extensions
+@{
+    var caption = Model.Parameters.Get("caption");
+}
+<label>@Html.Raw(caption)</label>

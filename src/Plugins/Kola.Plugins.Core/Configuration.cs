@@ -14,6 +14,10 @@
                 .WithParameter("markdown", "markdown")
                 .WithParameter("lovely", "boolean");
 
+            this.Configure.Atom("label")
+                .WithRenderer<LabelRenderer>()
+                .WithParameter("caption", "text");
+
             this.Configure.ParameterType("markdown")
                 .WithDefault("Placeholder text.")
                 .WithEditor("MarkdownEditorView.js");
@@ -21,6 +25,9 @@
             this.Configure.ParameterType("boolean")
                 .WithDefault("false")
                 .WithEditor("BooleanEditorView.js");
+
+            this.Configure.ParameterType("text")
+                .WithEditor("TextEditorView.js");
         }
     }
 }
