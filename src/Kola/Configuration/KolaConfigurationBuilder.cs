@@ -24,6 +24,6 @@
 
         protected abstract IEnumerable<PluginConfiguration> FindPlugins();
 
-        protected abstract IMultiRenderer BuildRenderer(IEnumerable<IPluginComponentSpecification<IParameterisedComponent>> componentSpecifications);
+        protected abstract IMultiRenderer BuildRenderer(IEnumerable<IPluginComponentSpecification<IComponentWithProperties>> componentSpecifications);
     }
 }

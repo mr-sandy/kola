@@ -16,8 +16,8 @@
         [SetUp]
         public void EstablishContext()
         {
-            var container1 = new Container("container 1", Enumerable.Empty<Parameter>(), new[] { new Placeholder() });
-            var container2 = new Container("container 2", Enumerable.Empty<Parameter>(), new[] { new Placeholder() });
+            var container1 = new Container("container 1", Enumerable.Empty<Property>(), new[] { new Placeholder() });
+            var container2 = new Container("container 2", Enumerable.Empty<Property>(), new[] { new Placeholder() });
             var specification = new WidgetSpecification("widget name", new[] { container1, container2 });
 
 //            this.widget = specification.Create();

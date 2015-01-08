@@ -11,22 +11,22 @@
 
             this.Configure.Atom("markdown")
                 .WithRenderer<MarkdownRenderer>()
-                .WithParameter("markdown", "markdown")
-                .WithParameter("lovely", "boolean");
+                .WithProperty("markdown", "markdown")
+                .WithProperty("lovely", "boolean");
 
             this.Configure.Atom("label")
                 .WithView("Label")
-                .WithParameter("caption", "text");
+                .WithProperty("caption", "text");
 
-            this.Configure.ParameterType("markdown")
+            this.Configure.PropertyType("markdown")
                 .WithDefault("Placeholder text.")
                 .WithEditor("MarkdownEditorView.js");
 
-            this.Configure.ParameterType("boolean")
+            this.Configure.PropertyType("boolean")
                 .WithDefault("false")
                 .WithEditor("BooleanEditorView.js");
 
-            this.Configure.ParameterType("text")
+            this.Configure.PropertyType("text")
                 .WithEditor("TextEditorView.js");
         }
     }

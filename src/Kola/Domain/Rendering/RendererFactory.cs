@@ -10,10 +10,10 @@
 
     public class RendererFactory : IRendererFactory
     {
-        private readonly IEnumerable<IPluginComponentSpecification<IParameterisedComponent>> componentSpecifications;
+        private readonly IEnumerable<IPluginComponentSpecification<IComponentWithProperties>> componentSpecifications;
         private readonly IObjectFactory objectFactory;
 
-        public RendererFactory(IEnumerable<IPluginComponentSpecification<IParameterisedComponent>> componentSpecifications, IObjectFactory objectFactory)
+        public RendererFactory(IEnumerable<IPluginComponentSpecification<IComponentWithProperties>> componentSpecifications, IObjectFactory objectFactory)
         {
             this.componentSpecifications = componentSpecifications;
             this.objectFactory = objectFactory;

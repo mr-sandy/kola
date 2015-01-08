@@ -5,7 +5,7 @@
     using FluentAssertions;
 
     using Kola.Domain.Composition;
-    using Kola.Domain.Composition.ParameterValues;
+    using Kola.Domain.Composition.PropertyValues;
     using Kola.ResourceBuilding;
     using Kola.Resources;
 
@@ -22,7 +22,7 @@
                 {
                     new Atom("atom 0", new[]
                         {
-                            new Parameter("parameter 0", "parameter 0 type", new FixedParameterValue("parameter 0 value"))
+                            new Property("property 0", "property 0 type", new FixedPropertyValue("property 0 value"))
                         }), 
                     new Container("container 1", components: new[] { new Atom("atom 1.0") }),
                     new Widget("widget 2", areas: new[] { new Area(new[] { new Atom("atom 2.0.0") }), })
@@ -62,27 +62,27 @@
         }
 
         [Test]
-        public void ShouldSetCorrectNameForComponent0Parameter0()
+        public void ShouldSetCorrectNameForComponent0Property0()
         {
-            this.resource.Components.ElementAt(0).As<AtomResource>().Parameters.ElementAt(0).Name.Should().Be("parameter 0");
+            this.resource.Components.ElementAt(0).As<AtomResource>().Properties.ElementAt(0).Name.Should().Be("property 0");
         }
 
         [Test]
-        public void ShouldSetCorrectTypeForComponent0Parameter0()
+        public void ShouldSetCorrectTypeForComponent0Property0()
         {
-            this.resource.Components.ElementAt(0).As<AtomResource>().Parameters.ElementAt(0).Type.Should().Be("parameter 0 type");
+            this.resource.Components.ElementAt(0).As<AtomResource>().Properties.ElementAt(0).Type.Should().Be("property 0 type");
         }
 
         [Test]
-        public void ShouldSetCorrectValueTypeForComponent0Parameter0()
+        public void ShouldSetCorrectValueTypeForComponent0Property0()
         {
-            this.resource.Components.ElementAt(0).As<AtomResource>().Parameters.ElementAt(0).Value.As<FixedParameterValueResource>().Type.Should().Be("fixed");
+            this.resource.Components.ElementAt(0).As<AtomResource>().Properties.ElementAt(0).Value.As<FixedPropertyValueResource>().Type.Should().Be("fixed");
         }
 
         [Test]
-        public void ShouldSetCorrectValueForComponent0Parameter0()
+        public void ShouldSetCorrectValueForComponent0Property0()
         {
-            this.resource.Components.ElementAt(0).As<AtomResource>().Parameters.ElementAt(0).Value.As<FixedParameterValueResource>().Value.Should().Be("parameter 0 value");
+            this.resource.Components.ElementAt(0).As<AtomResource>().Properties.ElementAt(0).Value.As<FixedPropertyValueResource>().Value.Should().Be("property 0 value");
         }
 
         [Test]

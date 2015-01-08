@@ -6,7 +6,7 @@
     var $ = require('jquery');
     var _ = require('underscore');
     var Template = require('text!app/templates/PropertyTemplate.html');
-    var parameterEditors = require('parameterEditors');
+    var propertyEditors = require('propertyEditors');
 
     return Backbone.View.extend({
 
@@ -46,7 +46,7 @@
             var self = this;
             var d = $.Deferred();
 
-            var parameter = this.model;
+            var property = this.model;
             var editorInfo = this.getEditorInfo(this.model.type);
             var $child = this.$el.find('.value').last();
 
@@ -57,7 +57,7 @@
             if (editorInfo) {
                 require([editorInfo.url], function (EditorView) {
                     self.editorView = new EditorView({
-                        model: parameter,
+                        model: property,
                         el: $child
                     });
                     d.resolve();
@@ -76,9 +76,9 @@
             }
         },
 
-        getEditorInfo: function (parameterType) {
-            return _.find(parameterEditors, function (parameterEditor) {
-                return parameterEditor.name == parameterType;
+        getEditorInfo: function (propertyType) {
+            return _.find(propertyEditors, function (propertyEditor) {
+                return propertyEditor.name == propertyType;
             });
         },
 

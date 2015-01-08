@@ -9,13 +9,13 @@
 
     internal class DomainBuildingComponentSurrogateVisitor : IComponentSurrogateVisitor<IComponent>
     {
-        private readonly DomainBuildingParameterValueVisitor parameterValueBuilder = new DomainBuildingParameterValueVisitor();
+        private readonly DomainBuildingPropertyValueVisitor propertyValueBuilder = new DomainBuildingPropertyValueVisitor();
 
         public IComponent Visit(ContainerSurrogate surrogate)
         {
             return new Container(
                 surrogate.Name,
-                this.BuildParameters(surrogate.Parameters).ToArray(),
+                this.BuildProperties(surrogate.Properties).ToArray(),
                 surrogate.Components.Select(c => c.Accept(this)).ToArray());
         }
 
@@ -23,7 +23,7 @@
         {
             return new Atom(
                 surrogate.Name,
-                this.BuildParameters(surrogate.Parameters).ToArray());
+                this.BuildProperties(surrogate.Properties).ToArray());
         }
 
         public IComponent Visit(WidgetSurrogate surrogate)
@@ -32,7 +32,7 @@
             return new Widget(
                 surrogate.Name,
                 surrogate.Areas.Select(a => a.Accept(this)).Cast<Area>().ToArray(),
-                this.BuildParameters(surrogate.Parameters).ToArray());
+                this.BuildProperties(surrogate.Properties).ToArray());
         }
 
         public IComponent Visit(PlaceholderSurrogate surrogate)
@@ -45,17 +45,17 @@
             return new Area(surrogate.Components.Select(c => c.Accept(this)).ToArray());
         }
 
-        private IEnumerable<Parameter> BuildParameters(IEnumerable<ParameterSurrogate> surrogates)
+        private IEnumerable<Property> BuildProperties(IEnumerable<PropertySurrogate> surrogates)
         {
             if (surrogates == null)
             {
-                return Enumerable.Empty<Parameter>();
+                return Enumerable.Empty<Property>();
             }
 
-            return surrogates.Select(surrogate => new Parameter(
+            return surrogates.Select(surrogate => new Property(
                 surrogate.Name, 
                 surrogate.Type, 
-                surrogate.Value.Accept(this.parameterValueBuilder))).ToArray();
+                surrogate.Value.Accept(this.propertyValueBuilder))).ToArray();
         }
     }
 }

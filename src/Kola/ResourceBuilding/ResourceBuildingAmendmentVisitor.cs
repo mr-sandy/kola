@@ -49,24 +49,24 @@
             };
         }
 
-        public AmendmentResource Visit(SetParameterFixedAmendment amendment, int index)
+        public AmendmentResource Visit(SetPropertyFixedAmendment amendment, int index)
         {
             return new SetPropertyAmendmentResource
                 {
                     Id = index,
                     ComponentPath = amendment.ComponentPath.ToComponentPathString(),
-                    PropertyName = amendment.ParameterName,
+                    PropertyName = amendment.PropertyName,
                     Value = amendment.FixedValue,
                     Links = this.BuildLinks(amendment.SubjectPaths, index)
                 };
         }
 
-        public AmendmentResource Visit(SetParameterInheritedAmendment amendment, int index)
+        public AmendmentResource Visit(SetPropertyInheritedAmendment amendment, int index)
         {
             throw new NotImplementedException();
         }
 
-        public AmendmentResource Visit(SetParameterMultilingualAmendment amendment, int index)
+        public AmendmentResource Visit(SetPropertyMultilingualAmendment amendment, int index)
         {
             throw new NotImplementedException();
         }

@@ -10,7 +10,7 @@
         {
             var transformer = new MarkdownSharp.Markdown();
 
-            var markdown = atom.Parameters.Get("markdown");
+            var markdown = atom.Properties.Get("markdown");
 
             var html = transformer.Transform(markdown);
 

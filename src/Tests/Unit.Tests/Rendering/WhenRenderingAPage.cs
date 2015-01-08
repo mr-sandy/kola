@@ -35,9 +35,9 @@
                 new PageInstance(
                     new ComponentInstance[]
                         {
-                            new AtomInstance(new[] { 0 }, "atom1", Enumerable.Empty<ParameterInstance>()),
-                            new AtomInstance(new[] { 1 }, "atom2", Enumerable.Empty<ParameterInstance>()),
-                            new ContainerInstance(new[] { 2 }, "container1", null, new[] { new AtomInstance(new[] { 2, 0 }, "atom3", Enumerable.Empty<ParameterInstance>()) })
+                            new AtomInstance(new[] { 0 }, "atom1", Enumerable.Empty<PropertyInstance>()),
+                            new AtomInstance(new[] { 1 }, "atom2", Enumerable.Empty<PropertyInstance>()),
+                            new ContainerInstance(new[] { 2 }, "container1", null, new[] { new AtomInstance(new[] { 2, 0 }, "atom3", Enumerable.Empty<PropertyInstance>()) })
                         });
 
             var viewFactory = new TestViewFactory(renderer);

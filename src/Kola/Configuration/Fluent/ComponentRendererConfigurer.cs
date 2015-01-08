@@ -5,9 +5,9 @@
 
     public class ComponentRendererConfigurer
     {
-        private readonly IPluginComponentSpecification<IParameterisedComponent> specification;
+        private readonly IPluginComponentSpecification<IComponentWithProperties> specification;
 
-        internal ComponentRendererConfigurer(IPluginComponentSpecification<IParameterisedComponent> specification)
+        internal ComponentRendererConfigurer(IPluginComponentSpecification<IComponentWithProperties> specification)
         {
             this.specification = specification;
         }
@@ -17,9 +17,9 @@
             get { return new CacheConfigurer(this.specification); }
         }
 
-        public ComponentRendererConfigurer WithParameter(string parameterName, string parameterType)
+        public ComponentRendererConfigurer WithProperty(string propertyName, string propertyType)
         {
-            this.specification.AddParameter(new ParameterSpecification(parameterName, parameterType));
+            this.specification.AddProperty(new PropertySpecification(propertyName, propertyType));
             return this;
         }
     }

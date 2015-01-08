@@ -51,23 +51,23 @@ namespace Unit.Tests.Configuration
         }
 
         [Test]
-        public void ThereShouldBeAConfigEntryForTheParameter()
+        public void ThereShouldBeAConfigEntryForTheProperty()
         {
-            Assert.AreEqual(1, this.configuration.ComponentTypeSpecifications.ElementAt(0).Parameters.Count());
+            Assert.AreEqual(1, this.configuration.ComponentTypeSpecifications.ElementAt(0).Properties.Count());
         }
 
         [Test]
-        public void TheParameterNameShouldBeSet()
+        public void ThePropertyNameShouldBeSet()
         {
-            var config = this.configuration.ComponentTypeSpecifications.ElementAt(0).Parameters.ElementAt(0);
-            Assert.AreEqual("parameterName", config.Name);
+            var config = this.configuration.ComponentTypeSpecifications.ElementAt(0).Properties.ElementAt(0);
+            Assert.AreEqual("propertyName", config.Name);
         }
 
         [Test]
-        public void TheParameterTypeShouldBeSet()
+        public void ThePropertyTypeShouldBeSet()
         {
-            var config = this.configuration.ComponentTypeSpecifications.ElementAt(0).Parameters.ElementAt(0);
-            Assert.AreEqual("parameterType", config.Type);
+            var config = this.configuration.ComponentTypeSpecifications.ElementAt(0).Properties.ElementAt(0);
+            Assert.AreEqual("propertyType", config.Type);
         }
 
         [Test]
@@ -91,7 +91,7 @@ namespace Unit.Tests.Configuration
         {
             this.Configure.Container("atom-1")
                 .WithRenderer<TestHandler>("viewName")
-                .WithParameter("parameterName", "parameterType")
+                .WithProperty("propertyName", "propertyType")
                 .Cache.Cache.For(100);
         }
     }

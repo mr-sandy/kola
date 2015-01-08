@@ -16,18 +16,18 @@
 
             this.Configure.Atom("atom-2")
                 .WithView("Atom2")
-                .WithParameter("parameter-name-1", "parameter-type-1")
-                .WithParameter("parameter-name-2", "parameter-type-2")
+                .WithProperty("property-name-1", "property-type-1")
+                .WithProperty("property-name-2", "property-type-2")
                 .Cache.Cache.For(100);
 
             this.Configure.Container("container-1")
                 .WithView("Container1")
-                .WithParameter("parameter-name-1", "parameter-type-1");
+                .WithProperty("property-name-1", "property-type-1");
 
             this.Configure.Container("container-2")
                 .WithView("Container2");
 
-            this.Configure.ParameterType("parameter-1")
+            this.Configure.PropertyType("property-1")
                 .WithDefault("default")
                 .WithEditor("editor?");
         }

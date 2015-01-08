@@ -8,11 +8,11 @@
 
         void Visit(RemoveComponentAmendment amendment);
 
-        void Visit(SetParameterFixedAmendment amendment);
+        void Visit(SetPropertyFixedAmendment amendment);
 
-        void Visit(SetParameterInheritedAmendment amendment);
+        void Visit(SetPropertyInheritedAmendment amendment);
 
-        void Visit(SetParameterMultilingualAmendment amendment);
+        void Visit(SetPropertyMultilingualAmendment amendment);
     }
 
     public interface IAmendmentVisitor<out T>
@@ -23,11 +23,11 @@
 
         T Visit(RemoveComponentAmendment amendment);
 
-        T Visit(SetParameterFixedAmendment amendment);
+        T Visit(SetPropertyFixedAmendment amendment);
 
-        T Visit(SetParameterInheritedAmendment amendment);
+        T Visit(SetPropertyInheritedAmendment amendment);
 
-        T Visit(SetParameterMultilingualAmendment amendment);
+        T Visit(SetPropertyMultilingualAmendment amendment);
     }
 
     public interface IAmendmentVisitor<out T, in TContext>
@@ -38,10 +38,10 @@
 
         T Visit(RemoveComponentAmendment amendment, TContext context);
 
-        T Visit(SetParameterFixedAmendment amendment, TContext context);
+        T Visit(SetPropertyFixedAmendment amendment, TContext context);
 
-        T Visit(SetParameterInheritedAmendment amendment, TContext context);
+        T Visit(SetPropertyInheritedAmendment amendment, TContext context);
 
-        T Visit(SetParameterMultilingualAmendment amendment, TContext context);
+        T Visit(SetPropertyMultilingualAmendment amendment, TContext context);
     }
 }

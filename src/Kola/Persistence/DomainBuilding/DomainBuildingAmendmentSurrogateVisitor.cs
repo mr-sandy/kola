@@ -23,9 +23,9 @@
             return new RemoveComponentAmendment(surrogate.ComponentPath.ParseComponentPath());
         }
 
-        public IAmendment Visit(SetParameterFixedAmendmentSurrogate surrogate)
+        public IAmendment Visit(SetPropertyFixedAmendmentSurrogate surrogate)
         {
-            return new SetParameterFixedAmendment(surrogate.ComponentPath.ParseComponentPath(), surrogate.ParameterName, surrogate.FixedValue);
+            return new SetPropertyFixedAmendment(surrogate.ComponentPath.ParseComponentPath(), surrogate.PropertyName, surrogate.FixedValue);
         }
     }
 }

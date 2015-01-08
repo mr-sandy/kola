@@ -7,10 +7,10 @@
     using Kola.Domain.Instances.Building;
     using Kola.Extensions;
 
-    public class Widget : ParameterisedComponent
+    public class Widget : ComponentWithgProperties
     {
-        public Widget(string name, IEnumerable<Area> areas, IEnumerable<Parameter> parameters = null)
-            : base(name, parameters)
+        public Widget(string name, IEnumerable<Area> areas, IEnumerable<Property> properties = null)
+            : base(name, properties)
         {
             this.Areas = areas;
         }

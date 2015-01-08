@@ -6,17 +6,17 @@
 
     public class ContainerInstance : ComponentInstance
     {
-        public ContainerInstance(IEnumerable<int> path, string name, IEnumerable<ParameterInstance> parameters, IEnumerable<ComponentInstance> components = null)
+        public ContainerInstance(IEnumerable<int> path, string name, IEnumerable<PropertyInstance> properties, IEnumerable<ComponentInstance> components = null)
             : base(path)
         {
             this.Name = name;
-            this.Parameters = parameters;
+            this.Properties = properties;
             this.Components = components;
         }
 
         public string Name { get; private set; }
 
-        public IEnumerable<ParameterInstance> Parameters { get; private set; }
+        public IEnumerable<PropertyInstance> Properties { get; private set; }
 
         public IEnumerable<ComponentInstance> Components { get; private set; }
 

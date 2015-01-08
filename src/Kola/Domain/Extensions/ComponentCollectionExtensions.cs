@@ -18,16 +18,16 @@
             return new ComponentFindingComponentVisitor().Find(template, path);
         }
 
-        public static IParameterisedComponent FindParameterisedComponent(this Template template, IEnumerable<int> path)
+        public static IComponentWithProperties FindComponentWithProperties(this Template template, IEnumerable<int> path)
         {
             var candidate = new ComponentFindingComponentVisitor().Find(template, path);
 
-            if (!(candidate is IParameterisedComponent))
+            if (!(candidate is IComponentWithProperties))
             {
-                throw new KolaException("Parameterised component not found");
+                throw new KolaException("Component with properties not found");
             }
 
-            return candidate as IParameterisedComponent;
+            return candidate as IComponentWithProperties;
         }
 
         public static IEnumerable<T> FindAll<T>(this IComponentCollection collection)

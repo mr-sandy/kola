@@ -82,8 +82,8 @@
 
             var component = template.FindComponent(componentPath);
 
-            // Add all parameters for this compnent type (not just those with values set)
-            this.AddUnsetParameters(component);
+            // Add all properties for this compnent type (not just those with values set)
+            this.AddUnsetProperties(component);
 
             var resource = new ComponentResourceBuilder().Build(component, componentPath, template.Path);
 
@@ -94,19 +94,19 @@
         }
 
         // TODO {SC} Refactor into nicer code and test
-        private void AddUnsetParameters(IComponent component)
+        private void AddUnsetProperties(IComponent component)
         {
-            var parameterisedComponent = component as IParameterisedComponent;
+            var propertyisedComponent = component as IComponentWithProperties;
             
-            if (parameterisedComponent != null)
+            if (propertyisedComponent != null)
             {
-                var specification = this.componentLibrary.Lookup(parameterisedComponent.Name);
-                foreach (var parameterSpecification in specification.Parameters)
+                var specification = this.componentLibrary.Lookup(propertyisedComponent.Name);
+                foreach (var propertiespecification in specification.Properties)
                 { 
-                    var parameterName = parameterSpecification.Name;
-                    if (parameterisedComponent.Parameters.Find(parameterName) == null)
+                    var propertyName = propertiespecification.Name;
+                    if (propertyisedComponent.Properties.Find(propertyName) == null)
                     {
-                        parameterisedComponent.AddParameter(parameterSpecification);
+                        propertyisedComponent.AddProperty(propertiespecification);
                     }
                 }
             }

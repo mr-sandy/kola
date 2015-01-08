@@ -6,10 +6,10 @@
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
 
-    public class Atom : ParameterisedComponent
+    public class Atom : ComponentWithgProperties
     {
-        public Atom(string name, IEnumerable<Parameter> parameters = null)
-            : base(name, parameters)
+        public Atom(string name, IEnumerable<Property> properties = null)
+            : base(name, properties)
         {
         }
 
@@ -28,7 +28,7 @@
             return new AtomInstance(
                 path,
                 this.Name,
-                this.Parameters.Select(p => p.Build(buildContext)));
+                this.Properties.Select(p => p.Build(buildContext)));
         }
     }
 }

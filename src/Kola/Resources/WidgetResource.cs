@@ -6,7 +6,7 @@
     {
         public string Name { get; set; }
 
-        public IEnumerable<ParameterResource> Parameters { get; set; }
+        public IEnumerable<PropertyResource> Properties { get; set; }
 
         public IEnumerable<ComponentResource> Areas { get; set; }
 

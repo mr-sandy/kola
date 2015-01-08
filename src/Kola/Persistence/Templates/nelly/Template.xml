@@ -1,30 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
-    <atom name="label">
-      <parameters>
-        <parameter name="caption" type="text">
-          <value xsi:type="fixed"><![CDATA[Wowzer zows]]></value>
-        </parameter>
-      </parameters>
-    </atom>
     <atom name="markdown">
-      <parameters>
-        <parameter name="markdown" type="markdown">
+      <properties>
+        <property name="markdown" type="markdown">
           <value xsi:type="fixed"><![CDATA[*markdown*]]></value>
-        </parameter>
-      </parameters>
+        </property>
+      </properties>
+    </atom>
+    <atom name="label">
+      <properties>
+        <property name="caption" type="text">
+          <value xsi:type="fixed"><![CDATA[Wowzer! Again!]]></value>
+        </property>
+      </properties>
     </atom>
   </components>
-  <amendments>
-    <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <setParameterFixed>
-      <componentPath>1</componentPath>
-      <ParameterName>caption</ParameterName>
-      <FixedValue>Wowzer zowzer!!</FixedValue>
-    </setParameterFixed>
-  </amendments>
+  <amendments />
 </template>

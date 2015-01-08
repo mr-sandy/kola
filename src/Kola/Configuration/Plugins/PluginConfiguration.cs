@@ -8,19 +8,19 @@
 
     public abstract class PluginConfiguration
     {
-        private readonly List<IPluginComponentSpecification<IParameterisedComponent>> componentSpecifications = new List<IPluginComponentSpecification<IParameterisedComponent>>();
-        private readonly List<ParameterTypeSpecification> parameterSpecifications = new List<ParameterTypeSpecification>();
+        private readonly List<IPluginComponentSpecification<IComponentWithProperties>> componentSpecifications = new List<IPluginComponentSpecification<IComponentWithProperties>>();
+        private readonly List<PropertyTypeSpecification> propertySpecifications = new List<PropertyTypeSpecification>();
 
         public string ViewLocation { get; set; }
 
-        internal IEnumerable<IPluginComponentSpecification<IParameterisedComponent>> ComponentTypeSpecifications
+        internal IEnumerable<IPluginComponentSpecification<IComponentWithProperties>> ComponentTypeSpecifications
         {
             get { return this.componentSpecifications; }
         }
 
-        internal IEnumerable<ParameterTypeSpecification> ParameterTypeSpecifications
+        internal IEnumerable<PropertyTypeSpecification> PropertyTypeSpecifications
         {
-            get { return this.parameterSpecifications; }
+            get { return this.propertySpecifications; }
         }
 
         protected PluginConfigurer Configure
@@ -28,14 +28,14 @@
             get { return new PluginConfigurer(this); }
         }
 
-        internal void Add(IPluginComponentSpecification<IParameterisedComponent> componentSpecification)
+        internal void Add(IPluginComponentSpecification<IComponentWithProperties> componentSpecification)
         {
             this.componentSpecifications.Add(componentSpecification);
         }
 
-        internal void Add(ParameterTypeSpecification parameterTypeSpecification)
+        internal void Add(PropertyTypeSpecification propertyTypeSpecification)
         {
-            this.parameterSpecifications.Add(parameterTypeSpecification);
+            this.propertySpecifications.Add(propertyTypeSpecification);
         }
     }
 }

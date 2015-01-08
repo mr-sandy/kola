@@ -25,7 +25,7 @@
             return this.pluginFinder.FindPlugins();
         }
 
-        protected override IMultiRenderer BuildRenderer(IEnumerable<IPluginComponentSpecification<IParameterisedComponent>> componentSpecifications)
+        protected override IMultiRenderer BuildRenderer(IEnumerable<IPluginComponentSpecification<IComponentWithProperties>> componentSpecifications)
         {
             var rendererFactory = new RendererFactory(componentSpecifications, this.objectFactory);
 

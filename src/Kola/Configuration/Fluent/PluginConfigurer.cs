@@ -36,13 +36,13 @@ namespace Kola.Configuration.Fluent
             return new ComponentConfigurer(specification);
         }
 
-        public ParameterTypeConfigurer ParameterType(string parameterName)
+        public PropertyTypeConfigurer PropertyType(string propertyName)
         {
-            var specification = new ParameterTypeSpecification(parameterName);
+            var specification = new PropertyTypeSpecification(propertyName);
 
             this.configuration.Add(specification);
 
-            return new ParameterTypeConfigurer(specification);
+            return new PropertyTypeConfigurer(specification);
         }
     }
 }

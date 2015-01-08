@@ -34,22 +34,22 @@
             };
         }
 
-        public AmendmentSurrogate Visit(SetParameterFixedAmendment amendment)
+        public AmendmentSurrogate Visit(SetPropertyFixedAmendment amendment)
         {
-            return new SetParameterFixedAmendmentSurrogate
+            return new SetPropertyFixedAmendmentSurrogate
             {
                 ComponentPath = amendment.ComponentPath.ToComponentPathString(),
-                ParameterName = amendment.ParameterName,
+                PropertyName = amendment.PropertyName,
                 FixedValue = amendment.FixedValue
             };
         }
 
-        public AmendmentSurrogate Visit(SetParameterInheritedAmendment amendment)
+        public AmendmentSurrogate Visit(SetPropertyInheritedAmendment amendment)
         {
             throw new NotImplementedException();
         }
 
-        public AmendmentSurrogate Visit(SetParameterMultilingualAmendment amendment)
+        public AmendmentSurrogate Visit(SetPropertyMultilingualAmendment amendment)
         {
             throw new NotImplementedException();
         }

@@ -16,8 +16,8 @@
         public void SetUp()
         {
             var atomSpecification = new AtomSpecification("atom 1");
-            atomSpecification.AddParameter(new ParameterSpecification("parameter 1 name", "parameter 1 type"));
-            atomSpecification.AddParameter(new ParameterSpecification("parameter 2 name", "parameter 2 type"));
+            atomSpecification.AddProperty(new PropertySpecification("property 1 name", "property 1 type"));
+            atomSpecification.AddProperty(new PropertySpecification("property 2 name", "property 2 type"));
 
             this.atom = atomSpecification.Create();
         }
@@ -31,7 +31,7 @@
         [Test]
         public void TheAtomShouldNotYetContainAnyParamters()
         {
-            this.atom.Parameters.Should().HaveCount(0);
+            this.atom.Properties.Should().HaveCount(0);
         }
     }
 }

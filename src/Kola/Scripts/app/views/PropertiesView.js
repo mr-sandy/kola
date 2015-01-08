@@ -35,10 +35,10 @@
                 var $tbody = this.$el.find('tbody').first();
                 var componentPath = this.model.get('path');
 
-                _.each(this.model.get('parameters'), function (parameter) {
+                _.each(this.model.get('properties'), function (property) {
                     var $row = $tbody.append('<tr></tr>').find('tr').last();
                     var propertyView = new PropertyView({
-                        model: parameter,
+                        model: property,
                         el: $row,
                         amendments: self.amendments,
                         componentPath: componentPath

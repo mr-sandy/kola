@@ -8,6 +8,6 @@
 
         T Visit(RemoveComponentAmendmentSurrogate amendment);
 
-        T Visit(SetParameterFixedAmendmentSurrogate amendment);
+        T Visit(SetPropertyFixedAmendmentSurrogate amendment);
     }
 }

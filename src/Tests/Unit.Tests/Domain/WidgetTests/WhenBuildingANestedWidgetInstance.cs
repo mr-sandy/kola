@@ -62,11 +62,11 @@
                 "widget 1",
                 new IComponent[]
                     {
-                        new Atom("atom", Enumerable.Empty<Parameter>()), 
+                        new Atom("atom", Enumerable.Empty<Property>()), 
                         new Placeholder(), 
                         new Container(
                             "container",
-                            Enumerable.Empty<Parameter>(),
+                            Enumerable.Empty<Property>(),
                             new[] { new Placeholder() }) 
                     });
 
@@ -74,7 +74,7 @@
                 "widget 2",
                 new IComponent[]
                     {
-                        new Atom("atom", Enumerable.Empty<Parameter>()), 
+                        new Atom("atom", Enumerable.Empty<Property>()), 
                         new Placeholder()
                     });
 
@@ -85,20 +85,20 @@
                         new Area(
                             new IComponent[]
                             {
-                                new Atom("atom", Enumerable.Empty<Parameter>())
+                                new Atom("atom", Enumerable.Empty<Property>())
                             }),
                         new Area(
                             new IComponent[]
                             {
-                                new Atom("atom", Enumerable.Empty<Parameter>()),
-                                new Atom("atom", Enumerable.Empty<Parameter>()),
+                                new Atom("atom", Enumerable.Empty<Property>()),
+                                new Atom("atom", Enumerable.Empty<Property>()),
                                 new Widget(
                                     "widget 2", 
                                     new[]
                                         {
                                             new Area(new[]
                                                 {
-                                                    new Atom("atom", Enumerable.Empty<Parameter>())
+                                                    new Atom("atom", Enumerable.Empty<Property>())
                                                 })
                                         })
                             })

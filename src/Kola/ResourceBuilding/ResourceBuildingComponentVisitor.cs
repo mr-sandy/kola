@@ -10,7 +10,7 @@
     internal class ResourceBuildingComponentVisitor : IComponentVisitor<ComponentResource, IEnumerable<int>>
     {
         private readonly IEnumerable<string> templatePath;
-        private readonly ResourceBuildingParameterValueVisitor parameterValueBuilder = new ResourceBuildingParameterValueVisitor();
+        private readonly ResourceBuildingPropertyValueVisitor propertyValueBuilder = new ResourceBuildingPropertyValueVisitor();
 
         public ResourceBuildingComponentVisitor(IEnumerable<string> templatePath)
         {
@@ -23,7 +23,7 @@
                 {
                     Name = atom.Name,
                     Path = context.Select(i => i.ToString()).ToHttpPath(),
-                    Parameters = this.BuildParameters(atom.Parameters),
+                    Properties = this.BuildProperties(atom.Properties),
                     Links = this.BuildLinks(context)
                 };
         }
@@ -35,7 +35,7 @@
                     Name = container.Name,
                     Path = context.Select(i => i.ToString()).ToHttpPath(),
                     Components = container.Components.Select((c, i) => c.Accept(this, context.Append(i))),
-                    Parameters = this.BuildParameters(container.Parameters),
+                    Properties = this.BuildProperties(container.Properties),
                     Links = this.BuildLinks(context)
                 };
         }
@@ -47,7 +47,7 @@
                     Name = widget.Name,
                     Areas = widget.Areas.Select((c, i) => c.Accept(this, context.Append(i))),
                     Path = context.Select(i => i.ToString()).ToHttpPath(),
-                    Parameters = this.BuildParameters(widget.Parameters),
+                    Properties = this.BuildProperties(widget.Properties),
                     Links = this.BuildLinks(context)
                 };
         }
@@ -71,16 +71,16 @@
             };
         }
 
-        private IEnumerable<ParameterResource> BuildParameters(IEnumerable<Parameter> parameters)
+        private IEnumerable<PropertyResource> BuildProperties(IEnumerable<Property> properties)
         {
-            return parameters.Select(parameter => new ParameterResource
+            return properties.Select(property => new PropertyResource
                 {
-                    Name = parameter.Name,
-                    Type = parameter.Type,
-                    Value = parameter.Value == null ? null : parameter.Value.Accept(this.parameterValueBuilder),
+                    Name = property.Name,
+                    Type = property.Type,
+                    Value = property.Value == null ? null : property.Value.Accept(this.propertyValueBuilder),
                     Links = new[]
                         {
-                            new LinkResource { Rel = "type", Href = "/_kola/parameter-types/" + parameter.Type.Urlify() }
+                            new LinkResource { Rel = "type", Href = "/_kola/property-types/" + property.Type.Urlify() }
                         }
                 });
         }

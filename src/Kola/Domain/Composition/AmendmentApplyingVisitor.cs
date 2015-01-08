@@ -4,7 +4,7 @@
     using System.Linq;
 
     using Kola.Domain.Composition.Amendments;
-    using Kola.Domain.Composition.ParameterValues;
+    using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Extensions;
     using Kola.Extensions;
 
@@ -50,27 +50,25 @@
             parent.RemoveAt(index);
         }
 
-        public void Visit(SetParameterFixedAmendment amendment)
+        public void Visit(SetPropertyFixedAmendment amendment)
         {
-            var component = this.template.FindParameterisedComponent(amendment.ComponentPath);
+            var component = this.template.FindComponentWithProperties(amendment.ComponentPath);
             var specification = this.specificationLibrary.Lookup(component.Name);
 
-            var parameter = component.Parameters.Find(amendment.ParameterName) ?? component.AddParameter(specification.Parameters.Find(amendment.ParameterName));
+            var property = component.Properties.Find(amendment.PropertyName) ?? component.AddProperty(specification.Properties.Find(amendment.PropertyName));
 
-            parameter.Value = new FixedParameterValue(amendment.FixedValue);
+            property.Value = new FixedPropertyValue(amendment.FixedValue);
         }
 
-        public void Visit(SetParameterInheritedAmendment amendment)
+        public void Visit(SetPropertyInheritedAmendment amendment)
         {
             throw new NotImplementedException();
         }
 
-        public void Visit(SetParameterMultilingualAmendment amendment)
+        public void Visit(SetPropertyMultilingualAmendment amendment)
         {
-            var component = this.template.FindParameterisedComponent(amendment.ComponentPath);
+            var component = this.template.FindComponentWithProperties(amendment.ComponentPath);
             var specification = this.specificationLibrary.Lookup(component.Name);
-
-            //component.SetParameter(amendment.ParameterName, new MultilingualParameterValue(amendment.FixedValue), specification);
         }
     }
 }

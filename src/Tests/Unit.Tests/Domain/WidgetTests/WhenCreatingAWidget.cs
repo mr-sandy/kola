@@ -24,7 +24,7 @@
                             new Placeholder(), 
                             new Container(
                                 "container name", 
-                                Enumerable.Empty<Parameter>(),
+                                Enumerable.Empty<Property>(),
                                 new IComponent[] { new Placeholder() }) 
                         });
 

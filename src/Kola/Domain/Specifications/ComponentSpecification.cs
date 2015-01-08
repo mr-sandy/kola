@@ -5,30 +5,30 @@
     using Kola.Domain.Composition;
 
     public abstract class ComponentSpecification<T> : IComponentSpecification<T>
-        where T : IParameterisedComponent
+        where T : IComponentWithProperties
     {
-        private readonly List<ParameterSpecification> parameters = new List<ParameterSpecification>();
+        private readonly List<PropertySpecification> properties = new List<PropertySpecification>();
 
-        protected ComponentSpecification(string name, IEnumerable<ParameterSpecification> parameters = null)
+        protected ComponentSpecification(string name, IEnumerable<PropertySpecification> properties = null)
         {
             this.Name = name;
 
-            if (parameters != null)
+            if (properties != null)
             {
-                this.parameters.AddRange(parameters);
+                this.properties.AddRange(properties);
             }
         }
 
         public string Name { get; private set; }
 
-        public IEnumerable<ParameterSpecification> Parameters
+        public IEnumerable<PropertySpecification> Properties
         {
-            get { return this.parameters; }
+            get { return this.properties; }
         }
 
-        public void AddParameter(ParameterSpecification parameter)
+        public void AddProperty(PropertySpecification property)
         {
-            this.parameters.Add(parameter);
+            this.properties.Add(property);
         }
 
         public abstract TV Accept<TV>(IComponentSpecificationVisitor<TV> visitor);

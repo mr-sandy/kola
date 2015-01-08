@@ -20,9 +20,9 @@
             this.widgetRepository = widgetRepository;
         }
 
-        public IEnumerable<IComponentSpecification<IParameterisedComponent>> FindAll()
+        public IEnumerable<IComponentSpecification<IComponentWithProperties>> FindAll()
         {
-            IEnumerable<IComponentSpecification<IParameterisedComponent>> pluggedInComponents = this.registry.KolaConfiguration.Plugins
+            IEnumerable<IComponentSpecification<IComponentWithProperties>> pluggedInComponents = this.registry.KolaConfiguration.Plugins
                 .SelectMany(plugin => plugin.ComponentTypeSpecifications);
 
             var widgets = this.widgetRepository.FindAll();
@@ -30,14 +30,14 @@
             return pluggedInComponents.Concat(widgets);
         }
 
-        public IComponentSpecification<IParameterisedComponent> Lookup(string componentName)
+        public IComponentSpecification<IComponentWithProperties> Lookup(string componentName)
         {
             var componentSpecification = this.registry.KolaConfiguration.Plugins
                 .SelectMany(plugin => plugin.ComponentTypeSpecifications)
                 .FirstOrDefault(c => c.Name == componentName);
 
             return componentSpecification != null
-                ? (IComponentSpecification<IParameterisedComponent>)componentSpecification
+                ? (IComponentSpecification<IComponentWithProperties>)componentSpecification
                 : this.widgetRepository.Find(componentName);
         }
     }

@@ -25,17 +25,17 @@
                 "widget name",
                 new IComponent[]
                     {
-                        new Atom("atom", Enumerable.Empty<Parameter>()), 
+                        new Atom("atom", Enumerable.Empty<Property>()), 
                         new Placeholder(), 
-                        new Container("container", Enumerable.Empty<Parameter>(), new[] { new Placeholder() }) 
+                        new Container("container", Enumerable.Empty<Property>(), new[] { new Placeholder() }) 
                     });
 
             var widget = new Widget(
                 "widget name",
                 new[]
                     {
-                        new Area(new IComponent[] { new Atom("atom", Enumerable.Empty<Parameter>()), new Atom("atom", Enumerable.Empty<Parameter>()) }),
-                        new Area(new IComponent[] { new Atom("atom", Enumerable.Empty<Parameter>()), new Atom("atom", Enumerable.Empty<Parameter>()), new Atom("atom", Enumerable.Empty<Parameter>()) })
+                        new Area(new IComponent[] { new Atom("atom", Enumerable.Empty<Property>()), new Atom("atom", Enumerable.Empty<Property>()) }),
+                        new Area(new IComponent[] { new Atom("atom", Enumerable.Empty<Property>()), new Atom("atom", Enumerable.Empty<Property>()), new Atom("atom", Enumerable.Empty<Property>()) })
                     });
 
             var buildContext = MockRepository.GenerateStub<IBuildContext>();

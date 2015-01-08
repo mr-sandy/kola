@@ -2,7 +2,6 @@
 {
     using System.Linq;
 
-    using Kola.ResourceBuilding;
     using Kola.Service;
 
     using global::Nancy;
@@ -11,27 +10,25 @@
 
     public class AdminModule : NancyModule
     {
-        private readonly ParameterSpecificationLibrary parameterSpecificationLibrary;
+        private readonly PropertySpecificationLibrary propertySpecificationLibrary;
 
-        public AdminModule(ParameterSpecificationLibrary parameterSpecificationLibrary)
+        public AdminModule(PropertySpecificationLibrary propertySpecificationLibrary)
         {
-            this.parameterSpecificationLibrary = parameterSpecificationLibrary;
+            this.propertySpecificationLibrary = propertySpecificationLibrary;
 
             this.Get["/_kola", AcceptHeaderFilters.Html] = this.GetPage;
             this.Get["/_kola/{*}", AcceptHeaderFilters.Html] = this.GetPage;
         }
 
-        private Negotiator GetPage(dynamic parameters)
+        private Negotiator GetPage(dynamic properties)
         {
             var serialiser = new JavaScriptSerializer();
 
-            var parameterEditors = this.parameterSpecificationLibrary.FindAll().Select(p => new { name = p.Name, url = "/_kola/editors/views/" + p.EditorName });
-
-            //var resource = new ParameterTypeResourceBuilder().Build(parameterEditors);
+            var propertyEditors = this.propertySpecificationLibrary.FindAll().Select(p => new { name = p.Name, url = "/_kola/editors/views/" + p.EditorName });
 
             var model = new
                 {
-                    ParameterEditors = serialiser.Serialize(parameterEditors)
+                    PropertyEditors = serialiser.Serialize(propertyEditors)
                 };
 
             return this.Negotiate

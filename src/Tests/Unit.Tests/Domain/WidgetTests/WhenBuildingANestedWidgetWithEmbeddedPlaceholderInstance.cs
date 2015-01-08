@@ -61,11 +61,11 @@
                 "widget 1",
                 new IComponent[]
                     {
-                        new Atom("atom a", Enumerable.Empty<Parameter>()), 
+                        new Atom("atom a", Enumerable.Empty<Property>()), 
                         new Placeholder(), 
                         new Container(
                             "container a",
-                            Enumerable.Empty<Parameter>(),
+                            Enumerable.Empty<Property>(),
                             new[]
                                 {
                                     new Placeholder()
@@ -87,7 +87,7 @@
                                         }),
                                     new Area(new[]
                                         {
-                                            new Atom("atom b", Enumerable.Empty<Parameter>())
+                                            new Atom("atom b", Enumerable.Empty<Property>())
                                         })
                                 })
                     });
@@ -99,12 +99,12 @@
                         new Area(
                             new IComponent[]
                                 {
-                                    new Atom("atom c", Enumerable.Empty<Parameter>())
+                                    new Atom("atom c", Enumerable.Empty<Property>())
                                 }),
                         new Area(
                             new IComponent[]
                                 {
-                                    new Atom("atom d", Enumerable.Empty<Parameter>()),
+                                    new Atom("atom d", Enumerable.Empty<Property>()),
                                 })
                     });
 

@@ -9,14 +9,14 @@
 
     internal class SurrogateBuildingComponentVisitor : IComponentVisitor<ComponentSurrogate>
     {
-        private readonly SurrogateBuildingParameterValueVisitor parameterValueBuilder = new SurrogateBuildingParameterValueVisitor();
+        private readonly SurrogateBuildingPropertyValueVisitor propertyValueBuilder = new SurrogateBuildingPropertyValueVisitor();
         
         public ComponentSurrogate Visit(Atom atom)
         {
             return new AtomSurrogate
             {
                 Name = atom.Name,
-                Parameters = this.BuildParameters(atom.Parameters).ToArray()
+                Properties = this.BuildProperties(atom.Properties).ToArray()
             };
         }
 
@@ -26,7 +26,7 @@
             {
                 Name = container.Name,
                 Components = container.Components.Select(c => c.Accept(this)).ToArray(),
-                Parameters = this.BuildParameters(container.Parameters).ToArray()
+                Properties = this.BuildProperties(container.Properties).ToArray()
             };
         }
 
@@ -36,7 +36,7 @@
             {
                 Name = widget.Name,
                 Areas = widget.Areas.Select(a => a.Accept(this)).ToArray(),
-                Parameters = this.BuildParameters(widget.Parameters).ToArray()
+                Properties = this.BuildProperties(widget.Properties).ToArray()
             };
         }
 
@@ -50,13 +50,13 @@
             return new AreaSurrogate { Components = area.Components.Select(c => c.Accept(this)).ToArray() };
         }
 
-        private IEnumerable<ParameterSurrogate> BuildParameters(IEnumerable<Parameter> parameters)
+        private IEnumerable<PropertySurrogate> BuildProperties(IEnumerable<Property> properties)
         {
-            return parameters.Select(parameter => new ParameterSurrogate
+            return properties.Select(property => new PropertySurrogate
                 {
-                    Name = parameter.Name,
-                    Type = parameter.Type,
-                    Value = parameter.Value == null ? null : parameter.Value.Accept(this.parameterValueBuilder)
+                    Name = property.Name,
+                    Type = property.Type,
+                    Value = property.Value == null ? null : property.Value.Accept(this.propertyValueBuilder)
                 });
         }
     }

@@ -9,12 +9,12 @@
     using Kola.Domain.Instances.Building;
     using Kola.Extensions;
 
-    public class Container : ParameterisedComponent, IComponentCollection
+    public class Container : ComponentWithgProperties, IComponentCollection
     {
         private readonly List<IComponent> components = new List<IComponent>();
 
-        public Container(string name, IEnumerable<Parameter> parameters = null, IEnumerable<IComponent> components = null)
-            : base(name, parameters)
+        public Container(string name, IEnumerable<Property> properties = null, IEnumerable<IComponent> components = null)
+            : base(name, properties)
         {
             if (components != null)
             {
@@ -57,7 +57,7 @@
             return new ContainerInstance(
                 path,
                 this.Name, 
-                this.Parameters.Select(p => p.Build(buildContext)), 
+                this.Properties.Select(p => p.Build(buildContext)), 
                 this.Components.Select((c, i) => c.Build(path.Append(i), buildContext)).ToList());
         }
     }

@@ -5,7 +5,7 @@
     using Kola.Domain.Composition;
 
     public interface IPluginComponentSpecification<out T> : IComponentSpecification<T>
-        where T : IParameterisedComponent
+        where T : IComponentWithProperties
     {
         Type RendererType { get; set; }
 

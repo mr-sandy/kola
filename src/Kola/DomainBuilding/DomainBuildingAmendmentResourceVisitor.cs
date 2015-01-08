@@ -25,7 +25,7 @@
 
         public IAmendment Visit(SetPropertyAmendmentResource resource)
         {
-            return new SetParameterFixedAmendment(resource.ComponentPath.ParseComponentPath(), resource.PropertyName, resource.Value);
+            return new SetPropertyFixedAmendment(resource.ComponentPath.ParseComponentPath(), resource.PropertyName, resource.Value);
         }
     }
 }

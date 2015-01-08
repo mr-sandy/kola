@@ -6,16 +6,16 @@
 
     public class AtomInstance : ComponentInstance
     {
-        public AtomInstance(IEnumerable<int> path, string name, IEnumerable<ParameterInstance> parameters)
+        public AtomInstance(IEnumerable<int> path, string name, IEnumerable<PropertyInstance> properties)
             : base(path)
         {
             this.Name = name;
-            this.Parameters = parameters;
+            this.Properties = properties;
         }
 
         public string Name { get; private set; }
 
-        public IEnumerable<ParameterInstance> Parameters { get; private set; }
+        public IEnumerable<PropertyInstance> Properties { get; private set; }
 
         public override T Accept<T, TContext>(IComponentInstanceVisitor<T, TContext> visitor, TContext context)
         {

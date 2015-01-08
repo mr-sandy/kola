@@ -12,7 +12,7 @@
     {
         private readonly ComponentNamingSpecificationVisitor namingVisitor = new ComponentNamingSpecificationVisitor();
 
-        public ComponentTypeResource Build(IComponentSpecification<IParameterisedComponent> component)
+        public ComponentTypeResource Build(IComponentSpecification<IComponentWithProperties> component)
         {
             return new ComponentTypeResource
                 {
@@ -25,7 +25,7 @@
                 };
         }
 
-        public IEnumerable<ComponentTypeResource> Build(IEnumerable<IComponentSpecification<IParameterisedComponent>> components)
+        public IEnumerable<ComponentTypeResource> Build(IEnumerable<IComponentSpecification<IComponentWithProperties>> components)
         {
             return components.Select(this.Build);
         }
