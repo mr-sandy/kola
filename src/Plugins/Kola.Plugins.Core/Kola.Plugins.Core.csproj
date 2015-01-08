@@ -76,9 +76,6 @@
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\test.js" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Editors\views\MarkdownEditorView.js" />
   </ItemGroup>
   <ItemGroup>
