@@ -118,9 +118,8 @@
     <Compile Include="Domain\Instances\PropertyInstance.cs" />
     <Compile Include="Domain\Specifications\PluginComponentSpecification.cs" />
     <Compile Include="Domain\Specifications\AtomSpecification.cs" />
-    <Compile Include="Configuration\DefaultKolaConfigurationBuilder.cs" />
-    <Compile Include="Configuration\IPluginFinder.cs" />
     <Compile Include="Configuration\KolaConfigurationBuilder.cs" />
+    <Compile Include="Configuration\IPluginFinder.cs" />
     <Compile Include="Configuration\KolaConfiguration.cs" />
     <Compile Include="Domain\Specifications\CacheType.cs" />
     <Compile Include="Domain\Specifications\ContainerSpecification.cs" />
@@ -176,7 +175,7 @@
     <Compile Include="Nancy\Extensions\HtmlHelpersExtensions.cs" />
     <Compile Include="Nancy\Modules\WidgetModule.cs" />
     <Compile Include="Nancy\ResultWrapper.cs" />
-    <Compile Include="Nancy\NancyKolaConfigurationRegistry.cs" />
+    <Compile Include="Configuration\KolaConfigurationRegistry.cs" />
     <Compile Include="Persistence\SurrogateBuilding\SurrogateBuildingPropertyValueVisitor.cs" />
     <Compile Include="Persistence\Surrogates\AreaSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\PropertyValues\FixedPropertyValueSurrogate.cs" />

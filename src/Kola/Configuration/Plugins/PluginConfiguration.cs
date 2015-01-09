@@ -11,6 +11,13 @@
         private readonly List<IPluginComponentSpecification<IComponentWithProperties>> componentSpecifications = new List<IPluginComponentSpecification<IComponentWithProperties>>();
         private readonly List<PropertyTypeSpecification> propertySpecifications = new List<PropertyTypeSpecification>();
 
+        protected PluginConfiguration(string pluginName)
+        {
+            this.PluginName = pluginName;
+        }
+
+        public string PluginName { get; private set; }
+
         public string ViewLocation { get; set; }
 
         internal IEnumerable<IPluginComponentSpecification<IComponentWithProperties>> ComponentTypeSpecifications

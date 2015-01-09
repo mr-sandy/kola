@@ -8,7 +8,6 @@
     using Kola.Configuration.Plugins;
     using Kola.Domain.Instances;
     using Kola.Domain.Rendering;
-    using Kola.Nancy;
 
     using NUnit.Framework;
 
@@ -29,7 +28,7 @@
 
             var renderer = new MultiRenderer(handlerFactory);
 
-            NancyKolaConfigurationRegistry.Instance = new KolaConfiguration(renderer, Enumerable.Empty<PluginConfiguration>());
+            KolaConfigurationRegistry.Register(new KolaConfiguration(renderer, Enumerable.Empty<PluginConfiguration>()));
 
             var page =
                 new PageInstance(

@@ -6,6 +6,7 @@
     public class Configuration : PluginConfiguration
     {
         public Configuration()
+            : base("LinnCore")
         {
             this.Configure.ViewLocation("Kola.Plugins.Core.Views");
 

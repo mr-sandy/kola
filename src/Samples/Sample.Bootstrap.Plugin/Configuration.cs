@@ -7,6 +7,7 @@
     public class Configuration : PluginConfiguration
     {
         public Configuration()
+            : base("Bootstrap")
         {
             this.Configure.ViewLocation("Sample.Bootstrap.Plugin");
 

@@ -1,29 +1,25 @@
 ﻿namespace Kola.Configuration
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Configuration.Plugins;
-    using Kola.Domain.Composition;
     using Kola.Domain.Rendering;
-    using Kola.Domain.Specifications;
 
-    public abstract class KolaConfigurationBuilder
+    public class KolaConfigurationBuilder 
     {
-        public KolaConfiguration Build()
+        public KolaConfiguration Build(IPluginFinder pluginFinder, IObjectFactory objectFactory)
         {
-            var plugins = this.FindPlugins();
+            var plugins = pluginFinder.FindPlugins();
 
             var rendererMappings = plugins.SelectMany(c => c.ComponentTypeSpecifications);
 
-            var renderer = this.BuildRenderer(rendererMappings);
+            // TODO {SC} Surely this has to happen in a better way?
+            var renderer = new PathAnnotatingMultiRenderer(new MultiRenderer(new RendererFactory(rendererMappings, objectFactory)));
 
-            return new KolaConfiguration(renderer, plugins);
+            var configuration = new KolaConfiguration(renderer, plugins);
+
+            KolaConfigurationRegistry.Register(configuration);
+
+            return configuration;
         }
-
-        protected abstract IEnumerable<PluginConfiguration> FindPlugins();
-
-        protected abstract IMultiRenderer BuildRenderer(IEnumerable<IPluginComponentSpecification<IComponentWithProperties>> componentSpecifications);
     }
 }

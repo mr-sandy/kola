@@ -88,6 +88,7 @@ namespace Unit.Tests.Configuration
     internal class TestPluginConfiguration :  PluginConfiguration
     {
         public TestPluginConfiguration()
+            : base("Test")
         {
             this.Configure.Container("atom-1")
                 .WithRenderer<TestHandler>("viewName")

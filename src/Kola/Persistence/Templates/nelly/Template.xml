@@ -7,7 +7,15 @@
         <atom name="button">
           <properties>
             <property name="caption" type="text">
-              <value xsi:type="fixed"><![CDATA[Click me! Hardeep!]]></value>
+              <value xsi:type="fixed"><![CDATA[Click me! ]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[##Hello there Sandy
+]]></value>
             </property>
           </properties>
         </atom>
@@ -23,7 +31,7 @@
             <property name="markdown" type="markdown">
               <value xsi:type="fixed"><![CDATA[##A h2 header
 
-Paragraphs are separated by a blank line.
+Paragraphs are separated by a `blank line`.
 
 2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
 look like:
@@ -52,9 +60,20 @@ Unicode is supported. ☺]]></value>
   </components>
   <amendments>
     <setPropertyFixed>
-      <componentPath>0/0</componentPath>
+      <componentPath>0/1</componentPath>
+      <PropertyName>markdown</PropertyName>
+      <FixedValue>#Hello there Sandy
+</FixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/2</componentPath>
       <PropertyName>caption</PropertyName>
-      <FixedValue>Click me! Hardy!</FixedValue>
+      <FixedValue>Hello Katy!</FixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/2</componentPath>
+      <PropertyName>caption</PropertyName>
+      <FixedValue>Hello Katy! :)</FixedValue>
     </setPropertyFixed>
   </amendments>
 </template>

@@ -24,6 +24,8 @@
             x => x.GetReferencedAssemblies().Any(r => r.Name.StartsWith("Kola"))
         };
 
+        private KolaConfiguration kolaConfiguration;
+
         protected override NancyInternalConfiguration InternalConfiguration
         {
             get
@@ -37,14 +39,13 @@
 
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
-            var configurationBuilder = new DefaultKolaConfigurationBuilder(new PluginFinder(), new TinyIoCObjectFactory(container));
-            var kolaConfiguration = configurationBuilder.Build();
-            //TODO {SC} Us ethe IOC container to hold the Kola configuration
-            NancyKolaConfigurationRegistry.Instance = kolaConfiguration;
+            // TODO {SC} Use the IOC container to hold the Kola configuration
 
-            foreach (var pluginSummary in kolaConfiguration.Plugins)
+            this.kolaConfiguration = new KolaConfigurationBuilder().Build(new PluginFinder(), new TinyIoCObjectFactory(container));
+
+            foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
             {
-                ResourceViewLocationProvider.RootNamespaces.Add(pluginSummary.GetType().Assembly, pluginSummary.ViewLocation);
+                ResourceViewLocationProvider.RootNamespaces.Add(plugin.GetType().Assembly, plugin.ViewLocation);
             }
 
             ResourceViewLocationProvider.RootNamespaces.Add(typeof(KolaNancyBootstrapper).Assembly, "Kola.Nancy");
@@ -74,8 +75,10 @@
             conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Scripts", typeof(KolaNancyBootstrapper).Assembly, "/Scripts"));
             conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Content", typeof(KolaNancyBootstrapper).Assembly, "/Content"));
 
-            var ass = Assembly.Load("Kola.Plugins.Core");
-            conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Editors", ass, "/Editors"));
+            foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
+            {
+                conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Editors/" + plugin.PluginName, plugin.GetType().Assembly, "/Editors"));
+            } 
         }
     }
 }

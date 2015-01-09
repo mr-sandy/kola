@@ -17,16 +17,16 @@
         [SetUp]
         public void EstablishContext()
         {
-            var plugin1Configuration = MockRepository.GenerateStub<PluginConfiguration>();
-            var plugin2Configuration = MockRepository.GenerateStub<PluginConfiguration>();
+            var plugin1Configuration = MockRepository.GenerateStub<PluginConfiguration>("plugin1");
+            var plugin2Configuration = MockRepository.GenerateStub<PluginConfiguration>("plugin2");
             var pluginFinder = MockRepository.GenerateStub<IPluginFinder>();
             var objectFactory = MockRepository.GenerateStub<IObjectFactory>();
 
             pluginFinder.Stub(f => f.FindPlugins()).Return(new[] { plugin1Configuration, plugin2Configuration });
 
-            var builder = new DefaultKolaConfigurationBuilder(pluginFinder, objectFactory);
+            var builder = new KolaConfigurationBuilder();
 
-            this.configuration = builder.Build();
+            this.configuration = builder.Build(pluginFinder, objectFactory);
         }
 
         [Test]

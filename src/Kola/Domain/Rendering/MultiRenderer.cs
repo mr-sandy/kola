@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    using Kola.Configuration;
     using Kola.Domain.Instances;
     using Kola.Nancy;
 
@@ -28,22 +29,22 @@
 
         public IResult Render(WidgetInstance widget)
         {
-            return new CompositeResult(widget.Components.Select(c => c.Render(NancyKolaConfigurationRegistry.Instance.Renderer)));
+            return new CompositeResult(widget.Components.Select(c => c.Render(KolaConfigurationRegistry.Instance.Renderer)));
         }
 
         public IResult Render(AreaInstance area)
         {
-            return new CompositeResult(area.Components.Select(c => c.Render(NancyKolaConfigurationRegistry.Instance.Renderer)));
+            return new CompositeResult(area.Components.Select(c => c.Render(KolaConfigurationRegistry.Instance.Renderer)));
         }
 
         public IResult Render(PageInstance page)
         {
-            return new CompositeResult(page.Components.Select(c => c.Render(NancyKolaConfigurationRegistry.Instance.Renderer)));
+            return new CompositeResult(page.Components.Select(c => c.Render(KolaConfigurationRegistry.Instance.Renderer)));
         }
 
         public IResult Render(IEnumerable<ComponentInstance> components)
         {
-            return new CompositeResult(components.Select(c => c.Render(NancyKolaConfigurationRegistry.Instance.Renderer)));
+            return new CompositeResult(components.Select(c => c.Render(KolaConfigurationRegistry.Instance.Renderer)));
         }
     }
 }

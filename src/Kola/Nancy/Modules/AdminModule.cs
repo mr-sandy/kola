@@ -2,7 +2,7 @@
 {
     using System.Linq;
 
-    using Kola.Service;
+    using Kola.Configuration;
 
     using global::Nancy;
     using global::Nancy.Json;
@@ -10,11 +10,11 @@
 
     public class AdminModule : NancyModule
     {
-        private readonly PropertySpecificationLibrary propertySpecificationLibrary;
+        private readonly IKolaConfigurationRegistry kolaConfigurationRegistry;
 
-        public AdminModule(PropertySpecificationLibrary propertySpecificationLibrary)
+        public AdminModule(IKolaConfigurationRegistry kolaConfigurationRegistry)
         {
-            this.propertySpecificationLibrary = propertySpecificationLibrary;
+            this.kolaConfigurationRegistry = kolaConfigurationRegistry;
 
             this.Get["/_kola", AcceptHeaderFilters.Html] = this.GetPage;
             this.Get["/_kola/{*}", AcceptHeaderFilters.Html] = this.GetPage;
@@ -24,7 +24,9 @@
         {
             var serialiser = new JavaScriptSerializer();
 
-            var propertyEditors = this.propertySpecificationLibrary.FindAll().Select(p => new { name = p.Name, url = "/_kola/editors/views/" + p.EditorName });
+            var propertyEditors = from plugin in this.kolaConfigurationRegistry.KolaConfiguration.Plugins
+                                  from property in plugin.PropertyTypeSpecifications
+                                  select new { name = property.Name, url = "/_kola/editors/" + plugin.PluginName + "/views/" + property.EditorName };
 
             var model = new
                 {

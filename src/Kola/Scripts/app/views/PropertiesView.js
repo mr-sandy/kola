@@ -24,8 +24,10 @@
                 ? this.stateBroker.selected
                 : null;
 
-            var self = this;
-            this.model.on('sync', self.render);
+            if (this.model !== null) {
+                this.model.on('sync', this.render);
+            }
+
             this.render();
         },
 

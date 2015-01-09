@@ -1,6 +1,8 @@
 ﻿
 namespace Kola.Configuration
 {
+    using System;
+
     public class PropertyTypeSpecification
     {
         public PropertyTypeSpecification(string name)

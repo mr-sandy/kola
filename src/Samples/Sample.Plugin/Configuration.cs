@@ -7,6 +7,7 @@
     public class Configuration : PluginConfiguration
     {
         public Configuration()
+            : base("Sample")
         {
             this.Configure.ViewLocation("Sample.Plugin.Views");
 
