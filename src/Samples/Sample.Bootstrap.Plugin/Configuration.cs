@@ -11,7 +11,8 @@
             this.Configure.ViewLocation("Sample.Bootstrap.Plugin");
 
             this.Configure.Atom("button")
-                .WithRenderer<ButtonRenderer>();
+                .WithRenderer<ButtonRenderer>()
+                .WithProperty("caption", "text");
         }
     }
 }

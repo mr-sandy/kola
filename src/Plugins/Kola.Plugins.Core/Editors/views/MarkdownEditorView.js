@@ -8,21 +8,19 @@
     return Backbone.View.extend({
 
         template: Handlebars.compile(Template),
-
-        initialize: function () {
-
-        },
-
-        //        events: {
-        //            "mouseover": "activate",
-        //            "mouseout": "deactivate",
-        //            "click": "select"
-        //        },
-
-        render: function () {
-            this.$el.html(this.template(this.model));
+        render: function (editMode) {
+            if (editMode) {
+                this.$el.html(this.template(this.model));
+            }
+            else {
+                this.$el.html(this.model.value.value);
+            }
 
             return this;
+        },
+
+        value: function () {
+            return this.$el.find('textarea').val();
         }
     });
 });

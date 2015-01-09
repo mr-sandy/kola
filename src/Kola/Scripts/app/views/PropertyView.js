@@ -19,7 +19,7 @@
         },
 
         events: {
-            'click .value': 'edit',
+            'click': 'edit',
             'submit .value': 'submit'
         },
 

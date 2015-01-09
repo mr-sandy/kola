@@ -1,2 +1,6 @@
 ﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.AtomInstance>
-<input type="button" value="click me" />
+@using Kola.Domain.Extensions
+@{
+    var caption = Model.Properties.Get("caption");
+}
+<input type="button" value="@caption" />

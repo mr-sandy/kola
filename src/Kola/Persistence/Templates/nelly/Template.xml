@@ -4,39 +4,69 @@
     <atom name="label">
       <properties>
         <property name="caption" type="text">
-          <value xsi:type="fixed"><![CDATA[Fishcake wonker]]></value>
+          <value xsi:type="fixed"><![CDATA[Badgers!]]></value>
+        </property>
+      </properties>
+    </atom>
+    <atom name="button">
+      <properties>
+        <property name="caption" type="text">
+          <value xsi:type="fixed"><![CDATA[Clickety click!]]></value>
         </property>
       </properties>
     </atom>
     <atom name="label">
       <properties>
         <property name="caption" type="text">
-          <value xsi:type="fixed"><![CDATA[Badgers!]]></value>
+          <value xsi:type="fixed"><![CDATA[Hello!]]></value>
         </property>
       </properties>
     </atom>
     <atom name="markdown">
       <properties>
         <property name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[*markdown*]]></value>
+          <value xsi:type="fixed"><![CDATA[##A h2 header
+
+Paragraphs are separated by a blank line.
+
+2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
+look like:
+
+  * this one
+  * that one
+  * the other one
+
+Note that --- not considering the asterisk --- the actual text
+content starts at 4-columns in.
+
+> Block quotes are
+> written like so.
+>
+> They can span multiple paragraphs,
+> if you like.
+
+Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
+in chapters 12--14"). Three dots ... will be converted to an ellipsis.
+Unicode is supported. ☺]]></value>
+        </property>
+      </properties>
+    </atom>
+    <atom name="label">
+      <properties>
+        <property name="caption" type="text">
+          <value xsi:type="fixed"><![CDATA[What?]]></value>
+        </property>
+      </properties>
+    </atom>
+    <atom name="markdown">
+      <properties>
+        <property name="markdown" type="markdown">
+          <value xsi:type="fixed"><![CDATA[##markdown##
+
+Hello **there**]]></value>
         </property>
       </properties>
     </atom>
   </components>
-  <amendments>
-    <setPropertyFixed>
-      <componentPath>0</componentPath>
-      <PropertyName>caption</PropertyName>
-      <FixedValue>Fishcake wizard?</FixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0</componentPath>
-      <PropertyName>caption</PropertyName>
-      <FixedValue>Fishcake wizardly?</FixedValue>
-    </setPropertyFixed>
-    <moveComponent>
-      <sourcePath>2</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-  </amendments>
+  <amendments />
 </template>

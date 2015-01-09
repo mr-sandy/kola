@@ -207,7 +207,8 @@ iframe {
       border-left: 1px solid #ccead8;
       border-bottom: 1px solid #ccead8; }
     #properties table tbody td:first-child {
-      border-left: none; }
+      border-left: none;
+      background-color: #eee; }
     #properties table tbody tr:last-child td {
       border-bottom: none; }
 
