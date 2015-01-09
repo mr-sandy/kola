@@ -199,16 +199,21 @@ iframe {
     overflow: hidden;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    border-radius: 3px;
-    width: 400px; }
+    border-radius: 3px; }
     #properties table td, #properties table th {
       padding: 3px 10px; }
     #properties table tbody td {
       border-left: 1px solid #ccead8;
       border-bottom: 1px solid #ccead8; }
-    #properties table tbody td:first-child {
-      border-left: none;
-      background-color: #eee; }
+      #properties table tbody td.name {
+        width: 150px;
+        border-left: none;
+        background-color: #eee; }
+      #properties table tbody td.value form {
+        width: 250px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
     #properties table tbody tr:last-child td {
       border-bottom: none; }
 

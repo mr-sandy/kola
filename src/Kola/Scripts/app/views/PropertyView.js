@@ -20,7 +20,7 @@
 
         events: {
             'click': 'edit',
-            'submit .value': 'submit'
+            'submit': 'submit'
         },
 
         render: function () {
@@ -48,7 +48,7 @@
 
             var property = this.model;
             var editorInfo = this.getEditorInfo(this.model.type);
-            var $child = this.$el.find('.value').last();
+            var $child = this.$el.find('.value form').last();
 
             if (this.editorView) {
                 this.editorView.remove();
@@ -89,6 +89,8 @@
                 componentPath: this.componentPath,
                 value: this.editorView.value()
             });
+
+            this.editMode = false;
         }
     });
 });

@@ -1,6 +1,8 @@
 ﻿
 namespace Kola.Configuration.Fluent
 {
+    using System;
+
     using Kola.Configuration.Plugins;
     using Kola.Domain.Specifications;
 

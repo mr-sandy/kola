@@ -14,6 +14,7 @@
 
         initialize: function (options) {
             this.stateBroker = options.stateBroker;
+            _.bindAll(this, 'render');
             this.amendments = options.amendments;
             this.listenTo(options.stateBroker, 'change', this.handleSelectionChange);
         },
@@ -23,6 +24,8 @@
                 ? this.stateBroker.selected
                 : null;
 
+            var self = this;
+            this.model.on('sync', self.render);
             this.render();
         },
 
