@@ -3,7 +3,7 @@
 
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
-    var Template = require('text!/_kola/editors/templates/TextEditorTemplate.html');
+    var Template = require('text!../templates/TextEditorTemplate.html');
 
     return Backbone.View.extend({
 

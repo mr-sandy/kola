@@ -3,8 +3,8 @@
 
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
-    var ViewTemplate = require('text!/_kola/editors/templates/BooleanEditorViewTemplate.html');
-    var EditTemplate = require('text!/_kola/editors/templates/BooleanEditorEditTemplate.html');
+    var ViewTemplate = require('text!../templates/BooleanEditorViewTemplate.html');
+    var EditTemplate = require('text!../templates/BooleanEditorEditTemplate.html');
 
     return Backbone.View.extend({
 
