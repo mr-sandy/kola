@@ -25,6 +25,7 @@
 
         public IResult Render(AtomInstance component)
         {
+            //TODO {SC} add a 'outer renderer' property to delegate rendering upwards (if a parent exists)
             return new AnnotatedResult(this.inner.Render(component), component.Path);
         }
 

@@ -264,6 +264,7 @@
     <EmbeddedResource Include="Content\kola.scss" />
     <EmbeddedResource Include="Content\bootstrap-theme.css.map" />
     <EmbeddedResource Include="Content\bootstrap.css.map" />
+    <None Include="Content\kola\_editors.scss" />
     <None Include="Content\kola\_base.scss">
       <Compile>False</Compile>
       <Minify>False</Minify>

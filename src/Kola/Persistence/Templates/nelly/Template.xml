@@ -7,15 +7,14 @@
         <atom name="button">
           <properties>
             <property name="caption" type="text">
-              <value xsi:type="fixed"><![CDATA[Click me! ]]></value>
+              <value xsi:type="fixed"><![CDATA[Click me!]]></value>
             </property>
           </properties>
         </atom>
         <atom name="markdown">
           <properties>
             <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[#Hello there Sandy
-]]></value>
+              <value xsi:type="fixed"><![CDATA[#Hello!]]></value>
             </property>
           </properties>
         </atom>
@@ -58,5 +57,127 @@ Unicode is supported. ☺]]></value>
       </components>
     </container>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <PropertyName>markdown</PropertyName>
+      <FixedValue>#Hello! badger</FixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <PropertyName>markdown</PropertyName>
+      <FixedValue>#Hello! badger</FixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <PropertyName>markdown</PropertyName>
+      <FixedValue>#Hello! badgers</FixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <PropertyName>markdown</PropertyName>
+      <FixedValue>#Hello! badgers</FixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <PropertyName>markdown</PropertyName>
+      <FixedValue>#Hello! badgers</FixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <PropertyName>markdown</PropertyName>
+      <FixedValue>#Hello! badgers!</FixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0</componentPath>
+      <PropertyName>caption</PropertyName>
+      <FixedValue>Click me!</FixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <PropertyName>markdown</PropertyName>
+      <FixedValue>#Hello! badgers!</FixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/3</componentPath>
+      <PropertyName>markdown</PropertyName>
+      <FixedValue>##A h2 header
+
+Paragraphs are separated by a `blank line`.
+
+2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
+look like:
+
+  * this one
+  * that one
+  * the other one
+
+Note that --- not considering the asterisk --- the actual text
+content starts at 4-columns in.
+
+&gt; Block quotes are
+&gt; written like so.
+&gt;
+&gt; They can span multiple paragraphs,
+&gt; if you like.
+
+Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
+in chapters 12--14"). Three dots ... will be converted to an ellipsis.
+Unicode is supported. ☺</FixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/3</componentPath>
+      <PropertyName>markdown</PropertyName>
+      <FixedValue>##A h2 header
+
+Paragraphs are separated by a `blank line`.
+
+2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
+look like:
+
+  * this one
+  * that one
+  * the other one
+
+Note that --- not considering the asterisk --- the actual text
+content starts at 4-columns in.
+
+&gt; Block quotes are
+&gt; written like so.
+&gt;
+&gt; They can span multiple paragraphs,
+&gt; if you like.
+
+Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
+in chapters 12--14"). Three dots ... will be converted to an ellipsis.
+Unicode is supported. ☺</FixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/3</componentPath>
+      <PropertyName>markdown</PropertyName>
+      <FixedValue>##A h2 header
+
+Paragraphs are separated by a `blank line`.
+
+2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
+look like:
+
+  * this one
+  * that one
+  * the other one
+
+Note that --- not considering the asterisk --- the actual text
+content starts at 4-columns in.
+
+&gt; Block quotes are
+&gt; written like so.
+&gt;
+&gt; They can span multiple paragraphs,
+&gt; if you like.
+
+Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
+in chapters 12--14"). Three dots ... will be converted to an ellipsis.
+Unicode is supported. ☺</FixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>

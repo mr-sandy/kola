@@ -24,8 +24,6 @@
             x => x.GetReferencedAssemblies().Any(r => r.Name.StartsWith("Kola"))
         };
 
-        private KolaConfiguration kolaConfiguration;
-
         protected override NancyInternalConfiguration InternalConfiguration
         {
             get
@@ -41,7 +39,7 @@
         {
             // TODO {SC} Use the IOC container to hold the Kola configuration
 
-            this.kolaConfiguration = new KolaConfigurationBuilder().Build(new PluginFinder(), new TinyIoCObjectFactory(container));
+            new KolaConfigurationBuilder().Build(new PluginFinder(), new TinyIoCObjectFactory(container));
 
             foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
             {
