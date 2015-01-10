@@ -70,7 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Editors\css\editor.scss" />
+    <EmbeddedResource Include="Editors\css\editor.scss" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\Markdown.cshtml" />
     <EmbeddedResource Include="Views\Label.cshtml" />
@@ -98,12 +98,12 @@
     <EmbeddedResource Include="Editors\templates\TextEditorTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Editors\css\editor.css">
+    <EmbeddedResource Include="Editors\css\editor.css">
       <DependentUpon>editor.scss</DependentUpon>
-    </Content>
-    <Content Include="Editors\css\editor.min.css">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editors\css\editor.min.css">
       <DependentUpon>editor.scss</DependentUpon>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
