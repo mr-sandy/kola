@@ -1,139 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
-    <container name="container-1">
-      <properties />
-      <components>
-        <atom name="button">
-          <properties>
-            <property name="caption" type="text">
-              <value xsi:type="fixed"><![CDATA[Click me!]]></value>
-            </property>
-          </properties>
-        </atom>
-        <atom name="markdown">
-          <properties>
-            <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[#Hello! badgers!]]></value>
-            </property>
-          </properties>
-        </atom>
-        <atom name="label">
-          <properties>
-            <property name="caption" type="text">
-              <value xsi:type="fixed"><![CDATA[Hello Katy]]></value>
-            </property>
-          </properties>
-        </atom>
-        <atom name="markdown">
-          <properties>
-            <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[##A h2 header
-
-Paragraphs are separated by a `blank line`.
-
-2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
-look like:
-
-  * this one
-  * that one
-  * the other one
-
-Note that --- not considering the asterisk --- the actual text
-content starts at 4-columns in.
-
-> Block quotes are
-> written like so.
->
-> They can span multiple paragraphs,
-> if you like.
-
-Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
-in chapters 12--14"). Three dots ... will be converted to an ellipsis.
-Unicode is supported. ☺]]></value>
-            </property>
-          </properties>
-        </atom>
-      </components>
-    </container>
+    <atom name="markdown">
+      <properties>
+        <property name="markdown" type="markdown">
+          <value xsi:type="fixed"><![CDATA[#Hello! Sandy!]]></value>
+        </property>
+      </properties>
+    </atom>
   </components>
   <amendments>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
     <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <PropertyName>markdown</PropertyName>
-      <FixedValue>#Hello! badgers!
-
- - how
- - are
- - you&gt;</FixedValue>
+      <componentPath>0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Hello! Matilda!]]></fixedValue>
     </setPropertyFixed>
     <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <PropertyName>markdown</PropertyName>
-      <FixedValue>#Hello! badgers!
-
- - how
- - are
- - you?</FixedValue>
+      <componentPath>0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Hello! Nelly!]]></fixedValue>
     </setPropertyFixed>
     <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <PropertyName>markdown</PropertyName>
-      <FixedValue>#Hello! badgers!
-
- - how
- - are
- - you?</FixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <PropertyName>markdown</PropertyName>
-      <FixedValue>#Hello! badgers!
-
- - how
- - are
- - you?
-
- - eh?
-</FixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <PropertyName>markdown</PropertyName>
-      <FixedValue>#Hello! badgers!
-
- - how
- - are
- - you?
- - eh?
-</FixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/3</componentPath>
-      <PropertyName>markdown</PropertyName>
-      <FixedValue>##A h2 header
-
-Paragraphs are separated by a `blank line`.
-
-2nd paragraph. *Italic*, **bold**, and `monospace`. Itemized lists
-look like:
-
-  * this one
-  * that one
-  * the other one
-
-Note that --- not considering the asterisk --- the actual text
-content starts at 4-columns in.
-
-&gt; Block quotes are
-&gt; written like so.
-&gt;
-&gt; They can span multiple paragraphs,
-&gt; if you like.
-
-Use 3 dashes for an em-dash. Use 2 dashes for ranges (ex., "it's all
-in chapters 12--14"). Three dots ... will be converted to an ellipsis.
-Unicode is supported. ☺</FixedValue>
+      <componentPath>0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Hello! Bea!]]></fixedValue>
     </setPropertyFixed>
   </amendments>
 </template>

@@ -9,6 +9,7 @@
             : base("LinnCore")
         {
             this.Configure.ViewLocation("Kola.Plugins.Core.Views");
+            this.Configure.EditorStylesheets("editor.css");
 
             this.Configure.Atom("markdown")
                 .WithRenderer<MarkdownRenderer>()

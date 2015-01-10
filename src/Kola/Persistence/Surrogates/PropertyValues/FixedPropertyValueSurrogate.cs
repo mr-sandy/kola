@@ -8,8 +8,7 @@
     {
         [XmlIgnore]
         public string Value { get; set; }
-
-
+        
         [XmlText]
         public XmlNode[] CDataContent
         {

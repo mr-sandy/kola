@@ -10,6 +10,7 @@
     {
         private readonly List<IPluginComponentSpecification<IComponentWithProperties>> componentSpecifications = new List<IPluginComponentSpecification<IComponentWithProperties>>();
         private readonly List<PropertyTypeSpecification> propertySpecifications = new List<PropertyTypeSpecification>();
+        private readonly List<string> editorStylesheets = new List<string>();
 
         protected PluginConfiguration(string pluginName)
         {
@@ -30,6 +31,11 @@
             get { return this.propertySpecifications; }
         }
 
+        internal IEnumerable<string> EditorStylesheets
+        {
+            get { return this.editorStylesheets; }
+        }
+
         protected PluginConfigurer Configure
         {
             get { return new PluginConfigurer(this); }
@@ -43,6 +49,11 @@
         internal void Add(PropertyTypeSpecification propertyTypeSpecification)
         {
             this.propertySpecifications.Add(propertyTypeSpecification);
+        }
+
+        internal void Add(string editorStylesheet)
+        {
+            this.editorStylesheets.Add(editorStylesheet);
         }
     }
 }

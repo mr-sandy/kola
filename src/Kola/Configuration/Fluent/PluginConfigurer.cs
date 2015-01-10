@@ -1,8 +1,6 @@
 ﻿
 namespace Kola.Configuration.Fluent
 {
-    using System;
-
     using Kola.Configuration.Plugins;
     using Kola.Domain.Specifications;
 
@@ -18,6 +16,11 @@ namespace Kola.Configuration.Fluent
         public void ViewLocation(string viewLocation)
         {
             this.configuration.ViewLocation = viewLocation;
+        }
+
+        public void EditorStylesheets(string stylesheetName)
+        {
+            this.configuration.Add(stylesheetName);
         }
 
         public ComponentConfigurer Container(string componentName)

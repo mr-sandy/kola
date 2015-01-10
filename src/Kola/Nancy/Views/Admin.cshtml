@@ -5,6 +5,10 @@
 <head>
     <title>Kola CMS</title>
     <link type="text/css" rel="stylesheet" href="/_kola/Content/kola.css" />
+    @foreach (var stylesheet in Model.EditorStylesheets)
+    {
+    <link type="text/css" rel="stylesheet" href="@stylesheet" />
+    }
 </head>
 <body>
     <div id="navigation"></div>
