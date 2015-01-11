@@ -84,13 +84,19 @@
 
         submit: function (e) {
             e.preventDefault();
-            this.amendments.setProperty({
-                propertyName: this.model.name,
-                componentPath: this.componentPath,
-                value: this.editorView.value()
-            });
 
             this.editMode = false;
+
+            if (this.editorView.value() !== this.model.value.value) {
+                this.amendments.setProperty({
+                    propertyName: this.model.name,
+                    componentPath: this.componentPath,
+                    value: this.editorView.value()
+                });
+            }
+            else {
+                this.render();
+            }
         }
     });
 });

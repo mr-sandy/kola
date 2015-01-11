@@ -4,30 +4,17 @@
     <atom name="markdown">
       <properties>
         <property name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[#Hello! Sandy!]]></value>
+          <value xsi:type="fixed"><![CDATA[#Hello there Cormies!]]></value>
+        </property>
+      </properties>
+    </atom>
+    <atom name="label">
+      <properties>
+        <property name="caption" type="text">
+          <value xsi:type="fixed"><![CDATA[Jammies]]></value>
         </property>
       </properties>
     </atom>
   </components>
-  <amendments>
-    <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <setPropertyFixed>
-      <componentPath>0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Hello! Matilda!]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Hello! Nelly!]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Hello! Bea!]]></fixedValue>
-    </setPropertyFixed>
-  </amendments>
+  <amendments />
 </template>
