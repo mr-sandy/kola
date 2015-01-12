@@ -34,7 +34,7 @@
             var specification = this.componentSpecifications.FirstOrDefault(s => s.Name == componentName);
             if (specification != null)
             {
-                return this.objectFactory.Resolve<IRenderer<T>>(specification.RendererType);
+                return this.objectFactory.Resolve<IRenderer<T>>(specification.RendererType, specification);
             }
 
             throw new Exception("No renderer found for component '" + componentName + "'");

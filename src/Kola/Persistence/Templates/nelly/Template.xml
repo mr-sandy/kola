@@ -4,7 +4,7 @@
     <atom name="markdown">
       <properties>
         <property name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[#Hello there Cormies!]]></value>
+          <value xsi:type="fixed"><![CDATA[#Hello there!]]></value>
         </property>
       </properties>
     </atom>
@@ -16,5 +16,23 @@
       </properties>
     </atom>
   </components>
-  <amendments />
+  <amendments>
+    <addComponent>
+      <componentType>button</componentType>
+      <targetPath>2</targetPath>
+    </addComponent>
+    <setPropertyFixed>
+      <componentPath>2</componentPath>
+      <propertyName>caption</propertyName>
+      <fixedValue><![CDATA[Beabea!]]></fixedValue>
+    </setPropertyFixed>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>2</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+  </amendments>
 </template>

@@ -2,9 +2,12 @@
 {
     using System;
 
+    using Kola.Domain.Composition;
     using Kola.Domain.Rendering;
 
     using global::Nancy.TinyIoc;
+
+    using Kola.Domain.Specifications;
 
     public class TinyIoCObjectFactory : IObjectFactory
     {
@@ -18,6 +21,16 @@
         public T Resolve<T>(Type type)
         {
             return (T)this.container.Resolve(type);
+        }
+
+        public T Resolve<T>(Type type, IPluginComponentSpecification<IComponentWithProperties> specification)
+        {
+            var overloads = new NamedParameterOverloads
+                {
+                    { "specification", specification }
+                };
+
+            return (T)this.container.Resolve(type, overloads);
         }
     }
 }
