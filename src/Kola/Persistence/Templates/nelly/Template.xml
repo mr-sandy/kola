@@ -1,6 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
+    <atom name="button">
+      <properties>
+        <property name="caption" type="text">
+          <value xsi:type="fixed"><![CDATA[Beabea!]]></value>
+        </property>
+      </properties>
+    </atom>
     <atom name="markdown">
       <properties>
         <property name="markdown" type="markdown">
@@ -17,22 +24,25 @@
     </atom>
   </components>
   <amendments>
-    <addComponent>
-      <componentType>button</componentType>
-      <targetPath>2</targetPath>
-    </addComponent>
     <setPropertyFixed>
-      <componentPath>2</componentPath>
-      <propertyName>caption</propertyName>
-      <fixedValue><![CDATA[Beabea!]]></fixedValue>
+      <componentPath>1</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Hello there! Sandy!]]></fixedValue>
     </setPropertyFixed>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>2</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
+    <setPropertyFixed>
+      <componentPath>0</componentPath>
+      <propertyName>caption</propertyName>
+      <fixedValue><![CDATA[Click me!]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0</componentPath>
+      <propertyName>caption</propertyName>
+      <fixedValue><![CDATA[Click me! Please]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0</componentPath>
+      <propertyName>caption</propertyName>
+      <fixedValue><![CDATA[Click me! Please!]]></fixedValue>
+    </setPropertyFixed>
   </amendments>
 </template>
