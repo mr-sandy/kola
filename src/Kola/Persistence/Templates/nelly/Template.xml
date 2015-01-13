@@ -44,5 +44,10 @@
       <propertyName>caption</propertyName>
       <fixedValue><![CDATA[Click me! Please!]]></fixedValue>
     </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>1</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Hello there!]]></fixedValue>
+    </setPropertyFixed>
   </amendments>
 </template>
