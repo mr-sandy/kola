@@ -6,6 +6,7 @@ bin/
 *_ReSharper.*
 *.idea*
 *.ncrunchsolution
+*.ncrunchproject
 NDependOut/
 */_NCrunch_*
 .sass-cache/
