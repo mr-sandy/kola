@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{61B22E63-05EB-4479-9033-B7A37D62EEF0}</ProjectGuid>
+    <ProjectGuid>{912A2926-DBE8-4266-B820-D876997598FD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Kola.Plugins.Core</RootNamespace>
-    <AssemblyName>Kola.Plugins.Core</AssemblyName>
+    <RootNamespace>Linn.Responsive.Plugin</RootNamespace>
+    <AssemblyName>Linn.Responsive.Plugin</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
-    <Compile Include="Renderers\MarkdownRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,49 +70,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
-    <EmbeddedResource Include="Editors\css\editor.scss" />
     <None Include="packages.config" />
-    <EmbeddedResource Include="Views\Markdown.cshtml" />
-    <EmbeddedResource Include="Views\Label.cshtml" />
-    <None Include="web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\views\MarkdownEditorView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\MarkdownEditorTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\views\BooleanEditorView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\BooleanEditorEditTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\BooleanEditorViewTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\views\TextEditorView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\TextEditorTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\css\editor.css">
-      <DependentUpon>editor.scss</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editors\css\editor.min.css">
-      <DependentUpon>editor.scss</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
-if $(ConfigurationName) == Debug (
-xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
-xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.0\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
-)</PostBuildEvent>
+      if $(ConfigurationName) == Debug (
+      xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+      xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.0\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+      )
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
