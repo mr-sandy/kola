@@ -4,45 +4,69 @@
     <atom name="button">
       <properties>
         <property name="caption" type="text">
-          <value xsi:type="fixed"><![CDATA[Beabea!]]></value>
+          <value xsi:type="fixed"><![CDATA[Click me!]]></value>
         </property>
       </properties>
     </atom>
     <atom name="markdown">
       <properties>
         <property name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[#Hello there!]]></value>
+          <value xsi:type="fixed"><![CDATA[##Hello Henry!##
+
+ - one
+ - two
+ - three]]></value>
+        </property>
+      </properties>
+    </atom>
+    <atom name="markdown">
+      <properties>
+        <property name="markdown" type="markdown">
+          <value xsi:type="fixed"><![CDATA[#Hello there Jim!]]></value>
         </property>
       </properties>
     </atom>
     <atom name="label">
       <properties>
         <property name="caption" type="text">
-          <value xsi:type="fixed"><![CDATA[Jammies]]></value>
+          <value xsi:type="fixed"><![CDATA[Badghers]]></value>
+        </property>
+      </properties>
+    </atom>
+    <atom name="markdown">
+      <properties>
+        <property name="markdown" type="markdown">
+          <value xsi:type="fixed"><![CDATA[###Markdown content]]></value>
         </property>
       </properties>
     </atom>
   </components>
   <amendments>
+    <moveComponent>
+      <sourcePath>3</sourcePath>
+      <targetPath>3</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>4</sourcePath>
+      <targetPath>4</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>5</targetPath>
+    </addComponent>
     <setPropertyFixed>
-      <componentPath>1</componentPath>
+      <componentPath>3</componentPath>
+      <propertyName>caption</propertyName>
+      <fixedValue><![CDATA[Badgers]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>2</componentPath>
       <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Hello there! Sandy!]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0</componentPath>
-      <propertyName>caption</propertyName>
-      <fixedValue><![CDATA[Click me!]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0</componentPath>
-      <propertyName>caption</propertyName>
-      <fixedValue><![CDATA[Click me! Please]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0</componentPath>
-      <propertyName>caption</propertyName>
-      <fixedValue><![CDATA[Click me! Please!]]></fixedValue>
+      <fixedValue><![CDATA[#Hello there Jim!
+
+ - one
+ - two 
+ - three]]></fixedValue>
     </setPropertyFixed>
   </amendments>
 </template>
