@@ -20,6 +20,16 @@
                 .WithView("Label")
                 .WithProperty("caption", "text");
 
+            this.Configure.Container("html-head")
+                .WithView("HtmlHead");
+
+            this.Configure.Container("html-body")
+                .WithView("HtmlBody");
+
+            this.Configure.Atom("html-title")
+                .WithView("HtmlTitle")
+                .WithProperty("title", "text");
+
             this.Configure.PropertyType("markdown")
                 .WithDefault("Placeholder text.")
                 .WithEditor("MarkdownEditorView.js");

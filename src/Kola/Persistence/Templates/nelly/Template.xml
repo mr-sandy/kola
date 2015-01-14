@@ -73,5 +73,9 @@
       <propertyName>markdown</propertyName>
       <fixedValue><![CDATA[#Hello there!]]></fixedValue>
     </setPropertyFixed>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
   </amendments>
 </template>

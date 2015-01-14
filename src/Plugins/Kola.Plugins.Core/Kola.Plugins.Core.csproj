@@ -76,6 +76,9 @@
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\Markdown.cshtml" />
     <EmbeddedResource Include="Views\Label.cshtml" />
+    <EmbeddedResource Include="Views\HtmlBody.cshtml" />
+    <EmbeddedResource Include="Views\HtmlHead.cshtml" />
+    <EmbeddedResource Include="Views\HtmlTitle.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>

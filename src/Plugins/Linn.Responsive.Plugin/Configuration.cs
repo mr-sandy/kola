@@ -1,7 +1,9 @@
-﻿using Kola.Configuration.Plugins;
-
-namespace Linn.Responsive.Plugin
+﻿namespace Linn.Responsive.Plugin
 {
+    using Kola.Configuration.Plugins;
+
+    using Linn.Responsive.Plugin.Renderers;
+
     public class Configuration : PluginConfiguration
     {
         public Configuration()

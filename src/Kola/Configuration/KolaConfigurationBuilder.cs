@@ -13,7 +13,8 @@
             var rendererMappings = plugins.SelectMany(c => c.ComponentTypeSpecifications);
 
             // TODO {SC} Surely this has to happen in a better way?
-            var renderer = new PathAnnotatingMultiRenderer(new MultiRenderer(new RendererFactory(rendererMappings, objectFactory)));
+            var rendererFactory = new RendererFactory(rendererMappings, objectFactory);
+            var renderer = new PathAnnotatingMultiRenderer(new MultiRenderer(rendererFactory));
 
             var configuration = new KolaConfiguration(renderer, plugins);
 
