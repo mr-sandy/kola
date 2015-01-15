@@ -7,27 +7,124 @@
         <atom name="html-title">
           <properties>
             <property name="title" type="text">
-              <value xsi:type="fixed"><![CDATA[Linn — Music Systems, Network Music Players]]></value>
+              <value xsi:type="fixed"><![CDATA[Linn &#8212; Music Systems, Network Music Players —]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-metadata">
+          <properties>
+            <property name="httpEquiv" type="text">
+              <value xsi:type="fixed"><![CDATA[]]></value>
+            </property>
+            <property name="name" type="text">
+              <value xsi:type="fixed"><![CDATA[Description]]></value>
+            </property>
+            <property name="content" type="text">
+              <value xsi:type="fixed"><![CDATA[Linn make the best music systems for your home, including network music players, turntables, amplifiers, speakers and hi-fi components.]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-metadata">
+          <properties>
+            <property name="content" type="text">
+              <value xsi:type="fixed"><![CDATA[text/html; charset=utf-8]]></value>
+            </property>
+            <property name="httpEquiv" type="text">
+              <value xsi:type="fixed"><![CDATA[Content-Type]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-metadata">
+          <properties>
+            <property name="content" type="text">
+              <value xsi:type="fixed"><![CDATA[IE=edge]]></value>
+            </property>
+            <property name="httpEquiv" type="text">
+              <value xsi:type="fixed"><![CDATA[X-UA-Compatible]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-metadata">
+          <properties>
+            <property name="content" type="text">
+              <value xsi:type="fixed"><![CDATA[Copyright (c) 2012 by Linn]]></value>
+            </property>
+            <property name="name" type="text">
+              <value xsi:type="fixed"><![CDATA[copyright]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-metadata">
+          <properties>
+            <property name="content" type="text">
+              <value xsi:type="fixed"><![CDATA[noodp]]></value>
+            </property>
+            <property name="name" type="text">
+              <value xsi:type="fixed"><![CDATA[robots]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-metadata">
+          <properties>
+            <property name="name" type="text">
+              <value xsi:type="fixed"><![CDATA[google-site-verification]]></value>
+            </property>
+            <property name="content" type="text">
+              <value xsi:type="fixed"><![CDATA[vkdCDHX2bpsQB6PumfqNYrLY0FEEdImKPxzf8oaRMlw]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-style">
+          <properties>
+            <property name="type" type="text">
+              <value xsi:type="fixed"><![CDATA[image/x-icon]]></value>
+            </property>
+            <property name="rel" type="text">
+              <value xsi:type="fixed"><![CDATA[shortcut icon]]></value>
+            </property>
+            <property name="href" type="text">
+              <value xsi:type="fixed"><![CDATA[favicon.ico]]></value>
+            </property>
+          </properties>
+        </atom>
+        <container name="html-ie-conditional">
+          <properties>
+            <property name="condition" type="text">
+              <value xsi:type="fixed"><![CDATA[9]]></value>
+            </property>
+          </properties>
+          <components>
+            <atom name="html-style">
+              <properties>
+                <property name="type" type="text">
+                  <value xsi:type="fixed"><![CDATA[image/x-icon]]></value>
+                </property>
+                <property name="rel" type="text">
+                  <value xsi:type="fixed"><![CDATA[shortcut icon]]></value>
+                </property>
+                <property name="href" type="text">
+                  <value xsi:type="fixed"><![CDATA[favicon.ico]]></value>
+                </property>
+              </properties>
+            </atom>
+          </components>
+        </container>
+      </components>
+    </container>
+    <container name="html-body">
+      <properties />
+      <components>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[##Hello there!!#
+              
+How are you doing? [jam](http://www.linn.co.uk)]]></value>
             </property>
           </properties>
         </atom>
       </components>
     </container>
-    <container name="html-body">
-      <properties />
-      <components />
-    </container>
   </components>
-  <amendments>
-    <setPropertyFixed>
-      <componentPath>0/0</componentPath>
-      <propertyName>title</propertyName>
-      <fixedValue><![CDATA[Linn — Music Systems, Network Music Players &#8212;]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0</componentPath>
-      <propertyName>title</propertyName>
-      <fixedValue><![CDATA[Linn &#8212; Music Systems, Network Music Players —]]></fixedValue>
-    </setPropertyFixed>
-  </amendments>
+  <amendments />
 </template>

@@ -1,0 +1,9 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.AtomInstance>
+@using Kola.Domain.Extensions
+@{
+    var type = Model.Properties.GetAsAttribute("type");
+    var rel = Model.Properties.GetAsAttribute("rel");
+    var href = Model.Properties.GetAsAttribute("href");
+    var media = Model.Properties.GetAsAttribute("media");
+}
+<link @Html.Raw(rel)@Html.Raw(type)@Html.Raw(href)@Html.Raw(media)/>

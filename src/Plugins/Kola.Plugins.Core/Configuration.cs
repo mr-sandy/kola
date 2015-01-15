@@ -30,6 +30,23 @@
                 .WithView("HtmlTitle")
                 .WithProperty("title", "text");
 
+            this.Configure.Atom("html-metadata")
+                .WithView("HtmlMetadata")
+                .WithProperty("name", "text")
+                .WithProperty("content", "text")
+                .WithProperty("httpEquiv", "text");
+
+            this.Configure.Atom("html-style")
+                .WithView("HtmlStyle")
+                .WithProperty("type", "text")
+                .WithProperty("rel", "text")
+                .WithProperty("href", "text")
+                .WithProperty("media", "text");
+
+            this.Configure.Container("html-ie-conditional")
+                .WithView("HtmlIeConditional")
+                .WithProperty("condition", "text");
+
             this.Configure.PropertyType("markdown")
                 .WithDefault("Placeholder text.")
                 .WithEditor("MarkdownEditorView.js");

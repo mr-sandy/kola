@@ -79,6 +79,9 @@
     <EmbeddedResource Include="Views\HtmlBody.cshtml" />
     <EmbeddedResource Include="Views\HtmlHead.cshtml" />
     <EmbeddedResource Include="Views\HtmlTitle.cshtml" />
+    <EmbeddedResource Include="Views\HtmlMetadata.cshtml" />
+    <EmbeddedResource Include="Views\HtmlStyle.cshtml" />
+    <EmbeddedResource Include="Views\HtmlIeConditional.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>

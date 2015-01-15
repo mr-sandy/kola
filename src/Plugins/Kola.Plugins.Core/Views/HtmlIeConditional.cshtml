@@ -1,0 +1,21 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.ContainerInstance>
+@using Kola.Nancy.Extensions
+@using Kola.Domain.Extensions
+@switch (Model.Properties.Get("condition"))
+{
+    case "gt8":
+    <!--[if (!IE) | (gt IE 8)]><!-->@Html.RenderComponents(Model.Components)<!--<![endif]-->
+        break;
+    case "gt9":
+    <!--[if (!IE) | (gt IE 9)]><!-->@Html.RenderComponents(Model.Components)<!--<![endif]-->
+        break;
+    case "9":
+    <!--[if IE 9]>@Html.RenderComponents(Model.Components)<![endif]-->
+        break;
+    case "lt9":
+    <!--[if lt IE 9]>@Html.RenderComponents(Model.Components)<![endif]-->
+        break;
+    case "lte8":
+    <!--[if lte IE 8]>@Html.RenderComponents(Model.Components)<![endif]-->
+        break;
+}
