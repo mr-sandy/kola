@@ -1,6 +1,8 @@
 ﻿namespace Kola.Extensions
 {
+    using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Linq;
 
     internal static class StringExtensions
@@ -44,6 +46,27 @@
             return lastSlash < 0 
                 ? componentTypeUri 
                 : componentTypeUri.Substring(lastSlash + 1);
+        }
+
+        public static string StrongTrim(this string str)
+        {
+            return str.Trim(new[] { '\n', '\r', '\t', ' ' });
+        }
+
+        public static Uri ToStaticHostUri(this string path, string cacheBuster)
+        {
+            var queryString = cacheBuster.StrongTrim();
+
+            if (!string.IsNullOrEmpty(queryString))
+            {
+                var joiner = path.Contains("?") ? "&" : "?";
+
+                path = string.Format("{0}{1}{2}", path, joiner, queryString);
+            }
+
+            var hostUri = new Uri(ConfigurationManager.AppSettings["StaticContentRoot"]);
+            
+            return new Uri(hostUri, path);
         }
     }
 }

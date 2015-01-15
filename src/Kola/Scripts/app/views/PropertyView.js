@@ -20,7 +20,8 @@
 
         events: {
             'click': 'edit',
-            'submit': 'submit'
+            'submit': 'submit',
+            'focusout': 'submit'
         },
 
         render: function () {
@@ -85,17 +86,19 @@
         submit: function (e) {
             e.preventDefault();
 
-            this.editMode = false;
+            if (this.editMode) {
+                this.editMode = false;
 
-            if (this.editorView.value() !== this.model.value.value) {
-                this.amendments.setProperty({
-                    propertyName: this.model.name,
-                    componentPath: this.componentPath,
-                    value: this.editorView.value()
-                });
-            }
-            else {
-                this.render();
+                if (this.editorView.value() !== this.model.value.value) {
+                    this.amendments.setProperty({
+                        propertyName: this.model.name,
+                        componentPath: this.componentPath,
+                        value: this.editorView.value()
+                    });
+                }
+                else {
+                    this.render();
+                }
             }
         }
     });

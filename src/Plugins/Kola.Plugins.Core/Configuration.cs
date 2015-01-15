@@ -41,11 +41,9 @@
                 .WithProperty("type", "text")
                 .WithProperty("rel", "text")
                 .WithProperty("href", "text")
-                .WithProperty("media", "text");
-
-            this.Configure.Container("html-ie-conditional")
-                .WithView("HtmlIeConditional")
-                .WithProperty("condition", "text");
+                .WithProperty("cache-buster", "text")
+                .WithProperty("media", "text")
+                .WithProperty("ie-condition", "text");
 
             this.Configure.PropertyType("markdown")
                 .WithDefault("Placeholder text.")

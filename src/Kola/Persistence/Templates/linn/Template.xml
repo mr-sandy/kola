@@ -87,28 +87,136 @@
             </property>
           </properties>
         </atom>
-        <container name="html-ie-conditional">
+        <atom name="html-style">
           <properties>
-            <property name="condition" type="text">
-              <value xsi:type="fixed"><![CDATA[9]]></value>
+            <property name="type" type="text">
+              <value xsi:type="fixed"><![CDATA[text/css]]></value>
+            </property>
+            <property name="rel" type="text">
+              <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
+            </property>
+            <property name="href" type="text">
+              <value xsi:type="fixed"><![CDATA[responsive/css/gridset/gridset.css]]></value>
+            </property>
+            <property name="ie-condition" type="text">
+              <value xsi:type="fixed"><![CDATA[gt9]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
             </property>
           </properties>
-          <components>
-            <atom name="html-style">
-              <properties>
-                <property name="type" type="text">
-                  <value xsi:type="fixed"><![CDATA[image/x-icon]]></value>
-                </property>
-                <property name="rel" type="text">
-                  <value xsi:type="fixed"><![CDATA[shortcut icon]]></value>
-                </property>
-                <property name="href" type="text">
-                  <value xsi:type="fixed"><![CDATA[favicon.ico]]></value>
-                </property>
-              </properties>
-            </atom>
-          </components>
-        </container>
+        </atom>
+        <atom name="html-style">
+          <properties>
+            <property name="type" type="text">
+              <value xsi:type="fixed"><![CDATA[text/css]]></value>
+            </property>
+            <property name="href" type="text">
+              <value xsi:type="fixed"><![CDATA[responsive/css/gridset/linn-gridset-ie-9.css]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
+            </property>
+            <property name="ie-condition" type="text">
+              <value xsi:type="fixed"><![CDATA[9]]></value>
+            </property>
+            <property name="rel" type="text">
+              <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-style">
+          <properties>
+            <property name="type" type="text">
+              <value xsi:type="fixed"><![CDATA[text/css]]></value>
+            </property>
+            <property name="href" type="text">
+              <value xsi:type="fixed"><![CDATA[responsive/css/gridset/gridset-ie-lte8.css]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
+            </property>
+            <property name="ie-condition" type="text">
+              <value xsi:type="fixed"><![CDATA[lte8]]></value>
+            </property>
+            <property name="rel" type="text">
+              <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-style">
+          <properties>
+            <property name="ie-condition" type="text">
+              <value xsi:type="fixed"><![CDATA[gt8]]></value>
+            </property>
+            <property name="type" type="text">
+              <value xsi:type="fixed"><![CDATA[text/css]]></value>
+            </property>
+            <property name="href" type="text">
+              <value xsi:type="fixed"><![CDATA[responsive/css/linn.min.css]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
+            </property>
+            <property name="rel" type="text">
+              <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-style">
+          <properties>
+            <property name="ie-condition" type="text">
+              <value xsi:type="fixed"><![CDATA[lte8]]></value>
+            </property>
+            <property name="type" type="text">
+              <value xsi:type="fixed"><![CDATA[text/css]]></value>
+            </property>
+            <property name="href" type="text">
+              <value xsi:type="fixed"><![CDATA[responsive/css/linn-ie-lte8.min.css]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
+            </property>
+            <property name="rel" type="text">
+              <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-style">
+          <properties>
+            <property name="type" type="text">
+              <value xsi:type="fixed"><![CDATA[text/css]]></value>
+            </property>
+            <property name="href" type="text">
+              <value xsi:type="fixed"><![CDATA[new-common/css/linn-legacy.min.css]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
+            </property>
+            <property name="rel" type="text">
+              <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-style">
+          <properties>
+            <property name="type" type="text">
+              <value xsi:type="fixed"><![CDATA[text/css]]></value>
+            </property>
+            <property name="href" type="text">
+              <value xsi:type="fixed"><![CDATA[new-common/css/ie.min.css]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
+            </property>
+            <property name="ie-condition" type="text">
+              <value xsi:type="fixed"><![CDATA[9]]></value>
+            </property>
+            <property name="rel" type="text">
+              <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
+            </property>
+          </properties>
+        </atom>
       </components>
     </container>
     <container name="html-body">
@@ -119,7 +227,8 @@
             <property name="markdown" type="markdown">
               <value xsi:type="fixed"><![CDATA[##Hello there!!#
               
-How are you doing? [jam](http://www.linn.co.uk)]]></value>
+How are you doing? [jam](http://www.linn.co.uk)
+              ]]></value>
             </property>
           </properties>
         </atom>

@@ -59,6 +59,54 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="cdn\favicon.ico" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-9.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-d-floats.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-d-paddings.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-d-relationships.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-d-spans1.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-d-spans2.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-f-floats.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-f-paddings.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-f-relationships.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-f-spans1.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-f-spans2.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-lte8.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-m-floats.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-m-paddings.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-m-relationships.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-m-spans1.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-m-spans2.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-p-floats.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-p-paddings.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-p-relationships.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-p-spans1.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-p-spans2.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-t-floats.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-t-paddings.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-t-relationships.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-t-spans1.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-t-spans2.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-x-floats.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-x-paddings.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-x-relationships.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-x-spans1.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset-ie-x-spans2.css" />
+    <Content Include="cdn\responsive\css\gridset\gridset.css" />
+    <Content Include="cdn\responsive\css\gridset\linn-gridset-ie-9.css" />
+    <Content Include="cdn\responsive\css\gridset\linn-gridset-ie-d-clearing.css" />
+    <Content Include="cdn\responsive\css\gridset\linn-gridset-ie-f-clearing.css" />
+    <Content Include="cdn\responsive\css\gridset\linn-gridset-ie-m-clearing.css" />
+    <Content Include="cdn\responsive\css\gridset\linn-gridset-ie-p-clearing.css" />
+    <Content Include="cdn\responsive\css\gridset\linn-gridset-ie-t-clearing.css" />
+    <Content Include="cdn\responsive\css\gridset\linn-gridset-ie-x-clearing.css" />
+    <Content Include="cdn\responsive\css\linn-ie-lte8.css" />
+    <Content Include="cdn\responsive\css\linn-ie-lte8.min.css" />
+    <Content Include="cdn\responsive\css\linn.css" />
+    <Content Include="cdn\responsive\css\linn.min.css" />
+    <Content Include="cdn\responsive\fonts\effra-webfont.svg" />
+    <Content Include="cdn\responsive\fonts\effra_corp_bd-webfont.svg" />
+    <Content Include="cdn\responsive\fonts\stylesheet.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -94,6 +142,14 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cdn\responsive\fonts\effra-webfont.eot" />
+    <None Include="cdn\responsive\fonts\effra-webfont.ttf" />
+    <None Include="cdn\responsive\fonts\effra-webfont.woff" />
+    <None Include="cdn\responsive\fonts\effra_corp_bd-webfont.eot" />
+    <None Include="cdn\responsive\fonts\effra_corp_bd-webfont.ttf" />
+    <None Include="cdn\responsive\fonts\effra_corp_bd-webfont.woff" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
