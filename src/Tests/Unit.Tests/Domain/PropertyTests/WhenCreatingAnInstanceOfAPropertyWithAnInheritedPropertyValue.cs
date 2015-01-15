@@ -20,7 +20,10 @@
 
             var context = new Context { Items = new[] { new ContextItem("key", "result") } };
 
-            this.propertyInstance = property.Build(new BuildContext { Contexts = new[] { context } });
+            var buildContext = new BuildContext();
+            buildContext.PushContext(context);
+
+            this.propertyInstance = property.Build(buildContext);
         }
 
         [Test]

@@ -76,7 +76,6 @@
     <Compile Include="Domain\WidgetTests\WhenAddingContentToAWidgetPlaceholderInATemplate.cs" />
     <Compile Include="Domain\WidgetTests\WhenAddingAnAtomToAWidgetSpecification.cs" />
     <Compile Include="Domain\WidgetTests\WhenBuildingANestedWidgetWithEmbeddedPlaceholderInstance.cs" />
-    <Compile Include="Domain\WidgetTests\WhenCreatingAWidgetFromItsSpecification.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingIdenticalLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingEmptyLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingNonOverlappingLists.cs" />
@@ -88,6 +87,9 @@
     <Compile Include="Extensions\EnumerableExtensions\Overlap\WhenFindingOverlapWithOneEmptyLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Overlap\WhenFindingOverlapWithTwoeEmptyLists.cs" />
     <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="Rendering\WhenInheritingPropertyValuesFromAGrandparent.cs" />
+    <Compile Include="Rendering\WhenInheritingPropertyValuesFromAContainer.cs" />
+    <Compile Include="Rendering\WhenInheritingPropertyValuesFromAWidget.cs" />
     <Compile Include="Rendering\Framework\ITestViewFactory.cs" />
     <Compile Include="Rendering\Framework\TestAtomView.cs" />
     <Compile Include="Rendering\Framework\TestContainerView.cs" />
@@ -95,6 +97,8 @@
     <Compile Include="Rendering\Framework\TestViewEngine.cs" />
     <Compile Include="Rendering\Framework\TestViewFactory.cs" />
     <Compile Include="Rendering\Framework\TestViewHelper.cs" />
+    <Compile Include="Rendering\WhenInheritingPropertyValuesFromAWidget2.cs" />
+    <Compile Include="Rendering\WhenInheritingPropertyValuesFromAWidgetGrandparent.cs" />
     <Compile Include="Rendering\WhenRenderingAPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\TemplateTests\WhenApplyingAnAddComponentAmendmentToTheRoot.cs" />

@@ -23,6 +23,7 @@
         {
             var specification = new WidgetSpecification(
                 "widget name",
+                Enumerable.Empty<PropertySpecification>(),
                 new IComponent[]
                     {
                         new Atom("atom", Enumerable.Empty<Property>()), 

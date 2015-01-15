@@ -1,8 +1,6 @@
 ﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.AtomInstance>
 @using Kola.Domain.Extensions
-@{
-    var name = Model.Properties.GetAsAttribute("name");
+@{ var name = Model.Properties.GetAsAttribute("name");
     var content = Model.Properties.GetAsAttribute("content");
     var httpEquiv = Model.Properties.GetAsAttribute("httpEquiv");
-}
-    <meta @Html.Raw(httpEquiv)@Html.Raw(name)@Html.Raw(content)/>
+    var charset = Model.Properties.GetAsAttribute("charset"); }    <meta @Html.Raw(charset)@Html.Raw(httpEquiv)@Html.Raw(name)@Html.Raw(content)/>

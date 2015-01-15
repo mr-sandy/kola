@@ -11,8 +11,8 @@
     {
         private readonly List<IComponent> components = new List<IComponent>();
 
-        public WidgetSpecification(string name, IEnumerable<IComponent> components = null)
-            : base(name)
+        public WidgetSpecification(string name, IEnumerable<PropertySpecification> properties = null, IEnumerable<IComponent> components = null)
+            : base(name, properties)
         {
             if (components != null)
             {

@@ -54,11 +54,16 @@
 
         public override ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext)
         {
-            return new ContainerInstance(
-                path,
-                this.Name, 
-                this.Properties.Select(p => p.Build(buildContext)), 
-                this.Components.Select((c, i) => c.Build(path.Append(i), buildContext)).ToList());
+            var properties = this.Properties.Select(p => p.Build(buildContext)).ToList();
+
+            var newContext = new Context { Items = properties.Select(p => new ContextItem(p.Name, p.Value)) };
+            buildContext.PushContext(newContext);
+            
+            var children = this.Components.Select((c, i) => c.Build(path.Append(i), buildContext)).ToList();
+
+            buildContext.PopContext();
+
+            return new ContainerInstance(path, this.Name, properties, children);
         }
     }
 }

@@ -59,6 +59,7 @@
         {
             var specification1 = new WidgetSpecification(
                 "widget 1",
+                Enumerable.Empty<PropertySpecification>(),
                 new IComponent[]
                     {
                         new Atom("atom a", Enumerable.Empty<Property>()), 
@@ -74,6 +75,7 @@
 
             var specification2 = new WidgetSpecification(
                 "widget 2",
+                Enumerable.Empty<PropertySpecification>(),
                 new IComponent[]
                     {
                         new Placeholder(), 

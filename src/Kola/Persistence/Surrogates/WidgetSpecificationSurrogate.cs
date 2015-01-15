@@ -11,5 +11,8 @@
         [XmlArrayItem(typeof(WidgetSurrogate))]
         [XmlArrayItem(typeof(PlaceholderSurrogate))]
         public ComponentSurrogate[] Components { get; set; }
+
+        [XmlArray("propertySpecifications")]
+        public PropertySpecificationSurrogate[] PropertySpecifications { get; set; }
     }
 }

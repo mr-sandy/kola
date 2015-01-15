@@ -12,19 +12,19 @@
     switch (Model.Properties.Get("ie-condition"))
     {
         case "gt8":
-            ieConditionFormat = "<!--[if (!IE) | (gt IE 8)]><!-->{0}<!--<![endif]-->";
+            ieConditionFormat = "<!--[if (!IE) | (gt IE 8)]><!-->\n    {0}\n    <!--<![endif]-->";
             break;
         case "gt9":
-            ieConditionFormat = "<!--[if (!IE) | (gt IE 9)]><!-->{0}<!--<![endif]-->";
+            ieConditionFormat = "<!--[if (!IE) | (gt IE 9)]><!-->\n    {0}\n    <!--<![endif]-->";
             break;
         case "9":
-            ieConditionFormat = "<!--[if IE 9]>{0}<![endif]-->";
+            ieConditionFormat = "<!--[if IE 9]>\n    {0}\n    <![endif]-->";
             break;
         case "lt9":
-            ieConditionFormat = "<!--[if lt IE 9]>{0}<![endif]-->";
+            ieConditionFormat = "<!--[if lt IE 9]>\n    {0}\n    <![endif]-->";
             break;
         case "lte8":
-            ieConditionFormat = "<!--[if lte IE 8]>{0}<![endif]-->";
+            ieConditionFormat = "<!--[if lte IE 8]>\n    {0}\n    <![endif]-->";
             break;
     }
 }

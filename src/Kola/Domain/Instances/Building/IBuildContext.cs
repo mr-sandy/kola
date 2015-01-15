@@ -12,5 +12,9 @@
         Stack<Queue<ComponentInstance>> AreaContents { get; }
 
         IEnumerable<Context> Contexts { get; }
+
+        void PushContext(Context context);
+
+        Context PopContext();
     }
 }

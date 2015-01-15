@@ -20,7 +20,13 @@
 
             return new WidgetSpecification(
                 this.name,
+                surrogate.PropertySpecifications.Select(this.BuildPropertySpecification).ToArray(),
                 surrogate.Components.Select(c => c.Accept(componentBuilder)).ToArray());
+        }
+
+        private PropertySpecification BuildPropertySpecification(PropertySpecificationSurrogate surrogate)
+        {
+            return new PropertySpecification(surrogate.Name, surrogate.Type);
         }
     }
 }

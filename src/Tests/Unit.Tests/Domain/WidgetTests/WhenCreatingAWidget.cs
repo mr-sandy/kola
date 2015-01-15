@@ -4,8 +4,8 @@
 
     using FluentAssertions;
 
-    using Kola.Domain.Specifications;
     using Kola.Domain.Composition;
+    using Kola.Domain.Specifications;
 
     using NUnit.Framework;
 
@@ -19,6 +19,7 @@
             var specification =
                 new WidgetSpecification(
                     "widget name",
+                    Enumerable.Empty<PropertySpecification>(),
                     new IComponent[]
                         {
                             new Placeholder(), 

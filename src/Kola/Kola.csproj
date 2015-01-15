@@ -140,6 +140,7 @@
     <Compile Include="Nancy\Modules\PreviewModule.cs" />
     <Compile Include="Nancy\Modules\PreviewQuery.cs" />
     <Compile Include="Persistence\Surrogates\Amendments\SetPropertyFixedAmendmentSurrogate.cs" />
+    <Compile Include="Persistence\Surrogates\PropertySpecificationSurrogate.cs" />
     <Compile Include="Resources\SetPropertyAmendmentResource.cs" />
     <Compile Include="Service\PropertySpecificationLibrary.cs" />
     <Compile Include="Persistence\DomainBuilding\DomainBuildingAmendmentSurrogateVisitor.cs" />

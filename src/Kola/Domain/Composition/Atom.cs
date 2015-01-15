@@ -28,7 +28,7 @@
             return new AtomInstance(
                 path,
                 this.Name,
-                this.Properties.Select(p => p.Build(buildContext)));
+                this.Properties.Select(p => p.Build(buildContext)).ToList());
         }
     }
 }

@@ -17,6 +17,13 @@
                 : list.Concat(new[] { item });
         }
 
+        public static IEnumerable<T> Prepend<T>(this IEnumerable<T> list, T item)
+        {
+            return list == null
+                ? new[] { item }
+                : list.Concat(new[] { item });
+        }
+
         public static IEnumerable<T> GetOverlap<T>(this IEnumerable<T> list1, IEnumerable<T> list2)
         {
             var length = (list1.Count() > list2.Count()) ? list2.Count() : list1.Count();

@@ -13,8 +13,7 @@
 
             this.Configure.Atom("markdown")
                 .WithRenderer<MarkdownRenderer>()
-                .WithProperty("markdown", "markdown")
-                .WithProperty("lovely", "boolean");
+                .WithProperty("markdown", "markdown");
 
             this.Configure.Atom("label")
                 .WithView("Label")
@@ -24,7 +23,8 @@
                 .WithView("HtmlHead");
 
             this.Configure.Container("html-body")
-                .WithView("HtmlBody");
+                .WithView("HtmlBody")
+                .WithProperty("classes", "text");
 
             this.Configure.Atom("html-title")
                 .WithView("HtmlTitle")
@@ -34,6 +34,7 @@
                 .WithView("HtmlMetadata")
                 .WithProperty("name", "text")
                 .WithProperty("content", "text")
+                .WithProperty("charset", "text")
                 .WithProperty("httpEquiv", "text");
 
             this.Configure.Atom("html-style")
