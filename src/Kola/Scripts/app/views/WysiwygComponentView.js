@@ -15,6 +15,7 @@
 
         initialize: function (options) {
             this.stateBroker = options.stateBroker;
+            this.fullRefresh = options.fullRefresh;
 
             this.listenTo(this.model, 'sync', this.handleSync);
             this.listenTo(this.model, 'active', this.showActive);
@@ -28,11 +29,18 @@
         },
 
         handleSync: function () {
-            $.ajax({
-                url: this.model.previewUrl,
-                dataType: 'html',
-                context: this
-            }).done(this.refresh);
+
+            // if the element is not inside the body tag, we need to reload the whole page
+            if (this.$el.parents('body').length === 0) {
+                this.fullRefresh();
+            }
+            else {
+                $.ajax({
+                    url: this.model.previewUrl,
+                    dataType: 'html',
+                    context: this
+                }).done(this.refresh);
+            }
         },
 
         refresh: function (html) {
@@ -41,7 +49,7 @@
             domHelper.replace(this.$el[0], this.$el[this.$el.length - 1], $html);
 
             this.setElement(domHelper.findDirectlyOwned($html));
-            this.buildChildren($html)
+            this.buildChildren($html);
         },
 
         buildChildren: function ($html) {
@@ -56,7 +64,7 @@
 
                 childComponents.each(function (component) {
                     var $elements = domHelper.findElements($html, component.get('path'));
-                    this.children.push(new WysiwygComponentView({ model: component, $html: $elements, mask: this.mask, stateBroker: this.stateBroker }));
+                    this.children.push(new WysiwygComponentView({ model: component, $html: $elements, mask: this.mask, stateBroker: this.stateBroker, fullRefresh: this.fullRefresh }));
                 }, this);
             }
         },

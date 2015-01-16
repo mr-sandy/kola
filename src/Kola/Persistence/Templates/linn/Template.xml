@@ -2,10 +2,27 @@
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <widget name="page">
-      <properties />
+      <properties>
+        <property name="colour" type="text">
+          <value xsi:type="fixed"><![CDATA[green]]></value>
+        </property>
+        <property name="title" type="text">
+          <value xsi:type="fixed"><![CDATA[Jam!]]></value>
+        </property>
+      </properties>
       <areas>
         <area name="content">
-          <components />
+          <components>
+            <atom name="markdown">
+              <properties>
+                <property name="markdown" type="markdown">
+                  <value xsi:type="fixed"><![CDATA[#Boo!
+
+[linkety linkety](http://www.cormie.com)]]></value>
+                </property>
+              </properties>
+            </atom>
+          </components>
         </area>
         <area name="scripts">
           <components />
@@ -13,5 +30,44 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0</componentPath>
+      <propertyName>colour</propertyName>
+      <fixedValue><![CDATA[blue]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Boo!
+
+[linkety linkety](http://www.cormie.com)
+
+- one
+- two
+- three]]></fixedValue>
+    </setPropertyFixed>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <setPropertyFixed>
+      <componentPath>0</componentPath>
+      <propertyName>colour</propertyName>
+      <fixedValue><![CDATA[green]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Boo!
+
+[linkety linkety](http://www.cormie.com)
+
+- one
+- two
+- three
+- four
+  - five]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>

@@ -28,17 +28,27 @@
         },
 
         handleSync: function () {
-            $.ajax({
-                url: this.model.previewUrl,
-                dataType: 'html',
-                context: this
-            }).done(this.refresh);
+            // if the element is not inside the body tag, we need to reload the whole page
+            if (this.$el.parents('body').length === 0) {
+                this.fullRefresh();
+            }
+            else {
+                $.ajax({
+                    url: this.model.previewUrl,
+                    dataType: 'html',
+                    context: this
+                }).done(this.refresh);
+            }
         },
 
         refresh: function (html) {
-
             this.$('iframe').contents().find('html').html(html);
             this.buildChildren();
+        },
+
+        fullRefresh: function () {
+            this.destroyChildren();
+            this.render();
         },
 
         render: function () {
@@ -62,7 +72,7 @@
 
             this.model.get('components').each(function (component) {
                 var $elements = domHelper.findElements($html, component.get('path'));
-                this.children.push(new WysiwygComponentView({ model: component, $html: $elements, mask: this.mask, stateBroker: this.stateBroker }));
+                this.children.push(new WysiwygComponentView({ model: component, $html: $elements, mask: this.mask, stateBroker: this.stateBroker, fullRefresh: $.proxy(this.fullRefresh, this) }));
             }, this);
         },
 
