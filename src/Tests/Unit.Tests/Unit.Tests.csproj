@@ -87,6 +87,7 @@
     <Compile Include="Extensions\EnumerableExtensions\Overlap\WhenFindingOverlapWithOneEmptyLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Overlap\WhenFindingOverlapWithTwoeEmptyLists.cs" />
     <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="Rendering\WhenInheritingPropertyValuesFromAWidgetInAnArea.cs" />
     <Compile Include="Rendering\WhenInheritingPropertyValuesFromAGrandparent.cs" />
     <Compile Include="Rendering\WhenInheritingPropertyValuesFromAContainer.cs" />
     <Compile Include="Rendering\WhenInheritingPropertyValuesFromAWidget.cs" />

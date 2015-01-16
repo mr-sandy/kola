@@ -29,15 +29,12 @@
 
         public override ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext)
         {
+            // Add the widget's parameters to the context to be picjed up by any children
             var propertyInstances = this.Properties.Select(p => p.Build(buildContext)).ToList();
-
             buildContext.ContextSets.Push(new ContextSet(propertyInstances));
 
-            // Build the content of each area, 
-            // before adding it to the context to be 
-            // picked up by any corresponding placeholders
+            // Build the content of each area, before adding it to the context to be picked up by any corresponding placeholders
             var areas = this.Areas.Select((a, i) => a.Build(path.Append(i), buildContext)).ToList();
-
             buildContext.AreaContents.Push(new Queue<ComponentInstance>(areas));
 
             var specification = buildContext.WidgetSpecificationFinder(this.Name);
