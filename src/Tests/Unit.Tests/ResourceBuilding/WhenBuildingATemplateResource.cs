@@ -25,7 +25,7 @@
                             new Property("property 0", "property 0 type", new FixedPropertyValue("property 0 value"))
                         }), 
                     new Container("container 1", components: new[] { new Atom("atom 1.0") }),
-                    new Widget("widget 2", areas: new[] { new Area(new[] { new Atom("atom 2.0.0") }), })
+                    new Widget("widget 2", areas: new[] { new Area("area 1", new[] { new Atom("atom 2.0.0") }), })
                 });
 
             this.resource = new TemplateResourceBuilder().Build(template);

@@ -36,17 +36,6 @@
         }
     }
 
-    .area {
-        margin: 15px;
-        padding: 0;
-        border: 3px #557 solid;
-        background-color : $color-complement-3;
-
-        &.active {
-            border-color: #eee;
-        }
-    }
-
 	.chrome {
 		padding: 5px 15px;
 	}
@@ -86,10 +75,31 @@
 
         &.selected {
             background-color : $color-complement-2;
+
+			.area {
+                background-color : $color-complement-2;
+
+                & > .chrome {
+                    background-color : $color-complement-3;
+		        }
+
+			}
 		}
 
         &.selected > .chrome {
             background-color : $color-complement-3;
 		}
+
+        .area {
+            margin: 15px;
+            padding: 0;
+            border: 3px #557 solid;
+            background-color : $color-complement-3;
+            
+			& > .chrome {
+                border-bottom: 2px #557 solid;
+                background-color : $color-complement-4;
+		    }       
+        }
     }
 }

@@ -12,13 +12,17 @@
     {
         private readonly List<IComponent> components = new List<IComponent>();
 
-        public Area(IEnumerable<IComponent> components = null)
+        public Area(string name, IEnumerable<IComponent> components = null)
         {
+            this.Name = name;
+
             if (components != null)
             {
                 this.components.AddRange(components);
             }
         }
+
+        public string Name { get; private set; }
 
         public IEnumerable<IComponent> Components
         {

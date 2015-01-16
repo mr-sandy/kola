@@ -22,11 +22,11 @@
                     Enumerable.Empty<PropertySpecification>(),
                     new IComponent[]
                         {
-                            new Placeholder(), 
+                            new Placeholder("area 1"), 
                             new Container(
                                 "container name", 
                                 Enumerable.Empty<Property>(),
-                                new IComponent[] { new Placeholder() }) 
+                                new IComponent[] { new Placeholder("area 2") }) 
                         });
 
             this.widget = specification.Create();

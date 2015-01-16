@@ -7,6 +7,13 @@
 
     public class Placeholder : IComponent
     {
+        public Placeholder(string name)
+        {
+            this.Name = name;
+        }
+
+        public string Name { get; private set; }
+
         public T Accept<T>(IComponentVisitor<T> visitor)
         {
             return visitor.Visit(this);
@@ -19,7 +26,11 @@
 
         public ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext)
         {
-            return new PlaceholderInstance(path, buildContext.AreaContents.Peek().Dequeue());
+            var componentInstance = buildContext.AreaContents.Peek().ContainsKey(this.Name)
+                                        ? buildContext.AreaContents.Peek()[this.Name]
+                                        : null;
+
+            return new PlaceholderInstance(path, componentInstance);
         }
     }
 }

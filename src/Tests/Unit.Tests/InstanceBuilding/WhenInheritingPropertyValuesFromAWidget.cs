@@ -1,6 +1,5 @@
-﻿namespace Unit.Tests.Rendering
+﻿namespace Unit.Tests.InstanceBuilding
 {
-    using System;
     using System.Linq;
 
     using FluentAssertions;
@@ -9,12 +8,9 @@
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
-    using Kola.Domain.Rendering;
     using Kola.Domain.Specifications;
 
     using NUnit.Framework;
-
-    using Rhino.Mocks;
 
     public class WhenInheritingPropertyValuesFromAWidget
     {

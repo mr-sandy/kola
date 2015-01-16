@@ -241,7 +241,8 @@
         </property>
       </properties>
       <components>
-        <placeholder />
+        <placeholder  name="content" />
+        <placeholder  name="scripts" />
       </components>
     </container>
   </components>

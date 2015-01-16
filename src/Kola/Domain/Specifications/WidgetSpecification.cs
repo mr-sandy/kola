@@ -43,7 +43,7 @@
         public override Widget Create()
         {
             var placeholders = this.FindAll<Placeholder>();
-            var areas = placeholders.Select(p => new Area(Enumerable.Empty<IComponent>())).ToArray();
+            var areas = placeholders.Select(p => new Area(p.Name, Enumerable.Empty<IComponent>())).ToArray();
 
             return new Widget(this.Name, areas);
         }

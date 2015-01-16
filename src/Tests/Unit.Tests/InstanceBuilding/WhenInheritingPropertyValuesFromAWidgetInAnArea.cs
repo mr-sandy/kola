@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Rendering
+﻿namespace Unit.Tests.InstanceBuilding
 {
     using System.Linq;
 
@@ -23,7 +23,7 @@
                 "container",
                 new[] { new Property("property-name", "property-type", new InheritedPropertyValue("property-alias")) });
 
-            var placeholder = new Placeholder();
+            var placeholder = new Placeholder("area 1");
 
             var widgetSpecification = new WidgetSpecification(
                 "widget",

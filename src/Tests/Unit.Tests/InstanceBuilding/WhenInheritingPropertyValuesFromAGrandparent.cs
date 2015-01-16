@@ -1,4 +1,4 @@
-﻿namespace Unit.Tests.Rendering
+﻿namespace Unit.Tests.InstanceBuilding
 {
     using System.Linq;
 

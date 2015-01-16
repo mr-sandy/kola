@@ -97,13 +97,6 @@ div, ul, li {
       margin-top: 10px; }
     #block-editor ul li[data-type=toolbox-item] {
       border: 3px #755 solid; }
-#block-editor .area {
-  margin: 15px;
-  padding: 0;
-  border: 3px #557 solid;
-  background-color: #fecf9d; }
-  #block-editor .area.active {
-    border-color: #eee; }
 #block-editor .chrome {
   padding: 5px 15px; }
 #block-editor .atom {
@@ -126,8 +119,20 @@ div, ul, li {
     background-color: #d39b60; }
   #block-editor .widget.selected {
     background-color: #ffefdf; }
+    #block-editor .widget.selected .area {
+      background-color: #ffefdf; }
+      #block-editor .widget.selected .area > .chrome {
+        background-color: #fecf9d; }
   #block-editor .widget.selected > .chrome {
     background-color: #fecf9d; }
+  #block-editor .widget .area {
+    margin: 15px;
+    padding: 0;
+    border: 3px #557 solid;
+    background-color: #fecf9d; }
+    #block-editor .widget .area > .chrome {
+      border-bottom: 2px #557 solid;
+      background-color: #d39b60; }
 
 iframe {
   width: 100%;

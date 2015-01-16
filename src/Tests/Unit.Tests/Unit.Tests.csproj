@@ -66,6 +66,7 @@
     <Compile Include="Domain\ComponentSpecifications\WhenCreatingAPropertyFromItsSpecification.cs" />
     <Compile Include="Domain\CollectionFindingComponentVisitorTests\WhenFindingAContainerAtTheRootOfATemplate.cs" />
     <Compile Include="Domain\CollectionFindingComponentVisitorTests\WhenFindingAnArea.cs" />
+    <Compile Include="Domain\ComponentSpecifications\WhenCreatingAWidgetFromItsSpecification.cs" />
     <Compile Include="Domain\PropertyTests\WhenCreatingAnInstanceOfAPropertyWithAMultilingualVariablePropertyValue.cs" />
     <Compile Include="Domain\PropertyTests\WhenCreatingAnInstanceOfAPropertyWithAnInheritedPropertyValue.cs" />
     <Compile Include="Domain\PropertyTests\WhenCreatingAnInstanceOfAPropertyWithAFixedPropertyValue.cs" />
@@ -87,10 +88,10 @@
     <Compile Include="Extensions\EnumerableExtensions\Overlap\WhenFindingOverlapWithOneEmptyLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Overlap\WhenFindingOverlapWithTwoeEmptyLists.cs" />
     <Compile Include="EnumerableExtensions.cs" />
-    <Compile Include="Rendering\WhenInheritingPropertyValuesFromAWidgetInAnArea.cs" />
-    <Compile Include="Rendering\WhenInheritingPropertyValuesFromAGrandparent.cs" />
-    <Compile Include="Rendering\WhenInheritingPropertyValuesFromAContainer.cs" />
-    <Compile Include="Rendering\WhenInheritingPropertyValuesFromAWidget.cs" />
+    <Compile Include="InstanceBuilding\WhenInheritingPropertyValuesFromAWidgetInAnArea.cs" />
+    <Compile Include="InstanceBuilding\WhenInheritingPropertyValuesFromAGrandparent.cs" />
+    <Compile Include="InstanceBuilding\WhenInheritingPropertyValuesFromAContainer.cs" />
+    <Compile Include="InstanceBuilding\WhenInheritingPropertyValuesFromAWidget.cs" />
     <Compile Include="Rendering\Framework\ITestViewFactory.cs" />
     <Compile Include="Rendering\Framework\TestAtomView.cs" />
     <Compile Include="Rendering\Framework\TestContainerView.cs" />
@@ -98,8 +99,8 @@
     <Compile Include="Rendering\Framework\TestViewEngine.cs" />
     <Compile Include="Rendering\Framework\TestViewFactory.cs" />
     <Compile Include="Rendering\Framework\TestViewHelper.cs" />
-    <Compile Include="Rendering\WhenInheritingPropertyValuesFromAWidget2.cs" />
-    <Compile Include="Rendering\WhenInheritingPropertyValuesFromAWidgetGrandparent.cs" />
+    <Compile Include="InstanceBuilding\WhenInheritingPropertyValuesFromAWidget2.cs" />
+    <Compile Include="InstanceBuilding\WhenInheritingPropertyValuesFromAWidgetGrandparent.cs" />
     <Compile Include="Rendering\WhenRenderingAPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\TemplateTests\WhenApplyingAnAddComponentAmendmentToTheRoot.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="Domain\WidgetTests\WhenBuildingANestedWidgetInstance.cs" />
     <Compile Include="Domain\WidgetTests\WhenBuildingAWidgetInstance.cs" />
     <Compile Include="Domain\WidgetTests\WhenCreatingAWidget.cs" />
+    <Compile Include="Rendering\WhenRenderingAWidgetWithoutAreasForAllPlaceholders.cs" />
     <Compile Include="ResourceBuilding\WhenBuildingATemplateResource.cs" />
   </ItemGroup>
   <ItemGroup>

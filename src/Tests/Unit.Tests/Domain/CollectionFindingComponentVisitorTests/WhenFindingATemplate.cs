@@ -19,7 +19,7 @@
                 {
                     new Atom("atom 0"), 
                     new Container("container 1", components: new[] { new Atom("atom 1.0") }),
-                    new Widget("widget 2", areas: new[] { new Area(new[] { new Atom("atom 2.0.0") }), })
+                    new Widget("widget 2", areas: new[] { new Area("area 1", new[] { new Atom("atom 2.0.0") }), })
                 };
 
             var template = new Template(Enumerable.Empty<string>(), components);

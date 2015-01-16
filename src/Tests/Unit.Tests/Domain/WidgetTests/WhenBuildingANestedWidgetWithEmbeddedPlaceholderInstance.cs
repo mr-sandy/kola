@@ -63,13 +63,13 @@
                 new IComponent[]
                     {
                         new Atom("atom a", Enumerable.Empty<Property>()), 
-                        new Placeholder(), 
+                        new Placeholder("area 1"), 
                         new Container(
                             "container a",
                             Enumerable.Empty<Property>(),
                             new[]
                                 {
-                                    new Placeholder()
+                                    new Placeholder("area 2")
                                 }) 
                     });
 
@@ -78,18 +78,22 @@
                 Enumerable.Empty<PropertySpecification>(),
                 new IComponent[]
                     {
-                        new Placeholder(), 
+                        new Placeholder("area 1"), 
                         new Widget(
                             "widget 1", 
                             new[]
                                 {
-                                    new Area(new[]
-                                        {
-                                            new Placeholder()
+                                    new Area(
+                                        "area 1",
+                                        new[]
+                                            {
+                                                new Placeholder("area 2")
                                         }),
-                                    new Area(new[]
-                                        {
-                                            new Atom("atom b", Enumerable.Empty<Property>())
+                                    new Area(
+                                        "area 2",
+                                        new[]
+                                            {
+                                                new Atom("atom b", Enumerable.Empty<Property>())
                                         })
                                 })
                     });
@@ -99,11 +103,13 @@
                 new[]
                     {
                         new Area(
+                            "area 1", 
                             new IComponent[]
                                 {
                                     new Atom("atom c", Enumerable.Empty<Property>())
                                 }),
                         new Area(
+                            "area 2", 
                             new IComponent[]
                                 {
                                     new Atom("atom d", Enumerable.Empty<Property>()),

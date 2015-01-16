@@ -67,11 +67,11 @@ namespace Unit.Tests.Domain.WidgetTests
                 new IComponent[]
                     {
                         new Atom("atom", Enumerable.Empty<Property>()), 
-                        new Placeholder(), 
+                        new Placeholder("area 1"), 
                         new Container(
                             "container",
                             Enumerable.Empty<Property>(),
-                            new[] { new Placeholder() }) 
+                            new[] { new Placeholder("area 2") }) 
                     });
 
             var specification2 = new WidgetSpecification(
@@ -80,7 +80,7 @@ namespace Unit.Tests.Domain.WidgetTests
                 new IComponent[]
                     {
                         new Atom("atom", Enumerable.Empty<Property>()), 
-                        new Placeholder()
+                        new Placeholder("area 1")
                     });
 
             var widget = new Widget(
@@ -88,11 +88,13 @@ namespace Unit.Tests.Domain.WidgetTests
                 new[]
                     {
                         new Area(
+                            "area 1", 
                             new IComponent[]
                             {
                                 new Atom("atom", Enumerable.Empty<Property>())
                             }),
                         new Area(
+                            "area 2", 
                             new IComponent[]
                             {
                                 new Atom("atom", Enumerable.Empty<Property>()),
@@ -101,7 +103,9 @@ namespace Unit.Tests.Domain.WidgetTests
                                     "widget 2", 
                                     new[]
                                         {
-                                            new Area(new[]
+                                            new Area(
+                                                "area 1", 
+                                                new[]
                                                 {
                                                     new Atom("atom", Enumerable.Empty<Property>())
                                                 })

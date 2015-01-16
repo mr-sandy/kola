@@ -37,12 +37,12 @@
 
         public IComponent Visit(PlaceholderSurrogate surrogate)
         {
-            return new Placeholder();
+            return new Placeholder(surrogate.Name);
         }
 
         public IComponent Visit(AreaSurrogate surrogate)
         {
-            return new Area(surrogate.Components.Select(c => c.Accept(this)).ToArray());
+            return new Area(surrogate.Name, surrogate.Components.Select(c => c.Accept(this)).ToArray());
         }
 
         private IEnumerable<Property> BuildProperties(IEnumerable<PropertySurrogate> surrogates)

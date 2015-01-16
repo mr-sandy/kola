@@ -47,7 +47,7 @@
 
         public ComponentSurrogate Visit(Area area)
         {
-            return new AreaSurrogate { Components = area.Components.Select(c => c.Accept(this)).ToArray() };
+            return new AreaSurrogate { Name = area.Name, Components = area.Components.Select(c => c.Accept(this)).ToArray() };
         }
 
         private IEnumerable<PropertySurrogate> BuildProperties(IEnumerable<Property> properties)

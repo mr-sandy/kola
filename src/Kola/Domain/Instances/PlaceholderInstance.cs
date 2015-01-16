@@ -21,7 +21,9 @@
 
         public override IResult Render(IMultiRenderer renderer)
         {
-            return this.Content.Render(renderer);
+            return this.Content == null 
+                ? new EmptyResult() 
+                : this.Content.Render(renderer);
         }
     }
 }

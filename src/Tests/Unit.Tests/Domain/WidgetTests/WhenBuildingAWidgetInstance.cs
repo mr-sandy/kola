@@ -27,16 +27,16 @@
                 new IComponent[]
                     {
                         new Atom("atom", Enumerable.Empty<Property>()), 
-                        new Placeholder(), 
-                        new Container("container", Enumerable.Empty<Property>(), new[] { new Placeholder() }) 
+                        new Placeholder("area 1"), 
+                        new Container("container", Enumerable.Empty<Property>(), new[] { new Placeholder("area 2") }) 
                     });
 
             var widget = new Widget(
                 "widget name",
                 new[]
                     {
-                        new Area(new IComponent[] { new Atom("atom", Enumerable.Empty<Property>()), new Atom("atom", Enumerable.Empty<Property>()) }),
-                        new Area(new IComponent[] { new Atom("atom", Enumerable.Empty<Property>()), new Atom("atom", Enumerable.Empty<Property>()), new Atom("atom", Enumerable.Empty<Property>()) })
+                        new Area("area 1", new IComponent[] { new Atom("atom", Enumerable.Empty<Property>()), new Atom("atom", Enumerable.Empty<Property>()) }),
+                        new Area("area 2", new IComponent[] { new Atom("atom", Enumerable.Empty<Property>()), new Atom("atom", Enumerable.Empty<Property>()), new Atom("atom", Enumerable.Empty<Property>()) })
                     });
 
             var buildContext = new BuildContext

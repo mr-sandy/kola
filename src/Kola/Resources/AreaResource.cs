@@ -4,6 +4,8 @@
 
     public class AreaResource : ComponentResource
     {
+        public string Name { get; set; }
+
         public IEnumerable<ComponentResource> Components { get; set; }
 
         public override string Type

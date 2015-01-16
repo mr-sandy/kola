@@ -65,6 +65,7 @@
         {
             return new AreaResource
             {
+                Name = area.Name,
                 Path = context.Select(i => i.ToString()).ToHttpPath(),
                 Components = area.Components.Select((c, i) => c.Accept(this, context.Append(i))),
                 Links = this.BuildLinks(context)

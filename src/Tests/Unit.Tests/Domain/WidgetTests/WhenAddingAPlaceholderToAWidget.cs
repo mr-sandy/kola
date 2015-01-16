@@ -4,8 +4,8 @@
 
     using FluentAssertions;
 
-    using Kola.Domain.Specifications;
     using Kola.Domain.Composition;
+    using Kola.Domain.Specifications;
 
     using NUnit.Framework;
 
@@ -17,7 +17,7 @@
         public void EstablishContext()
         {
             this.widgetSpecification = new WidgetSpecification("widgetName");
-            var placeholder = new Placeholder();
+            var placeholder = new Placeholder("area 1");
 
             this.widgetSpecification.Insert(0, placeholder);
         }
