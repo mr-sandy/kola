@@ -6,6 +6,12 @@
         <property name="colour" type="text">
           <value xsi:type="fixed"><![CDATA[blue]]></value>
         </property>
+        <property name="description" type="text">
+          <value xsi:type="fixed"><![CDATA[Linn make the best music systems for your home, including network music players, turntables, amplifiers, speakers and hi-fi components.]]></value>
+        </property>
+        <property name="title" type="text">
+          <value xsi:type="fixed"><![CDATA[Linn &#8212; Music Systems, Network Music Players]]></value>
+        </property>
       </properties>
       <areas>
         <area>
@@ -13,7 +19,7 @@
             <atom name="markdown">
               <properties>
                 <property name="markdown" type="markdown">
-                  <value xsi:type="fixed"><![CDATA[##Helloo
+                  <value xsi:type="fixed"><![CDATA[##Hello
 
 [blogs](http://blogs.linn.co.uk)]]></value>
                 </property>
@@ -26,21 +32,14 @@
   </components>
   <amendments>
     <setPropertyFixed>
-      <componentPath>0/0/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##Hello
-
-[blogs](http://blogs.linn.co.uk)]]></fixedValue>
+      <componentPath>0</componentPath>
+      <propertyName>colour</propertyName>
+      <fixedValue><![CDATA[red]]></fixedValue>
     </setPropertyFixed>
     <setPropertyFixed>
       <componentPath>0</componentPath>
-      <propertyName>description</propertyName>
-      <fixedValue><![CDATA[Linn make the best music systems for your home, including network music players, turntables, amplifiers, speakers and hi-fi components.]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0</componentPath>
-      <propertyName>title</propertyName>
-      <fixedValue><![CDATA[Linn &#8212; Music Systems, Network Music Players]]></fixedValue>
+      <propertyName>colour</propertyName>
+      <fixedValue><![CDATA[blue]]></fixedValue>
     </setPropertyFixed>
   </amendments>
 </template>

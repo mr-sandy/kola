@@ -8,7 +8,7 @@
     public class BuildContext : IBuildContext
     {
         private readonly Stack<Queue<ComponentInstance>> areas = new Stack<Queue<ComponentInstance>>();
-        private readonly Stack<Context> contexts = new Stack<Context>();
+        private readonly Stack<ContextSet> contexts = new Stack<ContextSet>();
 
         public Func<string, WidgetSpecification> WidgetSpecificationFinder { get; set; }
 
@@ -17,19 +17,9 @@
             get { return this.areas; }
         }
 
-        public IEnumerable<Context> Contexts 
+        public Stack<ContextSet> ContextSets 
         { 
             get { return this.contexts; }
-        }
-
-        public void PushContext(Context context)
-        {
-            this.contexts.Push(context);
-        }
-
-        public Context PopContext()
-        {
-            return this.contexts.Pop();
         }
     }
 }

@@ -17,7 +17,7 @@
 
         public string Resolve(IBuildContext buildContext)
         {
-            var candidateLanguages = buildContext.Contexts.Where(c => !string.IsNullOrEmpty(c.LanguageCode)).Select(c => c.LanguageCode);
+            var candidateLanguages = buildContext.ContextSets.Where(c => !string.IsNullOrEmpty(c.LanguageCode)).Select(c => c.LanguageCode);
 
             foreach (var candidateLanguage in candidateLanguages)
             {

@@ -1,5 +1,7 @@
 ﻿namespace Unit.Tests.Domain.PropertyTests
 {
+    using System.Linq;
+
     using FluentAssertions;
 
     using Kola.Domain.Composition;
@@ -26,10 +28,10 @@
                             new MultilingualVariant("fr", "Français")
                         }));
 
-            var context = new Context { LanguageCode = "fr" };
+            var context = new ContextSet(Enumerable.Empty<IContextItem>(), "fr");
 
             var buildContext = new BuildContext();
-            buildContext.PushContext(context);
+            buildContext.ContextSets.Push(context);
             this.propertyInstance = property.Build(buildContext);
         }
 

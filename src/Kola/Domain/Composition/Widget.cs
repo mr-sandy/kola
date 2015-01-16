@@ -29,9 +29,9 @@
 
         public override ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext)
         {
-            var newContext = new Context { Items = this.Properties.Select(p => new ContextItem(p.Name, p.Value.Resolve(buildContext))) };
+            var propertyInstances = this.Properties.Select(p => p.Build(buildContext)).ToList();
 
-            buildContext.PushContext(newContext);
+            buildContext.ContextSets.Push(new ContextSet(propertyInstances));
 
             // Build the content of each area, 
             // before adding it to the context to be 
@@ -47,7 +47,7 @@
             var components = specification.Components.Select((c, i) => c.Build(null, buildContext)).ToList();
 
             buildContext.AreaContents.Pop();
-            buildContext.PopContext();
+            buildContext.ContextSets.Pop();
 
             return new WidgetInstance(path, components);
         }

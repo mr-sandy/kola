@@ -77,9 +77,9 @@
     <Compile Include="Domain\Instances\AreaInstance.cs" />
     <Compile Include="Domain\Instances\Building\IBuildContext.cs" />
     <Compile Include="Domain\Instances\AtomInstance.cs" />
+    <Compile Include="Domain\Instances\Building\IContextItem.cs" />
     <Compile Include="Domain\Instances\ContainerInstance.cs" />
-    <Compile Include="Domain\Instances\Building\Context.cs" />
-    <Compile Include="Domain\Instances\Building\ContextItem.cs" />
+    <Compile Include="Domain\Instances\Building\ContextSet.cs" />
     <Compile Include="Domain\Instances\Building\BuildContext.cs" />
     <Compile Include="Domain\Instances\IComponentInstanceVisitor.cs" />
     <Compile Include="Domain\Instances\PlaceholderInstance.cs" />

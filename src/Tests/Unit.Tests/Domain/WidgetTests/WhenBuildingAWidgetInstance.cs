@@ -39,10 +39,10 @@
                         new Area(new IComponent[] { new Atom("atom", Enumerable.Empty<Property>()), new Atom("atom", Enumerable.Empty<Property>()), new Atom("atom", Enumerable.Empty<Property>()) })
                     });
 
-            var buildContext = MockRepository.GenerateStub<IBuildContext>();
-            var widgetStack = new Stack<Queue<ComponentInstance>>();
-            buildContext.Stub(c => c.WidgetSpecificationFinder).Return(n => specification);
-            buildContext.Stub(c => c.AreaContents).Return(widgetStack);
+            var buildContext = new BuildContext
+                {
+                    WidgetSpecificationFinder = n => specification
+                };
 
             this.instance = (WidgetInstance)widget.Build(new[] { 0 }, buildContext);
         }

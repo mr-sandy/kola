@@ -9,6 +9,8 @@
 
     using NUnit.Framework;
 
+    using Rhino.Mocks;
+
     public class WhenCreatingAnInstanceOfAPropertyWithAnInheritedPropertyValue
     {
         private PropertyInstance propertyInstance;
@@ -18,10 +20,14 @@
         {
             var property = new Property("property name", "property type", new InheritedPropertyValue("key"));
 
-            var context = new Context { Items = new[] { new ContextItem("key", "result") } };
+            var contextItem = MockRepository.GenerateMock<IContextItem>();
+            contextItem.Stub(c => c.Name).Return("key");
+            contextItem.Stub(c => c.Value).Return("result");
+
+            var context = new ContextSet(new[] { contextItem });
 
             var buildContext = new BuildContext();
-            buildContext.PushContext(context);
+            buildContext.ContextSets.Push(context);
 
             this.propertyInstance = property.Build(buildContext);
         }

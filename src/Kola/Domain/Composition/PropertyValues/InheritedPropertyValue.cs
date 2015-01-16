@@ -15,9 +15,9 @@
 
         public string Resolve(IBuildContext buildContext)
         {
-            foreach (var context in buildContext.Contexts)
+            foreach (var contextSet in buildContext.ContextSets)
             {
-                var item = context.Items.Where(i => i.Key.Equals(this.Key)).FirstOrDefault();
+                var item = contextSet.Items.Where(i => i.Name.Equals(this.Key)).FirstOrDefault();
 
                 if (item != null)
                 {

@@ -1,5 +1,8 @@
-﻿namespace Unit.Tests.Domain.WidgetTests
+﻿using NUnit.Framework;
+
+namespace Unit.Tests.Domain.WidgetTests
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -106,9 +109,10 @@
                             })
                     });
 
-            var buildContext = MockRepository.GenerateStub<IBuildContext>();
-            buildContext.Stub(c => c.WidgetSpecificationFinder).Return(n => n == "widget 1" ? specification1 : specification2);
-            buildContext.Stub(c => c.AreaContents).Return(new Stack<Queue<ComponentInstance>>());
+            var buildContext = new BuildContext
+                {
+                    WidgetSpecificationFinder = n => n == "widget 1" ? specification1 : specification2
+                };
 
             this.instance = (WidgetInstance)widget.Build(new[] { 0 }, buildContext);
         }
