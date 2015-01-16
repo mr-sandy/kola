@@ -197,41 +197,6 @@
             </property>
           </properties>
         </atom>
-        <atom name="html-style">
-          <properties>
-            <property name="type" type="text">
-              <value xsi:type="fixed"><![CDATA[text/css]]></value>
-            </property>
-            <property name="href" type="text">
-              <value xsi:type="fixed"><![CDATA[new-common/css/linn-legacy.min.css]]></value>
-            </property>
-            <property name="cache-buster" type="text">
-              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
-            </property>
-            <property name="rel" type="text">
-              <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
-            </property>
-          </properties>
-        </atom>
-        <atom name="html-style">
-          <properties>
-            <property name="type" type="text">
-              <value xsi:type="fixed"><![CDATA[text/css]]></value>
-            </property>
-            <property name="href" type="text">
-              <value xsi:type="fixed"><![CDATA[new-common/css/ie.min.css]]></value>
-            </property>
-            <property name="cache-buster" type="text">
-              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
-            </property>
-            <property name="ie-condition" type="text">
-              <value xsi:type="fixed"><![CDATA[9]]></value>
-            </property>
-            <property name="rel" type="text">
-              <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
-            </property>
-          </properties>
-        </atom>
       </components>
     </container>
     <container name="html-body">

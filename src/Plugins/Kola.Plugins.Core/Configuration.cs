@@ -46,6 +46,13 @@
                 .WithProperty("media", "text")
                 .WithProperty("ie-condition", "text");
 
+            this.Configure.Atom("html-script")
+                .WithView("HtmlScript")
+                .WithProperty("src", "text")
+                .WithProperty("type", "html-script-type")
+                .WithProperty("cache-buster", "text")
+                .WithProperty("ie-condition", "text");
+
             this.Configure.PropertyType("markdown")
                 .WithDefault("Placeholder text.")
                 .WithEditor("MarkdownEditorView.js");
@@ -53,6 +60,10 @@
             this.Configure.PropertyType("boolean")
                 .WithDefault("false")
                 .WithEditor("BooleanEditorView.js");
+
+            this.Configure.PropertyType("html-script-type")
+                .WithDefault("text/js")
+                .WithEditor("TextEditorView.js");
 
             this.Configure.PropertyType("text")
                 .WithEditor("TextEditorView.js");

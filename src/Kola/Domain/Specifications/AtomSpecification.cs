@@ -1,5 +1,7 @@
 ﻿namespace Kola.Domain.Specifications
 {
+    using System.Linq;
+
     using Kola.Domain.Composition;
 
     public class AtomSpecification : PluginComponentSpecification<Atom>
