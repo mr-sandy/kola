@@ -10,5 +10,8 @@
 
         [XmlAttribute("type")]
         public string Type { get; set; }
+
+        [XmlAttribute("defaultValue")]
+        public string DefaultValue { get; set; }
     }
 }

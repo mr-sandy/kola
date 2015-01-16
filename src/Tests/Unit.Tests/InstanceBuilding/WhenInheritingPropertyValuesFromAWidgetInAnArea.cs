@@ -27,7 +27,7 @@
 
             var widgetSpecification = new WidgetSpecification(
                 "widget",
-                new[] { new PropertySpecification("property-alias", "property-type") },
+                new[] { new PropertySpecification("property-alias", "property-type", string.Empty) },
                 new[] { placeholder });
 
             var buildContext = new BuildContext
@@ -36,7 +36,7 @@
                 };
 
             var widget = widgetSpecification.Create();
-            widget.AddProperty(new PropertySpecification("property-alias", "property-type"));
+            widget.AddProperty(new PropertySpecification("property-alias", "property-type", string.Empty));
             widget.Properties.Single().Value = new FixedPropertyValue("property-value");
             widget.Areas.Single().Insert(0, container);
 

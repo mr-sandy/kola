@@ -9,7 +9,7 @@
     using Kola.Domain.Instances.Building;
     using Kola.Extensions;
 
-    public class Container : ComponentWithgProperties, IComponentCollection
+    public class Container : ComponentWithProperties, IComponentCollection
     {
         private readonly List<IComponent> components = new List<IComponent>();
 

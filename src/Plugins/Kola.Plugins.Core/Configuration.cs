@@ -13,7 +13,7 @@
 
             this.Configure.Atom("markdown")
                 .WithRenderer<MarkdownRenderer>()
-                .WithProperty("markdown", "markdown");
+                .WithProperty("markdown", "markdown", "*add content here*");
 
             this.Configure.Atom("label")
                 .WithView("Label")
@@ -39,7 +39,7 @@
 
             this.Configure.Atom("html-style")
                 .WithView("HtmlStyle")
-                .WithProperty("type", "text")
+                .WithProperty("type", "text", "text/css")
                 .WithProperty("rel", "text")
                 .WithProperty("href", "text")
                 .WithProperty("cache-buster", "text")
@@ -49,20 +49,17 @@
             this.Configure.Atom("html-script")
                 .WithView("HtmlScript")
                 .WithProperty("src", "text")
-                .WithProperty("type", "html-script-type")
+                .WithProperty("type", "html-script-type", "text/javascript")
                 .WithProperty("cache-buster", "text")
                 .WithProperty("ie-condition", "text");
 
             this.Configure.PropertyType("markdown")
-                .WithDefault("Placeholder text.")
                 .WithEditor("MarkdownEditorView.js");
 
             this.Configure.PropertyType("boolean")
-                .WithDefault("false")
                 .WithEditor("BooleanEditorView.js");
 
             this.Configure.PropertyType("html-script-type")
-                .WithDefault("text/js")
                 .WithEditor("TextEditorView.js");
 
             this.Configure.PropertyType("text")

@@ -21,16 +21,14 @@
                 .WithView("Label")
                 .WithProperty("caption", "text");
 
-            this.Configure.PropertyType("markdown")
-                .WithDefault("Placeholder text.")
-                .WithEditor("MarkdownEditorView.js");
+            //this.Configure.PropertyType("markdown")
+            //    .WithEditor("MarkdownEditorView.js");
 
-            this.Configure.PropertyType("boolean")
-                .WithDefault("false")
-                .WithEditor("BooleanEditorView.js");
+            //this.Configure.PropertyType("boolean")
+            //    .WithEditor("BooleanEditorView.js");
 
-            this.Configure.PropertyType("text")
-                .WithEditor("TextEditorView.js");
+            //this.Configure.PropertyType("text")
+            //    .WithEditor("TextEditorView.js");
         }
     }
 }

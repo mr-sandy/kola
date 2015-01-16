@@ -26,7 +26,7 @@
 
         private PropertySpecification BuildPropertySpecification(PropertySpecificationSurrogate surrogate)
         {
-            return new PropertySpecification(surrogate.Name, surrogate.Type);
+            return new PropertySpecification(surrogate.Name, surrogate.Type, surrogate.DefaultValue);
         }
     }
 }

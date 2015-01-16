@@ -24,12 +24,12 @@
                 new[] { new Property("property-name", "property-type", new InheritedPropertyValue("property-name")) });
 
             var containerSpecification = new ContainerSpecification("container");
-            containerSpecification.AddProperty(new PropertySpecification("property-name", "property-type"));
+            containerSpecification.AddProperty(new PropertySpecification("property-name", "property-type", string.Empty));
 
             var buildContext = new BuildContext();
 
             var container = containerSpecification.Create();
-            container.AddProperty(new PropertySpecification("property-name", "property-type"));
+            container.AddProperty(new PropertySpecification("property-name", "property-type", string.Empty));
             container.Properties.Single().Value = new FixedPropertyValue("property-value");
             container.Insert(0, atom);
 

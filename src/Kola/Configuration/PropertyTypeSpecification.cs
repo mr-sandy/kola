@@ -12,8 +12,6 @@ namespace Kola.Configuration
 
         public string Name { get; private set; }
 
-        public string DefaultValue { get; set; }
-
         public string EditorName { get; set; }
     }
 }

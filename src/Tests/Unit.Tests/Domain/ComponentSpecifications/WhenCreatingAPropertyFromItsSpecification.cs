@@ -15,7 +15,7 @@
         [SetUp]
         public void SetUp()
         {
-            var propertySpecification = new PropertySpecification("property 1 name", "property 1 type");
+            var propertySpecification = new PropertySpecification("property 1 name", "property 1 type", string.Empty);
 
             this.property = propertySpecification.Create();
         }

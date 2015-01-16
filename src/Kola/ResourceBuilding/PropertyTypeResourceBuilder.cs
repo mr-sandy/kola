@@ -14,7 +14,6 @@
             return new PropertyTypeResource
             {
                 Name = propertiespecification.Name,
-                DefaultValue = propertiespecification.DefaultValue,
                 Links = new[]
                         {
                             new LinkResource { Rel = "self", Href = "/_kola/property-types/" + propertiespecification.Name.Urlify() },

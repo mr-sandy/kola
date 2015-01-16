@@ -11,12 +11,6 @@
             this.specification = propertyTypeSpecification;
         }
 
-        public PropertyTypeConfigurer WithDefault(string value)
-        {
-            this.specification.DefaultValue = value;
-            return this;
-        }
-
         public PropertyTypeConfigurer WithEditor(string editor)
         {
             this.specification.EditorName = editor;

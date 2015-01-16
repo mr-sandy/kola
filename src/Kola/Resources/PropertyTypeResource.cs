@@ -8,8 +8,6 @@
 
         public string Type { get; set; }
 
-        public string DefaultValue { get; set; }
-
         public IList<LinkResource> Links { get; set; }
     }
 }

@@ -17,9 +17,9 @@
             get { return new CacheConfigurer(this.specification); }
         }
 
-        public ComponentRendererConfigurer WithProperty(string propertyName, string propertyType)
+        public ComponentRendererConfigurer WithProperty(string propertyName, string propertyType, string defaultValue = "")
         {
-            this.specification.AddProperty(new PropertySpecification(propertyName, propertyType));
+            this.specification.AddProperty(new PropertySpecification(propertyName, propertyType, defaultValue));
             return this;
         }
     }

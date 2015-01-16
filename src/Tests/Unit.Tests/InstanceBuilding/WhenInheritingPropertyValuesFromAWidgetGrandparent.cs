@@ -28,8 +28,8 @@
             container.Insert(0, atom);
 
             var widgetSpecification = new WidgetSpecification(
-                "widget", 
-                new[] { new PropertySpecification("property-alias", "property-type") }, 
+                "widget",
+                new[] { new PropertySpecification("property-alias", "property-type", string.Empty) }, 
                 new[] { container });
 
             var buildContext = new BuildContext
@@ -38,7 +38,7 @@
             };
 
             var widget = widgetSpecification.Create();
-            widget.AddProperty(new PropertySpecification("property-alias", "property-type"));
+            widget.AddProperty(new PropertySpecification("property-alias", "property-type", string.Empty));
             widget.Properties.Single().Value = new FixedPropertyValue("property-value");
 
             this.instance = widget.Build(new[] { 0 }, buildContext);

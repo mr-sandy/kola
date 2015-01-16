@@ -20,7 +20,7 @@
         {
             this.Template.Insert(0, new Atom("the atom", Enumerable.Empty<Property>()));
 
-            var propertiespecification = new PropertySpecification("property name", "property type");
+            var propertiespecification = new PropertySpecification("property name", "property type", string.Empty);
 
             this.ComponentSpecification.Stub(s => s.Properties).Return(new[] { propertiespecification });
 

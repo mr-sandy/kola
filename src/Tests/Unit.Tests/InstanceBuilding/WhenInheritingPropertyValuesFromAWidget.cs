@@ -24,8 +24,8 @@
                 new[] { new Property("property-name", "property-type", new InheritedPropertyValue("property-alias")) });
 
             var widgetSpecification = new WidgetSpecification(
-                "widget", 
-                new[] { new PropertySpecification("property-alias", "property-type") }, 
+                "widget",
+                new[] { new PropertySpecification("property-alias", "property-type", string.Empty) }, 
                 new[] { atom });
 
             var buildContext = new BuildContext
@@ -34,7 +34,7 @@
                 };
 
             var widget = widgetSpecification.Create();
-            widget.AddProperty(new PropertySpecification("property-alias", "property-type"));
+            widget.AddProperty(new PropertySpecification("property-alias", "property-type", string.Empty));
             widget.Properties.Single().Value = new FixedPropertyValue("property-value");
 
             this.instance = widget.Build(new[] { 0 }, buildContext);

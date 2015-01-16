@@ -6,7 +6,7 @@
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
 
-    public class Atom : ComponentWithgProperties
+    public class Atom : ComponentWithProperties
     {
         public Atom(string name, IEnumerable<Property> properties = null)
             : base(name, properties)

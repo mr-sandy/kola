@@ -6,11 +6,11 @@
     using Kola.Domain.Instances.Building;
     using Kola.Domain.Specifications;
 
-    public abstract class ComponentWithgProperties : IComponentWithProperties
+    public abstract class ComponentWithProperties : IComponentWithProperties
     {
         private readonly List<Property> properties = new List<Property>();
 
-        protected ComponentWithgProperties(string name, IEnumerable<Property> properties)
+        protected ComponentWithProperties(string name, IEnumerable<Property> properties)
         {
             this.Name = name;
 

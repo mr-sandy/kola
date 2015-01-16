@@ -19,24 +19,7 @@
 
         public string Type { get; private set; }
 
-
-        public IPropertyValue Value
-        {
-            get
-            {
-                return this.value;
-            }
-            
-            set
-            {
-                if (value == null)
-                {
-                    throw new KolaException("Property must have a value");
-                }
-
-                this.value = value;
-            }
-        }
+        public IPropertyValue Value { get; set; }
 
         public PropertyInstance Build(IBuildContext buildContext)
         {

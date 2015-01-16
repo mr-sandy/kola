@@ -5,6 +5,7 @@
     using System.Linq;
 
     using Kola.Domain.Composition;
+    using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Extensions;
 
     public class WidgetSpecification : ComponentSpecification<Widget>, IComponentCollection
@@ -44,8 +45,9 @@
         {
             var placeholders = this.FindAll<Placeholder>();
             var areas = placeholders.Select(p => new Area(p.Name, Enumerable.Empty<IComponent>())).ToArray();
+            var properties = this.Properties.Select(p => p.Create()).Where(p => p.Value is FixedPropertyValue && !string.IsNullOrEmpty(((FixedPropertyValue)p.Value).Value)).ToList();
 
-            return new Widget(this.Name, areas);
+            return new Widget(this.Name, areas, properties);
         }
 
         public override TV Accept<TV>(IComponentSpecificationVisitor<TV> visitor)

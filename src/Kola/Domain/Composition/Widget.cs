@@ -7,7 +7,7 @@
     using Kola.Domain.Instances.Building;
     using Kola.Extensions;
 
-    public class Widget : ComponentWithgProperties
+    public class Widget : ComponentWithProperties
     {
         public Widget(string name, IEnumerable<Area> areas, IEnumerable<Property> properties = null)
             : base(name, properties)

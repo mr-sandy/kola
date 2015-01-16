@@ -29,7 +29,6 @@
                 .WithView("Container2");
 
             this.Configure.PropertyType("property-1")
-                .WithDefault("default")
                 .WithEditor("editor?");
         }
     }

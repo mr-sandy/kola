@@ -5,19 +5,24 @@
 
     public class PropertySpecification
     {
-        public PropertySpecification(string name, string type)
+        public PropertySpecification(string name, string type, string defaultValue)
         {
             this.Name = name;
             this.Type = type;
+            this.DefaultValue = defaultValue;
         }
 
         public string Name { get; private set; }
 
         public string Type { get; private set; }
 
+        public string DefaultValue { get; private set; }
+
         public Property Create()
         {
-            var value = new FixedPropertyValue(string.Empty);
+            var value = string.IsNullOrEmpty(this.DefaultValue) 
+                ? new FixedPropertyValue(string.Empty)
+                : new FixedPropertyValue(this.DefaultValue);
 
             return new Property(this.Name, this.Type, value);
         }

@@ -197,6 +197,19 @@
             </property>
           </properties>
         </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[/responsive/scripts/html5shiv.js]]></value>
+            </property>
+            <property name="ie-condition" type="text">
+              <value xsi:type="fixed"><![CDATA[lt9]]></value>
+            </property>
+          </properties>
+        </atom>
       </components>
     </container>
     <container name="html-body">

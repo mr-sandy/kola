@@ -106,7 +106,7 @@
     <Compile Include="Domain\Composition\Amendments\SetPropertyFixedAmendment.cs" />
     <Compile Include="Domain\Composition\Area.cs" />
     <Compile Include="Domain\Composition\IComponentWithProperties.cs" />
-    <Compile Include="Domain\Composition\ComponentWithgProperties.cs" />
+    <Compile Include="Domain\Composition\ComponentWithProperties.cs" />
     <Compile Include="Domain\Composition\PropertyValues\FixedPropertyValue.cs" />
     <Compile Include="Domain\Composition\PropertyValues\InheritedPropertyValue.cs" />
     <Compile Include="Domain\Composition\PropertyValues\IPropertyValue.cs" />
