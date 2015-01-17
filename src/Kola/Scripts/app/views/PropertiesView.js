@@ -19,6 +19,10 @@
             this.listenTo(options.stateBroker, 'change', this.handleSelectionChange);
         },
 
+        events: {
+            'click #remove': 'remove'
+        },
+
         handleSelectionChange: function () {
             this.model = this.stateBroker.selected
                 ? this.stateBroker.selected
@@ -57,6 +61,13 @@
             }
 
             return this;
+        },
+
+        remove: function (e) {
+            e.preventDefault();
+            var componentPath = this.model.get('path');
+            this.amendments.removeComponent(componentPath);
+            this.stateBroker.deselect();
         }
     });
 });

@@ -1,12 +1,12 @@
 ﻿namespace Kola.Resources
 {
-    public class DeleteComponentAmendmentResource : AmendmentResource
+    public class RemoveComponentAmendmentResource : AmendmentResource
     {
         public string ComponentPath { get; set; }
 
         public override string Type
         {
-            get { return "Delete Component"; }
+            get { return "Remove Component"; }
         }
         
         public override T Accept<T>(IAmendmentResourceVisitor<T> visitor)

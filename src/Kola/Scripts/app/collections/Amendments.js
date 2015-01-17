@@ -42,6 +42,18 @@
             amendment.save();
         },
 
+        removeComponent: function (componentPath) {
+            var amendment = new Amendment({
+                componentPath: componentPath
+            });
+
+            amendment.url = this.combineUrls(this.url, 'removeComponent');
+
+            this.add(amendment);
+
+            amendment.save();
+        },
+
         applyAmendments: function () {
             var self = this;
             var amendment = new Amendment();

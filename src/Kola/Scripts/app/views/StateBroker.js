@@ -29,7 +29,16 @@
 
                 self.trigger('change');
             });
+        },
+
+        deselect: function () {
+            if (this.selected) {
+                this.selected.trigger('deselected');
+                this.selected = null;
+                this.trigger('change');
+            }
         }
+
     }, Backbone.Events);
 
     return StateBroker;

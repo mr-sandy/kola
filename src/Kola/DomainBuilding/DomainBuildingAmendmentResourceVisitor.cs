@@ -18,7 +18,7 @@
                 resource.TargetPath.ParseComponentPath());
         }
 
-        public IAmendment Visit(DeleteComponentAmendmentResource resource)
+        public IAmendment Visit(RemoveComponentAmendmentResource resource)
         {
             return new RemoveComponentAmendment(resource.ComponentPath.ParseComponentPath());
         }

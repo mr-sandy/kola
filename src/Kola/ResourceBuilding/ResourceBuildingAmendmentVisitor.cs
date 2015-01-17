@@ -41,7 +41,7 @@
 
         public AmendmentResource Visit(RemoveComponentAmendment amendment, int index)
         {
-            return new DeleteComponentAmendmentResource
+            return new RemoveComponentAmendmentResource
             {
                 Id = index,
                 ComponentPath = amendment.ComponentPath.ToComponentPathString(),

@@ -33,7 +33,7 @@
             this.Put["/", AcceptHeaderFilters.NotHtml] = p => this.PutTemplate(p.templatePath);
             this.Post["/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<AddComponentAmendmentResource>(p.templatePath);
             this.Post["/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<MoveComponentAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/deleteComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<DeleteComponentAmendmentResource>(p.templatePath);
+            this.Post["/_amendments/removeComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<RemoveComponentAmendmentResource>(p.templatePath);
             this.Post["/_amendments/setProperty", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<SetPropertyAmendmentResource>(p.templatePath);
             this.Post["/_amendments/apply", AcceptHeaderFilters.NotHtml] = p => this.PostApplyAmendments(p.templatePath);
             this.Post["/_amendments/undo", AcceptHeaderFilters.NotHtml] = p => this.PostUndoAmendments(p.templatePath);
