@@ -55,7 +55,7 @@
             var component = this.template.FindComponentWithProperties(amendment.ComponentPath);
             var specification = this.specificationLibrary.Lookup(component.Name);
 
-            var property = component.Properties.Find(amendment.PropertyName) ?? component.AddProperty(specification.Properties.Find(amendment.PropertyName));
+            var property = component.FindOrCreateProperty(specification.Properties.Find(amendment.PropertyName));
 
             property.Value = new FixedPropertyValue(amendment.FixedValue);
         }

@@ -1,6 +1,7 @@
 ﻿namespace Kola.Domain.Specifications
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using Kola.Domain.Composition;
 
@@ -34,5 +35,10 @@
         public abstract TV Accept<TV>(IComponentSpecificationVisitor<TV> visitor);
 
         public abstract T Create();
+
+        protected IEnumerable<Property> CreateDefaultProperties()
+        {
+            return this.Properties.Where(p => !string.IsNullOrWhiteSpace(p.DefaultValue)).Select(p => p.Create()).ToList();
+        }
     }
 }

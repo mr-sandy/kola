@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
 
+    using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
     using Kola.Domain.Specifications;
@@ -27,13 +28,20 @@
             get { return this.properties; }
         }
 
-        public Property AddProperty(PropertySpecification specification)
+        public Property FindOrCreateProperty(PropertySpecification specification)
         {
-            var property = specification.Create();
-            this.properties.Add(property);
+            var property = this.properties.Find(specification.Name);
+
+            if (property == null)
+            {
+                property = specification.Create();
+                this.properties.Add(property);
+            }
 
             return property;
         }
+
+        public abstract void Accept(IComponentVisitor visitor);
 
         public abstract T Accept<T>(IComponentVisitor<T> visitor);
 

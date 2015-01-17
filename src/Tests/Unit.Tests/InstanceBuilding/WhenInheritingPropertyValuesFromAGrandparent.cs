@@ -34,7 +34,7 @@
             parent.Insert(0, atom);
 
             var grandparent = grandparentSpecification.Create();
-            grandparent.AddProperty(new PropertySpecification("property-name", "property-type", string.Empty));
+            grandparent.FindOrCreateProperty(new PropertySpecification("property-name", "property-type", string.Empty));
             grandparent.Properties.Single().Value = new FixedPropertyValue("property-value");
             grandparent.Insert(0, parent);
 

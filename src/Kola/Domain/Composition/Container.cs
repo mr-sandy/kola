@@ -42,6 +42,11 @@
             this.components.RemoveAt(index);
         }
 
+        public override void Accept(IComponentVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
         public override T Accept<T>(IComponentVisitor<T> visitor)
         {
             return visitor.Visit(this);

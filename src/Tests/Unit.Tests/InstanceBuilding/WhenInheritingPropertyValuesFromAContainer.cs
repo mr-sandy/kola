@@ -29,7 +29,7 @@
             var buildContext = new BuildContext();
 
             var container = containerSpecification.Create();
-            container.AddProperty(new PropertySpecification("property-name", "property-type", string.Empty));
+            container.FindOrCreateProperty(new PropertySpecification("property-name", "property-type", string.Empty));
             container.Properties.Single().Value = new FixedPropertyValue("property-value");
             container.Insert(0, atom);
 

@@ -136,6 +136,7 @@
     <Compile Include="Domain\Specifications\WidgetSpecification.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Nancy\Modules\ComponentFindingComponentInstanceVisitor.cs" />
+    <Compile Include="Domain\Composition\ComponentRefreshingVisitor.cs" />
     <Compile Include="Nancy\Modules\PropertyTypeModule.cs" />
     <Compile Include="Nancy\Modules\PreviewModule.cs" />
     <Compile Include="Nancy\Modules\PreviewQuery.cs" />

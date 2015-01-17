@@ -14,6 +14,11 @@
 
         public string Name { get; private set; }
 
+        public void Accept(IComponentVisitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
         public T Accept<T>(IComponentVisitor<T> visitor)
         {
             return visitor.Visit(this);

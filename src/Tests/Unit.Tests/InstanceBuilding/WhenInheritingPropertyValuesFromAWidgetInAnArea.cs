@@ -36,7 +36,7 @@
                 };
 
             var widget = widgetSpecification.Create();
-            widget.AddProperty(new PropertySpecification("property-alias", "property-type", string.Empty));
+            widget.FindOrCreateProperty(new PropertySpecification("property-alias", "property-type", string.Empty));
             widget.Properties.Single().Value = new FixedPropertyValue("property-value");
             widget.Areas.Single().Insert(0, container);
 

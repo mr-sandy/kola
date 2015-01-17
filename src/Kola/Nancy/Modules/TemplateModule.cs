@@ -82,8 +82,8 @@
 
             var component = template.FindComponent(componentPath);
 
-            // Add all properties for this compnent type (not just those with values set)
-            this.SyncToSpecification(component);
+            // Add all properties for this component type (not just those with values set)
+            component.Accept(new ComponentRefreshingVisitor(this.componentLibrary));
 
             var resource = new ComponentResourceBuilder().Build(component, componentPath, template.Path);
 
@@ -93,24 +93,6 @@
                 .WithHeader("location", string.Format("/{0}", rawTemplatePath));
         }
 
-        // TODO {SC} Refactor into nicer code and test
-        private void SyncToSpecification(IComponent component)
-        {
-            var componentWithProperties = component as IComponentWithProperties;
-            
-            if (componentWithProperties != null)
-            {
-                var specification = this.componentLibrary.Lookup(componentWithProperties.Name);
-                foreach (var propertySpecification in specification.Properties)
-                { 
-                    var propertyName = propertySpecification.Name;
-                    if (componentWithProperties.Properties.Find(propertyName) == null)
-                    {
-                        componentWithProperties.AddProperty(propertySpecification);
-                    }
-                }
-            }
-        }
 
         private dynamic PutTemplate(string rawTemplatePath)
         {

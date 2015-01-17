@@ -33,10 +33,23 @@
     </widget>
   </components>
   <amendments>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>0/0/0</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>0/0/0</sourcePath>
+      <targetPath>0/0/1</targetPath>
+    </moveComponent>
     <setPropertyFixed>
-      <componentPath>0</componentPath>
-      <propertyName>colour</propertyName>
-      <fixedValue><![CDATA[orange]]></fixedValue>
+      <componentPath>0/0/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[Hello jam
+]]></fixedValue>
     </setPropertyFixed>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>0/0/2</targetPath>
+    </addComponent>
   </amendments>
 </template>

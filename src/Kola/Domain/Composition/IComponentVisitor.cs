@@ -1,5 +1,18 @@
 ﻿namespace Kola.Domain.Composition
 {
+    public interface IComponentVisitor
+    {
+        void Visit(Atom atom);
+
+        void Visit(Container container);
+        
+        void Visit(Widget widget);
+        
+        void Visit(Placeholder placeholder);
+        
+        void Visit(Area area);
+    }
+
     public interface IComponentVisitor<out T>
     {
         T Visit(Atom atom);

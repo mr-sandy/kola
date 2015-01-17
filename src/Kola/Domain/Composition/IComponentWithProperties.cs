@@ -10,6 +10,12 @@
 
         IEnumerable<Property> Properties { get; }
 
-        Property AddProperty(PropertySpecification specification);
+        Property FindOrCreateProperty(PropertySpecification specification);
+
+        // TODO 2015 - we need to do three things:
+        // 1. Create properties with dfault value on initial creation of component
+        // 2. Allow new and existing parameters to have values set
+        // 3. Refresh properties from updated specifications - adding any new properties with default value
+        // 4. SUpply all specified properties (with and without values) out to the resource to show in editor 
     }
 }
