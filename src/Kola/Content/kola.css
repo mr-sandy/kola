@@ -165,11 +165,12 @@ iframe {
     #toolbox ul li {
       float: left;
       display: block;
-      width: 80px;
-      height: 80px;
+      width: 60px;
+      height: 60px;
       background-color: #eee;
       text-align: center;
-      padding: 5px; }
+      padding: 5px;
+      font-size: 0.9em; }
       #toolbox ul li + li {
         margin-left: 20px; }
       #toolbox ul li.atom {

@@ -197,6 +197,7 @@
             </property>
           </properties>
         </atom>
+        <placeholder name="styles" />
         <atom name="html-script">
           <properties>
             <property name="type" type="html-script-type">
@@ -219,8 +220,8 @@
         </property>
       </properties>
       <components>
-        <placeholder  name="content" />
-        <placeholder  name="scripts" />
+        <placeholder name="content" />
+        <placeholder name="scripts" />
       </components>
     </container>
   </components>
