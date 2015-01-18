@@ -17,6 +17,14 @@
         render: function () {
             this.$el.html(this.template());
 
+            this.$el.css({
+                'position': 'absolute',
+                'top': 0,
+                'bottom': 0,
+                'left': 0,
+                'right': 0
+            });
+
             this.topMask = this.$('#topMask');
             this.bottomMask = this.$('#bottomMask');
             this.leftMask = this.$('#leftMask');
@@ -24,6 +32,8 @@
 
             return this;
         },
+
+        tagName: 'div',
 
         refresh: function () {
 

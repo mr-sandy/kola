@@ -20,5 +20,32 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>0/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>0/0/1</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>label</componentType>
+      <targetPath>0/0/1</targetPath>
+    </addComponent>
+    <setPropertyFixed>
+      <componentPath>0/0/1</componentPath>
+      <propertyName>caption</propertyName>
+      <fixedValue><![CDATA[label caption]]></fixedValue>
+    </setPropertyFixed>
+    <addComponent>
+      <componentType>label</componentType>
+      <targetPath>0/0/2</targetPath>
+    </addComponent>
+    <setPropertyFixed>
+      <componentPath>0/0/2</componentPath>
+      <propertyName>caption</propertyName>
+      <fixedValue><![CDATA[label caption 2]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>
