@@ -11,6 +11,10 @@
 
     var attributes = string.Format("{0}{1}{2}{3}{4}", alignment, infinityScroll, previewPrevious, previewNext, previewThreshold);
 }
-<section class="carousel @Model.Properties.GetClassNames()" @Html.Raw(attributes)>
-    @Html.RenderComponents(Model.Components)
-</section>
+<div class="carousel @Model.Properties.GetClassNames()" @Html.Raw(attributes)>
+  <div class="slides">
+    <div class="positioner">
+        @Html.RenderComponents(Model.Components)
+    </div>
+  </div>
+</div>

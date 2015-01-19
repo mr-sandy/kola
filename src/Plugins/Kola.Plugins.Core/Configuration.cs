@@ -11,6 +11,15 @@
             this.Configure.ViewLocation("Kola.Plugins.Core.Views");
             this.Configure.EditorStylesheets("editor.css");
 
+            this.ConfigureAtoms();
+
+            this.ConfigureContainers();
+
+            this.ConfigurePropertyTypes();
+        }
+
+        private void ConfigureAtoms()
+        {
             this.Configure.Atom("markdown")
                 .WithRenderer<MarkdownRenderer>()
                 .WithProperty("markdown", "markdown", "*add content here*");
@@ -19,16 +28,19 @@
                 .WithView("Label")
                 .WithProperty("caption", "text");
 
-            this.Configure.Container("html-head")
-                .WithView("HtmlHead");
-
-            this.Configure.Container("html-body")
-                .WithView("HtmlBody")
-                .WithProperty("classes", "text");
-
             this.Configure.Atom("html-title")
                 .WithView("HtmlTitle")
                 .WithProperty("title", "text");
+
+            this.Configure.Atom("anchor")
+                .WithView("Anchor")
+                .WithProperty("href", "text")
+                .WithProperty("target", "anchor-target");
+
+            this.Configure.Atom("image")
+                .WithView("Image")
+                .WithProperty("src", "text")
+                .WithProperty("alt", "text");
 
             this.Configure.Atom("html-metadata")
                 .WithView("HtmlMetadata")
@@ -53,7 +65,20 @@
                 .WithProperty("content", "text")
                 .WithProperty("cache-buster", "text")
                 .WithProperty("ie-condition", "text");
+        }
 
+        private void ConfigureContainers()
+        {
+            this.Configure.Container("html-head")
+                .WithView("HtmlHead");
+
+            this.Configure.Container("html-body")
+                .WithView("HtmlBody")
+                .WithProperty("classes", "text");
+        }
+
+        private void ConfigurePropertyTypes()
+        {
             this.Configure.PropertyType("markdown")
                 .WithEditor("MarkdownEditorView.js");
 
@@ -67,6 +92,9 @@
                 .WithEditor("TextEditorView.js");
 
             this.Configure.PropertyType("number")
+                .WithEditor("TextEditorView.js");
+
+            this.Configure.PropertyType("anchor-target")
                 .WithEditor("TextEditorView.js");
         }
     }

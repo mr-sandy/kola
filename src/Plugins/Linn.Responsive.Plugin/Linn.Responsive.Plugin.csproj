@@ -77,8 +77,6 @@
     <EmbeddedResource Include="Views\SecondaryNav.cshtml" />
     <EmbeddedResource Include="Views\Carousel.cshtml" />
     <EmbeddedResource Include="Views\Slide.cshtml" />
-    <EmbeddedResource Include="Views\CarouselPositioner.cshtml" />
-    <EmbeddedResource Include="Views\CarouselSlides.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Renderers\" />
