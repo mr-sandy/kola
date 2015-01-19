@@ -95,10 +95,7 @@
     <EmbeddedResource Include="Editors\views\BooleanEditorView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\BooleanEditorEditTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\BooleanEditorViewTemplate.html" />
+    <EmbeddedResource Include="Editors\templates\BooleanEditorTemplate.html" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\views\TextEditorView.js" />

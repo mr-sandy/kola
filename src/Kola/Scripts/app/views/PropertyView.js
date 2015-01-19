@@ -19,9 +19,7 @@
         },
 
         events: {
-            'click': 'edit',
-            'submit': 'submit',
-            'focusout': 'submit'
+            'click': 'edit'
         },
 
         render: function () {
@@ -61,6 +59,7 @@
                         model: property,
                         el: $child
                     });
+                    self.editorView.on('submit', self.submit, self)
                     d.resolve();
                 });
             }
@@ -83,9 +82,7 @@
             });
         },
 
-        submit: function (e) {
-            e.preventDefault();
-
+        submit: function () {
             if (this.editMode) {
                 this.editMode = false;
 

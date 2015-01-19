@@ -64,8 +64,18 @@
                 path = string.Format("{0}{1}{2}", path, joiner, queryString);
             }
 
+            if (path.StartsWith("http"))
+            {
+                return new Uri(path);
+            }
+
             var hostUri = new Uri(ConfigurationManager.AppSettings["StaticContentRoot"]);
             
+            if (path.StartsWith("/"))
+            {
+                path = path.Substring(1);
+            }
+
             return new Uri(hostUri, path);
         }
     }

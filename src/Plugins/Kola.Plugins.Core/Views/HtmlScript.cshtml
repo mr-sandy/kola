@@ -3,8 +3,9 @@
 @{
     var src = Model.Properties.GetAsStaticUri("src", "cache-buster", "src");
     var type = Model.Properties.GetAsAttribute("type");
+    var content = Model.Properties.Get("content");
 
-    var script = string.Format("<script {0}{1}/>", type, src);
+    var script = string.Format("<script {0}{1}>{2}</script>", type, src, content);
     var ieConditionFormat = "{0}";
 
     switch (Model.Properties.Get("ie-condition"))

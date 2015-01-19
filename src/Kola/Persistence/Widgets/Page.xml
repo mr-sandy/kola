@@ -4,6 +4,7 @@
     <propertySpecification name="colour" type="text" defaultValue="red" />
     <propertySpecification name="title" type="text" />
     <propertySpecification name="description" type="text" />
+    <propertySpecification name="cache-buster" type="text" />
   </propertySpecifications>
   <components>
     <container name="html-head">
@@ -117,7 +118,7 @@
               <value xsi:type="fixed"><![CDATA[gt9]]></value>
             </property>
             <property name="cache-buster" type="text">
-              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
+              <value xsi:type="inherited" key="cache-buster" />
             </property>
           </properties>
         </atom>
@@ -130,7 +131,7 @@
               <value xsi:type="fixed"><![CDATA[responsive/css/gridset/linn-gridset-ie-9.css]]></value>
             </property>
             <property name="cache-buster" type="text">
-              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
+              <value xsi:type="inherited" key="cache-buster" />
             </property>
             <property name="ie-condition" type="text">
               <value xsi:type="fixed"><![CDATA[9]]></value>
@@ -149,7 +150,7 @@
               <value xsi:type="fixed"><![CDATA[responsive/css/gridset/gridset-ie-lte8.css]]></value>
             </property>
             <property name="cache-buster" type="text">
-              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
+              <value xsi:type="inherited" key="cache-buster" />
             </property>
             <property name="ie-condition" type="text">
               <value xsi:type="fixed"><![CDATA[lte8]]></value>
@@ -171,7 +172,7 @@
               <value xsi:type="fixed"><![CDATA[responsive/css/linn.min.css]]></value>
             </property>
             <property name="cache-buster" type="text">
-              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
+              <value xsi:type="inherited" key="cache-buster" />
             </property>
             <property name="rel" type="text">
               <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
@@ -190,7 +191,7 @@
               <value xsi:type="fixed"><![CDATA[responsive/css/linn-ie-lte8.min.css]]></value>
             </property>
             <property name="cache-buster" type="text">
-              <value xsi:type="fixed"><![CDATA[15Jan15]]></value>
+              <value xsi:type="inherited" key="cache-buster" />
             </property>
             <property name="rel" type="text">
               <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
@@ -209,6 +210,9 @@
             <property name="ie-condition" type="text">
               <value xsi:type="fixed"><![CDATA[lt9]]></value>
             </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
           </properties>
         </atom>
       </components>
@@ -221,6 +225,188 @@
       </properties>
       <components>
         <placeholder name="content" />
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[https://get.gridsetapp.com/27752/overlay/]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[/responsive/scripts/jquery-2.1.1.min.js]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[/responsive/scripts/jquery-ui-1.10.4.min.js]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[/responsive/scripts/underscore-min.js]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[/responsive/scripts/linn.controller.js]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[/responsive/scripts/linn.carousel.js]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[/responsive/scripts/linn.content-set.js]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[/responsive/scripts/linn.content-switch.js]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[/responsive/scripts/linn.content-navigator.js]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[/responsive/scripts/linn.pager.js]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[/responsive/scripts/linn.show-hide.js]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[/responsive/scripts/linn.smooth-scroll.js]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="src" type="text">
+              <value xsi:type="fixed"><![CDATA[/responsive/scripts/viewport-units-buggyfill.js]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-script">
+          <properties>
+            <property name="type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+            <property name="content" type="text">
+              <value xsi:type="fixed"><![CDATA[window.viewportUnitsBuggyfill.init();]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="inherited" key="cache-buster" />
+            </property>
+          </properties>
+        </atom>
         <placeholder name="scripts" />
       </components>
     </container>

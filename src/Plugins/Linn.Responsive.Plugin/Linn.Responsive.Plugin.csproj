@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
-    <Compile Include="Renderers\MarkdownRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,9 +72,13 @@
   <ItemGroup>
     <EmbeddedResource Include="Editors\css\editor.scss" />
     <None Include="packages.config" />
-    <EmbeddedResource Include="Views\Markdown.cshtml" />
+    <EmbeddedResource Include="Views\MainMenu.cshtml" />
+    <EmbeddedResource Include="Views\SecondaryNav.cshtml" />
+    <EmbeddedResource Include="Views\Carousel.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Renderers\" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\css\editor.css">
       <DependentUpon>editor.scss</DependentUpon>

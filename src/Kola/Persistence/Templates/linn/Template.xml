@@ -4,15 +4,51 @@
     <widget name="page">
       <properties>
         <property name="colour" type="text">
-          <value xsi:type="fixed"><![CDATA[blue]]></value>
+          <value xsi:type="fixed"><![CDATA[green]]></value>
         </property>
         <property name="title" type="text">
-          <value xsi:type="fixed"><![CDATA[Katy is awesome]]></value>
+          <value xsi:type="fixed"><![CDATA[Linn — Network Music Players]]></value>
+        </property>
+        <property name="description" type="text">
+          <value xsi:type="fixed"><![CDATA[All about our network music players]]></value>
+        </property>
+        <property name="cache-buster" type="text">
+          <value xsi:type="fixed"><![CDATA[19Jan15]]></value>
         </property>
       </properties>
       <areas>
         <area name="content">
-          <components />
+          <components>
+            <atom name="main-menu">
+              <properties />
+            </atom>
+            <atom name="secondary-nav">
+              <properties />
+            </atom>
+            <container name="carousel">
+              <properties>
+                <property name="infinity-scroll" type="boolean">
+                  <value xsi:type="fixed"><![CDATA[true]]></value>
+                </property>
+                <property name="slide-per-page" type="boolean">
+                  <value xsi:type="fixed"><![CDATA[false]]></value>
+                </property>
+                <property name="alignment" type="carousel-alignment">
+                  <value xsi:type="fixed"><![CDATA[left]]></value>
+                </property>
+                <property name="preview-previous" type="number">
+                  <value xsi:type="fixed"><![CDATA[0]]></value>
+                </property>
+                <property name="preview-next" type="number">
+                  <value xsi:type="fixed"><![CDATA[0.2]]></value>
+                </property>
+                <property name="preview-threshold" type="number">
+                  <value xsi:type="fixed"><![CDATA[700]]></value>
+                </property>
+              </properties>
+              <components />
+            </container>
+          </components>
         </area>
         <area name="scripts">
           <components />
@@ -20,39 +56,5 @@
       </areas>
     </widget>
   </components>
-  <amendments>
-    <addComponent>
-      <componentType>markdown</componentType>
-      <targetPath>0/0/0</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>markdown</componentType>
-      <targetPath>0/0/1</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>label</componentType>
-      <targetPath>0/0/1</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>0/0/1</componentPath>
-      <propertyName>caption</propertyName>
-      <fixedValue><![CDATA[label caption]]></fixedValue>
-    </setPropertyFixed>
-    <addComponent>
-      <componentType>label</componentType>
-      <targetPath>0/0/2</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>0/0/2</componentPath>
-      <propertyName>caption</propertyName>
-      <fixedValue><![CDATA[label caption 2]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[*add content here*
-
-#hello]]></fixedValue>
-    </setPropertyFixed>
-  </amendments>
+  <amendments />
 </template>

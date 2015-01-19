@@ -50,6 +50,7 @@
                 .WithView("HtmlScript")
                 .WithProperty("src", "text")
                 .WithProperty("type", "html-script-type", "text/javascript")
+                .WithProperty("content", "text")
                 .WithProperty("cache-buster", "text")
                 .WithProperty("ie-condition", "text");
 
@@ -63,6 +64,9 @@
                 .WithEditor("TextEditorView.js");
 
             this.Configure.PropertyType("text")
+                .WithEditor("TextEditorView.js");
+
+            this.Configure.PropertyType("number")
                 .WithEditor("TextEditorView.js");
         }
     }

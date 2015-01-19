@@ -9,6 +9,10 @@
 
         template: Handlebars.compile(Template),
 
+        events: {
+            'focusout': function () { this.trigger('submit'); }
+        },
+
         render: function (editMode) {
             if (editMode) {
                 this.$el.html(this.template(this.model));

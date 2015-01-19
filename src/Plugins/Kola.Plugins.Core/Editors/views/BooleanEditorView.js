@@ -3,21 +3,30 @@
 
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
-    var ViewTemplate = require('text!../templates/BooleanEditorViewTemplate.html');
-    var EditTemplate = require('text!../templates/BooleanEditorEditTemplate.html');
+    var Template = require('text!../templates/BooleanEditorTemplate.html');
 
     return Backbone.View.extend({
 
-        viewTemplate: Handlebars.compile(ViewTemplate),
-        editTemplate: Handlebars.compile(EditTemplate),
+        template: Handlebars.compile(Template),
+
+        events: {
+            'change': function () { this.trigger('submit'); },
+            'focusout': function () { this.trigger('submit'); }
+        },
 
         render: function (editMode) {
-
-            var content = editMode ? this.editTemplate(this.model) : this.model.value.value;
-
-            this.$el.html(content);
+            if (editMode) {
+                this.$el.html(this.template({ checkTrue: this.model.value.value === "true" }));
+            }
+            else {
+                this.$el.html(this.model.value.value);
+            }
 
             return this;
+        },
+
+        value: function () {
+            return this.$el.find(':checked').val();
         }
     });
 });

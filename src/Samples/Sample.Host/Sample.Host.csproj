@@ -107,6 +107,26 @@
     <Content Include="cdn\responsive\fonts\effra-webfont.svg" />
     <Content Include="cdn\responsive\fonts\effra_corp_bd-webfont.svg" />
     <Content Include="cdn\responsive\fonts\stylesheet.css" />
+    <Content Include="cdn\responsive\images\logo-black-chunky.png" />
+    <Content Include="cdn\responsive\images\logo-small-black.gif" />
+    <Content Include="cdn\responsive\images\menu.gif" />
+    <Content Include="cdn\responsive\scripts\html5shiv.js" />
+    <Content Include="cdn\responsive\scripts\jquery-2.1.1-vsdoc.js" />
+    <Content Include="cdn\responsive\scripts\jquery-2.1.1.js" />
+    <Content Include="cdn\responsive\scripts\jquery-2.1.1.min.js" />
+    <Content Include="cdn\responsive\scripts\jquery-ui-1.10.4.js" />
+    <Content Include="cdn\responsive\scripts\jquery-ui-1.10.4.min.js" />
+    <Content Include="cdn\responsive\scripts\linn.carousel.js" />
+    <Content Include="cdn\responsive\scripts\linn.content-navigator.js" />
+    <Content Include="cdn\responsive\scripts\linn.content-set.js" />
+    <Content Include="cdn\responsive\scripts\linn.content-switch.js" />
+    <Content Include="cdn\responsive\scripts\linn.controller.js" />
+    <Content Include="cdn\responsive\scripts\linn.pager.js" />
+    <Content Include="cdn\responsive\scripts\linn.show-hide.js" />
+    <Content Include="cdn\responsive\scripts\linn.smooth-scroll.js" />
+    <Content Include="cdn\responsive\scripts\underscore-min.js" />
+    <Content Include="cdn\responsive\scripts\underscore.js" />
+    <Content Include="cdn\responsive\scripts\viewport-units-buggyfill.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -129,6 +149,10 @@
       <Project>{61B22E63-05EB-4479-9033-B7A37D62EEF0}</Project>
       <Name>Kola.Plugins.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Plugins\Linn.Responsive.Plugin\Linn.Responsive.Plugin.csproj">
+      <Project>{912A2926-DBE8-4266-B820-D876997598FD}</Project>
+      <Name>Linn.Responsive.Plugin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sample.Bootstrap.Plugin\Sample.Bootstrap.Plugin.csproj">
       <Project>{5E0DCE93-E1BC-47B4-9377-B731F35D1D93}</Project>
       <Name>Sample.Bootstrap.Plugin</Name>
@@ -150,6 +174,8 @@
     <None Include="cdn\responsive\fonts\effra_corp_bd-webfont.eot" />
     <None Include="cdn\responsive\fonts\effra_corp_bd-webfont.ttf" />
     <None Include="cdn\responsive\fonts\effra_corp_bd-webfont.woff" />
+    <None Include="cdn\responsive\scripts\jquery-2.1.1.min.map" />
+    <None Include="cdn\responsive\scripts\underscore-min.map" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
