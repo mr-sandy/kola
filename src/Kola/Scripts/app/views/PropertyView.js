@@ -19,7 +19,8 @@
         },
 
         events: {
-            'click': 'edit'
+            'click': 'edit',
+            'submit': 'submit'
         },
 
         render: function () {
@@ -82,7 +83,11 @@
             });
         },
 
-        submit: function () {
+        submit: function (e) {
+            if (e) {
+                e.preventDefault();
+            }
+
             if (this.editMode) {
                 this.editMode = false;
 

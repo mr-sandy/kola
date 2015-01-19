@@ -37,13 +37,6 @@ namespace Unit.Tests.Configuration
         }
 
         [Test]
-        public void TheViewNameShouldBeSet()
-        {
-            var config = this.configuration.ComponentTypeSpecifications.ElementAt(0);
-            Assert.AreEqual("viewName", config.ViewName);
-        }
-
-        [Test]
         public void TheHandlerShouldBeSet()
         {
             var config = this.configuration.ComponentTypeSpecifications.ElementAt(0);
@@ -91,7 +84,7 @@ namespace Unit.Tests.Configuration
             : base("Test")
         {
             this.Configure.Container("atom-1")
-                .WithRenderer<TestHandler>("viewName")
+                .WithRenderer<TestHandler>()
                 .WithProperty("propertyName", "propertyType")
                 .Cache.Cache.For(100);
         }

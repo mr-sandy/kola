@@ -28,7 +28,7 @@
             <container name="carousel">
               <properties>
                 <property name="infinity-scroll" type="boolean">
-                  <value xsi:type="fixed"><![CDATA[true]]></value>
+                  <value xsi:type="fixed"><![CDATA[false]]></value>
                 </property>
                 <property name="slide-per-page" type="boolean">
                   <value xsi:type="fixed"><![CDATA[false]]></value>
@@ -45,8 +45,47 @@
                 <property name="preview-threshold" type="number">
                   <value xsi:type="fixed"><![CDATA[700]]></value>
                 </property>
+                <property name="grid-placement" type="placement">
+                  <value xsi:type="fixed"><![CDATA[f-all]]></value>
+                </property>
+                <property name="padding" type="padding">
+                  <value xsi:type="fixed"><![CDATA[pad-t-10-x pad-t-5-m pad-b-5-x]]></value>
+                </property>
               </properties>
-              <components />
+              <components>
+                <container name="slide">
+                  <properties>
+                    <property name="padding" type="padding">
+                      <value xsi:type="fixed"><![CDATA[pad-l-5-x pad-r-5-x]]></value>
+                    </property>
+                  </properties>
+                  <components>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[Slide 1]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                  </components>
+                </container>
+                <container name="slide">
+                  <properties>
+                    <property name="padding" type="padding">
+                      <value xsi:type="fixed"><![CDATA[pad-l-5-x pad-r-5-x]]></value>
+                    </property>
+                  </properties>
+                  <components>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[Slide 2]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                  </components>
+                </container>
+              </components>
             </container>
           </components>
         </area>

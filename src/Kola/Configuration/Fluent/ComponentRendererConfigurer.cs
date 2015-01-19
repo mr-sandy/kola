@@ -1,5 +1,7 @@
 ﻿namespace Kola.Configuration.Fluent
 {
+    using System;
+
     using Kola.Domain.Composition;
     using Kola.Domain.Specifications;
 
@@ -20,6 +22,13 @@
         public ComponentRendererConfigurer WithProperty(string propertyName, string propertyType, string defaultValue = "")
         {
             this.specification.AddProperty(new PropertySpecification(propertyName, propertyType, defaultValue));
+            return this;
+        }
+
+        public ComponentRendererConfigurer ExtendWith(Action<ComponentRendererConfigurer> configure)
+        {
+            configure(this);
+
             return this;
         }
     }

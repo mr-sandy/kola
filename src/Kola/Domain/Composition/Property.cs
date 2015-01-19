@@ -6,8 +6,6 @@
 
     public class Property
     {
-        private IPropertyValue value;
-
         public Property(string name, string type, IPropertyValue value)
         {
             this.Name = name;

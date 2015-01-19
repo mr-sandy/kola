@@ -1,6 +1,7 @@
 ﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.ContainerInstance>
 @using Kola.Domain.Extensions
 @using Kola.Nancy.Extensions
+@using Linn.Responsive.Plugin.Extensions
 @{
     var alignment = Model.Properties.GetAsAttribute("alignment", "data-carousel-alignment");
     var infinityScroll = Model.Properties.GetAsAttribute("infinity-scroll", "data-carousel-infinity-scroll");
@@ -10,6 +11,6 @@
 
     var attributes = string.Format("{0}{1}{2}{3}{4}", alignment, infinityScroll, previewPrevious, previewNext, previewThreshold);
 }
-<section class="f-all carousel pad-t-10-x pad-t-5-m pad-b-5-x" @Html.Raw(attributes)>
+<section class="carousel @Model.Properties.GetClassNames()" @Html.Raw(attributes)>
     @Html.RenderComponents(Model.Components)
 </section>
