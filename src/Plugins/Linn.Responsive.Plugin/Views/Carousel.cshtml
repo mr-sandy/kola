@@ -12,9 +12,20 @@
     var attributes = string.Format("{0}{1}{2}{3}{4}", alignment, infinityScroll, previewPrevious, previewNext, previewThreshold);
 }
 <div class="carousel @Model.Properties.GetClassNames()" @Html.Raw(attributes)>
-  <div class="slides">
-    <div class="positioner">
-        @Html.RenderComponents(Model.Components)
+    <div class="slides">
+        <div class="positioner">
+            @Html.RenderComponents(Model.Components)
+        </div>
+        @if (Model.Properties.GetAsBool("show-previous"))
+        {
+            <div class="content-navigator previous" data-content-navigator-target="previous">
+            </div>
+        }
+        @if (Model.Properties.GetAsBool("show-next"))
+        {
+            <div class="content-navigator next">
+            </div>
+        }
+        <div style="clear:both"></div>
     </div>
-  </div>
 </div>

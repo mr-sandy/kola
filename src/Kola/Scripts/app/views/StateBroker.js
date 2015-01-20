@@ -13,7 +13,7 @@
         select: function (component) {
             var self = this;
 
-            component.fetch().then(function () {
+            component.fetch({ propertyListRefresh: true }).then(function () {
 
                 if (self.selected) {
                     self.selected.trigger('deselected');

@@ -12,7 +12,8 @@
             new Dictionary<string, Func<string, string>>
                 {
                     { "grid-placement", v => GetClass(v) },
-                    { "padding", v => GetClass(v) }
+                    { "padding", v => GetClass(v) },
+                    { "is-slide", v => GetClassFromBool(v, "slide") },
                 };
 
         public static string GetClassNames(this IEnumerable<PropertyInstance> properties)
@@ -40,5 +41,11 @@
                        : string.Empty;
         }
 
+        private static string GetClassFromBool(string value, string trueClass = "", string falseClass = "")
+        {
+            return string.Equals(value, "true", StringComparison.InvariantCultureIgnoreCase)
+                       ? !string.IsNullOrWhiteSpace(trueClass) ? trueClass : string.Empty
+                       : !string.IsNullOrWhiteSpace(falseClass) ? falseClass : string.Empty;
+        }
     }
 }

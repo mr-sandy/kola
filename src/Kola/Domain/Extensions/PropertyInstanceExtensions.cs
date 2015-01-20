@@ -52,5 +52,10 @@
 
             return string.Format("{0}=\"{1}\" ", attributeName, href.StrongTrim().ToStaticHostUri(cacheBuster));
         }
+
+        public static bool GetAsBool(this IEnumerable<PropertyInstance> properties, string propertyName)
+        {
+            return string.Equals(properties.Get(propertyName), "true", StringComparison.InvariantCultureIgnoreCase);
+        }
     }
 }

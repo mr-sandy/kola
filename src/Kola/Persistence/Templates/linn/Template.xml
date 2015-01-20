@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+<template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <widget name="page">
       <properties>
@@ -40,7 +40,7 @@
                   <value xsi:type="fixed"><![CDATA[0]]></value>
                 </property>
                 <property name="preview-next" type="number">
-                  <value xsi:type="fixed"><![CDATA[0.2]]></value>
+                  <value xsi:type="fixed"><![CDATA[0.25]]></value>
                 </property>
                 <property name="preview-threshold" type="number">
                   <value xsi:type="fixed"><![CDATA[700]]></value>
@@ -51,41 +51,14 @@
                 <property name="padding" type="padding">
                   <value xsi:type="fixed"><![CDATA[pad-t-10-x pad-t-5-m pad-b-5-x]]></value>
                 </property>
+                <property name="show-previous" type="boolean">
+                  <value xsi:type="fixed"><![CDATA[true]]></value>
+                </property>
+                <property name="show-next" type="boolean">
+                  <value xsi:type="fixed"><![CDATA[true]]></value>
+                </property>
               </properties>
-              <components>
-                <container name="slide">
-                  <properties>
-                    <property name="padding" type="padding">
-                      <value xsi:type="fixed"><![CDATA[pad-l-5-x pad-r-5-x]]></value>
-                    </property>
-                  </properties>
-                  <components>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[Slide 1]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                  </components>
-                </container>
-                <container name="slide">
-                  <properties>
-                    <property name="padding" type="padding">
-                      <value xsi:type="fixed"><![CDATA[pad-l-5-x pad-r-5-x]]></value>
-                    </property>
-                  </properties>
-                  <components>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[Slide 2]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                  </components>
-                </container>
-              </components>
+              <components />
             </container>
           </components>
         </area>
@@ -97,63 +70,37 @@
   </components>
   <amendments>
     <addComponent>
+      <componentType>figure</componentType>
+      <targetPath>0/0/2/0</targetPath>
+    </addComponent>
+    <setPropertyFixed>
+      <componentPath>0/0/2/0</componentPath>
+      <propertyName>is-slide</propertyName>
+      <fixedValue><![CDATA[true]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/2/0</componentPath>
+      <propertyName>padding</propertyName>
+      <fixedValue><![CDATA[pad-l-5-x pad-r-5-x]]></fixedValue>
+    </setPropertyFixed>
+    <addComponent>
       <componentType>image</componentType>
       <targetPath>0/0/2/0/0</targetPath>
     </addComponent>
     <setPropertyFixed>
       <componentPath>0/0/2/0/0</componentPath>
       <propertyName>src</propertyName>
-      <fixedValue><![CDATA[\responsive\images\menu.gif]]></fixedValue>
+      <fixedValue><![CDATA[/responsive/images/content/hifi-separates/network-music-players/]]></fixedValue>
     </setPropertyFixed>
     <setPropertyFixed>
       <componentPath>0/0/2/0/0</componentPath>
       <propertyName>src</propertyName>
-      <fixedValue><![CDATA[responsive\images\menu.gif]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/2/0/0</componentPath>
-      <propertyName>src</propertyName>
-      <fixedValue><![CDATA[/responsive/images/menu.gif]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/2/0/0</componentPath>
-      <propertyName>alt</propertyName>
-      <fixedValue><![CDATA[BRGR]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/2/0/0</componentPath>
-      <propertyName>src</propertyName>
-      <fixedValue><![CDATA[/responsive/images/content/Klimax-Exakt-DSMx1045.jpg]]></fixedValue>
+      <fixedValue><![CDATA[/responsive/images/content/hifi-separates/network-music-players/klimax-exakt-dsm.jpg]]></fixedValue>
     </setPropertyFixed>
     <setPropertyFixed>
       <componentPath>0/0/2/0/0</componentPath>
       <propertyName>alt</propertyName>
       <fixedValue><![CDATA[Klimax Exakt DSM]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/2/0/0</componentPath>
-      <propertyName>src</propertyName>
-      <fixedValue><![CDATA[/responsive/images/content/hifi-separates/network-music-players/Klimax-Exakt-DSMx1045.jpg]]></fixedValue>
-    </setPropertyFixed>
-    <removeComponent>
-      <componentPath>0/0/2/0/1</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>0/0/2/1/0</componentPath>
-    </removeComponent>
-    <addComponent>
-      <componentType>image</componentType>
-      <targetPath>0/0/2/1/0</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>0/0/2/1/0</componentPath>
-      <propertyName>src</propertyName>
-      <fixedValue><![CDATA[/responsive/images/content/hifi-separates/network-music-players/akurate-exakt-DSM-x1045.jpg]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/2/1/0</componentPath>
-      <propertyName>alt</propertyName>
-      <fixedValue><![CDATA[Akurate Exakt DSM]]></fixedValue>
     </setPropertyFixed>
   </amendments>
 </template>

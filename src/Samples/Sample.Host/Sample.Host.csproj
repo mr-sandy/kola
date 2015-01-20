@@ -107,6 +107,8 @@
     <Content Include="cdn\responsive\fonts\effra-webfont.svg" />
     <Content Include="cdn\responsive\fonts\effra_corp_bd-webfont.svg" />
     <Content Include="cdn\responsive\fonts\stylesheet.css" />
+    <Content Include="cdn\responsive\images\content\left-arrow.png" />
+    <Content Include="cdn\responsive\images\content\right-arrow.png" />
     <Content Include="cdn\responsive\images\content\hifi-separates\network-music-players\akurate-exakt-DSM-x1045.jpg" />
     <Content Include="cdn\responsive\images\content\hifi-separates\network-music-players\Kiko-x836.jpg" />
     <Content Include="cdn\responsive\images\content\hifi-separates\network-music-players\Klimax-Exakt-DSMx1045.jpg" />
@@ -182,7 +184,9 @@
     <None Include="cdn\responsive\scripts\jquery-2.1.1.min.map" />
     <None Include="cdn\responsive\scripts\underscore-min.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="cdn\responsive\images\components\carousel\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

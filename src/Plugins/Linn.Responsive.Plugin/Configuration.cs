@@ -34,14 +34,26 @@
                 .WithProperty("alignment", "carousel-alignment")
                 .WithProperty("infinity-scroll", "boolean", "false")
                 .WithProperty("slide-per-page", "boolean", "false")
+                .WithProperty("show-next", "boolean", "true")
+                .WithProperty("show-previous", "boolean", "true")
                 .WithProperty("preview-previous", "number")
                 .WithProperty("preview-next", "number")
                 .WithProperty("preview-threshold", "number")
                 .WithProperty("touch-threshold", "number")
                 .ExtendWith(this.CommonProperties);
 
-            this.Configure.Container("slide")
-                .WithView("Slide")
+            this.Configure.Container("division")
+                .WithView("Division")
+                .WithProperty("is-slide", "boolean")
+                .ExtendWith(this.CommonProperties);
+
+            this.Configure.Container("figure")
+                .WithView("Figure")
+                .WithProperty("is-slide", "boolean")
+                .WithProperty("padding", "padding");
+
+            this.Configure.Container("figure-caption")
+                .WithView("FigureCaption")
                 .WithProperty("padding", "padding");
         }
 

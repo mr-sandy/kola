@@ -28,18 +28,22 @@
             this.buildChildren(options.$html);
         },
 
-        handleSync: function () {
+        handleSync: function (model, response, options) {
 
-            // if the element is not inside the body tag, we need to reload the whole page
-            if (this.$el.parents('body').length === 0) {
-                this.fullRefresh();
-            }
-            else {
-                $.ajax({
-                    url: this.model.previewUrl,
-                    dataType: 'html',
-                    context: this
-                }).done(this.refresh);
+            // don't bother doing anything if we're just been getting an up-to-date property list
+            if (!(options.propertyListRefresh || false)) {
+
+                // if the element is not inside the body tag, we need to reload the whole page
+                if (this.$el.parents('body').length === 0) {
+                    this.fullRefresh();
+                }
+                else {
+                    $.ajax({
+                        url: this.model.previewUrl,
+                        dataType: 'html',
+                        context: this
+                    }).done(this.refresh);
+                }
             }
         },
 
