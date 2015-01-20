@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Configuration\WhenConfiguringAPlugInAtom.cs" />
     <Compile Include="Configuration\WhenInitialisingConfiguration.cs" />
+    <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingADuplicateComponentAmendmentToCreateAContainerInAChildComponent.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\ContextBase.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateASecondAtomInAChildComponent.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAContainerInAChildComponent.cs" />

@@ -8,6 +8,8 @@
 
         T Visit(RemoveComponentAmendmentResource resource);
 
+        T Visit(DuplicateComponentAmendmentResource resource);
+
         T Visit(SetPropertyAmendmentResource resource);
     }
 }

@@ -32,11 +32,6 @@
                 .WithView("HtmlTitle")
                 .WithProperty("title", "text");
 
-            this.Configure.Atom("anchor")
-                .WithView("Anchor")
-                .WithProperty("href", "text")
-                .WithProperty("target", "anchor-target");
-
             this.Configure.Atom("image")
                 .WithView("Image")
                 .WithProperty("src", "text")
@@ -75,6 +70,11 @@
             this.Configure.Container("html-body")
                 .WithView("HtmlBody")
                 .WithProperty("classes", "text");
+
+            this.Configure.Container("anchor")
+                .WithView("Anchor")
+                .WithProperty("href", "text")
+                .WithProperty("target", "anchor-target");
         }
 
         private void ConfigurePropertyTypes()

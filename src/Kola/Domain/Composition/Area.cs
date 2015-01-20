@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
     using Kola.Extensions;
@@ -62,6 +63,11 @@
         public ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext)
         {
             return new AreaInstance(path, this.Components.Select((c, i) => c.Build(path.Append(i), buildContext)).ToList());
+        }
+
+        public IComponent Clone()
+        {
+            return new Area(this.Name, this.components.Clone());
         }
     }
 }

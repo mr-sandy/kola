@@ -54,6 +54,18 @@
             amendment.save();
         },
 
+        duplicateComponent: function (componentPath) {
+            var amendment = new Amendment({
+                componentPath: componentPath
+            });
+
+            amendment.url = this.combineUrls(this.url, 'duplicateComponent');
+
+            this.add(amendment);
+
+            amendment.save();
+        },
+
         applyAmendments: function () {
             var self = this;
             var amendment = new Amendment();

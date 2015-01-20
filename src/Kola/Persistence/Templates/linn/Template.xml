@@ -25,39 +25,285 @@
             <atom name="secondary-nav">
               <properties />
             </atom>
-            <container name="carousel">
-              <properties>
-                <property name="infinity-scroll" type="boolean">
-                  <value xsi:type="fixed"><![CDATA[false]]></value>
-                </property>
-                <property name="slide-per-page" type="boolean">
-                  <value xsi:type="fixed"><![CDATA[false]]></value>
-                </property>
-                <property name="alignment" type="carousel-alignment">
-                  <value xsi:type="fixed"><![CDATA[left]]></value>
-                </property>
-                <property name="preview-previous" type="number">
-                  <value xsi:type="fixed"><![CDATA[0]]></value>
-                </property>
-                <property name="preview-next" type="number">
-                  <value xsi:type="fixed"><![CDATA[0.25]]></value>
-                </property>
-                <property name="preview-threshold" type="number">
-                  <value xsi:type="fixed"><![CDATA[700]]></value>
-                </property>
-                <property name="grid-placement" type="placement">
-                  <value xsi:type="fixed"><![CDATA[f-all]]></value>
-                </property>
-                <property name="padding" type="padding">
-                  <value xsi:type="fixed"><![CDATA[pad-t-10-x pad-t-5-m pad-b-5-x]]></value>
-                </property>
-                <property name="show-previous" type="boolean">
-                  <value xsi:type="fixed"><![CDATA[true]]></value>
-                </property>
-                <property name="show-next" type="boolean">
-                  <value xsi:type="fixed"><![CDATA[true]]></value>
-                </property>
-              </properties>
+            <container name="section">
+              <properties />
+              <components>
+                <container name="carousel">
+                  <properties>
+                    <property name="infinity-scroll" type="boolean">
+                      <value xsi:type="fixed"><![CDATA[false]]></value>
+                    </property>
+                    <property name="slide-per-page" type="boolean">
+                      <value xsi:type="fixed"><![CDATA[false]]></value>
+                    </property>
+                    <property name="alignment" type="carousel-alignment">
+                      <value xsi:type="fixed"><![CDATA[left]]></value>
+                    </property>
+                    <property name="preview-previous" type="number">
+                      <value xsi:type="fixed"><![CDATA[0]]></value>
+                    </property>
+                    <property name="preview-next" type="number">
+                      <value xsi:type="fixed"><![CDATA[0.25]]></value>
+                    </property>
+                    <property name="preview-threshold" type="number">
+                      <value xsi:type="fixed"><![CDATA[700]]></value>
+                    </property>
+                    <property name="grid-placement" type="placement">
+                      <value xsi:type="fixed"><![CDATA[f-all]]></value>
+                    </property>
+                    <property name="padding" type="padding">
+                      <value xsi:type="fixed"><![CDATA[pad-t-10-x pad-t-5-m pad-b-5-x]]></value>
+                    </property>
+                    <property name="show-previous" type="boolean">
+                      <value xsi:type="fixed"><![CDATA[true]]></value>
+                    </property>
+                    <property name="show-next" type="boolean">
+                      <value xsi:type="fixed"><![CDATA[true]]></value>
+                    </property>
+                    <property name="content-switch" type="boolean">
+                      <value xsi:type="fixed"><![CDATA[true]]></value>
+                    </property>
+                    <property name="update-hash" type="boolean">
+                      <value xsi:type="fixed"><![CDATA[true]]></value>
+                    </property>
+                  </properties>
+                  <components>
+                    <container name="figure">
+                      <properties>
+                        <property name="is-slide" type="boolean">
+                          <value xsi:type="fixed"><![CDATA[true]]></value>
+                        </property>
+                        <property name="padding" type="padding">
+                          <value xsi:type="fixed"><![CDATA[pad-l-5-x pad-r-5-x]]></value>
+                        </property>
+                        <property name="content-id" type="text">
+                          <value xsi:type="fixed"><![CDATA[klimax-exakt-dsm]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <atom name="image">
+                          <properties>
+                            <property name="src" type="text">
+                              <value xsi:type="fixed"><![CDATA[/responsive/images/content/hifi-separates/network-music-players/klimax-exakt-dsm.jpg]]></value>
+                            </property>
+                            <property name="alt" type="text">
+                              <value xsi:type="fixed"><![CDATA[Klimax Exakt DSM]]></value>
+                            </property>
+                          </properties>
+                        </atom>
+                        <container name="figure-caption">
+                          <properties>
+                            <property name="margin" type="margin">
+                              <value xsi:type="fixed"><![CDATA[margin-t-5-x]]></value>
+                            </property>
+                            <property name="pointer-up" type="boolean">
+                              <value xsi:type="fixed"><![CDATA[true]]></value>
+                            </property>
+                          </properties>
+                          <components>
+                            <atom name="markdown">
+                              <properties>
+                                <property name="markdown" type="markdown">
+                                  <value xsi:type="fixed"><![CDATA[####Klimax
+
+From £12,950]]></value>
+                                </property>
+                              </properties>
+                            </atom>
+                          </components>
+                        </container>
+                      </components>
+                    </container>
+                    <container name="figure">
+                      <properties>
+                        <property name="is-slide" type="boolean">
+                          <value xsi:type="fixed"><![CDATA[true]]></value>
+                        </property>
+                        <property name="padding" type="padding">
+                          <value xsi:type="fixed"><![CDATA[pad-l-5-x pad-r-5-x]]></value>
+                        </property>
+                        <property name="content-id" type="text">
+                          <value xsi:type="fixed"><![CDATA[akurate-exakt-dsm]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <atom name="image">
+                          <properties>
+                            <property name="src" type="text">
+                              <value xsi:type="fixed"><![CDATA[/responsive/images/content/hifi-separates/network-music-players/akurate-exakt-dsm.jpg]]></value>
+                            </property>
+                            <property name="alt" type="text">
+                              <value xsi:type="fixed"><![CDATA[Akurate Exakt DSM]]></value>
+                            </property>
+                          </properties>
+                        </atom>
+                        <container name="figure-caption">
+                          <properties>
+                            <property name="margin" type="margin">
+                              <value xsi:type="fixed"><![CDATA[margin-t-5-x]]></value>
+                            </property>
+                            <property name="pointer-up" type="boolean">
+                              <value xsi:type="fixed"><![CDATA[true]]></value>
+                            </property>
+                          </properties>
+                          <components>
+                            <atom name="markdown">
+                              <properties>
+                                <property name="markdown" type="markdown">
+                                  <value xsi:type="fixed"><![CDATA[####Akurate
+
+From £4,500]]></value>
+                                </property>
+                              </properties>
+                            </atom>
+                          </components>
+                        </container>
+                      </components>
+                    </container>
+                    <container name="figure">
+                      <properties>
+                        <property name="is-slide" type="boolean">
+                          <value xsi:type="fixed"><![CDATA[true]]></value>
+                        </property>
+                        <property name="padding" type="padding">
+                          <value xsi:type="fixed"><![CDATA[pad-l-5-x pad-r-5-x]]></value>
+                        </property>
+                        <property name="content-id" type="text">
+                          <value xsi:type="fixed"><![CDATA[majik-dsm]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <atom name="image">
+                          <properties>
+                            <property name="src" type="text">
+                              <value xsi:type="fixed"><![CDATA[/responsive/images/content/hifi-separates/network-music-players/majik-dsm.jpg]]></value>
+                            </property>
+                            <property name="alt" type="text">
+                              <value xsi:type="fixed"><![CDATA[Majik DSM]]></value>
+                            </property>
+                          </properties>
+                        </atom>
+                        <container name="figure-caption">
+                          <properties>
+                            <property name="margin" type="margin">
+                              <value xsi:type="fixed"><![CDATA[margin-t-5-x]]></value>
+                            </property>
+                            <property name="pointer-up" type="boolean">
+                              <value xsi:type="fixed"><![CDATA[true]]></value>
+                            </property>
+                          </properties>
+                          <components>
+                            <atom name="markdown">
+                              <properties>
+                                <property name="markdown" type="markdown">
+                                  <value xsi:type="fixed"><![CDATA[####Majik
+
+From £1,150]]></value>
+                                </property>
+                              </properties>
+                            </atom>
+                          </components>
+                        </container>
+                      </components>
+                    </container>
+                    <container name="figure">
+                      <properties>
+                        <property name="is-slide" type="boolean">
+                          <value xsi:type="fixed"><![CDATA[true]]></value>
+                        </property>
+                        <property name="padding" type="padding">
+                          <value xsi:type="fixed"><![CDATA[pad-l-5-x pad-r-5-x]]></value>
+                        </property>
+                        <property name="content-id" type="text">
+                          <value xsi:type="fixed"><![CDATA[kiko]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <atom name="image">
+                          <properties>
+                            <property name="src" type="text">
+                              <value xsi:type="fixed"><![CDATA[/responsive/images/content/hifi-separates/network-music-players/kiko.jpg]]></value>
+                            </property>
+                            <property name="alt" type="text">
+                              <value xsi:type="fixed"><![CDATA[Kiko]]></value>
+                            </property>
+                          </properties>
+                        </atom>
+                        <container name="figure-caption">
+                          <properties>
+                            <property name="margin" type="margin">
+                              <value xsi:type="fixed"><![CDATA[margin-t-5-x]]></value>
+                            </property>
+                            <property name="pointer-up" type="boolean">
+                              <value xsi:type="fixed"><![CDATA[true]]></value>
+                            </property>
+                          </properties>
+                          <components>
+                            <atom name="markdown">
+                              <properties>
+                                <property name="markdown" type="markdown">
+                                  <value xsi:type="fixed"><![CDATA[####Kiko
+
+System From £2,495]]></value>
+                                </property>
+                              </properties>
+                            </atom>
+                          </components>
+                        </container>
+                      </components>
+                    </container>
+                    <container name="figure">
+                      <properties>
+                        <property name="is-slide" type="boolean">
+                          <value xsi:type="fixed"><![CDATA[true]]></value>
+                        </property>
+                        <property name="padding" type="padding">
+                          <value xsi:type="fixed"><![CDATA[pad-l-5-x pad-r-5-x]]></value>
+                        </property>
+                        <property name="content-id" type="text">
+                          <value xsi:type="fixed"><![CDATA[sneaky-dsm]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <atom name="image">
+                          <properties>
+                            <property name="src" type="text">
+                              <value xsi:type="fixed"><![CDATA[/responsive/images/content/hifi-separates/network-music-players/sneaky-dsm.jpg]]></value>
+                            </property>
+                            <property name="alt" type="text">
+                              <value xsi:type="fixed"><![CDATA[Sneaky DSM]]></value>
+                            </property>
+                          </properties>
+                        </atom>
+                        <container name="figure-caption">
+                          <properties>
+                            <property name="margin" type="margin">
+                              <value xsi:type="fixed"><![CDATA[margin-t-5-x]]></value>
+                            </property>
+                            <property name="pointer-up" type="boolean">
+                              <value xsi:type="fixed"><![CDATA[true]]></value>
+                            </property>
+                          </properties>
+                          <components>
+                            <atom name="markdown">
+                              <properties>
+                                <property name="markdown" type="markdown">
+                                  <value xsi:type="fixed"><![CDATA[####Sneaky
+
+From £995]]></value>
+                                </property>
+                              </properties>
+                            </atom>
+                          </components>
+                        </container>
+                      </components>
+                    </container>
+                  </components>
+                </container>
+              </components>
+            </container>
+            <container name="section">
+              <properties />
               <components />
             </container>
           </components>
@@ -68,39 +314,5 @@
       </areas>
     </widget>
   </components>
-  <amendments>
-    <addComponent>
-      <componentType>figure</componentType>
-      <targetPath>0/0/2/0</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>0/0/2/0</componentPath>
-      <propertyName>is-slide</propertyName>
-      <fixedValue><![CDATA[true]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/2/0</componentPath>
-      <propertyName>padding</propertyName>
-      <fixedValue><![CDATA[pad-l-5-x pad-r-5-x]]></fixedValue>
-    </setPropertyFixed>
-    <addComponent>
-      <componentType>image</componentType>
-      <targetPath>0/0/2/0/0</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>0/0/2/0/0</componentPath>
-      <propertyName>src</propertyName>
-      <fixedValue><![CDATA[/responsive/images/content/hifi-separates/network-music-players/]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/2/0/0</componentPath>
-      <propertyName>src</propertyName>
-      <fixedValue><![CDATA[/responsive/images/content/hifi-separates/network-music-players/klimax-exakt-dsm.jpg]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/2/0/0</componentPath>
-      <propertyName>alt</propertyName>
-      <fixedValue><![CDATA[Klimax Exakt DSM]]></fixedValue>
-    </setPropertyFixed>
-  </amendments>
+  <amendments />
 </template>

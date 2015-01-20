@@ -8,6 +8,8 @@
 
         void Visit(RemoveComponentAmendment amendment);
 
+        void Visit(DuplicateComponentAmendment amendment);
+
         void Visit(SetPropertyFixedAmendment amendment);
 
         void Visit(SetPropertyInheritedAmendment amendment);
@@ -23,6 +25,8 @@
 
         T Visit(RemoveComponentAmendment amendment);
 
+        T Visit(DuplicateComponentAmendment amendment);
+
         T Visit(SetPropertyFixedAmendment amendment);
 
         T Visit(SetPropertyInheritedAmendment amendment);
@@ -37,6 +41,8 @@
         T Visit(MoveComponentAmendment amendment, TContext context);
 
         T Visit(RemoveComponentAmendment amendment, TContext context);
+
+        T Visit(DuplicateComponentAmendment amendment, TContext context);
 
         T Visit(SetPropertyFixedAmendment amendment, TContext context);
 

@@ -50,6 +50,17 @@
             parent.RemoveAt(index);
         }
 
+        public void Visit(DuplicateComponentAmendment amendment)
+        {
+            var component = this.template.FindComponent(amendment.ComponentPath);
+            var parent = this.template.FindCollection(amendment.ComponentPath.TakeAllButLast());
+
+            var clone = component.Clone();
+            var index = amendment.ComponentPath.Last() + 1;
+
+            parent.Insert(index, clone);
+        }
+
         public void Visit(SetPropertyFixedAmendment amendment)
         {
             var component = this.template.FindComponentWithProperties(amendment.ComponentPath);

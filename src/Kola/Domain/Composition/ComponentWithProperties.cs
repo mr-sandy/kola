@@ -1,5 +1,6 @@
 ﻿namespace Kola.Domain.Composition
 {
+    using System;
     using System.Collections.Generic;
 
     using Kola.Domain.Extensions;
@@ -48,5 +49,7 @@
         public abstract T Accept<T, TContext>(IComponentVisitor<T, TContext> visitor, TContext context);
 
         public abstract ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext);
+
+        public abstract IComponent Clone();
     }
 }

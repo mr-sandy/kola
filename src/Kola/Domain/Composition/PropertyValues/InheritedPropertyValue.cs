@@ -1,5 +1,6 @@
 ﻿namespace Kola.Domain.Composition.PropertyValues
 {
+    using System;
     using System.Linq;
 
     using Kola.Domain.Instances.Building;
@@ -31,6 +32,11 @@
         public T Accept<T>(IPropertyValueVisitor<T> visitor)
         {
             return visitor.Visit(this);
+        }
+
+        public IPropertyValue Clone()
+        {
+            return new InheritedPropertyValue(this.Key);
         }
     }
 }

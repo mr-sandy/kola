@@ -1,5 +1,7 @@
 ﻿namespace Kola.DomainBuilding
 {
+    using System;
+
     using Kola.Domain.Composition.Amendments;
     using Kola.Extensions;
     using Kola.Resources;
@@ -21,6 +23,11 @@
         public IAmendment Visit(RemoveComponentAmendmentResource resource)
         {
             return new RemoveComponentAmendment(resource.ComponentPath.ParseComponentPath());
+        }
+
+        public IAmendment Visit(DuplicateComponentAmendmentResource resource)
+        {
+            return new DuplicateComponentAmendment(resource.ComponentPath.ParseComponentPath());
         }
 
         public IAmendment Visit(SetPropertyAmendmentResource resource)

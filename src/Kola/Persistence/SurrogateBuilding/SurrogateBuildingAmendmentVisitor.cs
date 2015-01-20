@@ -34,6 +34,14 @@
             };
         }
 
+        public AmendmentSurrogate Visit(DuplicateComponentAmendment amendment)
+        {
+            return new DuplicateComponentAmendmentSurrogate
+            {
+                ComponentPath = amendment.ComponentPath.ToComponentPathString(),
+            };
+        }
+
         public AmendmentSurrogate Visit(SetPropertyFixedAmendment amendment)
         {
             return new SetPropertyFixedAmendmentSurrogate

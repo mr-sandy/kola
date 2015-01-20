@@ -14,6 +14,8 @@
                     { "grid-placement", v => GetClass(v) },
                     { "padding", v => GetClass(v) },
                     { "is-slide", v => GetClassFromBool(v, "slide") },
+                    { "margin", v => GetClass(v) },
+                    { "pointer-up", v => GetClassFromBool(v, "pointer-up") },
                 };
 
         public static string GetClassNames(this IEnumerable<PropertyInstance> properties)

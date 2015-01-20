@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    using Kola.Domain.Extensions;
     using Kola.Domain.Instances.Building;
 
     public class MultilingualPropertyValue : IPropertyValue
@@ -38,6 +39,11 @@
         public T Accept<T>(IPropertyValueVisitor<T> visitor)
         {
             return visitor.Visit(this);
+        }
+
+        public IPropertyValue Clone()
+        {
+            return new MultilingualPropertyValue(this.Variants.Clone());
         }
     }
 }

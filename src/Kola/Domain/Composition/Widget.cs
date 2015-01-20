@@ -1,8 +1,10 @@
 ﻿namespace Kola.Domain.Composition
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
+    using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
     using Kola.Extensions;
@@ -55,6 +57,11 @@
             buildContext.ContextSets.Pop();
 
             return new WidgetInstance(path, components);
+        }
+
+        public override IComponent Clone()
+        {
+            return new Widget(this.Name, this.Areas.Clone(), this.Properties.Clone());
         }
     }
 }

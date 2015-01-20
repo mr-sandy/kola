@@ -8,12 +8,14 @@
     var previewPrevious = Model.Properties.GetAsAttribute("preview-previous", "data-carousel-preview-previous");
     var previewNext = Model.Properties.GetAsAttribute("preview-next", "data-carousel-preview-next");
     var previewThreshold = Model.Properties.GetAsAttribute("preview-threshold", "data-carousel-preview-threshold");
+    var updateHash = Model.Properties.GetAsAttribute("update-hash", "data-content-update-hash");
+    var contentSwitch = Model.Properties.GetAsBool("content-switch") ? "content-switch" : string.Empty;
 
-    var attributes = string.Format("{0}{1}{2}{3}{4}", alignment, infinityScroll, previewPrevious, previewNext, previewThreshold);
+    var attributes = string.Format("{0}{1}{2}{3}{4}{5}", alignment, infinityScroll, previewPrevious, previewNext, previewThreshold, updateHash);
 }
 <div class="carousel @Model.Properties.GetClassNames()" @Html.Raw(attributes)>
     <div class="slides">
-        <div class="positioner">
+        <div class="positioner @contentSwitch">
             @Html.RenderComponents(Model.Components)
         </div>
         @if (Model.Properties.GetAsBool("show-previous"))

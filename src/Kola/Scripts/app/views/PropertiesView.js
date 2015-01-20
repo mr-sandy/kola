@@ -20,7 +20,8 @@
         },
 
         events: {
-            'click #remove': 'remove'
+            'click #remove': 'remove',
+            'click #duplicate': 'duplicate'
         },
 
         handleSelectionChange: function () {
@@ -68,6 +69,12 @@
             var componentPath = this.model.get('path');
             this.amendments.removeComponent(componentPath);
             this.stateBroker.deselect();
+        },
+
+        duplicate: function (e) {
+            e.preventDefault();
+            var componentPath = this.model.get('path');
+            this.amendments.duplicateComponent(componentPath);
         }
     });
 });

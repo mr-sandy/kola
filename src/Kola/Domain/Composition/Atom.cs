@@ -1,8 +1,10 @@
 ﻿namespace Kola.Domain.Composition
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
+    using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
 
@@ -34,6 +36,11 @@
                 path,
                 this.Name,
                 this.Properties.Select(p => p.Build(buildContext)).ToList());
+        }
+
+        public override IComponent Clone()
+        {
+            return new Atom(this.Name, this.Properties.Clone());
         }
     }
 }

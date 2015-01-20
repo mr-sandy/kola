@@ -8,7 +8,7 @@
 
         this.$element = $(element);
         this.options = $.extend(defaults, options);
-        this.controller = this.$element.controller();
+        this.controller = this.$element.controller(['.carousel']);
 
         this.initialise();
     };

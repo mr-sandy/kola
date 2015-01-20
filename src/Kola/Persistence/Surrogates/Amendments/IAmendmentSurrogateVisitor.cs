@@ -8,6 +8,8 @@
 
         T Visit(RemoveComponentAmendmentSurrogate amendment);
 
+        T Visit(DuplicateComponentAmendmentSurrogate amendment);
+
         T Visit(SetPropertyFixedAmendmentSurrogate amendment);
     }
 }

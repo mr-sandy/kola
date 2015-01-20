@@ -49,6 +49,16 @@
             };
         }
 
+        public AmendmentResource Visit(DuplicateComponentAmendment amendment, int index)
+        {
+            return new DuplicateComponentAmendmentResource
+            {
+                Id = index,
+                ComponentPath = amendment.ComponentPath.ToComponentPathString(),
+                Links = this.BuildLinks(amendment.SubjectPaths, index)
+            };
+        }
+
         public AmendmentResource Visit(SetPropertyFixedAmendment amendment, int index)
         {
             return new SetPropertyAmendmentResource

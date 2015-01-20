@@ -1,5 +1,7 @@
 ﻿namespace Kola.Domain.Composition.PropertyValues
 {
+    using System;
+
     using Kola.Domain.Instances.Building;
 
     public class FixedPropertyValue : IPropertyValue
@@ -19,6 +21,11 @@
         public T Accept<T>(IPropertyValueVisitor<T> visitor)
         {
             return visitor.Visit(this);
+        }
+
+        public IPropertyValue Clone()
+        {
+            return new FixedPropertyValue(this.Value);
         }
     }
 }

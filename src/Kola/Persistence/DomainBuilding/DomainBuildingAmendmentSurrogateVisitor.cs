@@ -23,6 +23,11 @@
             return new RemoveComponentAmendment(surrogate.ComponentPath.ParseComponentPath());
         }
 
+        public IAmendment Visit(DuplicateComponentAmendmentSurrogate surrogate)
+        {
+            return new DuplicateComponentAmendment(surrogate.ComponentPath.ParseComponentPath());
+        }
+
         public IAmendment Visit(SetPropertyFixedAmendmentSurrogate surrogate)
         {
             return new SetPropertyFixedAmendment(surrogate.ComponentPath.ParseComponentPath(), surrogate.PropertyName, surrogate.FixedValue);

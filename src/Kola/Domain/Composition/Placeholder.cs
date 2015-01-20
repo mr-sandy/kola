@@ -1,5 +1,6 @@
 ﻿namespace Kola.Domain.Composition
 {
+    using System;
     using System.Collections.Generic;
 
     using Kola.Domain.Instances;
@@ -36,6 +37,11 @@
                                         : null;
 
             return new PlaceholderInstance(path, componentInstance);
+        }
+
+        public IComponent Clone()
+        {
+            return new Placeholder(this.Name);
         }
     }
 }

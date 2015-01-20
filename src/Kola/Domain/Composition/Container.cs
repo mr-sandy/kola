@@ -5,6 +5,7 @@
     using System.Linq;
 
     using Kola;
+    using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Building;
     using Kola.Extensions;
@@ -68,6 +69,11 @@
             buildContext.ContextSets.Pop();
 
             return new ContainerInstance(path, this.Name, propertyInstances, children);
+        }
+
+        public override IComponent Clone()
+        {
+            return new Container(this.Name, this.Properties.Clone(), this.components.Clone());
         }
     }
 }

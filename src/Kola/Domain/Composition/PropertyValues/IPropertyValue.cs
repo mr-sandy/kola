@@ -7,5 +7,7 @@
         string Resolve(IBuildContext buildContext);
 
         T Accept<T>(IPropertyValueVisitor<T> visitor);
+
+        IPropertyValue Clone();
     }
 }

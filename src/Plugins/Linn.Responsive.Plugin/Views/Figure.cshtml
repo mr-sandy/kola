@@ -2,6 +2,6 @@
 @using Kola.Domain.Extensions
 @using Kola.Nancy.Extensions
 @using Linn.Responsive.Plugin.Extensions
-<figure class="@Model.Properties.GetClassNames()">
+<figure class="@Model.Properties.GetClassNames()"@Html.Raw(Model.Properties.GetAsAttribute("content-id", "data-content-id"))>
     @Html.RenderComponents(Model.Components)
 </figure>

@@ -15,5 +15,7 @@
 
         // TODO Refactor this as visitor?
         ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext);
+
+        IComponent Clone();
     }
 }
