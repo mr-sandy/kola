@@ -109,11 +109,6 @@
     <Content Include="cdn\responsive\fonts\stylesheet.css" />
     <Content Include="cdn\responsive\images\content\left-arrow.png" />
     <Content Include="cdn\responsive\images\content\right-arrow.png" />
-    <Content Include="cdn\responsive\images\content\hifi-separates\network-music-players\akurate-exakt-DSM-x1045.jpg" />
-    <Content Include="cdn\responsive\images\content\hifi-separates\network-music-players\Kiko-x836.jpg" />
-    <Content Include="cdn\responsive\images\content\hifi-separates\network-music-players\Klimax-Exakt-DSMx1045.jpg" />
-    <Content Include="cdn\responsive\images\content\hifi-separates\network-music-players\Majik-DSM-x1045.jpg" />
-    <Content Include="cdn\responsive\images\content\hifi-separates\network-music-players\Sneaky-DSM-x1045.jpg" />
     <Content Include="cdn\responsive\images\logo-black-chunky.png" />
     <Content Include="cdn\responsive\images\logo-small-black.gif" />
     <Content Include="cdn\responsive\images\menu.gif" />
@@ -186,6 +181,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="cdn\responsive\images\components\carousel\" />
+    <Folder Include="cdn\responsive\images\content\hifi-separates\network-music-players\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

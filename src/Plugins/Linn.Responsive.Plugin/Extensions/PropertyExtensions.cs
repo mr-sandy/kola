@@ -16,6 +16,14 @@
                     { "is-slide", v => GetClassFromBool(v, "slide") },
                     { "margin", v => GetClass(v) },
                     { "pointer-up", v => GetClassFromBool(v, "pointer-up") },
+                    { "is-inner", v => GetClassFromBool(v, "inner") },
+                    { "border", v => GetClass(v) },
+                    { "height", v => GetClass(v) },
+                    { "style", v => GetClass(v, prefix: "style-") },
+                    { "show-grids", v => GetClasses(v, "showgrid-") },
+                    { "background-colour", v => GetClass(v) },
+                    { "text-align", v => GetClass(v, prefix: "text-align-") },
+                    { "position", v => GetClasses(v, prefix: "position-") },
                 };
 
         public static string GetClassNames(this IEnumerable<PropertyInstance> properties)
@@ -41,6 +49,15 @@
             return !string.IsNullOrEmpty(value)
                        ? string.Format("{0}{1}{2}", prefix, value, suffix)
                        : string.Empty;
+        }
+
+        private static string GetClasses(string value, string prefix = "", string suffix = "")
+        {
+            var values = value.Split(new[] { ' ' }).Where(s => !string.IsNullOrWhiteSpace(s));
+
+            var classes = values.Select(val => GetClass(val, string.Empty, prefix, suffix)).Where(c => !string.IsNullOrWhiteSpace(c));
+
+            return string.Join(" ", classes);
         }
 
         private static string GetClassFromBool(string value, string trueClass = "", string falseClass = "")

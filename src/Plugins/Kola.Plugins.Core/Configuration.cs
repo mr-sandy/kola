@@ -28,6 +28,10 @@
                 .WithView("Label")
                 .WithProperty("caption", "text");
 
+            this.Configure.Atom("text")
+                .WithView("Text")
+                .WithProperty("text", "text");
+
             this.Configure.Atom("html-title")
                 .WithView("HtmlTitle")
                 .WithProperty("title", "text");

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kolacms.com/2013/kola">
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <widget name="page">
       <properties>
@@ -52,7 +52,7 @@
                       <value xsi:type="fixed"><![CDATA[f-all]]></value>
                     </property>
                     <property name="padding" type="padding">
-                      <value xsi:type="fixed"><![CDATA[pad-t-10-x pad-t-5-m pad-b-5-x]]></value>
+                      <value xsi:type="fixed"><![CDATA[pad-t-10-x pad-t-5-m pad-b-2-x]]></value>
                     </property>
                     <property name="show-previous" type="boolean">
                       <value xsi:type="fixed"><![CDATA[true]]></value>
@@ -65,6 +65,12 @@
                     </property>
                     <property name="update-hash" type="boolean">
                       <value xsi:type="fixed"><![CDATA[true]]></value>
+                    </property>
+                    <property name="content-set-id" type="text">
+                      <value xsi:type="fixed"><![CDATA[ranges]]></value>
+                    </property>
+                    <property name="border" type="border">
+                      <value xsi:type="fixed"><![CDATA[border-b-fine-x border-b-hair-m border-secondary1-x]]></value>
                     </property>
                   </properties>
                   <components>
@@ -300,11 +306,323 @@ From £995]]></value>
                     </container>
                   </components>
                 </container>
+                <container name="division">
+                  <properties>
+                    <property name="grid-placement" type="placement">
+                      <value xsi:type="fixed"><![CDATA[x-all]]></value>
+                    </property>
+                    <property name="height" type="height">
+                      <value xsi:type="fixed"><![CDATA[height-8-x]]></value>
+                    </property>
+                  </properties>
+                  <components>
+                    <atom name="pager">
+                      <properties>
+                        <property name="content-set-id" type="text">
+                          <value xsi:type="fixed"><![CDATA[ranges]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                  </components>
+                </container>
               </components>
             </container>
             <container name="section">
-              <properties />
-              <components />
+              <properties>
+                <property name="style" type="style">
+                  <value xsi:type="fixed"><![CDATA[intro]]></value>
+                </property>
+                <property name="grid-placement" type="placement">
+                  <value xsi:type="fixed"><![CDATA[f-all]]></value>
+                </property>
+                <property name="padding" type="padding">
+                  <value xsi:type="fixed"><![CDATA[pad-t-6-x pad-b-4-x pad-t-0-m]]></value>
+                </property>
+              </properties>
+              <components>
+                <container name="division">
+                  <properties>
+                    <property name="show-grids" type="grid-names">
+                      <value xsi:type="fixed"><![CDATA[x]]></value>
+                    </property>
+                    <property name="is-inner" type="boolean">
+                      <value xsi:type="fixed"><![CDATA[true]]></value>
+                    </property>
+                  </properties>
+                  <components>
+                    <container name="division">
+                      <properties>
+                        <property name="grid-placement" type="placement">
+                          <value xsi:type="fixed"><![CDATA[x2-x8 t2-t11]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <atom name="markdown">
+                          <properties>
+                            <property name="markdown" type="markdown">
+                              <value xsi:type="fixed"><![CDATA[#Oh Lordy. It’s Networked.#
+
+Our Linn DS family of network music players are the best way to listen to music, movies and games at home. Find out how to get fingertip control over your music and hear what you’re missing from your favourite artists.]]></value>
+                            </property>
+                          </properties>
+                        </atom>
+                      </components>
+                    </container>
+                  </components>
+                </container>
+              </components>
+            </container>
+            <container name="section">
+              <properties>
+                <property name="grid-placement" type="placement">
+                  <value xsi:type="fixed"><![CDATA[f-all]]></value>
+                </property>
+                <property name="background-colour" type="colour">
+                  <value xsi:type="fixed"><![CDATA[secondary0-back-x]]></value>
+                </property>
+                <property name="padding" type="padding">
+                  <value xsi:type="fixed"><![CDATA[pad-t-7-x pad-b-7-x]]></value>
+                </property>
+              </properties>
+              <components>
+                <container name="division">
+                  <properties>
+                    <property name="show-grids" type="grid-names">
+                      <value xsi:type="fixed"><![CDATA[x t p m]]></value>
+                    </property>
+                    <property name="is-inner" type="boolean">
+                      <value xsi:type="fixed"><![CDATA[true]]></value>
+                    </property>
+                  </properties>
+                  <components>
+                    <container name="division">
+                      <properties>
+                        <property name="grid-placement" type="placement">
+                          <value xsi:type="fixed"><![CDATA[x2-x7 t2-t10 p2-p11]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <atom name="markdown">
+                          <properties>
+                            <property name="markdown" type="markdown">
+                              <value xsi:type="fixed"><![CDATA[####Choose and control your music
+
+Pick your favourite mobile device and download an app to control your Linn system and choose music, browse artwork, create playlists … control your music wirelessly from any room.
+
+If you prefer to stick to iTunes, Spotify or whatever you normally use, that's fine too. Download our Songcast app and anything you play will come through your Linn system, letting you enjoy your favourite tunes in Linn quality.]]></value>
+                            </property>
+                          </properties>
+                        </atom>
+                      </components>
+                    </container>
+                    <container name="division">
+                      <properties>
+                        <property name="grid-placement" type="placement">
+                          <value xsi:type="fixed"><![CDATA[f10-f12 x9-x12 t8-t12 p9-p12 m-hide]]></value>
+                        </property>
+                        <property name="padding" type="padding">
+                          <value xsi:type="fixed"><![CDATA[pad-t-20-t]]></value>
+                        </property>
+                        <property name="position" type="position">
+                          <value xsi:type="fixed"><![CDATA[b-f b-t]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <container name="aside">
+                          <properties>
+                            <property name="padding" type="padding">
+                              <value xsi:type="fixed"><![CDATA[pad-r-1-f pad-r-4-x pad-r-2-t]]></value>
+                            </property>
+                          </properties>
+                          <components>
+                            <atom name="markdown">
+                              <properties>
+                                <property name="markdown" type="markdown">
+                                  <value xsi:type="fixed"><![CDATA[Get better sound from your favourite apps and devices
+
+[See what they can do](#jam)]]></value>
+                                </property>
+                              </properties>
+                            </atom>
+                          </components>
+                        </container>
+                      </components>
+                    </container>
+                    <container name="division">
+                      <properties>
+                        <property name="grid-placement" type="placement">
+                          <value xsi:type="fixed"><![CDATA[x2-x12 x-clear m-hide]]></value>
+                        </property>
+                        <property name="padding" type="padding">
+                          <value xsi:type="fixed"><![CDATA[pad-t-8-x]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <container name="division">
+                          <properties>
+                            <property name="grid-placement" type="placement">
+                              <value xsi:type="fixed"><![CDATA[t-all]]></value>
+                            </property>
+                            <property name="padding" type="padding">
+                              <value xsi:type="fixed"><![CDATA[pad-b-5-t]]></value>
+                            </property>
+                          </properties>
+                          <components>
+                            <container name="figure">
+                              <properties>
+                                <property name="padding" type="padding">
+                                  <value xsi:type="fixed"><![CDATA[pad-r-5-x]]></value>
+                                </property>
+                                <property name="text-align" type="text-alignment">
+                                  <value xsi:type="fixed"><![CDATA[center-x]]></value>
+                                </property>
+                                <property name="grid-placement" type="placement">
+                                  <value xsi:type="fixed"><![CDATA[x-floatleft]]></value>
+                                </property>
+                              </properties>
+                              <components>
+                                <atom name="image">
+                                  <properties>
+                                    <property name="src" type="text">
+                                      <value xsi:type="fixed"><![CDATA[http://small.linncdn.com/web/new-images/content/all-products/network-music-players/pc-or-mac.png]]></value>
+                                    </property>
+                                    <property name="alt" type="text">
+                                      <value xsi:type="fixed"><![CDATA[PC or Mac]]></value>
+                                    </property>
+                                  </properties>
+                                </atom>
+                                <container name="figure-caption">
+                                  <properties />
+                                  <components>
+                                    <atom name="markdown">
+                                      <properties>
+                                        <property name="markdown" type="markdown">
+                                          <value xsi:type="fixed"><![CDATA[PC or Mac]]></value>
+                                        </property>
+                                      </properties>
+                                    </atom>
+                                  </components>
+                                </container>
+                              </components>
+                            </container>
+                            <container name="figure">
+                              <properties>
+                                <property name="padding" type="padding">
+                                  <value xsi:type="fixed"><![CDATA[pad-r-5-x]]></value>
+                                </property>
+                                <property name="text-align" type="text-alignment">
+                                  <value xsi:type="fixed"><![CDATA[center-x]]></value>
+                                </property>
+                                <property name="grid-placement" type="placement">
+                                  <value xsi:type="fixed"><![CDATA[x-floatleft]]></value>
+                                </property>
+                              </properties>
+                              <components>
+                                <atom name="image">
+                                  <properties>
+                                    <property name="src" type="text">
+                                      <value xsi:type="fixed"><![CDATA[http://small.linncdn.com/web/new-images/content/all-products/network-music-players/ipad-and-iphone.png]]></value>
+                                    </property>
+                                    <property name="alt" type="text">
+                                      <value xsi:type="fixed"><![CDATA[iPad and iPhone]]></value>
+                                    </property>
+                                  </properties>
+                                </atom>
+                                <container name="figure-caption">
+                                  <properties />
+                                  <components>
+                                    <atom name="markdown">
+                                      <properties>
+                                        <property name="markdown" type="markdown">
+                                          <value xsi:type="fixed"><![CDATA[iPad and iPhone]]></value>
+                                        </property>
+                                      </properties>
+                                    </atom>
+                                  </components>
+                                </container>
+                              </components>
+                            </container>
+                            <container name="figure">
+                              <properties>
+                                <property name="padding" type="padding">
+                                  <value xsi:type="fixed"><![CDATA[pad-r-5-x]]></value>
+                                </property>
+                                <property name="text-align" type="text-alignment">
+                                  <value xsi:type="fixed"><![CDATA[center-x]]></value>
+                                </property>
+                                <property name="grid-placement" type="placement">
+                                  <value xsi:type="fixed"><![CDATA[x-floatleft]]></value>
+                                </property>
+                              </properties>
+                              <components>
+                                <atom name="image">
+                                  <properties>
+                                    <property name="src" type="text">
+                                      <value xsi:type="fixed"><![CDATA[http://small.linncdn.com/web/new-images/content/all-products/network-music-players/android.png]]></value>
+                                    </property>
+                                    <property name="alt" type="text">
+                                      <value xsi:type="fixed"><![CDATA[Android]]></value>
+                                    </property>
+                                  </properties>
+                                </atom>
+                                <container name="figure-caption">
+                                  <properties />
+                                  <components>
+                                    <atom name="markdown">
+                                      <properties>
+                                        <property name="markdown" type="markdown">
+                                          <value xsi:type="fixed"><![CDATA[Android]]></value>
+                                        </property>
+                                      </properties>
+                                    </atom>
+                                  </components>
+                                </container>
+                              </components>
+                            </container>
+                            <container name="figure">
+                              <properties>
+                                <property name="padding" type="padding">
+                                  <value xsi:type="fixed"><![CDATA[]]></value>
+                                </property>
+                                <property name="text-align" type="text-alignment">
+                                  <value xsi:type="fixed"><![CDATA[center-x]]></value>
+                                </property>
+                                <property name="grid-placement" type="placement">
+                                  <value xsi:type="fixed"><![CDATA[x-floatleft]]></value>
+                                </property>
+                              </properties>
+                              <components>
+                                <atom name="image">
+                                  <properties>
+                                    <property name="src" type="text">
+                                      <value xsi:type="fixed"><![CDATA[http://small.linncdn.com/web/new-images/content/all-products/network-music-players/remote.png]]></value>
+                                    </property>
+                                    <property name="alt" type="text">
+                                      <value xsi:type="fixed"><![CDATA[PC or Mac]]></value>
+                                    </property>
+                                  </properties>
+                                </atom>
+                                <container name="figure-caption">
+                                  <properties />
+                                  <components>
+                                    <atom name="markdown">
+                                      <properties>
+                                        <property name="markdown" type="markdown">
+                                          <value xsi:type="fixed"><![CDATA[PC or Mac]]></value>
+                                        </property>
+                                      </properties>
+                                    </atom>
+                                  </components>
+                                </container>
+                              </components>
+                            </container>
+                          </components>
+                        </container>
+                      </components>
+                    </container>
+                  </components>
+                </container>
+              </components>
             </container>
           </components>
         </area>
