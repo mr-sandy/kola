@@ -2,6 +2,6 @@
 @using Kola.Domain.Extensions
 @using Kola.Nancy.Extensions
 @using Linn.Responsive.Plugin.Extensions
-<section class="@Model.Properties.GetClassNames()"@Html.Raw(Model.Properties.GetAsAttribute("id"))>
+<div class="inner @Model.Properties.GetClassNames()">
     @Html.RenderComponents(Model.Components)
-</section>
+</div>

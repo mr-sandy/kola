@@ -39,7 +39,7 @@
 
         refresh: function () {
 
-            var iframe = this.$el.closest('html');
+            var iframe = this.$el.closest('html').parent();
             var viewHeight = iframe.outerHeight();
             var viewWidth = iframe.outerWidth();
 

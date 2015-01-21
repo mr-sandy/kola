@@ -52,6 +52,7 @@
             this.Configure.Container("section")
                 .WithView("Section")
                 .WithProperty("is-slide", "boolean")
+                .WithProperty("id", "text")
                 .WithProperty("style", "style")
                 .WithProperty("show-grids", "grid-names")
                 .ExtendWith(this.CommonProperties);
@@ -59,10 +60,14 @@
             this.Configure.Container("division")
                 .WithView("Division")
                 .WithProperty("is-slide", "boolean")
-                .WithProperty("is-inner", "boolean")
                 .WithProperty("content-id", "text")
+                .WithProperty("text-align", "text-alignment")
                 .WithProperty("show-grids", "grid-names")
                 .ExtendWith(this.CommonProperties);
+
+            this.Configure.Container("inner")
+                .WithView("Inner")
+                .WithProperty("show-grids", "grid-names");
 
             this.Configure.Container("figure")
                 .WithView("Figure")
@@ -116,6 +121,9 @@
 
             this.Configure.PropertyType("text-alignment")
                 .WithEditor("TextEditorView.js");
+
+            this.Configure.PropertyType("width")
+                .WithEditor("TextEditorView.js");
         }
 
         private void CommonProperties(ComponentRendererConfigurer configureComponent)
@@ -127,6 +135,7 @@
                 .WithProperty("border", "border")
                 .WithProperty("background-colour", "colour")
                 .WithProperty("position", "position")
+                .WithProperty("width", "width")
                 .WithProperty("height", "height");
         }
     }

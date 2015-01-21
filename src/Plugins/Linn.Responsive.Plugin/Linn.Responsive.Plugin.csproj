@@ -82,6 +82,7 @@
     <EmbeddedResource Include="Views\Section.cshtml" />
     <EmbeddedResource Include="Views\Pager.cshtml" />
     <EmbeddedResource Include="Views\Aside.cshtml" />
+    <EmbeddedResource Include="Views\Inner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Renderers\" />

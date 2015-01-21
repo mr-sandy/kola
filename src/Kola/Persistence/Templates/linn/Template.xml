@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+<template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <widget name="page">
       <properties>
@@ -26,7 +26,11 @@
               <properties />
             </atom>
             <container name="section">
-              <properties />
+              <properties>
+                <property name="grid-placement" type="placement">
+                  <value xsi:type="fixed"><![CDATA[f-all x-all]]></value>
+                </property>
+              </properties>
               <components>
                 <container name="carousel">
                   <properties>
@@ -112,7 +116,7 @@
                                 <property name="markdown" type="markdown">
                                   <value xsi:type="fixed"><![CDATA[####Klimax
 
-From £12,950]]></value>
+From £12,952]]></value>
                                 </property>
                               </properties>
                             </atom>
@@ -333,20 +337,17 @@ From £995]]></value>
                   <value xsi:type="fixed"><![CDATA[intro]]></value>
                 </property>
                 <property name="grid-placement" type="placement">
-                  <value xsi:type="fixed"><![CDATA[f-all]]></value>
+                  <value xsi:type="fixed"><![CDATA[f-all x-all]]></value>
                 </property>
                 <property name="padding" type="padding">
                   <value xsi:type="fixed"><![CDATA[pad-t-6-x pad-b-4-x pad-t-0-m]]></value>
                 </property>
               </properties>
               <components>
-                <container name="division">
+                <container name="inner">
                   <properties>
                     <property name="show-grids" type="grid-names">
                       <value xsi:type="fixed"><![CDATA[x]]></value>
-                    </property>
-                    <property name="is-inner" type="boolean">
-                      <value xsi:type="fixed"><![CDATA[true]]></value>
                     </property>
                   </properties>
                   <components>
@@ -375,7 +376,7 @@ Our Linn DS family of network music players are the best way to listen to music,
             <container name="section">
               <properties>
                 <property name="grid-placement" type="placement">
-                  <value xsi:type="fixed"><![CDATA[f-all]]></value>
+                  <value xsi:type="fixed"><![CDATA[f-all x-all]]></value>
                 </property>
                 <property name="background-colour" type="colour">
                   <value xsi:type="fixed"><![CDATA[secondary0-back-x]]></value>
@@ -385,13 +386,10 @@ Our Linn DS family of network music players are the best way to listen to music,
                 </property>
               </properties>
               <components>
-                <container name="division">
+                <container name="inner">
                   <properties>
                     <property name="show-grids" type="grid-names">
                       <value xsi:type="fixed"><![CDATA[x t p m]]></value>
-                    </property>
-                    <property name="is-inner" type="boolean">
-                      <value xsi:type="fixed"><![CDATA[true]]></value>
                     </property>
                   </properties>
                   <components>
@@ -618,6 +616,250 @@ If you prefer to stick to iTunes, Spotify or whatever you normally use, that's f
                             </container>
                           </components>
                         </container>
+                      </components>
+                    </container>
+                  </components>
+                </container>
+              </components>
+            </container>
+            <container name="section">
+              <properties>
+                <property name="grid-placement" type="placement">
+                  <value xsi:type="fixed"><![CDATA[f-all x-all]]></value>
+                </property>
+                <property name="padding" type="padding">
+                  <value xsi:type="fixed"><![CDATA[pad-t-8-x pad-b-20-x]]></value>
+                </property>
+                <property name="id" type="text">
+                  <value xsi:type="fixed"><![CDATA[music-storage]]></value>
+                </property>
+              </properties>
+              <components>
+                <container name="inner">
+                  <properties>
+                    <property name="show-grids" type="grid-names">
+                      <value xsi:type="fixed"><![CDATA[x t p]]></value>
+                    </property>
+                  </properties>
+                  <components>
+                    <container name="division">
+                      <properties>
+                        <property name="grid-placement" type="placement">
+                          <value xsi:type="fixed"><![CDATA[x2-x7 t2-t10 p2-p11]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <atom name="markdown">
+                          <properties>
+                            <property name="markdown" type="markdown">
+                              <value xsi:type="fixed"><![CDATA[####Where is my music stored?
+
+Do you have an iTunes library? Or do you use your iPhone or iPad to play music? Add a Linn to your home network and instantly play it all wirelessly through a real music system.]]></value>
+                            </property>
+                          </properties>
+                        </atom>
+                      </components>
+                    </container>
+                    <container name="division">
+                      <properties>
+                        <property name="grid-placement" type="placement">
+                          <value xsi:type="fixed"><![CDATA[x2-x10 t-all p1-p12 m-all t-clear]]></value>
+                        </property>
+                        <property name="padding" type="padding">
+                          <value xsi:type="fixed"><![CDATA[pad-t-8-x pad-b-8-x pad-l-4-t pad-l-1-p pad-l-0-m]]></value>
+                        </property>
+                        <property name="text-align" type="text-alignment">
+                          <value xsi:type="fixed"><![CDATA[center-x]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <container name="division">
+                          <properties>
+                            <property name="margin" type="margin">
+                              <value xsi:type="fixed"><![CDATA[center]]></value>
+                            </property>
+                            <property name="width" type="width">
+                              <value xsi:type="fixed"><![CDATA[width-55-m]]></value>
+                            </property>
+                          </properties>
+                          <components>
+                            <container name="figure">
+                              <properties>
+                                <property name="grid-placement" type="placement">
+                                  <value xsi:type="fixed"><![CDATA[x-floatleft]]></value>
+                                </property>
+                              </properties>
+                              <components>
+                                <atom name="image">
+                                  <properties>
+                                    <property name="src" type="text">
+                                      <value xsi:type="fixed"><![CDATA[http://small.linncdn.com/web/new-images/content/all-products/network-music-players/itunes-sketch.png]]></value>
+                                    </property>
+                                    <property name="alt" type="text">
+                                      <value xsi:type="fixed"><![CDATA[wireless music]]></value>
+                                    </property>
+                                  </properties>
+                                </atom>
+                                <container name="figure-caption">
+                                  <properties />
+                                  <components>
+                                    <atom name="markdown">
+                                      <properties>
+                                        <property name="markdown" type="markdown">
+                                          <value xsi:type="fixed"><![CDATA[iTunes Library]]></value>
+                                        </property>
+                                      </properties>
+                                    </atom>
+                                  </components>
+                                </container>
+                              </components>
+                            </container>
+                            <container name="figure">
+                              <properties>
+                                <property name="grid-placement" type="placement">
+                                  <value xsi:type="fixed"><![CDATA[x-floatleft]]></value>
+                                </property>
+                              </properties>
+                              <components>
+                                <atom name="image">
+                                  <properties>
+                                    <property name="src" type="text">
+                                      <value xsi:type="fixed"><![CDATA[http://small.linncdn.com/web/new-images/content/all-products/network-music-players/ipad-sketch.png]]></value>
+                                    </property>
+                                    <property name="alt" type="text">
+                                      <value xsi:type="fixed"><![CDATA[Wireless Devices]]></value>
+                                    </property>
+                                  </properties>
+                                </atom>
+                                <container name="figure-caption">
+                                  <properties />
+                                  <components>
+                                    <atom name="markdown">
+                                      <properties>
+                                        <property name="markdown" type="markdown">
+                                          <value xsi:type="fixed"><![CDATA[Wireless Devices]]></value>
+                                        </property>
+                                      </properties>
+                                    </atom>
+                                  </components>
+                                </container>
+                              </components>
+                            </container>
+                          </components>
+                        </container>
+                        <container name="division">
+                          <properties>
+                            <property name="margin" type="margin">
+                              <value xsi:type="fixed"><![CDATA[center]]></value>
+                            </property>
+                            <property name="width" type="width">
+                              <value xsi:type="fixed"><![CDATA[width-55-m]]></value>
+                            </property>
+                          </properties>
+                          <components>
+                            <container name="figure">
+                              <properties>
+                                <property name="grid-placement" type="placement">
+                                  <value xsi:type="fixed"><![CDATA[x-floatleft]]></value>
+                                </property>
+                              </properties>
+                              <components>
+                                <atom name="image">
+                                  <properties>
+                                    <property name="src" type="text">
+                                      <value xsi:type="fixed"><![CDATA[http://small.linncdn.com/web/new-images/content/all-products/network-music-players/cloud-sketch.png]]></value>
+                                    </property>
+                                    <property name="alt" type="text">
+                                      <value xsi:type="fixed"><![CDATA[Streaming Services]]></value>
+                                    </property>
+                                  </properties>
+                                </atom>
+                                <container name="figure-caption">
+                                  <properties />
+                                  <components>
+                                    <atom name="markdown">
+                                      <properties>
+                                        <property name="markdown" type="markdown">
+                                          <value xsi:type="fixed"><![CDATA[Streaming Services]]></value>
+                                        </property>
+                                      </properties>
+                                    </atom>
+                                  </components>
+                                </container>
+                              </components>
+                            </container>
+                            <container name="figure">
+                              <properties>
+                                <property name="grid-placement" type="placement">
+                                  <value xsi:type="fixed"><![CDATA[x-floatleft]]></value>
+                                </property>
+                              </properties>
+                              <components>
+                                <atom name="image">
+                                  <properties>
+                                    <property name="src" type="text">
+                                      <value xsi:type="fixed"><![CDATA[http://small.linncdn.com/web/new-images/content/all-products/network-music-players/network-drives-sketch.png]]></value>
+                                    </property>
+                                    <property name="alt" type="text">
+                                      <value xsi:type="fixed"><![CDATA[NAS]]></value>
+                                    </property>
+                                  </properties>
+                                </atom>
+                                <container name="figure-caption">
+                                  <properties />
+                                  <components>
+                                    <atom name="markdown">
+                                      <properties>
+                                        <property name="markdown" type="markdown">
+                                          <value xsi:type="fixed"><![CDATA[NAS]]></value>
+                                        </property>
+                                      </properties>
+                                    </atom>
+                                  </components>
+                                </container>
+                              </components>
+                            </container>
+                          </components>
+                        </container>
+                      </components>
+                    </container>
+                    <container name="division">
+                      <properties>
+                        <property name="grid-placement" type="placement">
+                          <value xsi:type="fixed"><![CDATA[x2-x7 m2-m11 m-clear]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <atom name="markdown">
+                          <properties>
+                            <property name="markdown" type="markdown">
+                              <value xsi:type="fixed"><![CDATA[If you use online streaming apps like Spotify, Netflix or YouTube, no problem. Just use our Songcast app to send it all to your Linn.
+
+Even better, if you have a dedicated hard drive or NAS you can play all your music from any device in your home and never have to worry about switching things on or off.]]></value>
+                            </property>
+                          </properties>
+                        </atom>
+                      </components>
+                    </container>
+                    <container name="aside">
+                      <properties>
+                        <property name="grid-placement" type="placement">
+                          <value xsi:type="fixed"><![CDATA[x9-x12 position-b-x m-hide]]></value>
+                        </property>
+                        <property name="padding" type="padding">
+                          <value xsi:type="fixed"><![CDATA[pad-r-4-x]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <atom name="markdown">
+                          <properties>
+                            <property name="markdown" type="markdown">
+                              <value xsi:type="fixed"><![CDATA[Flexible and future-proof, the way a music system should be...
+
+[Show me more](#jam)]]></value>
+                            </property>
+                          </properties>
+                        </atom>
                       </components>
                     </container>
                   </components>
