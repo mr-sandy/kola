@@ -5,7 +5,7 @@
             var targetId = $(this).attr("href");
             var target = $(targetId);
 
-            if (target) {
+            if (target && target.length > 0) {
                 event.stopPropagation();
 
                 $('body,html').stop().animate({

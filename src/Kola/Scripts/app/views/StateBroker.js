@@ -6,6 +6,8 @@
 
     var StateBroker = function () {
         _.bindAll(this, 'select');
+
+        this.selected = null;
     };
 
     _.extend(StateBroker.prototype, {
@@ -25,6 +27,7 @@
                 else {
                     self.selected = component;
                     self.selected.trigger('selected');
+                    self.selected.trigger('active');
                 }
 
                 self.trigger('change');
@@ -37,7 +40,20 @@
                 this.selected = null;
                 this.trigger('change');
             }
+        },
+
+        highlight: function (component) {
+            if (this.selected == null) {
+                component.trigger('active');
+            }
+        },
+
+        unhighlight: function (component) {
+            if (this.selected == null) {
+                component.trigger('inactive');
+            }
         }
+
 
     }, Backbone.Events);
 

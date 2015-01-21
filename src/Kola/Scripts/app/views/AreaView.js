@@ -55,12 +55,12 @@
 
         activate: function (e) {
             e.stopPropagation();
-            this.model.trigger('active');
+            this.stateBroker.highlight(this.model);
         },
 
         deactivate: function (e) {
             e.stopPropagation();
-            this.model.trigger('inactive');
+            this.stateBroker.unhighlight(this.model);
         },
 
         showActive: function () {

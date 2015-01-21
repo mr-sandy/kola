@@ -19,6 +19,7 @@
 
             this.listenTo(this.model, 'sync', this.handleSync);
             this.listenTo(this.model, 'active', this.showActive);
+            this.listenTo(this.model, 'selected', this.showSelected);
 
             this.mask = options.mask;
 
@@ -90,12 +91,12 @@
 
         activate: function (e) {
             e.stopPropagation();
-            this.model.trigger('active');
+            this.stateBroker.highlight(this.model);
         },
 
         deactivate: function (e) {
             e.stopPropagation();
-            this.model.trigger('inactive');
+            this.stateBroker.unhighlight(this.model);
         },
 
         select: function (e) {
@@ -141,6 +142,14 @@
 
         showActive: function () {
             this.mask.set(this.stretchCoords());
+        },
+
+        showSelected: function () {
+            var top = _.reduce(this.$el, function (memo, node) {
+                return node.nodeType != 8 ? _.max([$(node).offset().top, memo]) : memo;
+            }, 0);
+
+            this.$el.closest('body').animate({ scrollTop: top }, 600);
         }
     });
 });
