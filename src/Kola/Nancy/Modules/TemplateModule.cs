@@ -48,6 +48,8 @@
 
             template.ApplyAmendments(this.componentLibrary);
 
+            new ComponentRefreshingVisitor(this.componentLibrary).Refresh(template);
+
             var resource = new TemplateResourceBuilder().Build(template);
 
             return this.Negotiate

@@ -13,66 +13,40 @@
     _.extend(StateBroker.prototype, {
         register: function (component) {
             component.on('all', function (eventName) {
-                var self = this;
-                this.handleEvent(eventName, component).then(function (proceed) {
-                    self.trigger(eventName, component);
-                });
+                this.handleEvent(eventName, component);
             }, this);
         },
 
         handleEvent: function (eventName, component) {
-            var d = $.Deferred();
-
             switch (eventName) {
                 case 'selected':
-                    this.handleSelected(component, d);
+                    this.handleSelected(component);
                     break;
 
                 case 'active':
-                    this.handleActive(component, d);
-                    break;
-
-                default:
-                    d.resolve();
+                    this.handleActive(component);
                     break;
             }
 
-            return d.promise();
+            this.trigger(eventName, component);
         },
 
-        handleSelected: function (component, d) {
+        handleSelected: function (component) {
             var self = this;
 
             if (this.selected != null && this.selected != component) {
                 this.selected.trigger('deselected');
             }
 
-            if (component != null) {
-                if (component.refreshed) {
-                    this.selected = component;
-                    d.resolve();
-                }
-                else {
-                    component.fetch({ propertyListRefresh: true }).then(function () {
-                        component.refreshed = true;
-                        self.selected = component;
-                        d.resolve();
-                    });
-                }
-            }
-            else {
-                this.selected == null;
-                d.resolve();
-            }
+            this.selected = component;
         },
 
-        handleActive: function (component, d) {
+        handleActive: function (component) {
             if (this.active != null && this.active != component) {
                 this.active.trigger('inactive');
             }
 
             this.active = component;
-            d.resolve();
         }
 
     }, Backbone.Events);

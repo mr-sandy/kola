@@ -9,6 +9,14 @@
             this.componentLibrary = componentLibrary;
         }
 
+        public void Refresh(Template template)
+        {
+            foreach (var component in template.Components)
+            {
+                component.Accept(this);
+            }
+        }
+
         public void Visit(Atom atom)
         {
             var specification = this.componentLibrary.Lookup(atom.Name);
@@ -25,6 +33,11 @@
             {
                 container.FindOrCreateProperty(propertySpecification);
             }
+
+            foreach (var component in container.Components)
+            {
+                component.Accept(this);
+            }
         }
 
         public void Visit(Widget widget)
@@ -35,7 +48,10 @@
                 widget.FindOrCreateProperty(propertySpecification);
             }
 
-            // TODO 2015 - SYnc widget areas here 
+            foreach (var area in widget.Areas)
+            {
+                area.Accept(this);
+            }
         }
 
         public void Visit(Placeholder placeholder)
@@ -44,6 +60,10 @@
 
         public void Visit(Area area)
         {
+            foreach (var component in area.Components)
+            {
+                component.Accept(this);
+            }
         }
     }
 }

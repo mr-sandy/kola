@@ -19,7 +19,7 @@
 
             this.listenTo(this.model, 'sync', this.handleSync);
             this.listenTo(this.model, 'active', this.showActive);
-//            this.listenTo(this.model, 'inactive', this.showInactive);
+            //            this.listenTo(this.model, 'inactive', this.showInactive);
             this.listenTo(this.model, 'selected', this.showSelected);
             this.listenTo(this.model, 'deselected', this.showDeselected);
 
@@ -29,21 +29,16 @@
         },
 
         handleSync: function (model, response, options) {
-
-            // don't bother doing anything if we're just been getting an up-to-date property list
-            if (!(options.propertyListRefresh || false)) {
-
-                // if the element is not inside the body tag, we need to reload the whole page
-                if (this.$el.parents('body').length === 0) {
-                    this.fullRefresh();
-                }
-                else {
-                    $.ajax({
-                        url: this.model.previewUrl,
-                        dataType: 'html',
-                        context: this
-                    }).done(this.refresh);
-                }
+            // if the element is not inside the body tag, we need to reload the whole page
+            if (this.$el.parents('body').length === 0) {
+                this.fullRefresh();
+            }
+            else {
+                $.ajax({
+                    url: this.model.previewUrl,
+                    dataType: 'html',
+                    context: this
+                }).done(this.refresh);
             }
         },
 
