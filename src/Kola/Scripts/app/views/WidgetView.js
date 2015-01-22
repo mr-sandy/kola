@@ -15,7 +15,6 @@
 
         initialize: function (options) {
             this.amendmentBroker = options.amendmentBroker;
-            this.stateBroker = options.stateBroker;
 
             this.model.on('sync', this.render, this);
             this.model.on('active', this.showActive, this);
@@ -25,9 +24,9 @@
         },
 
         events: {
-            "mouseover": "activate",
-            "mouseout": "deactivate",
-            "click": "select"
+            'mouseover': 'handleMouseover',
+            'mouseout': 'handleMouseout',
+            'click': 'handleClick'
         },
 
         render: function () {
@@ -39,26 +38,26 @@
             this.$el.attr('data-component-path', this.model.get('path'));
 
             this.model.get('areas').each(function (component) {
-                var childView = componentViewFactory.build(component, self.amendmentBroker, self.stateBroker);
+                var childView = componentViewFactory.build(component, self.amendmentBroker);
                 self.$el.append(childView.render().$el);
             });
 
             return this;
         },
 
-        activate: function (e) {
+        handleMouseover: function (e) {
             e.stopPropagation();
-            this.stateBroker.highlight(this.model);
+            this.model.trigger('active');
         },
 
-        deactivate: function (e) {
+        handleMouseout: function (e) {
             e.stopPropagation();
-            this.stateBroker.unhighlight(this.model);
+            this.model.trigger('inactive');
         },
 
-        select: function (e) {
+        handleClick: function (e) {
             e.stopPropagation();
-            this.stateBroker.select(this.model);
+            this.model.trigger('selected');
         },
 
         showActive: function () {

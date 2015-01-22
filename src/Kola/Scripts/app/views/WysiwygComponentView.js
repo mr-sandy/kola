@@ -8,23 +8,22 @@
     return Backbone.View.extend({
 
         events: {
-            'mouseover': 'activate',
-            'mouseout': 'deactivate',
-            'click': 'select'
+            'mouseover': 'handleMouseover',
+            'mouseout': 'handleMouseout',
+            'click': 'handleClick'
         },
 
         initialize: function (options) {
-            this.stateBroker = options.stateBroker;
             this.fullRefresh = options.fullRefresh;
+            this.mask = options.mask;
 
             this.listenTo(this.model, 'sync', this.handleSync);
             this.listenTo(this.model, 'active', this.showActive);
+//            this.listenTo(this.model, 'inactive', this.showInactive);
             this.listenTo(this.model, 'selected', this.showSelected);
-
-            this.mask = options.mask;
+            this.listenTo(this.model, 'deselected', this.showDeselected);
 
             this.children = [];
-
             this.setElement(domHelper.findDirectlyOwned(options.$html));
             this.buildChildren(options.$html);
         },
@@ -69,7 +68,7 @@
 
                 childComponents.each(function (component) {
                     var $elements = domHelper.findElements($html, component.get('path'));
-                    this.children.push(new WysiwygComponentView({ model: component, $html: $elements, mask: this.mask, stateBroker: this.stateBroker, fullRefresh: this.fullRefresh }));
+                    this.children.push(new WysiwygComponentView({ model: component, $html: $elements, fullRefresh: this.fullRefresh, mask: this.mask }));
                 }, this);
             }
         },
@@ -89,19 +88,19 @@
             this.setElement(null);
         },
 
-        activate: function (e) {
+        handleMouseover: function (e) {
             e.stopPropagation();
-            this.stateBroker.highlight(this.model);
+            this.model.trigger('active');
         },
 
-        deactivate: function (e) {
+        handleMouseout: function (e) {
             e.stopPropagation();
-            this.stateBroker.unhighlight(this.model);
+            this.model.trigger('inactive');
         },
 
-        select: function (e) {
+        handleClick: function (e) {
             e.stopPropagation();
-            this.stateBroker.select(this.model);
+            this.model.trigger('selected');
         },
 
         stretchCoords: function (coords) {
@@ -141,15 +140,15 @@
         },
 
         showActive: function () {
-            this.mask.set(this.stretchCoords());
+            this.mask.highlight(this.stretchCoords());
         },
 
         showSelected: function () {
-            var top = _.reduce(this.$el, function (memo, node) {
-                return node.nodeType != 8 ? _.max([$(node).offset().top, memo]) : memo;
-            }, 0);
+            this.mask.select(this.stretchCoords());
+        },
 
-            this.$el.closest('body').animate({ scrollTop: top }, 600);
+        showDeselected: function () {
+            this.mask.deselect();
         }
     });
 });

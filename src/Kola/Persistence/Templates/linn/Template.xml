@@ -13,7 +13,7 @@
           <value xsi:type="fixed"><![CDATA[All about our network music players]]></value>
         </property>
         <property name="cache-buster" type="text">
-          <value xsi:type="fixed"><![CDATA[19Jan15]]></value>
+          <value xsi:type="fixed"><![CDATA[21Jan15]]></value>
         </property>
       </properties>
       <areas>
@@ -874,39 +874,5 @@ Even better, if you have a dedicated hard drive or NAS you can play all your mus
       </areas>
     </widget>
   </components>
-  <amendments>
-    <setPropertyFixed>
-      <componentPath>0</componentPath>
-      <propertyName>cache-buster</propertyName>
-      <fixedValue><![CDATA[21Jan15]]></fixedValue>
-    </setPropertyFixed>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/4/0/2/0/2/0</sourcePath>
-      <targetPath>0/0/4/0/2/0/2/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/1</sourcePath>
-      <targetPath>0/0/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/4/0</sourcePath>
-      <targetPath>0/0/4/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/5</sourcePath>
-      <targetPath>0/0/5</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/3/0/0/0</sourcePath>
-      <targetPath>0/0/3/0/0/0</targetPath>
-    </moveComponent>
-  </amendments>
+  <amendments />
 </template>

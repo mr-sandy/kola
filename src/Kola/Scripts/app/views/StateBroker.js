@@ -3,59 +3,81 @@
 
     var Backbone = require('backbone');
     var _ = require('underscore');
+    var $ = require('jquery');
 
     var StateBroker = function () {
-        _.bindAll(this, 'select');
-
         this.selected = null;
+        this.active = null;
     };
 
     _.extend(StateBroker.prototype, {
+        register: function (component) {
+            component.on('all', function (eventName) {
+                var self = this;
+                this.handleEvent(eventName, component).then(function (proceed) {
+                    self.trigger(eventName, component);
+                });
+            }, this);
+        },
 
-        select: function (component) {
+        handleEvent: function (eventName, component) {
+            var d = $.Deferred();
+
+            switch (eventName) {
+                case 'selected':
+                    this.handleSelected(component, d);
+                    break;
+
+                case 'active':
+                    this.handleActive(component, d);
+                    break;
+
+                default:
+                    d.resolve();
+                    break;
+            }
+
+            return d.promise();
+        },
+
+        handleSelected: function (component, d) {
             var self = this;
 
-            component.fetch({ propertyListRefresh: true }).then(function () {
+            if (this.selected != null && this.selected != component) {
+                this.selected.trigger('deselected');
+            }
 
-                if (self.selected) {
-                    self.selected.trigger('deselected');
-                }
-
-                if (self.selected == component) {
-                    self.selected = null;
+            if (component != null) {
+                if (component.refreshed) {
+                    this.selected = component;
+                    d.resolve();
                 }
                 else {
-                    self.selected = component;
-                    self.selected.trigger('selected');
-                    self.selected.trigger('active');
+                    component.fetch({ propertyListRefresh: true }).then(function () {
+                        component.refreshed = true;
+                        self.selected = component;
+                        d.resolve();
+                    });
                 }
-
-                self.trigger('change');
-            });
-        },
-
-        deselect: function () {
-            if (this.selected) {
-                this.selected.trigger('deselected');
-                this.selected = null;
-                this.trigger('change');
+            }
+            else {
+                this.selected == null;
+                d.resolve();
             }
         },
 
-        highlight: function (component) {
-            if (this.selected == null) {
-                component.trigger('active');
+        handleActive: function (component, d) {
+            if (this.active != null && this.active != component) {
+                this.active.trigger('inactive');
             }
-        },
 
-        unhighlight: function (component) {
-            if (this.selected == null) {
-                component.trigger('inactive');
-            }
+            this.active = component;
+            d.resolve();
         }
-
 
     }, Backbone.Events);
 
-    return StateBroker;
+    var stateBrokerSingleton = new StateBroker();
+
+    return stateBrokerSingleton;
 });

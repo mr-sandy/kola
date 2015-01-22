@@ -14,9 +14,7 @@
 
         template: Handlebars.compile(Template),
 
-        initialize: function (options) {
-            this.stateBroker = options.stateBroker;
-
+        initialize: function () {
             this.listenTo(this.model, 'sync', this.handleSync);
 
             this.mask = new Mask();
@@ -72,7 +70,7 @@
 
             this.model.get('components').each(function (component) {
                 var $elements = domHelper.findElements($html, component.get('path'));
-                this.children.push(new WysiwygComponentView({ model: component, $html: $elements, mask: this.mask, stateBroker: this.stateBroker, fullRefresh: $.proxy(this.fullRefresh, this) }));
+                this.children.push(new WysiwygComponentView({ model: component, $html: $elements, fullRefresh: $.proxy(this.fullRefresh, this), mask: this.mask }));
             }, this);
         },
 

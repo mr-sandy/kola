@@ -15,7 +15,6 @@
 
         initialize: function (options) {
             this.amendmentBroker = options.amendmentBroker;
-            this.stateBroker = options.stateBroker;
 
             this.model.on('sync', this.render, this);
             this.model.on('active', this.showActive, this);
@@ -23,8 +22,8 @@
         },
 
         events: {
-            "mouseover": "activate",
-            "mouseout": "deactivate"
+            'mouseover': 'handleMouseover',
+            'mouseout': 'handleMouseout'
         },
 
         render: function () {
@@ -38,7 +37,7 @@
             var $list = this.$('ul').first();
 
             this.model.get('components').each(function (component) {
-                var childView = componentViewFactory.build(component, self.amendmentBroker, self.stateBroker);
+                var childView = componentViewFactory.build(component, self.amendmentBroker);
                 $list.append(childView.render().$el);
             });
 
@@ -53,14 +52,14 @@
             return this;
         },
 
-        activate: function (e) {
+        handleMouseover: function (e) {
             e.stopPropagation();
-            this.stateBroker.highlight(this.model);
+            this.model.trigger('active');
         },
 
-        deactivate: function (e) {
+        handleMouseout: function (e) {
             e.stopPropagation();
-            this.stateBroker.unhighlight(this.model);
+            this.model.trigger('inactive');
         },
 
         showActive: function () {

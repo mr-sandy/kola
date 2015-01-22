@@ -11,11 +11,9 @@
 
         tagName: 'li',
 
-        className: function () { return 'atom' },
+        className: 'atom',
 
         initialize: function (options) {
-            this.stateBroker = options.stateBroker;
-
             this.model.on('active', this.showActive, this);
             this.model.on('inactive', this.showInactive, this);
             this.model.on('selected', this.showSelected, this);
@@ -23,9 +21,9 @@
         },
 
         events: {
-            "mouseover": "activate",
-            "mouseout": "deactivate",
-            "click": "select"
+            'mouseover': 'handleMouseover',
+            'mouseout': 'handleMouseout',
+            'click': 'handleClick'
         },
 
         render: function () {
@@ -35,19 +33,19 @@
             return this;
         },
 
-        activate: function (e) {
+        handleMouseover: function (e) {
             e.stopPropagation();
-            this.stateBroker.highlight(this.model);
+            this.model.trigger('active');
         },
 
-        deactivate: function (e) {
+        handleMouseout: function (e) {
             e.stopPropagation();
-            this.stateBroker.unhighlight(this.model);
+            this.model.trigger('inactive');
         },
 
-        select: function (e) {
+        handleClick: function (e) {
             e.stopPropagation();
-            this.stateBroker.select(this.model);
+            this.model.trigger('selected');
         },
 
         showActive: function () {

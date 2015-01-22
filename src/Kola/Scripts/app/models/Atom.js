@@ -3,8 +3,13 @@
 
     var Backbone = require('backbone');
     var _ = require('underscore');
+    var stateBroker = require('app/views/StateBroker');
 
     return Backbone.Model.extend({
+
+        initialize: function () {
+            stateBroker.register(this);
+        },
 
         parse: function (response) {
 

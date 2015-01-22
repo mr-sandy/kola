@@ -12,7 +12,6 @@
     var ToolboxView = require('app/views/ToolboxView');
 
     var AmendmentBroker = require('app/views/AmendmentBroker');
-    var StateBroker = require('app/views/StateBroker');
 
     var Template = require('text!app/templates/EditTemplateTemplate.html');
 
@@ -23,25 +22,20 @@
 
         initialize: function (options) {
 
-            var stateBroker = new StateBroker();
-
             this.amendmentsView = new AmendmentsView({
                 collection: this.model.amendments
             });
 
             this.blockEditorView = new BlockEditorView({
                 model: this.model,
-                amendmentBroker: new AmendmentBroker(this.model.amendments),
-                stateBroker: stateBroker
+                amendmentBroker: new AmendmentBroker(this.model.amendments)
             });
 
             this.wysiwygEditorView = new WysiwygEditorView({
-                model: this.model,
-                stateBroker: stateBroker
+                model: this.model
             });
 
             this.propertiesView = new PropertiesView({
-                stateBroker: stateBroker,
                 amendments: this.model.amendments
             });
 
