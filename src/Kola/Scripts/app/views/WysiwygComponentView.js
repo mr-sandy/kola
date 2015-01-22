@@ -98,12 +98,12 @@
             this.model.toggleSelected();
         },
 
-        stretchCoords: function (coords) {
+        findBounds: function (coords) {
 
             coords = coords || { top: null, bottom: null, left: null, right: null };
 
             _.each(this.$el, function (node) {
-                if (node.nodeType == 1) {
+                if (node.nodeType == 1 && $(node).is(":visible")) {
                     var $node = $(node);
                     var offset = $node.offset();
 
@@ -128,18 +128,18 @@
             });
 
             _.each(this.children, function (child) {
-                child.stretchCoords(coords);
+                child.findBounds(coords);
             });
 
             return coords;
         },
 
         showActive: function () {
-            this.mask.highlight(this.stretchCoords());
+            this.mask.highlight(this.findBounds());
         },
 
         showSelected: function () {
-            //this.mask.select(this.stretchCoords());
+            //this.mask.select(this.findBounds());
         },
 
         showDeselected: function () {
