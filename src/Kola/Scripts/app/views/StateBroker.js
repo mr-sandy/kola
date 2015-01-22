@@ -23,6 +23,10 @@
                     this.handleSelected(component);
                     break;
 
+                case 'deselected':
+                    this.handleDeselected(component);
+                    break;
+
                 case 'active':
                     this.handleActive(component);
                     break;
@@ -35,15 +39,23 @@
             var self = this;
 
             if (this.selected != null && this.selected != component) {
-                this.selected.trigger('deselected');
+                this.selected.toggleSelected();
             }
 
             this.selected = component;
         },
 
+        handleDeselected: function (component) {
+            var self = this;
+
+            if (this.selected == component) {
+                this.selected == null;
+            }
+        },
+
         handleActive: function (component) {
             if (this.active != null && this.active != component) {
-                this.active.trigger('inactive');
+                this.active.deactivate();
             }
 
             this.active = component;

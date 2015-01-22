@@ -534,8 +534,6 @@
                 }, 500);
             }
         }
-
-
     });
 
     /* jQuery plugin definition

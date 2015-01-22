@@ -874,20 +874,5 @@ Even better, if you have a dedicated hard drive or NAS you can play all your mus
       </areas>
     </widget>
   </components>
-  <amendments>
-    <setPropertyFixed>
-      <componentPath>0/0/2/0/3/1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[####Kikoy
-
-System From £2,495]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/2/0/3/1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[####Kiko
-
-System From £2,495]]></fixedValue>
-    </setPropertyFixed>
-  </amendments>
+  <amendments />
 </template>

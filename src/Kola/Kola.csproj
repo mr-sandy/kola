@@ -370,6 +370,7 @@
     <EmbeddedResource Include="Scripts\app\templates\EditTemplateTemplate.html" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Scripts\app\models\Component.js" />
     <EmbeddedResource Include="Scripts\app\views\StateBroker.js" />
     <EmbeddedResource Include="Scripts\app\views\PropertyView.js" />
     <EmbeddedResource Include="Scripts\app\templates\PropertyTemplate.html" />

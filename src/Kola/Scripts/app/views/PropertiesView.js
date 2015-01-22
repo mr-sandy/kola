@@ -17,6 +17,7 @@
             _.bindAll(this, 'render');
             this.amendments = options.amendments;
             stateBroker.on('selected', this.handleSelected, this);
+            stateBroker.on('deselected', this.handleDeselected, this);
         },
 
         events: {
@@ -28,8 +29,16 @@
             this.model = model;
 
             if (this.model !== null) {
-                this.model.on('sync', this.render);
+                this.listenTo(model, 'sync', this.render);
             }
+
+            this.render();
+        },
+
+        handleDeselected: function (model) {
+            this.model = null;
+
+            this.stopListening(model);
 
             this.render();
         },

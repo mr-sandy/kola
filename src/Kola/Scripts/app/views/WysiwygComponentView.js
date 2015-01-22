@@ -85,17 +85,17 @@
 
         handleMouseover: function (e) {
             e.stopPropagation();
-            this.model.trigger('active');
+            this.model.activate();
         },
 
         handleMouseout: function (e) {
             e.stopPropagation();
-            this.model.trigger('inactive');
+            this.model.deactivate();
         },
 
         handleClick: function (e) {
             e.stopPropagation();
-            this.model.trigger('selected');
+            this.model.toggleSelected();
         },
 
         stretchCoords: function (coords) {
@@ -139,11 +139,11 @@
         },
 
         showSelected: function () {
-            this.mask.select(this.stretchCoords());
+            //this.mask.select(this.stretchCoords());
         },
 
         showDeselected: function () {
-            this.mask.deselect();
+            //this.mask.deselect();
         }
     });
 });

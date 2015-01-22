@@ -11,13 +11,13 @@
         },
 
         deselect: function () {
-            //this.set({ mode: 'deselected' });
+            this.set({ mode: 'deselected' });
         },
 
         highlight: function (coords) {
-            if (this.get('mode') !== 'selected') {
+            //if (this.get('mode') !== 'selected') {
                 this.set(_.extend(coords, { mode: 'highlighted' }));
-            }
+            //}
         }
     });
 });

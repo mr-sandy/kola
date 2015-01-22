@@ -54,12 +54,12 @@
 
         handleMouseover: function (e) {
             e.stopPropagation();
-            this.model.trigger('active');
+            this.model.activate();
         },
 
         handleMouseout: function (e) {
             e.stopPropagation();
-            this.model.trigger('inactive');
+            this.model.deactivate();
         },
 
         showActive: function () {
