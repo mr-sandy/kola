@@ -5,7 +5,6 @@
     var Handlebars = require('handlebars');
     var $ = require('jquery');
     var WysiwygComponentView = require('app/views/WysiwygComponentView');
-    var Mask = require('app/models/Mask');
     var MaskView = require('app/views/MaskView');
     var domHelper = require('app/views/DomHelper');
     var Template = require('text!app/templates/WysiwygEditorTemplate.html');
@@ -17,8 +16,7 @@
         initialize: function () {
             this.listenTo(this.model, 'sync', this.handleSync);
 
-            this.mask = new Mask();
-            this.maskView = new MaskView({ model: this.mask });
+            this.maskView = new MaskView();
 
             _.bindAll(this, 'buildChildren');
 
@@ -70,7 +68,7 @@
 
             this.model.get('components').each(function (component) {
                 var $elements = domHelper.findElements($html, component.get('path'));
-                this.children.push(new WysiwygComponentView({ model: component, $html: $elements, fullRefresh: $.proxy(this.fullRefresh, this), mask: this.mask }));
+                this.children.push(new WysiwygComponentView({ model: component, $html: $elements, fullRefresh: $.proxy(this.fullRefresh, this), maskView: this.maskView }));
             }, this);
         },
 

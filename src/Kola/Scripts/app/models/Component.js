@@ -21,6 +21,13 @@
             }
         },
 
+        deselect: function () {
+            if (this.selected) {
+                this.selected = false;
+                this.trigger('deselected');
+            }
+        },
+
         activate: function () {
             this.trigger('active');
         },

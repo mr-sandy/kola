@@ -58,10 +58,19 @@
 
         showSelected: function () {
             this.$el.addClass('selected');
+            this.ensureVisible(this.$el);
         },
 
         showDeselected: function () {
             this.$el.removeClass('selected');
+        },
+
+        ensureVisible: function ($el) {
+            var offsetTop = $el.position().top;
+            var parent = $el.offsetParent();
+            var scrollTop = parent.scrollTop() + offsetTop - 50;
+
+            parent.animate({ scrollTop: scrollTop }, 500);
         }
     });
 });

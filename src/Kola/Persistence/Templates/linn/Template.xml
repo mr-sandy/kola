@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+<template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <widget name="page">
       <properties>
@@ -596,7 +596,7 @@ If you prefer to stick to iTunes, Spotify or whatever you normally use, that's f
                                       <value xsi:type="fixed"><![CDATA[http://small.linncdn.com/web/new-images/content/all-products/network-music-players/remote.png]]></value>
                                     </property>
                                     <property name="alt" type="text">
-                                      <value xsi:type="fixed"><![CDATA[PC or Mac]]></value>
+                                      <value xsi:type="fixed"><![CDATA[Remote]]></value>
                                     </property>
                                   </properties>
                                 </atom>
@@ -606,7 +606,7 @@ If you prefer to stick to iTunes, Spotify or whatever you normally use, that's f
                                     <atom name="markdown">
                                       <properties>
                                         <property name="markdown" type="markdown">
-                                          <value xsi:type="fixed"><![CDATA[PC or Mac]]></value>
+                                          <value xsi:type="fixed"><![CDATA[Remote]]></value>
                                         </property>
                                       </properties>
                                     </atom>

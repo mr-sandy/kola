@@ -39,7 +39,7 @@
             var self = this;
 
             if (this.selected != null && this.selected != component) {
-                this.selected.toggleSelected();
+                this.selected.deselect();
             }
 
             this.selected = component;

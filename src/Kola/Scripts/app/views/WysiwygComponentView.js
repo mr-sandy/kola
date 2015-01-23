@@ -15,7 +15,7 @@
 
         initialize: function (options) {
             this.fullRefresh = options.fullRefresh;
-            this.mask = options.mask;
+            this.maskView = options.maskView;
 
             this.listenTo(this.model, 'sync', this.handleSync);
             this.listenTo(this.model, 'active', this.showActive);
@@ -63,7 +63,7 @@
 
                 childComponents.each(function (component) {
                     var $elements = domHelper.findElements($html, component.get('path'));
-                    this.children.push(new WysiwygComponentView({ model: component, $html: $elements, fullRefresh: this.fullRefresh, mask: this.mask }));
+                    this.children.push(new WysiwygComponentView({ model: component, $html: $elements, fullRefresh: this.fullRefresh, maskView: this.maskView }));
                 }, this);
             }
         },
@@ -98,52 +98,16 @@
             this.model.toggleSelected();
         },
 
-        findBounds: function (coords) {
-
-            coords = coords || { top: null, bottom: null, left: null, right: null };
-
-            _.each(this.$el, function (node) {
-                if (node.nodeType == 1 && $(node).is(":visible")) {
-                    var $node = $(node);
-                    var offset = $node.offset();
-
-                    if (offset.top < coords.top || coords.top == null) {
-                        coords.top = offset.top;
-                    }
-
-                    if (offset.left < coords.left || coords.left == null) {
-                        coords.left = offset.left;
-                    }
-
-                    var bottom = offset.top + $node.outerHeight();
-                    if (bottom > coords.bottom || coords.bottom == null) {
-                        coords.bottom = bottom;
-                    }
-
-                    var right = offset.left + $node.outerWidth();
-                    if (right > coords.right || coords.right == null) {
-                        coords.right = right;
-                    }
-                }
-            });
-
-            _.each(this.children, function (child) {
-                child.findBounds(coords);
-            });
-
-            return coords;
-        },
-
         showActive: function () {
-            this.mask.highlight(this.findBounds());
+            this.maskView.highlight(this);
         },
 
         showSelected: function () {
-            //this.mask.select(this.findBounds());
+            this.maskView.select(this);
         },
 
         showDeselected: function () {
-            //this.mask.deselect();
+            this.maskView.deselect(this);
         }
     });
 });
