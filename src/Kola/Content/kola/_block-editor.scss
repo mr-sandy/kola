@@ -15,14 +15,18 @@
         li {
             margin: 0;
             padding: 0;
-            border: 3px #557 solid;
+            border: 3px $color-secondary-2 solid;
 
 			&.active {
-                border-color: #eee;
+                border-color: $color-primary;
+			}
+
+			&.selected {
+                border-color: $color-primary;
 			}
 
             &.new {
-                border: 3px #557 dotted;
+                border: 3px $color-primary dotted;
                 min-height: 40px;
             }		
 
@@ -31,7 +35,7 @@
 		    }
 
             &[data-type=toolbox-item] {
-                border: 3px #755 solid;
+                border: 3px $color-secondary-3 solid;
             }
         }
     }
@@ -41,64 +45,68 @@
 	}
 
     .atom {
-        background-color : $color-secondary-1-4;
+	    & > .chrome {
+            background-color : $color-atom;
+		}
 
-		&.selected {
-            background-color : $color-secondary-1-3;
+        &.selected > .chrome {
+            background-color : $color-atom-highlight;
 		}
     }
 
     .container {
-        background-color : $color-secondary-2-3;
+        background-color : $color-container-light;
 
 	    & > .chrome {
-            border-bottom: 2px #557 solid;
-            background-color : $color-secondary-2-4;
+            border-bottom: 2px $color-secondary-2 solid;
+            background-color : $color-container;
 		}
 
         &.selected {
-            background-color : $color-secondary-2-2;
+            background-color : $color-container;
 		}
 
         &.selected > .chrome {
-            background-color : $color-secondary-2-3;
+            background-color : $color-container-highlight;
 		}
     }
 
     .widget {
-        background-color : $color-complement-3;
+        background-color : $color-widget-light;
 
 	    & > .chrome {
-            border-bottom: 2px #557 solid;
-            background-color : $color-complement-4;
+            border-bottom: 2px $color-secondary-2 solid;
+            background-color : $color-widget;
 		}
 
         &.selected {
-            background-color : $color-complement-2;
-
-			.area {
-                background-color : $color-complement-2;
-
-                & > .chrome {
-                    background-color : $color-complement-3;
-		        }
-
-			}
+            background-color : $color-widget;
 		}
 
         &.selected > .chrome {
-            background-color : $color-complement-3;
+            background-color : $color-widget-highlight;
+		}
+
+
+        &.selected {
+			.area {
+                background-color : $color-widget;
+
+                & > .chrome {
+                    background-color : $color-widget-strong;
+		        }
+			}
 		}
 
         .area {
             margin: 15px;
             padding: 0;
-            border: 3px #557 solid;
-            background-color : $color-complement-3;
+            border: 3px $color-secondary-2 solid;
+            background-color : $color-widget-light;
             
 			& > .chrome {
-                border-bottom: 2px #557 solid;
-                background-color : $color-complement-4;
+                border-bottom: 2px $color-secondary-2 solid;
+                background-color : $color-widget;
 		    }       
         }
     }

@@ -874,5 +874,6 @@ Even better, if you have a dedicated hard drive or NAS you can play all your mus
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+  </amendments>
 </template>
