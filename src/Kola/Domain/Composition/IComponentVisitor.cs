@@ -38,17 +38,4 @@
 
         T Visit(Area area, TContext context);
     }
-
-    public interface IComponentVisitor<out T, in TData, in TContext>
-    {
-        T Visit(Atom atom, TData data, TContext context);
-
-        T Visit(Container container, TData data, TContext context);
-
-        T Visit(Widget widget, TData data, TContext context);
-
-        T Visit(Placeholder placeholder, TData data, TContext context);
-
-        T Visit(Area area, TData data, TContext context);
-    }
 }

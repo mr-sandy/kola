@@ -38,8 +38,8 @@
             grandparent.Properties.Single().Value = new FixedPropertyValue("property-value");
             grandparent.Insert(0, parent);
 
-            var visitor = new InstanceBuildingComponentVisitor();
-            this.instance = grandparent.Accept(visitor, new[] { 0 }, buildContext);
+            var visitor = new Builder();
+            this.instance = grandparent.Build(visitor, new[] { 0 }, buildContext);
         }
 
         [Test]

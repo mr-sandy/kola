@@ -30,9 +30,9 @@
             return visitor.Visit(this, context);
         }
 
-        public override T Accept<T, TContext1, TContext2>(IComponentVisitor<T, TContext1, TContext2> visitor, TContext1 context1, TContext2 context2)
+        public override ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildContext buildContext)
         {
-            return visitor.Visit(this, context1, context2);
+            return builder.Build(this, path, buildContext);
         }
 
         public override IComponent Clone()

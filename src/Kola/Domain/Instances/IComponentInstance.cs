@@ -15,7 +15,6 @@
 
         public abstract T Accept<T, TContext>(IComponentInstanceVisitor<T, TContext> visitor,  TContext context);
 
-        // TODO Refactor this as visitor?
         public abstract IResult Render(IMultiRenderer renderer);
     }
 }

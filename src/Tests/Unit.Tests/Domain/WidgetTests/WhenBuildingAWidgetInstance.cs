@@ -44,8 +44,8 @@
                     WidgetSpecificationFinder = n => specification
                 };
 
-            var visitor = new InstanceBuildingComponentVisitor();
-            this.instance = (WidgetInstance)widget.Accept(visitor, new[] { 0 }, buildContext);
+            var visitor = new Builder();
+            this.instance = (WidgetInstance)widget.Build(visitor, new[] { 0 }, buildContext);
         }
 
         [Test]

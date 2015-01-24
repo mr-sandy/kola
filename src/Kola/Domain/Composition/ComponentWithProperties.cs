@@ -48,7 +48,7 @@
 
         public abstract T Accept<T, TContext>(IComponentVisitor<T, TContext> visitor, TContext context);
 
-        public abstract T Accept<T, TContext1, TContext2>(IComponentVisitor<T, TContext1, TContext2> visitor, TContext1 context1, TContext2 context2);
+        public abstract ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildContext buildContext);
 
         public abstract IComponent Clone();
     }

@@ -41,8 +41,8 @@
             widget.FindOrCreateProperty(new PropertySpecification("property-alias", "property-type", string.Empty));
             widget.Properties.Single().Value = new FixedPropertyValue("property-value");
 
-            var visitor = new InstanceBuildingComponentVisitor();
-            this.instance = widget.Accept(visitor, new[] { 0 }, buildContext);
+            var visitor = new Builder();
+            this.instance = widget.Build(visitor, new[] { 0 }, buildContext);
         }
 
         [Test]

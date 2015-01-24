@@ -33,8 +33,8 @@
             container.Properties.Single().Value = new FixedPropertyValue("property-value");
             container.Insert(0, atom);
 
-            var visitor = new InstanceBuildingComponentVisitor();
-            this.instance = container.Accept(visitor, new[] { 0 }, buildContext);
+            var visitor = new Builder();
+            this.instance = container.Build(visitor, new[] { 0 }, buildContext);
         }
 
         [Test]

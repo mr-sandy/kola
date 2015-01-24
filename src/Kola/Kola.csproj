@@ -69,9 +69,9 @@
     <Compile Include="Domain\Composition\Amendments\DuplicateComponentAmendment.cs" />
     <Compile Include="Domain\Composition\Amendments\SetPropertyInheritedAmendment.cs" />
     <Compile Include="Domain\Composition\Amendments\SetPropertyMultilingualAmendment.cs" />
-    <Compile Include="Domain\Composition\CloningComponentVisitor.cs" />
     <Compile Include="Domain\Composition\CollectionFindingComponentVisitor.cs" />
     <Compile Include="Domain\Composition\ComponentFindingComponentVisitor.cs" />
+    <Compile Include="Domain\Composition\IBuilder.cs" />
     <Compile Include="Domain\Instances\InstanceBuildingComponentVisitor.cs" />
     <Compile Include="Domain\Composition\IPropertySpecificationLibrary.cs" />
     <Compile Include="Domain\Extensions\CloningExtensions.cs" />

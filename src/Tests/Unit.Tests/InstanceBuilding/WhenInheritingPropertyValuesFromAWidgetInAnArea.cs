@@ -40,8 +40,8 @@
             widget.Properties.Single().Value = new FixedPropertyValue("property-value");
             widget.Areas.Single().Insert(0, container);
 
-            var visitor = new InstanceBuildingComponentVisitor();
-            this.instance = widget.Accept(visitor, new[] { 0 }, buildContext);
+            var visitor = new Builder();
+            this.instance = widget.Build(visitor, new[] { 0 }, buildContext);
         }
 
         [Test]

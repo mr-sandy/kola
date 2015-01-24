@@ -40,8 +40,8 @@
                     WidgetSpecificationFinder = w => widgetSpecification
                 };
 
-            var visitor = new InstanceBuildingComponentVisitor();
-            var instance = widget.Accept(visitor, new[] { 0 }, buildContext);
+            var visitor = new Builder();
+            var instance = widget.Build(visitor, new[] { 0 }, buildContext);
 
             var rendererFactory = MockRepository.GenerateStub<IRendererFactory>();
             this.viewHelper = MockRepository.GenerateStub<IViewHelper>();
