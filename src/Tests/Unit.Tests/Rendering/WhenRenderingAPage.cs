@@ -29,6 +29,8 @@
             var atom3Specification = MockRepository.GenerateStub<IPluginComponentSpecification<IComponentWithProperties>>();
             var containerSpecification = MockRepository.GenerateStub<IPluginComponentSpecification<IComponentWithProperties>>();
 
+            var renderingInstructions = MockRepository.GenerateStub<IRenderingInstructions>();
+
             atom1Specification.ViewName = "Atom1View";
             atom2Specification.ViewName = "Atom2View";
             atom3Specification.ViewName = "Atom3View";
@@ -48,9 +50,9 @@
                 new PageInstance(
                     new ComponentInstance[]
                         {
-                            new AtomInstance(new[] { 0 }, "atom1", Enumerable.Empty<PropertyInstance>()),
-                            new AtomInstance(new[] { 1 }, "atom2", Enumerable.Empty<PropertyInstance>()),
-                            new ContainerInstance(new[] { 2 }, "container1", null, new[] { new AtomInstance(new[] { 2, 0 }, "atom3", Enumerable.Empty<PropertyInstance>()) })
+                            new AtomInstance(new[] { 0 }, renderingInstructions, "atom1", Enumerable.Empty<PropertyInstance>()),
+                            new AtomInstance(new[] { 1 }, renderingInstructions, "atom2", Enumerable.Empty<PropertyInstance>()),
+                            new ContainerInstance(new[] { 2 }, renderingInstructions, "container1", null, new[] { new AtomInstance(new[] { 2, 0 }, renderingInstructions, "atom3", Enumerable.Empty<PropertyInstance>()) })
                         });
 
             var viewFactory = new TestViewFactory(renderer);

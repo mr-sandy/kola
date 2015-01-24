@@ -1,14 +1,13 @@
 ﻿namespace Kola.Domain.Instances
 {
-    using System;
     using System.Collections.Generic;
 
     using Kola.Domain.Rendering;
 
     public class AreaInstance : ComponentInstance
     {
-         public AreaInstance(IEnumerable<int> path, IEnumerable<ComponentInstance> components = null)
-             : base(path)
+        public AreaInstance(IEnumerable<int> path, IRenderingInstructions renderingInstructions, IEnumerable<ComponentInstance> components = null)
+             : base(path, renderingInstructions)
          {
             this.Components = components;
         }

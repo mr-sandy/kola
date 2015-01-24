@@ -1,7 +1,6 @@
 ﻿namespace Kola.Nancy.Modules
 {
     using System.Collections.Generic;
-    using System.Linq;
 
     using Kola.Domain.Instances;
     using Kola.Domain.Rendering;
@@ -27,7 +26,7 @@
         private Negotiator GetPage(string rawPath)
         {
             var path = rawPath.ParsePath();
-            var page = this.pageHandler.GetPage(path);
+            var page = this.pageHandler.GetPage(path, true);
 
             var query = this.Bind<PreviewQuery>();
 

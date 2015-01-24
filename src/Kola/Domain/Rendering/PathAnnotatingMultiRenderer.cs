@@ -25,23 +25,30 @@
 
         public IResult Render(AtomInstance component)
         {
-            //TODO {SC} add a 'outer renderer' property to delegate rendering upwards (if a parent exists)
-            return new AnnotatedResult(this.inner.Render(component), component.Path);
+            return component.RenderingInstructions.AnnotateComponentPaths
+                ? new AnnotatedResult(this.inner.Render(component), component.Path)
+                : this.inner.Render(component);
         }
 
         public IResult Render(ContainerInstance component)
         {
-            return new AnnotatedResult(this.inner.Render(component), component.Path);
+            return component.RenderingInstructions.AnnotateComponentPaths
+                ? new AnnotatedResult(this.inner.Render(component), component.Path)
+                : this.inner.Render(component);
         }
 
         public IResult Render(WidgetInstance component)
         {
-            return new AnnotatedResult(this.inner.Render(component), component.Path);
+            return component.RenderingInstructions.AnnotateComponentPaths
+                ? new AnnotatedResult(this.inner.Render(component), component.Path)
+                : this.inner.Render(component);
         }
 
         public IResult Render(AreaInstance component)
         {
-            return new AnnotatedResult(this.inner.Render(component), component.Path);
+            return component.RenderingInstructions.AnnotateComponentPaths
+                ? new AnnotatedResult(this.inner.Render(component), component.Path)
+                : this.inner.Render(component);
         }
     }
 }

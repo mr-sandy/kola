@@ -87,6 +87,8 @@
     <Compile Include="Domain\Instances\Context\BuildContext.cs" />
     <Compile Include="Domain\Instances\IComponentInstanceVisitor.cs" />
     <Compile Include="Domain\Instances\PlaceholderInstance.cs" />
+    <Compile Include="Domain\Rendering\IRenderingInstructions.cs" />
+    <Compile Include="Domain\Rendering\RenderingInstructions.cs" />
     <Compile Include="Domain\Rendering\AnnotatedResult.cs" />
     <Compile Include="Domain\Rendering\Caching\CachingMultiRenderer.cs" />
     <Compile Include="Domain\Rendering\Caching\CachingResult.cs" />

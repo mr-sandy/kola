@@ -8,6 +8,7 @@
     using Kola.Domain.Composition;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Context;
+    using Kola.Domain.Rendering;
     using Kola.Domain.Specifications;
 
     using NUnit.Framework;
@@ -44,8 +45,8 @@
                     WidgetSpecificationFinder = n => specification
                 };
 
-            var visitor = new Builder();
-            this.instance = (WidgetInstance)widget.Build(visitor, new[] { 0 }, buildContext);
+            var builder = new Builder(new RenderingInstructions(false, true));
+            this.instance = (WidgetInstance)widget.Build(builder, new[] { 0 }, buildContext);
         }
 
         [Test]

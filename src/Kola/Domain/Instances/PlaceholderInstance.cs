@@ -6,8 +6,8 @@
 
     public class PlaceholderInstance : ComponentInstance
     {
-        public PlaceholderInstance(IEnumerable<int> path, ComponentInstance content)
-            : base(path)
+        public PlaceholderInstance(IEnumerable<int> path, IRenderingInstructions renderingInstructions, ComponentInstance content)
+            : base(path, renderingInstructions)
         {
             this.Content = content;
         }

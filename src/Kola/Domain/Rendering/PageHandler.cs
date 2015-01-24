@@ -23,7 +23,7 @@
             this.componentLibrary = componentLibrary;
         }
 
-        public PageInstance GetPage(IEnumerable<string> path)
+        public PageInstance GetPage(IEnumerable<string> path, bool preview)
         {
             var template = this.templateRepository.Get(path);
 
@@ -39,7 +39,13 @@
                     WidgetSpecificationFinder = n => this.widgetSpecificationRepository.Find(n)
                 };
 
-            return template.Build(buildContext);
+            var renderingInstructions = preview
+                ? new RenderingInstructions(false, true)
+                : new RenderingInstructions(true, false);
+
+            var builder = new Builder(renderingInstructions);
+
+            return template.Build(builder, buildContext);
         }
     }
 }

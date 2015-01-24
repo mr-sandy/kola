@@ -6,8 +6,8 @@
 
     public class WidgetInstance : ComponentInstance
     {
-        public WidgetInstance(IEnumerable<int> path, IEnumerable<ComponentInstance> components = null)
-            : base(path)
+        public WidgetInstance(IEnumerable<int> path, IRenderingInstructions renderingInstructions, IEnumerable<ComponentInstance> components = null)
+            : base(path, renderingInstructions)
         {
             this.Components = components;
         }

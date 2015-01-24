@@ -20,8 +20,11 @@
   <MSTestThreadApartmentState>STA</MSTestThreadApartmentState>
   <BuildProcessArchitecture>x86</BuildProcessArchitecture>
   <IgnoredTests>
-    <RegexTestSelector>
-      <RegularExpression>Integration\.Tests\.Nancy\.Modules\.RenderingModuleSpecs\.WhenGettingAPage\..*</RegularExpression>
-    </RegexTestSelector>
+    <NamedTestSelector>
+      <TestName>Integration.Tests.Nancy.Modules.RenderingModuleSpecs.WhenGettingAPage.ShouldReturnOk</TestName>
+    </NamedTestSelector>
+    <NamedTestSelector>
+      <TestName>Integration.Tests.Nancy.Modules.RenderingModuleSpecs.WhenGettingAPage.ShouldReturnHtml</TestName>
+    </NamedTestSelector>
   </IgnoredTests>
 </ProjectConfiguration>

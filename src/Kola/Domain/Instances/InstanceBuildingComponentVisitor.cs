@@ -1,18 +1,33 @@
 ﻿namespace Kola.Domain.Instances
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kola.Domain.Composition;
     using Kola.Domain.Instances.Context;
+    using Kola.Domain.Rendering;
     using Kola.Extensions;
 
     public class Builder : IBuilder
     {
+        private readonly RenderingInstructions renderingInstructions;
+
+        public Builder(RenderingInstructions renderingInstructions)
+        {
+            this.renderingInstructions = renderingInstructions;
+        }
+
+        public PageInstance Build(Template template, IBuildContext buildContext)
+        {
+            return new PageInstance(template.Components.Select((c, i) => c.Build(this, new[] { i }, buildContext)).ToList());
+        }
+
         public ComponentInstance Build(Atom atom, IEnumerable<int> path, IBuildContext buildContext)
         {
             return new AtomInstance(
                 path,
+                this.renderingInstructions,
                 atom.Name,
                 atom.Properties.Select(p => p.Build(buildContext)).ToList());
         }
@@ -27,7 +42,12 @@
 
             buildContext.ContextSets.Pop();
 
-            return new ContainerInstance(path, container.Name, propertyInstances, children);
+            return new ContainerInstance(
+                path, 
+                this.renderingInstructions, 
+                container.Name, 
+                propertyInstances, 
+                children);
         }
 
         public ComponentInstance Build(Widget widget, IEnumerable<int> path, IBuildContext buildContext)
@@ -52,7 +72,10 @@
             buildContext.AreaContents.Pop();
             buildContext.ContextSets.Pop();
 
-            return new WidgetInstance(path, components);
+            return new WidgetInstance(
+                path,
+                this.renderingInstructions,
+                components);
         }
 
         public ComponentInstance Build(Placeholder placeholder, IEnumerable<int> path, IBuildContext buildContext)
@@ -61,12 +84,18 @@
                                         ? buildContext.AreaContents.Peek()[placeholder.Name]
                                         : null;
 
-            return new PlaceholderInstance(path, componentInstance);
+            return new PlaceholderInstance(
+                path,
+                this.renderingInstructions,
+                componentInstance);
         }
 
         public ComponentInstance Build(Area area, IEnumerable<int> path, IBuildContext buildContext)
         {
-            return new AreaInstance(path, area.Components.Select((c, i) => c.Build(this, path.Append(i), buildContext)).ToList());
+            return new AreaInstance(
+                path,
+                this.renderingInstructions,
+                area.Components.Select((c, i) => c.Build(this, path.Append(i), buildContext)).ToList());
         }
     }
 }

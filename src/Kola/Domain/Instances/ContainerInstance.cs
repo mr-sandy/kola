@@ -6,8 +6,8 @@
 
     public class ContainerInstance : ComponentInstance
     {
-        public ContainerInstance(IEnumerable<int> path, string name, IEnumerable<PropertyInstance> properties, IEnumerable<ComponentInstance> components = null)
-            : base(path)
+        public ContainerInstance(IEnumerable<int> path, IRenderingInstructions renderingInstructions, string name, IEnumerable<PropertyInstance> properties, IEnumerable<ComponentInstance> components = null)
+            : base(path, renderingInstructions)
         {
             this.Name = name;
             this.Properties = properties;

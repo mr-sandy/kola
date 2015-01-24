@@ -6,8 +6,8 @@
 
     public class AtomInstance : ComponentInstance
     {
-        public AtomInstance(IEnumerable<int> path, string name, IEnumerable<PropertyInstance> properties)
-            : base(path)
+        public AtomInstance(IEnumerable<int> path, IRenderingInstructions renderingInstructions, string name, IEnumerable<PropertyInstance> properties)
+            : base(path, renderingInstructions)
         {
             this.Name = name;
             this.Properties = properties;

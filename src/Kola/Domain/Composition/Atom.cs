@@ -1,8 +1,6 @@
 ﻿namespace Kola.Domain.Composition
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances;

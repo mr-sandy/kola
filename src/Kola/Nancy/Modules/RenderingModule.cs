@@ -22,7 +22,7 @@
         private Negotiator GetPage(string rawPath)
         {
             var path = rawPath.ParsePath();
-            var page = this.pageHandler.GetPage(path);
+            var page = this.pageHandler.GetPage(path, false);
 
             return this.Negotiate
                 .WithModel(page)
