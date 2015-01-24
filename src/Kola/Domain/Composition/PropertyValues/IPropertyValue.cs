@@ -1,6 +1,6 @@
 ﻿namespace Kola.Domain.Composition.PropertyValues
 {
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
 
     public interface IPropertyValue
     {

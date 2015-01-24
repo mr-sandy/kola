@@ -3,7 +3,7 @@
     using System;
     using System.Linq;
 
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
 
     public class InheritedPropertyValue : IPropertyValue
     {

@@ -8,7 +8,8 @@
     using Kola.Configuration;
     using Kola.Configuration.Plugins;
     using Kola.Domain.Composition;
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances;
+    using Kola.Domain.Instances.Context;
     using Kola.Domain.Rendering;
     using Kola.Domain.Specifications;
 
@@ -39,7 +40,8 @@
                     WidgetSpecificationFinder = w => widgetSpecification
                 };
 
-            var instance = widget.Build(new[] { 0 }, buildContext);
+            var visitor = new InstanceBuildingComponentVisitor();
+            var instance = widget.Accept(visitor, new[] { 0 }, buildContext);
 
             var rendererFactory = MockRepository.GenerateStub<IRendererFactory>();
             this.viewHelper = MockRepository.GenerateStub<IViewHelper>();

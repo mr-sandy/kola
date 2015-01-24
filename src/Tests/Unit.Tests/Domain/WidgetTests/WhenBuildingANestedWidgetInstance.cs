@@ -10,7 +10,7 @@ namespace Unit.Tests.Domain.WidgetTests
 
     using Kola.Domain.Composition;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
     using Kola.Domain.Specifications;
 
     using NUnit.Framework;
@@ -118,7 +118,8 @@ namespace Unit.Tests.Domain.WidgetTests
                     WidgetSpecificationFinder = n => n == "widget 1" ? specification1 : specification2
                 };
 
-            this.instance = (WidgetInstance)widget.Build(new[] { 0 }, buildContext);
+            var visitor = new InstanceBuildingComponentVisitor();
+            this.instance = (WidgetInstance)widget.Accept(visitor, new[] { 0 }, buildContext);
         }
 
         [Test]

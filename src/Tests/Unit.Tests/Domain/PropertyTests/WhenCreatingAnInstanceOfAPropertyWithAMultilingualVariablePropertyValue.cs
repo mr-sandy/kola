@@ -7,7 +7,7 @@
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
 
     using NUnit.Framework;
 

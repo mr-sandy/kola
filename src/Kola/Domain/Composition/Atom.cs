@@ -6,7 +6,7 @@
 
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
 
     public class Atom : ComponentWithProperties
     {
@@ -30,12 +30,9 @@
             return visitor.Visit(this, context);
         }
 
-        public override ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext)
+        public override T Accept<T, TContext1, TContext2>(IComponentVisitor<T, TContext1, TContext2> visitor, TContext1 context1, TContext2 context2)
         {
-            return new AtomInstance(
-                path,
-                this.Name,
-                this.Properties.Select(p => p.Build(buildContext)).ToList());
+            return visitor.Visit(this, context1, context2);
         }
 
         public override IComponent Clone()

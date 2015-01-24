@@ -7,7 +7,7 @@
     using Kola;
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
     using Kola.Extensions;
 
     public class Container : ComponentWithProperties, IComponentCollection
@@ -58,17 +58,9 @@
             return visitor.Visit(this, context);
         }
 
-        public override ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext)
+        public override T Accept<T, TContext1, TContext2>(IComponentVisitor<T, TContext1, TContext2> visitor, TContext1 context1, TContext2 context2)
         {
-            var propertyInstances = this.Properties.Select(p => p.Build(buildContext)).ToList();
-
-            buildContext.ContextSets.Push(new ContextSet(propertyInstances));
-
-            var children = this.Components.Select((c, i) => c.Build(path.Append(i), buildContext)).ToList();
-
-            buildContext.ContextSets.Pop();
-
-            return new ContainerInstance(path, this.Name, propertyInstances, children);
+            return visitor.Visit(this, context1, context2);
         }
 
         public override IComponent Clone()

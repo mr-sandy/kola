@@ -5,7 +5,7 @@
     using System.Linq;
 
     using Kola.Domain.Extensions;
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
 
     public class MultilingualPropertyValue : IPropertyValue
     {

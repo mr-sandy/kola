@@ -2,7 +2,7 @@
 {
     using System;
 
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
 
     public class FixedPropertyValue : IPropertyValue
     {

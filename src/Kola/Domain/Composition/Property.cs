@@ -4,7 +4,7 @@
 
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
 
     public class Property
     {
@@ -21,6 +21,7 @@
 
         public IPropertyValue Value { get; set; }
 
+        // TODO {SC} Repalce this with a visitor too?
         public PropertyInstance Build(IBuildContext buildContext)
         {
             return new PropertyInstance(this.Name, this.Value.Resolve(buildContext));

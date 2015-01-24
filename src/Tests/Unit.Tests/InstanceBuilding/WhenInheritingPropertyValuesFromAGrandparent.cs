@@ -7,7 +7,7 @@
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
     using Kola.Domain.Specifications;
 
     using NUnit.Framework;
@@ -38,7 +38,8 @@
             grandparent.Properties.Single().Value = new FixedPropertyValue("property-value");
             grandparent.Insert(0, parent);
 
-            this.instance = grandparent.Build(new[] { 0 }, buildContext);
+            var visitor = new InstanceBuildingComponentVisitor();
+            this.instance = grandparent.Accept(visitor, new[] { 0 }, buildContext);
         }
 
         [Test]

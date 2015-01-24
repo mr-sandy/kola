@@ -7,7 +7,7 @@
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
     using Kola.Domain.Specifications;
 
     using NUnit.Framework;
@@ -37,7 +37,8 @@
             widget.FindOrCreateProperty(new PropertySpecification("property-alias", "property-type", string.Empty));
             widget.Properties.Single().Value = new FixedPropertyValue("property-value");
 
-            this.instance = widget.Build(new[] { 0 }, buildContext);
+            var visitor = new InstanceBuildingComponentVisitor();
+            this.instance = widget.Accept(visitor, new[] { 0 }, buildContext);
         }
 
         [Test]

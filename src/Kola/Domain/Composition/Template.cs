@@ -7,7 +7,7 @@
     using Kola;
     using Kola.Domain.Composition.Amendments;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
 
     public class Template : IComponentCollection
     {
@@ -83,7 +83,8 @@
 
         public PageInstance Build(IBuildContext buildContext)
         {
-            return new PageInstance(this.Components.Select((c, i) => c.Build(new[] { i }, buildContext)).ToList());
+            var visitor = new InstanceBuildingComponentVisitor();
+            return new PageInstance(this.Components.Select((c, i) => c.Accept(visitor, new[] { i }, buildContext)).ToList());
         }
     }
 }

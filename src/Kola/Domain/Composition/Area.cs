@@ -6,7 +6,7 @@
 
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
     using Kola.Extensions;
 
     public class Area : IComponentCollection, IComponent
@@ -60,9 +60,9 @@
             return visitor.Visit(this, context);
         }
 
-        public ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext)
+        public T Accept<T, TContext1, TContext2>(IComponentVisitor<T, TContext1, TContext2> visitor, TContext1 context1, TContext2 context2)
         {
-            return new AreaInstance(path, this.Components.Select((c, i) => c.Build(path.Append(i), buildContext)).ToList());
+            return visitor.Visit(this, context1, context2);
         }
 
         public IComponent Clone()

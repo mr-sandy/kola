@@ -6,7 +6,7 @@
 
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Building;
+    using Kola.Domain.Instances.Context;
     using Kola.Extensions;
 
     public class Widget : ComponentWithProperties
@@ -34,29 +34,9 @@
             return visitor.Visit(this, context);
         }
 
-        public override ComponentInstance Build(IEnumerable<int> path, IBuildContext buildContext)
+        public override T Accept<T, TContext1, TContext2>(IComponentVisitor<T, TContext1, TContext2> visitor, TContext1 context1, TContext2 context2)
         {
-            // Add the widget's parameters to the context to be picjed up by any children
-            var propertyInstances = this.Properties.Select(p => p.Build(buildContext)).ToList();
-            buildContext.ContextSets.Push(new ContextSet(propertyInstances));
-
-            var areas = this.Areas.Select(
-                (a, i) => new { Name = a.Name, Components = a.Build(path.Append(i), buildContext) })
-                .ToList()
-                .ToDictionary(d => d.Name, d => d.Components);
-
-            buildContext.AreaContents.Push(areas);
-
-            var specification = buildContext.WidgetSpecificationFinder(this.Name);
-
-            // Notice that we're passing null as the path - we don't want to annotate the components from the widget 
-            // specification because they're not components that the editor of the current template can do anything about
-            var components = specification.Components.Select((c, i) => c.Build(null, buildContext)).ToList();
-
-            buildContext.AreaContents.Pop();
-            buildContext.ContextSets.Pop();
-
-            return new WidgetInstance(path, components);
+            return visitor.Visit(this, context1, context2);
         }
 
         public override IComponent Clone()

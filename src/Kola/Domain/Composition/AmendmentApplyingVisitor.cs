@@ -55,6 +55,8 @@
             var component = this.template.FindComponent(amendment.ComponentPath);
             var parent = this.template.FindCollection(amendment.ComponentPath.TakeAllButLast());
 
+            var visitor = new CloningComponentVisitor();
+//            var clone = component.Accept(visitor);
             var clone = component.Clone();
             var index = amendment.ComponentPath.Last() + 1;
 
