@@ -1,13 +1,10 @@
-﻿namespace Kola.Nancy.Modules
+﻿namespace Kola.Domain.Instances
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Domain.Instances;
     using Kola.Extensions;
 
-    // TODO Find a better home for this
     internal class ComponentFindingComponentInstanceVisitor : IComponentInstanceVisitor<ComponentInstance, IEnumerable<int>>
     {
         public ComponentInstance Find(PageInstance page, IEnumerable<int> path)

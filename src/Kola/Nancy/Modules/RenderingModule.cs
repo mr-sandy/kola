@@ -1,9 +1,11 @@
 ﻿namespace Kola.Nancy.Modules
 {
+    using Kola.Domain.Instances;
     using Kola.Domain.Rendering;
     using Kola.Extensions;
 
     using global::Nancy;
+    using global::Nancy.ModelBinding;
     using global::Nancy.Responses.Negotiation;
 
     public class RenderingModule : NancyModule
@@ -22,7 +24,19 @@
         private Negotiator GetPage(string rawPath)
         {
             var path = rawPath.ParsePath();
-            var page = this.pageHandler.GetPage(path, false);
+            var query = this.Bind<RenderQuery>();
+            var page = this.pageHandler.GetPage(path, query.IsPreview);
+
+            if (!string.IsNullOrEmpty(query.ComponentPath))
+            {
+                var visitor = new ComponentFindingComponentInstanceVisitor();
+                var fragment = visitor.Find(page, query.ComponentPath.ParseComponentPath());
+
+                return this
+                    .Negotiate
+                    .WithModel(fragment)
+                    .WithView("Fragment");
+            }
 
             return this.Negotiate
                 .WithModel(page)

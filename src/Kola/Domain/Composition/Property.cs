@@ -21,7 +21,6 @@
 
         public IPropertyValue Value { get; set; }
 
-        // TODO {SC} Repalce this with a visitor too?
         public PropertyInstance Build(IBuildContext buildContext)
         {
             return new PropertyInstance(this.Name, this.Value.Resolve(buildContext));

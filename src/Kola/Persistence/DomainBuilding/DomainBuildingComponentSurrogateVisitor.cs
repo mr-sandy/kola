@@ -28,7 +28,6 @@
 
         public IComponent Visit(WidgetSurrogate surrogate)
         {
-            // TODO Here is a cast!!
             return new Widget(
                 surrogate.Name,
                 surrogate.Areas.Select(a => a.Accept(this)).Cast<Area>().ToArray(),

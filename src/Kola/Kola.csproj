@@ -64,8 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DomainBuilding\AmendmentDomainBuilder.cs" />
-    <Compile Include="DomainBuilding\DomainBuildingAmendmentResourceVisitor.cs" />
+    <Compile Include="Resources\DomainBuilding\AmendmentDomainBuilder.cs" />
+    <Compile Include="Resources\DomainBuilding\DomainBuildingAmendmentResourceVisitor.cs" />
     <Compile Include="Domain\Composition\Amendments\DuplicateComponentAmendment.cs" />
     <Compile Include="Domain\Composition\Amendments\SetPropertyInheritedAmendment.cs" />
     <Compile Include="Domain\Composition\Amendments\SetPropertyMultilingualAmendment.cs" />
@@ -141,11 +141,10 @@
     <Compile Include="Domain\Instances\WidgetInstance.cs" />
     <Compile Include="Domain\Specifications\WidgetSpecification.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
-    <Compile Include="Nancy\Modules\ComponentFindingComponentInstanceVisitor.cs" />
+    <Compile Include="Domain\Instances\ComponentFindingComponentInstanceVisitor.cs" />
     <Compile Include="Domain\Composition\ComponentRefreshingVisitor.cs" />
     <Compile Include="Nancy\Modules\PropertyTypeModule.cs" />
-    <Compile Include="Nancy\Modules\PreviewModule.cs" />
-    <Compile Include="Nancy\Modules\PreviewQuery.cs" />
+    <Compile Include="Nancy\Modules\RenderQuery.cs" />
     <Compile Include="Persistence\Surrogates\Amendments\DuplicateComponentAmendmentSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\Amendments\SetPropertyFixedAmendmentSurrogate.cs" />
     <Compile Include="Persistence\Surrogates\PropertySpecificationSurrogate.cs" />

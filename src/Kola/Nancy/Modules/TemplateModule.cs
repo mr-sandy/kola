@@ -5,7 +5,6 @@
     using Kola.Domain.Composition;
     using Kola.Domain.Extensions;
     using Kola.Domain.Specifications;
-    using Kola.DomainBuilding;
     using Kola.Extensions;
     using Kola.Persistence;
     using Kola.ResourceBuilding;
@@ -13,6 +12,8 @@
 
     using global::Nancy;
     using global::Nancy.ModelBinding;
+
+    using Kola.Resources.DomainBuilding;
 
     // TODO {SC} Refactor bulk of code into a service independent of Nancy (add to the Kola.Services namespace); make this module as lightweight as possible
     public class TemplateModule : NancyModule

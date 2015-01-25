@@ -1,4 +1,4 @@
-﻿namespace Kola.DomainBuilding
+﻿namespace Kola.Resources.DomainBuilding
 {
     using Kola.Domain.Composition.Amendments;
     using Kola.Resources;

@@ -75,7 +75,7 @@
         {
             var link = ((IEnumerable<dynamic>)this.jsonResponse.links).FirstOrDefault(l => l.rel == "preview");
 
-            ((string)link.href).Should().Be("/_kola/preview/test/path");
+            ((string)link.href).Should().Be("/test/path?preview=y");
         }
     }
 }

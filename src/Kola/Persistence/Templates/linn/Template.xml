@@ -874,16 +874,5 @@ Even better, if you have a dedicated hard drive or NAS you can play all your mus
       </areas>
     </widget>
   </components>
-  <amendments>
-    <setPropertyFixed>
-      <componentPath>0/0/5/0/1/1/1/1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[Katy is awesum]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/5/0/1/1/1/1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[NAS]]></fixedValue>
-    </setPropertyFixed>
-  </amendments>
+  <amendments />
 </template>

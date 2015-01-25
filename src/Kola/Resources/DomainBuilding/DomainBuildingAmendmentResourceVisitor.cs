@@ -1,7 +1,5 @@
-﻿namespace Kola.DomainBuilding
+﻿namespace Kola.Resources.DomainBuilding
 {
-    using System;
-
     using Kola.Domain.Composition.Amendments;
     using Kola.Extensions;
     using Kola.Resources;

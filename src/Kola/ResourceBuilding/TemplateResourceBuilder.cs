@@ -25,7 +25,7 @@
                                 new LinkResource
                                     {
                                         Rel = "preview",
-                                        Href = new[] { "_kola", "preview" }.Concat(template.Path).ToHttpPath()
+                                        Href = template.Path.ToHttpPath() + "?preview=y"
                                     },
                                 new LinkResource
                                     {
