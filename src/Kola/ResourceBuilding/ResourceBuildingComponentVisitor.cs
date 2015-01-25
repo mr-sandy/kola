@@ -97,7 +97,7 @@
             yield return new LinkResource
             {
                 Rel = "preview",
-                Href = string.Format("{0}?componentPath={1}", new[] { "_kola", "preview" }.Concat(this.templatePath).ToHttpPath(), context.Select(i => i.ToString()).ToHttpPath())
+                Href = string.Format("{0}?preview=y&componentPath={1}", this.templatePath.ToHttpPath(), context.Select(i => i.ToString()).ToHttpPath())
             };
         }
     }

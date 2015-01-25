@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+  <components>
+    <widget name="page">
+      <properties>
+        <property name="colour" type="text">
+          <value xsi:type="fixed"><![CDATA[red]]></value>
+        </property>
+      </properties>
+      <areas>
+        <area name="content">
+          <components>
+            <container name="section">
+              <properties />
+              <components>
+                <container name="inner">
+                  <properties />
+                  <components>
+                    <container name="division">
+                      <properties>
+                        <property name="grid-placement" type="placement">
+                          <value xsi:type="fixed"><![CDATA[x3-x6]]></value>
+                        </property>
+                        <property name="padding" type="padding">
+                          <value xsi:type="fixed"><![CDATA[pad-t-3-x]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <atom name="markdown">
+                          <properties>
+                            <property name="markdown" type="markdown">
+                              <value xsi:type="fixed"><![CDATA[*add content here*]]></value>
+                            </property>
+                          </properties>
+                        </atom>
+                      </components>
+                    </container>
+                    <container name="division">
+                      <properties>
+                        <property name="grid-placement" type="placement">
+                          <value xsi:type="fixed"><![CDATA[x7-x9]]></value>
+                        </property>
+                        <property name="padding" type="padding">
+                          <value xsi:type="fixed"><![CDATA[pad-t-5-x]]></value>
+                        </property>
+                        <property name="background-colour" type="colour">
+                          <value xsi:type="fixed"><![CDATA[tint3]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <atom name="markdown">
+                          <properties>
+                            <property name="markdown" type="markdown">
+                              <value xsi:type="fixed"><![CDATA[**add content there**]]></value>
+                            </property>
+                          </properties>
+                        </atom>
+                      </components>
+                    </container>
+                  </components>
+                </container>
+              </components>
+            </container>
+          </components>
+        </area>
+        <area name="scripts">
+          <components />
+        </area>
+      </areas>
+    </widget>
+  </components>
+  <amendments />
+</template>
