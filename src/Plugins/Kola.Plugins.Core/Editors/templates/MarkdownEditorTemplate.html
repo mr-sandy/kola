@@ -1,5 +1,8 @@
-﻿<div class="modal">
-    <textarea rows="10" style="display:block; width:95%" >{{ value.value }}</textarea>
-    <input type="submit" style="magin-top:10px" value="submit" />
-</div>
+﻿<span>{{value.value}}</span>
+{{#if editMode}}
+<form class="modal">
+    <textarea rows="10" style="display: block; width: 95%">{{value.value}}</textarea>
+    <input type="submit" value="submit" />
+</form>
 <div class="overlay"></div>
+{{/if}}

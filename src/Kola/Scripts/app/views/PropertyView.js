@@ -19,8 +19,7 @@
         },
 
         events: {
-            'click': 'edit',
-            'submit': 'submit'
+            'click': 'edit'
         },
 
         render: function () {
@@ -29,8 +28,9 @@
             var context = _.extend(this.model, { editMode: this.editMode });
 
             this.$el.html(this.template(context));
+            var $editorElement = this.$el.find('.value').last();
 
-            this.loadEditor().then($.proxy(this.renderEditor, this));
+            this.loadEditor($editorElement).then($.proxy(this.renderEditor, this));
 
             return this;
         },
@@ -42,23 +42,23 @@
             }
         },
 
-        loadEditor: function () {
+        loadEditor: function ($editorElement) {
             var self = this;
             var d = $.Deferred();
 
             var property = this.model;
             var editorInfo = this.getEditorInfo(this.model.type);
-            var $child = this.$el.find('.value form').last();
 
             if (this.editorView) {
-                this.editorView.remove();
+                this.editorView.setElement($editorElement);
+                d.resolve();
             }
-
+            else 
             if (editorInfo) {
                 require([editorInfo.url], function (EditorView) {
                     self.editorView = new EditorView({
                         model: property,
-                        el: $child
+                        el: $editorElement
                     });
                     self.editorView.on('submit', self.submit, self)
                     d.resolve();

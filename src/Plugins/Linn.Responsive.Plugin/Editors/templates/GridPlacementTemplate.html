@@ -1,0 +1,30 @@
+﻿<table>
+    <tbody>
+        {{#each this}}
+        <tr>
+            <td>
+                {{grid}}
+            </td>
+            <td>
+                <table>
+                    <tbody>
+                        {{#if settings.position}}
+                        <tr>
+                            <td>position</td>
+                            <td>{{settings.position}}</td>
+                        </tr>
+                        {{/if}}
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        {{/each }}
+    </tbody>
+</table>
+{{#if editMode}}
+<form class="modal">
+    <textarea rows="10" style="display:block; width:95%" >{{ value.value }}</textarea>
+    <input type="submit" style="magin-top:10px" value="submit" />
+</form>
+<div class="overlay"></div>
+{{/if}}

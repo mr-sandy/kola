@@ -14,8 +14,7 @@
         private static readonly Dictionary<string, Func<string, string>> CssClassHandlers =
             new Dictionary<string, Func<string, string>>
                 {
-                    { "grid-placement2", v => GetGridSettings<GridPlacement>(v) },
-                    { "grid-placement", v => GetClass(v) },
+                    { "grid-placement", v => GetGridSettings<GridPlacement>(v) },
                     { "padding", v => GetClass(v) },
                     { "is-slide", v => GetClassFromBool(v, "slide") },
                     { "margin", v => GetClass(v) },

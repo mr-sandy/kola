@@ -100,10 +100,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\views\PlacementEditorView.js" />
+    <EmbeddedResource Include="Editors\views\GridPlacementView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\PlacementEditorTemplate.html" />
+    <EmbeddedResource Include="Editors\templates\GridPlacementTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\GridPlacementViewTemplate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

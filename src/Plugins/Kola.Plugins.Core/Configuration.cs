@@ -6,7 +6,7 @@
     public class Configuration : PluginConfiguration
     {
         public Configuration()
-            : base("LinnCore")
+            : base("KolaCore")
         {
             this.Configure.ViewLocation("Kola.Plugins.Core.Views");
             this.Configure.EditorStylesheets("editor.css");
@@ -60,7 +60,7 @@
             this.Configure.Atom("html-script")
                 .WithView("HtmlScript")
                 .WithProperty("src", "text")
-                .WithProperty("type", "html-script-type", "text/javascript")
+                .WithProperty("type", "text", "text/javascript")
                 .WithProperty("content", "text")
                 .WithProperty("cache-buster", "text")
                 .WithProperty("ie-condition", "text");
@@ -78,7 +78,7 @@
             this.Configure.Container("anchor")
                 .WithView("Anchor")
                 .WithProperty("href", "text")
-                .WithProperty("target", "anchor-target");
+                .WithProperty("target", "text");
         }
 
         private void ConfigurePropertyTypes()
@@ -89,17 +89,11 @@
             this.Configure.PropertyType("boolean")
                 .WithEditor("BooleanEditorView.js");
 
-            this.Configure.PropertyType("html-script-type")
-                .WithEditor("TextEditorView.js");
-
             this.Configure.PropertyType("text")
                 .WithEditor("TextEditorView.js");
 
             this.Configure.PropertyType("number")
-                .WithEditor("TextEditorView.js");
-
-            this.Configure.PropertyType("anchor-target")
-                .WithEditor("TextEditorView.js");
+                .WithEditor("NumberEditorView.js");
         }
     }
 }

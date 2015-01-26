@@ -36,7 +36,7 @@
             this.Configure.Container("carousel")
                 .WithView("Carousel")
                 .WithProperty("content-set-id", "text")
-                .WithProperty("alignment", "carousel-alignment")
+                .WithProperty("alignment", "text")
                 .WithProperty("infinity-scroll", "boolean", "false")
                 .WithProperty("slide-per-page", "boolean", "false")
                 .WithProperty("show-next", "boolean", "true")
@@ -53,29 +53,29 @@
                 .WithView("Section")
                 .WithProperty("is-slide", "boolean")
                 .WithProperty("id", "text")
-                .WithProperty("style", "style")
-                .WithProperty("show-grids", "grid-names")
+                .WithProperty("style", "text")
+                .WithProperty("show-grids", "text")
                 .ExtendWith(this.CommonProperties);
 
             this.Configure.Container("division")
                 .WithView("Division")
                 .WithProperty("is-slide", "boolean")
                 .WithProperty("content-id", "text")
-                .WithProperty("text-align", "text-alignment")
-                .WithProperty("show-grids", "grid-names")
+                .WithProperty("text-align", "text")
+                .WithProperty("show-grids", "text")
                 .ExtendWith(this.CommonProperties);
 
             this.Configure.Container("inner")
                 .WithView("Inner")
-                .WithProperty("show-grids", "grid-names");
+                .WithProperty("show-grids", "text");
 
             this.Configure.Container("figure")
                 .WithView("Figure")
                 .WithProperty("is-slide", "boolean")
-                .WithProperty("grid-placement", "placement")
+                .WithProperty("grid-placement", "text")
                 .WithProperty("content-id", "text")
-                .WithProperty("text-align", "text-alignment")
-                .WithProperty("padding", "padding");
+                .WithProperty("text-align", "text")
+                .WithProperty("padding", "text");
 
             this.Configure.Container("figure-caption")
                 .WithView("FigureCaption")
@@ -89,57 +89,21 @@
 
         private void ConfigurePropertyTypes()
         {
-            this.Configure.PropertyType("placement2")
-                .WithEditor("PlacementEditorView.js");
-
-            this.Configure.PropertyType("carousel-alignment")
-                .WithEditor("TextEditorView.js");
-
-            this.Configure.PropertyType("placement")
-                .WithEditor("TextEditorView.js");
-
-            this.Configure.PropertyType("height")
-                .WithEditor("TextEditorView.js");
-
-            this.Configure.PropertyType("padding")
-                .WithEditor("TextEditorView.js");
-
-            this.Configure.PropertyType("margin")
-                .WithEditor("TextEditorView.js");
-
-            this.Configure.PropertyType("border")
-                .WithEditor("TextEditorView.js");
-
-            this.Configure.PropertyType("style")
-                .WithEditor("TextEditorView.js");
-
-            this.Configure.PropertyType("grid-names")
-                .WithEditor("TextEditorView.js");
-
-            this.Configure.PropertyType("colour")
-                .WithEditor("TextEditorView.js");
-
-            this.Configure.PropertyType("position")
-                .WithEditor("TextEditorView.js");
-
-            this.Configure.PropertyType("text-alignment")
-                .WithEditor("TextEditorView.js");
-
-            this.Configure.PropertyType("width")
-                .WithEditor("TextEditorView.js");
+            this.Configure.PropertyType("grid-placement")
+                .WithEditor("GridPlacementView.js");
         }
 
         private void CommonProperties(ComponentRendererConfigurer configureComponent)
         {
             configureComponent
-                .WithProperty("grid-placement", "placement")
-                .WithProperty("margin", "margin")
-                .WithProperty("padding", "padding")
-                .WithProperty("border", "border")
-                .WithProperty("background-colour", "colour")
-                .WithProperty("position", "position")
-                .WithProperty("width", "width")
-                .WithProperty("height", "height");
+                .WithProperty("grid-placement", "grid-placement")
+                .WithProperty("margin", "text")
+                .WithProperty("padding", "text")
+                .WithProperty("border", "text")
+                .WithProperty("background-colour", "text")
+                .WithProperty("position", "text")
+                .WithProperty("width", "text")
+                .WithProperty("height", "text");
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.ContainerInstance>
 @using Kola.Nancy.Extensions
 @using Kola.Domain.Extensions
-<a href="@Model.Properties.GetAsStaticUri("src")" @Model.Properties.GetAsAttribute("target")>
+<a @Html.Raw(Model.Properties.GetAsStaticUri("href")) @Html.Raw(Model.Properties.GetAsAttribute("target"))>
 @Html.RenderComponents(Model.Components)
 </a>

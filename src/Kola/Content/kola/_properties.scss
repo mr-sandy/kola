@@ -11,10 +11,10 @@
         overflow: hidden;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
+        border: 1px solid $color-table-border;
         border-radius: 3px;
 
         td, th { 
-	        padding: 3px 10px;
         }
 
 	    tbody { 
@@ -23,21 +23,27 @@
 	            border-bottom: 1px solid $color-table-border;
 
 				&.name { 
+			        padding: 3px 10px;
                     width: 150px;
 	                border-left: none;
 				    background-color: $color-table-highlight-1;
                 }
 
 				&.type { 
+			        padding: 3px 10px;
                 }
 
 				&.value { 
-				    form {
-                        width: 250px;
+					width: 430px;
+
+					& > span {
+					    max-width: 400px;
+						display: inline-block;
+						margin: 3px 10px;
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
-                    }
+					}
                 }
             }
 

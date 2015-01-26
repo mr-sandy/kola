@@ -10,16 +10,15 @@
         template: Handlebars.compile(Template),
 
         events: {
-            'focusout': function () { this.trigger('submit'); }
+            'focusout': function () { this.trigger('submit'); },
+            'submit': function () { this.trigger('submit'); }
         },
 
         render: function (editMode) {
-            if (editMode) {
-                this.$el.html(this.template(this.model));
-            }
-            else {
-                this.$el.html(this.model.value.value);
-            }
+
+            var context = _.extend(this.model, { editMode: editMode });
+
+            this.$el.html(this.template(context));
 
             return this;
         },

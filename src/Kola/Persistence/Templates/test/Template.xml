@@ -18,10 +18,10 @@
                   <components>
                     <container name="division">
                       <properties>
-                        <property name="grid-placement" type="placement">
-                          <value xsi:type="fixed"><![CDATA[x3-x6]]></value>
+                        <property name="grid-placement" type="grid-placement">
+                          <value xsi:type="fixed"><![CDATA[[{ "grid": "x", "settings": { "position": "3-6"}}]]]></value>
                         </property>
-                        <property name="padding" type="padding">
+                        <property name="padding" type="text">
                           <value xsi:type="fixed"><![CDATA[pad-t-3-x]]></value>
                         </property>
                       </properties>
@@ -29,7 +29,14 @@
                         <atom name="markdown">
                           <properties>
                             <property name="markdown" type="markdown">
-                              <value xsi:type="fixed"><![CDATA[*add content here*]]></value>
+                              <value xsi:type="fixed"><![CDATA[##At vero eos et accusamus
+Iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. 
+
+
+###Et harum quidem 
+Rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. 
+
+Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat]]></value>
                             </property>
                           </properties>
                         </atom>
@@ -37,43 +44,51 @@
                     </container>
                     <container name="division">
                       <properties>
-                        <property name="grid-placement" type="placement">
-                          <value xsi:type="fixed"><![CDATA[x7-x9]]></value>
-                        </property>
-                        <property name="grid-placement2" type="placement2">
-                          <value xsi:type="fixed">
-                            <![CDATA[[
-{ grid: "x",
-  settings: {
-    position: "3-6"
+                        <property name="grid-placement" type="grid-placement">
+                          <value xsi:type="fixed"><![CDATA[[
+{ "grid": "x",
+  "settings": {
+    "position": "7-10"
   }
 },
-{ grid: "f",
-  settings: {
-    position: "all"
+{ "grid": "p",
+  "settings": {
+    "position": "2-5"
   }
 },
-{ grid: "m",
-  settings: {
-    hide: "true"
+{ "grid": "m",
+  "settings": {
+    "hide": "true"
   }
 }]]]></value>
                         </property>
-                        <property name="padding" type="padding">
+                        <property name="padding" type="text">
                           <value xsi:type="fixed"><![CDATA[pad-t-5-x]]></value>
                         </property>
-                        <property name="background-colour" type="colour">
-                          <value xsi:type="fixed"><![CDATA[tint3]]></value>
+                        <property name="background-colour" type="text">
+                          <value xsi:type="fixed"><![CDATA[tint3-back-x]]></value>
                         </property>
                       </properties>
                       <components>
-                        <atom name="markdown">
+                        <container name="anchor">
                           <properties>
-                            <property name="markdown" type="markdown">
-                              <value xsi:type="fixed"><![CDATA[**add content there**]]></value>
+                            <property name="href" type="text">
+                              <value xsi:type="fixed"><![CDATA[http://www.sandycormie.com]]></value>
+                            </property>
+                            <property name="target" type="text">
+                              <value xsi:type="fixed"><![CDATA[_blank]]></value>
                             </property>
                           </properties>
-                        </atom>
+                          <components>
+                            <atom name="markdown">
+                              <properties>
+                                <property name="markdown" type="markdown">
+                                  <value xsi:type="fixed"><![CDATA[**add content hereabouts!**]]></value>
+                                </property>
+                              </properties>
+                            </atom>
+                          </components>
+                        </container>
                       </components>
                     </container>
                   </components>
@@ -90,9 +105,34 @@
   </components>
   <amendments>
     <setPropertyFixed>
+      <componentPath>0/0/0/0/1/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[**add content hereabouts!!**]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[**add content hereabouts!**]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#add content hereabouts!]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Add content hereabouts!]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
       <componentPath>0/0/0/0/1</componentPath>
       <propertyName>background-colour</propertyName>
-      <fixedValue><![CDATA[tint3-back-x]]></fixedValue>
+      <fixedValue><![CDATA[tint2-back-x]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>padding</propertyName>
+      <fixedValue><![CDATA[pad-t-7-x]]></fixedValue>
     </setPropertyFixed>
   </amendments>
 </template>

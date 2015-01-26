@@ -140,34 +140,46 @@ iframe {
     overflow: hidden;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
+    border: 1px solid #cccccc;
     border-radius: 3px; }
-    #properties table td, #properties table th {
-      padding: 3px 10px; }
     #properties table tbody td {
       border-left: 1px solid #cccccc;
       border-bottom: 1px solid #cccccc; }
       #properties table tbody td.name {
+        padding: 3px 10px;
         width: 150px;
         border-left: none;
         background-color: #eeeeee; }
-      #properties table tbody td.value form {
-        width: 250px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis; }
+      #properties table tbody td.type {
+        padding: 3px 10px; }
+      #properties table tbody td.value {
+        width: 430px; }
+        #properties table tbody td.value > span {
+          max-width: 400px;
+          display: inline-block;
+          margin: 3px 10px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
     #properties table tbody tr:last-child td {
       border-bottom: none; }
 
-#properties .modal {
+#properties form.modal {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 50%;
+  width: 75%;
   max-width: 630px;
   min-width: 320px;
   height: auto;
   z-index: 2000;
-  transform: translateX(-50%) translateY(-50%); }
+  transform: translateX(-50%) translateY(-50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 6px; }
+  #properties form.modal input[type=submit] {
+    margin-top: 10px; }
 #properties .overlay {
   position: fixed;
   width: 100%;

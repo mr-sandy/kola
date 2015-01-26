@@ -10,19 +10,20 @@
         template: Handlebars.compile(Template),
 
         events: {
-            'focusout': function () { this.trigger('submit'); }
+            'focusout': function () { this.trigger('submit'); },
+            'submit': function () { this.trigger('submit'); }
         },
 
         render: function (editMode) {
+
+            var context = _.extend(this.model, { editMode: editMode });
+
+            this.$el.html(this.template(context));
+
             if (editMode) {
-                this.$el.html(this.template(this.model));
                 var input = this.$el.find('input');
                 input.focus();
                 input[0].setSelectionRange(0, input.val().length);
-                //input[0].setSelectionRange(0, 9)
-            }
-            else {
-                this.$el.html(this.model.value.value);
             }
 
             return this;

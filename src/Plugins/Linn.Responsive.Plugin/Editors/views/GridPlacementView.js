@@ -3,18 +3,18 @@
 
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
-    var Template = require('text!../templates/PlacementEditorTemplate.html');
+    var Template = require('text!../templates/GridPlacementTemplate.html');
 
     return Backbone.View.extend({
 
         template: Handlebars.compile(Template),
+
         render: function (editMode) {
-            if (editMode) {
-                this.$el.html(this.template(this.model));
-            }
-            else {
-                this.$el.html(this.model.value.value);
-            }
+            var model = JSON.parse(this.model.value.value);
+
+            var context = _.extend(model, { editMode: editMode });
+
+            this.$el.html(this.template(context));
 
             return this;
         },
