@@ -1,16 +1,20 @@
 ﻿namespace Linn.Responsive.Plugin.Extensions
 {
     using System;
+    using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kola.Domain.Instances;
+
+    using Linn.Responsive.Plugin.PropertyModels;
 
     public static class PropertyExtensions
     {
         private static readonly Dictionary<string, Func<string, string>> CssClassHandlers =
             new Dictionary<string, Func<string, string>>
                 {
+                    { "grid-placement2", v => GetGridSettings<GridPlacement>(v) },
                     { "grid-placement", v => GetClass(v) },
                     { "padding", v => GetClass(v) },
                     { "is-slide", v => GetClassFromBool(v, "slide") },
@@ -66,5 +70,25 @@
                        ? !string.IsNullOrWhiteSpace(trueClass) ? trueClass : string.Empty
                        : !string.IsNullOrWhiteSpace(falseClass) ? falseClass : string.Empty;
         }
+
+        private static string GetGridSettings<T>(string raw) where T : IGridSettings
+        {
+            var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            var settings = serializer.Deserialize<IEnumerable<GridSettings<T>>>(raw);
+
+            var classNames = settings.Select(s => s.Settings.BuildClassNames(s.Grid)).SelectMany(s => s);
+
+            return string.Join(" ", classNames);
+        }
+
+        //private static string GetGridPlacement(string raw)
+        //{
+        //    var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+        //    var settings = serializer.Deserialize<IEnumerable<GridSettings<GridPlacement>>>(raw);
+
+        //    var classNames = settings.Select(s => s.Settings.BuildClassNames(s.Grid)).SelectMany(s => s);
+
+        //    return string.Join(" ", classNames);
+        //}
     }
 }

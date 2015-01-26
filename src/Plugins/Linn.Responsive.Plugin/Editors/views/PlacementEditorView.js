@@ -3,7 +3,7 @@
 
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
-    var Template = require('text!../templates/MarkdownEditorTemplate.html');
+    var Template = require('text!../templates/PlacementEditorTemplate.html');
 
     return Backbone.View.extend({
 

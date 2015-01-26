@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+<template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <widget name="page">
       <properties>
@@ -40,6 +40,25 @@
                         <property name="grid-placement" type="placement">
                           <value xsi:type="fixed"><![CDATA[x7-x9]]></value>
                         </property>
+                        <property name="grid-placement2" type="placement2">
+                          <value xsi:type="fixed">
+                            <![CDATA[[
+{ grid: "x",
+  settings: {
+    position: "3-6"
+  }
+},
+{ grid: "f",
+  settings: {
+    position: "all"
+  }
+},
+{ grid: "m",
+  settings: {
+    hide: "true"
+  }
+}]]]></value>
+                        </property>
                         <property name="padding" type="padding">
                           <value xsi:type="fixed"><![CDATA[pad-t-5-x]]></value>
                         </property>
@@ -69,5 +88,11 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[tint3-back-x]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>

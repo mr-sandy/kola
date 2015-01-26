@@ -89,6 +89,9 @@
 
         private void ConfigurePropertyTypes()
         {
+            this.Configure.PropertyType("placement2")
+                .WithEditor("PlacementEditorView.js");
+
             this.Configure.PropertyType("carousel-alignment")
                 .WithEditor("TextEditorView.js");
 
