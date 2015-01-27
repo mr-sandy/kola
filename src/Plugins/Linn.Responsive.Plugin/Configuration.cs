@@ -91,6 +91,9 @@
         {
             this.Configure.PropertyType("grid-placement")
                 .WithEditor("GridPlacementView.js");
+
+            this.Configure.PropertyType("colour")
+                .WithEditor("ColourView.js");
         }
 
         private void CommonProperties(ComponentRendererConfigurer configureComponent)
@@ -100,7 +103,7 @@
                 .WithProperty("margin", "text")
                 .WithProperty("padding", "text")
                 .WithProperty("border", "text")
-                .WithProperty("background-colour", "text")
+                .WithProperty("background-colour", "colour")
                 .WithProperty("position", "text")
                 .WithProperty("width", "text")
                 .WithProperty("height", "text");

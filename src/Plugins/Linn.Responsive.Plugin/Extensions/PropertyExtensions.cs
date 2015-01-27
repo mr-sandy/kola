@@ -14,19 +14,19 @@
         private static readonly Dictionary<string, Func<string, string>> CssClassHandlers =
             new Dictionary<string, Func<string, string>>
                 {
-                    { "grid-placement", v => GetGridSettings<GridPlacement>(v) },
-                    { "padding", v => GetClass(v) },
+                    { "grid-placement", v => BuildManyClassesFromList<GridPlacement>(v, GridPlacementClassBuilder.BuildClasses) },
+                    { "background-colour", v => BuildClassesFromList<GridColour>(v, c => string.Format("{0}-back-{1}", c.Colour, c.Grid)) },
+                    { "padding", v => EchoClass(v) },
                     { "is-slide", v => GetClassFromBool(v, "slide") },
-                    { "margin", v => GetClass(v) },
+                    { "margin", v => EchoClass(v) },
                     { "pointer-up", v => GetClassFromBool(v, "pointer-up") },
-                    { "border", v => GetClass(v) },
-                    { "height", v => GetClass(v) },
-                    { "width", v => GetClass(v) },
-                    { "style", v => GetClass(v, prefix: "style-") },
-                    { "show-grids", v => GetClasses(v, "showgrid-") },
-                    { "background-colour", v => GetClass(v) },
-                    { "text-align", v => GetClass(v, prefix: "text-align-") },
-                    { "position", v => GetClasses(v, prefix: "position-") },
+                    { "border", v => EchoClass(v) },
+                    { "height", v => EchoClass(v) },
+                    { "width", v => EchoClass(v) },
+                    { "style", v => EchoClass(v, prefix: "style-") },
+                    { "show-grids", v => EchoClasses(v, "showgrid-") },
+                    { "text-align", v => EchoClass(v, prefix: "text-align-") },
+                    { "position", v => EchoClasses(v, prefix: "position-") },
                 };
 
         public static string GetClassNames(this IEnumerable<PropertyInstance> properties)
@@ -43,7 +43,7 @@
                 : string.Empty;
         }
 
-        private static string GetClass(string value, string defaultValue = "", string prefix = "", string suffix = "")
+        private static string EchoClass(string value, string defaultValue = "", string prefix = "", string suffix = "")
         {
             value = !string.IsNullOrEmpty(value)
                         ? value
@@ -54,11 +54,11 @@
                        : string.Empty;
         }
 
-        private static string GetClasses(string value, string prefix = "", string suffix = "")
+        private static string EchoClasses(string value, string prefix = "", string suffix = "")
         {
             var values = value.Split(new[] { ' ' }).Where(s => !string.IsNullOrWhiteSpace(s));
 
-            var classes = values.Select(val => GetClass(val, string.Empty, prefix, suffix)).Where(c => !string.IsNullOrWhiteSpace(c));
+            var classes = values.Select(val => EchoClass(val, string.Empty, prefix, suffix)).Where(c => !string.IsNullOrWhiteSpace(c));
 
             return string.Join(" ", classes);
         }
@@ -70,12 +70,22 @@
                        : !string.IsNullOrWhiteSpace(falseClass) ? falseClass : string.Empty;
         }
 
-        private static string GetGridSettings<T>(string raw) where T : GridSettings
+        private static string BuildClassesFromList<T>(string raw, Func<T, string> builder)
         {
             var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
             var settings = serializer.Deserialize<IEnumerable<T>>(raw);
 
-            var classNames = settings.Select(s => s.BuildClassNames()).SelectMany(s => s);
+            var classNames = settings.Select(builder);
+
+            return string.Join(" ", classNames);
+        }
+
+        private static string BuildManyClassesFromList<T>(string raw, Func<T, IEnumerable<string>> builder)
+        {
+            var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+            var settings = serializer.Deserialize<IEnumerable<T>>(raw);
+
+            var classNames = settings.Select(builder).SelectMany(s => s);
 
             return string.Join(" ", classNames);
         }

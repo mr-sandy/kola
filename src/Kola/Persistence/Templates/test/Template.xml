@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kolacms.com/2013/kola">
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <widget name="page">
       <properties>
@@ -19,13 +19,13 @@
                     <container name="division">
                       <properties>
                         <property name="grid-placement" type="grid-placement">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"2-5"},{"grid":"d","position":"2-5"},{"grid":"t","position":"2-5"},{"grid":"p","position":"2-5"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"1-5"},{"grid":"d","position":"2-5"},{"grid":"t","position":"2-5"},{"grid":"p","position":"2-5"}]]]></value>
                         </property>
                         <property name="padding" type="text">
                           <value xsi:type="fixed"><![CDATA[pad-t-3-x]]></value>
                         </property>
-                        <property name="background-colour" type="text">
-                          <value xsi:type="fixed"><![CDATA[secondary0-back-x]]></value>
+                        <property name="background-colour" type="colour">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"secondary0"}]]]></value>
                         </property>
                       </properties>
                       <components>
@@ -64,13 +64,13 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                     <container name="division">
                       <properties>
                         <property name="grid-placement" type="grid-placement">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"7-9"},{"grid":"d","hidden":true},{"grid":"t","shown":true,"position":"1-12"},{"grid":"p","position":"2-5"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"8-9"},{"grid":"d","hidden":true},{"grid":"t","shown":true,"position":"1-12"},{"grid":"p","position":"2-5"}]]]></value>
                         </property>
                         <property name="padding" type="text">
                           <value xsi:type="fixed"><![CDATA[pad-t-7-x]]></value>
                         </property>
-                        <property name="background-colour" type="text">
-                          <value xsi:type="fixed"><![CDATA[tint2-back-x]]></value>
+                        <property name="background-colour" type="colour">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"tint3"}]]]></value>
                         </property>
                       </properties>
                       <components>
@@ -87,7 +87,7 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                             <atom name="markdown">
                               <properties>
                                 <property name="markdown" type="markdown">
-                                  <value xsi:type="fixed"><![CDATA[#Add content hereabouts!
+                                  <value xsi:type="fixed"><![CDATA[##Add content hereabouts!
 ]]></value>
                                 </property>
                               </properties>
@@ -99,7 +99,7 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                     <container name="division">
                       <properties>
                         <property name="grid-placement" type="grid-placement">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"11"},{"grid":"d","position":"11"},{"grid":"t","position":"11"},{"grid":"p","position":"11"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"11"},{"grid":"d","position":"11"},{"grid":"t","position":"11"}]]]></value>
                         </property>
                       </properties>
                       <components>
@@ -124,5 +124,41 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","colour":"tint2"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","colour":""},{"grid":"x","colour":"tint1"},{"grid":"d","colour":"secondary0"},{"grid":"t","colour":""},{"grid":"p","colour":""},{"grid":"m","colour":""},{"grid":"u","colour":""}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","colour":""},{"grid":"x","colour":"tint2"},{"grid":"d","colour":"secondary0"},{"grid":"t","colour":""},{"grid":"p","colour":""},{"grid":"m","colour":""},{"grid":"u","colour":""}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","colour":""},{"grid":"x","colour":"tint3"},{"grid":"d","colour":""},{"grid":"t","colour":""},{"grid":"p","colour":""},{"grid":"m","colour":""},{"grid":"u","colour":""}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","colour":"tint3"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","colour":"tint3"},{"grid":"m","colour":"black"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","colour":"tint3"},{"grid":"t","colour":"secondary3"}]]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>
