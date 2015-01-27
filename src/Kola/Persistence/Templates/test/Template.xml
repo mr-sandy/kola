@@ -19,10 +19,13 @@
                     <container name="division">
                       <properties>
                         <property name="grid-placement" type="grid-placement">
-                          <value xsi:type="fixed"><![CDATA[[{ "grid": "x", "settings": { "position": "3-6"}}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"2-5"},{"grid":"d","position":"2-5"},{"grid":"t","position":"2-5"},{"grid":"p","position":"2-5"}]]]></value>
                         </property>
                         <property name="padding" type="text">
                           <value xsi:type="fixed"><![CDATA[pad-t-3-x]]></value>
+                        </property>
+                        <property name="background-colour" type="text">
+                          <value xsi:type="fixed"><![CDATA[secondary0-back-x]]></value>
                         </property>
                       </properties>
                       <components>
@@ -32,41 +35,42 @@
                               <value xsi:type="fixed"><![CDATA[##At vero eos et accusamus
 Iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. 
 
-
+]]></value>
+                            </property>
+                          </properties>
+                        </atom>
+                        <container name="division">
+                          <properties>
+                            <property name="grid-placement" type="grid-placement">
+                              <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"3-5"}]]]></value>
+                            </property>
+                          </properties>
+                          <components>
+                            <atom name="markdown">
+                              <properties>
+                                <property name="markdown" type="markdown">
+                                  <value xsi:type="fixed"><![CDATA[<br />
 ###Et harum quidem 
 Rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. 
 
 Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat]]></value>
-                            </property>
-                          </properties>
-                        </atom>
+                                </property>
+                              </properties>
+                            </atom>
+                          </components>
+                        </container>
                       </components>
                     </container>
                     <container name="division">
                       <properties>
                         <property name="grid-placement" type="grid-placement">
-                          <value xsi:type="fixed"><![CDATA[[
-{ "grid": "x",
-  "settings": {
-    "position": "7-10"
-  }
-},
-{ "grid": "p",
-  "settings": {
-    "position": "2-5"
-  }
-},
-{ "grid": "m",
-  "settings": {
-    "hide": "true"
-  }
-}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"7-9"},{"grid":"d","hidden":true},{"grid":"t","shown":true,"position":"1-12"},{"grid":"p","position":"2-5"}]]]></value>
                         </property>
                         <property name="padding" type="text">
-                          <value xsi:type="fixed"><![CDATA[pad-t-5-x]]></value>
+                          <value xsi:type="fixed"><![CDATA[pad-t-7-x]]></value>
                         </property>
                         <property name="background-colour" type="text">
-                          <value xsi:type="fixed"><![CDATA[tint3-back-x]]></value>
+                          <value xsi:type="fixed"><![CDATA[tint2-back-x]]></value>
                         </property>
                       </properties>
                       <components>
@@ -83,12 +87,29 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                             <atom name="markdown">
                               <properties>
                                 <property name="markdown" type="markdown">
-                                  <value xsi:type="fixed"><![CDATA[**add content hereabouts!**]]></value>
+                                  <value xsi:type="fixed"><![CDATA[#Add content hereabouts!
+]]></value>
                                 </property>
                               </properties>
                             </atom>
                           </components>
                         </container>
+                      </components>
+                    </container>
+                    <container name="division">
+                      <properties>
+                        <property name="grid-placement" type="grid-placement">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"11"},{"grid":"d","position":"11"},{"grid":"t","position":"11"},{"grid":"p","position":"11"}]]]></value>
+                        </property>
+                      </properties>
+                      <components>
+                        <atom name="markdown">
+                          <properties>
+                            <property name="markdown" type="markdown">
+                              <value xsi:type="fixed"><![CDATA[There once was an ugly duckling, with feathers all dirty and grey]]></value>
+                            </property>
+                          </properties>
+                        </atom>
                       </components>
                     </container>
                   </components>
@@ -103,36 +124,5 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
       </areas>
     </widget>
   </components>
-  <amendments>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1/0/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[**add content hereabouts!!**]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1/0/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[**add content hereabouts!**]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1/0/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#add content hereabouts!]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1/0/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Add content hereabouts!]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>background-colour</propertyName>
-      <fixedValue><![CDATA[tint2-back-x]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>padding</propertyName>
-      <fixedValue><![CDATA[pad-t-7-x]]></fixedValue>
-    </setPropertyFixed>
-  </amendments>
+  <amendments />
 </template>

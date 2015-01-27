@@ -61,10 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
-    <Compile Include="PropertyModels\GridPlacementSettings.cs" />
-    <Compile Include="PropertyModels\GridSettings.cs" />
+    <Compile Include="PropertyModels\GridPlacement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Extensions\PropertyExtensions.cs" />
+    <Compile Include="PropertyModels\GridSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Kola\Kola.csproj">
@@ -104,9 +104,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\templates\GridPlacementTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\GridPlacementViewTemplate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

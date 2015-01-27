@@ -1,9 +1,11 @@
 ﻿namespace Linn.Responsive.Plugin.PropertyModels
 {
-    internal class GridSettings<T>
+    using System.Collections.Generic;
+
+    internal abstract class GridSettings
     {
         public string Grid { get; set; }
 
-        public T Settings { get; set; }
+        public abstract IEnumerable<string> BuildClassNames();
     }
 }

@@ -10,8 +10,7 @@
         template: Handlebars.compile(Template),
 
         events: {
-            'focusout': function () { this.trigger('submit'); },
-            'submit': function () { this.trigger('submit'); }
+            'submit': function (e) { e.preventDefault(); this.trigger('submit'); }
         },
 
         render: function (editMode) {

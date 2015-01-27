@@ -11,13 +11,12 @@
 
         events: {
             'change': function () { this.trigger('submit'); },
-            'focusout': function () { this.trigger('submit'); },
-            'submit': function () { this.trigger('submit'); }
+            'focusout': function () { this.trigger('submit'); }
         },
 
         render: function (editMode) {
 
-            var context = _.extend(this.model, { editMode: editMode, checkTrue: this.model.value.value === "true" });
+            var context = _.extend(this.model, { editMode: editMode, checkTrue: this.model.value === "true" });
 
             this.$el.html(this.template(context));
 

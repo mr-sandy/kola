@@ -49,6 +49,7 @@
 
             this.setElement(domHelper.findDirectlyOwned($html));
             this.buildChildren($html);
+            this.maskView.select(this);
         },
 
         buildChildren: function ($html) {
@@ -94,6 +95,7 @@
         },
 
         handleClick: function (e) {
+            e.preventDefault();
             e.stopPropagation();
             this.model.toggleSelected();
         },

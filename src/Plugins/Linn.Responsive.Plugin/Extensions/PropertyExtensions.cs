@@ -70,24 +70,14 @@
                        : !string.IsNullOrWhiteSpace(falseClass) ? falseClass : string.Empty;
         }
 
-        private static string GetGridSettings<T>(string raw) where T : IGridSettings
+        private static string GetGridSettings<T>(string raw) where T : GridSettings
         {
             var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-            var settings = serializer.Deserialize<IEnumerable<GridSettings<T>>>(raw);
+            var settings = serializer.Deserialize<IEnumerable<T>>(raw);
 
-            var classNames = settings.Select(s => s.Settings.BuildClassNames(s.Grid)).SelectMany(s => s);
+            var classNames = settings.Select(s => s.BuildClassNames()).SelectMany(s => s);
 
             return string.Join(" ", classNames);
         }
-
-        //private static string GetGridPlacement(string raw)
-        //{
-        //    var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
-        //    var settings = serializer.Deserialize<IEnumerable<GridSettings<GridPlacement>>>(raw);
-
-        //    var classNames = settings.Select(s => s.Settings.BuildClassNames(s.Grid)).SelectMany(s => s);
-
-        //    return string.Join(" ", classNames);
-        //}
     }
 }

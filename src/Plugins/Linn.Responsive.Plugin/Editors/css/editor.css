@@ -1,3 +1,61 @@
-.value.placement2 input {
-  background-color: blue; }
+#properties table.grid-settings {
+  border: none;
+  border-radius: 0;
+  width: 100%; }
+  #properties table.grid-settings tr + tr {
+    border: none;
+    border-top: 1px solid #ccc; }
+  #properties table.grid-settings tr td {
+    border: none;
+    padding: 0; }
+    #properties table.grid-settings tr td:first-child {
+      padding: 3px;
+      text-align: center;
+      background-color: #eee;
+      border-right: 1px solid #ccc; }
+#properties table.inner-properties {
+  border: none;
+  border-radius: 0;
+  width: 100%; }
+  #properties table.inner-properties tr + tr {
+    border: none;
+    border-top: 1px solid #ccc; }
+  #properties table.inner-properties tr td {
+    border: none;
+    padding: 3px; }
+    #properties table.inner-properties tr td:first-child {
+      width: 30%;
+      text-align: left;
+      background-color: #fff;
+      border-right: 1px solid #ccc; }
+#properties .value.grid-placement table.edit {
+  border: none; }
+  #properties .value.grid-placement table.edit td {
+    font-size: 16px;
+    line-height: 16px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid white; }
+    #properties .value.grid-placement table.edit td.grid {
+      width: 26px;
+      background-color: #eee;
+      color: #333; }
+    #properties .value.grid-placement table.edit td.column {
+      width: 26px;
+      background-color: #ccc;
+      color: #fff; }
+    #properties .value.grid-placement table.edit td.column.selected {
+      background-color: #666; }
+    #properties .value.grid-placement table.edit td.shown {
+      width: 26px;
+      background-color: #c2f2c2; }
+    #properties .value.grid-placement table.edit td.shown.selected {
+      background-color: #28bf28;
+      color: #fff; }
+    #properties .value.grid-placement table.edit td.hidden {
+      width: 26px;
+      background-color: #f2c2d0; }
+    #properties .value.grid-placement table.edit td.hidden.selected {
+      background-color: #ff5284;
+      color: #fff; }
 

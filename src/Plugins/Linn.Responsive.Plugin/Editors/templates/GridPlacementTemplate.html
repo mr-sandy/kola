@@ -1,30 +1,83 @@
-﻿<table>
+﻿<table class="view grid-settings">
     <tbody>
-        {{#each this}}
+        {{#each grids}}
+        {{#unless unset}}
         <tr>
             <td>
                 {{grid}}
             </td>
             <td>
-                <table>
+                <table class="inner-properties">
                     <tbody>
-                        {{#if settings.position}}
+                        {{#if position}}
                         <tr>
-                            <td>position</td>
-                            <td>{{settings.position}}</td>
+                            <td>
+                                position
+                            </td>
+                            <td>
+                                {{position}}
+                            </td>
+                        </tr>
+                        {{/if}}
+                        {{#if shown}}
+                        <tr>
+                            <td>
+                                shown
+                            </td>
+                            <td>
+                                true
+                            </td>
+                        </tr>
+                        {{/if}}
+                        {{#if hidden}}
+                        <tr>
+                            <td>
+                                hidden
+                            </td>
+                            <td>
+                                true
+                            </td>
                         </tr>
                         {{/if}}
                     </tbody>
                 </table>
             </td>
         </tr>
-        {{/each }}
+        {{/unless}}
+        {{/each}}
     </tbody>
 </table>
 {{#if editMode}}
 <form class="modal">
-    <textarea rows="10" style="display:block; width:95%" >{{ value.value }}</textarea>
-    <input type="submit" style="magin-top:10px" value="submit" />
+<table class="edit">
+    <thead>
+    </thead>
+    <tbody>
+        <tr>
+{{#each grids}}
+            <td class="grid">
+                {{grid}}
+            </td>
+    {{#each columns}}
+            <td class="column {{#if selected}}selected{{/if}}">
+                {{index}}
+            </td>
+    {{/each}}
+            <td class="shown {{#if shown}}selected{{/if}}">
+                show
+            </td>
+            <td class="hidden {{#if hidden}}selected{{/if}}">
+                hide
+            </td>
+            <td>
+                <button class="reset" type="button">reset</button>
+            </td>
+        </tr>
+{{/each}}
+    </tbody>
+</table>
+<input type="submit" style="margin-top: 10px" value="submit" />
 </form>
-<div class="overlay"></div>
+<div class="overlay">
+</div>
 {{/if}}

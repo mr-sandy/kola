@@ -46,27 +46,27 @@
             var self = this;
             var d = $.Deferred();
 
-            var property = this.model;
+            var propertyValue = this.model.value;
             var editorInfo = this.getEditorInfo(this.model.type);
 
             if (this.editorView) {
                 this.editorView.setElement($editorElement);
                 d.resolve();
             }
-            else 
-            if (editorInfo) {
-                require([editorInfo.url], function (EditorView) {
-                    self.editorView = new EditorView({
-                        model: property,
-                        el: $editorElement
+            else
+                if (editorInfo) {
+                    require([editorInfo.url], function (EditorView) {
+                        self.editorView = new EditorView({
+                            model: propertyValue,
+                            el: $editorElement
+                        });
+                        self.editorView.on('submit', self.submit, self)
+                        d.resolve();
                     });
-                    self.editorView.on('submit', self.submit, self)
+                }
+                else {
                     d.resolve();
-                });
-            }
-            else {
-                d.resolve();
-            }
+                }
 
             return d.promise();
         },
@@ -91,11 +91,13 @@
             if (this.editMode) {
                 this.editMode = false;
 
-                if (this.editorView.value() !== this.model.value.value) {
+                var newValue = this.editorView.value();
+
+                if (newValue !== this.model.value.value) {
                     this.amendments.setProperty({
                         propertyName: this.model.name,
                         componentPath: this.componentPath,
-                        value: this.editorView.value()
+                        value: newValue
                     });
                 }
                 else {
