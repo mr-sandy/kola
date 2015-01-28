@@ -13,19 +13,20 @@
 
             td {
 			    border: none;
-                padding: 0;    
+                padding: 3px;    
 
                 &:first-child {        
-					padding: 3px;    
 					text-align: center;
                     background-color: #eee;
                     border-right: 1px solid #ccc;
+                    width: 20px;
                 }
 			}
         }
 	}
 
 	table.inner-properties {
+        margin: -3px;
         border: none;
         border-radius: 0;
         width: 100%;

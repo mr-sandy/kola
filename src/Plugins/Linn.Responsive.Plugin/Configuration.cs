@@ -92,6 +92,9 @@
             this.Configure.PropertyType("grid-placement")
                 .WithEditor("GridPlacementView.js");
 
+            this.Configure.PropertyType("responsive-colour")
+                .WithEditor("ResponsiveColourView.js");
+
             this.Configure.PropertyType("colour")
                 .WithEditor("ColourView.js");
         }
@@ -103,7 +106,8 @@
                 .WithProperty("margin", "text")
                 .WithProperty("padding", "text")
                 .WithProperty("border", "text")
-                .WithProperty("background-colour", "colour")
+                .WithProperty("background-colour", "responsive-colour")
+                .WithProperty("text-colour", "colour")
                 .WithProperty("position", "text")
                 .WithProperty("width", "text")
                 .WithProperty("height", "text");

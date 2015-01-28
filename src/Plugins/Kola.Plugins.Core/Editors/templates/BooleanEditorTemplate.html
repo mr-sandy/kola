@@ -1,7 +1,10 @@
 ﻿{{#if editMode}}
 <form>
-<input type="radio" name="value" value="true" {{#if checkTrue }}checked="true"{{/if}} />true
-<input type="radio" name="value" value="false" {{#unless checkTrue }}checked="true"{{/unless}} />false
+    <select name="colours">
+    <option value=""></option>
+    <option value="true" {{#if checkTrue}}selected{{/if}}>true</option>
+    <option value="false" {{#if checkFalse}}selected{{/if}}>false</option>
+    </select>
 </form>
 {{else}}
 <span>{{value}}</span>

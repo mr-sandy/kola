@@ -7,13 +7,14 @@
     border-top: 1px solid #ccc; }
   #properties table.grid-settings tr td {
     border: none;
-    padding: 0; }
+    padding: 3px; }
     #properties table.grid-settings tr td:first-child {
-      padding: 3px;
       text-align: center;
       background-color: #eee;
-      border-right: 1px solid #ccc; }
+      border-right: 1px solid #ccc;
+      width: 20px; }
 #properties table.inner-properties {
+  margin: -3px;
   border: none;
   border-radius: 0;
   width: 100%; }

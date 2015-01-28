@@ -9,17 +9,14 @@
 
         template: Handlebars.compile(Template),
 
-        gridNames: ['f', 'x', 'd', 't', 'p', 'm', 'u'],
-
         events: {
-            'submit': function (e) { e.preventDefault(); this.trigger('submit'); }
+            'change': function (e) { e.preventDefault(); this.trigger('submit'); },
+            'focusout': function (e) { e.preventDefault(); this.trigger('submit'); }
         },
 
         render: function (editMode) {
 
-            var model = this.model.value ? JSON.parse(this.model.value) : {};
-
-            var viewModel = this.buildViewModel(model);
+            var viewModel = this.buildViewModel(this.model);
 
             var context = _.extend(viewModel, { editMode: editMode });
 
@@ -29,43 +26,20 @@
         },
 
         value: function () {
-            var result = [];
+            var selected = this.$el.find('select :selected');
 
-            _.each($('table.edit tr'), function (row) {
-                var $row = $(row);
+            if (selected.length > 0 && selected.val()) {
+                return selected.val();
+            }
 
-                var selected = $row.find('select :selected');
-
-                if (selected.length > 0 && selected.val()) {
-                    result.push({
-                        grid: $row.find('.grid').text().trim(),
-                        colour: selected.val()
-                    });
-
-                }
-            });
-
-            return JSON.stringify(result);
+            return '';
         },
 
         buildViewModel: function (model) {
-            var viewModel = { grids: [] };
-
-            _.each(this.gridNames, function (gridName) {
-
-                var gridSettings = _.find(model, function (m) { return m.grid === gridName; }) || { grid: gridName, unset: true };
-
-                gridSettings.colours = this.buildColours(gridSettings.colour);
-
-                viewModel.grids.push(gridSettings);
-
-            }, this);
-
-            return viewModel;
-        },
-
-        buildColours: function (value) {
-            var colours = [
+            var viewModel = {
+                value: model.value,
+                colours:
+             [
             { name: "tint1" },
             { name: "tint2" },
             { name: "tint3" },
@@ -75,16 +49,17 @@
             { name: "secondary3" },
             { name: "white" },
             { name: "black" },
-            { name: "pitch-black"}];
+            { name: "pitch-black"}]
+            };
 
-            if (value) {
-                var selected = _.find(colours, function (colour) { return colour.name === value; });
+            if (model.value) {
+                var selected = _.find(viewModel.colours, function (colour) { return colour.name === model.value; });
                 if (selected) {
                     selected.selected = true;
                 }
             }
 
-            return colours;
+            return viewModel;
         }
     });
 });

@@ -1,0 +1,47 @@
+﻿<table class="view grid-settings">
+    <tbody>
+        {{#each grids}}
+        {{#unless unset}}
+        <tr>
+            <td>
+                {{grid}}
+            </td>
+            <td>
+                {{colour}}
+            </td>
+        </tr>
+        {{/unless}}
+        {{/each}}
+    </tbody>
+</table>
+{{#if editMode}}
+<form class="modal">
+<table class="edit">
+    <thead>
+    </thead>
+    <tbody>
+        <tr>
+{{#each grids}}
+            <td class="grid">
+                {{grid}}
+            </td>
+            <td>
+                <select name="colours">
+                <option value=""></option>
+                {{#each colours}}
+                <option value="{{name}}" {{#if selected}}selected{{/if}}>{{name}}</option>
+                {{/each}}
+                </select>
+            </td>
+            <td>
+                <button class="reset" type="button">reset</button>
+            </td>
+        </tr>
+{{/each}}
+    </tbody>
+</table>
+<input type="submit" style="margin-top: 10px" value="submit" />
+</form>
+<div class="overlay">
+</div>
+{{/if}}

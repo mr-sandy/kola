@@ -42,6 +42,13 @@
             return property;
         }
 
+
+        // TODO {SC} Some tests for this, please!
+        public void RemoveProperty(Property property)
+        {
+            this.properties.Remove(property);
+        }
+
         public abstract void Accept(IComponentVisitor visitor);
 
         public abstract T Accept<T>(IComponentVisitor<T> visitor);

@@ -107,6 +107,12 @@
     <EmbeddedResource Include="Editors\templates\GridPlacementTemplate.html" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Editors\views\ResponsiveColourView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\ResponsiveColourTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Editors\views\ColourView.js" />
   </ItemGroup>
   <ItemGroup>

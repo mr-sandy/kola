@@ -16,6 +16,7 @@
                 {
                     { "grid-placement", v => BuildManyClassesFromList<GridPlacement>(v, GridPlacementClassBuilder.BuildClasses) },
                     { "background-colour", v => BuildClassesFromList<GridColour>(v, c => string.Format("{0}-back-{1}", c.Colour, c.Grid)) },
+                    { "text-colour", v => EchoClass(v, suffix: "-text") },
                     { "padding", v => EchoClass(v) },
                     { "is-slide", v => GetClassFromBool(v, "slide") },
                     { "margin", v => EchoClass(v) },

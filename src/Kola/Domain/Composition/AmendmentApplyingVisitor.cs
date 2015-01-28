@@ -68,7 +68,14 @@
 
             var property = component.FindOrCreateProperty(specification.Properties.Find(amendment.PropertyName));
 
-            property.Value = new FixedPropertyValue(amendment.FixedValue);
+            if (string.IsNullOrEmpty(amendment.FixedValue))
+            {
+                component.RemoveProperty(property);
+            }
+            else
+            {
+                property.Value = new FixedPropertyValue(amendment.FixedValue);
+            }
         }
 
         public void Visit(SetPropertyInheritedAmendment amendment)

@@ -16,7 +16,11 @@
 
         render: function (editMode) {
 
-            var context = _.extend(this.model, { editMode: editMode, checkTrue: this.model.value === "true" });
+            var context = _.extend(this.model, {
+                editMode: editMode,
+                checkTrue: this.model.value === "true",
+                checkFalse: this.model.value === "false"
+             });
 
             this.$el.html(this.template(context));
 
