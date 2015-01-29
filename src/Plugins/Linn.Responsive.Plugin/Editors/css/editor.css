@@ -59,4 +59,28 @@
     #properties .value.grid-placement table.edit td.hidden.selected {
       background-color: #ff5284;
       color: #fff; }
+#properties .value.triangle table.edit {
+  border: none; }
+  #properties .value.triangle table.edit td {
+    font-size: 16px;
+    line-height: 16px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid white; }
+    #properties .value.triangle table.edit td.grid {
+      width: 26px;
+      background-color: #eee;
+      color: #333; }
+    #properties .value.triangle table.edit td.edge {
+      width: 26px;
+      background-color: #ccc;
+      color: #fff; }
+    #properties .value.triangle table.edit td.edge.selected {
+      background-color: #666; }
+    #properties .value.triangle table.edit td.centred {
+      width: 26px;
+      background-color: #c2f2c2; }
+    #properties .value.triangle table.edit td.centred.selected {
+      background-color: #28bf28;
+      color: #fff; }
 

@@ -15,7 +15,8 @@
             new Dictionary<string, Func<string, string>>
                 {
                     { "grid-placement", v => BuildManyClassesFromList<GridPlacement>(v, GridPlacementClassBuilder.BuildClasses) },
-                    { "background-colour", v => BuildClassesFromList<GridColour>(v, c => string.Format("{0}-back-{1}", c.Colour, c.Grid)) },
+                    { "background-colour", v => BuildClassesFromList<ResponsiveColour>(v, c => string.Format("{0}-back-{1}", c.Colour, c.Grid)) },
+                    { "triangle", v => BuildManyClassesFromList<ResponsiveTriangle>(v, ResponsiveTriangleClassBuilder.BuildClasses) },
                     { "text-colour", v => EchoClass(v, suffix: "-text") },
                     { "padding", v => EchoClass(v) },
                     { "is-slide", v => GetClassFromBool(v, "slide") },

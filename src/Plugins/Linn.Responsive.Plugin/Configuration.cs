@@ -60,6 +60,7 @@
             this.Configure.Container("division")
                 .WithView("Division")
                 .WithProperty("is-slide", "boolean")
+                .WithProperty("triangle", "triangle")
                 .WithProperty("content-id", "text")
                 .WithProperty("text-align", "text")
                 .WithProperty("show-grids", "text")
@@ -97,6 +98,9 @@
 
             this.Configure.PropertyType("colour")
                 .WithEditor("ColourView.js");
+
+            this.Configure.PropertyType("triangle")
+                .WithEditor("TriangleView.js");
         }
 
         private void CommonProperties(ComponentRendererConfigurer configureComponent)

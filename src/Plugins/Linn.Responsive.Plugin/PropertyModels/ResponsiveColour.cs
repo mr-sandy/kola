@@ -1,6 +1,6 @@
 ﻿namespace Linn.Responsive.Plugin.PropertyModels
 {
-    internal class GridColour
+    internal class ResponsiveColour
     {
         public string Grid { get; set; }
 

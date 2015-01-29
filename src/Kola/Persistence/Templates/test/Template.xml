@@ -11,7 +11,11 @@
         <area name="content">
           <components>
             <container name="section">
-              <properties />
+              <properties>
+                <property name="padding" type="text">
+                  <value xsi:type="fixed"><![CDATA[pad-t-6-x]]></value>
+                </property>
+              </properties>
               <components>
                 <container name="inner">
                   <properties />
@@ -67,16 +71,19 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                     <container name="division">
                       <properties>
                         <property name="grid-placement" type="grid-placement">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"6-8"},{"grid":"d","hidden":true},{"grid":"t","shown":true,"position":"1-12"},{"grid":"p","position":"2-5"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"6-8"},{"grid":"p","position":"2-5"}]]]></value>
                         </property>
                         <property name="padding" type="text">
                           <value xsi:type="fixed"><![CDATA[pad-t-7-x]]></value>
                         </property>
                         <property name="background-colour" type="responsive-colour">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"tint3"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","colour":"secondary3"},{"grid":"x","colour":"secondary0"},{"grid":"d","colour":"secondary1"},{"grid":"t","colour":"secondary2"},{"grid":"p","colour":"tint3"}]]]></value>
                         </property>
                         <property name="text-colour" type="colour">
-                          <value xsi:type="fixed"><![CDATA[white]]></value>
+                          <value xsi:type="fixed"><![CDATA[pitch-black]]></value>
+                        </property>
+                        <property name="triangle" type="triangle">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","centred":true,"edge":"left"},{"grid":"x","centred":true,"edge":"bottom"},{"grid":"d","centred":true,"edge":"right"},{"grid":"t","centred":true,"edge":"top"}]]]></value>
                         </property>
                       </properties>
                       <components>
@@ -135,13 +142,48 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
   <amendments>
     <setPropertyFixed>
       <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","colour":"white"},{"grid":"x","colour":"secondary0"},{"grid":"d","colour":"secondary1"},{"grid":"t","colour":"secondary2"},{"grid":"p","colour":"secondary3"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","colour":"black"},{"grid":"x","colour":"secondary0"},{"grid":"d","colour":"secondary1"},{"grid":"t","colour":"secondary2"},{"grid":"p","colour":"secondary3"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","colour":"black"},{"grid":"x","colour":"secondary0"},{"grid":"d","colour":"secondary1"},{"grid":"t","colour":"tint3"},{"grid":"p","colour":"secondary3"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/0</componentPath>
       <propertyName>grid-placement</propertyName>
-      <fixedValue><![CDATA[[{"grid":"x","position":"5-8"},{"grid":"d","hidden":true},{"grid":"t","shown":true,"position":"1-12"},{"grid":"p","position":"2-5"}]]]></fixedValue>
+      <fixedValue><![CDATA[[{"grid":"x","position":"2-4"}]]]></fixedValue>
     </setPropertyFixed>
     <setPropertyFixed>
       <componentPath>0/0/0/0/1</componentPath>
       <propertyName>grid-placement</propertyName>
-      <fixedValue><![CDATA[[{"grid":"x","position":"6-8"},{"grid":"d","hidden":true},{"grid":"t","shown":true,"position":"1-12"},{"grid":"p","position":"2-5"}]]]></fixedValue>
+      <fixedValue><![CDATA[[{"grid":"x","position":"6-8"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","colour":"black"},{"grid":"x","colour":"tint3"},{"grid":"d","colour":"secondary3"},{"grid":"t","colour":"secondary2"},{"grid":"p","colour":"secondary1"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"left"},{"grid":"x","centred":true,"edge":"bottom"},{"grid":"d","centred":true,"edge":"right"},{"grid":"t","centred":true,"edge":"top"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"left"},{"grid":"x","centred":true,"edge":"bottom"},{"grid":"d","centred":true,"edge":"right"},{"grid":"t","centred":true,"edge":"top"},{"grid":"p","centred":true,"edge":"bottom"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"left"},{"grid":"x","centred":true,"edge":"bottom"},{"grid":"d","centred":true,"edge":"right"},{"grid":"t","centred":true,"edge":"top"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
     </setPropertyFixed>
   </amendments>
 </template>
