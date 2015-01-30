@@ -77,6 +77,13 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\css\editor.scss" />
+    <EmbeddedResource Include="Editors\css\_common.scss" />
+    <EmbeddedResource Include="Editors\css\_grid-placement.scss" />
+    <EmbeddedResource Include="Editors\css\_triangle.scss" />
+    <EmbeddedResource Include="Editors\css\_grid-names.scss" />
+    <EmbeddedResource Include="Editors\css\_toggle-switch.scss" />
+    <EmbeddedResource Include="Editors\css\_tabbed.scss" />
+    <EmbeddedResource Include="Editors\css\_colours.scss" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\MainMenu.cshtml" />
     <EmbeddedResource Include="Views\SecondaryNav.cshtml" />
@@ -119,6 +126,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\templates\ColourTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\controls\Tabbed.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\views\TriangleView.js" />

@@ -10,3 +10,4 @@ bin/
 NDependOut/
 */_NCrunch_*
 .sass-cache/
+*nCrunch*

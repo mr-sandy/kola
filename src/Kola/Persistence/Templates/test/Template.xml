@@ -23,7 +23,7 @@
                     <container name="division">
                       <properties>
                         <property name="grid-placement" type="grid-placement">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"1-4"},{"grid":"d","position":"2-4"},{"grid":"t","position":"2-4"},{"grid":"p","position":"2-4"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"2-4"}]]]></value>
                         </property>
                         <property name="padding" type="text">
                           <value xsi:type="fixed"><![CDATA[pad-t-3-x]]></value>
@@ -71,19 +71,19 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                     <container name="division">
                       <properties>
                         <property name="grid-placement" type="grid-placement">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"6-8"},{"grid":"p","position":"2-5"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"6-8"}]]]></value>
                         </property>
                         <property name="padding" type="text">
                           <value xsi:type="fixed"><![CDATA[pad-t-7-x]]></value>
                         </property>
                         <property name="background-colour" type="responsive-colour">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","colour":"secondary3"},{"grid":"x","colour":"secondary0"},{"grid":"d","colour":"secondary1"},{"grid":"t","colour":"secondary2"},{"grid":"p","colour":"tint3"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","colour":"black"},{"grid":"x","colour":"tint3"},{"grid":"d","colour":"secondary3"},{"grid":"t","colour":"secondary2"},{"grid":"p","colour":"secondary1"}]]]></value>
                         </property>
                         <property name="text-colour" type="colour">
                           <value xsi:type="fixed"><![CDATA[pitch-black]]></value>
                         </property>
                         <property name="triangle" type="triangle">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","centred":true,"edge":"left"},{"grid":"x","centred":true,"edge":"bottom"},{"grid":"d","centred":true,"edge":"right"},{"grid":"t","centred":true,"edge":"top"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","edge":"left"},{"grid":"d","edge":"bottom"}]]]></value>
                         </property>
                       </properties>
                       <components>
@@ -142,48 +142,58 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
   <amendments>
     <setPropertyFixed>
       <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>background-colour</propertyName>
-      <fixedValue><![CDATA[[{"grid":"f","colour":"white"},{"grid":"x","colour":"secondary0"},{"grid":"d","colour":"secondary1"},{"grid":"t","colour":"secondary2"},{"grid":"p","colour":"secondary3"}]]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>background-colour</propertyName>
-      <fixedValue><![CDATA[[{"grid":"f","colour":"black"},{"grid":"x","colour":"secondary0"},{"grid":"d","colour":"secondary1"},{"grid":"t","colour":"secondary2"},{"grid":"p","colour":"secondary3"}]]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>background-colour</propertyName>
-      <fixedValue><![CDATA[[{"grid":"f","colour":"black"},{"grid":"x","colour":"secondary0"},{"grid":"d","colour":"secondary1"},{"grid":"t","colour":"tint3"},{"grid":"p","colour":"secondary3"}]]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/0</componentPath>
-      <propertyName>grid-placement</propertyName>
-      <fixedValue><![CDATA[[{"grid":"x","position":"2-4"}]]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>grid-placement</propertyName>
-      <fixedValue><![CDATA[[{"grid":"x","position":"6-8"}]]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>background-colour</propertyName>
-      <fixedValue><![CDATA[[{"grid":"f","colour":"black"},{"grid":"x","colour":"tint3"},{"grid":"d","colour":"secondary3"},{"grid":"t","colour":"secondary2"},{"grid":"p","colour":"secondary1"}]]]></fixedValue>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","edge":"left"},{"grid":"d","edge":"bottom"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
     </setPropertyFixed>
     <setPropertyFixed>
       <componentPath>0/0/0/0/1</componentPath>
       <propertyName>triangle</propertyName>
-      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"left"},{"grid":"x","centred":true,"edge":"bottom"},{"grid":"d","centred":true,"edge":"right"},{"grid":"t","centred":true,"edge":"top"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","edge":"left"},{"grid":"d","centred":true,"edge":"bottom"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
     </setPropertyFixed>
     <setPropertyFixed>
       <componentPath>0/0/0/0/1</componentPath>
       <propertyName>triangle</propertyName>
-      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"left"},{"grid":"x","centred":true,"edge":"bottom"},{"grid":"d","centred":true,"edge":"right"},{"grid":"t","centred":true,"edge":"top"},{"grid":"p","centred":true,"edge":"bottom"}]]]></fixedValue>
+      <fixedValue><![CDATA[[{"grid":"f","edge":"bottom"},{"grid":"x","edge":"left"},{"grid":"d","centred":true,"edge":"bottom"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
     </setPropertyFixed>
     <setPropertyFixed>
       <componentPath>0/0/0/0/1</componentPath>
       <propertyName>triangle</propertyName>
-      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"left"},{"grid":"x","centred":true,"edge":"bottom"},{"grid":"d","centred":true,"edge":"right"},{"grid":"t","centred":true,"edge":"top"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"bottom"},{"grid":"x","edge":"left"},{"grid":"d","centred":true,"edge":"bottom"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","edge":"left"},{"grid":"d","centred":true,"edge":"bottom"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"bottom"},{"grid":"x","edge":"left"},{"grid":"d","centred":true,"edge":"bottom"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","edge":"left"},{"grid":"d","centred":true,"edge":"bottom"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","edge":"top"},{"grid":"x","edge":"left"},{"grid":"d","centred":true,"edge":"bottom"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"bottom"},{"grid":"x","edge":"left"},{"grid":"d","centred":true,"edge":"bottom"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","edge":"left"},{"grid":"d","centred":true,"edge":"bottom"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"bottom"},{"grid":"x","edge":"left"},{"grid":"d","centred":true,"edge":"bottom"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
     </setPropertyFixed>
   </amendments>
 </template>

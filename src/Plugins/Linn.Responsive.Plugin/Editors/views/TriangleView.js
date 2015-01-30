@@ -4,6 +4,7 @@
     var Backbone = require('backbone');
     var _ = require('underscore');
     var Handlebars = require('handlebars');
+    require('../controls/Tabbed.js');
     var Template = require('text!../templates/TriangleTemplate.html');
 
     return Backbone.View.extend({
@@ -14,9 +15,22 @@
 
         events: {
             'submit': function (e) { e.preventDefault(); this.trigger('submit'); },
-            'click td.edge': function (e) { $(e.target).toggleClass('selected'); },
-            'click td.centred': function (e) { $(e.target).toggleClass('selected'); },
-            'click button.reset': function (e) { $(e.target).closest('tr').find('td').removeClass('selected'); }
+            'click .edge': 'toggleEdge',
+            'click .centred-switch': 'toggleCentred'
+        },
+
+        toggleEdge: function (e) {
+            var edge = $(e.target).closest('.edge');
+            var grid = edge.closest('[data-grid]');
+            grid.find('.edge').not(edge).removeClass('selected');
+            edge.toggleClass('selected');
+        },
+
+        toggleCentred: function (e) {
+            var centred = $(e.target).closest('.centred-switch');
+            var grid = centred.closest('[data-grid]');
+            grid.find('.edge').toggleClass('centred');
+            centred.toggleClass('selected');
         },
 
         render: function (editMode) {
@@ -28,27 +42,29 @@
 
             this.$el.html(this.template(context));
 
+            this.$el.find('.tabbed').tabbed();
+
             return this;
         },
 
         value: function () {
             var result = [];
 
-            _.each($('table.edit tr'), function (row) {
+            _.each(this.$el.find('.tab-contents > div'), function (row) {
                 var $row = $(row);
 
                 var spec = {
-                    grid: $row.find('.grid').text().trim()
+                    grid: $row.attr('data-grid')
                 };
 
-                if ($row.find('.centred.selected').length > 0) {
+                if ($row.find('.centred-switch.selected').length > 0) {
                     spec.centred = true;
                 }
 
                 var edge = $row.find('.edge.selected');
 
                 if (edge.length == 1) {
-                    spec.edge = edge.first().text().trim();
+                    spec.edge = edge.attr('data-edge')
                     result.push(spec);
                 }
             });
@@ -75,9 +91,9 @@
         buildEdges: function (value) {
             var edges = [
             { name: 'top' },
-            { name: 'right' },
             { name: 'bottom' },
-            { name: 'left'}];
+            { name: 'left' },
+            { name: 'right'}];
 
             if (value) {
                 var selected = _.find(edges, function (edge) { return edge.name === value; });

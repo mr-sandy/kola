@@ -1,0 +1,50 @@
+.value.grid-placement {
+
+    table.edit {
+        border: none;
+
+        td {
+            font-size: 16px;
+            line-height: 16px;
+            padding: 10px;
+            text-align: center;
+            border: 2px solid white;
+
+            &.grid {            
+                width: 26px;
+                background-color: #eee;
+                color: #333;
+            }
+
+            &.column {
+                width: 26px;
+                background-color: #ccc;
+                color: #fff;
+            }
+        
+            &.column.selected {
+                background-color: #666;
+            }
+        
+            &.shown {
+                width: 26px;
+                background-color: #c2f2c2;
+            }
+        
+            &.shown.selected {
+                background-color: #28bf28;
+                color: #fff;
+            }
+        
+            &.hidden {
+                width: 26px;
+                background-color: #f2c2d0;
+            }
+        
+            &.hidden.selected {
+                background-color: #ff5284;
+                color: #fff;
+            }
+        }
+    }
+}

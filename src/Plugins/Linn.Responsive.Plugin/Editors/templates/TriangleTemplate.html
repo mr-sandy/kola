@@ -1,7 +1,6 @@
 ﻿<table class="view grid-settings">
     <tbody>
-        {{#each grids}}
-        {{#unless unset}}
+        {{#each grids}} {{#unless unset}}
         <tr>
             <td>
                 {{grid}}
@@ -10,36 +9,37 @@
                 {{edge}} {{#if centred}}(centred){{/if}}
             </td>
         </tr>
-        {{/unless}}
-        {{/each}}
+        {{/unless}} {{/each}}
     </tbody>
 </table>
 {{#if editMode}}
 <form class="modal">
-<table class="edit">
-    <thead>
-    </thead>
-    <tbody>
-        <tr>
-{{#each grids}}
-            <td class="grid">
-                {{grid}}
-            </td>
-    {{#each edges}}
-            <td class="edge {{name}} {{#if selected}}selected{{/if}}">
-                {{name}}
-            </td>
-    {{/each}}
-            <td class="centred {{#if centred}}selected{{/if}}">
-                centred
-            </td>
-            <td>
-                <button class="reset" type="button">reset</button>
-            </td>
-        </tr>
-{{/each}}
-    </tbody>
-</table>
+<div class="tabbed xhorizontal-tabs">
+    <ul class="tabs">
+        {{#each grids}}
+        <li><a href="#grid-{{grid}}" class="toggle-switch grid-name-{{grid}}"></a></li>
+        {{/each}}
+    </ul>
+    <div class="tab-contents">
+        {{#each grids}}
+        <div id="grid-{{grid}}" data-grid="{{grid}}">
+            {{#each edges}}
+            <div class="holder">
+                <div class="toggle-switch blue triangle edge {{name}}{{#if selected}} selected{{/if}}{{#if ../centred}} centred{{/if}}" data-edge="{{name}}">
+                    <label>{{name}}</label>
+                </div>
+            </div>
+            {{/each}}
+            <div class="clear"></div>
+            <div class="holder">
+                <div class="toggle-switch centred-switch green{{#if centred}} selected{{/if}}">
+                    <label>centred</label>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
 <input type="submit" style="margin-top: 10px" value="submit" />
 </form>
 <div class="overlay">
