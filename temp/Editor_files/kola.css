@@ -178,34 +178,9 @@ iframe {
   padding: 20px;
   background-color: #fff;
   border: 1px solid #aaa;
-  border-radius: 6px;
-  overflow: hidden; }
-  #properties form.modal div.chrome {
-    margin: -20px -20px 20px -20px;
-    padding: 10px 20px;
-    border-bottom: 2px solid #ccc;
-    background-color: #eee; }
-    #properties form.modal div.chrome > * {
-      margin: 0; }
-  #properties form.modal div.controls {
-    margin: 40px -20px -20px -20px;
-    padding: 20px;
-    border-top: 2px solid #ccc;
-    background-color: #eee; }
-    #properties form.modal div.controls input[type=submit],
-    #properties form.modal div.controls button {
-      margin: 0;
-      padding: 6px 8px;
-      min-width: 60px;
-      float: right; }
-      #properties form.modal div.controls input[type=submit] + button, #properties form.modal div.controls input[type=submit] + input[type=submit],
-      #properties form.modal div.controls button + button,
-      #properties form.modal div.controls button + input[type=submit] {
-        margin-right: 10px; }
-    #properties form.modal div.controls:after {
-      content: ' ';
-      display: table;
-      clear: both; }
+  border-radius: 6px; }
+  #properties form.modal input[type=submit] {
+    margin-top: 10px; }
 #properties .overlay {
   position: fixed;
   width: 100%;

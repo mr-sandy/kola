@@ -17,12 +17,47 @@
         background-color: #fff;
         border: 1px solid #aaa;
         border-radius: 6px;
+        overflow: hidden;
 
-		input[type=submit] {
-			margin-top: 10px;
+        div.chrome {
+            margin: -20px -20px 20px -20px;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ccc;
+            background-color: #eee;
+        
+		    & > * {
+                margin: 0;
+            }
 		}
+                                            
+        div.controls {
+            margin: 40px -20px -20px -20px;
+            padding: 20px;
+            border-top: 2px solid #ccc;
+            background-color: #eee;
+
+			input[type=submit],
+            button {
+                margin: 0;
+                padding: 6px 8px;
+                min-width: 60px;
+                float: right;
+
+				& + button,
+				& + input[type=submit] {
+                    margin-right: 10px;
+                }
+            }
+
+			&:after {
+                content: ' ';
+                display: table;
+                clear: both;
+            }
+        }
     }
-  
+
+
     .overlay {
         position: fixed;
         width: 100%;
