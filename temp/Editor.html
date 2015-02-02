@@ -187,90 +187,275 @@
                                     <td class="type">
                                         fixed
                                     </td>
-                                    <td class="value responsive-colour">
+                                    <td class="value padding">
                                         <table class="view grid-settings">
                                             <tbody>
                                             </tbody>
                                         </table>
                                         <style type="text/css">
+                                            .value.padding .holder
+                                            {
+                                                position: relative;
+                                                height: 280px;
+                                                width: 380px;
+                                                border: 1px solid #ccc;
+                                                background-color: #eee;
+                                                border-radius: 5px;
+                                            }
+                                            
+                                            .value.padding .holder .reference
+                                            {
+                                                height: 30%;
+                                                width: 40%;
+                                                border: 1px solid #333;
+                                                background-color: #999;
+                                                border-radius: 5px;
+                                                position: absolute;
+                                                top: 50%;
+                                                left: 50%;
+                                                transform: translateX(-50%) translateY(-50%);
+                                            }
+                                            
+                                            .value.padding .holder .top
+                                            {
+                                                text-align: center;
+                                                position: absolute;
+                                                top: 17%;
+                                                left: 50%;
+                                                transform: translateX(-50%) translateY(-50%);
+                                            }
+                                            
+                                            .value.padding .holder .bottom
+                                            {
+                                                position: absolute;
+                                                bottom: 17%;
+                                                left: 50%;
+                                                transform: translateX(-50%) translateY(50%);
+                                            }
+                                            
+                                            .value.padding .holder .left
+                                            {
+                                                position: absolute;
+                                                left: 15%;
+                                                top: 50%;
+                                                transform: translateX(-50%) translateY(-50%);
+                                            }
+                                            
+                                            .value.padding .holder .right
+                                            {
+                                                position: absolute;
+                                                right: 15%;
+                                                top: 50%;
+                                                transform: translateX(50%) translateY(-50%);
+                                            }
+                                            
+                                            .value.padding .holder select
+                                            {
+                                                width: 60px;
+                                            }
                                         </style>
                                         <form class="modal">
                                         <div class="chrome">
-                                            <span>Padding</span>
+                                            <span>Triangle</span>
                                         </div>
-                                        <div class="row green">
-                                            <label class="grid-name-f"></label>
-                                            <div class="colour"><div class="tint1-back" title="tint1"></div></div>
-                                            <div class="colour"><div class="tint2-back"></div></div>
-                                            <div class="colour"><div class="tint3-back"></div></div>
-                                            <div class="colour selected"><div class="secondary0-back"></div></div>
-                                            <div class="colour"><div class="secondary1-back"></div></div>
-                                            <div class="colour"><div class="secondary2-back"></div></div>
-                                            <div class="colour"><div class="secondary3-back"></div></div>
-                                            <div class="colour"><div class="white-back"></div></div>
-                                            <div class="colour"><div class="black-back"></div></div>
-                                            <div class="colour"><div class="pitch-black-back"></div></div>
-                                        </div>
-                                        <div class="row">
-                                            <label class="grid-name-x"></label>
-                                        </div>
-                                        <!--                                        <div class="tabbed xhorizontal-tabs">
+                                        <div class="tabbed xhorizontal-tabs">
                                             <ul class="tabs">
-                                                <li><a href="http://localhost:51969/_kola/templates/test#grid-f" class="toggle-switch grid-name-f selected">
-                                                </a></li>
-                                                <li><a href="http://localhost:51969/_kola/templates/test#grid-x" class="toggle-switch grid-name-x">
-                                                </a></li>
-                                                <li><a href="http://localhost:51969/_kola/templates/test#grid-d" class="toggle-switch grid-name-d">
-                                                </a></li>
-                                                <li><a href="http://localhost:51969/_kola/templates/test#grid-t" class="toggle-switch grid-name-t">
-                                                </a></li>
-                                                <li><a href="http://localhost:51969/_kola/templates/test#grid-p" class="toggle-switch grid-name-p">
-                                                </a></li>
-                                                <li><a href="http://localhost:51969/_kola/templates/test#grid-m" class="toggle-switch grid-name-m">
-                                                </a></li>
-                                                <li><a href="http://localhost:51969/_kola/templates/test#grid-u" class="toggle-switch grid-name-u">
-                                                </a></li>
+                                                <li><a href="#grid-f" class="toggle-switch grid-name-f selected"></a></li>
+                                                <li><a href="#grid-x" class="toggle-switch grid-name-x"></a></li>
+                                                <li><a href="#grid-d" class="toggle-switch grid-name-d"></a></li>
+                                                <li><a href="#grid-t" class="toggle-switch grid-name-t"></a></li>
+                                                <li><a href="#grid-p" class="toggle-switch grid-name-p"></a></li>
+                                                <li><a href="#grid-m" class="toggle-switch grid-name-m"></a></li>
+                                                <li><a href="#grid-u" class="toggle-switch grid-name-u"></a></li>
                                             </ul>
                                             <div class="tab-contents">
                                                 <div id="grid-f" data-grid="f" class="selected">
                                                     <div class="holder">
-                                                        <div class="toggle-switch blue triangle edge top" data-edge="top">
-                                                            <label>
-                                                                top</label>
+                                                        <div class="top">
+                                                            <select id="top">
+                                                                <option></option>
+                                                                <option>0</option>
+                                                                <option>0.5</option>
+                                                                <option>1</option>
+                                                                <option>1.5</option>
+                                                                <option>2</option>
+                                                                <option>2.5</option>
+                                                                <option>3</option>
+                                                                <option>3.5</option>
+                                                                <option>4</option>
+                                                                <option>4.5</option>
+                                                                <option>5</option>
+                                                                <option>5.5</option>
+                                                                <option>6</option>
+                                                                <option>6.5</option>
+                                                                <option>7</option>
+                                                                <option>7.5</option>
+                                                                <option>8</option>
+                                                                <option>8.5</option>
+                                                                <option>9</option>
+                                                                <option>9.5</option>
+                                                                <option>10</option>
+                                                                <option>11</option>
+                                                                <option>12</option>
+                                                                <option>13</option>
+                                                                <option>14</option>
+                                                                <option>15</option>
+                                                                <option>16</option>
+                                                                <option>17</option>
+                                                                <option>18</option>
+                                                                <option>19</option>
+                                                                <option>20</option>
+                                                                <option>21</option>
+                                                                <option>22</option>
+                                                                <option>23</option>
+                                                                <option>24</option>
+                                                                <option>25</option>
+                                                                <option>26</option>
+                                                                <option>27</option>
+                                                                <option>28</option>
+                                                            </select>
                                                         </div>
-                                                    </div>
-                                                    <div class="holder">
-                                                        <div class="toggle-switch blue triangle edge bottom" data-edge="bottom">
-                                                            <label>
-                                                                bottom</label>
+                                                        <div class="bottom">
+                                                            <select id="Select1">
+                                                                <option></option>
+                                                                <option>0</option>
+                                                                <option>0.5</option>
+                                                                <option>1</option>
+                                                                <option>1.5</option>
+                                                                <option>2</option>
+                                                                <option>2.5</option>
+                                                                <option>3</option>
+                                                                <option>3.5</option>
+                                                                <option>4</option>
+                                                                <option>4.5</option>
+                                                                <option>5</option>
+                                                                <option>5.5</option>
+                                                                <option>6</option>
+                                                                <option>6.5</option>
+                                                                <option>7</option>
+                                                                <option>7.5</option>
+                                                                <option>8</option>
+                                                                <option>8.5</option>
+                                                                <option>9</option>
+                                                                <option>9.5</option>
+                                                                <option>10</option>
+                                                                <option>11</option>
+                                                                <option>12</option>
+                                                                <option>13</option>
+                                                                <option>14</option>
+                                                                <option>15</option>
+                                                                <option>16</option>
+                                                                <option>17</option>
+                                                                <option>18</option>
+                                                                <option>19</option>
+                                                                <option>20</option>
+                                                                <option>21</option>
+                                                                <option>22</option>
+                                                                <option>23</option>
+                                                                <option>24</option>
+                                                                <option>25</option>
+                                                                <option>26</option>
+                                                                <option>27</option>
+                                                                <option>28</option>
+                                                            </select>
                                                         </div>
-                                                    </div>
-                                                    <div class="holder">
-                                                        <div class="toggle-switch blue triangle edge left" data-edge="left">
-                                                            <label>
-                                                                left</label>
+                                                        <div class="left">
+                                                            <select id="Select2">
+                                                                <option></option>
+                                                                <option>0</option>
+                                                                <option>0.5</option>
+                                                                <option>1</option>
+                                                                <option>1.5</option>
+                                                                <option>2</option>
+                                                                <option>2.5</option>
+                                                                <option>3</option>
+                                                                <option>3.5</option>
+                                                                <option>4</option>
+                                                                <option>4.5</option>
+                                                                <option>5</option>
+                                                                <option>5.5</option>
+                                                                <option>6</option>
+                                                                <option>6.5</option>
+                                                                <option>7</option>
+                                                                <option>7.5</option>
+                                                                <option>8</option>
+                                                                <option>8.5</option>
+                                                                <option>9</option>
+                                                                <option>9.5</option>
+                                                                <option>10</option>
+                                                                <option>11</option>
+                                                                <option>12</option>
+                                                                <option>13</option>
+                                                                <option>14</option>
+                                                                <option>15</option>
+                                                                <option>16</option>
+                                                                <option>17</option>
+                                                                <option>18</option>
+                                                                <option>19</option>
+                                                                <option>20</option>
+                                                                <option>21</option>
+                                                                <option>22</option>
+                                                                <option>23</option>
+                                                                <option>24</option>
+                                                                <option>25</option>
+                                                                <option>26</option>
+                                                                <option>27</option>
+                                                                <option>28</option>
+                                                            </select>
                                                         </div>
-                                                    </div>
-                                                    <div class="holder">
-                                                        <div class="toggle-switch blue triangle edge right" data-edge="right">
-                                                            <label>
-                                                                right</label>
+                                                        <div class="right">
+                                                            <select id="Select3">
+                                                                <option></option>
+                                                                <option>0</option>
+                                                                <option>0.5</option>
+                                                                <option>1</option>
+                                                                <option>1.5</option>
+                                                                <option>2</option>
+                                                                <option>2.5</option>
+                                                                <option>3</option>
+                                                                <option>3.5</option>
+                                                                <option>4</option>
+                                                                <option>4.5</option>
+                                                                <option>5</option>
+                                                                <option>5.5</option>
+                                                                <option>6</option>
+                                                                <option>6.5</option>
+                                                                <option>7</option>
+                                                                <option>7.5</option>
+                                                                <option>8</option>
+                                                                <option>8.5</option>
+                                                                <option>9</option>
+                                                                <option>9.5</option>
+                                                                <option>10</option>
+                                                                <option>11</option>
+                                                                <option>12</option>
+                                                                <option>13</option>
+                                                                <option>14</option>
+                                                                <option>15</option>
+                                                                <option>16</option>
+                                                                <option>17</option>
+                                                                <option>18</option>
+                                                                <option>19</option>
+                                                                <option>20</option>
+                                                                <option>21</option>
+                                                                <option>22</option>
+                                                                <option>23</option>
+                                                                <option>24</option>
+                                                                <option>25</option>
+                                                                <option>26</option>
+                                                                <option>27</option>
+                                                                <option>28</option>
+                                                            </select>
                                                         </div>
-                                                    </div>
-                                                    <div class="clear">
-                                                    </div>
-                                                    <div class="holder">
-                                                        <div class="toggle-switch centred-switch green">
-                                                            <label>
-                                                                centred</label>
+                                                        <div class="reference">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>-->
+                                        </div>
                                         <div class="controls">
-                                            <input type="submit" value="ok" />
                                             <button class="cancel" value="cancel">Cancel</button>
+                                            <input type="submit" value="Ok">
                                         </div>
                                         </form>
                                         <div class="overlay">

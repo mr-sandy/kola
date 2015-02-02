@@ -1,0 +1,19 @@
+
+.text-alignment {
+
+	.alignment {
+		width: 80px;
+
+		&[data-alignment=left] {
+			text-align: left;
+		}
+
+		&[data-alignment=right] {
+			text-align: right;
+		}
+
+		&[data-alignment=centre] {
+			text-align: center;
+		}
+	}
+}

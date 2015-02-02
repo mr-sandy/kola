@@ -4,15 +4,14 @@
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
     var gridNames = require('./GridNames.js')
-    var Template = require('text!../templates/ResponsiveColourTemplate.html');
+    var Template = require('text!../templates/TextAlignmentTemplate.html');
 
     return Backbone.View.extend({
 
         template: Handlebars.compile(Template),
 
         events: {
-            'click .preview': 'setPreviewColour',
-            'click .colour': 'toggleColour'
+            'click .alignment': 'toggleAlignment'
         },
 
         render: function (editMode) {
@@ -38,10 +37,10 @@
                     grid: $row.attr('data-grid')
                 };
 
-                var colour = $row.find('.colour.selected');
+                var alignment = $row.find('.alignment.selected');
 
-                if (colour.length == 1) {
-                    spec.colour = colour.attr('data-colour')
+                if (alignment.length == 1) {
+                    spec.alignment = alignment.attr('data-alignment')
                     result.push(spec);
                 }
             });
@@ -56,7 +55,7 @@
 
                 var gridSettings = _.find(model, function (m) { return m.grid === gridName; }) || { grid: gridName, unset: true };
 
-                gridSettings.colours = this.buildColours(gridSettings.colour);
+                gridSettings.alignments = this.buildAlignments(gridSettings.alignment);
 
                 viewModel.grids.push(gridSettings);
 
@@ -65,41 +64,27 @@
             return viewModel;
         },
 
-        buildColours: function (value) {
-            var colours = [
-            { name: "tint1" },
-            { name: "tint2" },
-            { name: "tint3" },
-            { name: "secondary0" },
-            { name: "secondary1" },
-            { name: "secondary2" },
-            { name: "secondary3" },
-            { name: "white" },
-            { name: "black" },
-            { name: "pitch-black"}];
+        buildAlignments: function (value) {
+            var alignments = [
+            { name: "left" },
+            { name: "centre" },
+            { name: "right" }];
 
             if (value) {
-                var selected = _.find(colours, function (colour) { return colour.name === value; });
+                var selected = _.find(alignments, function (alignment) { return alignment.name === value; });
                 if (selected) {
                     selected.selected = true;
                 }
             }
 
-            return colours;
+            return alignments;
         },
 
-        toggleColour: function (e) {
-            var colour = $(e.target).closest('.colour');
-            var grid = colour.closest('[data-grid]');
-            grid.find('.colour').not(colour).removeClass('selected');
-            colour.toggleClass('selected');
-        },
-
-        setPreviewColour: function (e) {
-            var previewColour = $(e.target).attr('data-preview-colour');
-            this.$el.find('.row[data-grid]').removeClass('red orange blue green purple').addClass(previewColour);
-            $(e.target).siblings().removeClass('selected');
-            $(e.target).addClass('selected');
+        toggleAlignment: function (e) {
+            var alignment = $(e.target).closest('.alignment');
+            var grid = alignment.closest('[data-grid]');
+            grid.find('.alignment').not(alignment).removeClass('selected');
+            alignment.toggleClass('selected');
         }
     });
 });

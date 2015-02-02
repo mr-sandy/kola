@@ -16,9 +16,10 @@
                 {
                     { "grid-placement", v => BuildManyClassesFromList<GridPlacement>(v, GridPlacementClassBuilder.BuildClasses) },
                     { "background-colour", v => BuildClassesFromList<ResponsiveColour>(v, c => string.Format("{0}-back-{1}", c.Colour, c.Grid)) },
+                    { "text-alignment", v => BuildClassesFromList<ResponsiveAlignment>(v, c => string.Format("text-align-{0}-{1}", c.Alignment.Replace("centre", "center"), c.Grid)) },
                     { "triangle", v => BuildManyClassesFromList<ResponsiveTriangle>(v, ResponsiveTriangleClassBuilder.BuildClasses) },
+                    { "padding", v => BuildManyClassesFromList<ResponsivePadding>(v, ResponsivePaddingClassBuilder.BuildClasses) },
                     { "text-colour", v => EchoClass(v, suffix: "-text") },
-                    { "padding", v => EchoClass(v) },
                     { "is-slide", v => GetClassFromBool(v, "slide") },
                     { "margin", v => EchoClass(v) },
                     { "pointer-up", v => GetClassFromBool(v, "pointer-up") },

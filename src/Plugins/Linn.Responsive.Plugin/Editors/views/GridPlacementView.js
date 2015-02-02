@@ -4,19 +4,18 @@
     var Backbone = require('backbone');
     var _ = require('underscore');
     var Handlebars = require('handlebars');
+    var gridNames = require('./GridNames.js')
     var Template = require('text!../templates/GridPlacementTemplate.html');
 
     return Backbone.View.extend({
 
         template: Handlebars.compile(Template),
 
-        gridNames: ['f', 'x', 'd', 't', 'p', 'm', 'u'],
-
         events: {
             'click td.column': function (e) { $(e.target).toggleClass('selected'); },
             'click td.hidden': function (e) { $(e.target).toggleClass('selected'); },
             'click td.shown': function (e) { $(e.target).toggleClass('selected'); },
-            'click button.reset': function (e) { $(e.target).closest('tr').find('td').removeClass('selected'); },
+            'click button.reset': function (e) { $(e.target).closest('tr').find('td').removeClass('selected'); }
         },
 
         render: function (editMode) {
@@ -72,7 +71,7 @@
         buildViewModel: function (model) {
             var viewModel = { grids: [] };
 
-            _.each(this.gridNames, function (gridName) {
+            _.each(gridNames, function (gridName) {
 
                 var gridSettings = _.find(model, function (m) { return m.grid === gridName; }) || { grid: gridName, unset: true };
 

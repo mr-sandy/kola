@@ -1,0 +1,57 @@
+
+.padding {
+    
+    .holder {
+        position: relative;
+        height: 280px;
+        width: 380px;
+        border: 1px solid $blue2;
+        background-color: $blue1;
+        border-radius: 5px;
+                                           
+        .reference {
+            height: 30%;
+            width: 40%;
+            border: 1px solid $blue3;
+            background-color: $blue2;
+            border-radius: 5px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+                                            
+        .top {
+            text-align: center;
+            position: absolute;
+            top: 17%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+                                            
+        .bottom {
+            position: absolute;
+            bottom: 17%;
+            left: 50%;
+            transform: translateX(-50%) translateY(50%);
+        }
+                                            
+        .left {
+            position: absolute;
+            left: 15%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+        }
+                                            
+        .right {
+            position: absolute;
+            right: 15%;
+            top: 50%;
+            transform: translateX(50%) translateY(-50%);
+        }
+                                            
+        select {
+            width: 60px;
+        }
+    }
+}

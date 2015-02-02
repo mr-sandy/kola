@@ -4,14 +4,15 @@
     var Backbone = require('backbone');
     var _ = require('underscore');
     var Handlebars = require('handlebars');
-    require('../controls/Tabbed.js');
+    var gridNames = require('./GridNames.js')
     var Template = require('text!../templates/TriangleTemplate.html');
+
+    require('../controls/Tabbed.js');
 
     return Backbone.View.extend({
 
         template: Handlebars.compile(Template),
 
-        gridNames: ['f', 'x', 'd', 't', 'p', 'm', 'u'],
 
         events: {
             'click .edge': 'toggleEdge',
@@ -74,7 +75,7 @@
         buildViewModel: function (model) {
             var viewModel = { grids: [] };
 
-            _.each(this.gridNames, function (gridName) {
+            _.each(gridNames, function (gridName) {
 
                 var gridSettings = _.find(model, function (m) { return m.grid === gridName; }) || { grid: gridName, unset: true };
 

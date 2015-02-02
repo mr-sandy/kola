@@ -62,7 +62,10 @@
   <ItemGroup>
     <Compile Include="Configuration.cs" />
     <Compile Include="Extensions\GridPlacementClassBuilder.cs" />
+    <Compile Include="Extensions\ResponsivePaddingClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveTriangleClassBuilder.cs" />
+    <Compile Include="PropertyModels\ResponsivePadding.cs" />
+    <Compile Include="PropertyModels\ResponsiveAlignment.cs" />
     <Compile Include="PropertyModels\ResponsiveColour.cs" />
     <Compile Include="PropertyModels\GridPlacement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +88,8 @@
     <EmbeddedResource Include="Editors\css\_tabbed.scss" />
     <EmbeddedResource Include="Editors\css\_colours.scss" />
     <EmbeddedResource Include="Editors\css\_colour.scss" />
+    <EmbeddedResource Include="Editors\css\_text-alignment.scss" />
+    <EmbeddedResource Include="Editors\css\_padding.scss" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\MainMenu.cshtml" />
     <EmbeddedResource Include="Views\SecondaryNav.cshtml" />
@@ -136,6 +141,21 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\templates\TriangleTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\GridNames.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\TextAlignmentView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\TextAlignmentTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\PaddingView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\PaddingTemplate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

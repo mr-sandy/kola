@@ -62,7 +62,7 @@
                 .WithProperty("is-slide", "boolean")
                 .WithProperty("triangle", "triangle")
                 .WithProperty("content-id", "text")
-                .WithProperty("text-align", "text")
+                .WithProperty("text-alignment", "text-alignment")
                 .WithProperty("show-grids", "text")
                 .ExtendWith(this.CommonProperties);
 
@@ -75,8 +75,8 @@
                 .WithProperty("is-slide", "boolean")
                 .WithProperty("grid-placement", "text")
                 .WithProperty("content-id", "text")
-                .WithProperty("text-align", "text")
-                .WithProperty("padding", "text");
+                .WithProperty("text-alignment", "text-alignment")
+                .WithProperty("padding", "padding");
 
             this.Configure.Container("figure-caption")
                 .WithView("FigureCaption")
@@ -101,6 +101,12 @@
 
             this.Configure.PropertyType("triangle")
                 .WithEditor("TriangleView.js");
+
+            this.Configure.PropertyType("text-alignment")
+                .WithEditor("TextAlignmentView.js");
+
+            this.Configure.PropertyType("padding")
+                .WithEditor("PaddingView.js");
         }
 
         private void CommonProperties(ComponentRendererConfigurer configureComponent)
@@ -108,7 +114,7 @@
             configureComponent
                 .WithProperty("grid-placement", "grid-placement")
                 .WithProperty("margin", "text")
-                .WithProperty("padding", "text")
+                .WithProperty("padding", "padding")
                 .WithProperty("border", "text")
                 .WithProperty("background-colour", "responsive-colour")
                 .WithProperty("text-colour", "colour")

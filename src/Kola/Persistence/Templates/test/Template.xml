@@ -11,11 +11,7 @@
         <area name="content">
           <components>
             <container name="section">
-              <properties>
-                <property name="padding" type="text">
-                  <value xsi:type="fixed"><![CDATA[pad-t-6-x]]></value>
-                </property>
-              </properties>
+              <properties />
               <components>
                 <container name="inner">
                   <properties />
@@ -24,9 +20,6 @@
                       <properties>
                         <property name="grid-placement" type="grid-placement">
                           <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"2-4"}]]]></value>
-                        </property>
-                        <property name="padding" type="text">
-                          <value xsi:type="fixed"><![CDATA[pad-t-3-x]]></value>
                         </property>
                         <property name="background-colour" type="responsive-colour">
                           <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"secondary0"}]]]></value>
@@ -73,9 +66,6 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                         <property name="grid-placement" type="grid-placement">
                           <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"6-8"}]]]></value>
                         </property>
-                        <property name="padding" type="text">
-                          <value xsi:type="fixed"><![CDATA[pad-t-8-x]]></value>
-                        </property>
                         <property name="background-colour" type="responsive-colour">
                           <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"tint3"},{"grid":"d","colour":"tint3"},{"grid":"t","colour":"secondary0"},{"grid":"p","colour":"secondary1"},{"grid":"m","colour":"secondary2"},{"grid":"u","colour":"secondary3"}]]]></value>
                         </property>
@@ -84,6 +74,12 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                         </property>
                         <property name="triangle" type="triangle">
                           <value xsi:type="fixed"><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","centred":true,"edge":"top"},{"grid":"d","edge":"left"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></value>
+                        </property>
+                        <property name="text-alignment" type="text-alignment">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","alignment":"left"},{"grid":"x","alignment":"centre"},{"grid":"d","alignment":"right"}]]]></value>
+                        </property>
+                        <property name="padding" type="padding">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","edges":[{"edge":"top","value":"1"}]},{"grid":"x","edges":[{"edge":"top","value":"6"},{"edge":"bottom","value":"6"},{"edge":"left","value":"3"},{"edge":"right","value":"3"}]},{"grid":"d","edges":[{"edge":"bottom","value":"5"}]},{"grid":"t","edges":[{"edge":"left","value":"3"},{"edge":"right","value":"4.5"}]}]]]></value>
                         </property>
                       </properties>
                       <components>
@@ -115,6 +111,12 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                       <properties>
                         <property name="grid-placement" type="grid-placement">
                           <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"10-11"}]]]></value>
+                        </property>
+                        <property name="triangle" type="triangle">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","edge":"left"}]]]></value>
+                        </property>
+                        <property name="background-colour" type="responsive-colour">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"secondary0"}]]]></value>
                         </property>
                       </properties>
                       <components>

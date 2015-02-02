@@ -1,0 +1,36 @@
+﻿<table class="view grid-settings">
+    <tbody>
+        {{#each grids}} {{#unless unset}}
+        <tr>
+            <td>
+                {{grid}}
+            </td>
+            <td>
+                {{alignment}}
+            </td>
+        </tr>
+        {{/unless}} {{/each}}
+    </tbody>
+</table>
+{{#if editMode}}
+<form class="modal">
+<div class="chrome">
+    <span>Text Alignment</span>
+</div>
+{{#each grids}}
+<div class="row" data-grid="{{grid}}">
+    <label class="grid-name-{{grid}}"></label>
+    {{#each alignments}}
+    <div class="alignment toggle-switch blue{{#if selected}} selected{{/if}}" data-alignment="{{name}}"}>{{name}}
+    </div>
+    {{/each}}
+</div>
+{{/each}}
+<div class="controls">
+    <button class="cancel" value="cancel">Cancel</button>
+    <input type="submit" value="Ok" />
+</div>
+</form>
+<div class="overlay">
+</div>
+{{/if}}
