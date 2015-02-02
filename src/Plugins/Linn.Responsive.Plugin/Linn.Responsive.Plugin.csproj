@@ -84,6 +84,7 @@
     <EmbeddedResource Include="Editors\css\_toggle-switch.scss" />
     <EmbeddedResource Include="Editors\css\_tabbed.scss" />
     <EmbeddedResource Include="Editors\css\_colours.scss" />
+    <EmbeddedResource Include="Editors\css\_colour.scss" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\MainMenu.cshtml" />
     <EmbeddedResource Include="Views\SecondaryNav.cshtml" />

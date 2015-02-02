@@ -14,7 +14,6 @@
         gridNames: ['f', 'x', 'd', 't', 'p', 'm', 'u'],
 
         events: {
-            'submit': function (e) { e.preventDefault(); this.trigger('submit'); },
             'click .edge': 'toggleEdge',
             'click .centred-switch': 'toggleCentred'
         },

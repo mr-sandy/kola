@@ -9,10 +9,6 @@
 
         template: Handlebars.compile(Template),
 
-        events: {
-            'submit': function (e) { e.preventDefault(); this.trigger('submit'); }
-        },
-
         render: function (editMode) {
 
             var context = _.extend(this.model, { editMode: editMode });

@@ -13,7 +13,6 @@
         gridNames: ['f', 'x', 'd', 't', 'p', 'm', 'u'],
 
         events: {
-            'submit': function (e) { e.preventDefault(); this.trigger('submit'); },
             'click td.column': function (e) { $(e.target).toggleClass('selected'); },
             'click td.hidden': function (e) { $(e.target).toggleClass('selected'); },
             'click td.shown': function (e) { $(e.target).toggleClass('selected'); },

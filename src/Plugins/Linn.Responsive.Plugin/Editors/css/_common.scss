@@ -55,3 +55,25 @@ table.inner-properties {
     display: table;
     clear: both;
 }
+
+.row {
+    padding: 10px 0;
+
+	& > * {
+		float: left;
+
+		& + * {
+			margin-left: 20px;
+		}
+	}
+                                            
+    & + .row {
+        border-top: 1px solid #eee;
+    }
+
+	&:after {
+        content: ' ';
+        display: table;
+        clear: both;
+    }
+}

@@ -1,7 +1,6 @@
 ﻿<table class="view grid-settings">
     <tbody>
-        {{#each grids}}
-        {{#unless unset}}
+        {{#each grids}} {{#unless unset}}
         <tr>
             <td>
                 {{grid}}
@@ -10,37 +9,42 @@
                 {{colour}}
             </td>
         </tr>
-        {{/unless}}
-        {{/each}}
+        {{/unless}} {{/each}}
     </tbody>
 </table>
 {{#if editMode}}
 <form class="modal">
-<table class="edit">
-    <thead>
-    </thead>
-    <tbody>
-        <tr>
+<div class="chrome">
+    <span>Colour</span>
+</div>
 {{#each grids}}
-            <td class="grid">
-                {{grid}}
-            </td>
-            <td>
-                <select name="colours">
-                <option value=""></option>
-                {{#each colours}}
-                <option value="{{name}}" {{#if selected}}selected{{/if}}>{{name}}</option>
-                {{/each}}
-                </select>
-            </td>
-            <td>
-                <button class="reset" type="button">reset</button>
-            </td>
-        </tr>
+<div class="row red" data-grid="{{grid}}">
+    <label class="grid-name-{{grid}}"></label>
+    {{#each colours}}
+    <div class="colour{{#if selected}} selected{{/if}}" data-colour="{{name}}"}>
+        <div class="{{name}}-back" title="{{name}}">
+        </div>
+    </div>
+    {{/each}}
+</div>
 {{/each}}
-    </tbody>
-</table>
-<input type="submit" style="margin-top: 10px" value="submit" />
+<div class="row">
+    <label>Preview colour</label>
+    <div class="preview red selected" data-preview-colour="red">
+    </div>            
+    <div class="preview orange" data-preview-colour="orange">
+    </div>            
+    <div class="preview green" data-preview-colour="green">
+    </div>            
+    <div class="preview blue" data-preview-colour="blue">
+    </div>            
+    <div class="preview purple" data-preview-colour="purple">
+    </div>
+</div>
+<div class="controls">
+    <button class="cancel" value="cancel">Cancel</button>
+    <input type="submit" value="Ok" />
+</div>
 </form>
 <div class="overlay">
 </div>

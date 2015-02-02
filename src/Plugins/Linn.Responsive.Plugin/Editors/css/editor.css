@@ -33,6 +33,28 @@
   content: " ";
   display: table;
   clear: both; }
+#properties .row {
+  padding: 10px 0; }
+  #properties .row > * {
+    float: left; }
+    #properties .row > * + * {
+      margin-left: 20px; }
+  #properties .row + .row {
+    border-top: 1px solid #eee; }
+  #properties .row:after {
+    content: ' ';
+    display: table;
+    clear: both; }
+#properties label[class*="grid-name-"] {
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+  background-color: #f0efec;
+  color: #333333;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 60px;
+  text-align: center; }
 #properties .grid-name-f:after {
   content: "Full"; }
 #properties .grid-name-x:after {
@@ -47,6 +69,82 @@
   content: "Mobile"; }
 #properties .grid-name-u:after {
   content: "Micro"; }
+#properties .value.responsive-colour .colour {
+  display: block;
+  padding: 3px;
+  text-decoration: none;
+  color: #333333;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 40px;
+  width: 40px;
+  border: 1px solid #ccc; }
+  #properties .value.responsive-colour .colour.selected {
+    border: 2px solid #000; }
+  #properties .value.responsive-colour .colour > div {
+    height: 100%;
+    width: 100%;
+    border-radius: 3px; }
+#properties .value.responsive-colour .white-back {
+  background-color: white; }
+#properties .value.responsive-colour .black-back {
+  background-color: #333333; }
+#properties .value.responsive-colour .pitch-black-back {
+  background-color: black; }
+#properties .value.responsive-colour .secondary0-back {
+  background-color: #f0efec; }
+#properties .value.responsive-colour .secondary1-back {
+  background-color: #e2dfd9; }
+#properties .value.responsive-colour .secondary2-back {
+  background-color: #c4bfb7; }
+#properties .value.responsive-colour .secondary3-back {
+  background-color: #8a8681; }
+#properties .value.responsive-colour .red .tint1-back {
+  background-color: #f4bab5; }
+#properties .value.responsive-colour .red .tint2-back {
+  background-color: #eb8784; }
+#properties .value.responsive-colour .red .tint3-back {
+  background-color: #df505c; }
+#properties .value.responsive-colour .orange .tint1-back {
+  background-color: #fee0ae; }
+#properties .value.responsive-colour .orange .tint2-back {
+  background-color: #fcd485; }
+#properties .value.responsive-colour .orange .tint3-back {
+  background-color: #e39346; }
+#properties .value.responsive-colour .blue .tint1-back {
+  background-color: #bde0f7; }
+#properties .value.responsive-colour .blue .tint2-back {
+  background-color: #88cbf0; }
+#properties .value.responsive-colour .blue .tint3-back {
+  background-color: #38a3db; }
+#properties .value.responsive-colour .purple .tint1-back {
+  background-color: #e3c1d9; }
+#properties .value.responsive-colour .purple .tint2-back {
+  background-color: #d494bb; }
+#properties .value.responsive-colour .purple .tint3-back {
+  background-color: #b566a2; }
+#properties .value.responsive-colour .green .tint1-back {
+  background-color: #c2dcd2; }
+#properties .value.responsive-colour .green .tint2-back {
+  background-color: #88beab; }
+#properties .value.responsive-colour .green .tint3-back {
+  background-color: #52a58a; }
+#properties .value.responsive-colour div.preview {
+  height: 20px;
+  width: 20px;
+  border: 1px solid #ccc; }
+  #properties .value.responsive-colour div.preview.selected {
+    border: 2px solid #000; }
+  #properties .value.responsive-colour div.preview.red {
+    background-color: #df505c; }
+  #properties .value.responsive-colour div.preview.orange {
+    background-color: #e39346; }
+  #properties .value.responsive-colour div.preview.green {
+    background-color: #52a58a; }
+  #properties .value.responsive-colour div.preview.blue {
+    background-color: #38a3db; }
+  #properties .value.responsive-colour div.preview.purple {
+    background-color: #b566a2; }
 #properties .tabbed ul.tabs {
   list-style-type: none;
   margin: 0;
@@ -137,30 +235,6 @@
       background-color: #f2c2d0; }
     #properties .value.grid-placement table.edit td.hidden.selected {
       background-color: #ff5284;
-      color: #fff; }
-#properties .value.triangle table.edit {
-  border: none; }
-  #properties .value.triangle table.edit td {
-    font-size: 16px;
-    line-height: 16px;
-    padding: 10px;
-    text-align: center;
-    border: 2px solid white; }
-    #properties .value.triangle table.edit td.grid {
-      width: 26px;
-      background-color: #eee;
-      color: #333; }
-    #properties .value.triangle table.edit td.edge {
-      width: 26px;
-      background-color: #ccc;
-      color: #fff; }
-    #properties .value.triangle table.edit td.edge.selected {
-      background-color: #666; }
-    #properties .value.triangle table.edit td.centred {
-      width: 26px;
-      background-color: #c2f2c2; }
-    #properties .value.triangle table.edit td.centred.selected {
-      background-color: #28bf28;
       color: #fff; }
 #properties .value.triangle .holder {
   float: left;

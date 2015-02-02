@@ -2,44 +2,6 @@
 
 .value.triangle {
 
-    table.edit {
-        border: none;
-
-        td {
-            font-size: 16px;
-            line-height: 16px;
-            padding: 10px;
-            text-align: center;
-            border: 2px solid white;
-
-            &.grid {            
-                width: 26px;
-                background-color: #eee;
-                color: #333;
-            }
-
-            &.edge {
-                width: 26px;
-                background-color: #ccc;
-                color: #fff;
-            }
-        
-            &.edge.selected {
-                background-color: #666;
-            }
-        
-            &.centred {
-                width: 26px;
-                background-color: #c2f2c2;
-            }
-        
-            &.centred.selected {
-                background-color: #28bf28;
-                color: #fff;
-            }
-        }
-    }
-
     .holder {
         float: left;
         padding: 20px 20px 20px 0;

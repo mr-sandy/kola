@@ -1,0 +1,154 @@
+@import "colours";
+
+.value.responsive-colour {
+
+	.colour {
+		display: block;
+		padding: 3px;
+		text-decoration: none;
+		color: $black;
+		border-radius: 5px;
+		cursor: pointer;
+		height: 40px;
+		width: 40px;
+		border: 1px solid #ccc;
+
+		&.selected {
+            border: 2px solid #000;
+        }
+
+		& > div {
+		    height: 100%;
+            width: 100%;
+            border-radius: 3px;
+        }
+	}
+
+    .white-back {
+        background-color: $white;
+    }
+
+    .black-back {
+        background-color: $black;
+    }
+
+    .pitch-black-back {
+        background-color: $pitch-black;
+    }
+
+    .secondary0-back {
+        background-color: $secondary0;
+    }
+
+    .secondary1-back {
+        background-color: $secondary1;
+    }
+
+    .secondary2-back {
+        background-color: $secondary2;
+    }
+
+    .secondary3-back {
+        background-color: $secondary3;
+    }
+
+	.red { 
+		.tint1-back {
+		    background-color: $red1;
+	    }
+
+		.tint2-back {
+		    background-color: $red2;
+	    }
+
+		.tint3-back {
+		    background-color: $red3;
+	    }
+	}
+
+	.orange { 
+		.tint1-back {
+		    background-color: $orange1;
+	    }
+
+		.tint2-back {
+		    background-color: $orange2;
+	    }
+
+		.tint3-back {
+		    background-color: $orange3;
+	    }
+	}
+
+	.blue { 
+		.tint1-back {
+		    background-color: $blue1;
+	    }
+
+		.tint2-back {
+		    background-color: $blue2;
+	    }
+
+		.tint3-back {
+		    background-color: $blue3;
+	    }
+	}
+
+	.purple { 
+		.tint1-back {
+		    background-color: $purple1;
+	    }
+
+		.tint2-back {
+		    background-color: $purple2;
+	    }
+
+		.tint3-back {
+		    background-color: $purple3;
+	    }
+	}
+
+	.green { 
+		.tint1-back {
+		    background-color: $green1;
+	    }
+
+		.tint2-back {
+		    background-color: $green2;
+	    }
+
+		.tint3-back {
+		    background-color: $green3;
+	    }
+	}
+
+	div.preview {
+		height: 20px;
+		width: 20px;
+		border: 1px solid #ccc;
+
+		&.selected {
+            border: 2px solid #000;
+        }
+
+        &.red {
+			background-color: $red3;
+		}
+
+        &.orange {
+			background-color: $orange3;
+		}
+
+        &.green {
+			background-color: $green3;
+		}
+
+        &.blue {
+			background-color: $blue3;
+		}
+
+        &.purple {
+			background-color: $purple3;
+		}
+	}
+}

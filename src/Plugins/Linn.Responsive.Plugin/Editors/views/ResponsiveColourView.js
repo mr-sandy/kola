@@ -9,11 +9,12 @@
 
         template: Handlebars.compile(Template),
 
-        gridNames: ['f', 'x', 'd', 't', 'p', 'm', 'u'],
-
         events: {
-            'submit': function (e) { e.preventDefault(); this.trigger('submit'); }
+            'click .preview': 'setPreviewColour',
+            'click .colour': 'toggleColour',
         },
+
+        gridNames: ['f', 'x', 'd', 't', 'p', 'm', 'u'],
 
         render: function (editMode) {
 
@@ -31,17 +32,18 @@
         value: function () {
             var result = [];
 
-            _.each($('table.edit tr'), function (row) {
+            _.each($('.row[data-grid]'), function (row) {
                 var $row = $(row);
 
-                var selected = $row.find('select :selected');
+                var spec = {
+                    grid: $row.attr('data-grid')
+                };
 
-                if (selected.length > 0 && selected.val()) {
-                    result.push({
-                        grid: $row.find('.grid').text().trim(),
-                        colour: selected.val()
-                    });
+                var colour = $row.find('.colour.selected');
 
+                if (colour.length == 1) {
+                    spec.colour = colour.attr('data-colour')
+                    result.push(spec);
                 }
             });
 
@@ -85,6 +87,20 @@
             }
 
             return colours;
+        },
+
+        toggleColour: function (e) {
+            var colour = $(e.target).closest('.colour');
+            var grid = colour.closest('[data-grid]');
+            grid.find('.colour').not(colour).removeClass('selected');
+            colour.toggleClass('selected');
+        },
+
+        setPreviewColour: function (e) {
+            var previewColour = $(e.target).attr('data-preview-colour');
+            this.$el.find('.row[data-grid]').removeClass('red orange blue green purple').addClass(previewColour);
+            $(e.target).siblings().removeClass('selected');
+            $(e.target).addClass('selected');
         }
     });
 });

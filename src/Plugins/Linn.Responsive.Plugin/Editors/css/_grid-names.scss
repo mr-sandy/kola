@@ -1,4 +1,17 @@
-           
+@import "colours";
+          
+label[class*="grid-name-"] {
+    display: inline-block;
+    padding: 10px;
+    text-decoration: none;
+    background-color: $secondary0;
+    color: $black;
+    border-radius: 5px;
+	cursor: pointer;
+    min-width: 60px;
+    text-align: center;
+}
+
 .grid-name-f:after {
     content: "Full";
 }

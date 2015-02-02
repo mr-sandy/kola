@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+<template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <widget name="page">
       <properties>
@@ -74,16 +74,16 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                           <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"6-8"}]]]></value>
                         </property>
                         <property name="padding" type="text">
-                          <value xsi:type="fixed"><![CDATA[pad-t-7-x]]></value>
+                          <value xsi:type="fixed"><![CDATA[pad-t-8-x]]></value>
                         </property>
                         <property name="background-colour" type="responsive-colour">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","colour":"tint1"},{"grid":"x","colour":"tint3"},{"grid":"d","colour":"secondary3"},{"grid":"t","colour":"secondary2"},{"grid":"p","colour":"secondary1"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"tint3"},{"grid":"d","colour":"tint3"},{"grid":"t","colour":"secondary0"},{"grid":"p","colour":"secondary1"},{"grid":"m","colour":"secondary2"},{"grid":"u","colour":"secondary3"}]]]></value>
                         </property>
                         <property name="text-colour" type="colour">
-                          <value xsi:type="fixed"><![CDATA[pitch-black]]></value>
+                          <value xsi:type="fixed"><![CDATA[white]]></value>
                         </property>
                         <property name="triangle" type="triangle">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","centred":true,"edge":"left"},{"grid":"d","edge":"bottom"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","centred":true,"edge":"top"},{"grid":"d","edge":"left"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></value>
                         </property>
                       </properties>
                       <components>
@@ -102,7 +102,7 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                                 <property name="markdown" type="markdown">
                                   <value xsi:type="fixed"><![CDATA[##Add content hereabouts, ya bas!  
 
-#Like this
+#Like this thus
 ]]></value>
                                 </property>
                               </properties>
@@ -139,49 +139,5 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
       </areas>
     </widget>
   </components>
-  <amendments>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>background-colour</propertyName>
-      <fixedValue><![CDATA[[{"grid":"f","colour":"tint1"},{"grid":"x","colour":"tint3"},{"grid":"d","colour":"tint1"},{"grid":"t","colour":"secondary2"},{"grid":"p","colour":"secondary1"}]]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>background-colour</propertyName>
-      <fixedValue><![CDATA[[{"grid":"f","colour":"tint1"},{"grid":"x","colour":"tint3"},{"grid":"d","colour":"tint3"},{"grid":"t","colour":"secondary2"},{"grid":"p","colour":"secondary1"}]]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>triangle</propertyName>
-      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","centred":true,"edge":"left"},{"grid":"d","edge":"left"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>triangle</propertyName>
-      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","centred":true,"edge":"left"},{"grid":"d","edge":"right"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>triangle</propertyName>
-      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","centred":true,"edge":"left"},{"grid":"d","edge":"left"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>grid-placement</propertyName>
-      <fixedValue><![CDATA[[{"grid":"x","position":"6-7"}]]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>grid-placement</propertyName>
-      <fixedValue><![CDATA[[{"grid":"x","position":"6-8"}]]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1/0/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##Add content hereabouts, ya bas!  
-
-#Like this thus
-]]></fixedValue>
-    </setPropertyFixed>
-  </amendments>
+  <amendments />
 </template>

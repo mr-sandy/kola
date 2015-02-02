@@ -19,7 +19,15 @@
         },
 
         events: {
-            'click': 'edit'
+            'click': 'edit',
+            'submit': 'submit',
+            'click .cancel': 'cancel',
+            'keyup': function (e) {
+                if (e.keyCode == 27) {
+                    //Esc 
+                    this.cancel();
+                }
+            }
         },
 
         render: function () {
@@ -60,7 +68,7 @@
                             model: propertyValue,
                             el: $editorElement
                         });
-                        self.editorView.on('submit', self.submit, self)
+                        self.editorView.on('submit', self.submit, self);
                         d.resolve();
                     });
                 }
@@ -74,6 +82,7 @@
         renderEditor: function () {
             if (this.editorView) {
                 this.editorView.render(this.editMode);
+                this.$el.find('input[type=submit]').focus()
             }
         },
 
@@ -86,6 +95,7 @@
         submit: function (e) {
             if (e) {
                 e.preventDefault();
+                e.stopPropagation();
             }
 
             if (this.editMode) {
@@ -103,6 +113,18 @@
                 else {
                     this.render();
                 }
+            }
+        },
+
+        cancel: function (e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            if (this.editMode) {
+                this.editMode = false;
+                this.render();
             }
         }
     });
