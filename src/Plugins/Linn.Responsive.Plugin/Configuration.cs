@@ -107,13 +107,16 @@
 
             this.Configure.PropertyType("padding")
                 .WithEditor("PaddingView.js");
+
+            this.Configure.PropertyType("margin")
+                .WithEditor("MarginView.js");
         }
 
         private void CommonProperties(ComponentRendererConfigurer configureComponent)
         {
             configureComponent
                 .WithProperty("grid-placement", "grid-placement")
-                .WithProperty("margin", "text")
+                .WithProperty("margin", "margin")
                 .WithProperty("padding", "padding")
                 .WithProperty("border", "text")
                 .WithProperty("background-colour", "responsive-colour")

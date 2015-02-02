@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kolacms.com/2013/kola">
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <widget name="page">
       <properties>
@@ -29,7 +29,9 @@
                         <atom name="markdown">
                           <properties>
                             <property name="markdown" type="markdown">
-                              <value xsi:type="fixed"><![CDATA[##At vero eos et accusamus
+                              <value xsi:type="fixed"><![CDATA[#Matilda and Nelly Rock!
+
+##At vero eos et accusamus
 Iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. 
 
 ]]></value>
@@ -39,10 +41,13 @@ Iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti at
                         <container name="division">
                           <properties>
                             <property name="grid-placement" type="grid-placement">
-                              <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"3-4"}]]]></value>
+                              <value xsi:type="fixed"><![CDATA[[]]]></value>
                             </property>
                             <property name="background-colour" type="responsive-colour">
                               <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"secondary2"}]]]></value>
+                            </property>
+                            <property name="margin" type="margin">
+                              <value xsi:type="fixed"><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"6"},{"edge":"bottom","value":"6"},{"edge":"left","value":"6"},{"edge":"right","value":"6"}]}]]]></value>
                             </property>
                           </properties>
                           <components>
@@ -67,19 +72,19 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                           <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"6-8"}]]]></value>
                         </property>
                         <property name="background-colour" type="responsive-colour">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"tint3"},{"grid":"d","colour":"tint3"},{"grid":"t","colour":"secondary0"},{"grid":"p","colour":"secondary1"},{"grid":"m","colour":"secondary2"},{"grid":"u","colour":"secondary3"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"tint2"}]]]></value>
                         </property>
                         <property name="text-colour" type="colour">
                           <value xsi:type="fixed"><![CDATA[white]]></value>
                         </property>
                         <property name="triangle" type="triangle">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","centred":true,"edge":"top"},{"grid":"d","edge":"left"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","centred":true,"edge":"bottom"}]]]></value>
                         </property>
                         <property name="text-alignment" type="text-alignment">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","alignment":"left"},{"grid":"x","alignment":"centre"},{"grid":"d","alignment":"right"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","alignment":"centre"}]]]></value>
                         </property>
                         <property name="padding" type="padding">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","edges":[{"edge":"top","value":"1"}]},{"grid":"x","edges":[{"edge":"top","value":"6"},{"edge":"bottom","value":"6"},{"edge":"left","value":"3"},{"edge":"right","value":"3"}]},{"grid":"d","edges":[{"edge":"bottom","value":"5"}]},{"grid":"t","edges":[{"edge":"left","value":"3"},{"edge":"right","value":"4.5"}]}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"3"},{"edge":"bottom","value":"6"},{"edge":"left","value":"3"},{"edge":"right","value":"3"}]}]]]></value>
                         </property>
                       </properties>
                       <components>
@@ -118,6 +123,9 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                         <property name="background-colour" type="responsive-colour">
                           <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"secondary0"}]]]></value>
                         </property>
+                        <property name="padding" type="padding">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","edges":[{"edge":"top","value":"6"},{"edge":"bottom","value":"6"},{"edge":"left","value":"6"},{"edge":"right","value":"6"}]}]]]></value>
+                        </property>
                       </properties>
                       <components>
                         <atom name="markdown">
@@ -141,5 +149,16 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","edge":"left"},{"grid":"x","centred":true,"edge":"left"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>padding</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"6"},{"edge":"bottom","value":"6"},{"edge":"left","value":"3"},{"edge":"right","value":"3"}]}]]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>

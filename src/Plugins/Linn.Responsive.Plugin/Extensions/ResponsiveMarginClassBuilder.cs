@@ -4,7 +4,7 @@
 
     using Linn.Responsive.Plugin.PropertyModels;
 
-    internal static class ResponsivePaddingClassBuilder
+    internal static class ResponsiveMarginClassBuilder
     {
         public static IEnumerable<string> BuildClasses(ResponsiveEdges responsivePadding)
         {
@@ -12,7 +12,7 @@
             {
                 if (!string.IsNullOrWhiteSpace(edge.Value))
                 {
-                    yield return string.Format("pad-{0}-{1}-{2}", edge.Edge.Substring(0, 1), edge.Value.Replace(".5", "-and-a-half"), responsivePadding.Grid);
+                    yield return string.Format("margin-{0}-{1}-{2}", edge.Edge.Substring(0, 1), edge.Value.Replace(".5", "-and-a-half"), responsivePadding.Grid);
                 }
             }
         }

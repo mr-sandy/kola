@@ -62,8 +62,10 @@
   <ItemGroup>
     <Compile Include="Configuration.cs" />
     <Compile Include="Extensions\GridPlacementClassBuilder.cs" />
+    <Compile Include="Extensions\ResponsiveMarginClassBuilder.cs" />
     <Compile Include="Extensions\ResponsivePaddingClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveTriangleClassBuilder.cs" />
+    <Compile Include="PropertyModels\EdgeValue.cs" />
     <Compile Include="PropertyModels\ResponsivePadding.cs" />
     <Compile Include="PropertyModels\ResponsiveAlignment.cs" />
     <Compile Include="PropertyModels\ResponsiveColour.cs" />
@@ -156,6 +158,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\templates\PaddingTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\MarginTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\MarginView.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

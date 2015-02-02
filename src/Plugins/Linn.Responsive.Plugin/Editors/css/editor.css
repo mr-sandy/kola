@@ -181,14 +181,14 @@
   content: " ";
   display: table;
   clear: both; }
-#properties .padding .holder {
+#properties .padding .holder, #properties .margin .holder {
   position: relative;
   height: 280px;
   width: 380px;
   border: 1px solid #88cbf0;
   background-color: #bde0f7;
   border-radius: 5px; }
-  #properties .padding .holder .reference {
+  #properties .padding .holder .reference, #properties .margin .holder .reference {
     height: 30%;
     width: 40%;
     border: 1px solid #38a3db;
@@ -198,28 +198,28 @@
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%); }
-  #properties .padding .holder .top {
+  #properties .padding .holder .top, #properties .margin .holder .top {
     text-align: center;
     position: absolute;
     top: 17%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%); }
-  #properties .padding .holder .bottom {
+  #properties .padding .holder .bottom, #properties .margin .holder .bottom {
     position: absolute;
     bottom: 17%;
     left: 50%;
     transform: translateX(-50%) translateY(50%); }
-  #properties .padding .holder .left {
+  #properties .padding .holder .left, #properties .margin .holder .left {
     position: absolute;
     left: 15%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%); }
-  #properties .padding .holder .right {
+  #properties .padding .holder .right, #properties .margin .holder .right {
     position: absolute;
     right: 15%;
     top: 50%;
     transform: translateX(50%) translateY(-50%); }
-  #properties .padding .holder select {
+  #properties .padding .holder select, #properties .margin .holder select {
     width: 60px; }
 #properties .text-alignment .alignment {
   width: 80px; }
