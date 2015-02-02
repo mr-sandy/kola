@@ -150,5 +150,38 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
       <propertyName>background-colour</propertyName>
       <fixedValue><![CDATA[[{"grid":"f","colour":"tint1"},{"grid":"x","colour":"tint3"},{"grid":"d","colour":"tint3"},{"grid":"t","colour":"secondary2"},{"grid":"p","colour":"secondary1"}]]]></fixedValue>
     </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","centred":true,"edge":"left"},{"grid":"d","edge":"left"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","centred":true,"edge":"left"},{"grid":"d","edge":"right"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","centred":true,"edge":"top"},{"grid":"x","centred":true,"edge":"left"},{"grid":"d","edge":"left"},{"grid":"t","edge":"bottom"},{"grid":"p","edge":"bottom"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>grid-placement</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","position":"6-7"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>grid-placement</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","position":"6-8"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[##Add content hereabouts, ya bas!  
+
+#Like this thus
+]]></fixedValue>
+    </setPropertyFixed>
   </amendments>
 </template>

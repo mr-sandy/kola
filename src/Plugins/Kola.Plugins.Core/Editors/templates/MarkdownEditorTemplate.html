@@ -1,8 +1,15 @@
-﻿<span>{{value}}</span>
-{{#if editMode}}
+﻿<span>{{value}}</span> {{#if editMode}}
 <form class="modal">
-    <textarea rows="10" style="display: block; width: 95%">{{value}}</textarea>
-    <input type="submit" value="submit" />
+<div class="chrome">
+    <span>Markdown</span>
+</div>
+<textarea rows="10" style="display: block; width: 95%">{{value}}</textarea>
+<div class="controls">
+    <button class="cancel" value="cancel">
+        Cancel</button>
+    <input type="submit" value="Ok" />
+</div>
 </form>
-<div class="overlay"></div>
+<div class="overlay">
+</div>
 {{/if}}
