@@ -113,6 +113,9 @@
 
             this.Configure.PropertyType("border-style")
                 .WithEditor("BorderStyleView.js");
+
+            this.Configure.PropertyType("position")
+                .WithEditor("PositionView.js");
         }
 
         private void CommonProperties(ComponentRendererConfigurer configureComponent)
@@ -125,7 +128,7 @@
                 .WithProperty("border-colour", "responsive-colour")
                 .WithProperty("background-colour", "responsive-colour")
                 .WithProperty("text-colour", "colour")
-                .WithProperty("position", "text")
+                .WithProperty("position", "position")
                 .WithProperty("width", "text")
                 .WithProperty("height", "text");
         }

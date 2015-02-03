@@ -1,0 +1,82 @@
+@import "colours";
+
+.position {
+    
+    .holder {
+        position: relative;
+        height: 200px;
+        width: 350px;
+        border: 1px solid $secondary2;
+        border-radius: 5px;
+        
+		.toggle-switch {
+			height: 40px;
+			width: 90px;
+			padding: 10px 0; 
+			position: absolute;
+			text-align: center;
+
+			&.top.left {
+				top: 20px;
+				left: 20px;
+			}
+
+			&.top:not(.left):not(.right) {
+				top: 20px;
+				left: 50%;
+	            transform: translateX(-50%);
+			}
+
+			&.top.right {
+				top: 20px;
+				right: 20px;
+			}
+
+			&.left:not(.top):not(.bottom) {
+				left: 20px;
+				top: 50%;
+	            transform: translateY(-50%);
+			}
+
+			&.none {
+				left: 50%;
+				top: 50%;
+	            transform: translateX(-50%) translateY(-50%);
+			}
+
+			&.right:not(.top):not(.bottom) {
+				right: 20px;
+				top: 50%;
+	            transform: translateY(-50%);
+			}
+
+            &.bottom.left {
+				bottom: 20px;
+				left: 20px;
+			}
+
+			&.bottom:not(.left):not(.right) {
+				bottom: 20px;
+				left: 50%;
+	            transform: translateX(-50%);
+			}
+
+			&.bottom.right {
+				bottom: 20px;
+				right: 20px;
+			}
+
+			&.below {
+				bottom: -80px;
+                left: 50%;
+                transform: translateX(-50%);
+                height: 60px;
+
+				select {
+					margin-top: 3px;
+					width: 60px;
+				}
+			}
+		}
+    }
+}

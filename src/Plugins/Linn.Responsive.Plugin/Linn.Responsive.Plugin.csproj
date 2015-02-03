@@ -96,6 +96,7 @@
     <EmbeddedResource Include="Editors\css\_text-alignment.scss" />
     <EmbeddedResource Include="Editors\css\_padding.scss" />
     <EmbeddedResource Include="Editors\css\_border-style.scss" />
+    <EmbeddedResource Include="Editors\css\_position.scss" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\MainMenu.cshtml" />
     <EmbeddedResource Include="Views\SecondaryNav.cshtml" />
@@ -174,6 +175,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\templates\BorderStyleTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\PositionView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\PositionTemplate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

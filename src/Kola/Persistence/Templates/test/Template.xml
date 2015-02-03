@@ -181,5 +181,36 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/0</componentPath>
+      <propertyName>padding</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"3"},{"edge":"bottom","value":"3"},{"edge":"left","value":"3"},{"edge":"right","value":"3"}]}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/0/1</componentPath>
+      <propertyName>padding</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"2"},{"edge":"bottom","value":"2"},{"edge":"left","value":"2"},{"edge":"right","value":"2"}]}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","colour":"tint2"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>border-style</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","borders":[{"border":"top","width":"thick"},{"border":"bottom","width":"hair"},{"border":"right","width":"thick"}]}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>padding</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"5.5"},{"edge":"bottom","value":"6"},{"edge":"left","value":"3"},{"edge":"right","value":"3"}]}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/1</componentPath>
+      <propertyName>text-alignment</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","alignment":"right"}]]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>
