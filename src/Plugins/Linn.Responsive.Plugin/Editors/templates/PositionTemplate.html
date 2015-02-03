@@ -6,7 +6,7 @@
                 {{grid}}
             </td>
             <td>
-                {{position}}
+                {{position}}{{#if offset}} ({{offset}}){{/if}}
             </td>
         </tr>
         {{/unless}} {{/each}}
@@ -27,7 +27,7 @@
         <div id="grid-{{grid}}" data-grid="{{grid}}">
             <div class="holder">
                 {{#each positions}}
-                <div class="toggle-switch blue {{position}}{{#if selected}}selected{{/if}}" data-position="{{position}}">
+                <div class="position toggle-switch {{#unless isNone}}blue{{/unless}} {{position}}{{#if selected}} selected{{/if}}" data-position="{{position}}">
                     <span>{{position}}</span> 
                     {{#if offsets}}
                     <select>

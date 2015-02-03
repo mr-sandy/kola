@@ -14,20 +14,20 @@
         template: Handlebars.compile(Template),
 
         events: {
-            'click .toggle-switch': 'toggle',
+            'click .position': 'togglePosition',
             'click select': 'handleSelectClick'
         },
 
-        toggle: function (e) {
-            var position = $(e.target).closest('.toggle-switch');
+        togglePosition: function (e) {
+            var position = $(e.target).closest('.position');
             var grid = position.closest('[data-grid]');
-            grid.find('.toggle-switch').not(position).removeClass('selected');
+            grid.find('.position').not(position).removeClass('selected');
             position.toggleClass('selected');
         },
 
         handleSelectClick: function (e) {
             e.stopPropagation();
-            $(e.target).closest('.toggle-switch').addClass('selected');
+            $(e.target).closest('.position').addClass('selected');
         },
 
         render: function (editMode) {
@@ -50,31 +50,26 @@
             _.each(this.$el.find('.tab-contents > div'), function (row) {
                 var $row = $(row);
 
+                var position = $row.find('.position.selected');
 
-                var edges = _.map($row.find('select.edge'), function (edge) {
-                    var $edge = $(edge);
-                    return {
-                        edge: $edge.attr('data-edge'),
-                        value: $edge.find(':selected').val()
-                    }
-                });
+                if (position.length == 1) {
+                    var offset = position.find('select');
 
-                var edgesWithValue = _.filter(edges, function (edge) {
-                    return edge.value;
-                });
-
-                if (edgesWithValue.length > 0) {
-                    result.push(
+                    var gridPosition =
                     {
                         grid: $row.attr('data-grid'),
-                        edges: edgesWithValue
+                        position: position.attr('data-position')
+                    };
+
+                    if (offset.length == 1) {
+                        gridPosition.offset = offset.val();
                     }
-                    );
+
+                    result.push(gridPosition);
                 }
             });
 
-            var x = JSON.stringify(result);
-            return x;
+            return JSON.stringify(result);
         },
 
         buildViewModel: function (model) {
@@ -101,6 +96,7 @@
                 return {
                     position: pos,
                     selected: pos === gridSettings.position,
+                    isNone: pos === 'none',
                     offsets: pos === 'below' ? this.buildOffsets(gridSettings.offset) : null
                 };
             }, this);
@@ -115,7 +111,7 @@
 
                 return {
                     offset: o,
-                    selected: o === offset
+                    selected: o === parseInt(offset)
                 };
             });
         }

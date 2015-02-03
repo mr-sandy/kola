@@ -21,6 +21,7 @@
                     { "padding", v => BuildManyClassesFromList<ResponsiveEdges>(v, ResponsivePaddingClassBuilder.BuildClasses) },
                     { "margin", v => BuildManyClassesFromList<ResponsiveEdges>(v, ResponsiveMarginClassBuilder.BuildClasses) },
                     { "border-style", v => BuildManyClassesFromList<ResponsiveBorders>(v, ResponsiveBorderClassBuilder.BuildClasses) },
+                    { "position", v => BuildManyClassesFromList<ResponsivePosition>(v, ResponsivePositionClassBuilder.BuildClasses) },
                     { "text-colour", v => EchoClass(v, suffix: "-text") },
                     { "is-slide", v => GetClassFromBool(v, "slide") },
                     { "pointer-up", v => GetClassFromBool(v, "pointer-up") },
@@ -28,8 +29,7 @@
                     { "height", v => EchoClass(v) },
                     { "width", v => EchoClass(v) },
                     { "style", v => EchoClass(v, prefix: "style-") },
-                    { "show-grids", v => EchoClasses(v, "showgrid-") },
-                    { "position", v => EchoClasses(v, prefix: "position-") },
+                    { "show-grids", v => EchoClasses(v, "showgrid-") }
                 };
 
         public static string GetClassNames(this IEnumerable<PropertyInstance> properties)
