@@ -6,8 +6,14 @@
     /* plugin definition
     * ================== */
 
-    var Tabbed = function (element) {
+    var Tabbed = function (element, options) {
+        var defaults = {
+            defaultTab: '#grid-x'
+        };
+
         this.$element = $(element);
+        this.options = $.extend(defaults, options);
+
         this.initialise();
     };
 
@@ -16,8 +22,10 @@
             var $tabs = this.$element.find('ul.tabs li a');
             var $contents = this.$element.find('.tab-contents > *');
 
-            $tabs.first().addClass('selected');
-            $contents.first().addClass('selected');
+            var $defaultTab = $tabs.filter('[href=' + this.options.defaultTab + ']').first() || $tabs.first();
+
+            $defaultTab.addClass('selected');
+            $contents.filter($defaultTab.attr('href')).addClass('selected');
 
             $tabs.click(function (e) {
                 e.preventDefault();

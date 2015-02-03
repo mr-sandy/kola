@@ -83,7 +83,7 @@
                         {
                             new LinkResource { Rel = "type", Href = "/_kola/property-types/" + property.Type.Urlify() }
                         }
-                });
+                }).OrderBy(p => p.Name);
         }
 
         private IEnumerable<LinkResource> BuildLinks(IEnumerable<int> context)

@@ -1,6 +1,7 @@
 ﻿namespace Linn.Responsive.Plugin.Extensions
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using Linn.Responsive.Plugin.PropertyModels;
 
@@ -8,13 +9,13 @@
     {
         public static IEnumerable<string> BuildClasses(ResponsiveEdges responsivePadding)
         {
-            foreach (var edge in responsivePadding.Edges)
-            {
-                if (!string.IsNullOrWhiteSpace(edge.Value))
-                {
-                    yield return string.Format("margin-{0}-{1}-{2}", edge.Edge.Substring(0, 1), edge.Value.Replace(".5", "-and-a-half"), responsivePadding.Grid);
-                }
-            }
+            return responsivePadding.Edges.Where(edge => !string.IsNullOrWhiteSpace(edge.Value))
+                .Select(edge =>
+                    string.Format(
+                        "margin-{0}-{1}-{2}",
+                        edge.Edge.Substring(0, 1),
+                        edge.Value.Replace(".5", "-and-a-half"),
+                        responsivePadding.Grid));
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+<template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <widget name="page">
       <properties>
@@ -11,7 +11,11 @@
         <area name="content">
           <components>
             <container name="section">
-              <properties />
+              <properties>
+                <property name="padding" type="padding">
+                  <value xsi:type="fixed"><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"6"}]}]]]></value>
+                </property>
+              </properties>
               <components>
                 <container name="inner">
                   <properties />
@@ -72,19 +76,19 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                           <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"6-8"}]]]></value>
                         </property>
                         <property name="background-colour" type="responsive-colour">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"tint2"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"tint3"}]]]></value>
                         </property>
                         <property name="text-colour" type="colour">
                           <value xsi:type="fixed"><![CDATA[white]]></value>
                         </property>
                         <property name="triangle" type="triangle">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","centred":true,"edge":"bottom"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","edge":"left"},{"grid":"x","centred":true,"edge":"left"}]]]></value>
                         </property>
                         <property name="text-alignment" type="text-alignment">
                           <value xsi:type="fixed"><![CDATA[[{"grid":"x","alignment":"centre"}]]]></value>
                         </property>
                         <property name="padding" type="padding">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"3"},{"edge":"bottom","value":"6"},{"edge":"left","value":"3"},{"edge":"right","value":"3"}]}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"6"},{"edge":"bottom","value":"6"},{"edge":"left","value":"3"},{"edge":"right","value":"3"}]}]]]></value>
                         </property>
                       </properties>
                       <components>
@@ -149,16 +153,5 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
       </areas>
     </widget>
   </components>
-  <amendments>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>triangle</propertyName>
-      <fixedValue><![CDATA[[{"grid":"f","edge":"left"},{"grid":"x","centred":true,"edge":"left"}]]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0/0/1</componentPath>
-      <propertyName>padding</propertyName>
-      <fixedValue><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"6"},{"edge":"bottom","value":"6"},{"edge":"left","value":"3"},{"edge":"right","value":"3"}]}]]]></fixedValue>
-    </setPropertyFixed>
-  </amendments>
+  <amendments />
 </template>
