@@ -110,6 +110,9 @@
 
             this.Configure.PropertyType("margin")
                 .WithEditor("MarginView.js");
+
+            this.Configure.PropertyType("border-style")
+                .WithEditor("BorderStyleView.js");
         }
 
         private void CommonProperties(ComponentRendererConfigurer configureComponent)
@@ -118,7 +121,8 @@
                 .WithProperty("grid-placement", "grid-placement")
                 .WithProperty("margin", "margin")
                 .WithProperty("padding", "padding")
-                .WithProperty("border", "text")
+                .WithProperty("border-style", "border-style")
+                .WithProperty("border-colour", "responsive-colour")
                 .WithProperty("background-colour", "responsive-colour")
                 .WithProperty("text-colour", "colour")
                 .WithProperty("position", "text")

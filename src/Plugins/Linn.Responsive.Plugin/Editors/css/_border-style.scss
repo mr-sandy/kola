@@ -1,25 +1,84 @@
 @import "colours";
 
-.padding, .margin {
+.border-style {
     
     .holder {
         position: relative;
         height: 280px;
         width: 380px;
-        border: 1px solid $blue2;
-        background-color: $blue1;
-        border-radius: 5px;
                                            
-        .reference {
-            height: 30%;
+        .preview {
+            height: 40%;
             width: 40%;
-            border: 1px solid $blue3;
-            background-color: $blue2;
-            border-radius: 5px;
+            background-color: $secondary1;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translateX(-50%) translateY(-50%);
+
+			&.top-hair {
+				border-top: 1px solid $blue3;
+			}
+
+			&.top-fine {
+				border-top: 2px solid $blue3;
+			}
+
+			&.top-reg {
+				border-top: 3px solid $blue3;
+			}
+
+			&.top-thick {
+				border-top: 4px solid $blue3;
+			}
+
+			&.bottom-hair {
+				border-bottom: 1px solid $blue3;
+			}
+
+			&.bottom-fine {
+				border-bottom: 2px solid $blue3;
+			}
+
+			&.bottom-reg {
+				border-bottom: 3px solid $blue3;
+			}
+
+			&.bottom-thick {
+				border-bottom: 4px solid $blue3;
+			}
+
+			&.left-hair {
+				border-left: 1px solid $blue3;
+			}
+
+			&.left-fine {
+				border-left: 2px solid $blue3;
+			}
+
+			&.left-reg {
+				border-left: 3px solid $blue3;
+			}
+
+			&.left-thick {
+				border-left: 4px solid $blue3;
+			}
+
+			&.right-hair {
+				border-right: 1px solid $blue3;
+			}
+
+			&.right-fine {
+				border-right: 2px solid $blue3;
+			}
+
+			&.right-reg {
+				border-right: 3px solid $blue3;
+			}
+
+			&.right-thick {
+				border-right: 4px solid $blue3;
+			}
         }
                                             
         .top {

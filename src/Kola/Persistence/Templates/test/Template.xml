@@ -15,6 +15,9 @@
                 <property name="padding" type="padding">
                   <value xsi:type="fixed"><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"6"}]}]]]></value>
                 </property>
+                <property name="background-colour" type="responsive-colour">
+                  <value xsi:type="fixed"><![CDATA[[]]]></value>
+                </property>
               </properties>
               <components>
                 <container name="inner">
@@ -82,13 +85,22 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                           <value xsi:type="fixed"><![CDATA[white]]></value>
                         </property>
                         <property name="triangle" type="triangle">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","edge":"left"},{"grid":"x","centred":true,"edge":"left"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","edge":"left"},{"grid":"x","edge":"left"}]]]></value>
                         </property>
                         <property name="text-alignment" type="text-alignment">
                           <value xsi:type="fixed"><![CDATA[[{"grid":"x","alignment":"centre"}]]]></value>
                         </property>
                         <property name="padding" type="padding">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"6"},{"edge":"bottom","value":"6"},{"edge":"left","value":"3"},{"edge":"right","value":"3"}]}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"1.5"},{"edge":"bottom","value":"6"},{"edge":"left","value":"3"},{"edge":"right","value":"3"}]}]]]></value>
+                        </property>
+                        <property name="border-style" type="border-style">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","borders":[{"border":"top","width":"hair"},{"border":"bottom","width":"hair"},{"border":"right","width":"thick"}]}]]]></value>
+                        </property>
+                        <property name="border-colour" type="responsive-colour">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"black"}]]]></value>
+                        </property>
+                        <property name="margin" type="margin">
+                          <value xsi:type="fixed"><![CDATA[[]]]></value>
                         </property>
                       </properties>
                       <components>
@@ -112,6 +124,16 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                                 </property>
                               </properties>
                             </atom>
+                            <atom name="image">
+                              <properties>
+                                <property name="alt" type="text">
+                                  <value xsi:type="fixed"><![CDATA[Sandy Cormie]]></value>
+                                </property>
+                                <property name="src" type="text">
+                                  <value xsi:type="fixed"><![CDATA[https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT0nNJkAFThw_WOXP1RWoOK3RWwenRg9SoghO1FV6ugHBObIZ4ei1IqHw]]></value>
+                                </property>
+                              </properties>
+                            </atom>
                           </components>
                         </container>
                       </components>
@@ -122,13 +144,19 @@ Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saep
                           <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"10-11"}]]]></value>
                         </property>
                         <property name="triangle" type="triangle">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","edge":"left"}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[]]]></value>
                         </property>
                         <property name="background-colour" type="responsive-colour">
                           <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"secondary0"}]]]></value>
                         </property>
                         <property name="padding" type="padding">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"f","edges":[{"edge":"top","value":"6"},{"edge":"bottom","value":"6"},{"edge":"left","value":"6"},{"edge":"right","value":"6"}]}]]]></value>
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"3"},{"edge":"bottom","value":"3"},{"edge":"left","value":"3"},{"edge":"right","value":"3"}]}]]]></value>
+                        </property>
+                        <property name="border-colour" type="responsive-colour">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"pitch-black"}]]]></value>
+                        </property>
+                        <property name="border-style" type="border-style">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"x","borders":[{"border":"top","width":"hair"},{"border":"bottom","width":"reg"},{"border":"left","width":"fine"},{"border":"right","width":"thick"}]}]]]></value>
                         </property>
                       </properties>
                       <components>

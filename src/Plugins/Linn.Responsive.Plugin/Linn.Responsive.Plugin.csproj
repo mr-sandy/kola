@@ -62,11 +62,14 @@
   <ItemGroup>
     <Compile Include="Configuration.cs" />
     <Compile Include="Extensions\GridPlacementClassBuilder.cs" />
+    <Compile Include="Extensions\ResponsiveBorderClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveMarginClassBuilder.cs" />
     <Compile Include="Extensions\ResponsivePaddingClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveTriangleClassBuilder.cs" />
+    <Compile Include="PropertyModels\BorderWidth.cs" />
     <Compile Include="PropertyModels\EdgeValue.cs" />
-    <Compile Include="PropertyModels\ResponsivePadding.cs" />
+    <Compile Include="PropertyModels\ResponsiveBorders.cs" />
+    <Compile Include="PropertyModels\ResponsiveEdges.cs" />
     <Compile Include="PropertyModels\ResponsiveAlignment.cs" />
     <Compile Include="PropertyModels\ResponsiveColour.cs" />
     <Compile Include="PropertyModels\GridPlacement.cs" />
@@ -92,6 +95,7 @@
     <EmbeddedResource Include="Editors\css\_colour.scss" />
     <EmbeddedResource Include="Editors\css\_text-alignment.scss" />
     <EmbeddedResource Include="Editors\css\_padding.scss" />
+    <EmbeddedResource Include="Editors\css\_border-style.scss" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\MainMenu.cshtml" />
     <EmbeddedResource Include="Views\SecondaryNav.cshtml" />
@@ -164,6 +168,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\views\MarginView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\BorderStyleView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\BorderStyleTemplate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

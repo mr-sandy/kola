@@ -45,30 +45,73 @@
     content: ' ';
     display: table;
     clear: both; }
-#properties label[class*="grid-name-"] {
-  display: inline-block;
-  padding: 10px;
-  text-decoration: none;
-  background-color: #f0efec;
-  color: #333333;
-  border-radius: 5px;
-  cursor: pointer;
-  min-width: 60px;
-  text-align: center; }
-#properties .grid-name-f:after {
-  content: "Full"; }
-#properties .grid-name-x:after {
-  content: "X-Large"; }
-#properties .grid-name-d:after {
-  content: "Desktop"; }
-#properties .grid-name-t:after {
-  content: "Tablet"; }
-#properties .grid-name-p:after {
-  content: "Phablet"; }
-#properties .grid-name-m:after {
-  content: "Mobile"; }
-#properties .grid-name-u:after {
-  content: "Micro"; }
+#properties .border-style .holder {
+  position: relative;
+  height: 280px;
+  width: 380px; }
+  #properties .border-style .holder .preview {
+    height: 40%;
+    width: 40%;
+    background-color: #e2dfd9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%); }
+    #properties .border-style .holder .preview.top-hair {
+      border-top: 1px solid #38a3db; }
+    #properties .border-style .holder .preview.top-fine {
+      border-top: 2px solid #38a3db; }
+    #properties .border-style .holder .preview.top-reg {
+      border-top: 3px solid #38a3db; }
+    #properties .border-style .holder .preview.top-thick {
+      border-top: 4px solid #38a3db; }
+    #properties .border-style .holder .preview.bottom-hair {
+      border-bottom: 1px solid #38a3db; }
+    #properties .border-style .holder .preview.bottom-fine {
+      border-bottom: 2px solid #38a3db; }
+    #properties .border-style .holder .preview.bottom-reg {
+      border-bottom: 3px solid #38a3db; }
+    #properties .border-style .holder .preview.bottom-thick {
+      border-bottom: 4px solid #38a3db; }
+    #properties .border-style .holder .preview.left-hair {
+      border-left: 1px solid #38a3db; }
+    #properties .border-style .holder .preview.left-fine {
+      border-left: 2px solid #38a3db; }
+    #properties .border-style .holder .preview.left-reg {
+      border-left: 3px solid #38a3db; }
+    #properties .border-style .holder .preview.left-thick {
+      border-left: 4px solid #38a3db; }
+    #properties .border-style .holder .preview.right-hair {
+      border-right: 1px solid #38a3db; }
+    #properties .border-style .holder .preview.right-fine {
+      border-right: 2px solid #38a3db; }
+    #properties .border-style .holder .preview.right-reg {
+      border-right: 3px solid #38a3db; }
+    #properties .border-style .holder .preview.right-thick {
+      border-right: 4px solid #38a3db; }
+  #properties .border-style .holder .top {
+    text-align: center;
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%); }
+  #properties .border-style .holder .bottom {
+    position: absolute;
+    bottom: 17%;
+    left: 50%;
+    transform: translateX(-50%) translateY(50%); }
+  #properties .border-style .holder .left {
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%); }
+  #properties .border-style .holder .right {
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translateX(50%) translateY(-50%); }
+  #properties .border-style .holder select {
+    width: 60px; }
 #properties .value.responsive-colour .colour {
   display: block;
   padding: 3px;
@@ -145,42 +188,60 @@
     background-color: #38a3db; }
   #properties .value.responsive-colour div.preview.purple {
     background-color: #b566a2; }
-#properties .tabbed ul.tabs {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  float: left; }
-  #properties .tabbed ul.tabs li {
-    display: block; }
-    #properties .tabbed ul.tabs li + li {
-      margin-top: 3px; }
-#properties .tabbed .tab-contents {
-  float: left;
-  padding-left: 20px; }
-  #properties .tabbed .tab-contents > * {
-    display: none;
-    margin-left: 10px; }
-  #properties .tabbed .tab-contents > .selected {
-    display: block; }
-#properties .tabbed.horizontal-tabs ul.tabs {
-  float: none; }
-  #properties .tabbed.horizontal-tabs ul.tabs li {
-    float: left; }
-    #properties .tabbed.horizontal-tabs ul.tabs li + li {
-      margin-top: 0;
-      margin-left: 3px; }
-  #properties .tabbed.horizontal-tabs ul.tabs:after {
-    content: " ";
-    display: table;
-    clear: both; }
-#properties .tabbed.horizontal-tabs .tab-contents > * {
-  margin-left: 0;
-  margin-top: 10px;
-  float: none; }
-#properties .tabbed:after {
-  content: " ";
-  display: table;
-  clear: both; }
+#properties label[class*="grid-name-"] {
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+  background-color: #f0efec;
+  color: #333333;
+  border-radius: 5px;
+  cursor: pointer;
+  min-width: 60px;
+  text-align: center; }
+#properties .grid-name-f:after {
+  content: "Full"; }
+#properties .grid-name-x:after {
+  content: "X-Large"; }
+#properties .grid-name-d:after {
+  content: "Desktop"; }
+#properties .grid-name-t:after {
+  content: "Tablet"; }
+#properties .grid-name-p:after {
+  content: "Phablet"; }
+#properties .grid-name-m:after {
+  content: "Mobile"; }
+#properties .grid-name-u:after {
+  content: "Micro"; }
+#properties .value.grid-placement table.edit {
+  border: none; }
+  #properties .value.grid-placement table.edit td {
+    font-size: 16px;
+    line-height: 16px;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid white; }
+    #properties .value.grid-placement table.edit td.grid {
+      width: 26px;
+      background-color: #eee;
+      color: #333; }
+    #properties .value.grid-placement table.edit td.column {
+      width: 26px;
+      background-color: #ccc;
+      color: #fff; }
+    #properties .value.grid-placement table.edit td.column.selected {
+      background-color: #666; }
+    #properties .value.grid-placement table.edit td.shown {
+      width: 26px;
+      background-color: #c2f2c2; }
+    #properties .value.grid-placement table.edit td.shown.selected {
+      background-color: #28bf28;
+      color: #fff; }
+    #properties .value.grid-placement table.edit td.hidden {
+      width: 26px;
+      background-color: #f2c2d0; }
+    #properties .value.grid-placement table.edit td.hidden.selected {
+      background-color: #ff5284;
+      color: #fff; }
 #properties .padding .holder, #properties .margin .holder {
   position: relative;
   height: 280px;
@@ -221,6 +282,42 @@
     transform: translateX(50%) translateY(-50%); }
   #properties .padding .holder select, #properties .margin .holder select {
     width: 60px; }
+#properties .tabbed ul.tabs {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  float: left; }
+  #properties .tabbed ul.tabs li {
+    display: block; }
+    #properties .tabbed ul.tabs li + li {
+      margin-top: 3px; }
+#properties .tabbed .tab-contents {
+  float: left;
+  padding-left: 20px; }
+  #properties .tabbed .tab-contents > * {
+    display: none;
+    margin-left: 10px; }
+  #properties .tabbed .tab-contents > .selected {
+    display: block; }
+#properties .tabbed.horizontal-tabs ul.tabs {
+  float: none; }
+  #properties .tabbed.horizontal-tabs ul.tabs li {
+    float: left; }
+    #properties .tabbed.horizontal-tabs ul.tabs li + li {
+      margin-top: 0;
+      margin-left: 3px; }
+  #properties .tabbed.horizontal-tabs ul.tabs:after {
+    content: " ";
+    display: table;
+    clear: both; }
+#properties .tabbed.horizontal-tabs .tab-contents > * {
+  margin-left: 0;
+  margin-top: 10px;
+  float: none; }
+#properties .tabbed:after {
+  content: " ";
+  display: table;
+  clear: both; }
 #properties .text-alignment .alignment {
   width: 80px; }
   #properties .text-alignment .alignment[data-alignment=left] {
@@ -254,36 +351,6 @@
     background-color: #f4bab5; }
     #properties .toggle-switch.red.selected {
       background-color: #df505c; }
-#properties .value.grid-placement table.edit {
-  border: none; }
-  #properties .value.grid-placement table.edit td {
-    font-size: 16px;
-    line-height: 16px;
-    padding: 10px;
-    text-align: center;
-    border: 2px solid white; }
-    #properties .value.grid-placement table.edit td.grid {
-      width: 26px;
-      background-color: #eee;
-      color: #333; }
-    #properties .value.grid-placement table.edit td.column {
-      width: 26px;
-      background-color: #ccc;
-      color: #fff; }
-    #properties .value.grid-placement table.edit td.column.selected {
-      background-color: #666; }
-    #properties .value.grid-placement table.edit td.shown {
-      width: 26px;
-      background-color: #c2f2c2; }
-    #properties .value.grid-placement table.edit td.shown.selected {
-      background-color: #28bf28;
-      color: #fff; }
-    #properties .value.grid-placement table.edit td.hidden {
-      width: 26px;
-      background-color: #f2c2d0; }
-    #properties .value.grid-placement table.edit td.hidden.selected {
-      background-color: #ff5284;
-      color: #fff; }
 #properties .value.triangle .holder {
   float: left;
   padding: 20px 20px 20px 0; }

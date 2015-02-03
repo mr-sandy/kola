@@ -15,10 +15,12 @@
                 {
                     { "grid-placement", v => BuildManyClassesFromList<GridPlacement>(v, GridPlacementClassBuilder.BuildClasses) },
                     { "background-colour", v => BuildClassesFromList<ResponsiveColour>(v, c => string.Format("{0}-back-{1}", c.Colour, c.Grid)) },
+                    { "border-colour", v => BuildClassesFromList<ResponsiveColour>(v, c => string.Format("border-{0}-{1}", c.Colour, c.Grid)) },
                     { "text-alignment", v => BuildClassesFromList<ResponsiveAlignment>(v, c => string.Format("text-align-{0}-{1}", c.Alignment.Replace("centre", "center"), c.Grid)) },
                     { "triangle", v => BuildManyClassesFromList<ResponsiveTriangle>(v, ResponsiveTriangleClassBuilder.BuildClasses) },
                     { "padding", v => BuildManyClassesFromList<ResponsiveEdges>(v, ResponsivePaddingClassBuilder.BuildClasses) },
                     { "margin", v => BuildManyClassesFromList<ResponsiveEdges>(v, ResponsiveMarginClassBuilder.BuildClasses) },
+                    { "border-style", v => BuildManyClassesFromList<ResponsiveBorders>(v, ResponsiveBorderClassBuilder.BuildClasses) },
                     { "text-colour", v => EchoClass(v, suffix: "-text") },
                     { "is-slide", v => GetClassFromBool(v, "slide") },
                     { "pointer-up", v => GetClassFromBool(v, "pointer-up") },
@@ -27,7 +29,6 @@
                     { "width", v => EchoClass(v) },
                     { "style", v => EchoClass(v, prefix: "style-") },
                     { "show-grids", v => EchoClasses(v, "showgrid-") },
-                    { "text-align", v => EchoClass(v, prefix: "text-align-") },
                     { "position", v => EchoClasses(v, prefix: "position-") },
                 };
 

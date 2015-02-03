@@ -1,14 +1,15 @@
 #properties {
 
     @import "common";
-    @import "grid-names";
+
+    @import "border-style";
     @import "colour";
-    @import "tabbed";
+    @import "grid-names";
+    @import "grid-placement";
     @import "padding";
+    @import "tabbed";
     @import "text-alignment";
     @import "toggle-switch";
-	
-    @import "grid-placement";
     @import "triangle";
 
 }

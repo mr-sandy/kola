@@ -8,10 +8,10 @@
             <td>
                 <table class="inner-properties">
                     <tbody>
-                    {{#each edges}} {{#unless unset}}
+                    {{#each borders}} {{#unless unset}}
                         <tr>
-                            <td>{{edge}}</td>
-                            <td>{{value}}</td>
+                            <td>{{border}}</td>
+                            <td>{{width}}</td>
                         </tr>
                     {{/unless}} {{/each}}
                     </tbody>
@@ -24,7 +24,7 @@
 {{#if editMode}}
 <form class="modal">
 <div class="chrome">
-    <span>Margin</span>
+    <span>Border Style</span>
 </div>
 <div class="tabbed">
     <ul class="tabs">
@@ -36,17 +36,17 @@
         {{#each grids}}
         <div id="grid-{{grid}}" data-grid="{{grid}}">
             <div class="holder">
-                {{#each edges}}
-                <div class="{{edge}}">
-                    <select class="edge" data-edge="{{edge}}">
+                {{#each borders}}
+                <div class="{{border}}">
+                    <select class="border" data-border="{{border}}">
                         <option></option>
-                        {{#each values}}
-                        <option value="{{value}}" {{#if selected}}selected{{/if}}>{{value}}</option>
+                        {{#each widths}}
+                        <option value="{{width}}" {{#if selected}}selected{{/if}}>{{width}}</option>
                         {{/each}}
                     </select>
                 </div>
                 {{/each}}
-                <div class="reference">
+                <div class="preview {{previewClasses}}">
                 </div>
             </div>
         </div>
