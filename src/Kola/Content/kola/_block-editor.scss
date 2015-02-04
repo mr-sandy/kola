@@ -15,7 +15,7 @@
         li {
             margin: 0;
             padding: 0;
-            border: 3px $color-secondary-2 solid;
+            border: 3px $colour-border solid;
 
 			&.active {
                 border-color: $color-primary;
@@ -35,7 +35,7 @@
 		    }
 
             &[data-type=toolbox-item] {
-                border: 3px $color-secondary-3 solid;
+                border: 3px $colour-border solid;
             }
         }
     }
@@ -58,7 +58,7 @@
         background-color : $color-container-light;
 
 	    & > .chrome {
-            border-bottom: 2px $color-secondary-2 solid;
+            border-bottom: 2px $colour-border solid;
             background-color : $color-container;
 		}
 
@@ -75,7 +75,7 @@
         background-color : $color-widget-light;
 
 	    & > .chrome {
-            border-bottom: 2px $color-secondary-2 solid;
+            border-bottom: 2px $colour-border solid;
             background-color : $color-widget;
 		}
 
@@ -101,11 +101,11 @@
         .area {
             margin: 15px;
             padding: 0;
-            border: 3px $color-secondary-2 solid;
+            border: 3px $colour-border solid;
             background-color : $color-widget-light;
             
 			& > .chrome {
-                border-bottom: 2px $color-secondary-2 solid;
+                border-bottom: 2px $colour-border solid;
                 background-color : $color-widget;
 		    }       
         }

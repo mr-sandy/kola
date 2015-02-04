@@ -427,6 +427,12 @@
     <EmbeddedResource Include="Content\kola.min.css">
       <DependentUpon>kola.scss</DependentUpon>
     </EmbeddedResource>
+    <Content Include="Content\kola\Copy of _tabbed.css">
+      <DependentUpon>Copy of _tabbed.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\kola\Copy of _tabbed.min.css">
+      <DependentUpon>Copy of _tabbed.scss</DependentUpon>
+    </Content>
     <Content Include="Content\kola\tabbed.css">
       <DependentUpon>tabbed.scss</DependentUpon>
     </Content>

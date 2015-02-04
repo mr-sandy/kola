@@ -7,11 +7,11 @@
 
     table { 
         border-collapse: collapse;
-        background: $color-table-background;
+        background: $colour-canvas;
         overflow: hidden;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
-        border: 1px solid $color-table-border;
+        border: 1px solid $colour-border;
         border-radius: 3px;
 
         td, th { 
@@ -19,14 +19,14 @@
 
 	    tbody { 
 		    td {
-	            border-left: 1px solid $color-table-border;
-	            border-bottom: 1px solid $color-table-border;
+	            border-left: 1px solid $colour-border;
+	            border-bottom: 1px solid $colour-border;
 
 				&.name { 
 			        padding: 3px 10px;
                     width: 150px;
 	                border-left: none;
-				    background-color: $color-table-highlight-1;
+				    background-color: $colour-background;
                 }
 
 				&.type { 

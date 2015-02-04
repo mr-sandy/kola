@@ -65,12 +65,11 @@
 
 .tabbed.tab-style-classic {
 
-	$background-colour: #fff;
-	$border-colour: #ccc;
-	$inactive-colour: #eee;
 	$border-radius: 5px;
-	$label-margin: 3px;
-	$text-colour: #333;
+	$label-spacing: 3px;
+	$label-margin: 10px;
+	$label-width: 60px;
+	$label-height: 40px;
 
 	position: absolute;
 	top: 0;
@@ -80,48 +79,56 @@
 	z-index: 0;
 
 	ul.tab-labels {
+		position: absolute;
 		li {
 		    a {
 			    padding: 10px;
-                background-color: $inactive-colour;
-				color: $text-colour;
+                background-color: $colour-muted;
+				color: $color-primary;
 
 				&.selected {
-				    background-color: $background-colour;
+				    background-color: $colour-background;
 				}
 			}
 		}
 	}
 
     .tab-contents {
+		position: absolute;
+		overflow: hidden;
         padding: 10px;
+		background-color: $colour-background;
     }
 
     &.vertical {
 		// default rules for labels on left
         ul.tab-labels {
-			height: 100%;
-			width: 20%;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: $label-width;
 
             border-width: 1px;
             border-style: none solid none none;
-            border-color: $border-colour;
+            border-color: $colour-border;
 
 			li {
-				
-			    & + li {
-					margin-top: $label-margin;
-			    }
+                transform: translateX(1px);
+                margin-top: $label-margin;
+
+				& + li {
+				    margin-top: $label-spacing;
+				}
 
 				a {
 					text-decoration: none;
 				    border-width: 1px;
 				    border-style: solid;
-					border-color: $border-colour;
+					border-color: $colour-border;
 				    border-radius: $border-radius 0 0 $border-radius;
 
 					&.selected {
-					    border-color: $border-colour $background-colour $border-colour $border-colour;
+					    border-color: $colour-border $colour-background $colour-border $colour-border;
 					}
 				}
 			}
@@ -129,19 +136,27 @@
 
 		// override rules for labels on right
         .tab-contents + ul.tab-labels {
+            top: 0;
+			left: auto;
+			right: 0;
+			bottom: 0;
+			width: $label-width;
+
             border-style: none none none solid;
 
 		    li {
+                transform: translateX(-1px);
+                margin-top: $label-margin;
 
-			    & + li {
-					margin-top: $label-margin;
-			    }
+				& + li {
+				    margin-top: $label-spacing;
+				}
 				
 		        a {
 				    border-radius: 0 $border-radius $border-radius 0;
 
 					&.selected {
-					    border-color: $border-colour $border-colour $border-colour $background-colour;
+					    border-color: $colour-border $colour-border $colour-border $colour-background;
 					}
 		        }
 		    }
@@ -149,17 +164,24 @@
 
 		// default rules for contents on left
         .tab-contents {
-            height: 100%;
-            width: 80%;
+            top: 0;
+			bottom: 0;
+			right:$label-width;
+			left: 0;
 
             border-width: 1px;
-            border-color: $border-colour;
+            border-color: $colour-border;
             border-style: solid none solid solid;
             border-radius: $border-radius 0 0 $border-radius;
         }
 
 		// override rules for contents on right
         ul.tab-labels + .tab-contents {
+            top: 0;
+			bottom: 0;
+			left: $label-width;
+			right:0;
+
             border-style: solid solid solid none;
             border-radius: 0 $border-radius $border-radius 0;
         }
@@ -168,28 +190,34 @@
 	&.horizontal {
 		// default rules for labels above
         ul.tab-labels {
-			width: 100%;
-            height: 20%;
+            top: 0;
+			bottom: auto;
+			left: 0;
+			right:0;
+			height: $label-height;
 			
             border-width: 1px;
-            border-color: $border-colour;
+            border-color: $colour-border;
             border-style: none none solid none;
 
 			li {
 				height: 100%;
 
-			    & + li {
-					margin-left: $label-margin;
-			    }
+                transform: translateY(1px);
+                margin-left: $label-margin;
+
+				& + li {
+				    margin-left: $label-spacing;
+				}
 
 				a {
 				    height: 100%;
 					text-decoration: none;
-				    border: 1px solid $border-colour;
+				    border: 1px solid $colour-border;
 				    border-radius: $border-radius $border-radius 0 0;
 
 					&.selected {
-					    border-color: $border-colour $border-colour  $background-colour $border-colour;
+					    border-color: $colour-border $colour-border  $colour-background $colour-border;
 					}
 				}
 			}
@@ -197,19 +225,24 @@
 
 		// override rules for labels below
         .tab-contents + ul.tab-labels {
+            top: auto;
+			bottom: 0;
+
             border-style: solid none none none;
 
 		    li {
+				transform: translateY(-1px);
+                margin-left: $label-margin;
 
-			    & + li {
-					margin-left: $label-margin;
-			    }
+				& + li {
+				    margin-left: $label-spacing;
+				}
 				
 		        a {
 				    border-radius: 0 0  $border-radius $border-radius;
 
 					&.selected {
-					    border-color: $background-colour $border-colour $border-colour $border-colour;
+					    border-color: $colour-background $colour-border $colour-border $colour-border;
 					}
 		        }
 		    }
@@ -217,17 +250,232 @@
 
 		// default rules for contents above
         .tab-contents {
-            width: 100%;
-            height: 80%;
+            top: 0;
+			bottom: $label-height;
+			left: 0;
+			right:0;
 
             border-width: 1px;
-            border-color: $border-colour;
+            border-color: $colour-border;
             border-style: solid solid none solid;
             border-radius: $border-radius $border-radius 0 0;
         }
 
 		// override rules for contents below
         ul.tab-labels + .tab-contents {
+            top: $label-height;
+			bottom: 0;
+
+            border-style: none solid solid solid;
+            border-radius: 0 0 $border-radius  $border-radius;
+        }
+
+	}
+}
+
+.tabbed.tab-style-buttons {
+
+	$border-radius: 5px;
+	$label-spacing: 3px;
+	$label-margin: 10px;
+	$label-width: 60px;
+	$label-height: 40px;
+
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 0;
+
+	ul.tab-labels {
+		position: absolute;
+		li {
+		    a {
+			    padding: 10px;
+                background-color: $colour-muted;
+				color: $color-primary;
+
+				&.selected {
+				    background-color: $colour-background;
+				}
+			}
+		}
+	}
+
+    .tab-contents {
+		position: absolute;
+		overflow: hidden;
+        padding: 10px;
+		background-color: $colour-background;
+    }
+
+    &.vertical {
+		// default rules for labels on left
+        ul.tab-labels {
+			top: 0;
+			left: 0;
+			bottom: 0;
+			width: $label-width;
+
+            border-width: 1px;
+            border-style: none solid none none;
+            border-color: $colour-border;
+
+			li {
+                transform: translateX(1px);
+                margin-top: $label-margin;
+
+				& + li {
+				    margin-top: $label-spacing;
+				}
+
+				a {
+					text-decoration: none;
+				    border-width: 1px;
+				    border-style: solid;
+					border-color: $colour-border;
+				    border-radius: $border-radius 0 0 $border-radius;
+
+					&.selected {
+					    border-color: $colour-border $colour-background $colour-border $colour-border;
+					}
+				}
+			}
+        }
+
+		// override rules for labels on right
+        .tab-contents + ul.tab-labels {
+            top: 0;
+			left: auto;
+			right: 0;
+			bottom: 0;
+			width: $label-width;
+
+            border-style: none none none solid;
+
+		    li {
+                transform: translateX(-1px);
+                margin-top: $label-margin;
+
+				& + li {
+				    margin-top: $label-spacing;
+				}
+				
+		        a {
+				    border-radius: 0 $border-radius $border-radius 0;
+
+					&.selected {
+					    border-color: $colour-border $colour-border $colour-border $colour-background;
+					}
+		        }
+		    }
+        }
+
+		// default rules for contents on left
+        .tab-contents {
+            top: 0;
+			bottom: 0;
+			right:$label-width;
+			left: 0;
+
+            border-width: 1px;
+            border-color: $colour-border;
+            border-style: solid none solid solid;
+            border-radius: $border-radius 0 0 $border-radius;
+        }
+
+		// override rules for contents on right
+        ul.tab-labels + .tab-contents {
+            top: 0;
+			bottom: 0;
+			left: $label-width;
+			right:0;
+
+            border-style: solid solid solid none;
+            border-radius: 0 $border-radius $border-radius 0;
+        }
+	}
+
+	&.horizontal {
+		// default rules for labels above
+        ul.tab-labels {
+            top: 0;
+			bottom: auto;
+			left: 0;
+			right:0;
+			height: $label-height;
+			
+            border-width: 1px;
+            border-color: $colour-border;
+            border-style: none none solid none;
+
+			li {
+				height: 100%;
+
+                transform: translateY(1px);
+                margin-left: $label-margin;
+
+				& + li {
+				    margin-left: $label-spacing;
+				}
+
+				a {
+				    height: 100%;
+					text-decoration: none;
+				    border: 1px solid $colour-border;
+				    border-radius: $border-radius $border-radius 0 0;
+
+					&.selected {
+					    border-color: $colour-border $colour-border  $colour-background $colour-border;
+					}
+				}
+			}
+        }
+
+		// override rules for labels below
+        .tab-contents + ul.tab-labels {
+            top: auto;
+			bottom: 0;
+
+            border-style: solid none none none;
+
+		    li {
+				transform: translateY(-1px);
+                margin-left: $label-margin;
+
+				& + li {
+				    margin-left: $label-spacing;
+				}
+				
+		        a {
+				    border-radius: 0 0  $border-radius $border-radius;
+
+					&.selected {
+					    border-color: $colour-background $colour-border $colour-border $colour-border;
+					}
+		        }
+		    }
+        }
+
+		// default rules for contents above
+        .tab-contents {
+            top: 0;
+			bottom: $label-height;
+			left: 0;
+			right:0;
+
+            border-width: 1px;
+            border-color: $colour-border;
+            border-style: solid solid none solid;
+            border-radius: $border-radius $border-radius 0 0;
+        }
+
+		// override rules for contents below
+        ul.tab-labels + .tab-contents {
+            top: $label-height;
+			bottom: 0;
+
             border-style: none solid solid solid;
             border-radius: 0 0 $border-radius  $border-radius;
         }
