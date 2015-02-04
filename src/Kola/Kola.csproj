@@ -274,8 +274,7 @@
     <EmbeddedResource Include="Content\kola.scss" />
     <EmbeddedResource Include="Content\bootstrap-theme.css.map" />
     <EmbeddedResource Include="Content\bootstrap.css.map" />
-    <None Include="Content\kola\Copy of _tabbed.scss" />
-    <None Include="Content\kola\tabbed.scss" />
+    <None Include="Content\kola\_tabbed.scss" />
     <None Include="Content\kola\_editors.scss" />
     <None Include="Content\kola\_base.scss">
       <Compile>False</Compile>
@@ -427,18 +426,6 @@
     <EmbeddedResource Include="Content\kola.min.css">
       <DependentUpon>kola.scss</DependentUpon>
     </EmbeddedResource>
-    <Content Include="Content\kola\Copy of _tabbed.css">
-      <DependentUpon>Copy of _tabbed.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\kola\Copy of _tabbed.min.css">
-      <DependentUpon>Copy of _tabbed.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\kola\tabbed.css">
-      <DependentUpon>tabbed.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\kola\tabbed.min.css">
-      <DependentUpon>tabbed.scss</DependentUpon>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <EmbeddedResource Include="Scripts\bootstrap.js" />
     <EmbeddedResource Include="Scripts\bootstrap.min.js" />

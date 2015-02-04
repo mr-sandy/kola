@@ -481,5 +481,40 @@ Occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
       <propertyName>margin</propertyName>
       <fixedValue><![CDATA[[{"grid":"x","edges":[{"edge":"bottom","value":"6"},{"edge":"right","value":"3"}]}]]]></fixedValue>
     </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/0/1</componentPath>
+      <propertyName>position</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","position":"top left"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/0/1</componentPath>
+      <propertyName>position</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","position":"bottom left"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/0/1</componentPath>
+      <propertyName>border-style</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","borders":[{"border":"top","width":"thick"},{"border":"left","width":"hair"},{"border":"right","width":"hair"}]}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/0/1</componentPath>
+      <propertyName>text-alignment</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","alignment":"right"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/0/1</componentPath>
+      <propertyName>text-alignment</propertyName>
+      <fixedValue><![CDATA[[]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/0/1</componentPath>
+      <propertyName>text-colour</propertyName>
+      <fixedValue><![CDATA[secondary1]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/0/1</componentPath>
+      <propertyName>text-colour</propertyName>
+      <fixedValue><![CDATA[white]]></fixedValue>
+    </setPropertyFixed>
   </amendments>
 </template>

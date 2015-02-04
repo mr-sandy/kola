@@ -8,21 +8,21 @@
         box-sizing: border-box;
 	}
 
-	ul.tab-labels {
+	& > ul.tab-labels {
         list-style-type: none;
         margin: 0;
         padding: 0;
 
-	    li {
+	    & > li {
             display: block;
 
-			a {
+			& > a {
                 display: block;
 			}
         }
     }
 
-	.tab-contents {
+	& > .tab-contents {
 	    & > * {
             display: none;
         }
@@ -39,19 +39,19 @@
     }
 
 	&.vertical {
-        ul.tab-labels {
+        & > ul.tab-labels {
 	        float: left;
         }
 
-        .tab-contents {
+        & > .tab-contents {
 	        float: left;
         }
 	}
 
 	&.horizontal {
-        ul.tab-labels {
+        & >  ul.tab-labels {
 		
-		    li {
+		    & > li {
 	            float: left;
             }
 			&:after {
@@ -63,11 +63,7 @@
 	}
 }
 
-.tabbed.tab-style-classic {
-
-	$border-radius: 5px;
-	$label-spacing: 3px;
-	$label-margin: 10px;
+.tabbed.fixed-size {
 	$label-width: 60px;
 	$label-height: 40px;
 
@@ -76,12 +72,100 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	z-index: 0;
 
-	ul.tab-labels {
+    & > ul.tab-labels {
 		position: absolute;
-		li {
-		    a {
+	}
+
+    & > .tab-contents {
+		position: absolute;
+		overflow: hidden;
+    }
+
+    &.vertical {
+		// default rules for labels on left
+        & > ul.tab-labels {
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: auto;
+			width: $label-width;
+        }
+
+		// override rules for labels on right
+        & > .tab-contents + ul.tab-labels {
+            top: 0;
+			bottom: 0;
+			left: auto;
+			right: 0;
+			width: $label-width;
+        }
+
+		// default rules for contents on left
+        & > .tab-contents {
+            top: 0;
+			bottom: 0;
+			left: 0;
+			right:$label-width;
+        }
+
+		// override rules for contents on right
+        & > ul.tab-labels + .tab-contents {
+            top: 0;
+			bottom: 0;
+			left: $label-width;
+			right:0;
+        }
+	}
+
+	&.horizontal {
+		// default rules for labels above
+        & > ul.tab-labels {
+            top: 0;
+			bottom: auto;
+			left: 0;
+			right:0;
+			height: $label-height;
+        }
+
+		// override rules for labels below
+        & > .tab-contents + ul.tab-labels {
+            top: auto;
+			bottom: 0;
+			left: 0;
+			right:0;
+			height: $label-height;
+        }
+
+		// default rules for contents above
+        & > .tab-contents {
+            top: 0;
+			bottom: $label-height;
+			left: 0;
+			right:0;
+        }
+
+		// override rules for contents below
+        & > ul.tab-labels + .tab-contents {
+            top: $label-height;
+			bottom: 0;
+			left: 0;
+			right:0;
+        }
+
+	}
+}
+
+.tabbed.tab-style-classic {
+
+	$border-radius: 5px;
+	$label-spacing: 3px;
+	$label-margin: 10px;
+
+
+	& > ul.tab-labels {
+		& > li {
+		    & > a {
 			    padding: 10px;
                 background-color: $colour-muted;
 				color: $color-primary;
@@ -93,26 +177,19 @@
 		}
 	}
 
-    .tab-contents {
-		position: absolute;
-		overflow: hidden;
+    & > .tab-contents {
         padding: 10px;
 		background-color: $colour-background;
     }
 
     &.vertical {
 		// default rules for labels on left
-        ul.tab-labels {
-			top: 0;
-			left: 0;
-			bottom: 0;
-			width: $label-width;
-
+        & > ul.tab-labels {
             border-width: 1px;
             border-style: none solid none none;
             border-color: $colour-border;
 
-			li {
+			& > li {
                 transform: translateX(1px);
                 margin-top: $label-margin;
 
@@ -120,7 +197,7 @@
 				    margin-top: $label-spacing;
 				}
 
-				a {
+				& > a {
 					text-decoration: none;
 				    border-width: 1px;
 				    border-style: solid;
@@ -135,16 +212,10 @@
         }
 
 		// override rules for labels on right
-        .tab-contents + ul.tab-labels {
-            top: 0;
-			left: auto;
-			right: 0;
-			bottom: 0;
-			width: $label-width;
-
+        & > .tab-contents + ul.tab-labels {
             border-style: none none none solid;
 
-		    li {
+		    & > li {
                 transform: translateX(-1px);
                 margin-top: $label-margin;
 
@@ -152,7 +223,7 @@
 				    margin-top: $label-spacing;
 				}
 				
-		        a {
+		        & > a {
 				    border-radius: 0 $border-radius $border-radius 0;
 
 					&.selected {
@@ -163,12 +234,7 @@
         }
 
 		// default rules for contents on left
-        .tab-contents {
-            top: 0;
-			bottom: 0;
-			right:$label-width;
-			left: 0;
-
+        & > .tab-contents {
             border-width: 1px;
             border-color: $colour-border;
             border-style: solid none solid solid;
@@ -176,12 +242,7 @@
         }
 
 		// override rules for contents on right
-        ul.tab-labels + .tab-contents {
-            top: 0;
-			bottom: 0;
-			left: $label-width;
-			right:0;
-
+        & > ul.tab-labels + .tab-contents {
             border-style: solid solid solid none;
             border-radius: 0 $border-radius $border-radius 0;
         }
@@ -189,18 +250,12 @@
 
 	&.horizontal {
 		// default rules for labels above
-        ul.tab-labels {
-            top: 0;
-			bottom: auto;
-			left: 0;
-			right:0;
-			height: $label-height;
-			
+        & > ul.tab-labels {
             border-width: 1px;
             border-color: $colour-border;
             border-style: none none solid none;
 
-			li {
+			& > li {
 				height: 100%;
 
                 transform: translateY(1px);
@@ -210,7 +265,7 @@
 				    margin-left: $label-spacing;
 				}
 
-				a {
+				& > a {
 				    height: 100%;
 					text-decoration: none;
 				    border: 1px solid $colour-border;
@@ -224,13 +279,10 @@
         }
 
 		// override rules for labels below
-        .tab-contents + ul.tab-labels {
-            top: auto;
-			bottom: 0;
-
+        & > .tab-contents + ul.tab-labels {
             border-style: solid none none none;
 
-		    li {
+		    & > li {
 				transform: translateY(-1px);
                 margin-left: $label-margin;
 
@@ -238,7 +290,7 @@
 				    margin-left: $label-spacing;
 				}
 				
-		        a {
+		        & > a {
 				    border-radius: 0 0  $border-radius $border-radius;
 
 					&.selected {
@@ -249,12 +301,7 @@
         }
 
 		// default rules for contents above
-        .tab-contents {
-            top: 0;
-			bottom: $label-height;
-			left: 0;
-			right:0;
-
+        & > .tab-contents {
             border-width: 1px;
             border-color: $colour-border;
             border-style: solid solid none solid;
@@ -262,10 +309,7 @@
         }
 
 		// override rules for contents below
-        ul.tab-labels + .tab-contents {
-            top: $label-height;
-			bottom: 0;
-
+        & > ul.tab-labels + .tab-contents {
             border-style: none solid solid solid;
             border-radius: 0 0 $border-radius  $border-radius;
         }
@@ -275,210 +319,43 @@
 
 .tabbed.tab-style-buttons {
 
-	$border-radius: 5px;
-	$label-spacing: 3px;
-	$label-margin: 10px;
-	$label-width: 60px;
-	$label-height: 40px;
-
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 0;
-
-	ul.tab-labels {
-		position: absolute;
-		li {
-		    a {
-			    padding: 10px;
-                background-color: $colour-muted;
-				color: $color-primary;
-
-				&.selected {
-				    background-color: $colour-background;
-				}
-			}
-		}
-	}
-
-    .tab-contents {
-		position: absolute;
-		overflow: hidden;
-        padding: 10px;
-		background-color: $colour-background;
-    }
+	$label-spacing: 5px;
 
     &.vertical {
 		// default rules for labels on left
-        ul.tab-labels {
-			top: 0;
-			left: 0;
-			bottom: 0;
-			width: $label-width;
+        & > ul.tab-labels {
+			padding-right: 20px;
 
-            border-width: 1px;
-            border-style: none solid none none;
-            border-color: $colour-border;
-
-			li {
-                transform: translateX(1px);
-                margin-top: $label-margin;
+			& > li {
 
 				& + li {
 				    margin-top: $label-spacing;
-				}
-
-				a {
-					text-decoration: none;
-				    border-width: 1px;
-				    border-style: solid;
-					border-color: $colour-border;
-				    border-radius: $border-radius 0 0 $border-radius;
-
-					&.selected {
-					    border-color: $colour-border $colour-background $colour-border $colour-border;
-					}
 				}
 			}
         }
 
 		// override rules for labels on right
-        .tab-contents + ul.tab-labels {
-            top: 0;
-			left: auto;
-			right: 0;
-			bottom: 0;
-			width: $label-width;
-
-            border-style: none none none solid;
-
-		    li {
-                transform: translateX(-1px);
-                margin-top: $label-margin;
-
-				& + li {
-				    margin-top: $label-spacing;
-				}
-				
-		        a {
-				    border-radius: 0 $border-radius $border-radius 0;
-
-					&.selected {
-					    border-color: $colour-border $colour-border $colour-border $colour-background;
-					}
-		        }
-		    }
-        }
-
-		// default rules for contents on left
-        .tab-contents {
-            top: 0;
-			bottom: 0;
-			right:$label-width;
-			left: 0;
-
-            border-width: 1px;
-            border-color: $colour-border;
-            border-style: solid none solid solid;
-            border-radius: $border-radius 0 0 $border-radius;
-        }
-
-		// override rules for contents on right
-        ul.tab-labels + .tab-contents {
-            top: 0;
-			bottom: 0;
-			left: $label-width;
-			right:0;
-
-            border-style: solid solid solid none;
-            border-radius: 0 $border-radius $border-radius 0;
+        & > .tab-contents + ul.tab-labels {
+			padding-left: 20px;
         }
 	}
 
 	&.horizontal {
 		// default rules for labels above
-        ul.tab-labels {
-            top: 0;
-			bottom: auto;
-			left: 0;
-			right:0;
-			height: $label-height;
-			
-            border-width: 1px;
-            border-color: $colour-border;
-            border-style: none none solid none;
+        & > ul.tab-labels {
+            padding-bottom: 20px;
 
-			li {
-				height: 100%;
-
-                transform: translateY(1px);
-                margin-left: $label-margin;
+			& > li {
 
 				& + li {
 				    margin-left: $label-spacing;
-				}
-
-				a {
-				    height: 100%;
-					text-decoration: none;
-				    border: 1px solid $colour-border;
-				    border-radius: $border-radius $border-radius 0 0;
-
-					&.selected {
-					    border-color: $colour-border $colour-border  $colour-background $colour-border;
-					}
 				}
 			}
         }
 
 		// override rules for labels below
-        .tab-contents + ul.tab-labels {
-            top: auto;
-			bottom: 0;
-
-            border-style: solid none none none;
-
-		    li {
-				transform: translateY(-1px);
-                margin-left: $label-margin;
-
-				& + li {
-				    margin-left: $label-spacing;
-				}
-				
-		        a {
-				    border-radius: 0 0  $border-radius $border-radius;
-
-					&.selected {
-					    border-color: $colour-background $colour-border $colour-border $colour-border;
-					}
-		        }
-		    }
+        & > .tab-contents + ul.tab-labels {
+            padding-top: 20px;
         }
-
-		// default rules for contents above
-        .tab-contents {
-            top: 0;
-			bottom: $label-height;
-			left: 0;
-			right:0;
-
-            border-width: 1px;
-            border-color: $colour-border;
-            border-style: solid solid none solid;
-            border-radius: $border-radius $border-radius 0 0;
-        }
-
-		// override rules for contents below
-        ul.tab-labels + .tab-contents {
-            top: $label-height;
-			bottom: 0;
-
-            border-style: none solid solid solid;
-            border-radius: 0 0 $border-radius  $border-radius;
-        }
-
 	}
 }
