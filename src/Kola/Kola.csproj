@@ -274,6 +274,8 @@
     <EmbeddedResource Include="Content\kola.scss" />
     <EmbeddedResource Include="Content\bootstrap-theme.css.map" />
     <EmbeddedResource Include="Content\bootstrap.css.map" />
+    <None Include="Content\kola\Copy of _tabbed.scss" />
+    <None Include="Content\kola\tabbed.scss" />
     <None Include="Content\kola\_editors.scss" />
     <None Include="Content\kola\_base.scss">
       <Compile>False</Compile>
@@ -373,6 +375,7 @@
     <EmbeddedResource Include="Scripts\app\templates\EditTemplateTemplate.html" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Scripts\app\controls\tabbed.js" />
     <EmbeddedResource Include="Scripts\app\models\Component.js" />
     <EmbeddedResource Include="Scripts\app\views\StateBroker.js" />
     <EmbeddedResource Include="Scripts\app\views\PropertyView.js" />
@@ -424,6 +427,12 @@
     <EmbeddedResource Include="Content\kola.min.css">
       <DependentUpon>kola.scss</DependentUpon>
     </EmbeddedResource>
+    <Content Include="Content\kola\tabbed.css">
+      <DependentUpon>tabbed.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\kola\tabbed.min.css">
+      <DependentUpon>tabbed.scss</DependentUpon>
+    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <EmbeddedResource Include="Scripts\bootstrap.js" />
     <EmbeddedResource Include="Scripts\bootstrap.min.js" />

@@ -7,9 +7,7 @@
     * ================== */
 
     var Tabbed = function (element, options) {
-        var defaults = {
-            defaultTab: '#grid-x'
-        };
+        var defaults = {};
 
         this.$element = $(element);
         this.options = $.extend(defaults, options);
@@ -19,10 +17,14 @@
 
     _.extend(Tabbed.prototype, {
         initialise: function () {
-            var $tabs = this.$element.find('ul.tabs li a');
+            var $tabs = this.$element.find('ul.tab-labels li a');
             var $contents = this.$element.find('.tab-contents > *');
 
-            var $defaultTab = $tabs.filter('[href=' + this.options.defaultTab + ']').first() || $tabs.first();
+            var $defaultTab = $tabs.filter('[href=' + this.options.defaultTab + ']').first();
+
+            if ($defaultTab.length == 0) {
+                $defaultTab = $tabs.first();
+            }
 
             $defaultTab.addClass('selected');
             $contents.filter($defaultTab.attr('href')).addClass('selected');

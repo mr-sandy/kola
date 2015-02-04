@@ -16,34 +16,51 @@
 		top: 100px;
 		left: 0;
 		right: 25%;
-		bottom: 200px;
+		bottom: 3px;
+	}
+
+	#sidebar {
+		position: absolute;
+		top: 100px;
+		left: 75%;
+		right: 0;
+		bottom: 3px;
+
+        #amendments {
+            position: absolute;
+            top: 0;
+            height: 100px;
+            left: 0;
+            right: 0;
+		    background-color: $color-window-1;
+        }
+
+		#tabs {
+            position: absolute;
+            top: 100px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+		}
 	}
 
     #block-editor {
-        position: absolute;
-        top: 200px;
-        left: 75%;
+	    position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
         right: 0;
-        bottom: 200px;
-		background-color: $color-window-1;
-		overflow: auto;
-    }
-
-    #amendments {
-        position: absolute;
-        top: 100px;
-        height: 100px;
-        left: 75%;
-        right: 0;
-		background-color: $color-window-1;
+        overflow: auto;
+        background-color: $color-window-1;
     }
 
     #properties {
-		position: absolute;
-		height: 200px;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		background-color: $color-window-1;
+	    position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: auto;
+        background-color: $color-window-1;
     }
 }

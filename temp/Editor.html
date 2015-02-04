@@ -6,370 +6,380 @@
     <link type="text/css" rel="stylesheet" href="http://localhost:51969/_kola/Content/kola.css">
     <link type="text/css" rel="stylesheet" href="http://localhost:51969/_kola/editors/kolacore/css/editor.css">
     <link type="text/css" rel="stylesheet" href="http://localhost:51969/_kola/editors/linncore/css/editor.css">
-    <body>
-        <div id="navigation">
-        </div>
-        <div id="content">
-            <div id="edit-template">
-                <div id="toolbox">
-                    <ul>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/markdown">markdown</li>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/label">label</li>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/text">text</li>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/html-title">html-title</li>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/image">image</li>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/html-metadata">html-metadata</li>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/html-style">html-style</li>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/html-script">html-script</li>
-                        <li class="tool container ui-draggable" data-href="/_kola/component-types/html-head">html-head</li>
-                        <li class="tool container ui-draggable" data-href="/_kola/component-types/html-body">html-body</li>
-                        <li class="tool container ui-draggable" data-href="/_kola/component-types/anchor">anchor</li>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/main-menu">main-menu</li>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/secondary-nav">secondary-nav</li>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/pager">pager</li>
-                        <li class="tool container ui-draggable" data-href="/_kola/component-types/carousel">carousel</li>
-                        <li class="tool container ui-draggable" data-href="/_kola/component-types/section">section</li>
-                        <li class="tool container ui-draggable" data-href="/_kola/component-types/division">division</li>
-                        <li class="tool container ui-draggable" data-href="/_kola/component-types/inner">inner</li>
-                        <li class="tool container ui-draggable" data-href="/_kola/component-types/figure">figure</li>
-                        <li class="tool container ui-draggable" data-href="/_kola/component-types/figure-caption">figure-caption</li>
-                        <li class="tool container ui-draggable" data-href="/_kola/component-types/aside">aside</li>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/button">button</li>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/atom-1">atom-1</li>
-                        <li class="tool atom ui-draggable" data-href="/_kola/component-types/atom-2">atom-2</li>
-                        <li class="tool container ui-draggable" data-href="/_kola/component-types/container-1">container-1</li>
-                        <li class="tool container ui-draggable" data-href="/_kola/component-types/container-2">container-2</li>
-                        <li class="tool widget ui-draggable" data-href="/_kola/component-types/page">Page</li>
-                    </ul>
-                    <div class="clear">
-                    </div>
+</head>
+<body>
+    <div id="navigation">
+    </div>
+    <div id="content">
+        <div id="edit-template">
+            <div id="toolbox">
+                <ul>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/markdown">markdown</li>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/label">label</li>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/text">text</li>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/html-title">html-title</li>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/image">image</li>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/html-metadata">html-metadata</li>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/html-style">html-style</li>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/html-script">html-script</li>
+                    <li class="tool container ui-draggable" data-href="/_kola/component-types/html-head">html-head</li>
+                    <li class="tool container ui-draggable" data-href="/_kola/component-types/html-body">html-body</li>
+                    <li class="tool container ui-draggable" data-href="/_kola/component-types/anchor">anchor</li>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/main-menu">main-menu</li>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/secondary-nav">secondary-nav</li>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/pager">pager</li>
+                    <li class="tool container ui-draggable" data-href="/_kola/component-types/carousel">carousel</li>
+                    <li class="tool container ui-draggable" data-href="/_kola/component-types/section">section</li>
+                    <li class="tool container ui-draggable" data-href="/_kola/component-types/division">division</li>
+                    <li class="tool container ui-draggable" data-href="/_kola/component-types/inner">inner</li>
+                    <li class="tool container ui-draggable" data-href="/_kola/component-types/figure">figure</li>
+                    <li class="tool container ui-draggable" data-href="/_kola/component-types/figure-caption">figure-caption</li>
+                    <li class="tool container ui-draggable" data-href="/_kola/component-types/aside">aside</li>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/button">button</li>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/atom-1">atom-1</li>
+                    <li class="tool atom ui-draggable" data-href="/_kola/component-types/atom-2">atom-2</li>
+                    <li class="tool container ui-draggable" data-href="/_kola/component-types/container-1">container-1</li>
+                    <li class="tool container ui-draggable" data-href="/_kola/component-types/container-2">container-2</li>
+                    <li class="tool widget ui-draggable" data-href="/_kola/component-types/page">Page</li>
+                </ul>
+                <div class="clear">
                 </div>
-                <div id="wysiwyg-editor">
-                    <iframe seamless="seamless" src="./Editor_files/test.html"></iframe>
-                </div>
-                <div id="block-editor">
-                    <ul class="block-editor-root ui-sortable">
-                        <li class="widget" data-component-path="/0">
+            </div>
+            <div id="wysiwyg-editor">
+                <iframe seamless="seamless" src="./Editor_files/test.html"></iframe>
+            </div>
+            <div id="block-editor">
+                <ul class="block-editor-root ui-sortable">
+                    <li class="widget" data-component-path="/0">
+                        <div class="chrome">
+                            widget: page</div>
+                        <div class="area" data-component-path="/0/0">
                             <div class="chrome">
-                                widget: page</div>
-                            <div class="area" data-component-path="/0/0">
-                                <div class="chrome">
-                                    area: content</div>
-                                <ul class="ui-sortable">
-                                    <li class="container" data-component-path="/0/0/0">
-                                        <div class="chrome">
-                                            container: section</div>
-                                        <ul class="ui-sortable">
-                                            <li class="container" data-component-path="/0/0/0/0">
-                                                <div class="chrome">
-                                                    container: inner</div>
-                                                <ul class="ui-sortable">
-                                                    <li class="container" data-component-path="/0/0/0/0/0">
-                                                        <div class="chrome">
-                                                            container: division</div>
-                                                        <ul class="ui-sortable">
-                                                            <li class="atom" data-component-path="/0/0/0/0/0/0">
-                                                                <div class="chrome">
-                                                                    atom: markdown</div>
-                                                            </li>
-                                                            <li class="container" data-component-path="/0/0/0/0/0/1">
-                                                                <div class="chrome">
-                                                                    container: division</div>
-                                                                <ul class="ui-sortable">
-                                                                    <li class="atom" data-component-path="/0/0/0/0/0/1/0">
-                                                                        <div class="chrome">
-                                                                            atom: markdown</div>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="container" data-component-path="/0/0/0/0/1">
-                                                        <div class="chrome">
-                                                            container: division</div>
-                                                        <ul class="ui-sortable">
-                                                            <li class="container" data-component-path="/0/0/0/0/1/0">
-                                                                <div class="chrome">
-                                                                    container: anchor</div>
-                                                                <ul class="ui-sortable">
-                                                                    <li class="atom" data-component-path="/0/0/0/0/1/0/0">
-                                                                        <div class="chrome">
-                                                                            atom: markdown</div>
-                                                                    </li>
-                                                                </ul>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                    <li class="container selected" data-component-path="/0/0/0/0/2">
-                                                        <div class="chrome">
-                                                            container: division</div>
-                                                        <ul class="ui-sortable">
-                                                            <li class="atom" data-component-path="/0/0/0/0/2/0">
-                                                                <div class="chrome">
-                                                                    atom: markdown</div>
-                                                            </li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="area" data-component-path="/0/1">
-                                <div class="chrome">
-                                    area: scripts</div>
-                                <ul class="ui-sortable"></ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div id="amendments">
-                    <div class="container">
-                        <h3>Amendments</h3>
-                        <span>3</span>
-                        <button type="button" id="apply">Apply</button>
-                    </div>
-                </div>
-                <div id="properties">
-                    <div class="container">
-                        <h3>container: division </h3>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td class="name">
-                                        grid-placement
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value grid-placement">
-                                        <table class="view grid-settings">
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        x
-                                                    </td>
-                                                    <td>
-                                                        <table class="inner-properties">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        position
-                                                                    </td>
-                                                                    <td>
-                                                                        10-11
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name">
-                                        is-slide
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value boolean">
-                                        <span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name">
-                                        triangle
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value position">
-                                        <table class="view grid-settings">
-                                            <tbody>
-                                            </tbody>
-                                        </table>
-                                        <style type="text/css">
-                                            .position</style>
-                                        <form class="modal">
-                                        <div class="chrome">
-                                            <span>Triangle</span>
-                                        </div>
-                                        <div class="tabbed xhorizontal-tabs">
-                                            <ul class="tabs">
-                                                <li><a href="#grid-f" class="toggle-switch grid-name-f selected"></a></li>
-                                                <li><a href="#grid-x" class="toggle-switch grid-name-x"></a></li>
-                                                <li><a href="#grid-d" class="toggle-switch grid-name-d"></a></li>
-                                                <li><a href="#grid-t" class="toggle-switch grid-name-t"></a></li>
-                                                <li><a href="#grid-p" class="toggle-switch grid-name-p"></a></li>
-                                                <li><a href="#grid-m" class="toggle-switch grid-name-m"></a></li>
-                                                <li><a href="#grid-u" class="toggle-switch grid-name-u"></a></li>
+                                area: content</div>
+                            <ul class="ui-sortable">
+                                <li class="container" data-component-path="/0/0/0">
+                                    <div class="chrome">
+                                        container: section</div>
+                                    <ul class="ui-sortable">
+                                        <li class="container" data-component-path="/0/0/0/0">
+                                            <div class="chrome">
+                                                container: inner</div>
+                                            <ul class="ui-sortable">
+                                                <li class="container" data-component-path="/0/0/0/0/0">
+                                                    <div class="chrome">
+                                                        container: division</div>
+                                                    <ul class="ui-sortable">
+                                                        <li class="atom" data-component-path="/0/0/0/0/0/0">
+                                                            <div class="chrome">
+                                                                atom: markdown</div>
+                                                        </li>
+                                                        <li class="container" data-component-path="/0/0/0/0/0/1">
+                                                            <div class="chrome">
+                                                                container: division</div>
+                                                            <ul class="ui-sortable">
+                                                                <li class="atom" data-component-path="/0/0/0/0/0/1/0">
+                                                                    <div class="chrome">
+                                                                        atom: markdown</div>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="container" data-component-path="/0/0/0/0/1">
+                                                    <div class="chrome">
+                                                        container: division</div>
+                                                    <ul class="ui-sortable">
+                                                        <li class="container" data-component-path="/0/0/0/0/1/0">
+                                                            <div class="chrome">
+                                                                container: anchor</div>
+                                                            <ul class="ui-sortable">
+                                                                <li class="atom" data-component-path="/0/0/0/0/1/0/0">
+                                                                    <div class="chrome">
+                                                                        atom: markdown</div>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="container selected" data-component-path="/0/0/0/0/2">
+                                                    <div class="chrome">
+                                                        container: division</div>
+                                                    <ul class="ui-sortable">
+                                                        <li class="atom" data-component-path="/0/0/0/0/2/0">
+                                                            <div class="chrome">
+                                                                atom: markdown</div>
+                                                        </li>
+                                                    </ul>
+                                                </li>
                                             </ul>
-                                            <div class="tab-contents">
-                                                <div id="grid-f" data-grid="f" class="selected">
-                                                    <div class="holder">
-                                                        <div class="toggle-switch blue top left" data-position="top left"><span>top left</span></div>
-                                                        <div class="toggle-switch blue top" data-position="top"><span>top</span></div>
-                                                        <div class="toggle-switch blue top right" data-position="top right"><span>top right</span></div>
-                                                        <div class="toggle-switch blue left" data-position="left"><span>left</span></div>
-                                                        <div class="toggle-switch none" data-position="none"><span>none</span></div>
-                                                        <div class="toggle-switch blue right" data-position="right"><span>right</span></div>
-                                                        <div class="toggle-switch blue bottom left" data-position="bottom left"><span>bottom left</span></div>
-                                                        <div class="toggle-switch blue bottom" data-position="bottom"><span>bottom</span></div>
-                                                        <div class="toggle-switch blue bottom right" data-position="bottom right"><span>bottom right</span></div>
-                                                        <div class="toggle-switch blue below" data-position="below">
-                                                            <span>below</span>
-                                                            <select class="edge" data-edge="{{edge}}">
-                                                                <option></option>
-                                                            </select>
-                                                        </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="area" data-component-path="/0/1">
+                            <div class="chrome">
+                                area: scripts</div>
+                            <ul class="ui-sortable"></ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="amendments">
+                <div class="container">
+                    <h3>Amendments</h3>
+                    <span>3</span>
+                    <button type="button" id="apply">Apply</button>
+                </div>
+            </div>
+            <div id="properties">
+                <div class="container">
+                    <h3>container: division </h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td class="name">
+                                    grid-placement
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value grid-placement">
+                                    <table class="view grid-settings">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    x
+                                                </td>
+                                                <td>
+                                                    <table class="inner-properties">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    position
+                                                                </td>
+                                                                <td>
+                                                                    10-11
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    is-slide
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value boolean">
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    triangle
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value position">
+                                    <table class="view grid-settings">
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                    <style type="text/css">
+                                        .position</style>
+                                    <form class="modal">
+                                    <div class="chrome">
+                                        <span>Triangle</span>
+                                    </div>
+                                    <div class="tabbed xhorizontal-tabs">
+                                        <ul class="tabs">
+                                            <li><a href="#grid-f" class="toggle-switch grid-name-f selected"></a></li>
+                                            <li><a href="#grid-x" class="toggle-switch grid-name-x"></a></li>
+                                            <li><a href="#grid-d" class="toggle-switch grid-name-d"></a></li>
+                                            <li><a href="#grid-t" class="toggle-switch grid-name-t"></a></li>
+                                            <li><a href="#grid-p" class="toggle-switch grid-name-p"></a></li>
+                                            <li><a href="#grid-m" class="toggle-switch grid-name-m"></a></li>
+                                            <li><a href="#grid-u" class="toggle-switch grid-name-u"></a></li>
+                                        </ul>
+                                        <div class="tab-contents">
+                                            <div id="grid-f" data-grid="f" class="selected">
+                                                <div class="holder">
+                                                    <div class="toggle-switch blue top left" data-position="top left">
+                                                        <span>top left</span></div>
+                                                    <div class="toggle-switch blue top" data-position="top">
+                                                        <span>top</span></div>
+                                                    <div class="toggle-switch blue top right" data-position="top right">
+                                                        <span>top right</span></div>
+                                                    <div class="toggle-switch blue left" data-position="left">
+                                                        <span>left</span></div>
+                                                    <div class="toggle-switch none" data-position="none">
+                                                        <span>none</span></div>
+                                                    <div class="toggle-switch blue right" data-position="right">
+                                                        <span>right</span></div>
+                                                    <div class="toggle-switch blue bottom left" data-position="bottom left">
+                                                        <span>bottom left</span></div>
+                                                    <div class="toggle-switch blue bottom" data-position="bottom">
+                                                        <span>bottom</span></div>
+                                                    <div class="toggle-switch blue bottom right" data-position="bottom right">
+                                                        <span>bottom right</span></div>
+                                                    <div class="toggle-switch blue below" data-position="below">
+                                                        <span>below</span>
+                                                        <select class="edge" data-edge="{{edge}}">
+                                                            <option></option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="controls">
-                                            <button class="cancel" value="cancel">Cancel</button>
-                                            <input type="submit" value="Ok">
-                                        </div>
-                                        </form>
-                                        <div class="overlay">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name">
-                                        content-id
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value text">
-                                        <span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name">
-                                        text-align
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value text">
-                                        <span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name">
-                                        show-grids
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value text">
-                                        <span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name">
-                                        margin
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value text">
-                                        <span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name">
-                                        padding
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value text">
-                                        <span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name">
-                                        border
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value text">
-                                        <span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name">
-                                        background-colour
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value responsive-colour">
-                                        <table class="view grid-settings">
-                                            <tbody>
-                                            </tbody>
-                                        </table>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name">
-                                        text-colour
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value colour">
-                                        <span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name">
-                                        position
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value text">
-                                        <span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name">
-                                        width
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value text">
-                                        <span></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="name">
-                                        height
-                                    </td>
-                                    <td class="type">
-                                        fixed
-                                    </td>
-                                    <td class="value text">
-                                        <span></span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <button type="button" id="remove">Remove</button>
-                        <button type="button" id="duplicate">Duplicate</button>
-                    </div>
+                                    </div>
+                                    <div class="controls">
+                                        <button class="cancel" value="cancel">Cancel</button>
+                                        <input type="submit" value="Ok">
+                                    </div>
+                                    </form>
+                                    <div class="overlay">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    content-id
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value text">
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    text-align
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value text">
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    show-grids
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value text">
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    margin
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value text">
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    padding
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value text">
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    border
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value text">
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    background-colour
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value responsive-colour">
+                                    <table class="view grid-settings">
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    text-colour
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value colour">
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    position
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value text">
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    width
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value text">
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="name">
+                                    height
+                                </td>
+                                <td class="type">
+                                    fixed
+                                </td>
+                                <td class="value text">
+                                    <span></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" id="remove">Remove</button>
+                    <button type="button" id="duplicate">Duplicate</button>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>

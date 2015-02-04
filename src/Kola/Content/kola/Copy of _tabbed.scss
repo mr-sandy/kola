@@ -1,7 +1,8 @@
+﻿@import "colours";
 
 .tabbed {
     
-	ul.tabs {
+	& > ul.tab-labels {
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -16,7 +17,7 @@
         }
     }
 
-	.tab-contents {
+	& > .tab-contents {
 		float: left;
 		padding-left: 20px;
 
@@ -32,7 +33,7 @@
 
 	&.horizontal-tabs {
 
-        ul.tabs {
+        & > ul.tab-labels {
             float: none;
 
 		    li {
@@ -51,7 +52,7 @@
             }
 		}
 
-        .tab-contents {
+        & > .tab-contents {
 		    & > * {
                 margin-left: 0;
                 margin-top: 10px;

@@ -7,3 +7,8 @@ div, ul, li {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+body, select, input, button {
+	font-family: sans-serif;
+	font-size: 13px;
+}
