@@ -83,7 +83,6 @@
     <EmbeddedResource Include="Views\HtmlStyle.cshtml" />
     <EmbeddedResource Include="Views\HtmlIeConditional.cshtml" />
     <EmbeddedResource Include="Views\HtmlScript.cshtml" />
-    <EmbeddedResource Include="Views\Anchor.cshtml" />
     <EmbeddedResource Include="Views\Image.cshtml" />
     <EmbeddedResource Include="Views\Text.cshtml" />
     <None Include="web.config" />

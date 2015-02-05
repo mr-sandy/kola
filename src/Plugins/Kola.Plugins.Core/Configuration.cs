@@ -74,11 +74,6 @@
             this.Configure.Container("html-body")
                 .WithView("HtmlBody")
                 .WithProperty("classes", "text");
-
-            this.Configure.Container("anchor")
-                .WithView("Anchor")
-                .WithProperty("href", "text")
-                .WithProperty("target", "text");
         }
 
         private void ConfigurePropertyTypes()

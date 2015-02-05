@@ -283,13 +283,22 @@ here is a [hyperlink](#jam)
                             </atom>
                           </components>
                         </container>
-                        <atom name="markdown">
+                        <container name="anchor">
                           <properties>
-                            <property name="markdown" type="markdown">
-                              <value xsi:type="fixed"><![CDATA[Optimo cumque nihil impedit quo minus id quod maxime placeat facere possimus, voluptas assumenda est omnis!]]></value>
+                            <property name="href" type="text">
+                              <value xsi:type="fixed"><![CDATA[http://sandycormie.com]]></value>
                             </property>
                           </properties>
-                        </atom>
+                          <components>
+                            <atom name="markdown">
+                              <properties>
+                                <property name="markdown" type="markdown">
+                                  <value xsi:type="fixed"><![CDATA[Optimo cumque nihil impedit quo minus id quod maxime placeat facere possimus, voluptas assumenda est omnis!]]></value>
+                                </property>
+                              </properties>
+                            </atom>
+                          </components>
+                        </container>
                       </components>
                     </container>
                   </components>
@@ -396,5 +405,121 @@ Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatib
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <moveComponent>
+      <sourcePath>0/0/0/0/2/1</sourcePath>
+      <targetPath>0/0/1</targetPath>
+    </moveComponent>
+    <setPropertyFixed>
+      <componentPath>0/0/1</componentPath>
+      <propertyName>grid-placement</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","position":"4-6"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/1</componentPath>
+      <propertyName>padding</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"2.5"},{"edge":"bottom","value":"2"},{"edge":"left","value":"3"},{"edge":"right","value":"3.5"}]}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/1</componentPath>
+      <propertyName>background-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","colour":"tint3"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/1</componentPath>
+      <propertyName>text-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","colour":"white"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/1</componentPath>
+      <propertyName>text-colour-hover</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","colour":"secondary1"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/1</componentPath>
+      <propertyName>height</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","height":{"type":"fixed","value":"60"}}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/1</componentPath>
+      <propertyName>background-colour-hover</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","colour":"tint2"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/1</componentPath>
+      <propertyName>height</propertyName>
+      <fixedValue><![CDATA[[]]]></fixedValue>
+    </setPropertyFixed>
+    <addComponent>
+      <componentType>section</componentType>
+      <targetPath>0/0/2</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>inner</componentType>
+      <targetPath>0/0/2/0</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>0/0/1</sourcePath>
+      <targetPath>0/0/2/0/0</targetPath>
+    </moveComponent>
+    <setPropertyFixed>
+      <componentPath>0/0/1</componentPath>
+      <propertyName>padding</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"8"},{"edge":"bottom","value":"8"}]}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/1/0/0</componentPath>
+      <propertyName>triangle</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","centred":true,"edge":"left"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/1/0/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[Optimo cumque nihil impedit quo minus id quod maxime placeat facere possimus, voluptas assumenda est omnis!
+
+Here is another [hyperlink](#biscuits)]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/1/0/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[Optimo cumque nihil impedit quo minus id quod maxime placeat facere possimus, voluptas assumenda est omnis!
+
+]]></fixedValue>
+    </setPropertyFixed>
+    <moveComponent>
+      <sourcePath>0/0/0/0/2/0/0</sourcePath>
+      <targetPath>0/0/0/0/2/1</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>0/0/0/0/2/1</targetPath>
+    </addComponent>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/2/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[Here is some content:
+
+Here is a [hyperlink](#weee)]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/2</componentPath>
+      <propertyName>text-colour</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","colour":"tint1"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/2</componentPath>
+      <propertyName>text-colour-hover</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","colour":"pitch-black"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/2</componentPath>
+      <propertyName>text-colour-hover</propertyName>
+      <fixedValue><![CDATA[[]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0/0/2</componentPath>
+      <propertyName>text-colour</propertyName>
+      <fixedValue><![CDATA[[]]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>

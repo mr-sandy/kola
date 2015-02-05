@@ -88,6 +88,17 @@
             this.Configure.Container("aside")
                 .WithView("Aside")
                 .ExtendWith(this.CommonProperties);
+
+            this.Configure.Container("anchor")
+                .WithView("Anchor")
+                .WithProperty("href", "text")
+                .WithProperty("target", "text")
+                .WithProperty("triangle", "triangle")
+                .WithProperty("text-alignment", "text-alignment")
+                .WithProperty("min-height", "height")
+                .WithProperty("max-height", "height")
+                .ExtendWith(this.CommonProperties);
+
         }
 
         private void ConfigurePropertyTypes()

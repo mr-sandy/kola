@@ -1740,6 +1740,7 @@ nav.primary + .fullscreen-block {
   display: none; }
 
 a {
+  position: relative;
   text-decoration: none; }
   p a {
     border-bottom-style: solid;
