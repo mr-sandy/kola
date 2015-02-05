@@ -13,23 +13,26 @@
         private static readonly Dictionary<string, Func<string, string>> CssClassHandlers =
             new Dictionary<string, Func<string, string>>
                 {
-                    { "grid-placement", v => BuildManyClassesFromList<GridPlacement>(v, GridPlacementClassBuilder.BuildClasses) },
                     { "background-colour", v => BuildClassesFromList<ResponsiveColour>(v, c => string.Format("{0}-back-{1}", c.Colour, c.Grid)) },
+                    { "background-colour-hover", v => BuildClassesFromList<ResponsiveColour>(v, c => string.Format("{0}-back-hover-{1}", c.Colour, c.Grid)) },
                     { "border-colour", v => BuildClassesFromList<ResponsiveColour>(v, c => string.Format("border-{0}-{1}", c.Colour, c.Grid)) },
-                    { "text-alignment", v => BuildClassesFromList<ResponsiveAlignment>(v, c => string.Format("text-align-{0}-{1}", c.Alignment.Replace("centre", "center"), c.Grid)) },
-                    { "triangle", v => BuildManyClassesFromList<ResponsiveTriangle>(v, ResponsiveTriangleClassBuilder.BuildClasses) },
-                    { "padding", v => BuildManyClassesFromList<ResponsiveEdges>(v, ResponsivePaddingClassBuilder.BuildClasses) },
-                    { "margin", v => BuildManyClassesFromList<ResponsiveEdges>(v, ResponsiveMarginClassBuilder.BuildClasses) },
                     { "border-style", v => BuildManyClassesFromList<ResponsiveBorders>(v, ResponsiveBorderClassBuilder.BuildClasses) },
-                    { "position", v => BuildManyClassesFromList<ResponsivePosition>(v, ResponsivePositionClassBuilder.BuildClasses) },
-                    { "text-colour", v => EchoClass(v, suffix: "-text") },
+                    { "grid-placement", v => BuildManyClassesFromList<GridPlacement>(v, GridPlacementClassBuilder.BuildClasses) },
+                    { "height", v => BuildClassesFromList<ResponsiveHeight>(v, ResponsiveHeightClassBuilder.BuildClasses) },
                     { "is-slide", v => GetClassFromBool(v, "slide") },
+                    { "margin", v => BuildManyClassesFromList<ResponsiveEdges>(v, ResponsiveMarginClassBuilder.BuildClasses) },
+                    { "max-height", v => BuildClassesFromList<ResponsiveHeight>(v, ResponsiveHeightClassBuilder.BuildClassesForMax) },
+                    { "min-height", v => BuildClassesFromList<ResponsiveHeight>(v, ResponsiveHeightClassBuilder.BuildClassesForMin) },
+                    { "padding", v => BuildManyClassesFromList<ResponsiveEdges>(v, ResponsivePaddingClassBuilder.BuildClasses) },
                     { "pointer-up", v => GetClassFromBool(v, "pointer-up") },
-                    { "border", v => EchoClass(v) },
-                    { "height", v => EchoClass(v) },
-                    { "width", v => EchoClass(v) },
+                    { "position", v => BuildManyClassesFromList<ResponsivePosition>(v, ResponsivePositionClassBuilder.BuildClasses) },
+                    { "show-grids", v => EchoClasses(v, "showgrid-") },
                     { "style", v => EchoClass(v, prefix: "style-") },
-                    { "show-grids", v => EchoClasses(v, "showgrid-") }
+                    { "text-alignment", v => BuildClassesFromList<ResponsiveAlignment>(v, c => string.Format("text-align-{0}-{1}", c.Alignment.Replace("centre", "center"), c.Grid)) },
+                    { "text-colour", v => BuildClassesFromList<ResponsiveColour>(v, c => string.Format("{0}-text-{1}", c.Colour, c.Grid)) },
+                    { "text-colour-hover", v => BuildClassesFromList<ResponsiveColour>(v, c => string.Format("{0}-text-hover-{1}", c.Colour, c.Grid)) },
+                    { "triangle", v => BuildManyClassesFromList<ResponsiveTriangle>(v, ResponsiveTriangleClassBuilder.BuildClasses) },
+                    { "width", v => EchoClass(v) },
                 };
 
         public static string GetClassNames(this IEnumerable<PropertyInstance> properties)

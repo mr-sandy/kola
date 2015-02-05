@@ -1,0 +1,26 @@
+@import "colours";
+
+.height {
+    
+	.holder {
+		padding: 0 0 0 20px;
+
+        .toggle-switch {
+            width: 90px;
+            padding: 10px 0; 
+            text-align: center;
+
+            label {
+            }
+
+            select {
+                margin-top: 10px;
+                width: 60px;
+            }
+
+		    & + .toggle-switch {
+                margin-top: 20px;
+		    }
+        }
+	}
+}
