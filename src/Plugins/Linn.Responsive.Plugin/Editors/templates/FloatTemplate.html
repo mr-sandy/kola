@@ -1,0 +1,79 @@
+﻿<table class="view grid-settings">
+    <tbody>
+        {{#each grids}} {{#unless unset}}
+        <tr>
+            <td>
+                {{grid}}
+            </td>
+            <td>
+                <table class="inner-properties">
+                    <tbody>
+                        {{#if float}}
+                        <tr>
+                            <td>
+                                float
+                            </td>
+                            <td>
+                                {{float}}
+                            </td>
+                        </tr>
+                        {{/if}}
+                        {{#if clear}}
+                        <tr>
+                            <td>
+                                clear
+                            </td>
+                            <td>
+                                {{clear}}
+                            </td>
+                        </tr>
+                        {{/if}}
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        {{/unless}} {{/each}}
+    </tbody>
+</table>
+{{#if editMode}}
+<form class="modal">
+<div class="chrome">
+    <span>Float</span>
+</div>
+<div class="tabbed vertical tab-style-buttons">
+    <ul class="tab-labels">{{#each grids}}
+        <li><a href="#grid-{{grid}}" class="toggle-switch grid-name-{{grid}}"></a></li>
+        {{/each}} </ul>
+    <div class="tab-contents">
+        {{#each grids}}
+        <div id="grid-{{grid}}" data-grid="{{grid}}">
+            <div class="holder">
+                <div class="row">
+                    <label>Float:</label>
+                    {{#each floats}}
+                    <div class="float{{#if selected}} selected{{/if}} toggle-switch blue" data-float="{{float}}">
+                        <label>{{float}}</label>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="row">
+                    <label>Clear:</label>
+                    {{#each clears}}
+                    <div class="clearr{{#if selected}} selected{{/if}} toggle-switch blue" data-clear="{{clear}}">
+                        <label>{{clear}}</label>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<div class="controls">
+    <button class="cancel" value="cancel">Cancel</button>
+    <input type="submit" value="Ok" />
+</div>
+</form>
+<div class="overlay">
+</div>
+{{/if}}

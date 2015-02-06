@@ -188,6 +188,14 @@
     background-color: #38a3db; }
   #properties .value.responsive-colour div.preview.purple {
     background-color: #b566a2; }
+#properties .float .holder {
+  padding: 0 0 0 20px; }
+  #properties .float .holder .toggle-switch {
+    width: 120px;
+    padding: 10px 0;
+    text-align: center; }
+    #properties .float .holder .toggle-switch label {
+      display: block; }
 #properties label[class*="grid-name-"] {
   display: inline-block;
   padding: 10px;

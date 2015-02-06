@@ -18,6 +18,7 @@
                     { "border-colour", v => BuildClassesFromList<ResponsiveColour>(v, c => string.Format("border-{0}-{1}", c.Colour, c.Grid)) },
                     { "border-style", v => BuildManyClassesFromList<ResponsiveBorders>(v, ResponsiveBorderClassBuilder.BuildClasses) },
                     { "grid-placement", v => BuildManyClassesFromList<GridPlacement>(v, GridPlacementClassBuilder.BuildClasses) },
+                    { "float", v => BuildManyClassesFromList<ResponsiveFloat>(v, ResponsiveFloatClassBuilder.BuildClasses) },
                     { "height", v => BuildClassesFromList<ResponsiveHeight>(v, ResponsiveHeightClassBuilder.BuildClasses) },
                     { "is-slide", v => GetClassFromBool(v, "slide") },
                     { "margin", v => BuildManyClassesFromList<ResponsiveEdges>(v, ResponsiveMarginClassBuilder.BuildClasses) },

@@ -29,7 +29,7 @@
                 case "fixed":
                     return string.Format("{0}-{1}-{2}", prefix, responsiveHeight.Height.Value.Replace(".5", "-and-a-half"), responsiveHeight.Grid);
 
-                case "percentage":
+                case "proportional":
                     return string.Format("{0}-{1}-{2}", prefix, responsiveHeight.Height.Value, responsiveHeight.Grid);
 
                 case "view-height":

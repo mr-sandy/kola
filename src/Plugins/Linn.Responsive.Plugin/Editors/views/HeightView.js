@@ -148,7 +148,7 @@
                         .map(function (value) {
                             return {
                                 value: value,
-                                selected: isSelected && parseInt(height.value) === value
+                                selected: isSelected && height.value === value
                             };
                         })
                         .value();
@@ -167,7 +167,7 @@
                         .map(function (value) {
                             return {
                                 value: value,
-                                selected: isSelected && parseInt(height.value) === value
+                                selected: isSelected && height.value === value
                             };
                         })
                         .value();

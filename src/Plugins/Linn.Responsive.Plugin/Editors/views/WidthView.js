@@ -147,7 +147,7 @@
                         .map(function (value) {
                             return {
                                 value: value,
-                                selected: isSelected && parseInt(width.value) === value
+                                selected: isSelected && width.value === value
                             };
                         })
                         .value();

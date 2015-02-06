@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
+    <Compile Include="Extensions\ResponsiveFloatClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveWidthClassBuilder.cs" />
     <Compile Include="Extensions\GridPlacementClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveBorderClassBuilder.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Extensions\ResponsivePositionClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveTriangleClassBuilder.cs" />
     <Compile Include="PropertyModels\BorderWidth.cs" />
+    <Compile Include="PropertyModels\ResponsiveFloat.cs" />
     <Compile Include="PropertyModels\TypeValue.cs" />
     <Compile Include="PropertyModels\EdgeValue.cs" />
     <Compile Include="PropertyModels\ResponsiveBorders.cs" />
@@ -104,6 +106,7 @@
     <EmbeddedResource Include="Editors\css\_border-style.scss" />
     <EmbeddedResource Include="Editors\css\_position.scss" />
     <EmbeddedResource Include="Editors\css\_height.scss" />
+    <EmbeddedResource Include="Editors\css\_float.scss" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\MainMenu.cshtml" />
     <EmbeddedResource Include="Views\SecondaryNav.cshtml" />
@@ -199,6 +202,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\views\WidthView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\FloatView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\FloatTemplate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

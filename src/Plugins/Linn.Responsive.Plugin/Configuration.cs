@@ -109,6 +109,9 @@
             this.Configure.PropertyType("grid-placement")
                 .WithEditor("GridPlacementView.js");
 
+            this.Configure.PropertyType("float")
+                .WithEditor("FloatView.js");
+
             this.Configure.PropertyType("responsive-colour")
                 .WithEditor("ResponsiveColourView.js");
 
@@ -144,6 +147,7 @@
         {
             configureComponent
                 .WithProperty("grid-placement", "grid-placement")
+                .WithProperty("float", "float")
                 .WithProperty("margin", "margin")
                 .WithProperty("padding", "padding")
                 .WithProperty("border-style", "border-style")
