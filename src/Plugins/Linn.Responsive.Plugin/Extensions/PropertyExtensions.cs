@@ -26,6 +26,7 @@
                     { "max-width", v => BuildClassesFromList<ResponsiveWidth>(v, ResponsiveWidthClassBuilder.BuildClassesForMax) },
                     { "min-height", v => BuildClassesFromList<ResponsiveHeight>(v, ResponsiveHeightClassBuilder.BuildClassesForMin) },
                     { "min-width", v => BuildClassesFromList<ResponsiveWidth>(v, ResponsiveWidthClassBuilder.BuildClassesForMin) },
+                    { "navigation-type", v => EchoClasses(v) },
                     { "padding", v => BuildManyClassesFromList<ResponsiveEdges>(v, ResponsivePaddingClassBuilder.BuildClasses) },
                     { "pointer-up", v => GetClassFromBool(v, "pointer-up") },
                     { "position", v => BuildManyClassesFromList<ResponsivePosition>(v, ResponsivePositionClassBuilder.BuildClasses) },

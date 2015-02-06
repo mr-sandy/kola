@@ -16,7 +16,8 @@
         {
             this.pageHandler = pageHandler;
             this.Get["/(.*)", AcceptHeaderFilters.Html] = p => this.GetPage();
-            this.Get["/(.*)/(.*)", AcceptHeaderFilters.Html] = p => this.GetPage();
+            //this.Get["/(.*)/(.*)", AcceptHeaderFilters.Html] = p => this.GetPage();
+            this.Get["/{path*}", AcceptHeaderFilters.Html] = p => this.GetPage();
         }
 
         // TODO {SC} This should renamed GetContent; the pageHandler should be a content handler, 

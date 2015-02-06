@@ -70,6 +70,11 @@
                 .WithProperty("max-width", "width")
                 .ExtendWith(this.CommonProperties);
 
+            this.Configure.Container("navigation")
+                .WithView("Navigation")
+                .WithProperty("navigation-type", "text")
+                .ExtendWith(this.CommonProperties);
+
             this.Configure.Container("inner")
                 .WithView("Inner")
                 .WithProperty("show-grids", "text");

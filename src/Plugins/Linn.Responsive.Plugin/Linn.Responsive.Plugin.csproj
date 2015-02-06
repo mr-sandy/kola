@@ -119,6 +119,7 @@
     <EmbeddedResource Include="Views\Aside.cshtml" />
     <EmbeddedResource Include="Views\Inner.cshtml" />
     <EmbeddedResource Include="Views\Anchor.cshtml" />
+    <EmbeddedResource Include="Views\Navigation.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Editors\controls\" />
