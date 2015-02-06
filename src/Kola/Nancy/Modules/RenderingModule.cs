@@ -15,17 +15,23 @@
         public RenderingModule(IPageHandler pageHandler)
         {
             this.pageHandler = pageHandler;
-            this.Get["(?<rawPath>.*)", AcceptHeaderFilters.Html] = p => this.GetPage(p.rawPath);
-            this.Get["/", AcceptHeaderFilters.Html] = p => this.GetPage(string.Empty);
+            this.Get["/(.*)", AcceptHeaderFilters.Html] = p => this.GetPage();
+            this.Get["/(.*)/(.*)", AcceptHeaderFilters.Html] = p => this.GetPage();
         }
 
         // TODO {SC} This should renamed GetContent; the pageHandler should be a content handler, 
         // and should return different types of content: pages; redirects; and 404 content?
-        private Negotiator GetPage(string rawPath)
+        private Negotiator GetPage()
         {
-            var path = rawPath.ParsePath();
+            var path = this.Request.Path.ParsePath();
             var query = this.Bind<RenderQuery>();
+
             var page = this.pageHandler.GetPage(path, query.IsPreview);
+
+            if (page == null)
+            {
+                return this.Negotiate.WithStatusCode(HttpStatusCode.NotFound).WithView("404");
+            }
 
             if (!string.IsNullOrEmpty(query.ComponentPath))
             {

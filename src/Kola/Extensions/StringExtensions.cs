@@ -26,7 +26,7 @@
 
         public static IEnumerable<string> ParsePath(this string path)
         {
-            return path.Split('\\', '/');
+            return path.Split('\\', '/').Where(s => !string.IsNullOrWhiteSpace(s));
         }
 
         public static IEnumerable<int> ParseComponentPath(this string path)

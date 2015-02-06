@@ -41,12 +41,6 @@
         }
 
         [Test]
-        public void ShouldLookupTemplateToRepository()
-        {
-            this.TemplateRepository.AssertWasCalled(r => r.Get(this.templatePath.Split(new[] { '/' })));
-        }
-
-        [Test]
         public void ShouldContainASelfLink()
         {
             var link = ((IEnumerable<dynamic>)this.jsonResponse.links).FirstOrDefault(l => l.rel == "self");

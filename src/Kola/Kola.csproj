@@ -319,6 +319,7 @@
     <None Include="fonts\glyphicons-halflings-regular.ttf" />
     <None Include="fonts\glyphicons-halflings-regular.woff" />
     <EmbeddedResource Include="Nancy\Views\Fragment.cshtml" />
+    <EmbeddedResource Include="Nancy\Views\404.cshtml" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
