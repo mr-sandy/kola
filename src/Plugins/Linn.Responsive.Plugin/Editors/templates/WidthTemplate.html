@@ -6,7 +6,7 @@
                 {{grid}}
             </td>
             <td>
-                {{height.type}}{{#if height.value}} ({{height.value}}){{/if}}
+                {{width.type}}{{#if width.value}} ({{width.value}}){{/if}}
             </td>
         </tr>
         {{/unless}} {{/each}}
@@ -15,7 +15,7 @@
 {{#if editMode}}
 <form class="modal">
 <div class="chrome">
-    <span>Height</span>
+    <span>Width</span>
 </div>
 <div class="tabbed vertical tab-style-buttons">
     <ul class="tab-labels">
@@ -27,9 +27,9 @@
         {{#each grids}}
         <div id="grid-{{grid}}" data-grid="{{grid}}">
             <div class="holder">
-                {{#each heights}}
-                <div class="height{{#if selected}} selected{{/if}} toggle-switch blue" data-type="{{type}}">
-                    <label>{{type}}</label>
+                {{#each widths}}
+                <div class="width{{#if selected}} selected{{/if}} toggle-switch blue" data-type="{{type}}">
+                    <span>{{type}}</span>
                     {{#if values}}
                     <select>
                         {{#each values}}

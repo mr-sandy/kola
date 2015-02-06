@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
+    <Compile Include="Extensions\ResponsiveWidthClassBuilder.cs" />
     <Compile Include="Extensions\GridPlacementClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveBorderClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveHeightClassBuilder.cs" />
@@ -69,7 +70,7 @@
     <Compile Include="Extensions\ResponsivePositionClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveTriangleClassBuilder.cs" />
     <Compile Include="PropertyModels\BorderWidth.cs" />
-    <Compile Include="PropertyModels\Height.cs" />
+    <Compile Include="PropertyModels\TypeValue.cs" />
     <Compile Include="PropertyModels\EdgeValue.cs" />
     <Compile Include="PropertyModels\ResponsiveBorders.cs" />
     <Compile Include="PropertyModels\ResponsiveEdges.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="PropertyModels\ResponsiveHeight.cs" />
     <Compile Include="PropertyModels\ResponsivePosition.cs" />
     <Compile Include="PropertyModels\ResponsiveTriangle.cs" />
+    <Compile Include="PropertyModels\ResponsiveWidth.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Kola\Kola.csproj">
@@ -191,6 +193,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\templates\HeightTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\WidthTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\WidthView.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

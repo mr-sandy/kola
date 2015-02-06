@@ -22,7 +22,9 @@
                     { "is-slide", v => GetClassFromBool(v, "slide") },
                     { "margin", v => BuildManyClassesFromList<ResponsiveEdges>(v, ResponsiveMarginClassBuilder.BuildClasses) },
                     { "max-height", v => BuildClassesFromList<ResponsiveHeight>(v, ResponsiveHeightClassBuilder.BuildClassesForMax) },
+                    { "max-width", v => BuildClassesFromList<ResponsiveWidth>(v, ResponsiveWidthClassBuilder.BuildClassesForMax) },
                     { "min-height", v => BuildClassesFromList<ResponsiveHeight>(v, ResponsiveHeightClassBuilder.BuildClassesForMin) },
+                    { "min-width", v => BuildClassesFromList<ResponsiveWidth>(v, ResponsiveWidthClassBuilder.BuildClassesForMin) },
                     { "padding", v => BuildManyClassesFromList<ResponsiveEdges>(v, ResponsivePaddingClassBuilder.BuildClasses) },
                     { "pointer-up", v => GetClassFromBool(v, "pointer-up") },
                     { "position", v => BuildManyClassesFromList<ResponsivePosition>(v, ResponsivePositionClassBuilder.BuildClasses) },
@@ -32,7 +34,7 @@
                     { "text-colour", v => BuildClassesFromList<ResponsiveColour>(v, c => string.Format("{0}-text-{1}", c.Colour, c.Grid)) },
                     { "text-colour-hover", v => BuildClassesFromList<ResponsiveColour>(v, c => string.Format("{0}-text-hover-{1}", c.Colour, c.Grid)) },
                     { "triangle", v => BuildManyClassesFromList<ResponsiveTriangle>(v, ResponsiveTriangleClassBuilder.BuildClasses) },
-                    { "width", v => EchoClass(v) },
+                    { "width", v => BuildClassesFromList<ResponsiveWidth>(v, ResponsiveWidthClassBuilder.BuildClasses) },
                 };
 
         public static string GetClassNames(this IEnumerable<PropertyInstance> properties)

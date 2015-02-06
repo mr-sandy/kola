@@ -1,6 +1,6 @@
 ﻿namespace Linn.Responsive.Plugin.PropertyModels
 {
-    internal class Height
+    internal class TypeValue
     {
         public string Type { get; set; }
 

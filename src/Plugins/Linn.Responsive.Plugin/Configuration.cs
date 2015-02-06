@@ -66,6 +66,8 @@
                 .WithProperty("show-grids", "text")
                 .WithProperty("min-height", "height")
                 .WithProperty("max-height", "height")
+                .WithProperty("min-width", "width")
+                .WithProperty("max-width", "width")
                 .ExtendWith(this.CommonProperties);
 
             this.Configure.Container("inner")
@@ -97,8 +99,9 @@
                 .WithProperty("text-alignment", "text-alignment")
                 .WithProperty("min-height", "height")
                 .WithProperty("max-height", "height")
+                .WithProperty("min-width", "width")
+                .WithProperty("max-width", "width")
                 .ExtendWith(this.CommonProperties);
-
         }
 
         private void ConfigurePropertyTypes()
@@ -132,6 +135,9 @@
 
             this.Configure.PropertyType("height")
                 .WithEditor("HeightView.js");
+
+            this.Configure.PropertyType("width")
+                .WithEditor("WidthView.js");
         }
 
         private void CommonProperties(ComponentRendererConfigurer configureComponent)
@@ -147,7 +153,7 @@
                 .WithProperty("text-colour", "responsive-colour")
                 .WithProperty("text-colour-hover", "responsive-colour")
                 .WithProperty("position", "position")
-                .WithProperty("width", "text")
+                .WithProperty("width", "width")
                 .WithProperty("height", "height");
         }
     }

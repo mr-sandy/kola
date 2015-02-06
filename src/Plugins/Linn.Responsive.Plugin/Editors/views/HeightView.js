@@ -13,6 +13,10 @@
 
         template: Handlebars.compile(Template),
 
+        proportionalHeights: ['quarter', 'third', 'half', 'two-thirds', 'three-quarters', 'full'],
+
+        fixedHeights: _.union(_.range(0, 10.5, 0.5), _.range(11, 101)),
+
         events: {
             'click .height': 'toggleHeight',
             'click select': 'handleSelectClick'
@@ -103,33 +107,25 @@
         buildHeights: function (height) {
             var result = [];
 
-            result.push(this.buildAutoHeight(height));
-            result.push(this.buildNoneHeight(height));
+            result.push(this.buildDefaultHeight(height));
             result.push(this.buildFixedHeights(height));
-            result.push(this.buildPercentageHeights(height));
+            result.push(this.buildProportionalHeights(height));
+            result.push(this.buildViewHeightHeights(height));
 
             return result;
         },
 
-        buildAutoHeight: function (height) {
+        buildDefaultHeight: function (height) {
             return {
-                type: 'auto',
-                selected: height && height.type === 'auto'
-            };
-        },
-
-        buildNoneHeight: function (height) {
-            return {
-                type: 'none',
-                selected: height && height.type === 'none'
+                type: 'default',
+                selected: height && height.type === 'default'
             };
         },
 
         buildFixedHeights: function (height) {
             var isSelected = height && height.type === 'fixed';
 
-            var values = _.chain(_.range(0, 10.5, 0.5))
-                        .union(_.range(11, 101))
+            var values = _.chain(this.fixedHeights)
                         .map(function (value) {
                             return {
                                 value: value,
@@ -145,10 +141,10 @@
             };
         },
 
-        buildPercentageHeights: function (height) {
-            var isSelected = height && height.type === 'percentage';
+        buildProportionalHeights: function (height) {
+            var isSelected = height && height.type === 'proportional';
 
-            var values = _.chain([25, 50, 75])
+            var values = _.chain(this.proportionalHeights)
                         .map(function (value) {
                             return {
                                 value: value,
@@ -158,7 +154,26 @@
                         .value();
 
             return {
-                type: 'percentage',
+                type: 'proportional',
+                selected: isSelected,
+                values: values
+            };
+        },
+
+        buildViewHeightHeights: function (height) {
+            var isSelected = height && height.type === 'view-height';
+
+            var values = _.chain(this.proportionalHeights)
+                        .map(function (value) {
+                            return {
+                                value: value,
+                                selected: isSelected && parseInt(height.value) === value
+                            };
+                        })
+                        .value();
+
+            return {
+                type: 'view-height',
                 selected: isSelected,
                 values: values
             };

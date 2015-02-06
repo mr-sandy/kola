@@ -1,9 +1,9 @@
 ﻿namespace Linn.Responsive.Plugin.PropertyModels
 {
-    internal class ResponsiveHeight
+    internal class ResponsiveWidth
     {
         public string Grid { get; set; }
 
-        public TypeValue Height { get; set; }
+        public TypeValue Width { get; set; }
     }
 }

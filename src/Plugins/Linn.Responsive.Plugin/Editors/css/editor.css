@@ -242,16 +242,18 @@
     #properties .value.grid-placement table.edit td.hidden.selected {
       background-color: #ff5284;
       color: #fff; }
-#properties .height .holder {
+#properties .height .holder, #properties .width .holder {
   padding: 0 0 0 20px; }
-  #properties .height .holder .toggle-switch {
-    width: 90px;
+  #properties .height .holder .toggle-switch, #properties .width .holder .toggle-switch {
+    width: 160px;
     padding: 10px 0;
     text-align: center; }
-    #properties .height .holder .toggle-switch select {
+    #properties .height .holder .toggle-switch label, #properties .width .holder .toggle-switch label {
+      display: block; }
+    #properties .height .holder .toggle-switch select, #properties .width .holder .toggle-switch select {
       margin-top: 10px;
-      width: 60px; }
-    #properties .height .holder .toggle-switch + .toggle-switch {
+      width: 120px; }
+    #properties .height .holder .toggle-switch + .toggle-switch, #properties .width .holder .toggle-switch + .toggle-switch {
       margin-top: 20px; }
 #properties .padding .holder, #properties .margin .holder {
   position: relative;

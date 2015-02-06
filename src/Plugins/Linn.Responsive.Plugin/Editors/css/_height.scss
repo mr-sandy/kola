@@ -1,21 +1,22 @@
 @import "colours";
 
-.height {
+.height, .width {
     
 	.holder {
 		padding: 0 0 0 20px;
 
         .toggle-switch {
-            width: 90px;
+            width: 160px;
             padding: 10px 0; 
             text-align: center;
 
             label {
+			    display: block;
             }
 
             select {
                 margin-top: 10px;
-                width: 60px;
+                width: 120px;
             }
 
 		    & + .toggle-switch {
