@@ -36,11 +36,6 @@
                 .WithView("HtmlTitle")
                 .WithProperty("title", "text");
 
-            this.Configure.Atom("image")
-                .WithView("Image")
-                .WithProperty("src", "text")
-                .WithProperty("alt", "text");
-
             this.Configure.Atom("html-metadata")
                 .WithView("HtmlMetadata")
                 .WithProperty("name", "text")

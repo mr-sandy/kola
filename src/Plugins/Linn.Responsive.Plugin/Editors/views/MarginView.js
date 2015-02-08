@@ -35,7 +35,6 @@
             _.each(this.$el.find('.tab-contents > div'), function (row) {
                 var $row = $(row);
 
-
                 var edges = _.map($row.find('select.edge'), function (edge) {
                     var $edge = $(edge);
                     return {
@@ -58,8 +57,7 @@
                 }
             });
 
-            var x = JSON.stringify(result);
-            return x;
+            return JSON.stringify(result);
         },
 
         buildViewModel: function (model) {

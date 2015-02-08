@@ -71,6 +71,7 @@
     <Compile Include="Extensions\ResponsivePositionClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveTriangleClassBuilder.cs" />
     <Compile Include="PropertyModels\BorderWidth.cs" />
+    <Compile Include="PropertyModels\PositionOffset.cs" />
     <Compile Include="PropertyModels\ResponsiveFloat.cs" />
     <Compile Include="PropertyModels\TypeValue.cs" />
     <Compile Include="PropertyModels\EdgeValue.cs" />
@@ -120,6 +121,9 @@
     <EmbeddedResource Include="Views\Inner.cshtml" />
     <EmbeddedResource Include="Views\Anchor.cshtml" />
     <EmbeddedResource Include="Views\Navigation.cshtml" />
+    <EmbeddedResource Include="Views\Image.cshtml" />
+    <EmbeddedResource Include="Views\Button.cshtml" />
+    <EmbeddedResource Include="Views\Icon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Editors\controls\" />
@@ -209,6 +213,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\templates\FloatTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\IconTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\IconView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\ButtonStyleView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\ButtonStyleTemplate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

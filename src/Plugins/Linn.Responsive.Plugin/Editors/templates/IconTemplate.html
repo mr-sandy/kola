@@ -1,0 +1,12 @@
+﻿{{#if editMode}}
+<form>
+<select>
+    <option></option>
+    {{#each icons}}
+    <option value="{{icon}}" {{#if selected}}selected{{/if}}>{{icon}}</option>
+    {{/each}}
+</select>
+</form>
+{{else}}
+<span>{{value}}</span>
+{{/if}}

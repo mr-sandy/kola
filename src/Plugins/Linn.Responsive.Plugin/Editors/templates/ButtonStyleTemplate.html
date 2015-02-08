@@ -1,0 +1,12 @@
+﻿{{#if editMode}}
+<form>
+<select>
+    <option></option>
+    {{#each buttonStyles}}
+    <option value="{{buttonStyle}}" {{#if selected}}selected{{/if}}>{{buttonStyle}}</option>
+    {{/each}}
+</select>
+</form>
+{{else}}
+<span>{{value}}</span>
+{{/if}}

@@ -1,0 +1,7 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.ContainerInstance>
+@using Kola.Domain.Extensions
+@using Kola.Nancy.Extensions
+@using Linn.Responsive.Plugin.Extensions
+<button class="@Model.Properties.GetClassNames()">
+@Html.RenderComponents(Model.Components)
+</button>

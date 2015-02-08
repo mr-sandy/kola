@@ -305,28 +305,33 @@
     width: 60px; }
 #properties .position .holder {
   position: relative;
-  height: 200px;
-  width: 350px;
+  height: 220px;
+  width: 310px;
   border: 1px solid #c4bfb7;
   border-radius: 5px; }
   #properties .position .holder .toggle-switch {
-    height: 40px;
+    height: 60px;
     width: 90px;
     padding: 10px 0;
     position: absolute;
     text-align: center; }
+    #properties .position .holder .toggle-switch label {
+      display: block; }
+    #properties .position .holder .toggle-switch select {
+      margin-top: 3px;
+      width: 60px; }
     #properties .position .holder .toggle-switch.top.left {
-      top: 20px;
-      left: 20px; }
+      top: 10px;
+      left: 10px; }
     #properties .position .holder .toggle-switch.top:not(.left):not(.right) {
-      top: 20px;
+      top: 10px;
       left: 50%;
       transform: translateX(-50%); }
     #properties .position .holder .toggle-switch.top.right {
-      top: 20px;
-      right: 20px; }
+      top: 10px;
+      right: 10px; }
     #properties .position .holder .toggle-switch.left:not(.top):not(.bottom) {
-      left: 20px;
+      left: 10px;
       top: 50%;
       transform: translateY(-50%); }
     #properties .position .holder .toggle-switch.none {
@@ -334,27 +339,23 @@
       top: 50%;
       transform: translateX(-50%) translateY(-50%); }
     #properties .position .holder .toggle-switch.right:not(.top):not(.bottom) {
-      right: 20px;
+      right: 10px;
       top: 50%;
       transform: translateY(-50%); }
     #properties .position .holder .toggle-switch.bottom.left {
-      bottom: 20px;
-      left: 20px; }
+      bottom: 10px;
+      left: 10px; }
     #properties .position .holder .toggle-switch.bottom:not(.left):not(.right) {
-      bottom: 20px;
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%); }
     #properties .position .holder .toggle-switch.bottom.right {
-      bottom: 20px;
-      right: 20px; }
+      bottom: 10px;
+      right: 10px; }
     #properties .position .holder .toggle-switch.below {
-      bottom: -80px;
+      bottom: -70px;
       left: 50%;
-      transform: translateX(-50%);
-      height: 60px; }
-      #properties .position .holder .toggle-switch.below select {
-        margin-top: 3px;
-        width: 60px; }
+      transform: translateX(-50%); }
 #properties .text-alignment .alignment {
   width: 80px; }
   #properties .text-alignment .alignment[data-alignment=left] {

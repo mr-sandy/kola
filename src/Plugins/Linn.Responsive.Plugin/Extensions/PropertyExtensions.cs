@@ -20,6 +20,7 @@
                     { "grid-placement", v => BuildManyClassesFromList<GridPlacement>(v, GridPlacementClassBuilder.BuildClasses) },
                     { "float", v => BuildManyClassesFromList<ResponsiveFloat>(v, ResponsiveFloatClassBuilder.BuildClasses) },
                     { "height", v => BuildClassesFromList<ResponsiveHeight>(v, ResponsiveHeightClassBuilder.BuildClasses) },
+                    { "icon", v => EchoClass(v) },
                     { "is-slide", v => GetClassFromBool(v, "slide") },
                     { "margin", v => BuildManyClassesFromList<ResponsiveEdges>(v, ResponsiveMarginClassBuilder.BuildClasses) },
                     { "max-height", v => BuildClassesFromList<ResponsiveHeight>(v, ResponsiveHeightClassBuilder.BuildClassesForMax) },

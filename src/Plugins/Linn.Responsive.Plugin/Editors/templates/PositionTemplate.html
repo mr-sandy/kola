@@ -6,7 +6,21 @@
                 {{grid}}
             </td>
             <td>
-                {{position}}{{#if offset}} ({{offset}}){{/if}}
+                <table class="inner-properties">
+                    <tbody>
+                        {{#each positions}} {{#unless unset}}
+                        <tr>
+                            <td>
+                                {{position}}
+                            </td>
+                            <td>
+                                {{offset}}
+                            </td>
+                        </tr>
+                        {{/unless}}
+                        {{/each}}
+                    </tbody>
+                </table>
             </td>
         </tr>
         {{/unless}} {{/each}}
@@ -28,9 +42,12 @@
             <div class="holder">
                 {{#each positions}}
                 <div class="position toggle-switch {{#unless isNone}}blue{{/unless}} {{position}}{{#if selected}} selected{{/if}}" data-position="{{position}}">
-                    <span>{{position}}</span> 
+                    <label>{{position}}</label> 
                     {{#if offsets}}
                     <select>
+                        {{#unless isBelow}}
+                        <option></option>
+                        {{/unless}}
                         {{#each offsets}}
                         <option value="{{offset}}" {{#if selected}}selected{{/if}}>{{offset}}</option>
                         {{/each}}

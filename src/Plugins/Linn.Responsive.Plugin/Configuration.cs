@@ -20,6 +20,15 @@
 
         private void ConfigureAtoms()
         {
+            this.Configure.Atom("image")
+                .WithView("Image")
+                .WithProperty("src", "text")
+                .WithProperty("alt", "text")
+                .WithProperty("height", "height")
+                .WithProperty("width", "width")
+                .WithProperty("margin", "margin")
+                .WithProperty("grid-placement", "grid-placement");
+
             this.Configure.Atom("main-menu")
                 .WithView("MainMenu");
 
@@ -29,6 +38,11 @@
             this.Configure.Atom("pager")
                 .WithView("Pager")
                 .WithProperty("content-set-id", "text");
+
+            this.Configure.Atom("icon")
+                .WithView("Icon")
+                .WithProperty("icon", "icon")
+                .WithProperty("margin", "margin");
         }
 
         private void ConfigureContainers()
@@ -96,6 +110,11 @@
                 .WithView("Aside")
                 .ExtendWith(this.CommonProperties);
 
+            this.Configure.Container("button")
+                .WithView("Button")
+                .WithProperty("button-style", "button-style")
+                .ExtendWith(this.CommonProperties);
+
             this.Configure.Container("anchor")
                 .WithView("Anchor")
                 .WithProperty("href", "text")
@@ -146,6 +165,12 @@
 
             this.Configure.PropertyType("width")
                 .WithEditor("WidthView.js");
+
+            this.Configure.PropertyType("icon")
+                .WithEditor("IconView.js");
+
+            this.Configure.PropertyType("button-style")
+                .WithEditor("ButtonStyleView.js");
         }
 
         private void CommonProperties(ComponentRendererConfigurer configureComponent)

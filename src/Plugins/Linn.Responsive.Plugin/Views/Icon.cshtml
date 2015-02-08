@@ -1,4 +1,6 @@
 ﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.AtomInstance>
 @using Kola.Domain.Extensions
-<img @Html.Raw(Model.Properties.GetAsStaticUri("src")) @Html.Raw(Model.Properties.GetAsAttribute("alt")) />
+@using Kola.Nancy.Extensions
+@using Linn.Responsive.Plugin.Extensions
+<i class="@Model.Properties.GetClassNames()"></i>
 
