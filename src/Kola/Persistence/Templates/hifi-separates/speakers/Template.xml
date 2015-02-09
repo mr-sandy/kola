@@ -161,7 +161,7 @@
                   <value xsi:type="fixed"><![CDATA[secondary]]></value>
                 </property>
                 <property name="font" type="font">
-                  <value xsi:type="fixed"><![CDATA[[{"grid":"x","fontSize":"16","fontWeight":""}]]]></value>
+                  <value xsi:type="fixed"><![CDATA[[{"grid":"x","fontSize":"17","fontWeight":"","lineHeight":""}]]]></value>
                 </property>
               </properties>
               <components>
@@ -184,6 +184,9 @@
                             </property>
                             <property name="margin" type="margin">
                               <value xsi:type="fixed"><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"3"}]}]]]></value>
+                            </property>
+                            <property name="font" type="font">
+                              <value xsi:type="fixed"><![CDATA[[{"grid":"x","fontSize":"","fontWeight":"","lineHeight":"5"}]]]></value>
                             </property>
                           </properties>
                           <components>
@@ -228,20 +231,64 @@
     </widget>
   </components>
   <amendments>
+    <addComponent>
+      <componentType>section</componentType>
+      <targetPath>0/0/3</targetPath>
+    </addComponent>
     <setPropertyFixed>
-      <componentPath>0/0/2/0/0/0</componentPath>
-      <propertyName>font</propertyName>
-      <fixedValue><![CDATA[[{"grid":"x","fontSize":"","fontWeight":"","lineHeight":"6"}]]]></fixedValue>
+      <componentPath>0/0/3</componentPath>
+      <propertyName>grid-placement</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","position":"7-12"},{"grid":"x","position":"6-12"},{"grid":"d","position":"6-12"},{"grid":"t","position":"1-12"},{"grid":"p","position":"1-12"}]]]></fixedValue>
     </setPropertyFixed>
     <setPropertyFixed>
-      <componentPath>0/0/2/0/0/0</componentPath>
-      <propertyName>font</propertyName>
-      <fixedValue><![CDATA[[{"grid":"x","fontSize":"","fontWeight":"","lineHeight":"5"}]]]></fixedValue>
+      <componentPath>0/0/3</componentPath>
+      <propertyName>float</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","float":"right"},{"grid":"x","float":"right"},{"grid":"d","float":"right"}]]]></fixedValue>
+    </setPropertyFixed>
+    <addComponent>
+      <componentType>half-inner</componentType>
+      <targetPath>0/0/3/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>division</componentType>
+      <targetPath>0/0/3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>0/0/3/0/0/0</targetPath>
+    </addComponent>
+    <setPropertyFixed>
+      <componentPath>0/0/3/0/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Build the system of <br class="x-hide m-show">your dreams]]></fixedValue>
     </setPropertyFixed>
     <setPropertyFixed>
-      <componentPath>0/0/2</componentPath>
-      <propertyName>font</propertyName>
-      <fixedValue><![CDATA[[{"grid":"x","fontSize":"17","fontWeight":"","lineHeight":""}]]]></fixedValue>
+      <componentPath>0/0/3/0/0</componentPath>
+      <propertyName>grid-placement</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","position":"8-12"},{"grid":"x","position":"7-11"},{"grid":"d","position":"7-12"},{"grid":"t","position":"2-10"},{"grid":"p","position":"2-11"},{"grid":"m","position":"2-11"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/3/0/0</componentPath>
+      <propertyName>padding</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"12"},{"edge":"bottom","value":"12"},{"edge":"right","value":"11"}]},{"grid":"p","edges":[{"edge":"right","value":"0"}]},{"grid":"m","edges":[{"edge":"top","value":"6"},{"edge":"bottom","value":"6"},{"edge":"left","value":"0"},{"edge":"right","value":"0"}]}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/3/0/0</componentPath>
+      <propertyName>height</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","height":{"type":"fixed","value":"55"}},{"grid":"x","height":{"type":"fixed","value":"60"}},{"grid":"m","height":{"type":"default"}}]]]></fixedValue>
+    </setPropertyFixed>
+    <addComponent>
+      <componentType>division</componentType>
+      <targetPath>0/0/3/0/0/0</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>0/0/3/0/0/1</sourcePath>
+      <targetPath>0/0/3/0/0/0/0</targetPath>
+    </moveComponent>
+    <setPropertyFixed>
+      <componentPath>0/0/3/0/0/0</componentPath>
+      <propertyName>grid-placement</propertyName>
+      <fixedValue><![CDATA[[{"grid":"t","position":"2-8"},{"grid":"p","position":"2-11"},{"grid":"m","position":"2-11"}]]]></fixedValue>
     </setPropertyFixed>
   </amendments>
 </template>

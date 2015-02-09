@@ -93,6 +93,9 @@
                 .WithView("Inner")
                 .WithProperty("show-grids", "text");
 
+            this.Configure.Container("half-inner")
+                .WithView("HalfInner");
+
             this.Configure.Container("figure")
                 .WithView("Figure")
                 .WithProperty("is-slide", "boolean")

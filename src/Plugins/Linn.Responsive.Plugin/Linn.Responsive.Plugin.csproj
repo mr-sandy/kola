@@ -126,6 +126,7 @@
     <EmbeddedResource Include="Views\Image.cshtml" />
     <EmbeddedResource Include="Views\Button.cshtml" />
     <EmbeddedResource Include="Views\Icon.cshtml" />
+    <EmbeddedResource Include="Views\HalfInner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Editors\controls\" />
