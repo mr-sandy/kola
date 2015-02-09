@@ -125,14 +125,12 @@
         buildFixedHeights: function (height) {
             var isSelected = height && height.type === 'fixed';
 
-            var values = _.chain(this.fixedHeights)
-                        .map(function (value) {
-                            return {
-                                value: value,
-                                selected: isSelected && parseFloat(height.value) === value
-                            };
-                        })
-                        .value();
+            var values = _.map(this.fixedHeights, function (value) {
+                return {
+                    value: value,
+                    selected: isSelected && parseFloat(height.value) === value
+                };
+            });
 
             return {
                 type: 'fixed',
@@ -144,14 +142,12 @@
         buildProportionalHeights: function (height) {
             var isSelected = height && height.type === 'proportional';
 
-            var values = _.chain(this.proportionalHeights)
-                        .map(function (value) {
-                            return {
-                                value: value,
-                                selected: isSelected && height.value === value
-                            };
-                        })
-                        .value();
+            var values = _.map(this.proportionalHeights, function (value) {
+                return {
+                    value: value,
+                    selected: isSelected && height.value === value
+                };
+            });
 
             return {
                 type: 'proportional',
@@ -163,14 +159,12 @@
         buildViewHeightHeights: function (height) {
             var isSelected = height && height.type === 'view-height';
 
-            var values = _.chain(this.proportionalHeights)
-                        .map(function (value) {
-                            return {
-                                value: value,
-                                selected: isSelected && height.value === value
-                            };
-                        })
-                        .value();
+            var values = _.map(this.proportionalHeights, function (value) {
+                return {
+                    value: value,
+                    selected: isSelected && height.value === value
+                };
+            });
 
             return {
                 type: 'view-height',

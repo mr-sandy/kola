@@ -124,14 +124,12 @@
         buildFixedWidths: function (width) {
             var isSelected = width && width.type === 'fixed';
 
-            var values = _.chain(this.fixedWidths)
-                        .map(function (value) {
-                            return {
-                                value: value,
-                                selected: isSelected && parseFloat(width.value) === value
-                            };
-                        })
-                        .value();
+            var values = _.map(this.fixedWidths, function (value) {
+                return {
+                    value: value,
+                    selected: isSelected && parseFloat(width.value) === value
+                };
+            });
 
             return {
                 type: 'fixed',
@@ -143,14 +141,12 @@
         buildProportionalWidths: function (width) {
             var isSelected = width && width.type === 'proportional';
 
-            var values = _.chain(this.proportionalWidths)
-                        .map(function (value) {
-                            return {
-                                value: value,
-                                selected: isSelected && width.value === value
-                            };
-                        })
-                        .value();
+            var values = _.map(this.proportionalWidths, function (value) {
+                return {
+                    value: value,
+                    selected: isSelected && width.value === value
+                };
+            });
 
             return {
                 type: 'proportional',

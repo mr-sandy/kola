@@ -19,6 +19,7 @@
                     { "border-style", v => BuildManyClassesFromList<ResponsiveBorders>(v, ResponsiveBorderClassBuilder.BuildClasses) },
                     { "grid-placement", v => BuildManyClassesFromList<GridPlacement>(v, GridPlacementClassBuilder.BuildClasses) },
                     { "float", v => BuildManyClassesFromList<ResponsiveFloat>(v, ResponsiveFloatClassBuilder.BuildClasses) },
+                    { "font", v => BuildManyClassesFromList<ResponsiveFont>(v, ResponsiveFontClassBuilder.BuildClasses) },
                     { "height", v => BuildClassesFromList<ResponsiveHeight>(v, ResponsiveHeightClassBuilder.BuildClasses) },
                     { "icon", v => EchoClass(v) },
                     { "is-slide", v => GetClassFromBool(v, "slide") },

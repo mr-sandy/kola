@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+<template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <widget name="page">
       <properties>
@@ -107,7 +107,7 @@
                       <value xsi:type="fixed"><![CDATA[[{"grid":"x","height":{"type":"fixed","value":"16"}},{"grid":"m","height":{"type":"fixed","value":"13"}}]]]></value>
                     </property>
                     <property name="position" type="position">
-                      <value xsi:type="fixed"><![CDATA[[{"grid":"x","positions":[{"position":"top"},{"position":"right","offset":"3"}]}]]]></value>
+                      <value xsi:type="fixed"><![CDATA[[{"grid":"x","positions":[{"position":"top"},{"position":"right","offset":"3"}]},{"grid":"u","positions":[{"position":"right","offset":"1"}]}]]]></value>
                     </property>
                     <property name="background-colour" type="responsive-colour">
                       <value xsi:type="fixed"><![CDATA[[{"grid":"x","colour":"white"}]]]></value>
@@ -120,6 +120,9 @@
                     </property>
                     <property name="button-style" type="button-style">
                       <value xsi:type="fixed"><![CDATA[primary-menu]]></value>
+                    </property>
+                    <property name="font" type="font">
+                      <value xsi:type="fixed"><![CDATA[[{"grid":"x","fontSize":"17"}]]]></value>
                     </property>
                   </properties>
                   <components>
@@ -144,6 +147,78 @@
                 </container>
               </components>
             </container>
+            <container name="navigation">
+              <properties>
+                <property name="navigation-type" type="text">
+                  <value xsi:type="fixed"><![CDATA[full-menu]]></value>
+                </property>
+              </properties>
+              <components />
+            </container>
+            <container name="navigation">
+              <properties>
+                <property name="navigation-type" type="text">
+                  <value xsi:type="fixed"><![CDATA[secondary]]></value>
+                </property>
+                <property name="font" type="font">
+                  <value xsi:type="fixed"><![CDATA[[{"grid":"x","fontSize":"16","fontWeight":""}]]]></value>
+                </property>
+              </properties>
+              <components>
+                <container name="division">
+                  <properties />
+                  <components>
+                    <container name="inner">
+                      <properties />
+                      <components>
+                        <container name="division">
+                          <properties>
+                            <property name="grid-placement" type="grid-placement">
+                              <value xsi:type="fixed"><![CDATA[[{"grid":"x","position":"2-12"},{"grid":"d","position":"2-12"},{"grid":"t","position":"1-12"},{"grid":"p","position":"1-12"},{"grid":"m","hidden":true}]]]></value>
+                            </property>
+                            <property name="padding" type="padding">
+                              <value xsi:type="fixed"><![CDATA[[{"grid":"f","edges":[{"edge":"left","value":"0"}]},{"grid":"x","edges":[{"edge":"left","value":"6"}]},{"grid":"t","edges":[{"edge":"left","value":"4"}]},{"grid":"p","edges":[{"edge":"left","value":"4"}]}]]]></value>
+                            </property>
+                            <property name="height" type="height">
+                              <value xsi:type="fixed"><![CDATA[[{"grid":"x","height":{"type":"fixed","value":"8"}}]]]></value>
+                            </property>
+                            <property name="margin" type="margin">
+                              <value xsi:type="fixed"><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"3"}]}]]]></value>
+                            </property>
+                          </properties>
+                          <components>
+                            <atom name="markdown">
+                              <properties>
+                                <property name="markdown" type="markdown">
+                                  <value xsi:type="fixed"><![CDATA[1. [Hi-Fi Separates](/hifi-separates)
+]]></value>
+                                </property>
+                              </properties>
+                            </atom>
+                            <atom name="markdown">
+                              <properties>
+                                <property name="markdown" type="markdown">
+                                  <value xsi:type="fixed"><![CDATA[- [Network Players](/hifi-separates/network-music-players)
+- [Speakers](/hifi-separates/speakers)
+- [Turntables](/hifi-separates/turntables)
+- [Power Amps](/hifi-separates/power-amps)
+- [Pre-amps](/hifi-separates/pre-amps)
+- [Digital Crossovers](/hifi-separates/digital-crossovers)
+- [Custom Inwall](/hifi-separates/custom-inwall)
+- [Accessories](/hifi-separates/power-amps)
+- [Upgrades](/hifi-separates/power-amps)
+]]></value>
+                                </property>
+                              </properties>
+                            </atom>
+                          </components>
+                        </container>
+                      </components>
+                    </container>
+                  </components>
+                </container>
+              </components>
+            </container>
           </components>
         </area>
         <area name="scripts">
@@ -152,5 +227,21 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0/0/2/0/0/0</componentPath>
+      <propertyName>font</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","fontSize":"","fontWeight":"","lineHeight":"6"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/2/0/0/0</componentPath>
+      <propertyName>font</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","fontSize":"","fontWeight":"","lineHeight":"5"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/2</componentPath>
+      <propertyName>font</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","fontSize":"17","fontWeight":"","lineHeight":""}]]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>

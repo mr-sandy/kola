@@ -171,6 +171,9 @@
 
             this.Configure.PropertyType("button-style")
                 .WithEditor("ButtonStyleView.js");
+
+            this.Configure.PropertyType("font")
+                .WithEditor("FontView.js");
         }
 
         private void CommonProperties(ComponentRendererConfigurer configureComponent)
@@ -188,7 +191,8 @@
                 .WithProperty("text-colour-hover", "responsive-colour")
                 .WithProperty("position", "position")
                 .WithProperty("width", "width")
-                .WithProperty("height", "height");
+                .WithProperty("height", "height")
+                .WithProperty("font", "font");
         }
     }
 }
