@@ -1,3 +1,5 @@
+@import "colours";
+
 .value.grid-placement {
 
     table.edit {
@@ -28,21 +30,31 @@
         
             &.shown {
                 width: 26px;
-                background-color: #c2f2c2;
+                background-color: $green1;
             }
         
             &.shown.selected {
-                background-color: #28bf28;
+                background-color: $green3;
                 color: #fff;
             }
         
             &.hidden {
                 width: 26px;
-                background-color: #f2c2d0;
+                background-color: $red1;
             }
         
             &.hidden.selected {
-                background-color: #ff5284;
+                background-color: $red3;
+                color: #fff;
+            }
+
+            &.overlap {
+                width: 26px;
+                background-color: $purple1;
+            }
+        
+            &.overlap.selected {
+                background-color: $purple1;
                 color: #fff;
             }
         }

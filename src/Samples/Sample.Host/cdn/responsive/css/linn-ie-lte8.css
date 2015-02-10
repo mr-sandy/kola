@@ -1931,6 +1931,8 @@ nav {
         color: #8a8681; }
         nav.secondary ul li a.active {
           color: #fff; }
+        nav.secondary ul li a span {
+          font-weight: normal; }
   nav.secondary > div {
     overflow-x: scroll;
     white-space: nowrap;

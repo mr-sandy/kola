@@ -15,6 +15,7 @@
             'click td.column': function (e) { $(e.target).toggleClass('selected'); },
             'click td.hidden': function (e) { $(e.target).toggleClass('selected'); },
             'click td.shown': function (e) { $(e.target).toggleClass('selected'); },
+            'click td.overlap': function (e) { $(e.target).toggleClass('selected'); },
             'click button.reset': function (e) { $(e.target).closest('tr').find('td').removeClass('selected'); }
         },
 
@@ -48,6 +49,10 @@
                     spec.hidden = true;
                 }
 
+                if ($row.find('.overlap.selected').length > 0) {
+                    spec.overlap = true;
+                }
+
                 var columns = $row.find('.column.selected');
 
                 if (columns.length == 1) {
@@ -60,7 +65,7 @@
                     spec.position = start + '-' + end;
                 }
 
-                if (spec.hidden || spec.shown || spec.position) {
+                if (spec.overlap || spec.hidden || spec.shown || spec.position) {
                     result.push(spec);
                 }
             });

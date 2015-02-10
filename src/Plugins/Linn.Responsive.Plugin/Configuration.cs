@@ -102,6 +102,8 @@
                 .WithProperty("grid-placement", "text")
                 .WithProperty("content-id", "text")
                 .WithProperty("text-alignment", "text-alignment")
+                .WithProperty("height", "height")
+                .WithProperty("width", "width")
                 .WithProperty("padding", "padding");
 
             this.Configure.Container("figure-caption")

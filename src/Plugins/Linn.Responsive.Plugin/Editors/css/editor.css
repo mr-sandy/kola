@@ -240,15 +240,21 @@
       background-color: #666; }
     #properties .value.grid-placement table.edit td.shown {
       width: 26px;
-      background-color: #c2f2c2; }
+      background-color: #c2dcd2; }
     #properties .value.grid-placement table.edit td.shown.selected {
-      background-color: #28bf28;
+      background-color: #52a58a;
       color: #fff; }
     #properties .value.grid-placement table.edit td.hidden {
       width: 26px;
-      background-color: #f2c2d0; }
+      background-color: #f4bab5; }
     #properties .value.grid-placement table.edit td.hidden.selected {
-      background-color: #ff5284;
+      background-color: #df505c;
+      color: #fff; }
+    #properties .value.grid-placement table.edit td.overlap {
+      width: 26px;
+      background-color: #e3c1d9; }
+    #properties .value.grid-placement table.edit td.overlap.selected {
+      background-color: #e3c1d9;
       color: #fff; }
 #properties .height .holder, #properties .width .holder {
   padding: 0 0 0 20px; }

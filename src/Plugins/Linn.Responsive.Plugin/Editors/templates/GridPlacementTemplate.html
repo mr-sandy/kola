@@ -39,6 +39,16 @@
                             </td>
                         </tr>
                         {{/if}}
+                        {{#if overlap}}
+                        <tr>
+                            <td>
+                                overlap
+                            </td>
+                            <td>
+                                true
+                            </td>
+                        </tr>
+                        {{/if}}
                     </tbody>
                 </table>
             </td>
@@ -71,6 +81,9 @@
             </td>
             <td class="hidden {{#if hidden}}selected{{/if}}">
                 hide
+            </td>
+            <td class="overlap {{#if overlap}}selected{{/if}}">
+                overlap
             </td>
             <td>
                 <button class="reset" type="button">reset</button>
