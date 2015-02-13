@@ -387,5 +387,70 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0/0/3</componentPath>
+      <propertyName>grid-placement</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","position":"7-12"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/3</componentPath>
+      <propertyName>grid-placement</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","position":"7-12"},{"grid":"x","position":"7-12"},{"grid":"t","position":"1-12"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/3/0</componentPath>
+      <propertyName>grid-placement</propertyName>
+      <fixedValue><![CDATA[[]]]></fixedValue>
+    </setPropertyFixed>
+    <addComponent>
+      <componentType>section</componentType>
+      <targetPath>0/0/3</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>inner</componentType>
+      <targetPath>0/0/3/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>division</componentType>
+      <targetPath>0/0/3/0/0</targetPath>
+    </addComponent>
+    <setPropertyFixed>
+      <componentPath>0/0/3/0/0</componentPath>
+      <propertyName>grid-placement</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","position":"2-6"},{"grid":"d","position":"1-6"},{"grid":"t","position":"2-11"}]]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/3/0/0</componentPath>
+      <propertyName>padding</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","edges":[{"edge":"right","value":"8"}]},{"grid":"d","edges":[{"edge":"left","value":"4"},{"edge":"right","value":"6"}]},{"grid":"t","edges":[{"edge":"top","value":"6"},{"edge":"left","value":"0"}]},{"grid":"m","edges":[{"edge":"right","value":"0"}]}]]]></fixedValue>
+    </setPropertyFixed>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>0/0/3/0/0/0</targetPath>
+    </addComponent>
+    <setPropertyFixed>
+      <componentPath>0/0/3/0/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Boom. <br class="t-hide m-show"/>Shake the room.]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/3/0/0</componentPath>
+      <propertyName>padding</propertyName>
+      <fixedValue><![CDATA[[{"grid":"x","edges":[{"edge":"top","value":"7"},{"edge":"right","value":"8"}]},{"grid":"d","edges":[{"edge":"left","value":"4"},{"edge":"right","value":"6"}]},{"grid":"t","edges":[{"edge":"top","value":"6"},{"edge":"left","value":"0"}]},{"grid":"m","edges":[{"edge":"right","value":"0"}]}]]]></fixedValue>
+    </setPropertyFixed>
+    <moveComponent>
+      <sourcePath>0/0/4</sourcePath>
+      <targetPath>0/0/3/1</targetPath>
+    </moveComponent>
+    <setPropertyFixed>
+      <componentPath>0/0/3/1</componentPath>
+      <propertyName>grid-placement</propertyName>
+      <fixedValue><![CDATA[[{"grid":"f","overlap":true,"position":"7-12"},{"grid":"x","overlap":true,"position":"7-12"},{"grid":"t","position":"1-12"}]]]></fixedValue>
+    </setPropertyFixed>
+    <moveComponent>
+      <sourcePath>0/0/3/1</sourcePath>
+      <targetPath>0/0/4</targetPath>
+    </moveComponent>
+  </amendments>
 </template>
