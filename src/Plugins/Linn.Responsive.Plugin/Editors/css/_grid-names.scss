@@ -12,30 +12,30 @@ label[class*="grid-name-"] {
     text-align: center;
 }
 
-.grid-name-f:after {
-    content: "Full";
+.grid-name-fs:after {
+    content: "Fullscreen (f)";
 }
                                         
-.grid-name-x:after {
-    content: "X-Large";
+.grid-name-xxl:after {
+    content: "XX-Large (x)";
 }
                                         
-.grid-name-d:after {
-    content: "Desktop";
-}
-                                        
-.grid-name-t:after {
-    content: "Tablet";
-}
-                                        
-.grid-name-p:after {
-    content: "Phablet";
+.grid-name-ml:after {
+    content: "M-Large (d)";
 }
                                         
 .grid-name-m:after {
-    content: "Mobile";
+    content: "Medium (t)";
 }
                                         
-.grid-name-u:after {
-    content: "Micro";
+.grid-name-s:after {
+    content: "Small (p)";
+}
+                                        
+.grid-name-xs:after {
+    content: "X-Small (m)";
+}
+                                        
+.grid-name-xxs:after {
+    content: "XX-Small (u)";
 }                             

@@ -1,5 +1,5 @@
 ﻿define(function (require) {
     "use strict";
 
-    return ['f', 'x', 'd', 't', 'p', 'm', 'u'];
+    return ['fs', 'xxl', 'ml', 'm', 's', 'xs', 'xxs'];
 });

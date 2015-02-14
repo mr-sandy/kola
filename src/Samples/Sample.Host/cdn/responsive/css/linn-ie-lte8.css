@@ -1174,10 +1174,10 @@ ul {
   -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=-0.70711, M12=0.70711, M21=-0.70711, M22=-0.70711)";
   zoom: 1; }
 
-.x-overlap {
+.xxl-overlap {
   pointer-events: none; }
 
-.x-overlap * {
+.xxl-overlap * {
   pointer-events: all; }
 
 aside {
@@ -1816,10 +1816,10 @@ a {
   -khtml-opacity: 0.8;
   opacity: 0.8; }
 
-.x-overlap {
+.xxl-overlap {
   pointer-events: none; }
 
-.x-overlap * {
+.xxl-overlap * {
   pointer-events: all; }
 
 nav {
@@ -4171,6 +4171,30 @@ a.arrow-right:after {
   font-size: 18px;
   font-size: 1.125rem; }
 
+.font-size-19-x {
+  font-size: 19px;
+  font-size: 1.1875rem; }
+
+.font-size-20-x {
+  font-size: 20px;
+  font-size: 1.25rem; }
+
+.font-size-21-x {
+  font-size: 21px;
+  font-size: 1.3125rem; }
+
+.font-size-22-x {
+  font-size: 22px;
+  font-size: 1.375rem; }
+
+.font-size-23-x {
+  font-size: 23px;
+  font-size: 1.4375rem; }
+
+.font-size-24-x {
+  font-size: 24px;
+  font-size: 1.5rem; }
+
 .font-weight-normal-x {
   font-weight: normal; }
 
@@ -5906,6 +5930,32 @@ a.arrow-right:after {
 .max-height-default-x {
   max-height: none; }
 
+.inner-x {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative; }
+  .inner-x:after {
+    content: "";
+    display: block;
+    clear: both; }
+
+.inner-left-x {
+  max-width: 650px;
+  margin: auto;
+  position: absolute;
+  right: 0; }
+  .inner-left-x:after {
+    clear: none; }
+
+.inner-right-x {
+  max-width: 650px;
+  margin: auto;
+  position: relative; }
+  .inner-right-x:after {
+    content: "";
+    display: block;
+    clear: both; }
+
 .margin-r-0-x {
   margin-right: 0px;
   margin-right: 0rem; }
@@ -7544,6 +7594,12 @@ a.arrow-right:after {
   position: absolute;
   bottom: -120px;
   bottom: -7.5rem; }
+
+.shadow-right-x {
+  box-shadow: 1px 0 10px 3px rgba(0, 0, 0, 0.2); }
+
+.shadow-none-x {
+  box-shadow: none; }
 
 .text-align-left-x {
   text-align: left; }

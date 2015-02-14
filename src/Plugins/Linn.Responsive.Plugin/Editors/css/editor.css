@@ -206,20 +206,20 @@
   cursor: pointer;
   min-width: 60px;
   text-align: center; }
-#properties .grid-name-f:after {
-  content: "Full"; }
-#properties .grid-name-x:after {
-  content: "X-Large"; }
-#properties .grid-name-d:after {
-  content: "Desktop"; }
-#properties .grid-name-t:after {
-  content: "Tablet"; }
-#properties .grid-name-p:after {
-  content: "Phablet"; }
+#properties .grid-name-fs:after {
+  content: "Fullscreen (f)"; }
+#properties .grid-name-xxl:after {
+  content: "XX-Large (x)"; }
+#properties .grid-name-ml:after {
+  content: "M-Large (d)"; }
 #properties .grid-name-m:after {
-  content: "Mobile"; }
-#properties .grid-name-u:after {
-  content: "Micro"; }
+  content: "Medium (t)"; }
+#properties .grid-name-s:after {
+  content: "Small (p)"; }
+#properties .grid-name-xs:after {
+  content: "X-Small (m)"; }
+#properties .grid-name-xxs:after {
+  content: "XX-Small (u)"; }
 #properties .value.grid-placement table.edit {
   border: none; }
   #properties .value.grid-placement table.edit td {
