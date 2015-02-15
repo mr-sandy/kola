@@ -234,6 +234,17 @@
                 <container name="section">
                   <properties>
                     <property name="grid-placement" type="grid-placement">
+                      <value xsi:type="fixed"><![CDATA[[{"grid":"fs","position":"7-12"},{"grid":"xxl","position":"7-12"},{"grid":"m","position":"1-12"}]]]></value>
+                    </property>
+                    <property name="padding" type="padding">
+                      <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","edges":[{"edge":"top","value":"8"},{"edge":"bottom","value":"4"}]},{"grid":"m","edges":[{"edge":"bottom","value":"3"}]},{"grid":"xs","edges":[{"edge":"top","value":"6"}]}]]]></value>
+                    </property>
+                  </properties>
+                  <components />
+                </container>
+                <container name="section">
+                  <properties>
+                    <property name="grid-placement" type="grid-placement">
                       <value xsi:type="fixed"><![CDATA[[{"grid":"fs","position":"1-6"},{"grid":"xxl","position":"1-6"},{"grid":"m","position":"1-12"}]]]></value>
                     </property>
                     <property name="height" type="height">
