@@ -1,0 +1,47 @@
+﻿<table class="view grid-settings">
+    <tbody>
+        {{#each grids}} {{#unless unset}}
+        <tr>
+            <td>
+                {{grid}}
+            </td>
+            <td>
+                {{type}}
+            </td>
+        </tr>
+        {{/unless}} {{/each}}
+    </tbody>
+</table>
+{{#if editMode}}
+<form class="modal">
+<div class="chrome">
+    <span>Inner Type</span>
+</div>
+<div class="tabbed vertical tab-style-buttons">
+    <ul class="tab-labels">{{#each grids}}
+        <li><a href="#grid-{{grid}}" class="toggle-switch grid-name-{{grid}}"></a></li>
+        {{/each}} </ul>
+    <div class="tab-contents">
+        {{#each grids}}
+        <div id="grid-{{grid}}" data-grid="{{grid}}">
+            <div class="holder">
+                <div class="row">
+                    {{#each types}}
+                    <div class="type{{#if selected}} selected{{/if}} toggle-switch blue" data-type="{{type}}">
+                        <label>{{type}}</label>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+<div class="controls">
+    <button class="cancel" value="cancel">Cancel</button>
+    <input type="submit" value="Ok" />
+</div>
+</form>
+<div class="overlay">
+</div>
+{{/if}}

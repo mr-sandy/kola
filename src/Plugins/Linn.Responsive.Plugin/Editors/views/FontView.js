@@ -13,7 +13,7 @@
 
         template: Handlebars.compile(Template),
 
-        fontSizes: [16, 17, 18],
+        fontSizes: [16, 17, 18, 24],
 
         fontWeights: ['normal', 'bold'],
 
@@ -29,7 +29,7 @@
             this.$el.html(this.template(context));
 
             this.$el.find('.tabbed').tabbed({
-                defaultTab: '#grid-x'
+                defaultTab: '#grid-xxl'
             });
 
             return this;

@@ -63,6 +63,7 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="Extensions\ResponsiveFloatClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveFontClassBuilder.cs" />
+    <Compile Include="Extensions\ResponsiveInnerTypeClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveWidthClassBuilder.cs" />
     <Compile Include="Extensions\GridPlacementClassBuilder.cs" />
     <Compile Include="Extensions\ResponsiveBorderClassBuilder.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="PropertyModels\PositionOffset.cs" />
     <Compile Include="PropertyModels\ResponsiveFloat.cs" />
     <Compile Include="PropertyModels\ResponsiveFont.cs" />
+    <Compile Include="PropertyModels\ResponsiveType.cs" />
     <Compile Include="PropertyModels\TypeValue.cs" />
     <Compile Include="PropertyModels\EdgeValue.cs" />
     <Compile Include="PropertyModels\ResponsiveBorders.cs" />
@@ -126,7 +128,6 @@
     <EmbeddedResource Include="Views\Image.cshtml" />
     <EmbeddedResource Include="Views\Button.cshtml" />
     <EmbeddedResource Include="Views\Icon.cshtml" />
-    <EmbeddedResource Include="Views\HalfInner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Editors\controls\" />
@@ -234,6 +235,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\templates\FontTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\InnerTypeView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\InnerTypeTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\ShadowView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\ShadowTemplate.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

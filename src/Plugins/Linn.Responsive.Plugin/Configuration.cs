@@ -69,6 +69,7 @@
                 .WithProperty("id", "text")
                 .WithProperty("style", "text")
                 .WithProperty("show-grids", "text")
+                .WithProperty("shadow", "shadow")
                 .ExtendWith(this.CommonProperties);
 
             this.Configure.Container("division")
@@ -82,6 +83,7 @@
                 .WithProperty("max-height", "height")
                 .WithProperty("min-width", "width")
                 .WithProperty("max-width", "width")
+                .WithProperty("shadow", "shadow")
                 .ExtendWith(this.CommonProperties);
 
             this.Configure.Container("navigation")
@@ -91,10 +93,8 @@
 
             this.Configure.Container("inner")
                 .WithView("Inner")
+                .WithProperty("inner-type", "inner-type", "[{\"grid\":\"xxl\",\"type\":\"full\"}]")
                 .WithProperty("show-grids", "text");
-
-            this.Configure.Container("half-inner")
-                .WithView("HalfInner");
 
             this.Configure.Container("figure")
                 .WithView("Figure")
@@ -179,6 +179,12 @@
 
             this.Configure.PropertyType("font")
                 .WithEditor("FontView.js");
+
+            this.Configure.PropertyType("inner-type")
+                .WithEditor("InnerTypeView.js");
+
+            this.Configure.PropertyType("shadow")
+                .WithEditor("ShadowView.js");
         }
 
         private void CommonProperties(ComponentRendererConfigurer configureComponent)

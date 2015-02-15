@@ -68,7 +68,11 @@
                   </components>
                 </container>
                 <container name="inner">
-                  <properties />
+                  <properties>
+                    <property name="inner-type" type="inner-type">
+                      <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","type":"full"}]]]></value>
+                    </property>
+                  </properties>
                   <components>
                     <container name="division">
                       <properties>
@@ -169,7 +173,11 @@
                   <properties />
                   <components>
                     <container name="inner">
-                      <properties />
+                      <properties>
+                        <property name="inner-type" type="inner-type">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","type":"full"}]]]></value>
+                        </property>
+                      </properties>
                       <components>
                         <container name="division">
                           <properties>
@@ -223,188 +231,89 @@
             <container name="section">
               <properties />
               <components>
-                <container name="inner">
-                  <properties />
-                  <components>
-                    <container name="division">
-                      <properties>
-                        <property name="grid-placement" type="grid-placement">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","position":"2-6"},{"grid":"ml","position":"1-6"},{"grid":"m","position":"2-11"}]]]></value>
-                        </property>
-                        <property name="padding" type="padding">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","edges":[{"edge":"top","value":"7"},{"edge":"right","value":"8"}]},{"grid":"ml","edges":[{"edge":"left","value":"4"},{"edge":"right","value":"6"}]},{"grid":"m","edges":[{"edge":"top","value":"6"},{"edge":"left","value":"0"}]},{"grid":"xs","edges":[{"edge":"right","value":"0"}]}]]]></value>
-                        </property>
-                      </properties>
-                      <components>
-                        <atom name="markdown">
-                          <properties>
-                            <property name="markdown" type="markdown">
-                              <value xsi:type="fixed"><![CDATA[#Boom. <br class="t-hide m-show"/>Shake the room.]]></value>
-                            </property>
-                          </properties>
-                        </atom>
-                      </components>
-                    </container>
-                  </components>
-                </container>
-              </components>
-            </container>
-            <container name="section">
-              <properties>
-                <property name="grid-placement" type="grid-placement">
-                  <value xsi:type="fixed"><![CDATA[[{"grid":"fs","overlap":true,"position":"7-12"},{"grid":"xxl","overlap":true,"position":"7-12"},{"grid":"m","position":"1-12"}]]]></value>
-                </property>
-                <property name="float" type="float">
-                  <value xsi:type="fixed"><![CDATA[[]]]></value>
-                </property>
-                <property name="padding" type="padding">
-                  <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","edges":[{"edge":"top","value":"7"},{"edge":"bottom","value":"4"}]},{"grid":"xs","edges":[{"edge":"top","value":"5"}]}]]]></value>
-                </property>
-              </properties>
-              <components>
-                <container name="carousel">
+                <container name="section">
                   <properties>
-                    <property name="infinity-scroll" type="boolean">
-                      <value xsi:type="fixed"><![CDATA[true]]></value>
-                    </property>
-                    <property name="slide-per-page" type="boolean">
-                      <value xsi:type="fixed"><![CDATA[false]]></value>
-                    </property>
-                    <property name="show-next" type="boolean">
-                      <value xsi:type="fixed"><![CDATA[true]]></value>
-                    </property>
-                    <property name="show-previous" type="boolean">
-                      <value xsi:type="fixed"><![CDATA[true]]></value>
-                    </property>
                     <property name="grid-placement" type="grid-placement">
-                      <value xsi:type="fixed"><![CDATA[[]]]></value>
+                      <value xsi:type="fixed"><![CDATA[[{"grid":"fs","position":"1-6"},{"grid":"xxl","position":"1-6"},{"grid":"m","position":"1-12"}]]]></value>
+                    </property>
+                    <property name="height" type="height">
+                      <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","height":{"type":"proportional","value":"full"}}]]]></value>
+                    </property>
+                    <property name="position" type="position">
+                      <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","positions":[{"position":"left"}]},{"grid":"m","positions":[{"position":"none"}]}]]]></value>
                     </property>
                     <property name="padding" type="padding">
-                      <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","edges":[{"edge":"top","value":"1"}]},{"grid":"m","edges":[{"edge":"bottom","value":"3"}]},{"grid":"xs","edges":[{"edge":"top","value":"0"}]}]]]></value>
+                      <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","edges":[{"edge":"top","value":"7"}]},{"grid":"m","edges":[{"edge":"top","value":"0"}]}]]]></value>
                     </property>
-                    <property name="alignment" type="text">
-                      <value xsi:type="fixed"><![CDATA[left]]></value>
-                    </property>
-                    <property name="preview-previous" type="number">
-                      <value xsi:type="fixed"><![CDATA[0]]></value>
-                    </property>
-                    <property name="preview-next" type="number">
-                      <value xsi:type="fixed"><![CDATA[0.2]]></value>
-                    </property>
-                    <property name="preview-threshold" type="number">
-                      <value xsi:type="fixed"><![CDATA[700]]></value>
+                    <property name="shadow" type="shadow">
+                      <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","type":"right"},{"grid":"m","type":"none"}]]]></value>
                     </property>
                   </properties>
                   <components>
-                    <container name="figure">
+                    <container name="inner">
                       <properties>
-                        <property name="is-slide" type="boolean">
-                          <value xsi:type="fixed"><![CDATA[true]]></value>
-                        </property>
-                        <property name="width" type="width">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","width":{"type":"fixed","value":"31"}}]]]></value>
-                        </property>
-                        <property name="padding" type="padding">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","edges":[{"edge":"left","value":"6"},{"edge":"right","value":"2"}]}]]]></value>
+                        <property name="inner-type" type="inner-type">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","type":"left"},{"grid":"m","type":"full"}]]]></value>
                         </property>
                       </properties>
                       <components>
-                        <container name="anchor">
-                          <properties />
+                        <container name="division">
+                          <properties>
+                            <property name="grid-placement" type="grid-placement">
+                              <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","position":"2-6"},{"grid":"m","position":"2-11"}]]]></value>
+                            </property>
+                            <property name="padding" type="padding">
+                              <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","edges":[{"edge":"right","value":"8"}]},{"grid":"ml","edges":[{"edge":"left","value":"4"},{"edge":"right","value":"6"}]},{"grid":"m","edges":[{"edge":"top","value":"6"},{"edge":"left","value":"0"}]},{"grid":"xs","edges":[{"edge":"right","value":"0"}]}]]]></value>
+                            </property>
+                          </properties>
                           <components>
-                            <atom name="image">
+                            <atom name="markdown">
                               <properties>
-                                <property name="src" type="text">
-                                  <value xsi:type="fixed"><![CDATA[/responsive/images/products/speakers/Klimax-350-Walnut-Front-189x536.jpg]]></value>
+                                <property name="markdown" type="markdown">
+                                  <value xsi:type="fixed"><![CDATA[#Boom. <br class="m-hide xs-show"/>Shake the room.]]></value>
                                 </property>
                               </properties>
                             </atom>
+                            <container name="division">
+                              <properties>
+                                <property name="grid-placement" type="grid-placement">
+                                  <value xsi:type="fixed"><![CDATA[[{"grid":"m","position":"2-7"},{"grid":"s","position":"1-12"}]]]></value>
+                                </property>
+                                <property name="font" type="font">
+                                  <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","fontSize":"24","fontWeight":"","lineHeight":"5"}]]]></value>
+                                </property>
+                              </properties>
+                              <components>
+                                <atom name="markdown">
+                                  <properties>
+                                    <property name="markdown" type="markdown">
+                                      <value xsi:type="fixed"><![CDATA[Superb engineering, quality materials and relentless attention to detail ensure our loudspeakers excel at producing music from any audio signal. And when combined with our Exakt technology you’ll experience the most direct connection ever made between you and the artist.]]></value>
+                                    </property>
+                                  </properties>
+                                </atom>
+                              </components>
+                            </container>
                           </components>
                         </container>
                       </components>
                     </container>
-                    <container name="figure">
+                    <container name="division">
                       <properties>
-                        <property name="is-slide" type="boolean">
-                          <value xsi:type="fixed"><![CDATA[true]]></value>
-                        </property>
-                        <property name="width" type="width">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","width":{"type":"fixed","value":"27"}}]]]></value>
-                        </property>
-                        <property name="padding" type="padding">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","edges":[{"edge":"left","value":"6"},{"edge":"right","value":"2"}]}]]]></value>
+                        <property name="float" type="float">
+                          <value xsi:type="fixed"><![CDATA[[{"grid":"m","clear":"left"}]]]></value>
                         </property>
                       </properties>
-                      <components>
-                        <container name="anchor">
-                          <properties />
-                          <components>
-                            <atom name="image">
-                              <properties>
-                                <property name="src" type="text">
-                                  <value xsi:type="fixed"><![CDATA[/responsive/images/products/speakers/Akubarik-Black-Ash-Black-Front-164x498.jpg]]></value>
-                                </property>
-                              </properties>
-                            </atom>
-                          </components>
-                        </container>
-                      </components>
-                    </container>
-                    <container name="figure">
-                      <properties>
-                        <property name="is-slide" type="boolean">
-                          <value xsi:type="fixed"><![CDATA[true]]></value>
-                        </property>
-                        <property name="width" type="width">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","width":{"type":"fixed","value":"19"}}]]]></value>
-                        </property>
-                        <property name="padding" type="padding">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","edges":[{"edge":"left","value":"6"},{"edge":"right","value":"2"}]}]]]></value>
-                        </property>
-                      </properties>
-                      <components>
-                        <container name="anchor">
-                          <properties />
-                          <components>
-                            <atom name="image">
-                              <properties>
-                                <property name="src" type="text">
-                                  <value xsi:type="fixed"><![CDATA[/responsive/images/products/speakers/Majik-140-White-Front-117x462.jpg]]></value>
-                                </property>
-                              </properties>
-                            </atom>
-                          </components>
-                        </container>
-                      </components>
-                    </container>
-                    <container name="figure">
-                      <properties>
-                        <property name="is-slide" type="boolean">
-                          <value xsi:type="fixed"><![CDATA[true]]></value>
-                        </property>
-                        <property name="width" type="width">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","width":{"type":"fixed","value":"23"}}]]]></value>
-                        </property>
-                        <property name="padding" type="padding">
-                          <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","edges":[{"edge":"left","value":"6"},{"edge":"right","value":"2"}]}]]]></value>
-                        </property>
-                      </properties>
-                      <components>
-                        <container name="anchor">
-                          <properties />
-                          <components>
-                            <atom name="image">
-                              <properties>
-                                <property name="src" type="text">
-                                  <value xsi:type="fixed"><![CDATA[/responsive/images/products/speakers/Sekrit-IW10-3Q-140x266.jpg]]></value>
-                                </property>
-                              </properties>
-                            </atom>
-                          </components>
-                        </container>
-                      </components>
+                      <components />
                     </container>
                   </components>
+                </container>
+                <container name="division">
+                  <properties>
+                    <property name="float" type="float">
+                      <value xsi:type="fixed"><![CDATA[[{"grid":"xxl","clear":"left"}]]]></value>
+                    </property>
+                  </properties>
+                  <components />
                 </container>
               </components>
             </container>

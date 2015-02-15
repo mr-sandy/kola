@@ -42,7 +42,7 @@
             this.$el.html(this.template(context));
 
             this.$el.find('.tabbed').tabbed({
-                defaultTab: '#grid-x'
+                defaultTab: '#grid-xxl'
             });
 
 
