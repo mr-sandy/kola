@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Kola</id>
+    <version>0.0.5525.18925</version>
+    <authors>Sandy Cormie</authors>
+    <owners>Sandy Cormie</owners>
+    <projectUrl>https://github.com/mr-sandy/kola</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Most awesome extensible wysiwyg content management system</description>
+    <releaseNotes>Pre-release</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+  </metadata>
+</package>
