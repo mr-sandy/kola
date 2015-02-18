@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Kola.Plugins.Core")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Core HTML plugins for Kola CMS")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Linn Products Ltd")]
+[assembly: AssemblyCompany("Sandy Cormie")]
 [assembly: AssemblyProduct("Kola.Plugins.Core")]
-[assembly: AssemblyCopyright("Copyright © Linn Products Ltd 2013")]
+[assembly: AssemblyCopyright("Copyright © 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

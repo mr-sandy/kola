@@ -11,12 +11,11 @@
 
     internal class TemplateRepository : ITemplateRepository
     {
-        //private const string RootDirectory = @"C:\projects\kola\src\Kola\Persistence\Templates";
         private const string TemplateFileName = "Template.xml";
 
         private readonly SerializationHelper serializationHelper;
         private readonly FileSystemHelper fileSystemHelper;
-        private readonly string rootDirectory;
+        private readonly string templatesDirectory;
 
         public TemplateRepository(SerializationHelper serializationHelper, FileSystemHelper fileSystemHelper)
             : this(serializationHelper, fileSystemHelper, rootDirectory: ConfigurationManager.AppSettings["ContentRoot"])
@@ -27,13 +26,14 @@
         {
             this.serializationHelper = serializationHelper;
             this.fileSystemHelper = fileSystemHelper;
-            this.rootDirectory = rootDirectory;
+            this.templatesDirectory = fileSystemHelper.CombinePaths(new[] { rootDirectory, "Templates" });
+
         }
 
         public void Add(Template template)
         {
             var surrogate = new TemplateSurrogateBuilder().Build(template);
-            var directoryPath = this.fileSystemHelper.CombinePaths(this.rootDirectory, template.Path.ToFileSystemPath());
+            var directoryPath = this.fileSystemHelper.CombinePaths(this.templatesDirectory, template.Path.ToFileSystemPath());
 
             if (!this.fileSystemHelper.DirectoryExists(directoryPath))
             {
@@ -46,7 +46,7 @@
 
         public Template Get(IEnumerable<string> templatePath)
         {
-            var path = this.fileSystemHelper.CombinePaths(this.rootDirectory, templatePath.ToFileSystemPath(), TemplateFileName);
+            var path = this.fileSystemHelper.CombinePaths(this.templatesDirectory, templatePath.ToFileSystemPath(), TemplateFileName);
 
             if (!this.fileSystemHelper.FileExists(path))
             {
@@ -60,7 +60,7 @@
         public void Update(Template template)
         {
             var surrogate = new TemplateSurrogateBuilder().Build(template);
-            var path = this.fileSystemHelper.CombinePaths(this.rootDirectory, template.Path.ToFileSystemPath(), TemplateFileName);
+            var path = this.fileSystemHelper.CombinePaths(this.templatesDirectory, template.Path.ToFileSystemPath(), TemplateFileName);
             this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
         }
     }

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Linq;
 
     using Kola.Domain.Specifications;
@@ -10,20 +11,26 @@
 
     public class WidgetSpecificationRepository : IWidgetSpecificationRepository
     {
-        private const string RootDirectory = @"C:\projects\kola\src\Kola\Persistence\Widgets";
-
         private readonly SerializationHelper serializationHelper;
         private readonly FileSystemHelper fileSystemHelper;
 
+        private readonly string widgetsDirectory;
+
         public WidgetSpecificationRepository(SerializationHelper serializationHelper, FileSystemHelper fileSystemHelper)
+            : this(serializationHelper, fileSystemHelper, rootDirectory: ConfigurationManager.AppSettings["ContentRoot"])
+        {
+        }
+
+        public WidgetSpecificationRepository(SerializationHelper serializationHelper, FileSystemHelper fileSystemHelper, string rootDirectory)
         {
             this.serializationHelper = serializationHelper;
             this.fileSystemHelper = fileSystemHelper;
+            this.widgetsDirectory = fileSystemHelper.CombinePaths(new[] { rootDirectory, "Widgets" });
         }
 
         public WidgetSpecification Find(string name)
         {
-            var path = this.fileSystemHelper.CombinePaths(RootDirectory, name + ".xml");
+            var path = this.fileSystemHelper.CombinePaths(this.widgetsDirectory, name + ".xml");
 
             if (this.fileSystemHelper.FileExists(path))
             {
@@ -38,7 +45,7 @@
         public IEnumerable<WidgetSpecification> FindAll()
         {
             return this.fileSystemHelper
-                .GetFiles(RootDirectory)
+                .GetFiles(this.widgetsDirectory)
                 .Select(f => this.Find(f.Replace(".xml", string.Empty)));
         }
 
