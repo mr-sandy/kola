@@ -2,5 +2,5 @@
 @using Kola.Domain.Extensions
 @using Kola.Nancy.Extensions
 @using Linn.Responsive.Plugin.Extensions
-<img class="@Model.Properties.GetClassNames()"@Html.Raw(Model.Properties.GetAsStaticUri("src")) @Html.Raw(Model.Properties.GetAsAttribute("alt")) />
+<img class="@Model.Properties.GetClassNames()"@Html.Raw(Model.Properties.GetAsAttributeWithStaticUri("src")) @Html.Raw(Model.Properties.GetAsAttribute("alt")) />
 

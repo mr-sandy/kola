@@ -1,7 +1,7 @@
 ﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.AtomInstance>
 @using Kola.Domain.Extensions
 @{
-    var src = Model.Properties.GetAsStaticUri("src", "cache-buster", "src");
+    var src = Model.Properties.GetAsAttributeWithStaticUri("src", "cache-buster", "src");
     var type = Model.Properties.GetAsAttribute("type");
     var content = Model.Properties.Get("content");
 

@@ -3,7 +3,7 @@
 @{
     var type = Model.Properties.GetAsAttribute("type");
     var rel = Model.Properties.GetAsAttribute("rel");
-    var href = Model.Properties.GetAsStaticUri("href", "cache-buster"); 
+    var href = Model.Properties.GetAsAttributeWithStaticUri("href", "cache-buster"); 
     var media = Model.Properties.GetAsAttribute("media");
 
     var link = string.Format("<link {0}{1}{2}{3}/>", rel, type, media, href);

@@ -35,7 +35,7 @@
             return string.Format("{0}=\"{1}\" ", attributeName, attributeValue);
         }
 
-        public static string GetAsStaticUri(this IEnumerable<PropertyInstance> properties, string hrefPropertyName = "href", string cacheBusterPropertyName = "cache-buster", string attributeName = "")
+        public static string GetAsAttributeWithStaticUri(this IEnumerable<PropertyInstance> properties, string hrefPropertyName = "href", string cacheBusterPropertyName = "cache-buster", string attributeName = "")
         {
             var href = properties.Get(hrefPropertyName);
             var cacheBuster = properties.Get(cacheBusterPropertyName);
@@ -52,6 +52,20 @@
 
             return string.Format("{0}=\"{1}\" ", attributeName, href.StrongTrim().ToStaticHostUri(cacheBuster));
         }
+
+        public static string GetAsStaticUri(this IEnumerable<PropertyInstance> properties, string hrefPropertyName = "href", string cacheBusterPropertyName = "cache-buster")
+        {
+            var href = properties.Get(hrefPropertyName);
+            var cacheBuster = properties.Get(cacheBusterPropertyName);
+
+            if (string.IsNullOrWhiteSpace(href))
+            {
+                return string.Empty;
+            }
+
+            return href.StrongTrim().ToStaticHostUri(cacheBuster).ToString();
+        }
+
 
         public static bool GetAsBool(this IEnumerable<PropertyInstance> properties, string propertyName)
         {
