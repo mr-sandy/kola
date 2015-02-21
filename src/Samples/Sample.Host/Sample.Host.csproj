@@ -214,10 +214,6 @@
       <Project>{61B22E63-05EB-4479-9033-B7A37D62EEF0}</Project>
       <Name>Kola.Plugins.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Plugins\Linn.Responsive.Plugin\Linn.Responsive.Plugin.csproj">
-      <Project>{912A2926-DBE8-4266-B820-D876997598FD}</Project>
-      <Name>Linn.Responsive.Plugin</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
