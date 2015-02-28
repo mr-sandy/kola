@@ -22,7 +22,9 @@ namespace Kola.Configuration
         {
             var types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(this.FindPlugins);
 
-            return types.Select(type => (PluginConfiguration)type.GetConstructor(new Type[] { }).Invoke(new object[] { }));
+            var plugins = types.Select(type => (PluginConfiguration)type.GetConstructor(new Type[] { }).Invoke(new object[] { })).ToArray();
+
+            return plugins;
         }
 
         private IEnumerable<Type> FindPlugins(Assembly assembly)

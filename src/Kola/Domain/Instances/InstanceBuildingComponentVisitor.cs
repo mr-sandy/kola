@@ -1,6 +1,6 @@
-﻿namespace Kola.Domain.Instances
+﻿
+namespace Kola.Domain.Instances
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -26,9 +26,9 @@
         public ComponentInstance Build(Atom atom, IEnumerable<int> path, IBuildContext buildContext)
         {
             return new AtomInstance(
-                path,
-                this.renderingInstructions,
-                atom.Name,
+                path, 
+                this.renderingInstructions, 
+                atom.Name, 
                 atom.Properties.Select(p => p.Build(buildContext)).ToList());
         }
 
@@ -73,8 +73,8 @@
             buildContext.ContextSets.Pop();
 
             return new WidgetInstance(
-                path,
-                this.renderingInstructions,
+                path, 
+                this.renderingInstructions, 
                 components);
         }
 
@@ -85,16 +85,16 @@
                                         : null;
 
             return new PlaceholderInstance(
-                path,
-                this.renderingInstructions,
+                path, 
+                this.renderingInstructions, 
                 componentInstance);
         }
 
         public ComponentInstance Build(Area area, IEnumerable<int> path, IBuildContext buildContext)
         {
             return new AreaInstance(
-                path,
-                this.renderingInstructions,
+                path, 
+                this.renderingInstructions, 
                 area.Components.Select((c, i) => c.Build(this, path.Append(i), buildContext)).ToList());
         }
     }
