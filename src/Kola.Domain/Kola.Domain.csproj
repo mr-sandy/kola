@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{30C44B29-C33B-4A77-A713-EFF0E2778F01}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kola.Domain</RootNamespace>
+    <AssemblyName>Kola.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Composition\AmendmentApplyingVisitor.cs" />
+    <Compile Include="Composition\Amendments\AddComponentAmendment.cs" />
+    <Compile Include="Composition\Amendments\DuplicateComponentAmendment.cs" />
+    <Compile Include="Composition\Amendments\IAmendment.cs" />
+    <Compile Include="Composition\Amendments\IAmendmentVisitor.cs" />
+    <Compile Include="Composition\Amendments\MoveComponentAmendment.cs" />
+    <Compile Include="Composition\Amendments\RemoveComponentAmendment.cs" />
+    <Compile Include="Composition\Amendments\SetPropertyFixedAmendment.cs" />
+    <Compile Include="Composition\Amendments\SetPropertyInheritedAmendment.cs" />
+    <Compile Include="Composition\Amendments\SetPropertyMultilingualAmendment.cs" />
+    <Compile Include="Composition\Area.cs" />
+    <Compile Include="Composition\Atom.cs" />
+    <Compile Include="Composition\CollectionFindingComponentVisitor.cs" />
+    <Compile Include="Composition\ComponentFindingComponentVisitor.cs" />
+    <Compile Include="Composition\ComponentRefreshingVisitor.cs" />
+    <Compile Include="Composition\ComponentWithProperties.cs" />
+    <Compile Include="Composition\Container.cs" />
+    <Compile Include="Composition\IBuilder.cs" />
+    <Compile Include="Composition\IComponent.cs" />
+    <Compile Include="Composition\IComponentCollection.cs" />
+    <Compile Include="Composition\IComponentSpecificationLibrary.cs" />
+    <Compile Include="Composition\IComponentVisitor.cs" />
+    <Compile Include="Composition\IComponentWithProperties.cs" />
+    <Compile Include="Composition\Placeholder.cs" />
+    <Compile Include="Composition\Property.cs" />
+    <Compile Include="Composition\PropertyValues\FixedPropertyValue.cs" />
+    <Compile Include="Composition\PropertyValues\InheritedPropertyValue.cs" />
+    <Compile Include="Composition\PropertyValues\IPropertyValue.cs" />
+    <Compile Include="Composition\PropertyValues\IPropertyValueVisitor.cs" />
+    <Compile Include="Composition\PropertyValues\MultilingualPropertyValue.cs" />
+    <Compile Include="Composition\PropertyValues\MultilingualVariant.cs" />
+    <Compile Include="Composition\Template.cs" />
+    <Compile Include="Composition\Widget.cs" />
+    <Compile Include="Extensions\CloningExtensions.cs" />
+    <Compile Include="Extensions\ComponentCollectionExtensions.cs" />
+    <Compile Include="Extensions\PropertyExtensions.cs" />
+    <Compile Include="Extensions\PropertyInstanceExtensions.cs" />
+    <Compile Include="Extensions\PropertySpecificationExtensions.cs" />
+    <Compile Include="Instances\AreaInstance.cs" />
+    <Compile Include="Instances\AtomInstance.cs" />
+    <Compile Include="Instances\ComponentFindingComponentInstanceVisitor.cs" />
+    <Compile Include="Instances\ContainerInstance.cs" />
+    <Compile Include="Instances\Context\BuildContext.cs" />
+    <Compile Include="Instances\Context\ContextSet.cs" />
+    <Compile Include="Instances\Context\IBuildContext.cs" />
+    <Compile Include="Instances\Context\IContextItem.cs" />
+    <Compile Include="Instances\IComponentInstance.cs" />
+    <Compile Include="Instances\IComponentInstanceVisitor.cs" />
+    <Compile Include="Instances\InstanceBuildingComponentVisitor.cs" />
+    <Compile Include="Instances\PageInstance.cs" />
+    <Compile Include="Instances\PlaceholderInstance.cs" />
+    <Compile Include="Instances\PropertyInstance.cs" />
+    <Compile Include="Instances\WidgetInstance.cs" />
+    <Compile Include="KolaException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rendering\AnnotatedResult.cs" />
+    <Compile Include="Rendering\Caching\CachingMultiRenderer.cs" />
+    <Compile Include="Rendering\Caching\CachingResult.cs" />
+    <Compile Include="Rendering\Caching\ICacheManager.cs" />
+    <Compile Include="Rendering\CompositeResult.cs" />
+    <Compile Include="Rendering\DefaultRenderer.cs" />
+    <Compile Include="Rendering\EmptyResult.cs" />
+    <Compile Include="Rendering\IMultiRenderer.cs" />
+    <Compile Include="Rendering\IObjectFactory.cs" />
+    <Compile Include="Rendering\IPageHandler.cs" />
+    <Compile Include="Rendering\IRenderer.cs" />
+    <Compile Include="Rendering\IRendererFactory.cs" />
+    <Compile Include="Rendering\IRenderingInstructions.cs" />
+    <Compile Include="Rendering\IResult.cs" />
+    <Compile Include="Rendering\IViewHelper.cs" />
+    <Compile Include="Rendering\MultiRenderer.cs" />
+    <Compile Include="Rendering\PathAnnotatingMultiRenderer.cs" />
+    <Compile Include="Rendering\RendererFactory.cs" />
+    <Compile Include="Rendering\RenderingInstructions.cs" />
+    <Compile Include="Rendering\Result.cs" />
+    <Compile Include="Specifications\AtomSpecification.cs" />
+    <Compile Include="Specifications\CacheType.cs" />
+    <Compile Include="Specifications\ComponentSpecification.cs" />
+    <Compile Include="Specifications\ContainerSpecification.cs" />
+    <Compile Include="Specifications\IComponentSpecification.cs" />
+    <Compile Include="Specifications\IComponentSpecificationVisitor.cs" />
+    <Compile Include="Specifications\IPluginComponentSpecification.cs" />
+    <Compile Include="Specifications\PluginComponentSpecification.cs" />
+    <Compile Include="Specifications\PropertySpecification.cs" />
+    <Compile Include="Specifications\WidgetSpecification.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kola.Extensions\Kola.Extensions.csproj">
+      <Project>{24FB6D39-5285-4DC1-843C-5A49063C1E58}</Project>
+      <Name>Kola.Extensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

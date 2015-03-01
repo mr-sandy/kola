@@ -1,0 +1,113 @@
+﻿@import "colours";
+
+#block-editor {
+    
+    ul.block-editor-root {
+        padding-bottom: 200px;
+	}
+
+    ul {
+        margin: 0;
+        padding: 15px 5px;
+		min-height: 40px;
+        list-style-type: none;
+
+        li {
+            margin: 0;
+            padding: 0;
+            border: 3px $colour-border solid;
+
+			&.active {
+                border-color: $color-primary;
+			}
+
+			&.selected {
+                border-color: $color-primary;
+			}
+
+            &.new {
+                border: 3px $color-primary dotted;
+                min-height: 40px;
+            }		
+
+            & + li {
+			    margin-top: 10px
+		    }
+
+            &[data-type=toolbox-item] {
+                border: 3px $colour-border solid;
+            }
+        }
+    }
+
+	.chrome {
+		padding: 5px 15px;
+	}
+
+    .atom {
+	    & > .chrome {
+            background-color : $color-atom;
+		}
+
+        &.selected > .chrome {
+            background-color : $color-atom-highlight;
+		}
+    }
+
+    .container {
+        background-color : $color-container-light;
+
+	    & > .chrome {
+            border-bottom: 2px $colour-border solid;
+            background-color : $color-container;
+		}
+
+        &.selected {
+            background-color : $color-container;
+		}
+
+        &.selected > .chrome {
+            background-color : $color-container-highlight;
+		}
+    }
+
+    .widget {
+        background-color : $color-widget-light;
+
+	    & > .chrome {
+            border-bottom: 2px $colour-border solid;
+            background-color : $color-widget;
+		}
+
+        &.selected {
+            background-color : $color-widget;
+		}
+
+        &.selected > .chrome {
+            background-color : $color-widget-highlight;
+		}
+
+
+        &.selected {
+			.area {
+                background-color : $color-widget;
+
+                & > .chrome {
+                    background-color : $color-widget-strong;
+		        }
+			}
+		}
+
+        .area {
+            margin: 15px 5px;
+            padding: 0;
+            border: 3px $colour-border solid;
+            background-color : $color-widget-light;
+            
+			& > .chrome {
+                border-bottom: 2px $colour-border solid;
+                background-color : $color-widget;
+		    }       
+        }
+    }
+}

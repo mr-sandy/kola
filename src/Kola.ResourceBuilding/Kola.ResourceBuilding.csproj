@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{395D9DEF-4D85-4088-A31A-574F8C80D3EF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kola.ResourceBuilding</RootNamespace>
+    <AssemblyName>Kola.ResourceBuilding</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AmendmentResourceBuilder.cs" />
+    <Compile Include="ComponentNamingSpecificationVisitor.cs" />
+    <Compile Include="ComponentResourceBuilder.cs" />
+    <Compile Include="ComponentTypeResourceBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyTypeResourceBuilder.cs" />
+    <Compile Include="ResourceBuildingAmendmentVisitor.cs" />
+    <Compile Include="ResourceBuildingComponentVisitor.cs" />
+    <Compile Include="ResourceBuildingPropertyValueVisitor.cs" />
+    <Compile Include="TemplateResourceBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kola.Configuration\Kola.Configuration.csproj">
+      <Project>{B507BF7D-EC86-4032-A0A9-D4010E49EB6B}</Project>
+      <Name>Kola.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kola.Domain\Kola.Domain.csproj">
+      <Project>{30C44B29-C33B-4A77-A713-EFF0E2778F01}</Project>
+      <Name>Kola.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kola.Extensions\Kola.Extensions.csproj">
+      <Project>{24FB6D39-5285-4DC1-843C-5A49063C1E58}</Project>
+      <Name>Kola.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kola.Resources\Kola.Resources.csproj">
+      <Project>{69AF2548-FB62-4648-8B0B-E7DB358DD585}</Project>
+      <Name>Kola.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

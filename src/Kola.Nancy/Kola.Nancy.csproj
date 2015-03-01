@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{794F2E5F-0481-4424-9E0C-21C5F61A2506}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kola.Nancy</RootNamespace>
+    <AssemblyName>Kola.Nancy</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Nancy">
+      <HintPath>..\packages\Nancy.0.23.0\lib\net40\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor">
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.23.0\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\packages\ServiceStack.Text.3.9.59\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Conventions\EmbeddedStaticContentConventionBuilder.cs" />
+    <Compile Include="Extensions\HtmlHelpersExtensions.cs" />
+    <Compile Include="KolaNancyBootstrapper.cs" />
+    <Compile Include="Modules\AcceptHeaderFilters.cs" />
+    <Compile Include="Modules\AdminModule.cs" />
+    <Compile Include="Modules\ComponentTypeModule.cs" />
+    <Compile Include="Modules\PropertyTypeModule.cs" />
+    <Compile Include="Modules\RenderingModule.cs" />
+    <Compile Include="Modules\RenderQuery.cs" />
+    <Compile Include="Modules\TemplateModule.cs" />
+    <Compile Include="Modules\WidgetModule.cs" />
+    <Compile Include="NancyRazorViewHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultWrapper.cs" />
+    <Compile Include="TinyIoCObjectFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\404.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Admin.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Fragment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Page.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Kola.Configuration\Kola.Configuration.csproj">
+      <Project>{B507BF7D-EC86-4032-A0A9-D4010E49EB6B}</Project>
+      <Name>Kola.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kola.Domain\Kola.Domain.csproj">
+      <Project>{30C44B29-C33B-4A77-A713-EFF0E2778F01}</Project>
+      <Name>Kola.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kola.Extensions\Kola.Extensions.csproj">
+      <Project>{24FB6D39-5285-4DC1-843C-5A49063C1E58}</Project>
+      <Name>Kola.Extensions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kola.Persistence\Kola.Persistence.csproj">
+      <Project>{30FF4407-715F-4E68-B375-2FFA9667D166}</Project>
+      <Name>Kola.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kola.ResourceBuilding\Kola.ResourceBuilding.csproj">
+      <Project>{395D9DEF-4D85-4088-A31A-574F8C80D3EF}</Project>
+      <Name>Kola.ResourceBuilding</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kola.Resources\Kola.Resources.csproj">
+      <Project>{69AF2548-FB62-4648-8B0B-E7DB358DD585}</Project>
+      <Name>Kola.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="web.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+if $(ConfigurationName) == Debug (
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.23.0\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+)</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

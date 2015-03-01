@@ -1,0 +1,39 @@
+﻿@import "colours";
+
+#toolbox {
+    padding: 10px;
+	overflow: auto;
+
+	ul {
+	    margin: 0;
+	    padding: 0;
+        list-style-type: none;
+		width: 10000px;
+
+	    li {
+            float: left;
+            display: block;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            padding: 5px;
+			font-size: 0.9em;
+
+			& + li {
+                margin-left: 20px;
+		    }
+
+			&.atom {
+                background-color : $color-atom;
+			}
+
+			&.container {
+                background-color : $color-container;
+			}
+
+			&.widget {
+                background-color : $color-widget;
+			}
+        }
+    }
+}

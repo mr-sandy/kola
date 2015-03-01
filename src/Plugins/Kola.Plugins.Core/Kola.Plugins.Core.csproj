@@ -34,17 +34,6 @@
     <Reference Include="MarkdownSharp">
       <HintPath>..\..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
     </Reference>
-    <Reference Include="Nancy, Version=0.23.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Nancy.0.23.0\lib\net40\Nancy.dll</HintPath>
-    </Reference>
-    <Reference Include="Nancy.ViewEngines.Razor, Version=0.23.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Nancy.Viewengines.Razor.0.23.0\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="RazorEngine">
-      <HintPath>..\..\packages\RazorEngine.3.3.0\lib\net40\RazorEngine.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -63,12 +52,6 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="Renderers\MarkdownRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Kola\Kola.csproj">
-      <Project>{22D48FD5-8CA9-4B0E-9090-742C9A064833}</Project>
-      <Name>Kola</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -117,6 +100,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\templates\NumberEditorTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Kola.Configuration\Kola.Configuration.csproj">
+      <Project>{B507BF7D-EC86-4032-A0A9-D4010E49EB6B}</Project>
+      <Name>Kola.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Kola.Domain\Kola.Domain.csproj">
+      <Project>{30C44B29-C33B-4A77-A713-EFF0E2778F01}</Project>
+      <Name>Kola.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

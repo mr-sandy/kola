@@ -1,0 +1,56 @@
+﻿
+@import "colours";
+
+#properties {
+	padding: 0 10px;
+	overflow-y: scroll;
+
+    table { 
+        border-collapse: collapse;
+        background: $colour-canvas;
+        overflow: hidden;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border: 1px solid $colour-border;
+        border-radius: 3px;
+
+        td, th { 
+        }
+
+	    tbody { 
+		    td {
+	            border-left: 1px solid $colour-border;
+	            border-bottom: 1px solid $colour-border;
+
+				&.name { 
+			        padding: 3px 10px;
+                    width: 150px;
+	                border-left: none;
+				    background-color: $colour-background;
+                }
+
+				&.type { 
+			        padding: 3px 10px;
+                }
+
+				&.value { 
+					width: 430px;
+					padding: 0;
+
+					& > span {
+					    max-width: 400px;
+						display: inline-block;
+						margin: 3px 10px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+					}
+                }
+            }
+
+	        tr:last-child td { 
+	            border-bottom: none;
+            }
+	    }
+    }
+}
