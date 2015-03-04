@@ -142,10 +142,6 @@
       <Project>{69AF2548-FB62-4648-8B0B-E7DB358DD585}</Project>
       <Name>Kola.Resources</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Kola\Kola.csproj">
-      <Project>{22D48FD5-8CA9-4B0E-9090-742C9A064833}</Project>
-      <Name>Kola</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

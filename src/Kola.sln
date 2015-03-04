@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{5121A5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample.Plugin", "Samples\Sample.Plugin\Sample.Plugin.csproj", "{09961085-2828-421C-BFCD-8F6A6102B464}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kola", "Kola\Kola.csproj", "{22D48FD5-8CA9-4B0E-9090-742C9A064833}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A72EBCDF-772C-44A1-83A0-374ADC292215}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{5B82A235-4ACA-4990-9F00-05194D985E88}"
@@ -75,16 +73,6 @@ Global
 		{09961085-2828-421C-BFCD-8F6A6102B464}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{09961085-2828-421C-BFCD-8F6A6102B464}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{09961085-2828-421C-BFCD-8F6A6102B464}.Release|x86.ActiveCfg = Release|Any CPU
-		{22D48FD5-8CA9-4B0E-9090-742C9A064833}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{22D48FD5-8CA9-4B0E-9090-742C9A064833}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{22D48FD5-8CA9-4B0E-9090-742C9A064833}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{22D48FD5-8CA9-4B0E-9090-742C9A064833}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{22D48FD5-8CA9-4B0E-9090-742C9A064833}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{22D48FD5-8CA9-4B0E-9090-742C9A064833}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{22D48FD5-8CA9-4B0E-9090-742C9A064833}.Release|Any CPU.Build.0 = Release|Any CPU
-		{22D48FD5-8CA9-4B0E-9090-742C9A064833}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{22D48FD5-8CA9-4B0E-9090-742C9A064833}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{22D48FD5-8CA9-4B0E-9090-742C9A064833}.Release|x86.ActiveCfg = Release|Any CPU
 		{970F848C-56EE-407B-BB37-7331FD0C9636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{970F848C-56EE-407B-BB37-7331FD0C9636}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{970F848C-56EE-407B-BB37-7331FD0C9636}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU

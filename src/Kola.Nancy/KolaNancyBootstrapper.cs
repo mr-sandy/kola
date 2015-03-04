@@ -61,7 +61,7 @@
 
             //Elmahlogging.Enable(pipelines, "elmah");
 
-            JsConfig.DateHandler = DateHandler.ISO8601;
+            JsConfig.DateHandler = JsonDateHandler.ISO8601;
             JsConfig.EmitCamelCaseNames = true;
             JsConfig.ExcludeTypeInfo = true;
             JsConfig<Guid>.SerializeFn = g => g.ToString(); // otherwise it excludes hypens 
