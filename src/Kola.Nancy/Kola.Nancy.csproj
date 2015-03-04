@@ -82,6 +82,10 @@
     <EmbeddedResource Include="Views\Page.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Kola.Client\Kola.Client.csproj">
+      <Project>{D3AA5EFC-6BF7-48D7-9B78-E4A3CE8D7CF5}</Project>
+      <Name>Kola.Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Kola.Configuration\Kola.Configuration.csproj">
       <Project>{B507BF7D-EC86-4032-A0A9-D4010E49EB6B}</Project>
       <Name>Kola.Configuration</Name>

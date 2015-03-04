@@ -18,36 +18,47 @@
 
         public IResult Render(AtomInstance atom)
         {
-            return this.rendererFactory.GetAtomRenderer(atom.Name).Render(atom);
+            var result = this.rendererFactory.GetAtomRenderer(atom.Name).Render(atom);
+
+            return this.Annotate(atom, result);
         }
 
         public IResult Render(ContainerInstance container)
         {
-            return this.rendererFactory.GetContainerRenderer(container.Name).Render(container);
+            var result = this.rendererFactory.GetContainerRenderer(container.Name).Render(container);
+
+            return this.Annotate(container, result);
         }
 
         public IResult Render(WidgetInstance widget)
         {
-            throw new NotImplementedException();
-            //return new CompositeResult(widget.Components.Select(c => c.Render(KolaConfigurationRegistry.Instance.Renderer)));
+            var result = new CompositeResult(widget.Components.Select(c => c.Render(this)));
+
+            return this.Annotate(widget, result);
         }
 
         public IResult Render(AreaInstance area)
         {
-            throw new NotImplementedException();
-            //return new CompositeResult(area.Components.Select(c => c.Render(KolaConfigurationRegistry.Instance.Renderer)));
+            var result = new CompositeResult(area.Components.Select(c => c.Render(this)));
+
+            return this.Annotate(area, result);
         }
 
         public IResult Render(PageInstance page)
         {
-            throw new NotImplementedException();
-            //return new CompositeResult(page.Components.Select(c => c.Render(KolaConfigurationRegistry.Instance.Renderer)));
+            return new CompositeResult(page.Components.Select(c => c.Render(this)));
         }
 
         public IResult Render(IEnumerable<ComponentInstance> components)
         {
-            throw new NotImplementedException();
-            //return new CompositeResult(components.Select(c => c.Render(KolaConfigurationRegistry.Instance.Renderer)));
+            return new CompositeResult(components.Select(c => c.Render(this)));
+        }
+
+        private IResult Annotate(ComponentInstance component, IResult result)
+        {
+            return component.RenderingInstructions.AnnotateComponentPaths
+                       ? new AnnotatedResult(result, component.Path)
+                       : result;
         }
     }
 }

@@ -4,6 +4,7 @@
     using System.Linq;
     using System.Reflection;
 
+    using Kola.Client;
     using Kola.Configuration;
 
     using global::Nancy;
@@ -72,8 +73,8 @@
             base.ConfigureConventions(conventions);
             conventions.StaticContentsConventions.AddDirectory("/Scripts");
             conventions.StaticContentsConventions.AddDirectory("/cdn");
-            conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Scripts", typeof(KolaNancyBootstrapper).Assembly, "/Scripts"));
-            conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Content", typeof(KolaNancyBootstrapper).Assembly, "/Content"));
+            conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Scripts", typeof(ClientIdentifier).Assembly, "/Scripts"));
+            conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Content", typeof(ClientIdentifier).Assembly, "/Content"));
 
             foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
             {
