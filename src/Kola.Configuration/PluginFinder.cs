@@ -20,16 +20,48 @@ namespace Kola.Configuration
     {
         public IEnumerable<PluginConfiguration> FindPlugins()
         {
-            var types = AppDomain.CurrentDomain.GetAssemblies().SelectMany(this.FindPlugins);
-
-            var plugins = types.Select(type => (PluginConfiguration)type.GetConstructor(new Type[] { }).Invoke(new object[] { })).ToArray();
-
-            return plugins;
+            return AppDomain.CurrentDomain
+                .GetAssemblies()
+                .SelectMany(this.FindPlugins)
+                .Select(t => t.GetConstructor(new Type[] { }))
+                .Where(c => c != null)
+                .Select(c => (PluginConfiguration)c.Invoke(new object[] { }))
+                .ToArray();
         }
 
         private IEnumerable<Type> FindPlugins(Assembly assembly)
         {
-            return assembly.GetTypes().Where(t => (t != typeof(PluginConfiguration)) && typeof(PluginConfiguration).IsAssignableFrom(t));
+            return assembly.GetMatchingTypes(t => (t != typeof(PluginConfiguration)) && typeof(PluginConfiguration).IsAssignableFrom(t));
+        }
+    }
+
+    internal static class AssemblyExtensions
+    {
+        public static ICollection<Type> GetMatchingTypes(this Assembly assembly, Predicate<Type> predicate)
+        {
+            ICollection<Type> types = new List<Type>();
+            try
+            {
+                types = assembly.GetTypes().Where(i => i != null && predicate(i) && i.Assembly == assembly).ToList();
+            }
+            catch (ReflectionTypeLoadException ex)
+            {
+                foreach (var theType in ex.Types)
+                {
+                    try
+                    {
+                        if (theType != null && predicate(theType) && theType.Assembly == assembly)
+                        {
+                            types.Add(theType);
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        // ignored
+                    }
+                }
+            }
+            return types;
         }
     }
 }

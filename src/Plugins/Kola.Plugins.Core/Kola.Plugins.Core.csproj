@@ -31,15 +31,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Kola">
+      <HintPath>..\..\packages\Kola.1.0.11\lib\net40\Kola.dll</HintPath>
+    </Reference>
     <Reference Include="MarkdownSharp">
       <HintPath>..\..\packages\MarkdownSharp.1.13.0.0\lib\35\MarkdownSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy">
+      <HintPath>..\..\packages\Nancy.1.1\lib\net40\Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="Nancy.ViewEngines.Razor">
+      <HintPath>..\..\packages\Nancy.Viewengines.Razor.1.1\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
@@ -54,7 +62,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <EmbeddedResource Include="Editors\css\editor.scss" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\Markdown.cshtml" />
@@ -67,7 +74,6 @@
     <EmbeddedResource Include="Views\HtmlIeConditional.cshtml" />
     <EmbeddedResource Include="Views\HtmlScript.cshtml" />
     <EmbeddedResource Include="Views\Text.cshtml" />
-    <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\views\MarkdownEditorView.js" />
@@ -101,20 +107,13 @@
   <ItemGroup>
     <EmbeddedResource Include="Editors\templates\NumberEditorTemplate.html" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Kola.Configuration\Kola.Configuration.csproj">
-      <Project>{B507BF7D-EC86-4032-A0A9-D4010E49EB6B}</Project>
-      <Name>Kola.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Kola.Domain\Kola.Domain.csproj">
-      <Project>{30C44B29-C33B-4A77-A713-EFF0E2778F01}</Project>
-      <Name>Kola.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
-    </PostBuildEvent>
+if $(ConfigurationName) == Debug (
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.1.1\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin\"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.1.1\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin\"
+)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
