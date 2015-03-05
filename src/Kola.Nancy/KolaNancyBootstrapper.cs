@@ -15,8 +15,6 @@
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
 
-    using ServiceStack.Text;
-
     public class KolaNancyBootstrapper : DefaultNancyBootstrapper
     {
         // TODO : A better way of adding plugins to AppDomainAssemblyTypeScanner is required :)
@@ -61,11 +59,11 @@
 
             //Elmahlogging.Enable(pipelines, "elmah");
 
-            JsConfig.DateHandler = JsonDateHandler.ISO8601;
-            JsConfig.EmitCamelCaseNames = true;
-            JsConfig.ExcludeTypeInfo = true;
-            JsConfig<Guid>.SerializeFn = g => g.ToString(); // otherwise it excludes hypens 
-            JsConfig<Guid?>.SerializeFn = g => g.Value.ToString(); // otherwise it excludes hypens
+            //JsConfig.DateHandler = JsonDateHandler.ISO8601;
+            //JsConfig.EmitCamelCaseNames = true;
+            //JsConfig.ExcludeTypeInfo = true;
+            //JsConfig<Guid>.SerializeFn = g => g.ToString(); // otherwise it excludes hypens 
+            //JsConfig<Guid?>.SerializeFn = g => g.Value.ToString(); // otherwise it excludes hypens
         }
 
         protected override void ConfigureConventions(NancyConventions conventions)

@@ -48,9 +48,13 @@
     <EmbeddedResource Include="Views\Button.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Kola\Kola.csproj">
-      <Project>{22D48FD5-8CA9-4B0E-9090-742C9A064833}</Project>
-      <Name>Kola</Name>
+    <ProjectReference Include="..\..\Kola.Configuration\Kola.Configuration.csproj">
+      <Project>{B507BF7D-EC86-4032-A0A9-D4010E49EB6B}</Project>
+      <Name>Kola.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Kola.Domain\Kola.Domain.csproj">
+      <Project>{30C44B29-C33B-4A77-A713-EFF0E2778F01}</Project>
+      <Name>Kola.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

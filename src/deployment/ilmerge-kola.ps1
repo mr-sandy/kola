@@ -1,0 +1,3 @@
+New-Item -ItemType Directory -Force -Path kola\lib\net40
+remove-item kola\lib\net40\*
+..\packages\ilmerge.2.14.1208\tools\ILMerge.exe /target:library /out:kola\lib\net40\Kola.dll ..\Kola.Domain\bin\debug\Kola.Domain.dll ..\Kola.Persistence\bin\debug\Kola.Persistence.dll ..\Kola.Client\bin\debug\Kola.Client.dll ..\Kola.Configuration\bin\debug\Kola.Configuration.dll ..\Kola.Extensions\bin\debug\Kola.Extensions.dll ..\Kola.Nancy\bin\debug\Kola.Nancy.dll ..\Kola.ResourceBuilding\bin\debug\Kola.ResourceBuilding.dll ..\Kola.Resources\bin\debug\Kola.Resources.dll ..\Kola.Service\bin\debug\Kola.Service.dll
