@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -75,9 +76,12 @@
     <Compile Include="Composition\Widget.cs" />
     <Compile Include="Extensions\CloningExtensions.cs" />
     <Compile Include="Extensions\ComponentCollectionExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\PropertyExtensions.cs" />
     <Compile Include="Extensions\PropertyInstanceExtensions.cs" />
     <Compile Include="Extensions\PropertySpecificationExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Instances\AreaInstance.cs" />
     <Compile Include="Instances\AtomInstance.cs" />
     <Compile Include="Instances\ComponentFindingComponentInstanceVisitor.cs" />
@@ -125,12 +129,6 @@
     <Compile Include="Specifications\PluginComponentSpecification.cs" />
     <Compile Include="Specifications\PropertySpecification.cs" />
     <Compile Include="Specifications\WidgetSpecification.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Kola.Extensions\Kola.Extensions.csproj">
-      <Project>{24FB6D39-5285-4DC1-843C-5A49063C1E58}</Project>
-      <Name>Kola.Extensions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

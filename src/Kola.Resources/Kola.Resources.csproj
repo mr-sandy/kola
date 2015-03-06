@@ -47,8 +47,6 @@
     <Compile Include="ComponentResource.cs" />
     <Compile Include="ComponentTypeResource.cs" />
     <Compile Include="ContainerResource.cs" />
-    <Compile Include="DomainBuilding\AmendmentDomainBuilder.cs" />
-    <Compile Include="DomainBuilding\DomainBuildingAmendmentResourceVisitor.cs" />
     <Compile Include="DuplicateComponentAmendmentResource.cs" />
     <Compile Include="FixedPropertyValueResource.cs" />
     <Compile Include="IAmendmentResourceVisitor.cs" />
@@ -63,16 +61,6 @@
     <Compile Include="SetPropertyAmendmentResource.cs" />
     <Compile Include="TemplateResource.cs" />
     <Compile Include="WidgetResource.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Kola.Domain\Kola.Domain.csproj">
-      <Project>{30C44B29-C33B-4A77-A713-EFF0E2778F01}</Project>
-      <Name>Kola.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Kola.Extensions\Kola.Extensions.csproj">
-      <Project>{24FB6D39-5285-4DC1-843C-5A49063C1E58}</Project>
-      <Name>Kola.Extensions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

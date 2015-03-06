@@ -3,7 +3,7 @@
     using System;
 
     using Kola.Domain.Composition.Amendments;
-    using Kola.Extensions;
+    using Kola.Persistence.Extensions;
     using Kola.Persistence.Surrogates.Amendments;
 
     internal class DomainBuildingAmendmentSurrogateVisitor : IAmendmentSurrogateVisitor<IAmendment>

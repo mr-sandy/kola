@@ -46,6 +46,7 @@
     <Compile Include="DomainBuilding\DomainBuildingPropertyValueVisitor.cs" />
     <Compile Include="DomainBuilding\TemplateDomainBuilder.cs" />
     <Compile Include="DomainBuilding\WidgetSpecificationDomainBuilder.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="FileSystemHelper.cs" />
     <Compile Include="ITemplateRepository.cs" />
     <Compile Include="IWidgetSpecificationRepository.cs" />
@@ -85,10 +86,6 @@
     <ProjectReference Include="..\Kola.Domain\Kola.Domain.csproj">
       <Project>{30C44B29-C33B-4A77-A713-EFF0E2778F01}</Project>
       <Name>Kola.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Kola.Extensions\Kola.Extensions.csproj">
-      <Project>{24FB6D39-5285-4DC1-843C-5A49063C1E58}</Project>
-      <Name>Kola.Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -52,8 +52,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CachingResourceViewLocationProvider.cs" />
     <Compile Include="Conventions\EmbeddedStaticContentConventionBuilder.cs" />
     <Compile Include="Extensions\HtmlHelpersExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="KolaNancyBootstrapper.cs" />
     <Compile Include="Modules\AcceptHeaderFilters.cs" />
     <Compile Include="Modules\AdminModule.cs" />
@@ -93,21 +95,17 @@
       <Project>{30C44B29-C33B-4A77-A713-EFF0E2778F01}</Project>
       <Name>Kola.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Kola.Extensions\Kola.Extensions.csproj">
-      <Project>{24FB6D39-5285-4DC1-843C-5A49063C1E58}</Project>
-      <Name>Kola.Extensions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Kola.Persistence\Kola.Persistence.csproj">
       <Project>{30FF4407-715F-4E68-B375-2FFA9667D166}</Project>
       <Name>Kola.Persistence</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Kola.ResourceBuilding\Kola.ResourceBuilding.csproj">
-      <Project>{395D9DEF-4D85-4088-A31A-574F8C80D3EF}</Project>
-      <Name>Kola.ResourceBuilding</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Kola.Resources\Kola.Resources.csproj">
       <Project>{69AF2548-FB62-4648-8B0B-E7DB358DD585}</Project>
       <Name>Kola.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kola.Service\Kola.Service.csproj">
+      <Project>{5872A1EB-F79F-4198-94F1-4FB5B86C0418}</Project>
+      <Name>Kola.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

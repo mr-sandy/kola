@@ -1,9 +1,7 @@
 ﻿namespace Kola.Domain.Extensions
 {
     using System.Collections.Generic;
-    using System.Linq;
 
-    using Kola;
     using Kola.Domain.Composition;
 
     public static class ComponentCollectionExtensions
@@ -30,22 +28,23 @@
             return candidate as IComponentWithProperties;
         }
 
-        public static IEnumerable<T> FindAll<T>(this IComponentCollection collection)
+        public static IEnumerable<T> FindAll<T>(this IComponentCollection collection) where T : class
         {
-            if (collection is T)
+            var collectionAsType = collection as T;
+            if (collectionAsType != null)
             {
-                yield return (T)collection;
+                yield return collectionAsType;
             }
 
             foreach (var component in collection.Components)
             {
-                if (component is T)
+                var componentAsType = component as T;
+                if (componentAsType != null)
                 {
-                    yield return (T)component;
+                    yield return componentAsType;
                 }
 
                 var childCollection = component as IComponentCollection;
-
                 if (childCollection != null)
                 {
                     foreach (var result in childCollection.FindAll<T>())

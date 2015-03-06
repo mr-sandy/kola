@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Extensions;
+    using Kola.Domain.Extensions;
 
     public class RemoveComponentAmendment : IAmendment
     {

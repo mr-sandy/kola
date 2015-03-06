@@ -41,10 +41,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComponentSpecificationLibrary.cs" />
+    <Compile Include="DomainBuilding\AmendmentDomainBuilder.cs" />
+    <Compile Include="DomainBuilding\DomainBuildingAmendmentResourceVisitor.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="IPropertySpecificationLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertySpecificationLibrary.cs" />
     <Compile Include="Rendering\PageHandler.cs" />
+    <Compile Include="ResourceBuilding\AmendmentResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\ComponentNamingSpecificationVisitor.cs" />
+    <Compile Include="ResourceBuilding\ComponentResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\ComponentTypeResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\PropertyTypeResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\ResourceBuildingAmendmentVisitor.cs" />
+    <Compile Include="ResourceBuilding\ResourceBuildingComponentVisitor.cs" />
+    <Compile Include="ResourceBuilding\ResourceBuildingPropertyValueVisitor.cs" />
+    <Compile Include="ResourceBuilding\TemplateResourceBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kola.Configuration\Kola.Configuration.csproj">
@@ -58,6 +71,10 @@
     <ProjectReference Include="..\Kola.Persistence\Kola.Persistence.csproj">
       <Project>{30FF4407-715F-4E68-B375-2FFA9667D166}</Project>
       <Name>Kola.Persistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kola.Resources\Kola.Resources.csproj">
+      <Project>{69AF2548-FB62-4648-8B0B-E7DB358DD585}</Project>
+      <Name>Kola.Resources</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

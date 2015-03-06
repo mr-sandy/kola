@@ -6,8 +6,8 @@
 
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.PropertyValues;
-    using Kola.ResourceBuilding;
     using Kola.Resources;
+    using Kola.Service.ResourceBuilding;
 
     using NUnit.Framework;
 

@@ -1,10 +1,11 @@
-﻿namespace Kola.Domain.Rendering
+﻿namespace Kola.Service.Rendering
 {
     using System.Collections.Generic;
 
     using Kola.Domain.Composition;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Context;
+    using Kola.Domain.Rendering;
     using Kola.Persistence;
 
     // TODO {SC} Move this class to the Kola.Service namespace? (it references Kola.Persistence, which doesn't seem very domainish)

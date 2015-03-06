@@ -1,6 +1,5 @@
 ﻿namespace Kola.Domain.Composition
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -9,7 +8,7 @@
     {
         public IComponent Find(Template template, IEnumerable<int> path)
         {
-            if (path.Count() == 0)
+            if (!path.Any())
             {
                 throw new KolaException("No path specified");
             }
@@ -24,7 +23,7 @@
 
         public IComponent Visit(Atom atom, IEnumerable<int> path)
         {
-            if (path.Count() > 0)
+            if (path.Any())
             {
                 throw new KolaException("No component at specified path");
             }
@@ -34,7 +33,7 @@
 
         public IComponent Visit(Container container, IEnumerable<int> path)
         {
-            if (path.Count() == 0)
+            if (!path.Any())
             {
                 return container;
             }
@@ -49,7 +48,7 @@
 
         public IComponent Visit(Widget widget, IEnumerable<int> path)
         {
-            if (path.Count() == 0)
+            if (!path.Any())
             {
                 return widget;
             }
@@ -64,7 +63,7 @@
 
         public IComponent Visit(Placeholder placeholder, IEnumerable<int> path)
         {
-            if (path.Count() > 0)
+            if (path.Any())
             {
                 throw new KolaException("No component at specified path");
             }
@@ -74,7 +73,7 @@
 
         public IComponent Visit(Area area, IEnumerable<int> path)
         {
-            if (path.Count() == 0)
+            if (!path.Any())
             {
                 return area;
             }

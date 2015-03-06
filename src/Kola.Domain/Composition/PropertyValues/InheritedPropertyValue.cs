@@ -18,7 +18,7 @@
         {
             foreach (var contextSet in buildContext.ContextSets)
             {
-                var item = contextSet.Items.Where(i => i.Name.Equals(this.Key)).FirstOrDefault();
+                var item = contextSet.Items.FirstOrDefault(i => i.Name.Equals(this.Key));
 
                 if (item != null)
                 {

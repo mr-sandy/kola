@@ -3,13 +3,13 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola.Extensions;
+    using Kola.Domain.Extensions;
 
     public class ComponentFindingComponentInstanceVisitor : IComponentInstanceVisitor<ComponentInstance, IEnumerable<int>>
     {
         public ComponentInstance Find(PageInstance page, IEnumerable<int> path)
         {
-            if (path.Count() == 0 || page.Components.Count() < path.First())
+            if (!path.Any() || page.Components.Count() < path.First())
             {
                 throw new KolaException("No component at specified path");
             }
@@ -19,7 +19,7 @@
 
         public ComponentInstance Visit(AtomInstance atom, IEnumerable<int> path)
         {
-            if (path.Count() > 0)
+            if (path.Any())
             {
                 throw new KolaException("No component at specified path");
             }
@@ -29,7 +29,7 @@
 
         public ComponentInstance Visit(ContainerInstance container, IEnumerable<int> path)
         {
-            if (path.Count() == 0)
+            if (!path.Any())
             {
                 return container;
             }
@@ -44,7 +44,7 @@
 
         public ComponentInstance Visit(WidgetInstance widget, IEnumerable<int> path)
         {
-            if (path.Count() == 0)
+            if (!path.Any())
             {
                 return widget;
             }
@@ -62,7 +62,7 @@
 
             var remainder = path.Skip(1);
 
-            if (remainder.Count() == 0)
+            if (!remainder.Any())
             {
                 return area;
             }
@@ -72,7 +72,7 @@
 
         public ComponentInstance Visit(AreaInstance area, IEnumerable<int> path)
         {
-            if (path.Count() == 0)
+            if (!path.Any())
             {
                 return area;
             }
@@ -87,7 +87,7 @@
 
         public ComponentInstance Visit(PlaceholderInstance placeholder, IEnumerable<int> path)
         {
-            if (path.Count() > 0)
+            if (path.Any())
             {
                 throw new KolaException("No component at specified path");
             }
@@ -100,12 +100,12 @@
     {
         public AreaInstance Find(WidgetInstance widget, IEnumerable<int> path)
         {
-            if (widget.Components.Count()  == 0)
+            if (!widget.Components.Any())
             {
                 throw new KolaException("No component at specified path");
             }
 
-            return widget.Components.Select(c => c.Accept(this, path)).Where(a => a != null).FirstOrDefault();
+            return widget.Components.Select(c => c.Accept(this, path)).FirstOrDefault(a => a != null);
         }
 
         public AreaInstance Visit(AtomInstance atom, IEnumerable<int> path)
@@ -115,12 +115,12 @@
 
         public AreaInstance Visit(ContainerInstance container, IEnumerable<int> path)
         {
-            return container.Components.Select(c => c.Accept(this, path)).Where(a => a != null).FirstOrDefault();
+            return container.Components.Select(c => c.Accept(this, path)).FirstOrDefault(a => a != null);
         }
 
         public AreaInstance Visit(WidgetInstance widget, IEnumerable<int> path)
         {
-            return widget.Components.Select(c => c.Accept(this, path)).Where(a => a != null).FirstOrDefault();
+            return widget.Components.Select(c => c.Accept(this, path)).FirstOrDefault(a => a != null);
         }
 
         public AreaInstance Visit(AreaInstance area, IEnumerable<int> path)
@@ -130,7 +130,7 @@
                 return area;
             }
 
-            return area.Components.Select(c => c.Accept(this, path)).Where(a => a != null).FirstOrDefault();
+            return area.Components.Select(c => c.Accept(this, path)).FirstOrDefault(a => a != null);
         }
 
         public AreaInstance Visit(PlaceholderInstance placeholder, IEnumerable<int> path)

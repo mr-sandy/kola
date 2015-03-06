@@ -3,11 +3,12 @@
     using System.Linq;
 
     using Kola.Configuration;
-    using Kola.Extensions;
 
     using global::Nancy;
     using global::Nancy.Json;
     using global::Nancy.Responses.Negotiation;
+
+    using Kola.Nancy.Extensions;
 
     public class AdminModule : NancyModule
     {

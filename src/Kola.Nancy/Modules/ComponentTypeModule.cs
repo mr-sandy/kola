@@ -1,9 +1,10 @@
 ﻿namespace Kola.Nancy.Modules
 {
     using Kola.Domain.Composition;
-    using Kola.ResourceBuilding;
 
     using global::Nancy;
+
+    using Kola.Service.ResourceBuilding;
 
     public class ComponentTypeModule : NancyModule
     {

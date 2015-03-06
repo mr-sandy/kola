@@ -6,11 +6,11 @@
 
     using Kola.Domain.Composition;
 
-    public static class PropertyExtensions
+    internal static class PropertyExtensions
     {
         public static Property Find(this IEnumerable<Property> properties, string propertyName)
         {
-            return properties.Where(p => p.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            return properties.FirstOrDefault(p => p.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

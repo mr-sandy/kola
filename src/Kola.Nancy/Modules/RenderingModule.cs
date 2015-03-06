@@ -2,11 +2,12 @@
 {
     using Kola.Domain.Instances;
     using Kola.Domain.Rendering;
-    using Kola.Extensions;
 
     using global::Nancy;
     using global::Nancy.ModelBinding;
     using global::Nancy.Responses.Negotiation;
+
+    using Kola.Nancy.Extensions;
 
     public class RenderingModule : NancyModule
     {

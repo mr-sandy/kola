@@ -5,13 +5,12 @@
     using System.Linq;
 
     using Kola.Domain.Instances;
-    using Kola.Extensions;
 
     public static class PropertyInstanceExtensions
     {
         public static string Get(this IEnumerable<PropertyInstance> properties, string propertyName, string fallback = "")
         {
-            var property = properties.Where(p => p.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            var property = properties.FirstOrDefault(p => p.Name.Equals(propertyName, StringComparison.OrdinalIgnoreCase));
 
             return property == null
                 ? fallback
@@ -67,9 +66,11 @@
         }
 
 
+
         public static bool GetAsBool(this IEnumerable<PropertyInstance> properties, string propertyName)
         {
             return string.Equals(properties.Get(propertyName), "true", StringComparison.InvariantCultureIgnoreCase);
         }
+
     }
 }

@@ -7,7 +7,6 @@
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Context;
-    using Kola.Extensions;
 
     public class Area : IComponentCollection, IComponent
     {

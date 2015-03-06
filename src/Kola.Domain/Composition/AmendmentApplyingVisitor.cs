@@ -6,7 +6,6 @@
     using Kola.Domain.Composition.Amendments;
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Extensions;
-    using Kola.Extensions;
 
     public class AmendmentApplyingVisitor : IAmendmentVisitor
     {

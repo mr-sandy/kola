@@ -2,9 +2,10 @@
 {
     using Kola.Domain.Specifications;
     using Kola.Persistence;
-    using Kola.ResourceBuilding;
 
     using global::Nancy;
+
+    using Kola.Service.ResourceBuilding;
 
     public class WidgetModule : NancyModule
     {

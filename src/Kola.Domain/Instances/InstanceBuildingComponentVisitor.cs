@@ -5,9 +5,9 @@ namespace Kola.Domain.Instances
     using System.Linq;
 
     using Kola.Domain.Composition;
+    using Kola.Domain.Extensions;
     using Kola.Domain.Instances.Context;
     using Kola.Domain.Rendering;
-    using Kola.Extensions;
 
     public class Builder : IBuilder
     {

@@ -4,8 +4,8 @@
     using System.Configuration;
 
     using Kola.Domain.Composition;
-    using Kola.Extensions;
     using Kola.Persistence.DomainBuilding;
+    using Kola.Persistence.Extensions;
     using Kola.Persistence.SurrogateBuilding;
     using Kola.Persistence.Surrogates;
 

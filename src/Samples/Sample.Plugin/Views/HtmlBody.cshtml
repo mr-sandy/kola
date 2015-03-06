@@ -1,0 +1,6 @@
+﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.ContainerInstance>
+@using Kola.Nancy.Extensions
+@using Kola.Domain.Extensions
+<body @Html.Raw(Model.Properties.GetAsAttribute("classes", "class"))>
+@Html.RenderComponents(Model.Components)
+</body>

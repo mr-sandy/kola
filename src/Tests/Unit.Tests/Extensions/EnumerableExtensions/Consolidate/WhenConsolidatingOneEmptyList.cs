@@ -5,7 +5,7 @@
 
     using FluentAssertions;
 
-    using Kola.Extensions;
+    using Kola.Domain.Extensions;
 
     using NUnit.Framework;
 

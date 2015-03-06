@@ -90,10 +90,6 @@
       <Project>{30C44B29-C33B-4A77-A713-EFF0E2778F01}</Project>
       <Name>Kola.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Kola.Extensions\Kola.Extensions.csproj">
-      <Project>{24FB6D39-5285-4DC1-843C-5A49063C1E58}</Project>
-      <Name>Kola.Extensions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Kola.Nancy\Kola.Nancy.csproj">
       <Project>{794F2E5F-0481-4424-9E0C-21C5F61A2506}</Project>
       <Name>Kola.Nancy</Name>
@@ -101,10 +97,6 @@
     <ProjectReference Include="..\..\Kola.Persistence\Kola.Persistence.csproj">
       <Project>{30FF4407-715F-4E68-B375-2FFA9667D166}</Project>
       <Name>Kola.Persistence</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Kola.ResourceBuilding\Kola.ResourceBuilding.csproj">
-      <Project>{395D9DEF-4D85-4088-A31A-574F8C80D3EF}</Project>
-      <Name>Kola.ResourceBuilding</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Kola.Resources\Kola.Resources.csproj">
       <Project>{69AF2548-FB62-4648-8B0B-E7DB358DD585}</Project>

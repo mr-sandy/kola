@@ -23,9 +23,7 @@
             foreach (var candidateLanguage in candidateLanguages)
             {
                 var language = candidateLanguage;
-                var variant =
-                    this.Variants.Where(
-                        v => v.LanguageCode.Equals(language, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+                var variant = this.Variants.FirstOrDefault(v => v.LanguageCode.Equals(language, StringComparison.OrdinalIgnoreCase));
 
                 if (variant != null)
                 {
