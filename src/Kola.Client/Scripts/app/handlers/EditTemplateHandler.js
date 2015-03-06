@@ -14,6 +14,8 @@
             var componentTypes = new ComponentTypes();
 
             var template = new Template();
+
+            templatePath = templatePath !== null ? templatePath : '';
             template.url = '/_kola/templates/' + templatePath;
 
             $.when(componentTypes.fetch(), template.fetch()).then(function () {

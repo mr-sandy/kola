@@ -16,8 +16,8 @@
         public RenderingModule(IPageHandler pageHandler)
         {
             this.pageHandler = pageHandler;
+            this.Get["/", AcceptHeaderFilters.Html] = p => this.GetPage();
             this.Get["/(.*)", AcceptHeaderFilters.Html] = p => this.GetPage();
-            //this.Get["/(.*)/(.*)", AcceptHeaderFilters.Html] = p => this.GetPage();
             this.Get["/{path*}", AcceptHeaderFilters.Html] = p => this.GetPage();
         }
 
