@@ -1,30 +1,10 @@
 ﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.AtomInstance>
+@using System.Linq
 @using Kola.Domain.Extensions
 @{
-    var src = Model.Properties.GetAsAttributeWithStaticUri("src", "cache-buster", "src");
-    var type = Model.Properties.GetAsAttribute("type");
-    var content = Model.Properties.Get("content");
-
-    var script = string.Format("<script {0}{1}>{2}</script>", type, src, content);
-    var ieConditionFormat = "{0}";
-
-    switch (Model.Properties.Get("ie-condition"))
-    {
-        case "gt8":
-            ieConditionFormat = "<!--[if (!IE) | (gt IE 8)]><!-->\n    {0}\n    <!--<![endif]-->";
-            break;
-        case "gt9":
-            ieConditionFormat = "<!--[if (!IE) | (gt IE 9)]><!-->\n    {0}\n    <!--<![endif]-->";
-            break;
-        case "9":
-            ieConditionFormat = "<!--[if IE 9]>\n    {0}\n    <![endif]-->";
-            break;
-        case "lt9":
-            ieConditionFormat = "<!--[if lt IE 9]>\n    {0}\n    <![endif]-->";
-            break;
-        case "lte8":
-            ieConditionFormat = "<!--[if lte IE 8]>\n    {0}\n    <![endif]-->";
-            break;
-    }
-}
-    @Html.Raw(string.Format(ieConditionFormat, script))
+    var allAttributes = new[] {
+        Model.Properties.GetAsAttribute("type"),
+        Model.Properties.GetAsAttributeWithStaticUri("src", "cache-buster", "src")
+    };
+    var attributes = string.Join(" ", allAttributes.Where(a => !string.IsNullOrWhiteSpace(a)));
+}   <script @Html.Raw(attributes)>@Html.Raw(Model.Properties.Get("content"))</script>

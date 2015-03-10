@@ -4,9 +4,11 @@
 @{
     var allAttributes = new[] {
         Model.Properties.GetAsAttribute("type"), 
+        Model.Properties.GetAsAttribute("rel"), 
+        Model.Properties.GetAsAttributeWithStaticUri("href", "cache-buster"), 
+        Model.Properties.GetAsAttribute("sizes"), 
         Model.Properties.GetAsAttribute("media")
     };
     var attributes = string.Join(" ", allAttributes.Where(a => !string.IsNullOrWhiteSpace(a)));
-}    <style @Html.Raw(attributes)>
-        @Html.Raw(Model.Properties.Get("content"))
-    </style>
+    var html = string.Format("<link {0}/>", attributes).WrapInCondition(Model.Properties.Get("condition"));
+}    @Html.Raw(html)

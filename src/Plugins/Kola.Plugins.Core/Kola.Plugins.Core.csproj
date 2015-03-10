@@ -68,9 +68,10 @@
     <EmbeddedResource Include="Views\HtmlTitle.cshtml" />
     <EmbeddedResource Include="Views\HtmlMetadata.cshtml" />
     <EmbeddedResource Include="Views\HtmlStyle.cshtml" />
-    <EmbeddedResource Include="Views\HtmlIeConditional.cshtml" />
+    <EmbeddedResource Include="Views\IeConditional.cshtml" />
     <EmbeddedResource Include="Views\HtmlScript.cshtml" />
     <EmbeddedResource Include="Views\Text.cshtml" />
+    <EmbeddedResource Include="Views\HtmlLink.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\views\MarkdownEditorView.js" />
@@ -113,6 +114,42 @@
       <Project>{30C44B29-C33B-4A77-A713-EFF0E2778F01}</Project>
       <Name>Kola.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\HtmlLinkTypeView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\HtmlLinkTypeTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\HtmlLinkRelTypeView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\HtmlScriptTypeView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\IeConditionView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\HtmlLinkRelTypeTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\HtmlScriptTypeTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\IeConditionTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\MultilineTextView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\MultilineTextTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\templates\HtmlStyleTypeTemplate.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\views\HtmlStyleTypeView.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

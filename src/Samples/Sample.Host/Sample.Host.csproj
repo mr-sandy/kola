@@ -214,9 +214,9 @@
       <Project>{5872A1EB-F79F-4198-94F1-4FB5B86C0418}</Project>
       <Name>Kola.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Sample.Plugin\Sample.Plugin.csproj">
-      <Project>{09961085-2828-421C-BFCD-8F6A6102B464}</Project>
-      <Name>Sample.Plugin</Name>
+    <ProjectReference Include="..\..\Plugins\Kola.Plugins.Core\Kola.Plugins.Core.csproj">
+      <Project>{61B22E63-05EB-4479-9033-B7A37D62EEF0}</Project>
+      <Name>Kola.Plugins.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

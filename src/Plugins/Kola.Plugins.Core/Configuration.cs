@@ -45,20 +45,28 @@
 
             this.Configure.Atom("html-style")
                 .WithView("HtmlStyle")
-                .WithProperty("type", "text", "text/css")
-                .WithProperty("rel", "text")
-                .WithProperty("href", "text")
-                .WithProperty("cache-buster", "text")
+                .WithProperty("type", "html-style-type")
+                .WithProperty("content", "multiline-text")
                 .WithProperty("media", "text")
-                .WithProperty("ie-condition", "text");
+                .WithProperty("cache-buster", "text");
+
+            this.Configure.Atom("html-link")
+                .WithView("HtmlLink")
+                .WithProperty("type", "html-link-type")
+                .WithProperty("rel", "html-link-rel-type")
+                .WithProperty("href", "text")
+                .WithProperty("sizes", "text")
+                .WithProperty("cache-buster", "text")
+                .WithProperty("ie-condition", "ie-condition")
+                .WithProperty("media", "text");
 
             this.Configure.Atom("html-script")
                 .WithView("HtmlScript")
+                .WithProperty("type", "html-script-type", "text/javascript")
                 .WithProperty("src", "text")
-                .WithProperty("type", "text", "text/javascript")
-                .WithProperty("content", "text")
-                .WithProperty("cache-buster", "text")
-                .WithProperty("ie-condition", "text");
+                .WithProperty("content", "multiline-text")
+                .WithProperty("ie-condition", "ie-condition")
+                .WithProperty("cache-buster", "text");
         }
 
         private void ConfigureContainers()
@@ -84,6 +92,24 @@
 
             this.Configure.PropertyType("number")
                 .WithEditor("NumberEditorView.js");
+
+            this.Configure.PropertyType("html-link-type")
+                .WithEditor("HtmlLinkTypeView.js");
+
+            this.Configure.PropertyType("html-link-rel-type")
+                .WithEditor("HtmlLinkRelTypeView.js");
+
+            this.Configure.PropertyType("html-style-type")
+                .WithEditor("HtmlStyleTypeView.js");
+
+            this.Configure.PropertyType("html-script-type")
+                .WithEditor("HtmlScriptTypeView.js");
+
+            this.Configure.PropertyType("multiline-text")
+                .WithEditor("MultilineTextView.js");
+
+            this.Configure.PropertyType("ie-condition")
+                .WithEditor("IeConditionView.js");
         }
     }
 }
