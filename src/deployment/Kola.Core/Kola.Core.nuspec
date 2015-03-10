@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Kola.Core</id>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <authors>Sandy Cormie</authors>
     <owners>Sandy Cormie</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
