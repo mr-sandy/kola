@@ -10,5 +10,5 @@
         Model.Properties.GetAsAttribute("media")
     };
     var attributes = string.Join(" ", allAttributes.Where(a => !string.IsNullOrWhiteSpace(a)));
-    var html = string.Format("<link {0}/>", attributes).WrapInCondition(Model.Properties.Get("condition"));
+    var html = string.Format("<link {0}/>", attributes).WrapInCondition(Model.Properties.Get("ie-condition"));
 }    @Html.Raw(html)

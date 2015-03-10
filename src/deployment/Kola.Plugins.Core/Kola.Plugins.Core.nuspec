@@ -9,7 +9,7 @@
     <description>Core plugins gor Kola CMS</description>
     <copyright>Copyright 2015</copyright>
     <dependencies>
-      <dependency id="Kola.Core" version="1.0.1" />
+      <dependency id="Kola.Core" version="1.0.2" />
       <dependency id="MarkdownSharp" version="1.13.0.0" />
     </dependencies>
   </metadata>

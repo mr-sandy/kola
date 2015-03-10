@@ -160,5 +160,30 @@ Here is some **content.**]]></value>
       </components>
     </container>
   </components>
-  <amendments />
+  <amendments>
+    <addComponent>
+      <componentType>html-script</componentType>
+      <targetPath>0/12</targetPath>
+    </addComponent>
+    <setPropertyFixed>
+      <componentPath>0/12</componentPath>
+      <propertyName>src</propertyName>
+      <fixedValue><![CDATA[http://localhost:51106/cdn/responsive/scripts/html5shiv.js]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/12</componentPath>
+      <propertyName>ie-condition</propertyName>
+      <fixedValue><![CDATA[lte8]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/12</componentPath>
+      <propertyName>src</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/12</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[var sandy = "sandy";]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>

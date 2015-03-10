@@ -7,4 +7,6 @@
         Model.Properties.GetAsAttributeWithStaticUri("src", "cache-buster", "src")
     };
     var attributes = string.Join(" ", allAttributes.Where(a => !string.IsNullOrWhiteSpace(a)));
-}   <script @Html.Raw(attributes)>@Html.Raw(Model.Properties.Get("content"))</script>
+    var content = Model.Properties.Get("content");
+    var html = string.Format("<script {0}>{1}</script>", attributes, content).WrapInCondition(Model.Properties.Get("ie-condition"));
+}    @Html.Raw(html)
