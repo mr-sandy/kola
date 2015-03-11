@@ -46,9 +46,14 @@
                     .WithView("Fragment");
             }
 
-            return this.Negotiate
+            var result = this
+                .Negotiate
                 .WithModel(page)
                 .WithView("Page");
+
+            return query.IsPreview
+                ? result.WithHeader("Cache-Control", "no-cache")
+                : result.WithHeader("Cache-Control", "public, max-age=600");
         }
     }
 }
