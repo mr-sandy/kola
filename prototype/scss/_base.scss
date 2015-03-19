@@ -1,0 +1,11 @@
+
+@import 'utility';
+
+body {
+    font-family: sans-serif;
+	@include font-size(6);
+}
+
+* {
+    box-sizing: border-box;	    
+}
