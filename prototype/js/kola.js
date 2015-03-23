@@ -1,20 +1,23 @@
-﻿(function ($) {
-    $(document).ready(function () {
-        $('#hide-sidebar').click(function (e) {
-            $('#sidebar').addClass('hidden');
-            $('#sidebar-proxy').removeClass('hidden');
-            $('#preview').addClass('fullscreen');
+﻿(function($) {
+    $(document).ready(function() {
+
+        $('.show-tools').click(function (e) {
+            $('.sidebar').removeClass('hidden');
+            $('.toolbars').removeClass('hidden');
+            $('.show-tools').addClass('hidden');
+            $('.preview').removeClass('fullscreen');
         });
 
-        $('#show-sidebar').click(function (e) {
-            $('#sidebar').removeClass('hidden');
-            $('#sidebar-proxy').addClass('hidden');
-            $('#preview').removeClass('fullscreen');
-
+        $('.hide-tools').click(function (e) {
+            $('.sidebar').addClass('hidden');
+            $('.toolbars').addClass('hidden');
+            $('.show-tools').removeClass('hidden');
+            $('.preview').addClass('fullscreen');
         });
 
-        $('#toggle-toolbars').click(function (e) {
-            $('#toolbars').toggleClass('hidden');
+        $('.add-component').click(function (e) {
+            $('.toolbox').toggleClass('hidden');
+            $('.block-editor').toggleClass('hidden');
         });
     });
 })(jQuery);

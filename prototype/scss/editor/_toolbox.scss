@@ -1,0 +1,23 @@
+
+@import "../utility";
+
+.toolbox {
+	width: 100px;
+
+	ul {
+        padding: 8px;
+
+        li {
+            display: block;
+            padding: 8px;
+            background-color: #eee;
+            border-radius: 4px;    
+			text-align: center;    
+			cursor: pointer;
+        }
+
+        li + li {
+			margin-top: 8px;
+        }
+	}
+}

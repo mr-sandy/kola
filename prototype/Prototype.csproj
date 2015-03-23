@@ -85,9 +85,13 @@
     <None Include="css\kola.scss" />
     <Content Include="packages.config" />
     <None Include="scripts\jquery-2.1.3.min.map" />
+    <None Include="scss\editor\_toolbox.scss" />
+    <None Include="scss\_buttons.scss" />
+    <None Include="scss\editor\_properties.scss" />
+    <None Include="scss\editor\_block-editor.scss" />
     <None Include="scss\_utility.scss" />
     <None Include="scss\_base.scss" />
-    <None Include="scss\_editor.scss" />
+    <None Include="scss\editor\_editor.scss" />
     <None Include="scss\_reset.scss" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -1,8 +1,9 @@
-$default-em-in-px: 16;
 
 @mixin font-size ($value) {
-  font-size: #{$value}px;
-  font-size: #{$value/$default-em-in-px}rem;
+    $default-em-in-px: 16;
+
+    font-size: #{$value}px;
+    font-size: #{$value/$default-em-in-px}rem;
 }
 
 @mixin transition ($value) {

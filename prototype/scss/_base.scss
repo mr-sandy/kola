@@ -1,9 +1,9 @@
 
-@import 'utility';
+@import "utility";
 
 body {
     font-family: sans-serif;
-	@include font-size(6);
+	@include font-size(12);
 }
 
 * {

@@ -1,0 +1,108 @@
+
+@import "../utility";
+
+html, body {
+	height: 100%;
+}
+
+.sidebar, .toolbars, .preview {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+}
+
+.sidebar {
+	left: 0;
+	padding: 8px;
+    width: 60px;
+	background-color: #333;
+	z-index: 101;
+    @include transition(all 150ms);
+
+	button {
+        color: #eee;
+
+	    &.hide-tools {
+	        background-color: #789;
+			&:hover {
+				background-color: #9fabb7;
+			}
+        }
+
+	    &.add-component {
+	        background-color: #20b2aa;
+
+			&:hover {
+				background-color: #62c9c3;
+			}
+        }
+
+		&:hover {
+	        color: #fff;
+		}
+	}
+
+	&.hidden {
+		transform: translateX(-100%);
+	}
+}
+
+.toolbars {
+    left: 60px;
+    z-index: 101;
+	overflow: hidden;
+    @include transition(all 150ms);
+
+    &.hidden {
+		left: 0;
+        .toolbar {
+			width: 0;
+       }
+    }
+
+    .toolbar {
+		float: left;
+		height: 100%;
+		background-color: #333;
+        opacity: 0.8;
+        overflow: hidden;
+	    @include transition(all 150ms);
+		border-left: 1px solid #444;
+
+		&.hidden {
+			width: 0;
+		}
+    }
+
+    @import "toolbox";
+    @import "block-editor";
+}
+
+.preview {
+    left: 60px;
+	right: 0;
+
+	iframe {
+        position: absolute;
+	    height: 100%;
+	    width: 100%;
+	}
+
+	&.fullscreen {
+	    left: 0;
+	}
+}
+
+button.show-tools {
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    background-color: #444;
+    color: #eee;
+    opacity: 0.2;
+	z-index: 100;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

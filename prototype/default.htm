@@ -7,20 +7,39 @@
     <link rel="Stylesheet" type="text/css" href="/css/font-awesome.css" />
 </head>
 <body>
-    <section id="sidebar">
-        <div class="primary">
-            <button type="button" id="hide-sidebar"><i class="fa fa-arrow-left fa-3x"></i></button>
-            <button type="button" id="toggle-toolbars"><i class="fa fa-plus-square fa-3x"></i></button>
+    <section class="sidebar">
+        <div class="btn-stack">
+            <button type="button" class="hide-tools"><i class="fa fa-arrow-left fa-2x fa-fw"></i></button>
+            <button type="button" class="add-component"><i class="fa fa-plus-square fa-2x fa-fw"></i></button>
         </div>
     </section>
-    <section id="sidebar-proxy" class="hidden">
-        <button type="button" id="show-sidebar"><i class="fa fa-arrow-right fa-3x"></i></button>
+    <section class="toolbars">
+        <div class="toolbar toolbox hidden">
+            <ul>
+                <li class="atom">markdown</li>
+                <li class="atom">image</li>
+                <li class="container">anchor</li>
+                <li class="container">div</li>
+                <li class="container">division</li>
+                <li class="widget">page</li>
+            </ul>
+        </div>
+        <div class="toolbar block-editor hidden">
+            <ol>
+                <li class="atom">markdown</li>
+                <li class="atom">image</li>
+                <li class="container">anchor<ol>
+                    <li class="container">div</li>
+                    <li class="container">division</li>
+                </ol>
+                </li>
+            </ol>
+        </div>
     </section>
-    <section id="toolbars" class="hidden">
-    </section>
-    <section id="preview">
+    <section class="preview">
         <iframe src="http://www.linn.co.uk"></iframe>
     </section>
+    <button type="button" class="show-tools hidden"><i class="fa fa-wrench fa-2x fa-fw"></i></button>
     <script type="text/javascript" src="scripts/jquery-2.1.3.min.js"></script>
     <script type="text/javascript" src="js/kola.js"></script>
 </body>

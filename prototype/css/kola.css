@@ -47,96 +47,113 @@ table {
 
 body {
   font-family: sans-serif;
-  font-size: 6px;
-  font-size: 0.375rem; }
+  font-size: 12px;
+  font-size: 0.75rem; }
 
 * {
   box-sizing: border-box; }
 
+button {
+  display: block;
+  border: none;
+  text-align: center;
+  padding: 8px 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease; }
+  button.hidden {
+    visibility: hidden; }
+
+.btn-stack button + button {
+  margin-top: 8px; }
+
 html, body {
   height: 100%; }
 
-#sidebar {
+.sidebar, .toolbars, .preview {
   position: absolute;
-  width: 70px;
-  height: 100%;
-  left: 0;
   top: 0;
-  padding: 0;
-  background: #222;
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease; }
-  #sidebar .primary {
-    padding: 8px; }
-    #sidebar .primary button {
-      display: block;
-      width: 100%;
-      background-color: #40cb90;
-      border: none;
-      color: #eee;
-      text-align: center;
-      padding: 8px 0;
-      cursor: pointer;
-      border-radius: 2px;
-      transition: all 100ms; }
-      #sidebar .primary button:hover {
-        background-color: #444; }
-      #sidebar .primary button + button {
-        margin-top: 8px; }
-  #sidebar.hidden {
+  bottom: 0; }
+
+.sidebar {
+  left: 0;
+  padding: 8px;
+  width: 60px;
+  background-color: #333;
+  z-index: 101;
+  -webkit-transition: all 150ms;
+  transition: all 150ms; }
+  .sidebar button {
+    color: #eee; }
+    .sidebar button.hide-tools {
+      background-color: #789; }
+      .sidebar button.hide-tools:hover {
+        background-color: #9fabb7; }
+    .sidebar button.add-component {
+      background-color: #20b2aa; }
+      .sidebar button.add-component:hover {
+        background-color: #62c9c3; }
+    .sidebar button:hover {
+      color: #fff; }
+  .sidebar.hidden {
     transform: translateX(-100%); }
 
-#sidebar-proxy {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 70px;
-  padding: 8px;
-  z-index: 100; }
-  #sidebar-proxy button {
-    display: block;
-    width: 100%;
-    background-color: #444;
-    border: none;
-    color: #eee;
-    text-align: center;
-    padding: 8px 0;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 100ms;
-    opacity: 0.3; }
-    #sidebar-proxy button:hover {
-      background-color: #40cb90;
-      opacity: 0.6; }
-  #sidebar-proxy.hidden {
-    visibility: hidden; }
+.toolbars {
+  left: 60px;
+  z-index: 101;
+  overflow: hidden;
+  -webkit-transition: all 150ms;
+  transition: all 150ms; }
+  .toolbars.hidden {
+    left: 0; }
+    .toolbars.hidden .toolbar {
+      width: 0; }
+  .toolbars .toolbar {
+    float: left;
+    height: 100%;
+    background-color: #333;
+    opacity: 0.8;
+    overflow: hidden;
+    -webkit-transition: all 150ms;
+    transition: all 150ms;
+    border-left: 1px solid #444; }
+    .toolbars .toolbar.hidden {
+      width: 0; }
+  .toolbars .toolbox {
+    width: 100px; }
+    .toolbars .toolbox ul {
+      padding: 8px; }
+      .toolbars .toolbox ul li {
+        display: block;
+        padding: 8px;
+        background-color: #eee;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer; }
+      .toolbars .toolbox ul li + li {
+        margin-top: 8px; }
+  .toolbars .block-editor {
+    width: 200px; }
 
-#toolbars {
-  position: absolute;
-  width: 170px;
-  height: 100%;
-  left: 70px;
-  top: 0;
-  padding: 0;
-  background: #333;
-  -webkit-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-  z-index: 100;
-  opacity: 0.95; }
-  #toolbars.hidden {
-    width: 0; }
-
-#preview {
-  position: absolute;
-  left: 70px;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  transition: all 100ms; }
-  #preview iframe {
+.preview {
+  left: 60px;
+  right: 0; }
+  .preview iframe {
     position: absolute;
     height: 100%;
     width: 100%; }
-  #preview.fullscreen {
+  .preview.fullscreen {
     left: 0; }
+
+button.show-tools {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  background-color: #444;
+  color: #eee;
+  opacity: 0.2;
+  z-index: 100; }
+  button.show-tools:hover {
+    opacity: 0.8; }
 
