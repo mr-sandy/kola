@@ -90,9 +90,9 @@ html, body {
       background-color: #789; }
       .sidebar button.hide-tools:hover {
         background-color: #9fabb7; }
-    .sidebar button.add-component {
+    .sidebar button.add-component, .sidebar button.toggle-block-editor {
       background-color: #20b2aa; }
-      .sidebar button.add-component:hover {
+      .sidebar button.add-component:hover, .sidebar button.toggle-block-editor:hover {
         background-color: #62c9c3; }
     .sidebar button:hover {
       color: #fff; }
@@ -112,14 +112,14 @@ html, body {
   .toolbars .toolbar {
     float: left;
     height: 100%;
-    background-color: #333;
-    opacity: 0.8;
+    background-color: rgba(51, 51, 51, 0.9);
     overflow: hidden;
     -webkit-transition: all 150ms;
     transition: all 150ms;
-    border-left: 1px solid #444; }
+    border-left: 1px solid rgba(102, 102, 102, 0.9); }
     .toolbars .toolbar.hidden {
-      width: 0; }
+      width: 0;
+      border-left-width: 0; }
   .toolbars .toolbox {
     width: 100px; }
     .toolbars .toolbox ul {
