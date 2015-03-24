@@ -92,9 +92,9 @@ html, body {
         }
     }
 
-    @import "toolbox";
-    @import "block-editor";
-    @import "properties";
+	@import "toolbox";
+	@import "block-editor";
+	@import "properties";
 
     .toolbar {
 		float: left;
@@ -104,11 +104,6 @@ html, body {
 	    @include transition(all 150ms);
 		border-left: 1px solid rgba(102,102,102,0.5);
 		position: relative;
-
-		&.hidden {
-			width: 0;
-			border-left-width: 0;
-		}
 
 		.footer {
 			padding: 10px;
@@ -132,6 +127,11 @@ html, body {
 					border: 2px solid #999;
 				}
             }
+		}
+
+		&.hidden.hidden {
+			width: 0;
+			border-left-width: 0;
 		}
     }
 }

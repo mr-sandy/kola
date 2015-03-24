@@ -4,9 +4,9 @@
 .toolbox {
     $button-size: 70px;
     $padding: 10px;
-	$margin: 2px;
+    $margin: 2px;
 
-	div.content {
+    div.content {
 
         padding: $padding;
 	
@@ -15,28 +15,22 @@
             color: #eee;
             display: block;
             text-transform: uppercase;
-		    cursor: pointer;
+            cursor: pointer;
 
             i {
-			    float: right;
+                float: right;
                 @include transition(all 250ms);
             }
 
-		    &.collapsed {
-			    i {
-				    @include rotate(-90);
-			    }
-
-			    & + div {
-				    max-height: 0;
-			    }
-		    }
+            &.collapsed {
+                i {
+                    @include rotate(-90);
+                }
+            }
         }
-
-        div:not(.footer) {
-            overflow: hidden;
-		    max-height: 100%;
-            @include transition(all 500ms);
+    
+	    div {
+			overflow: hidden;
 
             button {
                 display: inline-block;
@@ -47,11 +41,10 @@
                 font-size: 0.9em;
                 vertical-align: middle;
                 background-color: #555;
-			    margin: $margin;
+                margin: $margin;
                 border: 2px solid transparent;
                 border-radius: 2px;
                 @include transition(all 100ms);
-
 
                 &.atom {
                     &:hover {
@@ -75,18 +68,17 @@
                     color: #fff;
                 }
             }
-        }
-    }
+	    }
+	}
 
-			@for $i from 2 to 6 {
-			&.cols-#{$i} {
-				width: $i * $button-size + 2 * $padding + $i * $margin * 2;
-				 div.content {
-					div {
-						width: $i * $button-size + 2 * $padding + $i * $margin;
-					}
-				}
+	@for $i from 2 to 6 {
+		$width: $i * $button-size + 2 * $padding + $i * $margin * 2;
+		&.cols-#{$i} {
+			width: $width;
+		
+			div.content {
+				width: $width;
 			}
 		}
-
+	}
 }

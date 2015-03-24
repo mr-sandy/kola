@@ -147,14 +147,9 @@ html, body {
         filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(-90), M12=0-sin(-90), M21=sin(-90), M22=cos(-90));
         -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(-90), M12=0-sin(-90), M21=sin(-90), M22=cos(-90))";
         zoom: 1; }
-      .toolbars .toolbox div.content span.collapsed + div {
-        max-height: 0; }
-    .toolbars .toolbox div.content div:not(.footer) {
-      overflow: hidden;
-      max-height: 100%;
-      -webkit-transition: all 500ms;
-      transition: all 500ms; }
-      .toolbars .toolbox div.content div:not(.footer) button {
+    .toolbars .toolbox div.content div {
+      overflow: hidden; }
+      .toolbars .toolbox div.content div button {
         display: inline-block;
         height: 70px;
         width: 70px;
@@ -168,30 +163,30 @@ html, body {
         border-radius: 2px;
         -webkit-transition: all 100ms;
         transition: all 100ms; }
-        .toolbars .toolbox div.content div:not(.footer) button.atom:hover {
+        .toolbars .toolbox div.content div button.atom:hover {
           background-color: rgba(178, 32, 40, 0.5); }
-        .toolbars .toolbox div.content div:not(.footer) button.container:hover {
+        .toolbars .toolbox div.content div button.container:hover {
           background-color: rgba(32, 113, 178, 0.5); }
-        .toolbars .toolbox div.content div:not(.footer) button.widget:hover {
+        .toolbars .toolbox div.content div button.widget:hover {
           background-color: rgba(178, 97, 32, 0.5); }
-        .toolbars .toolbox div.content div:not(.footer) button:hover {
+        .toolbars .toolbox div.content div button:hover {
           color: #fff; }
   .toolbars .toolbox.cols-2 {
     width: 168px; }
-    .toolbars .toolbox.cols-2 div.content div {
-      width: 164px; }
+    .toolbars .toolbox.cols-2 div.content {
+      width: 168px; }
   .toolbars .toolbox.cols-3 {
     width: 242px; }
-    .toolbars .toolbox.cols-3 div.content div {
-      width: 236px; }
+    .toolbars .toolbox.cols-3 div.content {
+      width: 242px; }
   .toolbars .toolbox.cols-4 {
     width: 316px; }
-    .toolbars .toolbox.cols-4 div.content div {
-      width: 308px; }
+    .toolbars .toolbox.cols-4 div.content {
+      width: 316px; }
   .toolbars .toolbox.cols-5 {
     width: 390px; }
-    .toolbars .toolbox.cols-5 div.content div {
-      width: 380px; }
+    .toolbars .toolbox.cols-5 div.content {
+      width: 390px; }
   .toolbars .block-editor {
     width: 240px; }
   .toolbars .properties {
@@ -205,9 +200,6 @@ html, body {
     transition: all 150ms;
     border-left: 1px solid rgba(102, 102, 102, 0.5);
     position: relative; }
-    .toolbars .toolbar.hidden {
-      width: 0;
-      border-left-width: 0; }
     .toolbars .toolbar .footer {
       padding: 10px;
       position: absolute;
@@ -227,6 +219,9 @@ html, body {
         .toolbars .toolbar .footer button:hover {
           color: #fff;
           border: 2px solid #999; }
+    .toolbars .toolbar.hidden.hidden {
+      width: 0;
+      border-left-width: 0; }
 
 .preview {
   left: 60px;

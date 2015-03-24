@@ -33,6 +33,7 @@
         $('.toolbox span').click(function(e) {
             var $self = $(e.target).closest('span');
             $self.toggleClass('collapsed');
+            $self.next('div').slideToggle();
         });
     });
 })(jQuery);
