@@ -19,33 +19,29 @@ html, body {
 	z-index: 101;
     @include transition(all 150ms);
 
-	button {
-        color: #eee;
-
-	    &.hide-tools {
-	        background-color: #789;
-			&:hover {
-				background-color: #9fabb7;
-			}
-        }
-
-	    &.add-component,
-		&.toggle-block-editor {
-	        background-color: #20b2aa;
-
-			&:hover {
-				background-color: #62c9c3;
-			}
-        }
-
-		&:hover {
-	        color: #fff;
-		}
-	}
-
 	&.hidden {
 		transform: translateX(-100%);
 	}
+
+    button {
+        color: #eee;
+        background-color: #789;
+
+        &:hover {
+            color: #fff;
+            background-color: #9fabb7;
+        }
+
+        &.selected {
+            color: #eee;
+            background-color: #20b2aa;
+
+            &:hover {
+                color: #fff;
+                background-color: #62c9c3;
+            }
+	    }
+    }
 }
 
 .toolbars {
@@ -58,7 +54,7 @@ html, body {
 		left: 0;
         .toolbar {
 			width: 0;
-       }
+        }
     }
 
     .toolbar {

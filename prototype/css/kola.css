@@ -84,20 +84,20 @@ html, body {
   z-index: 101;
   -webkit-transition: all 150ms;
   transition: all 150ms; }
-  .sidebar button {
-    color: #eee; }
-    .sidebar button.hide-tools {
-      background-color: #789; }
-      .sidebar button.hide-tools:hover {
-        background-color: #9fabb7; }
-    .sidebar button.add-component, .sidebar button.toggle-block-editor {
-      background-color: #20b2aa; }
-      .sidebar button.add-component:hover, .sidebar button.toggle-block-editor:hover {
-        background-color: #62c9c3; }
-    .sidebar button:hover {
-      color: #fff; }
   .sidebar.hidden {
     transform: translateX(-100%); }
+  .sidebar button {
+    color: #eee;
+    background-color: #789; }
+    .sidebar button:hover {
+      color: #fff;
+      background-color: #9fabb7; }
+    .sidebar button.selected {
+      color: #eee;
+      background-color: #20b2aa; }
+      .sidebar button.selected:hover {
+        color: #fff;
+        background-color: #62c9c3; }
 
 .toolbars {
   left: 60px;

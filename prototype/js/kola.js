@@ -17,11 +17,13 @@
 
         $('.toggle-block-editor').click(function (e) {
             $('.block-editor').toggleClass('hidden');
+            $('.toggle-block-editor').toggleClass('selected');
         });
 
-        $('.add-component').click(function (e) {
-            $('.toolbox').removeClass('hidden');
-            $('.block-editor').removeClass('hidden');
+        $('.toggle-add-component').click(function (e) {
+            $('.toolbox').toggleClass('hidden');
+            $('.block-editor').toggleClass('hidden');
+            $('.toggle-add-component').toggleClass('selected');
         });
     });
 })(jQuery);
