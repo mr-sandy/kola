@@ -2,22 +2,91 @@
 @import "../utility";
 
 .toolbox {
-	width: 100px;
+    $button-size: 70px;
+    $padding: 10px;
+	$margin: 2px;
 
-	ul {
-        padding: 8px;
+	div.content {
 
-        li {
+        padding: $padding;
+	
+        span {
+            padding: $padding;
+            color: #eee;
             display: block;
-            padding: 8px;
-            background-color: #eee;
-            border-radius: 4px;    
-			text-align: center;    
-			cursor: pointer;
+            text-transform: uppercase;
+		    cursor: pointer;
+
+            i {
+			    float: right;
+                @include transition(all 250ms);
+            }
+
+		    &.collapsed {
+			    i {
+				    @include rotate(-90);
+			    }
+
+			    & + div {
+				    max-height: 0;
+			    }
+		    }
         }
 
-        li + li {
-			margin-top: 8px;
+        div:not(.footer) {
+            overflow: hidden;
+		    max-height: 100%;
+            @include transition(all 500ms);
+
+            button {
+                display: inline-block;
+                height: $button-size;
+                width: $button-size;
+                float: left;
+                color: #eee;
+                font-size: 0.9em;
+                vertical-align: middle;
+                background-color: #555;
+			    margin: $margin;
+                border: 2px solid transparent;
+                border-radius: 2px;
+                @include transition(all 100ms);
+
+
+                &.atom {
+                    &:hover {
+                        background-color: rgba(178, 32, 40, 0.5);
+                    }
+                }
+
+                &.container {
+                    &:hover {
+                        background-color: rgba(32, 113, 178, 0.5);
+                    }
+                }
+
+                &.widget {
+                    &:hover {
+                        background-color: rgba(178, 97, 32, 0.5);
+                    }
+                }
+
+                &:hover {
+                    color: #fff;
+                }
+            }
         }
-	}
+    }
+
+			@for $i from 2 to 6 {
+			&.cols-#{$i} {
+				width: $i * $button-size + 2 * $padding + $i * $margin * 2;
+				 div.content {
+					div {
+						width: $i * $button-size + 2 * $padding + $i * $margin;
+					}
+				}
+			}
+		}
+
 }

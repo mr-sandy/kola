@@ -13,7 +13,7 @@ html, body {
 
 .sidebar {
 	left: 0;
-	padding: 8px;
+	padding-top: 4px;
     width: 60px;
 	background-color: #333;
 	z-index: 101;
@@ -23,25 +23,60 @@ html, body {
 		transform: translateX(-100%);
 	}
 
-    button {
+	button.hide-tools {
+		padding: 8px 0 4px 0;
+		width: 100%;
         color: #eee;
-        background-color: #789;
+        background-color: transparent;
 
-        &:hover {
-            color: #fff;
-            background-color: #9fabb7;
-        }
+		&:hover {
+			color: #fff;
+		}
+	}
 
-        &.selected {
+	.primary {
+	    padding: 8px;
+
+        button {
+			padding: 8px 5px;
+			border-radius: 4px;
             color: #eee;
-            background-color: #20b2aa;
+            background-color: #789;
 
             &:hover {
                 color: #fff;
-                background-color: #62c9c3;
+                background-color: #9fabb7;
             }
-	    }
-    }
+
+            &.selected {
+                color: #eee;
+                background-color: #20b2aa;
+
+                &:hover {
+                    color: #fff;
+                    background-color: #62c9c3;
+                }
+	        }
+
+            & + button {
+		        margin-top: 8px;
+	        }
+        }
+	}
+
+	.secondary {
+        button {
+			padding: 18px  0;
+            color: #eee;
+            background-color: #333;
+            width: 100%;
+
+            &:hover {
+                color: #fff;
+                background-color: #555;
+            }
+        }
+	}
 }
 
 .toolbars {
@@ -52,10 +87,14 @@ html, body {
 
     &.hidden {
 		left: 0;
-        .toolbar {
+        .toolbar.toolbar {
 			width: 0;
         }
     }
+
+    @import "toolbox";
+    @import "block-editor";
+    @import "properties";
 
     .toolbar {
 		float: left;
@@ -63,16 +102,38 @@ html, body {
 		background-color: rgba(51,51,51,0.9);
         overflow: hidden;
 	    @include transition(all 150ms);
-		border-left: 1px solid rgba(102,102,102,0.9);
+		border-left: 1px solid rgba(102,102,102,0.5);
+		position: relative;
 
 		&.hidden {
 			width: 0;
 			border-left-width: 0;
 		}
-    }
 
-    @import "toolbox";
-    @import "block-editor";
+		.footer {
+			padding: 10px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			border-top: 2px solid #333;
+			
+			button {
+				color: #999;
+                float: right;
+                height: 36px;
+                width: 36px;
+				border: 2px solid transparent;
+				background-color: transparent;
+				@include transition(all 100ms);
+
+				&:hover {
+					color: #fff;
+					border: 2px solid #999;
+				}
+            }
+		}
+    }
 }
 
 .preview {
@@ -91,6 +152,8 @@ html, body {
 }
 
 button.show-tools {
+    padding: 8px 5px;
+    border-radius: 4px;
     position: absolute;
     left: 8px;
     top: 8px;

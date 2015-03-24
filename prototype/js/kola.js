@@ -22,8 +22,17 @@
 
         $('.toggle-add-component').click(function (e) {
             $('.toolbox').toggleClass('hidden');
-            $('.block-editor').toggleClass('hidden');
             $('.toggle-add-component').toggleClass('selected');
+        });
+
+        $('.toggle-properties').click(function (e) {
+            $('.properties').toggleClass('hidden');
+            $('.toggle-properties').toggleClass('selected');
+        });
+
+        $('.toolbox span').click(function(e) {
+            var $self = $(e.target).closest('span');
+            $self.toggleClass('collapsed');
         });
     });
 })(jQuery);

@@ -2,21 +2,14 @@
 @import "utility";
 
 button {
+    outline: none;
     display: block;
     border: none;
     text-align: center;
-    padding: 8px 5px;
     cursor: pointer;
-    border-radius: 4px;
-    @include transition(all 0.2s ease);
+    @include transition(all 200ms);
 
 	&.hidden {
 		visibility: hidden;
-	}
-}
-
-.btn-stack {
-	button + button {
-		margin-top: 8px;
 	}
 }
