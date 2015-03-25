@@ -2,5 +2,60 @@
 @import "../utility";
 
 .block-editor {
-	width: 240px;
+    $padding: 8px;
+	$empty-item-height: 29px;
+
+	width: 300px;
+	font-size: 0.9em;
+
+    div.content {
+        padding: 10px;
+		color: #eee;
+
+		ol {
+			min-height: $empty-item-height;
+
+			li {
+				border: 1px solid #ccc;
+                background-color: rgba(102,102,102,0);
+				@include transition(background-color 100ms);
+
+				span {
+				    display: block;
+				    padding: $padding;
+				}
+
+				&.container > span,
+				&.widget > span,
+				&.area > span {
+					border-bottom: 1px solid #ccc;
+				}
+
+				& + li {
+					margin-top: $padding;
+				}
+
+				&.highlighted {
+				    background-color: rgba(104,104,104,0.8);
+				    border-color: #fff;
+				    color: #fff;
+				}
+
+				ol {
+					padding: $padding;
+				}
+
+				&.new {
+				    padding: $padding;
+					border: 1px dashed #ccc;
+					background-color: rgba(204,204,204, 0.8);
+                    min-height: $empty-item-height;
+				}
+			}
+
+			&.components > li {
+				cursor: pointer;
+			}
+	    }
+	}
 }

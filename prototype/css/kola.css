@@ -64,6 +64,14 @@ button {
   button.hidden {
     visibility: hidden; }
 
+::-webkit-scrollbar {
+  width: 9px;
+  background: #666; }
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  -webkit-border-radius: 5px; }
+
 html, body {
   height: 100%; }
 
@@ -188,7 +196,38 @@ html, body {
     .toolbars .toolbox.cols-5 div.content {
       width: 390px; }
   .toolbars .block-editor {
-    width: 240px; }
+    width: 300px;
+    font-size: 0.9em; }
+    .toolbars .block-editor div.content {
+      padding: 10px;
+      color: #eee; }
+      .toolbars .block-editor div.content ol {
+        min-height: 29px; }
+        .toolbars .block-editor div.content ol li {
+          border: 1px solid #ccc;
+          background-color: rgba(102, 102, 102, 0);
+          -webkit-transition: background-color 100ms;
+          transition: background-color 100ms; }
+          .toolbars .block-editor div.content ol li span {
+            display: block;
+            padding: 8px; }
+          .toolbars .block-editor div.content ol li.container > span, .toolbars .block-editor div.content ol li.widget > span, .toolbars .block-editor div.content ol li.area > span {
+            border-bottom: 1px solid #ccc; }
+          .toolbars .block-editor div.content ol li + li {
+            margin-top: 8px; }
+          .toolbars .block-editor div.content ol li.highlighted {
+            background-color: rgba(104, 104, 104, 0.8);
+            border-color: #fff;
+            color: #fff; }
+          .toolbars .block-editor div.content ol li ol {
+            padding: 8px; }
+          .toolbars .block-editor div.content ol li.new {
+            padding: 8px;
+            border: 1px dashed #ccc;
+            background-color: rgba(204, 204, 204, 0.8);
+            min-height: 29px; }
+        .toolbars .block-editor div.content ol.components > li {
+          cursor: pointer; }
   .toolbars .properties {
     width: 160px; }
   .toolbars .toolbar {
@@ -200,13 +239,22 @@ html, body {
     transition: all 150ms;
     border-left: 1px solid rgba(102, 102, 102, 0.5);
     position: relative; }
+    .toolbars .toolbar .content {
+      position: absolute;
+      top: 0;
+      bottom: 60px;
+      left: 0;
+      right: 0;
+      overflow-y: auto; }
     .toolbars .toolbar .footer {
       padding: 10px;
       position: absolute;
       left: 0;
       right: 0;
       bottom: 0;
-      border-top: 2px solid #333; }
+      height: 60px;
+      border-top: 2px solid #333;
+      background-color: rgba(51, 51, 51, 0.8); }
       .toolbars .toolbar .footer button {
         color: #999;
         float: right;

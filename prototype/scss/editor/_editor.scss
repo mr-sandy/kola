@@ -105,14 +105,25 @@ html, body {
 		border-left: 1px solid rgba(102,102,102,0.5);
 		position: relative;
 
+		.content {
+			position: absolute;
+			top: 0;
+			bottom: 60px;
+			left: 0;
+			right: 0;
+			overflow-y: auto;
+		}
+
 		.footer {
 			padding: 10px;
 			position: absolute;
 			left: 0;
 			right: 0;
 			bottom: 0;
+			height: 60px;
 			border-top: 2px solid #333;
-			
+			  background-color: rgba(51,51,51,0.8);
+
 			button {
 				color: #999;
                 float: right;

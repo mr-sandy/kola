@@ -35,5 +35,23 @@
             $self.toggleClass('collapsed');
             $self.next('div').slideToggle();
         });
+
+        $('.block-editor ol.components').sortable({
+            placeholder: 'new',
+            tolerance: 'pointer',
+            connectWith: 'ol'
+        });
+
+        $('.block-editor li').mouseover(function (e) {
+            e.preventDefault();
+            var $self = $(e.target).closest('li');
+            $self.addClass('highlighted');
+        });
+
+        $('.block-editor li').mouseout(function (e) {
+            e.preventDefault();
+            var $self = $(e.target).closest('li');
+            $self.removeClass('highlighted');
+        });
     });
 })(jQuery);
