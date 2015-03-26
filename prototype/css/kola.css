@@ -64,14 +64,6 @@ button {
   button.hidden {
     visibility: hidden; }
 
-::-webkit-scrollbar {
-  width: 9px;
-  background: #666; }
-
-::-webkit-scrollbar-thumb {
-  background: #555;
-  -webkit-border-radius: 5px; }
-
 html, body {
   height: 100%; }
 
@@ -215,10 +207,19 @@ html, body {
             border-bottom: 1px solid #ccc; }
           .toolbars .block-editor div.content ol li + li {
             margin-top: 8px; }
-          .toolbars .block-editor div.content ol li.highlighted {
+          .toolbars .block-editor div.content ol li.highlighted:not(.selected) {
             background-color: rgba(104, 104, 104, 0.8);
             border-color: #fff;
             color: #fff; }
+          .toolbars .block-editor div.content ol li.selected {
+            border-color: #fff;
+            color: #fff; }
+            .toolbars .block-editor div.content ol li.selected.atom {
+              background-color: rgba(178, 32, 40, 0.5); }
+            .toolbars .block-editor div.content ol li.selected.container {
+              background-color: rgba(32, 113, 178, 0.5); }
+            .toolbars .block-editor div.content ol li.selected.widget {
+              background-color: rgba(178, 97, 32, 0.5); }
           .toolbars .block-editor div.content ol li ol {
             padding: 8px; }
           .toolbars .block-editor div.content ol li.new {
@@ -270,6 +271,12 @@ html, body {
     .toolbars .toolbar.hidden.hidden {
       width: 0;
       border-left-width: 0; }
+  .toolbars ::-webkit-scrollbar {
+    width: 9px;
+    background: #666; }
+  .toolbars ::-webkit-scrollbar-thumb {
+    background: #555;
+    -webkit-border-radius: 5px; }
 
 .preview {
   left: 60px;

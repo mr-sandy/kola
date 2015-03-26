@@ -53,5 +53,10 @@
             var $self = $(e.target).closest('li');
             $self.removeClass('highlighted');
         });
+
+        $('.block-editor li').click(function (e) {
+            var $self = $(e.target).closest('li');
+            $self.toggleClass('selected');
+        });
     });
 })(jQuery);

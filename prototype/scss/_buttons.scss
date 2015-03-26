@@ -13,18 +13,3 @@ button {
 		visibility: hidden;
 	}
 }
-
-::-webkit-scrollbar {
-//    height: 10;
-    width: 9px;
-    background: #666;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #555;
-    -webkit-border-radius: 5px;
-}
-
-::-webkit-scrollbar-corner {
-//    background: #000;
-}
