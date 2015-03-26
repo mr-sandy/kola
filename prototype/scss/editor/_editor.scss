@@ -35,13 +35,15 @@ html, body {
 	}
 
 	.primary {
-	    padding: 8px;
+		padding: 8px 0;
 
         button {
-			padding: 8px 5px;
 			border-radius: 4px;
             color: #eee;
             background-color: #789;
+			width: 44px;
+			height: 44px;
+			margin: 0 auto;
 
             &:hover {
                 color: #fff;
@@ -84,6 +86,7 @@ html, body {
     z-index: 101;
 	overflow: hidden;
     @include transition(all 150ms);
+	font-size: 0.9em;
 
     &.hidden {
 		left: 0;

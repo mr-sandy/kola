@@ -45,7 +45,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-body {
+body, input, button {
   font-family: sans-serif;
   font-size: 12px;
   font-size: 0.75rem; }
@@ -90,12 +90,14 @@ html, body {
     .sidebar button.hide-tools:hover {
       color: #fff; }
   .sidebar .primary {
-    padding: 8px; }
+    padding: 8px 0; }
     .sidebar .primary button {
-      padding: 8px 5px;
       border-radius: 4px;
       color: #eee;
-      background-color: #789; }
+      background-color: #789;
+      width: 44px;
+      height: 44px;
+      margin: 0 auto; }
       .sidebar .primary button:hover {
         color: #fff;
         background-color: #9fabb7; }
@@ -121,7 +123,8 @@ html, body {
   z-index: 101;
   overflow: hidden;
   -webkit-transition: all 150ms;
-  transition: all 150ms; }
+  transition: all 150ms;
+  font-size: 0.9em; }
   .toolbars.hidden {
     left: 0; }
     .toolbars.hidden .toolbar.toolbar {
@@ -155,7 +158,6 @@ html, body {
         width: 70px;
         float: left;
         color: #eee;
-        font-size: 0.9em;
         vertical-align: middle;
         background-color: #555;
         margin: 2px;
@@ -188,8 +190,7 @@ html, body {
     .toolbars .toolbox.cols-5 div.content {
       width: 390px; }
   .toolbars .block-editor {
-    width: 300px;
-    font-size: 0.9em; }
+    width: 300px; }
     .toolbars .block-editor div.content {
       padding: 10px;
       color: #eee; }

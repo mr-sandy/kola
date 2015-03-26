@@ -1,7 +1,7 @@
 
 @import "utility";
 
-body {
+body, input, button {
     font-family: sans-serif;
 	@include font-size(12);
 }
