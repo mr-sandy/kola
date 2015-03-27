@@ -90,6 +90,7 @@ html, body {
     left: 60px;
     z-index: 101;
 	overflow: hidden;
+	color: #eee;
     @include transition(all 150ms);
 
 	@include font-size(11);

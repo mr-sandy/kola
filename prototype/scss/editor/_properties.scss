@@ -2,5 +2,38 @@
 @import "../utility";
 
 .properties {
-	width: 160px;
+	width: 200px;
+
+    div.content {
+        padding: 10px 10px 10px 0;
+
+        .property {
+            .name {
+                display: block;
+                padding: 10px;
+            }
+
+            .value {
+                display: block;
+                margin-left: 10px;
+  			  background-color: #ddd;
+                color: #333;
+                padding: 8px;
+  
+            }
+		}
+
+		.property-group {
+		    .items {
+				padding: 0 10px 10px 0;
+			    background-color: #555;
+		    }
+		}
+
+        .property + .property,
+		.property + .property-group,
+		.property-group + .property {
+            margin-top: 4px;
+        }
+    }
 }

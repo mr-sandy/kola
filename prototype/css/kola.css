@@ -67,11 +67,14 @@ button {
 .accordian .accordian-header {
   display: block;
   text-transform: uppercase;
-  cursor: pointer; }
+  cursor: pointer;
+  padding: 10px; }
   .accordian .accordian-header i {
     float: right;
     -webkit-transition: all 100ms;
     transition: all 100ms; }
+  .accordian .accordian-header:hover {
+    color: #fff; }
 .accordian .accordian-content {
   overflow: hidden; }
 .accordian.collapsed .accordian-header i {
@@ -146,6 +149,7 @@ html, body {
   left: 60px;
   z-index: 101;
   overflow: hidden;
+  color: #eee;
   -webkit-transition: all 150ms;
   transition: all 150ms;
   font-size: 11px;
@@ -159,11 +163,6 @@ html, body {
       width: 0; }
   .toolbars .toolbox div.content {
     padding: 10px; }
-    .toolbars .toolbox div.content .accordian .accordian-header {
-      padding: 10px;
-      color: #eee;
-      text-transform: uppercase;
-      cursor: pointer; }
     .toolbars .toolbox div.content .accordian .accordian-content {
       padding-bottom: 10px; }
       .toolbars .toolbox div.content .accordian .accordian-content button {
@@ -218,8 +217,7 @@ html, body {
   .toolbars .block-editor {
     width: 300px; }
     .toolbars .block-editor div.content {
-      padding: 10px;
-      color: #eee; }
+      padding: 10px; }
       .toolbars .block-editor div.content ol {
         min-height: 29px; }
         .toolbars .block-editor div.content ol li {
@@ -257,7 +255,25 @@ html, body {
         .toolbars .block-editor div.content ol.components > li {
           cursor: pointer; }
   .toolbars .properties {
-    width: 160px; }
+    width: 200px; }
+    .toolbars .properties div.content {
+      padding: 10px 10px 10px 0; }
+      .toolbars .properties div.content .property .name {
+        display: block;
+        padding: 10px; }
+      .toolbars .properties div.content .property .value {
+        display: block;
+        margin-left: 10px;
+        background-color: #ddd;
+        color: #333;
+        padding: 8px; }
+      .toolbars .properties div.content .property-group .items {
+        padding: 0 10px 10px 0;
+        background-color: #555; }
+      .toolbars .properties div.content .property + .property,
+      .toolbars .properties div.content .property + .property-group,
+      .toolbars .properties div.content .property-group + .property {
+        margin-top: 4px; }
   .toolbars .toolbar {
     float: left;
     height: 100%;
