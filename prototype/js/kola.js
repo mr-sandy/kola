@@ -30,10 +30,10 @@
             $('.toggle-properties').toggleClass('selected');
         });
 
-        $('.toolbox span').click(function(e) {
-            var $self = $(e.target).closest('span');
-            $self.toggleClass('collapsed');
-            $self.next('div').slideToggle();
+        $('.accordian .accordian-header').click(function (e) {
+            var $accordian = $(e.target).closest('.accordian');
+            $accordian.toggleClass('collapsed');
+            $accordian.find('.accordian-content').slideToggle(100);
         });
 
         $('.block-editor ol.components').sortable({

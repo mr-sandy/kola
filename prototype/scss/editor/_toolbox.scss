@@ -10,83 +10,72 @@
 
         padding: $padding;
 	
-        span.category {
-            padding: $padding;
-            color: #eee;
-            display: block;
-            text-transform: uppercase;
-            cursor: pointer;
-			margin-top: 10px;
-
-            i {
-                float: right;
-                @include transition(all 250ms);
+	    .accordian {
+            .accordian-header {
+                padding: $padding;
+                color: #eee;
+                text-transform: uppercase;
+                cursor: pointer;
             }
-
-            &.collapsed {
-                i {
-                    @include rotate(-90);
-                }
-            }
-        }
     
-	    div {
-			overflow: hidden;
+	        .accordian-content {
+				padding-bottom: 10px;
 
-            button {
-                display: inline-block;
-                height: $button-size;
-                float: left;
-				padding: $margin;
-				background-color: transparent;
+                button {
+                    display: inline-block;
+                    height: $button-size;
+                    float: left;
+				    padding: $margin;
+				    background-color: transparent;
 
-                span {
-	                color: #eee;
-				    display: flex;
-				    display: -webkit-flex;
-                    align-items: center;
-                    -webkit-align-items: center;
-                    justify-content: center;
-                    -webkit-justify-content: center;
-					overflow: hidden;
-	                @include transition(all 100ms);
+                    span {
+	                    color: #eee;
+				        display: flex;
+				        display: -webkit-flex;
+                        align-items: center;
+                        -webkit-align-items: center;
+                        justify-content: center;
+                        -webkit-justify-content: center;
+					    overflow: hidden;
+	                    @include transition(all 100ms);
 
-	                background-color: #555;
-                    height: 100%;
-                    width: 100%;
-                    padding: 2px;
-					border: 2px solid transparent;		
-					border-radius: 2px;		
+	                    background-color: #555;
+                        height: 100%;
+                        width: 100%;
+                        padding: 2px;
+					    border: 2px solid transparent;		
+					    border-radius: 2px;		
+                    }
+
+				    &:hover {
+                        color: #fff;
+
+					    span {
+						    border: 2px solid #ccc;				
+					    }
+
+                        &.atom {
+                            span {
+                                background-color: rgba(178, 32, 40, 0.5);
+                            }
+                        }
+
+                        &.container {
+                            span {
+                                background-color: rgba(32, 113, 178, 0.5);
+                            }
+                        }
+
+                        &.widget {
+                            span {
+                                background-color: rgba(178, 97, 32, 0.5);
+                            }
+                        }
+                    }
+
                 }
-
-				&:hover {
-                    color: #fff;
-
-					span {
-						border: 2px solid #ccc;				
-					}
-
-                    &.atom {
-                        span {
-                            background-color: rgba(178, 32, 40, 0.5);
-                        }
-                    }
-
-                    &.container {
-                        span {
-                            background-color: rgba(32, 113, 178, 0.5);
-                        }
-                    }
-
-                    &.widget {
-                        span {
-                            background-color: rgba(178, 97, 32, 0.5);
-                        }
-                    }
-                }
-
-            }
-	    }
+	        }
+		}
 	}
 
 	@for $i from 2 to 6 {
