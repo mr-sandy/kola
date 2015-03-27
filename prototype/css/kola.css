@@ -283,13 +283,41 @@ html, body {
           background-color: #fff;
           border: none;
           outline: none; }
-      .toolbars .properties div.content .property-group .items {
-        padding: 0 0 10px 0;
-        background-color: #555; }
-      .toolbars .properties div.content .property + .property,
-      .toolbars .properties div.content .property + .property-group,
-      .toolbars .properties div.content .property-group + .property {
-        margin-top: 4px; }
+        .toolbars .properties div.content .property table.value {
+          padding: 0;
+          width: 100%;
+          display: table;
+          min-height: 28px; }
+          .toolbars .properties div.content .property table.value tbody {
+            width: 100%; }
+          .toolbars .properties div.content .property table.value.responsive > tbody > tr > td:not(.tabular) {
+            padding: 8px; }
+          .toolbars .properties div.content .property table.value.responsive > tbody > tr > td:first-child {
+            width: 36px;
+            background-color: #555;
+            color: #eee;
+            vertical-align: middle; }
+          .toolbars .properties div.content .property table.value.responsive > tbody > tr + tr {
+            border-top: 3px solid #444; }
+        .toolbars .properties div.content .property table.composite {
+          padding: 0;
+          width: 100%; }
+          .toolbars .properties div.content .property table.composite > tbody > tr > td {
+            padding: 8px; }
+            .toolbars .properties div.content .property table.composite > tbody > tr > td:first-child {
+              width: 33%;
+              background-color: #999;
+              color: #eee;
+              vertical-align: middle; }
+          .toolbars .properties div.content .property table.composite > tbody > tr + tr {
+            border-top: 1px solid #bbb; }
+    .toolbars .properties .property-group .items {
+      padding: 0 0 10px 0;
+      background-color: #555; }
+    .toolbars .properties .property + .property,
+    .toolbars .properties .property + .property-group,
+    .toolbars .properties .property-group + .property {
+      margin-top: 4px; }
   .toolbars .toolbar {
     float: left;
     height: 100%;
