@@ -18,6 +18,10 @@ html, body {
 	background-color: #333;
 	z-index: 101;
     @include transition(all 150ms);
+	
+	button { 
+	    @include font-size(14);
+    }
 
 	&.hidden {
 		transform: translateX(-100%);
@@ -44,6 +48,7 @@ html, body {
 			width: 44px;
 			height: 44px;
 			margin: 0 auto;
+			padding: 0;
 
             &:hover {
                 color: #fff;
@@ -86,7 +91,12 @@ html, body {
     z-index: 101;
 	overflow: hidden;
     @include transition(all 150ms);
-	font-size: 0.9em;
+
+	@include font-size(11);
+	input, button { 
+	    @include font-size(11);
+    }
+
 
     &.hidden {
 		left: 0;
@@ -117,7 +127,7 @@ html, body {
 			overflow-y: auto;
 		}
 
-		.footer {
+		.footer { 
 			padding: 10px;
 			position: absolute;
 			left: 0;
@@ -182,7 +192,7 @@ html, body {
 }
 
 button.show-tools {
-    padding: 8px 5px;
+    padding: 8px;
     border-radius: 4px;
     position: absolute;
     left: 8px;
@@ -191,6 +201,7 @@ button.show-tools {
     color: #eee;
     opacity: 0.2;
 	z-index: 100;
+	@include font-size(14);
 
     &:hover {
         opacity: 0.8;
