@@ -139,17 +139,18 @@ html, body {
       width: 0; }
   .toolbars .toolbox div.content {
     padding: 10px; }
-    .toolbars .toolbox div.content span {
+    .toolbars .toolbox div.content span.category {
       padding: 10px;
       color: #eee;
       display: block;
       text-transform: uppercase;
-      cursor: pointer; }
-      .toolbars .toolbox div.content span i {
+      cursor: pointer;
+      margin-top: 10px; }
+      .toolbars .toolbox div.content span.category i {
         float: right;
         -webkit-transition: all 250ms;
         transition: all 250ms; }
-      .toolbars .toolbox div.content span.collapsed i {
+      .toolbars .toolbox div.content span.category.collapsed i {
         -webkit-transform: rotate(-90deg);
         -moz-transform: rotate(-90deg);
         -ms-transform: rotate(-90deg);
@@ -163,40 +164,52 @@ html, body {
       .toolbars .toolbox div.content div button {
         display: inline-block;
         height: 70px;
-        width: 70px;
         float: left;
-        color: #eee;
-        vertical-align: middle;
-        background-color: #555;
-        margin: 2px;
-        border: 2px solid transparent;
-        border-radius: 2px;
-        -webkit-transition: all 100ms;
-        transition: all 100ms; }
-        .toolbars .toolbox div.content div button.atom:hover {
-          background-color: rgba(178, 32, 40, 0.5); }
-        .toolbars .toolbox div.content div button.container:hover {
-          background-color: rgba(32, 113, 178, 0.5); }
-        .toolbars .toolbox div.content div button.widget:hover {
-          background-color: rgba(178, 97, 32, 0.5); }
+        padding: 2px;
+        background-color: transparent; }
+        .toolbars .toolbox div.content div button span {
+          color: #eee;
+          display: flex;
+          display: -webkit-flex;
+          align-items: center;
+          -webkit-align-items: center;
+          justify-content: center;
+          -webkit-justify-content: center;
+          overflow: hidden;
+          -webkit-transition: all 100ms;
+          transition: all 100ms;
+          background-color: #555;
+          height: 100%;
+          width: 100%;
+          padding: 2px;
+          border: 2px solid transparent;
+          border-radius: 2px; }
         .toolbars .toolbox div.content div button:hover {
           color: #fff; }
+          .toolbars .toolbox div.content div button:hover span {
+            border: 2px solid #ccc; }
+          .toolbars .toolbox div.content div button:hover.atom span {
+            background-color: rgba(178, 32, 40, 0.5); }
+          .toolbars .toolbox div.content div button:hover.container span {
+            background-color: rgba(32, 113, 178, 0.5); }
+          .toolbars .toolbox div.content div button:hover.widget span {
+            background-color: rgba(178, 97, 32, 0.5); }
   .toolbars .toolbox.cols-2 {
     width: 168px; }
-    .toolbars .toolbox.cols-2 div.content {
-      width: 168px; }
+    .toolbars .toolbox.cols-2 div.content button {
+      width: 50%; }
   .toolbars .toolbox.cols-3 {
     width: 242px; }
-    .toolbars .toolbox.cols-3 div.content {
-      width: 242px; }
+    .toolbars .toolbox.cols-3 div.content button {
+      width: 33.33333%; }
   .toolbars .toolbox.cols-4 {
     width: 316px; }
-    .toolbars .toolbox.cols-4 div.content {
-      width: 316px; }
+    .toolbars .toolbox.cols-4 div.content button {
+      width: 25%; }
   .toolbars .toolbox.cols-5 {
     width: 390px; }
-    .toolbars .toolbox.cols-5 div.content {
-      width: 390px; }
+    .toolbars .toolbox.cols-5 div.content button {
+      width: 20%; }
   .toolbars .block-editor {
     width: 300px; }
     .toolbars .block-editor div.content {

@@ -10,12 +10,13 @@
 
         padding: $padding;
 	
-        span {
+        span.category {
             padding: $padding;
             color: #eee;
             display: block;
             text-transform: uppercase;
             cursor: pointer;
+			margin-top: 10px;
 
             i {
                 float: right;
@@ -35,37 +36,55 @@
             button {
                 display: inline-block;
                 height: $button-size;
-                width: $button-size;
                 float: left;
-                color: #eee;
-                vertical-align: middle;
-                background-color: #555;
-                margin: $margin;
-                border: 2px solid transparent;
-                border-radius: 2px;
-                @include transition(all 100ms);
+				padding: $margin;
+				background-color: transparent;
 
-                &.atom {
-                    &:hover {
-                        background-color: rgba(178, 32, 40, 0.5);
-                    }
+                span {
+	                color: #eee;
+				    display: flex;
+				    display: -webkit-flex;
+                    align-items: center;
+                    -webkit-align-items: center;
+                    justify-content: center;
+                    -webkit-justify-content: center;
+					overflow: hidden;
+	                @include transition(all 100ms);
+
+	                background-color: #555;
+                    height: 100%;
+                    width: 100%;
+                    padding: 2px;
+					border: 2px solid transparent;		
+					border-radius: 2px;		
                 }
 
-                &.container {
-                    &:hover {
-                        background-color: rgba(32, 113, 178, 0.5);
-                    }
-                }
-
-                &.widget {
-                    &:hover {
-                        background-color: rgba(178, 97, 32, 0.5);
-                    }
-                }
-
-                &:hover {
+				&:hover {
                     color: #fff;
+
+					span {
+						border: 2px solid #ccc;				
+					}
+
+                    &.atom {
+                        span {
+                            background-color: rgba(178, 32, 40, 0.5);
+                        }
+                    }
+
+                    &.container {
+                        span {
+                            background-color: rgba(32, 113, 178, 0.5);
+                        }
+                    }
+
+                    &.widget {
+                        span {
+                            background-color: rgba(178, 97, 32, 0.5);
+                        }
+                    }
                 }
+
             }
 	    }
 	}
@@ -76,7 +95,9 @@
 			width: $width;
 		
 			div.content {
-				width: $width;
+				button {
+					width: 100% / $i;
+				}
 			}
 		}
 	}
