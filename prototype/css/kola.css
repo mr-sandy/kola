@@ -45,7 +45,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-body, input, button {
+body, input, button, select, textarea {
   font-family: sans-serif;
   font-size: 12px;
   font-size: 0.75rem; }
@@ -154,7 +154,7 @@ html, body {
   transition: all 150ms;
   font-size: 11px;
   font-size: 0.6875rem; }
-  .toolbars input, .toolbars button {
+  .toolbars input, .toolbars button, .toolbars select, .toolbars textarea {
     font-size: 11px;
     font-size: 0.6875rem; }
   .toolbars.hidden {
@@ -215,7 +215,7 @@ html, body {
     .toolbars .toolbox.cols-5 div.content button {
       width: 20%; }
   .toolbars .block-editor {
-    width: 300px; }
+    width: 250px; }
     .toolbars .block-editor div.content {
       padding: 10px; }
       .toolbars .block-editor div.content ol {
@@ -255,20 +255,36 @@ html, body {
         .toolbars .block-editor div.content ol.components > li {
           cursor: pointer; }
   .toolbars .properties {
-    width: 200px; }
+    width: 250px; }
     .toolbars .properties div.content {
-      padding: 10px 10px 10px 0; }
-      .toolbars .properties div.content .property .name {
-        display: block;
-        padding: 10px; }
-      .toolbars .properties div.content .property .value {
-        display: block;
-        margin-left: 10px;
-        background-color: #ddd;
-        color: #333;
-        padding: 8px; }
+      padding: 10px 0; }
+      .toolbars .properties div.content .property {
+        padding: 0 10px; }
+        .toolbars .properties div.content .property .name {
+          padding: 8px 0;
+          display: block; }
+        .toolbars .properties div.content .property .value {
+          display: block;
+          background-color: #ddd;
+          color: #333;
+          padding: 8px; }
+        .toolbars .properties div.content .property input.value {
+          width: 100%;
+          background-color: #fff;
+          border: none;
+          outline: none; }
+        .toolbars .properties div.content .property select.value {
+          width: 100%;
+          background-color: #fff;
+          border: none;
+          outline: none; }
+        .toolbars .properties div.content .property textarea.value {
+          width: 100%;
+          background-color: #fff;
+          border: none;
+          outline: none; }
       .toolbars .properties div.content .property-group .items {
-        padding: 0 10px 10px 0;
+        padding: 0 0 10px 0;
         background-color: #555; }
       .toolbars .properties div.content .property + .property,
       .toolbars .properties div.content .property + .property-group,
@@ -316,9 +332,9 @@ html, body {
       border-left-width: 0; }
   .toolbars ::-webkit-scrollbar {
     width: 9px;
-    background: #666; }
+    background: #888; }
   .toolbars ::-webkit-scrollbar-thumb {
-    background: #555;
+    background: #666;
     -webkit-border-radius: 5px; }
 
 .preview {

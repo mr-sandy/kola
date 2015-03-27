@@ -2,30 +2,51 @@
 @import "../utility";
 
 .properties {
-	width: 200px;
+	width: 250px;
 
     div.content {
-        padding: 10px 10px 10px 0;
+        padding: 10px 0;
 
         .property {
+			padding: 0 10px;
+
             .name {
+				padding: 8px 0;
                 display: block;
-                padding: 10px;
             }
 
             .value {
                 display: block;
-                margin-left: 10px;
-  			  background-color: #ddd;
+                background-color: #ddd;
                 color: #333;
                 padding: 8px;
-  
+            }
+
+            input.value {
+                width: 100%;
+                background-color: #fff;
+                border: none;
+                outline: none;
+            }
+
+            select.value {
+                width: 100%;
+                background-color: #fff;
+                border: none;
+                outline: none;
+            }
+
+            textarea.value {
+                width: 100%;
+                background-color: #fff;
+                border: none;
+                outline: none;
             }
 		}
 
 		.property-group {
 		    .items {
-				padding: 0 10px 10px 0;
+				padding: 0 0 10px 0;
 			    background-color: #555;
 		    }
 		}
