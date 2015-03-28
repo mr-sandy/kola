@@ -267,7 +267,12 @@ html, body {
           display: block;
           background-color: #ddd;
           color: #333;
-          padding: 8px; }
+          padding: 8px;
+          cursor: pointer;
+          -webkit-transition: background-color 150ms;
+          transition: background-color 150ms; }
+        .toolbars .properties div.content .property label.value:hover {
+          background-color: #eee; }
         .toolbars .properties div.content .property input.value {
           width: 100%;
           background-color: #fff;
@@ -288,6 +293,8 @@ html, body {
           width: 100%;
           display: table;
           min-height: 28px; }
+          .toolbars .properties div.content .property table.value :hover {
+            background-color: #eee; }
           .toolbars .properties div.content .property table.value tbody {
             width: 100%; }
           .toolbars .properties div.content .property table.value.responsive > tbody > tr > td:not(.tabular) {

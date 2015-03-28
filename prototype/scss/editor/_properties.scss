@@ -20,6 +20,12 @@
                 background-color: #ddd;
                 color: #333;
                 padding: 8px;
+				cursor: pointer;
+				@include transition(background-color 150ms);
+            }
+
+			label.value:hover {
+                background-color: #eee;
             }
 
             input.value {
@@ -48,6 +54,10 @@
 				width: 100%;
 				display: table;
 				min-height: 28px;
+
+				:hover {
+                    background-color: #eee;
+                }
 
 				tbody {
 					width: 100%;
