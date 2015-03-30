@@ -14,7 +14,7 @@
         handleStop: function (event, ui) {
             var newParent = ui.item.parent().closest('[data-component-path]');
 
-            var targetPath = (newParent.length == 0)
+            var targetPath = (newParent.length === 0)
                             ? '/' + ui.item.index().toString()
                             : this.combineUrls(newParent.data('component-path'), ui.item.index().toString());
 

@@ -16,7 +16,10 @@
         initialize: function (options) {
             _.bindAll(this, 'render');
             this.amendments = options.amendments;
+            this.uiStateDispatcher = options.uiStateDispatcher;
+
             stateBroker.on('selected', this.handleSelected, this);
+            this.uiStateDispatcher.on('toggle-properties', this.toggleHidden, this);
             stateBroker.on('deselected', this.handleDeselected, this);
         },
 
@@ -82,6 +85,10 @@
             e.preventDefault();
             var componentPath = this.model.get('path');
             this.amendments.duplicateComponent(componentPath);
+        },
+
+        toggleHidden: function () {
+            this.$el.toggleClass('hidden');
         }
     });
 });

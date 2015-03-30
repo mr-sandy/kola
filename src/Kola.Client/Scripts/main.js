@@ -7,7 +7,8 @@
         'backbone-hypermedia': 'backbone-hypermedia-amd',
         handlebars: 'handlebars.min',
         text: 'text',
-        tabbed: 'app/controls/tabbed'
+        tabbed: 'app/controls/tabbed',
+        accordian: 'app/controls/accordian'
     },
     shim: {
         underscore: {

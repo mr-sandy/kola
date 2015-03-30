@@ -37,7 +37,7 @@
             this.$el.html(this.template(this.model.toJSON()));
             this.$el.attr('data-component-path', this.model.get('path'));
 
-            var $list = this.$('ul').first();
+            var $list = this.$('ol').first();
 
             this.model.get('components').each(function (component) {
                 var childView = componentViewFactory.build(component, self.amendmentBroker);
@@ -48,7 +48,7 @@
                 opacity: 0.75,
                 placeholder: 'new',
                 tolerance: 'pointer',
-                connectWith: 'ul',
+                connectWith: 'ol',
                 stop: this.amendmentBroker.handleStop
             });
 

@@ -23,7 +23,7 @@
             'submit': 'submit',
             'click .cancel': 'cancel',
             'keyup': function (e) {
-                if (e.keyCode == 27) {
+                if (e.keyCode === 27) {
                     //Esc 
                     this.cancel();
                 }

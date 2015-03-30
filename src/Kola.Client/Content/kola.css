@@ -53,6 +53,14 @@ body, input, button, select, textarea {
 * {
   box-sizing: border-box; }
 
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
 button {
   outline: none;
   display: block;
@@ -218,6 +226,8 @@ html, body {
     width: 250px; }
     .toolbars .block-editor div.content {
       padding: 10px; }
+      .toolbars .block-editor div.content > ol {
+        height: 100%; }
       .toolbars .block-editor div.content ol {
         min-height: 29px; }
         .toolbars .block-editor div.content ol li {
@@ -232,7 +242,7 @@ html, body {
             border-bottom: 1px solid #ccc; }
           .toolbars .block-editor div.content ol li + li {
             margin-top: 8px; }
-          .toolbars .block-editor div.content ol li.highlighted:not(.selected) {
+          .toolbars .block-editor div.content ol li.active:not(.selected) {
             background-color: rgba(104, 104, 104, 0.8);
             border-color: #fff;
             color: #fff; }

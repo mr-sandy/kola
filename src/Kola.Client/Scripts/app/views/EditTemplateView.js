@@ -10,12 +10,11 @@
     var AmendmentsView = require('app/views/AmendmentsView');
     var PropertiesView = require('app/views/PropertiesView');
     var ToolboxView = require('app/views/ToolboxView');
+    var SidebarView = require('app/views/SidebarView');
 
     var AmendmentBroker = require('app/views/AmendmentBroker');
 
     var Template = require('text!app/templates/EditTemplateTemplate.html');
-
-    require('tabbed');
 
     return Backbone.View.extend({
 
@@ -23,13 +22,20 @@
 
         initialize: function (options) {
 
+            this.uiStateDispatcher = _.clone(Backbone.Events)
+
+            this.sidebarView = new SidebarView({
+                uiStateDispatcher: this.uiStateDispatcher
+            });
+
             this.amendmentsView = new AmendmentsView({
                 collection: this.model.amendments
             });
 
             this.blockEditorView = new BlockEditorView({
                 model: this.model,
-                amendmentBroker: new AmendmentBroker(this.model.amendments)
+                amendmentBroker: new AmendmentBroker(this.model.amendments),
+                uiStateDispatcher: this.uiStateDispatcher
             });
 
             this.wysiwygEditorView = new WysiwygEditorView({
@@ -37,25 +43,42 @@
             });
 
             this.propertiesView = new PropertiesView({
-                amendments: this.model.amendments
+                amendments: this.model.amendments,
+                uiStateDispatcher: this.uiStateDispatcher
             });
 
             this.toolboxView = new ToolboxView({
-                collection: options.componentTypes
+                collection: options.componentTypes,
+                uiStateDispatcher: this.uiStateDispatcher
             });
+
+            this.uiStateDispatcher.on('toggle-tools', this.handleToogleTools, this);
+        },
+
+        events: {
+            'click .show-tools': 'triggerToogleTools'
         },
 
         render: function () {
             this.$el.html(this.template());
-            this.assign(this.amendmentsView, '#amendments');
-            this.assign(this.blockEditorView, '#block-editor');
-            this.assign(this.wysiwygEditorView, '#wysiwyg-editor');
-            this.assign(this.propertiesView, '#properties');
-            this.assign(this.toolboxView, '#toolbox');
 
-            this.$el.find('.tabbed').tabbed();
+            this.assign(this.sidebarView, '.sidebar');
+            this.assign(this.toolboxView, '.toolbars .toolbox');
+            this.assign(this.blockEditorView, '.toolbars .block-editor');
+            this.assign(this.propertiesView, '.toolbars .properties');
+
+            //            this.assign(this.amendmentsView, '#amendments');
+            //            this.assign(this.wysiwygEditorView, '#wysiwyg-editor');
 
             return this;
+        },
+
+        handleToogleTools: function () {
+            this.$('.show-tools').toggleClass('hidden');
+        },
+
+        triggerToogleTools: function () {
+            this.uiStateDispatcher.trigger('toggle-tools');
         }
     });
 });

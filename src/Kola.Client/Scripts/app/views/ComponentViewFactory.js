@@ -10,27 +10,27 @@
         build: function (component, amendmentBroker) {
             var componentType = component.get('type');
 
-            if (componentType == 'atom') {
+            if (componentType === 'atom') {
                 return new AtomView({
                     model: component
                 });
             }
 
-            if (componentType == 'container') {
+            if (componentType === 'container') {
                 return new ContainerView({
                     model: component,
                     amendmentBroker: amendmentBroker
                 });
             }
 
-            if (componentType == 'widget') {
+            if (componentType === 'widget') {
                 return new WidgetView({
                     model: component,
                     amendmentBroker: amendmentBroker
                 });
             }
 
-            if (componentType == 'area') {
+            if (componentType === 'area') {
                 return new AreaView({
                     model: component,
                     amendmentBroker: amendmentBroker

@@ -1,6 +1,13 @@
-﻿<ul>
-{{#each .}}
-    <li class="tool {{ type }}" data-href='{{id}}'>{{name}}</li>
-{{/each}}
-</ul>
-<div class="clear"></div>
+﻿<div class="content">
+    <div class="accordian">
+        <span class="accordian-header no-select">standard<i class="fa fa-chevron-down"></i></span>
+        <div class="accordian-content">
+            {{#each .}}
+            <button type="button" class="tool {{type}}" data-href='{{id}}'><span>{{name}}</span></button>
+            {{/each}}
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <button type="button" class="toolbox-settings"><i class="fa fa-cog fa-lg"></i></button>
+</div>

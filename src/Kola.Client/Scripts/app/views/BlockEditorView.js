@@ -10,7 +10,10 @@
         template: Handlebars.compile(Template),
 
         initialize: function (options) {
+            this.uiStateDispatcher = options.uiStateDispatcher;
             this.amendmentBroker = options.amendmentBroker;
+
+            this.uiStateDispatcher.on('toggle-block-editor', this.toggleHidden, this);
             this.model.on('sync', this.render, this);
         },
 
@@ -21,8 +24,7 @@
 
             this.$el.html(this.template());
 
-
-            var $list = this.$('ul').first();
+            var $list = this.$('ol').first();
 
             this.model.get('components').each(function (component) {
                 var childView = componentViewFactory.build(component, self.amendmentBroker);
@@ -33,11 +35,15 @@
                 opacity: 0.75,
                 placeholder: 'new',
                 tolerance: 'pointer',
-                connectWith: 'ul',
+                connectWith: 'ol',
                 stop: this.amendmentBroker.handleStop
             });
 
             return this;
+        },
+
+        toggleHidden: function () {
+            this.$el.toggleClass('hidden');
         }
     });
 });
