@@ -1,0 +1,32 @@
+
+@import "utility";
+
+.accordian {
+    .accordian-header {
+        display: block;
+        text-transform: uppercase;
+        cursor: pointer;
+		padding: 10px;
+
+        i {
+            float: right;
+            @include transition(all 100ms);
+        }
+
+		&:hover {
+			color: #fff;
+		}
+    }
+    
+    .accordian-content {
+        overflow: hidden;
+    }
+
+    &.collapsed {
+        .accordian-header {
+            i {
+                @include rotate(-90);
+            }
+        }
+    }
+}

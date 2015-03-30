@@ -56,6 +56,7 @@
             base.ConfigureConventions(conventions);
             conventions.StaticContentsConventions.AddDirectory("/Scripts");
             conventions.StaticContentsConventions.AddDirectory("/cdn");
+            conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/fonts", typeof(ClientIdentifier).Assembly, "/fonts"));
             conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Scripts", typeof(ClientIdentifier).Assembly, "/Scripts"));
             conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Content", typeof(ClientIdentifier).Assembly, "/Content"));
 
