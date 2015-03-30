@@ -1,11 +1,7 @@
-﻿<div class="container">
-{{#if name}}
-    <h3>{{type}}: {{name}} </h3>
-    <table>
-        <tbody>
-        </tbody>
-    </table>
-    <button type="button" id="remove">Remove</button>
-    <button type="button" id="duplicate">Duplicate</button>
-{{/if}}
+﻿<div class="content">
+</div>
+<div class="footer">
+    <button type="button" {{#if disabled}}disabled="true"{{/if}} id="remove"><i class="fa fa-trash-o fa-lg"></i></button>
+    <button type="button" {{#if disabled}}disabled="true"{{/if}} id="duplicate"><i class="fa fa-files-o fa-lg"></i></button>
+    <button type="button" class="toolbox-settings"><i class="fa fa-cog fa-lg"></i></button>
 </div>

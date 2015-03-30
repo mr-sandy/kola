@@ -13,117 +13,120 @@
             .name {
 				padding: 8px 0;
                 display: block;
+				text-transform: capitalize;
             }
 
             .value {
-                display: block;
-                background-color: #ddd;
-                color: #333;
-                padding: 8px;
-				cursor: pointer;
-				@include transition(background-color 150ms);
-            }
+				& > *:not(form) {
+                    display: block;
+                    background-color: #ddd;
+                    color: #333;
+                    padding: 8px;
+				    cursor: pointer;
+					min-height: 28px;
+				    @include transition(background-color 150ms);
 
-			label.value:hover {
-                background-color: #eee;
-            }
-
-            input.value {
-                width: 100%;
-                background-color: #fff;
-                border: none;
-                outline: none;
-            }
-
-            select.value {
-                width: 100%;
-                background-color: #fff;
-                border: none;
-                outline: none;
-            }
-
-            textarea.value {
-                width: 100%;
-                background-color: #fff;
-                border: none;
-                outline: none;
-            }
-
-			table.value {
-				padding: 0;
-				width: 100%;
-				display: table;
-				min-height: 28px;
-
-				:hover {
-                    background-color: #eee;
-                }
-
-				tbody {
-					width: 100%;
+			        &:hover {
+                        background-color: #eee;
+                    }
 				}
 
-				&.responsive {
-				    & > tbody {
-					    & > tr {
-					        & > td {
-								&:not(.tabular) {
-                                    padding: 8px;
-								}
+                table {
+                    padding: 0;
+                    width: 100%;
+                    display: table;
+                    min-height: 28px;
 
-							    &:first-child {
-							        width: 36px;
-							        background-color: #555;
-							        color: #eee;
-								    vertical-align: middle;
-						        }
-						    }
+                    :hover {
+                        background-color: #eee;
+                    }
 
-						    & + tr {
-                                border-top: 3px solid #444;
-						    }
-					    }
-				    }
-                }
-			}
+                    tbody {
+                        width: 100%;
+                    }
 
-            table.composite {
-                padding: 0;
-				width: 100%;
+                    &.responsive {
+                        & > tbody {
+                            & > tr {
+                                & > td {
+                                    &:not(.tabular) {
+                                        padding: 8px;
+                                    }
 
-                & > tbody {
-                    & > tr {
-                        & > td {
-                            padding: 8px;
+                                    &:first-child {
+                                        width: 36px;
+                                        background-color: #555;
+                                        color: #eee;
+                                        vertical-align: middle;
+                                    }
+                                }
 
-                            &:first-child {
-                                width: 33%;
-                                background-color: #999;
-                                color: #eee;
-                                vertical-align: middle;
+                                & + tr {
+                                    border-top: 3px solid #444;
+                                }
                             }
                         }
+                    }
 
-                        & + tr {
-                            border-top: 1px solid #bbb;
+                    &.composite {
+                        & > tbody {
+                            & > tr {
+                                & > td {
+                                    padding: 8px;
+
+                                    &:first-child {
+                                        width: 33%;
+                                        background-color: #999;
+                                        color: #eee;
+                                        vertical-align: middle;
+                                    }
+                                }
+
+                                & + tr {
+                                    border-top: 1px solid #bbb;
+                                }
+                            }
                         }
                     }
+				}
+
+                form {
+					& > * {
+                        display: block;
+                        background-color: #ddd;
+                        color: #333;
+                        padding: 8px;
+					    min-height: 28px;
+					}
+
+                    input, select, textarea {
+                        width: 100%;
+                        background-color: #fff;
+                        border: none;
+                        outline: none;
+                    }
                 }
+			}
+        }
+    
+        .property-group {
+            .items {
+                padding: 0 0 10px 0;
+                background-color: #555;
             }
-
         }
-    }
 
-    .property-group {
-        .items {
-            padding: 0 0 10px 0;
-            background-color: #555;
-        }
-    }
-
-    .property + .property,
+        .property + .property,
 		.property + .property-group,
 		.property-group + .property {
-        margin-top: 4px;
+            margin-top: 4px;
+        }
     }
+
+	div.footer {
+	    button#remove, 
+		button#duplicate {
+			float: left;
+		}
+	}
 }

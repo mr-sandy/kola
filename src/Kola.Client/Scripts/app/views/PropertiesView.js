@@ -16,10 +16,11 @@
         initialize: function (options) {
             _.bindAll(this, 'render');
             this.amendments = options.amendments;
+
             this.uiStateDispatcher = options.uiStateDispatcher;
+            this.uiStateDispatcher.on('toggle-properties', this.toggleHidden, this);
 
             stateBroker.on('selected', this.handleSelected, this);
-            this.uiStateDispatcher.on('toggle-properties', this.toggleHidden, this);
             stateBroker.on('deselected', this.handleDeselected, this);
         },
 
@@ -52,23 +53,21 @@
             if (this.model) {
                 this.$el.html(this.template(this.model.toJSON()));
 
-                var $tbody = this.$el.find('tbody').first();
+                var $content = this.$el.find('.content').first();
                 var componentPath = this.model.get('path');
 
                 _.each(this.model.get('properties'), function (property) {
-                    var $row = $tbody.append('<tr></tr>').find('tr').last();
                     var propertyView = new PropertyView({
                         model: property,
-                        el: $row,
                         amendments: self.amendments,
                         componentPath: componentPath
                     });
 
-                    propertyView.render();
+                    $content.append(propertyView.render().$el);
                 });
             }
             else {
-                this.$el.html('');
+                this.$el.html(this.template({ 'disabled': true }));
             }
 
             return this;

@@ -12,6 +12,10 @@
 
         template: Handlebars.compile(Template),
 
+        tagName: 'div',
+
+        className: 'property',
+
         initialize: function (options) {
             this.editMode = false;
             this.amendments = options.amendments;

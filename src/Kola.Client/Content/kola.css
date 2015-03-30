@@ -272,69 +272,67 @@ html, body {
         padding: 0 10px; }
         .toolbars .properties div.content .property .name {
           padding: 8px 0;
-          display: block; }
-        .toolbars .properties div.content .property .value {
+          display: block;
+          text-transform: capitalize; }
+        .toolbars .properties div.content .property .value > *:not(form) {
           display: block;
           background-color: #ddd;
           color: #333;
           padding: 8px;
           cursor: pointer;
+          min-height: 28px;
           -webkit-transition: background-color 150ms;
           transition: background-color 150ms; }
-        .toolbars .properties div.content .property label.value:hover {
-          background-color: #eee; }
-        .toolbars .properties div.content .property input.value {
-          width: 100%;
-          background-color: #fff;
-          border: none;
-          outline: none; }
-        .toolbars .properties div.content .property select.value {
-          width: 100%;
-          background-color: #fff;
-          border: none;
-          outline: none; }
-        .toolbars .properties div.content .property textarea.value {
-          width: 100%;
-          background-color: #fff;
-          border: none;
-          outline: none; }
-        .toolbars .properties div.content .property table.value {
+          .toolbars .properties div.content .property .value > *:not(form):hover {
+            background-color: #eee; }
+        .toolbars .properties div.content .property .value table {
           padding: 0;
           width: 100%;
           display: table;
           min-height: 28px; }
-          .toolbars .properties div.content .property table.value :hover {
+          .toolbars .properties div.content .property .value table :hover {
             background-color: #eee; }
-          .toolbars .properties div.content .property table.value tbody {
+          .toolbars .properties div.content .property .value table tbody {
             width: 100%; }
-          .toolbars .properties div.content .property table.value.responsive > tbody > tr > td:not(.tabular) {
+          .toolbars .properties div.content .property .value table.responsive > tbody > tr > td:not(.tabular) {
             padding: 8px; }
-          .toolbars .properties div.content .property table.value.responsive > tbody > tr > td:first-child {
+          .toolbars .properties div.content .property .value table.responsive > tbody > tr > td:first-child {
             width: 36px;
             background-color: #555;
             color: #eee;
             vertical-align: middle; }
-          .toolbars .properties div.content .property table.value.responsive > tbody > tr + tr {
+          .toolbars .properties div.content .property .value table.responsive > tbody > tr + tr {
             border-top: 3px solid #444; }
-        .toolbars .properties div.content .property table.composite {
-          padding: 0;
-          width: 100%; }
-          .toolbars .properties div.content .property table.composite > tbody > tr > td {
+          .toolbars .properties div.content .property .value table.composite > tbody > tr > td {
             padding: 8px; }
-            .toolbars .properties div.content .property table.composite > tbody > tr > td:first-child {
+            .toolbars .properties div.content .property .value table.composite > tbody > tr > td:first-child {
               width: 33%;
               background-color: #999;
               color: #eee;
               vertical-align: middle; }
-          .toolbars .properties div.content .property table.composite > tbody > tr + tr {
+          .toolbars .properties div.content .property .value table.composite > tbody > tr + tr {
             border-top: 1px solid #bbb; }
-    .toolbars .properties .property-group .items {
-      padding: 0 0 10px 0;
-      background-color: #555; }
-    .toolbars .properties .property + .property,
-    .toolbars .properties .property + .property-group,
-    .toolbars .properties .property-group + .property {
-      margin-top: 4px; }
+        .toolbars .properties div.content .property .value form > * {
+          display: block;
+          background-color: #ddd;
+          color: #333;
+          padding: 8px;
+          min-height: 28px; }
+        .toolbars .properties div.content .property .value form input, .toolbars .properties div.content .property .value form select, .toolbars .properties div.content .property .value form textarea {
+          width: 100%;
+          background-color: #fff;
+          border: none;
+          outline: none; }
+      .toolbars .properties div.content .property-group .items {
+        padding: 0 0 10px 0;
+        background-color: #555; }
+      .toolbars .properties div.content .property + .property,
+      .toolbars .properties div.content .property + .property-group,
+      .toolbars .properties div.content .property-group + .property {
+        margin-top: 4px; }
+    .toolbars .properties div.footer button#remove,
+    .toolbars .properties div.footer button#duplicate {
+      float: left; }
   .toolbars .toolbar {
     float: left;
     height: 100%;
@@ -369,9 +367,11 @@ html, body {
         background-color: transparent;
         -webkit-transition: all 100ms;
         transition: all 100ms; }
-        .toolbars .toolbar .footer button:hover {
+        .toolbars .toolbar .footer button:hover:not(:disabled) {
           color: #fff;
           border: 2px solid #999; }
+        .toolbars .toolbar .footer button:disabled {
+          color: #555; }
     .toolbars .toolbar.hidden.hidden {
       width: 0;
       border-left-width: 0; }
