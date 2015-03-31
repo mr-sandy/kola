@@ -8,6 +8,8 @@
     var Template = require('text!app/templates/PropertyTemplate.html');
     var propertyEditors = require('propertyEditors');
 
+    require('jqueryui');
+
     return Backbone.View.extend({
 
         template: Handlebars.compile(Template),
@@ -86,7 +88,8 @@
         renderEditor: function () {
             if (this.editorView) {
                 this.editorView.render(this.editMode);
-                this.$el.find('input[type=submit]').focus()
+                this.$el.find('input[type=submit]').focus();
+                this.$('form.modal').resizable().draggable();
             }
         },
 

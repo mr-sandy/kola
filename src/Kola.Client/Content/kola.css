@@ -274,7 +274,7 @@ html, body {
           padding: 8px 0;
           display: block;
           text-transform: capitalize; }
-        .toolbars .properties div.content .property .value > *:not(form) {
+        .toolbars .properties div.content .property .value > *:not(form):not(.overlay) {
           display: block;
           background-color: #ddd;
           color: #333;
@@ -283,7 +283,7 @@ html, body {
           min-height: 28px;
           -webkit-transition: background-color 150ms;
           transition: background-color 150ms; }
-          .toolbars .properties div.content .property .value > *:not(form):hover {
+          .toolbars .properties div.content .property .value > *:not(form):not(.overlay):hover {
             background-color: #eee; }
         .toolbars .properties div.content .property .value table {
           padding: 0;
@@ -312,17 +312,96 @@ html, body {
               vertical-align: middle; }
           .toolbars .properties div.content .property .value table.composite > tbody > tr + tr {
             border-top: 1px solid #bbb; }
-        .toolbars .properties div.content .property .value form > * {
+        .toolbars .properties div.content .property .value form:not(.modal) > * {
           display: block;
           background-color: #ddd;
           color: #333;
           padding: 8px;
           min-height: 28px; }
-        .toolbars .properties div.content .property .value form input, .toolbars .properties div.content .property .value form select, .toolbars .properties div.content .property .value form textarea {
+        .toolbars .properties div.content .property .value form:not(.modal) input, .toolbars .properties div.content .property .value form:not(.modal) select, .toolbars .properties div.content .property .value form:not(.modal) textarea {
           width: 100%;
           background-color: #fff;
           border: none;
           outline: none; }
+        .toolbars .properties div.content .property .value form.modal {
+          position: fixed;
+          width: 50%;
+          top: 25%;
+          left: 25%;
+          max-width: 800px;
+          min-width: 320px;
+          min-height: 50%;
+          z-index: 2000;
+          display: block;
+          background-color: #eee;
+          border-radius: 4px;
+          overflow: hidden;
+          box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3); }
+          .toolbars .properties div.content .property .value form.modal div.chrome {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            padding: 10px 20px; }
+          .toolbars .properties div.content .property .value form.modal div.controls {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 20px; }
+            .toolbars .properties div.content .property .value form.modal div.controls input[type=submit],
+            .toolbars .properties div.content .property .value form.modal div.controls button {
+              margin: 0;
+              padding: 6px 8px;
+              min-width: 60px;
+              float: right; }
+            .toolbars .properties div.content .property .value form.modal div.controls input[type=submit] + button,
+            .toolbars .properties div.content .property .value form.modal div.controls input[type=submit] + input[type=submit],
+            .toolbars .properties div.content .property .value form.modal div.controls button + button,
+            .toolbars .properties div.content .property .value form.modal div.controls button + input[type=submit] {
+              margin-right: 10px; }
+            .toolbars .properties div.content .property .value form.modal div.controls:after {
+              content: ' ';
+              display: table;
+              clear: both; }
+          .toolbars .properties div.content .property .value form.modal .ui-resizable-se {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            height: 12px;
+            width: 12px;
+            cursor: se-resize; }
+            .toolbars .properties div.content .property .value form.modal .ui-resizable-se:after {
+              position: absolute;
+              content: '';
+              border-width: 0 2px 2px 0;
+              border-style: solid;
+              border-color: #999;
+              top: 0;
+              left: 0;
+              height: 6px;
+              width: 6px; }
+          .toolbars .properties div.content .property .value form.modal .ui-resizable-e {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 6px;
+            cursor: e-resize; }
+          .toolbars .properties div.content .property .value form.modal .ui-resizable-s {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 6px;
+            cursor: s-resize; }
+        .toolbars .properties div.content .property .value .overlay {
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: 1000; }
       .toolbars .properties div.content .property-group .items {
         padding: 0 0 10px 0;
         background-color: #555; }

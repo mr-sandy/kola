@@ -17,7 +17,7 @@
             }
 
             .value {
-				& > *:not(form) {
+				& > *:not(form):not(.overlay) {
                     display: block;
                     background-color: #ddd;
                     color: #333;
@@ -90,7 +90,7 @@
                     }
 				}
 
-                form {
+                form:not(.modal) {
 					& > * {
                         display: block;
                         background-color: #ddd;
@@ -106,6 +106,9 @@
                         outline: none;
                     }
                 }
+
+				@import "modal";
+
 			}
         }
     

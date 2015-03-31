@@ -314,5 +314,46 @@ Here is some **content.**]]></value>
     <duplicateComponent>
       <componentPath>1/0</componentPath>
     </duplicateComponent>
+    <addComponent>
+      <componentType>label</componentType>
+      <targetPath>1/0</targetPath>
+    </addComponent>
+    <setPropertyFixed>
+      <componentPath>1/0</componentPath>
+      <propertyName>caption</propertyName>
+      <fixedValue><![CDATA[Caption]]></fixedValue>
+    </setPropertyFixed>
+    <addComponent>
+      <componentType>html-script</componentType>
+      <targetPath>0/1</targetPath>
+    </addComponent>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[h1 {
+color: #666;
+}]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[h1 {
+color: #aaa;
+}]]></fixedValue>
+    </setPropertyFixed>
+    <removeComponent>
+      <componentPath>0/1</componentPath>
+    </removeComponent>
+    <addComponent>
+      <componentType>html-style</componentType>
+      <targetPath>0/1</targetPath>
+    </addComponent>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[h1 {
+color: #666;
+}]]></fixedValue>
+    </setPropertyFixed>
   </amendments>
 </template>
