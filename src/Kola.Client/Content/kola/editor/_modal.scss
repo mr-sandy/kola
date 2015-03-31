@@ -21,22 +21,63 @@ form.modal {
 		left: 0;
 		right: 0;
 		top: 0;
-        padding: 10px 20px;
+        padding: 10px 15px;
+		height: 32px;
+		border-bottom: 1px solid #bbb;
+		color: #333;
     }
+
+	div.content {
+        position: absolute;
+		top: 32px;
+		bottom: 60px;
+		left: 0;
+		right: 0;
+		padding: 0;
+	}
 
     div.controls {
         position: absolute;
 		left: 0;
 		right: 0;
 		bottom: 0;
-        padding: 20px;
-        
-        input[type=submit],
-			button {
-            margin: 0;
-            padding: 6px 8px;
+        padding: 15px;
+		height: 60px;
+		border-top: 1px solid #bbb; 
+
+		button, 
+		input[type=submit] {
+			height: 28px;
             min-width: 60px;
-            float: right; 
+			float: right;
+            outline: none;
+            padding: 0 10px;		
+			vertical-align: middle;
+            transition: all 150ms;
+
+            background: transparent;
+            border: 2px solid #bbb;
+            color: #333;
+
+			&:hover {
+				color: #000;
+				border: 2px solid #666;
+			}
+		}
+
+		button {
+        }
+        
+        input[type=submit] {
+            background-color: #ddd;
+//            border: none;
+//            color: #eee;
+//            border-radius: 2px;
+
+			&:hover {
+//				color: #fff;
+                background-color: #ccc;
+			}
         }
 
         input[type=submit] + button, 
@@ -100,4 +141,5 @@ form.modal {
     top: 0;
     left: 0;
     z-index: 1000;
+	background-color: rgba(254,254,254,0.1);
 }

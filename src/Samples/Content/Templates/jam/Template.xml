@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kolacms.com/2013/kola">
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <atom name="markdown">
       <properties>
@@ -354,6 +354,11 @@ color: #aaa;
       <fixedValue><![CDATA[h1 {
 color: #666;
 }]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>1/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Weasels!]]></fixedValue>
     </setPropertyFixed>
   </amendments>
 </template>

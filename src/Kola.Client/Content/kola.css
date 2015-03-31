@@ -342,19 +342,45 @@ html, body {
             left: 0;
             right: 0;
             top: 0;
-            padding: 10px 20px; }
+            padding: 10px 15px;
+            height: 32px;
+            border-bottom: 1px solid #bbb;
+            color: #333; }
+          .toolbars .properties div.content .property .value form.modal div.content {
+            position: absolute;
+            top: 32px;
+            bottom: 60px;
+            left: 0;
+            right: 0;
+            padding: 0; }
           .toolbars .properties div.content .property .value form.modal div.controls {
             position: absolute;
             left: 0;
             right: 0;
             bottom: 0;
-            padding: 20px; }
-            .toolbars .properties div.content .property .value form.modal div.controls input[type=submit],
-            .toolbars .properties div.content .property .value form.modal div.controls button {
-              margin: 0;
-              padding: 6px 8px;
+            padding: 15px;
+            height: 60px;
+            border-top: 1px solid #bbb; }
+            .toolbars .properties div.content .property .value form.modal div.controls button,
+            .toolbars .properties div.content .property .value form.modal div.controls input[type=submit] {
+              height: 28px;
               min-width: 60px;
-              float: right; }
+              float: right;
+              outline: none;
+              padding: 0 10px;
+              vertical-align: middle;
+              transition: all 150ms;
+              background: transparent;
+              border: 2px solid #bbb;
+              color: #333; }
+              .toolbars .properties div.content .property .value form.modal div.controls button:hover,
+              .toolbars .properties div.content .property .value form.modal div.controls input[type=submit]:hover {
+                color: #000;
+                border: 2px solid #666; }
+            .toolbars .properties div.content .property .value form.modal div.controls input[type=submit] {
+              background-color: #ddd; }
+              .toolbars .properties div.content .property .value form.modal div.controls input[type=submit]:hover {
+                background-color: #ccc; }
             .toolbars .properties div.content .property .value form.modal div.controls input[type=submit] + button,
             .toolbars .properties div.content .property .value form.modal div.controls input[type=submit] + input[type=submit],
             .toolbars .properties div.content .property .value form.modal div.controls button + button,
@@ -401,7 +427,8 @@ html, body {
           height: 100%;
           top: 0;
           left: 0;
-          z-index: 1000; }
+          z-index: 1000;
+          background-color: rgba(254, 254, 254, 0.1); }
       .toolbars .properties div.content .property-group .items {
         padding: 0 0 10px 0;
         background-color: #555; }
