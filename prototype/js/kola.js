@@ -58,5 +58,12 @@
             var $self = $(e.target).closest('li');
             $self.toggleClass('selected');
         });
+
+        $('.toolbar .pin').click(function (e) {
+            var $self = $(e.target).closest('button');
+            var $toolbar = $(e.target).closest('.toolbar');
+            $self.toggleClass('selected');
+            $toolbar.toggleClass('pinned');
+        });
     });
 })(jQuery);

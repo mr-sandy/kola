@@ -10,6 +10,10 @@
     div.content {
         padding: 10px;
 
+		& > ol {
+			height: 100%;
+		}
+
 		ol {
 			min-height: $empty-item-height;
 
@@ -33,7 +37,7 @@
 					margin-top: $padding;
 				}
 
-				&.highlighted:not(.selected) {
+				&.active:not(.selected) {
 				    background-color: rgba(104,104,104,0.8);
 				    border-color: #fff;
 				    color: #fff;

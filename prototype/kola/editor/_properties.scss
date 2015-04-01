@@ -17,13 +17,14 @@
             }
 
             .value {
-				& > *:not(form) {
+				& > span,
+				& > label {
                     display: block;
                     background-color: #ddd;
                     color: #333;
                     padding: 8px;
 				    cursor: pointer;
-					min-height: 27px;
+					min-height: 28px;
 				    @include transition(background-color 150ms);
 
 			        &:hover {
@@ -36,6 +37,10 @@
                     width: 100%;
                     display: table;
                     min-height: 28px;
+                    background-color: #ddd;
+                    color: #333;
+				    cursor: pointer;
+				    @include transition(background-color 150ms);
 
                     :hover {
                         background-color: #eee;
@@ -90,13 +95,13 @@
                     }
 				}
 
-                form {
+                form:not(.modal) {
 					& > * {
                         display: block;
                         background-color: #ddd;
                         color: #333;
                         padding: 8px;
-					    min-height: 27px;
+					    min-height: 28px;
 					}
 
                     input, select, textarea {
@@ -106,6 +111,9 @@
                         outline: none;
                     }
                 }
+
+				@import "modal";
+
 			}
         }
     

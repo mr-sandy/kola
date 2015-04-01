@@ -325,10 +325,9 @@ html, body {
           outline: none; }
         .toolbars .properties div.content .property .value form.modal {
           position: fixed;
-          width: 50%;
+          width: 40%;
           top: 25%;
-          left: 25%;
-          max-width: 800px;
+          left: 30%;
           min-width: 320px;
           min-height: 50%;
           z-index: 2000;

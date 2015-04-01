@@ -147,9 +147,13 @@ html, body {
 				background-color: transparent;
 				@include transition(all 100ms);
 
-				&:hover {
+				&:hover:not(:disabled) {
 					color: #fff;
 					border: 2px solid #999;
+				}
+
+				&:disabled {
+					color: #555;
 				}
             }
 		}
