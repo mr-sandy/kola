@@ -33,8 +33,11 @@
 
         template: Handlebars.compile(Template),
 
-        initialize: function () {
+        initialize: function (options) {
             this.selected = null;
+
+            this.uiStateDispatcher = options.uiStateDispatcher;
+            this.uiStateDispatcher.on('toggle-tools', function () { this.$el.toggle(); }, this);
         },
 
         render: function () {

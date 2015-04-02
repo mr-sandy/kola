@@ -13,10 +13,10 @@
 
         template: Handlebars.compile(Template),
 
-        initialize: function () {
+        initialize: function (options) {
             this.listenTo(this.model, 'sync', this.handleSync);
 
-            this.maskView = new MaskView();
+            this.maskView = new MaskView({ uiStateDispatcher: options.uiStateDispatcher });
 
             _.bindAll(this, 'buildChildren');
 
@@ -62,7 +62,7 @@
 
             var $html = this.$('iframe').contents().find('html');
 
-            $html.find('body').append(this.maskView.render().$el)
+            $html.find('body').append(this.maskView.render().$el);
 
             this.destroyChildren();
 

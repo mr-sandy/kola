@@ -25,6 +25,9 @@
                     padding: 8px;
 				    cursor: pointer;
 					min-height: 28px;
+					overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
 				    @include transition(background-color 150ms);
 
 			        &:hover {

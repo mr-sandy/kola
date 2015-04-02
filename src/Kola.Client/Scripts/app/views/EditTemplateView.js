@@ -39,7 +39,8 @@
             });
 
             this.wysiwygEditorView = new WysiwygEditorView({
-                model: this.model
+                model: this.model,
+                uiStateDispatcher: this.uiStateDispatcher
             });
 
             this.propertiesView = new PropertiesView({
@@ -67,9 +68,9 @@
             this.assign(this.toolboxView, '.toolbars .toolbox');
             this.assign(this.blockEditorView, '.toolbars .block-editor');
             this.assign(this.propertiesView, '.toolbars .properties');
+            this.assign(this.wysiwygEditorView, '.preview');
 
             //            this.assign(this.amendmentsView, '#amendments');
-            //            this.assign(this.wysiwygEditorView, '#wysiwyg-editor');
 
             return this;
         }

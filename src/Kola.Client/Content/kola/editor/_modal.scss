@@ -10,7 +10,7 @@ form.modal {
     min-height: 50%;
     z-index: 2000;
     display: block;
-    background-color: #eee;
+    background-color: #ddd;
     border-radius: 4px;
     overflow: hidden; 
 	box-shadow: 0px 2px 10px rgba(0,0,0,0.3);
@@ -60,23 +60,16 @@ form.modal {
 
 			&:hover {
 				color: #000;
-				border: 2px solid #666;
+				border: 2px solid #999;
 			}
 		}
 
-		button {
-        }
-        
         input[type=submit] {
-            background-color: #ddd;
-//            border: none;
-//            color: #eee;
-//            border-radius: 2px;
+            background-color: #eee;
 
-			&:hover {
-//				color: #fff;
-                background-color: #ccc;
-			}
+//			&:hover {
+//                background-color: #ccc;
+//			}
         }
 
         input[type=submit] + button, 
