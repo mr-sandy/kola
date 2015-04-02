@@ -52,11 +52,12 @@
                 uiStateDispatcher: this.uiStateDispatcher
             });
 
-            this.uiStateDispatcher.on('toggle-tools', this.handleToogleTools, this);
+            this.uiStateDispatcher.on('toggle-tools', function () { this.$('.show-tools, .toolbars').toggleClass('hidden'); }, this);
+            this.uiStateDispatcher.on('toggle-pin-toolbars', function () { this.$('.toolbars').toggleClass('pinned'); }, this);
         },
 
         events: {
-            'click .show-tools': 'triggerToogleTools'
+            'click .show-tools': function () { this.uiStateDispatcher.trigger('toggle-tools'); }
         },
 
         render: function () {
@@ -71,14 +72,6 @@
             //            this.assign(this.wysiwygEditorView, '#wysiwyg-editor');
 
             return this;
-        },
-
-        handleToogleTools: function () {
-            this.$('.show-tools').toggleClass('hidden');
-        },
-
-        triggerToogleTools: function () {
-            this.uiStateDispatcher.trigger('toggle-tools');
         }
     });
 });

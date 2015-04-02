@@ -5,14 +5,12 @@
             $('.sidebar').removeClass('hidden');
             $('.toolbars').removeClass('hidden');
             $('.show-tools').addClass('hidden');
-            $('.preview').removeClass('fullscreen');
         });
 
         $('.hide-tools').click(function (e) {
             $('.sidebar').addClass('hidden');
             $('.toolbars').addClass('hidden');
             $('.show-tools').removeClass('hidden');
-            $('.preview').addClass('fullscreen');
         });
 
         $('.toggle-block-editor').click(function (e) {
@@ -59,11 +57,11 @@
             $self.toggleClass('selected');
         });
 
-        $('.toolbar .pin').click(function (e) {
+        $('.sidebar .pin').click(function (e) {
             var $self = $(e.target).closest('button');
-            var $toolbar = $(e.target).closest('.toolbar');
+            var $toolbars = $('.toolbars');
             $self.toggleClass('selected');
-            $toolbar.toggleClass('pinned');
+            $toolbars.toggleClass('pinned');
         });
     });
 })(jQuery);

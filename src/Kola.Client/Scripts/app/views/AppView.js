@@ -56,7 +56,7 @@
                 this.currentView.undelegateEvents();
             }
             this.currentView = view;
-            this.currentView.setElement('#content').render();
+            this.currentView.setElement('.application').render();
         }
     });
 });

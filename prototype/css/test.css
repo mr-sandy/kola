@@ -10,72 +10,70 @@ body {
   left: 0;
   width: 100%;
   height: 100%; }
-  .application .sidepanel {
+  .application .sidebar {
     position: relative;
     height: 100%;
-    float: left; }
-    .application .sidepanel .sidebar {
-      position: relative;
-      height: 100%;
-      width: 50px;
-      background-color: #333;
-      color: #eee;
-      float: left;
-      z-index: 200; }
-      .application .sidepanel .sidebar .primary {
-        padding: 5px; }
-        .application .sidepanel .sidebar .primary button {
-          border: none;
-          color: #eee;
-          background-color: #666;
-          width: 40px;
-          height: 40px;
-          border-radius: 4px;
-          outline: none; }
-          .application .sidepanel .sidebar .primary button + button {
-            margin-top: 8px; }
-          .application .sidepanel .sidebar .primary button.selected {
-            background-color: #20b2aa; }
-      .application .sidepanel .sidebar .footer {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 15px 0; }
-        .application .sidepanel .sidebar .footer button {
-          display: block;
-          outline: none;
-          border: 2px solid transparent;
-          background-color: transparent;
-          padding: 6px 10px;
-          margin: 0 auto;
-          color: #aaa; }
-          .application .sidepanel .sidebar .footer button:hover {
-            border: 2px solid #666; }
-          .application .sidepanel .sidebar .footer button.selected {
-            background-color: #555;
-            color: #ccc; }
-    .application .sidepanel .toolbars {
-      height: 100%;
-      position: absolute;
-      margin-left: 50px; }
-      .application .sidepanel .toolbars.pinned {
-        position: relative; }
-      .application .sidepanel .toolbars .toolbar {
-        height: 100%;
-        background-color: rgba(104, 104, 104, 0.8);
+    width: 50px;
+    background-color: #333;
+    color: #eee;
+    float: left;
+    z-index: 200; }
+    .application .sidebar .primary {
+      padding: 5px; }
+      .application .sidebar .primary button {
+        border: none;
         color: #eee;
-        border-left: 1px solid #aaa;
-        transition: width 100ms;
-        overflow: hidden;
-        width: 200px;
-        text-align: center;
-        z-index: 100;
-        position: relative;
-        float: left; }
-        .application .sidepanel .toolbars .toolbar.hidden {
-          width: 0;
-          border-left: 0; }
+        background-color: #666;
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        outline: none; }
+        .application .sidebar .primary button + button {
+          margin-top: 8px; }
+        .application .sidebar .primary button.selected {
+          background-color: #20b2aa; }
+    .application .sidebar .footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 15px 0; }
+      .application .sidebar .footer button {
+        display: block;
+        outline: none;
+        border: 2px solid transparent;
+        background-color: transparent;
+        padding: 6px 10px;
+        margin: 0 auto;
+        color: #aaa; }
+        .application .sidebar .footer button:hover {
+          border: 2px solid #666; }
+        .application .sidebar .footer button.selected {
+          background-color: #555;
+          color: #ccc; }
+  .application .toolbars {
+    height: 100%;
+    position: absolute;
+    float: left;
+    margin-left: 50px; }
+    .application .toolbars.pinned {
+      position: relative;
+      margin-left: 0; }
+    .application .toolbars .toolbar {
+      height: 100%;
+      background-color: rgba(104, 104, 104, 0.8);
+      color: #eee;
+      border-left: 1px solid #aaa;
+      transition: width 100ms;
+      overflow: hidden;
+      width: 200px;
+      text-align: center;
+      z-index: 100;
+      position: relative;
+      float: left; }
+      .application .toolbars .toolbar.hidden {
+        width: 0;
+        border-left: 0; }
   .application .preview {
     position: relative;
     height: 100%;

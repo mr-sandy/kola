@@ -17,7 +17,8 @@
             }
 
             .value {
-				& > *:not(form):not(.overlay) {
+				& > span,
+				& > label {
                     display: block;
                     background-color: #ddd;
                     color: #333;
@@ -36,6 +37,10 @@
                     width: 100%;
                     display: table;
                     min-height: 28px;
+                    background-color: #ddd;
+                    color: #333;
+				    cursor: pointer;
+				    @include transition(background-color 150ms);
 
                     :hover {
                         background-color: #eee;
@@ -108,7 +113,6 @@
                 }
 
 				@import "modal";
-
 			}
         }
     

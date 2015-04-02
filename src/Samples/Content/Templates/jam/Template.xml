@@ -373,5 +373,10 @@ color: #666;
       <componentType>html-style</componentType>
       <targetPath>1/1</targetPath>
     </addComponent>
+    <setPropertyFixed>
+      <componentPath>1/2</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Weasels! AGain!]]></fixedValue>
+    </setPropertyFixed>
   </amendments>
 </template>

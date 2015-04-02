@@ -51,6 +51,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="test2.htm" />
     <Content Include="css\test.css">
       <DependentUpon>test.scss</DependentUpon>
     </Content>
