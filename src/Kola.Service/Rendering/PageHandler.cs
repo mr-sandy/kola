@@ -40,9 +40,10 @@
                     WidgetSpecificationFinder = n => this.widgetSpecificationRepository.Find(n)
                 };
 
-            var renderingInstructions = preview
-                ? new RenderingInstructions(false, true)
-                : new RenderingInstructions(true, false);
+            var renderingInstructions = new RenderingInstructions(useCache: !preview, annotateComponentPaths: preview);
+            //var renderingInstructions = preview
+            //    ? new RenderingInstructions(false, true)
+            //    : new RenderingInstructions(true, false);
 
             var builder = new Builder(renderingInstructions);
 

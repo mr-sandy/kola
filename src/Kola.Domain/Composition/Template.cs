@@ -1,6 +1,5 @@
 ﻿namespace Kola.Domain.Composition
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -8,11 +7,11 @@
     using Kola.Domain.Composition.Amendments;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Context;
-    using Kola.Domain.Rendering;
 
     public class Template : IComponentCollection
     {
         private readonly List<IAmendment> amendments = new List<IAmendment>();
+        
         private readonly List<IComponent> components = new List<IComponent>();
 
         public Template(IEnumerable<string> path, IEnumerable<IComponent> components = null, IEnumerable<IAmendment> amendments = null)
