@@ -71,6 +71,8 @@ button {
   transition: all 200ms; }
   button.hidden {
     visibility: hidden; }
+  button:disabled {
+    cursor: default; }
 
 .accordian .accordian-header {
   display: block;
@@ -123,9 +125,9 @@ button {
         background-color: transparent; }
         .application .sidebar button.hide-tools:hover {
           color: #fff; }
-    .application .sidebar .primary {
+    .application .sidebar .toggles {
       padding: 8px 0; }
-      .application .sidebar .primary button {
+      .application .sidebar .toggles button {
         border-radius: 4px;
         color: #eee;
         background-color: #789;
@@ -133,25 +135,27 @@ button {
         height: 44px;
         margin: 0 auto;
         padding: 0; }
-        .application .sidebar .primary button:hover {
+        .application .sidebar .toggles button:hover {
           color: #fff;
           background-color: #9fabb7; }
-        .application .sidebar .primary button.selected {
+        .application .sidebar .toggles button.selected {
           color: #eee;
           background-color: #20b2aa; }
-          .application .sidebar .primary button.selected:hover {
+          .application .sidebar .toggles button.selected:hover {
             color: #fff;
             background-color: #62c9c3; }
-        .application .sidebar .primary button + button {
+        .application .sidebar .toggles button + button {
           margin-top: 8px; }
-    .application .sidebar .secondary button {
+    .application .sidebar .amendments button {
       padding: 18px  0;
       color: #eee;
       background-color: #333;
       width: 100%; }
-      .application .sidebar .secondary button:hover {
+      .application .sidebar .amendments button:hover:not(:disabled) {
         color: #fff;
         background-color: #555; }
+      .application .sidebar .amendments button:disabled {
+        color: #555; }
     .application .sidebar .footer {
       padding: 10px;
       position: absolute;

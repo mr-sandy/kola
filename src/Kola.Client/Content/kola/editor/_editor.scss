@@ -38,7 +38,7 @@
 	        }
 		}
 
-	    .primary {
+	    .toggles {
 		    padding: 8px 0;
 
             button {
@@ -71,16 +71,20 @@
             }
 	    }
 
-	    .secondary {
+	    .amendments {
             button {
 			    padding: 18px  0;
                 color: #eee;
                 background-color: #333;
                 width: 100%;
 
-                &:hover {
+                &:hover:not(:disabled) {
                     color: #fff;
                     background-color: #555;
+                }
+
+                &:disabled {
+                    color: #555;
                 }
             }
 	    }

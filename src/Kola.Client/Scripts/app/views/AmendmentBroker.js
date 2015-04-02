@@ -26,7 +26,7 @@
             else {
                 var sourcePath = ui.item.attr('data-component-path');
 
-                if (sourcePath != targetPath) {
+                if (sourcePath !== targetPath) {
                     this.amendments.moveComponent(sourcePath, targetPath);
                 }
             }

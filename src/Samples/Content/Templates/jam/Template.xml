@@ -1,457 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kolacms.com/2013/kola">
   <components>
-    <atom name="markdown">
+    <container name="html-head">
+      <properties />
+      <components>
+        <atom name="html-metadata">
+          <properties>
+            <property name="httpEquiv" type="text">
+              <value xsi:type="fixed"><![CDATA[afasfasf]]></value>
+            </property>
+            <property name="content" type="text">
+              <value xsi:type="fixed"><![CDATA[asfasf]]></value>
+            </property>
+            <property name="charset" type="text">
+              <value xsi:type="fixed"><![CDATA[asfasf]]></value>
+            </property>
+            <property name="name" type="text">
+              <value xsi:type="fixed"><![CDATA[asfasfa]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-style">
+          <properties>
+            <property name="content" type="multiline-text">
+              <value xsi:type="fixed"><![CDATA[h1 {
+color: #666;
+}]]></value>
+            </property>
+          </properties>
+        </atom>
+      </components>
+    </container>
+    <container name="html-body">
       <properties>
-        <property name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[#Hello there
-
-Here is some **content.**]]></value>
+        <property name="classes" type="text">
+          <value xsi:type="fixed"><![CDATA[asf]]></value>
         </property>
       </properties>
-    </atom>
-    <atom name="label">
-      <properties>
-        <property name="caption" type="text">
-          <value xsi:type="fixed"><![CDATA[Wowzer]]></value>
-        </property>
-      </properties>
-    </atom>
-  </components>
-  <amendments>
-    <addComponent>
-      <componentType>html-style</componentType>
-      <targetPath>1</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>html-script</componentType>
-      <targetPath>3</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>text</componentType>
-      <targetPath>4</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>label</componentType>
-      <targetPath>2</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>html-title</componentType>
-      <targetPath>6</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>html-script</componentType>
-      <targetPath>7</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>html-head</componentType>
-      <targetPath>7</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>html-script</componentType>
-      <targetPath>7/0</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>html-body</componentType>
-      <targetPath>9</targetPath>
-    </addComponent>
-    <moveComponent>
-      <sourcePath>8</sourcePath>
-      <targetPath>9/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>7/0</sourcePath>
-      <targetPath>8/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>6</sourcePath>
-      <targetPath>7/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>5</sourcePath>
-      <targetPath>7/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>3</sourcePath>
-      <targetPath>6/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>2</sourcePath>
-      <targetPath>5/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>3/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>3/4</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>2/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/3</sourcePath>
-      <targetPath>1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/3</sourcePath>
-      <targetPath>1/1</targetPath>
-    </moveComponent>
-    <duplicateComponent>
-      <componentPath>1/3</componentPath>
-    </duplicateComponent>
-    <duplicateComponent>
-      <componentPath>1/2</componentPath>
-    </duplicateComponent>
-    <removeComponent>
-      <componentPath>1/2</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>1/3</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>1/3</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>1/3</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>1/3</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>1/3</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>1/1</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>1/0</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>1</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>0/0</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>0/0</componentPath>
-    </removeComponent>
-    <addComponent>
-      <componentType>html-body</componentType>
-      <targetPath>1</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>markdown</componentType>
-      <targetPath>1/0</targetPath>
-    </addComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <addComponent>
-      <componentType>html-metadata</componentType>
-      <targetPath>0/0</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[*add content here*afsfasf]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>1</componentPath>
-      <propertyName>classes</propertyName>
-      <fixedValue><![CDATA[asf]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0</componentPath>
-      <propertyName>httpEquiv</propertyName>
-      <fixedValue><![CDATA[sdsdgsdgsdg]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0</componentPath>
-      <propertyName>httpEquiv</propertyName>
-      <fixedValue><![CDATA[afasfasf]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[asfasf]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0</componentPath>
-      <propertyName>charset</propertyName>
-      <fixedValue><![CDATA[asfasf]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0</componentPath>
-      <propertyName>name</propertyName>
-      <fixedValue><![CDATA[asfasfa]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Badgers!]]></fixedValue>
-    </setPropertyFixed>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>0/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <addComponent>
-      <componentType>html-style</componentType>
-      <targetPath>1</targetPath>
-    </addComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>2/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/1</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>2</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>2</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>2</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>2</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>2/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/1</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>2/0</sourcePath>
-      <targetPath>3</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>3</targetPath>
-    </moveComponent>
-    <addComponent>
-      <componentType>html-head</componentType>
-      <targetPath>4</targetPath>
-    </addComponent>
-    <removeComponent>
-      <componentPath>4</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>3</componentPath>
-    </removeComponent>
-    <moveComponent>
-      <sourcePath>2</sourcePath>
-      <targetPath>1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>2</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>2</sourcePath>
-      <targetPath>1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>2</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>2</sourcePath>
-      <targetPath>1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>2</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>2</sourcePath>
-      <targetPath>1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>2</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>2</sourcePath>
-      <targetPath>1/0</targetPath>
-    </moveComponent>
-    <duplicateComponent>
-      <componentPath>1/0</componentPath>
-    </duplicateComponent>
-    <duplicateComponent>
-      <componentPath>1/0</componentPath>
-    </duplicateComponent>
-    <addComponent>
-      <componentType>label</componentType>
-      <targetPath>1/0</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>1/0</componentPath>
-      <propertyName>caption</propertyName>
-      <fixedValue><![CDATA[Caption]]></fixedValue>
-    </setPropertyFixed>
-    <addComponent>
-      <componentType>html-script</componentType>
-      <targetPath>0/1</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[h1 {
-color: #666;
-}]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[h1 {
-color: #aaa;
-}]]></fixedValue>
-    </setPropertyFixed>
-    <removeComponent>
-      <componentPath>0/1</componentPath>
-    </removeComponent>
-    <addComponent>
-      <componentType>html-style</componentType>
-      <targetPath>0/1</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[h1 {
-color: #666;
-}]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>1/1</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Weasels!]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>1/3</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Badgers!
-
-#Badgers!
-
-#Badgers!]]></fixedValue>
-    </setPropertyFixed>
-    <addComponent>
-      <componentType>html-style</componentType>
-      <targetPath>1/1</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>1/2</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Weasels! AGain!]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>1/2</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Weasels! Again!]]></fixedValue>
-    </setPropertyFixed>
-    <addComponent>
-      <componentType>label</componentType>
-      <targetPath>1/0</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>1/0</componentPath>
-      <propertyName>caption</propertyName>
-      <fixedValue><![CDATA[I am not a label]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>1/5</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##Badgers!
+      <components>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[#Badgers!]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="label">
+          <properties>
+            <property name="caption" type="text">
+              <value xsi:type="fixed"><![CDATA[I am not a label]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[##Badgers!
 
 ###Badgers!
 
-####Badgers!]]></fixedValue>
-    </setPropertyFixed>
-    <removeComponent>
-      <componentPath>1/2</componentPath>
-    </removeComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>1/2</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/3</sourcePath>
-      <targetPath>1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/0</sourcePath>
-      <targetPath>1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/2</sourcePath>
-      <targetPath>1/1</targetPath>
-    </moveComponent>
-    <duplicateComponent>
-      <componentPath>1/4</componentPath>
-    </duplicateComponent>
-    <removeComponent>
-      <componentPath>1/5</componentPath>
-    </removeComponent>
-    <duplicateComponent>
-      <componentPath>1/4</componentPath>
-    </duplicateComponent>
-    <duplicateComponent>
-      <componentPath>1/4</componentPath>
-    </duplicateComponent>
-    <duplicateComponent>
-      <componentPath>1/1</componentPath>
-    </duplicateComponent>
-    <moveComponent>
-      <sourcePath>1/1</sourcePath>
-      <targetPath>1/7</targetPath>
-    </moveComponent>
-    <setPropertyFixed>
-      <componentPath>1/1</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##Weasels!!]]></fixedValue>
-    </setPropertyFixed>
-    <moveComponent>
-      <sourcePath>1/1</sourcePath>
-      <targetPath>1/4</targetPath>
-    </moveComponent>
-    <setPropertyFixed>
-      <componentPath>1/4</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[Markdown: Syntax
+####Badgers!
+
+#Monkeys!!]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="label">
+          <properties>
+            <property name="caption" type="text">
+              <value xsi:type="fixed"><![CDATA[Caption]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[Markdown: Syntax
 ================
 
 <ul id="ProjectSubmenu">
@@ -1347,7 +971,41 @@ Markdown provides backslash escapes for the following characters:
 	-	minus sign (hyphen)
     .   dot
     !   exclamation mark
-]]></fixedValue>
-    </setPropertyFixed>
-  </amendments>
+]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[##Badgers!
+
+###Badgers!
+
+####Badgers!]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[##Badgers!
+
+###Badgers!
+
+####Badgers!]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[#Weasels! Again!]]></value>
+            </property>
+          </properties>
+        </atom>
+      </components>
+    </container>
+  </components>
+  <amendments />
 </template>

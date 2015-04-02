@@ -12,4 +12,8 @@ button {
 	&.hidden {
 		visibility: hidden;
 	}
+
+	&:disabled {
+		cursor: default;
+	}
 }

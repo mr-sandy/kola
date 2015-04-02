@@ -2,15 +2,14 @@
 {
     using System.Linq;
 
-    using Kola.Domain.Composition;
-    using Kola.Domain.Extensions;
-    using Kola.Persistence;
-    using Kola.Resources;
-
     using global::Nancy;
     using global::Nancy.ModelBinding;
 
+    using Kola.Domain.Composition;
+    using Kola.Domain.Extensions;
     using Kola.Nancy.Extensions;
+    using Kola.Persistence;
+    using Kola.Resources;
     using Kola.Service.DomainBuilding;
     using Kola.Service.ResourceBuilding;
 
@@ -44,7 +43,10 @@
         {
             var template = this.templateRepository.Get(templatePath.ParsePath());
 
-            if (template == null) return HttpStatusCode.NotFound;
+            if (template == null)
+            {
+                return HttpStatusCode.NotFound;
+            }
 
             template.ApplyAmendments(this.componentLibrary);
 
@@ -62,7 +64,10 @@
             var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
-            if (template == null) return HttpStatusCode.NotFound;
+            if (template == null)
+            {
+                return HttpStatusCode.NotFound;
+            }
 
             var resource = new AmendmentResourceBuilder().Build(template.Amendments, template.Path);
 
@@ -77,7 +82,10 @@
             var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
-            if (template == null) return HttpStatusCode.NotFound;
+            if (template == null)
+            {
+                return HttpStatusCode.NotFound;
+            }
 
             template.ApplyAmendments(this.componentLibrary);
 
@@ -128,7 +136,10 @@
             var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
-            if (template == null) return HttpStatusCode.NotFound;
+            if (template == null)
+            {
+                return HttpStatusCode.NotFound;
+            }
 
             template.AddAmendment(amendment);
 
@@ -149,7 +160,10 @@
             var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
-            if (template == null) return HttpStatusCode.NotFound;
+            if (template == null)
+            {
+                return HttpStatusCode.NotFound;
+            }
 
             template.ApplyAmendments(this.componentLibrary, reset: true);
 
@@ -166,26 +180,21 @@
             var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
 
-            if (template == null) return HttpStatusCode.NotFound;
+            if (template == null)
+            {
+                return HttpStatusCode.NotFound;
+            }
 
-            var lastAmendment = template.UndoAmendment();
+            template.UndoAmendment();
 
             this.templateRepository.Update(template);
 
             template.ApplyAmendments(this.componentLibrary);
 
-            //var rootComponentIndex = (lastAmendment == null)
-            //                             ? Enumerable.Empty<int>()
-            //                             : lastAmendment.GetSubjects();
-
-            var rootComponentIndex = Enumerable.Empty<int>();   
-
-            var snippet = template.FindComponent(rootComponentIndex);
-
-            var resource = new ComponentResourceBuilder().Build(snippet, rootComponentIndex, Enumerable.Empty<string>());
+            this.templateRepository.Update(template);
 
             return this.Negotiate
-                .WithModel(resource)
+                .WithModel(new { jam = "biscuits" })
                 .WithAllowedMediaRange("application/json")
                 .WithStatusCode(HttpStatusCode.Created);
         }

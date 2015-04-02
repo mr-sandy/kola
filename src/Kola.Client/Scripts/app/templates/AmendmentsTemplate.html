@@ -1,5 +1,5 @@
-﻿<div class="container">
-    <h3>Amendments</h3>
-    <span>{{count}}</span>
-    <button type="button" id="apply">Apply</button>
-</div>
+﻿<button type="button" {{#unless hasAmendments}}disabled="true"{{/unless}}class="apply"><i class="fa fa-save fa-lg"></i></button>
+<button type="button" {{#unless hasAmendments}}disabled="true"{{/unless}}class="undo"><i class="fa fa-undo fa-lg"></i></button>
+<button type="button" disabled="true" class="cut"><i class="fa fa-cut fa-lg"></i></button>
+<button type="button" disabled="true" class="copy"><i class="fa fa-copy fa-lg"></i></button>
+<button type="button" disabled="true" class="paste"><i class="fa fa-paste fa-lg"></i></button>

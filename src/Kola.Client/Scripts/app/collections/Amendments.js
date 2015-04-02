@@ -75,6 +75,15 @@
             amendment.save().then(function () { self.fetch({ reset: true }); });
         },
 
+        undoAmendment: function () {
+            var self = this;
+            var amendment = new Amendment();
+
+            amendment.url = this.combineUrls(this.url, 'undo');
+
+            amendment.save().then(function () { self.fetch({ reset: true }); });
+        },
+
         setProperty: function (event) {
             var amendment = new Amendment({
                 componentPath: event.componentPath,

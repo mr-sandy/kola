@@ -16,12 +16,13 @@
         },
 
         events: {
-            'click #apply': 'apply'
+            'click .apply': 'apply',
+            'click .undo': 'undo'
         },
 
         render: function () {
             var context = _.extend(this.collection.toJSON(),
-                { count: this.collection.length }
+                { hasAmendments: this.collection.length > 0 }
             );
 
             this.$el.html(this.template(context));
@@ -30,6 +31,10 @@
 
         apply: function (e) {
             this.collection.applyAmendments();
+        },
+
+        undo: function() {
+            this.collection.undoAmendment();
         }
     });
 });

@@ -77,9 +77,12 @@
             this.components.RemoveAt(index);
         }
 
-        public IAmendment UndoAmendment()
+        public void UndoAmendment()
         {
-            throw new NotImplementedException();
+            if (this.amendments.Any())
+            {
+                this.amendments.RemoveAt(this.amendments.Count() - 1);
+            }
         }
 
         public PageInstance Build(IBuilder builder, IBuildContext buildContext)

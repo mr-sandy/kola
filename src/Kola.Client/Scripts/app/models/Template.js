@@ -37,7 +37,7 @@
         },
 
         findChild: function (candidate, componentPath) {
-            if (componentPath.length == 0 || componentPath[0] == '') {
+            if (componentPath.length === 0 || componentPath[0] === '') {
                 return candidate;
             }
 
