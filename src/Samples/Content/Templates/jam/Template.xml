@@ -61,7 +61,9 @@ color: #666;
 
 ####Badgers!
 
-#Monkeys!!]]></value>
+#Monkeys!!
+
+]]></value>
             </property>
           </properties>
         </atom>
@@ -1007,5 +1009,82 @@ Markdown provides backslash escapes for the following characters:
       </components>
     </container>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[h1 {
+color: #456;
+}]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>1/2</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>

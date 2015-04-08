@@ -89,7 +89,7 @@
             if (this.editorView) {
                 this.editorView.render(this.editMode);
                 this.$el.find('input[type=submit]').focus();
-                this.$('form.modal').resizable().draggable();
+                this.$('form.modal').resizable().draggable({ delay: 100 });
             }
         },
 

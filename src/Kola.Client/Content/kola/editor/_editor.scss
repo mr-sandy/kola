@@ -122,7 +122,6 @@
 
     .toolbars {
         z-index: 101;
-	    overflow: hidden;
 	    color: #eee;
         height: 100%;
         position: absolute;
@@ -135,6 +134,7 @@
         }
 
         &.hidden {
+			overflow: hidden;
             margin-left: 0;
             width: 0;
         }
@@ -161,7 +161,7 @@
 			    border-left-width: 0;
 		    }
 		    
-		    .content {
+		    & > .content {
 			    position: absolute;
 			    top: 0;
 			    bottom: 60px;
@@ -170,7 +170,7 @@
 			    overflow-y: auto;
 		    }
 
-		    .footer { 
+		    & > .footer { 
 			    padding: 10px;
 			    position: absolute;
 			    left: 0; 
