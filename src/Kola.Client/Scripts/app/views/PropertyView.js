@@ -37,14 +37,18 @@
         },
 
         render: function () {
-            var self = this;
-
             var context = _.extend(this.model, { editMode: this.editMode });
 
             this.$el.html(this.template(context));
             var $editorElement = this.$el.find('.value').last();
 
             this.loadEditor($editorElement).then($.proxy(this.renderEditor, this));
+
+            if (this.model.value.type === 'fixed' && this.model.value.value === '' && !this.editMode) {
+                this.$el.addClass('unset');
+            } else {
+                this.$el.removeClass('unset');
+            }
 
             return this;
         },

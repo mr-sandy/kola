@@ -310,6 +310,8 @@ button {
             padding: 8px 0;
             display: block;
             text-transform: capitalize; }
+          .application .toolbars .properties div.content .property.unset .value {
+            display: none; }
           .application .toolbars .properties div.content .property .value > span, .application .toolbars .properties div.content .property .value > label {
             display: block;
             background-color: #ddd;

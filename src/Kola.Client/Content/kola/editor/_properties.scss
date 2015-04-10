@@ -16,6 +16,12 @@
 				text-transform: capitalize;
             }
 
+			&.unset {
+				.value {
+					display: none;
+				}
+			}
+
             .value {
 				& > span,
 				& > label {

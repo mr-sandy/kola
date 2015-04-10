@@ -6003,5 +6003,45 @@ Markdown provides backslash escapes for the following characters:
       <propertyName>text</propertyName>
       <fixedValue><![CDATA[arsebiscuits]]></fixedValue>
     </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <propertyName>cache-buster</propertyName>
+      <fixedValue><![CDATA[jam]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <propertyName>cache-buster</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <propertyName>cache-buster</propertyName>
+      <fixedValue><![CDATA[badger]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <propertyName>cache-buster</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <propertyName>media</propertyName>
+      <fixedValue><![CDATA[hello]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <propertyName>media</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
   </amendments>
 </template>
