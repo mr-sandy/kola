@@ -66,11 +66,8 @@
         },
 
         ensureVisible: function ($el) {
-            var offsetTop = $el.position().top;
-            var parent = $el.offsetParent();
-            var scrollTop = parent.scrollTop() + offsetTop - 50;
-
-            parent.animate({ scrollTop: scrollTop }, 500);
+            var scrollTop = $el.position().top;
+            $el.closest('div.content').animate({ scrollTop: scrollTop }, 500);
         }
     });
 });
