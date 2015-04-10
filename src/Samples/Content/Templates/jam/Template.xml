@@ -6043,5 +6043,15 @@ Markdown provides backslash escapes for the following characters:
       <propertyName>type</propertyName>
       <fixedValue><![CDATA[]]></fixedValue>
     </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>1/1</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
   </amendments>
 </template>
