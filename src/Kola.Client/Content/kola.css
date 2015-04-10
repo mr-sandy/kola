@@ -224,6 +224,12 @@ button {
             padding: 2px;
             border: 2px solid transparent;
             border-radius: 2px; }
+          .application .toolbars .toolbox div.content .accordian .accordian-content button.atom span {
+            background-color: rgba(178, 32, 40, 0.2); }
+          .application .toolbars .toolbox div.content .accordian .accordian-content button.container span {
+            background-color: rgba(32, 113, 178, 0.2); }
+          .application .toolbars .toolbox div.content .accordian .accordian-content button.widget span {
+            background-color: rgba(178, 97, 32, 0.2); }
           .application .toolbars .toolbox div.content .accordian .accordian-content button:hover {
             color: #fff; }
             .application .toolbars .toolbox div.content .accordian .accordian-content button:hover span {
@@ -254,44 +260,52 @@ button {
       width: 250px; }
       .application .toolbars .block-editor div.content {
         padding: 10px; }
-        .application .toolbars .block-editor div.content > ol {
-          height: 100%; }
-        .application .toolbars .block-editor div.content ol {
-          min-height: 29px; }
-          .application .toolbars .block-editor div.content ol li {
-            border: 1px solid #ccc;
-            background-color: rgba(102, 102, 102, 0);
-            -webkit-transition: background-color 100ms;
-            transition: background-color 100ms; }
-            .application .toolbars .block-editor div.content ol li span {
-              display: block;
-              padding: 8px; }
-            .application .toolbars .block-editor div.content ol li.container > span, .application .toolbars .block-editor div.content ol li.widget > span, .application .toolbars .block-editor div.content ol li.area > span {
-              border-bottom: 1px solid #ccc; }
-            .application .toolbars .block-editor div.content ol li + li {
-              margin-top: 8px; }
-            .application .toolbars .block-editor div.content ol li.active:not(.selected) {
-              background-color: rgba(104, 104, 104, 0.8);
-              border-color: #fff;
-              color: #fff; }
-            .application .toolbars .block-editor div.content ol li.selected {
-              border-color: #fff;
-              color: #fff; }
-              .application .toolbars .block-editor div.content ol li.selected.atom {
-                background-color: rgba(178, 32, 40, 0.5); }
-              .application .toolbars .block-editor div.content ol li.selected.container {
-                background-color: rgba(32, 113, 178, 0.5); }
-              .application .toolbars .block-editor div.content ol li.selected.widget {
-                background-color: rgba(178, 97, 32, 0.5); }
-            .application .toolbars .block-editor div.content ol li ol {
-              padding: 8px; }
-            .application .toolbars .block-editor div.content ol li.new {
-              padding: 8px;
-              border: 1px dashed #ccc;
-              background-color: rgba(204, 204, 204, 0.8);
-              min-height: 29px; }
-          .application .toolbars .block-editor div.content ol.components > li {
-            cursor: pointer; }
+        .application .toolbars .block-editor div.content .holder {
+          position: relative; }
+          .application .toolbars .block-editor div.content .holder > ol {
+            height: 100%; }
+          .application .toolbars .block-editor div.content .holder ol {
+            min-height: 29px; }
+            .application .toolbars .block-editor div.content .holder ol li {
+              border: 1px solid #ccc;
+              background-color: rgba(102, 102, 102, 0);
+              -webkit-transition: background-color 100ms;
+              transition: background-color 100ms; }
+              .application .toolbars .block-editor div.content .holder ol li span {
+                display: block;
+                padding: 8px; }
+              .application .toolbars .block-editor div.content .holder ol li.container > span, .application .toolbars .block-editor div.content .holder ol li.widget > span, .application .toolbars .block-editor div.content .holder ol li.area > span {
+                border-bottom: 1px solid #ccc; }
+              .application .toolbars .block-editor div.content .holder ol li + li {
+                margin-top: 8px; }
+              .application .toolbars .block-editor div.content .holder ol li.active:not(.selected) {
+                background-color: rgba(104, 104, 104, 0.8);
+                border-color: #fff;
+                color: #fff; }
+              .application .toolbars .block-editor div.content .holder ol li.atom {
+                background-color: rgba(178, 32, 40, 0.2); }
+              .application .toolbars .block-editor div.content .holder ol li.container {
+                background-color: rgba(32, 113, 178, 0.2); }
+              .application .toolbars .block-editor div.content .holder ol li.widget {
+                background-color: rgba(178, 97, 32, 0.2); }
+              .application .toolbars .block-editor div.content .holder ol li.selected {
+                border-color: #fff;
+                color: #fff; }
+                .application .toolbars .block-editor div.content .holder ol li.selected.atom {
+                  background-color: rgba(178, 32, 40, 0.5); }
+                .application .toolbars .block-editor div.content .holder ol li.selected.container {
+                  background-color: rgba(32, 113, 178, 0.5); }
+                .application .toolbars .block-editor div.content .holder ol li.selected.widget {
+                  background-color: rgba(178, 97, 32, 0.5); }
+              .application .toolbars .block-editor div.content .holder ol li ol {
+                padding: 8px; }
+              .application .toolbars .block-editor div.content .holder ol li.new {
+                padding: 8px;
+                border: 1px dashed #ccc;
+                background-color: rgba(204, 204, 204, 0.8);
+                min-height: 29px; }
+            .application .toolbars .block-editor div.content .holder ol.components > li {
+              cursor: pointer; }
     .application .toolbars .properties {
       width: 250px; }
       .application .toolbars .properties div.content {

@@ -36,9 +36,8 @@
         },
 
         handleSelected: function (component) {
-            var self = this;
 
-            if (this.selected != null && this.selected != component) {
+            if (this.selected != null && this.selected !== component) {
                 this.selected.deselect();
             }
 
@@ -46,15 +45,14 @@
         },
 
         handleDeselected: function (component) {
-            var self = this;
 
-            if (this.selected == component) {
-                this.selected == null;
+            if (this.selected === component) {
+                this.selected = null;
             }
         },
 
         handleActive: function (component) {
-            if (this.active != null && this.active != component) {
+            if (this.active != null && this.active !== component) {
                 this.active.deactivate();
             }
 

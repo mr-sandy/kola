@@ -40,6 +40,24 @@
 					    border-radius: 2px;		
                     }
 
+                    &.atom {
+                        span {
+                            background-color: rgba(178, 32, 40, 0.2);
+                        }
+                    }
+
+                    &.container {
+                        span {
+                            background-color: rgba(32, 113, 178, 0.2);
+                        }
+                    }
+
+                    &.widget {
+                        span {
+                            background-color: rgba(178, 97, 32, 0.2);
+                        }
+                    }
+
 				    &:hover {
                         color: #fff;
 

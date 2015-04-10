@@ -10,72 +10,88 @@
     div.content {
         padding: 10px;
 
-		& > ol {
-			height: 100%;
-		}
+		.holder {
+			position: relative;
 
-		ol {
-			min-height: $empty-item-height;
+		    & > ol {
+			    height: 100%;
+		    }
 
-			li {
-				border: 1px solid #ccc;
-                background-color: rgba(102,102,102,0);
-				@include transition(background-color 100ms);
+		    ol {
+			    min-height: $empty-item-height;
 
-				span {
-				    display: block;
-				    padding: $padding;
-				}
+			    li {
+				    border: 1px solid #ccc;
+                    background-color: rgba(102,102,102,0);
+				    @include transition(background-color 100ms);
 
-				&.container > span,
+				    span {
+				        display: block;
+				        padding: $padding;
+				    }
+
+				    &.container > span,
 				&.widget > span,
 				&.area > span {
-					border-bottom: 1px solid #ccc;
-				}
+					    border-bottom: 1px solid #ccc;
+				    }
 
-				& + li {
-					margin-top: $padding;
-				}
+				    & + li {
+					    margin-top: $padding;
+				    }
 
-				&.active:not(.selected) {
-				    background-color: rgba(104,104,104,0.8);
-				    border-color: #fff;
-				    color: #fff;
-				}
-
-				&.selected {
-				    border-color: #fff;
-				    color: #fff;
+				    &.active:not(.selected) {
+				        background-color: rgba(104,104,104,0.8);
+				        border-color: #fff;
+				        color: #fff;
+				    }
 
                     &.atom {
-                        background-color: rgba(178, 32, 40, 0.5);
+                        background-color: rgba(178, 32, 40, 0.2);
                     }
 
                     &.container {
-                        background-color: rgba(32, 113, 178, 0.5);
+                        background-color: rgba(32, 113, 178, 0.2);
                     }
 
                     &.widget {
-                        background-color: rgba(178, 97, 32, 0.5);
+                        background-color: rgba(178, 97, 32, 0.2);
                     }
-				}
+
+				    &.selected {
+				        border-color: #fff;
+				        color: #fff;
+
+                        &.atom {
+                            background-color: rgba(178, 32, 40, 0.5);
+                        }
+
+                        &.container {
+                            background-color: rgba(32, 113, 178, 0.5);
+                        }
+
+                        &.widget {
+                            background-color: rgba(178, 97, 32, 0.5);
+                        }
+				    }
 
 
-				ol {
-					padding: $padding;
-				}
+				    ol {
+					    padding: $padding;
+				    }
 
-				&.new {
-				    padding: $padding;
-					border: 1px dashed #ccc;
-					background-color: rgba(204,204,204, 0.8);
-                    min-height: $empty-item-height;
-				}
-			}
+				    &.new {
+				        padding: $padding;
+					    border: 1px dashed #ccc;
+					    background-color: rgba(204,204,204, 0.8);
+                        min-height: $empty-item-height;
+				    }
+			    }
 
-			&.components > li {
-				cursor: pointer;
-			}
+			    &.components > li {
+				    cursor: pointer;
+			    }
+	        }
 	    }
-	}
+    }
 }
