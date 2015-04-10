@@ -282,12 +282,6 @@ button {
                 background-color: rgba(104, 104, 104, 0.8);
                 border-color: #fff;
                 color: #fff; }
-              .application .toolbars .block-editor div.content .holder ol li.atom {
-                background-color: rgba(178, 32, 40, 0.2); }
-              .application .toolbars .block-editor div.content .holder ol li.container {
-                background-color: rgba(32, 113, 178, 0.2); }
-              .application .toolbars .block-editor div.content .holder ol li.widget {
-                background-color: rgba(178, 97, 32, 0.2); }
               .application .toolbars .block-editor div.content .holder ol li.selected {
                 border-color: #fff;
                 color: #fff; }

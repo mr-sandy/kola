@@ -5998,5 +5998,10 @@ Markdown provides backslash escapes for the following characters:
       <componentType>markdown</componentType>
       <targetPath>1/36</targetPath>
     </addComponent>
+    <setPropertyFixed>
+      <componentPath>1/1</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[arsebiscuits]]></fixedValue>
+    </setPropertyFixed>
   </amendments>
 </template>
