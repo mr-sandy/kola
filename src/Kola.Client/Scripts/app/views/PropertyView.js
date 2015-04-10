@@ -92,8 +92,13 @@
         renderEditor: function () {
             if (this.editorView) {
                 this.editorView.render(this.editMode);
-                this.$el.find('input[type=submit]').focus();
                 this.$('form.modal').resizable().draggable({ delay: 100 });
+
+                // Ow! Ow! This stinks so badly it hurts
+                var $editorEl = this.editorView.$el;
+                setTimeout(function() {
+                    $editorEl.find('input, select, textarea').first().focus();
+                }, 100);
             }
         },
 
