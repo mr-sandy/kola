@@ -60,7 +60,6 @@
     <Compile Include="Modules\AcceptHeaderFilters.cs" />
     <Compile Include="Modules\AdminModule.cs" />
     <Compile Include="Modules\ComponentTypeModule.cs" />
-    <Compile Include="Modules\PropertyTypeModule.cs" />
     <Compile Include="Modules\RenderingModule.cs" />
     <Compile Include="Modules\RenderQuery.cs" />
     <Compile Include="Modules\TemplateModule.cs" />

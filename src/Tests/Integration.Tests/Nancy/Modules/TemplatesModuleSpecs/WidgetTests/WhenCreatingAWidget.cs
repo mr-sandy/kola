@@ -6,6 +6,7 @@
     using Kola.Domain.Composition;
 
     using global::Nancy;
+    using global::Nancy.Testing;
 
     using NUnit.Framework;
 
@@ -18,7 +19,8 @@
         {
             var widgetName = "widgetName";
 
-            this.Response = this.Browser.Put(string.Format("/_kola/widgets/{0}", widgetName));
+            this.Response = this.Browser.Put(string.Format("/_kola/widgets/{0}", widgetName),
+                context => context.Accept("application/json"));
         }
 
         [Test]

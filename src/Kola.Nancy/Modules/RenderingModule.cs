@@ -16,9 +16,9 @@
         public RenderingModule(IPageHandler pageHandler)
         {
             this.pageHandler = pageHandler;
-            this.Get["/", AcceptHeaderFilters.Html] = p => this.GetPage();
-            this.Get["/(.*)", AcceptHeaderFilters.Html] = p => this.GetPage();
-            this.Get["/{path*}", AcceptHeaderFilters.Html] = p => this.GetPage();
+            this.Get["/"] = p => this.GetPage();
+            this.Get["/(.*)"] = p => this.GetPage();
+            this.Get["/{path*}"] = p => this.GetPage();
         }
 
         // TODO {SC} This should renamed GetContent; the pageHandler should be a content handler, 
@@ -40,16 +40,17 @@
                 var visitor = new ComponentFindingComponentInstanceVisitor();
                 var fragment = visitor.Find(page, query.ComponentPath.ParseComponentPath());
 
-                return this
-                    .Negotiate
-                    .WithModel(fragment)
-                    .WithView("Fragment");
+                return this.View["Fragment", fragment];
+                //return this
+                //    .Negotiate
+                //    .WithModel(fragment)
+                //    .WithView("Fragment");
             }
 
-            var result = this
-                .Negotiate
-                .WithModel(page)
-                .WithView("Page");
+            var result = this.View["Page", page];
+                //.Negotiate
+                //.WithModel(page)
+                //.WithView("Page");
 
             return query.IsPreview
                 ? result.WithHeader("Cache-Control", "no-cache")
