@@ -2,7 +2,7 @@
 @import "../utility";
 
 .block-editor {
-    $padding: 8px;
+    $margin: 8px;
 	$empty-item-height: 29px;
 
 	width: 250px;
@@ -27,17 +27,17 @@
 
 				    span {
 				        display: block;
-				        padding: $padding;
+				        padding: $margin;
 				    }
 
 				    &.container > span,
-				&.widget > span,
-				&.area > span {
+					&.widget > span,
+					&.area > span {
 					    border-bottom: 1px solid #ccc;
 				    }
 
 				    & + li {
-					    margin-top: $padding;
+					    margin-top: $margin;
 				    }
 
 				    &.active:not(.selected) {
@@ -45,18 +45,6 @@
 				        border-color: #fff;
 				        color: #fff;
 				    }
-//
-//                    &.atom {
-//                        background-color: rgba(178, 32, 40, 0.2);
-//                    }
-//
-//                    &.container {
-//                        background-color: rgba(32, 113, 178, 0.2);
-//                    }
-//
-//                    &.widget {
-//                        background-color: rgba(178, 97, 32, 0.2);
-//                    }
 
 				    &.selected {
 				        border-color: #fff;
@@ -77,11 +65,11 @@
 
 
 				    ol {
-					    padding: $padding;
+					    margin: $margin;
 				    }
 
 				    &.new {
-				        padding: $padding;
+					    margin: $margin;
 					    border: 1px dashed #ccc;
 					    background-color: rgba(204,204,204, 0.8);
                         min-height: $empty-item-height;

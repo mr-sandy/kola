@@ -292,9 +292,9 @@ button {
                 .application .toolbars .block-editor div.content .holder ol li.selected.widget {
                   background-color: rgba(178, 97, 32, 0.5); }
               .application .toolbars .block-editor div.content .holder ol li ol {
-                padding: 8px; }
+                margin: 8px; }
               .application .toolbars .block-editor div.content .holder ol li.new {
-                padding: 8px;
+                margin: 8px;
                 border: 1px dashed #ccc;
                 background-color: rgba(204, 204, 204, 0.8);
                 min-height: 29px; }

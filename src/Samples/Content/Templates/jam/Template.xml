@@ -41,12 +41,369 @@ color: #456;
         <atom name="markdown">
           <properties>
             <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[#Badgers!]]></value>
+              <value xsi:type="fixed"><![CDATA[##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+]]></value>
             </property>
           </properties>
         </atom>
+        <atom name="label">
+          <properties />
+        </atom>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="label">
+          <properties />
+        </atom>
         <atom name="text">
           <properties />
+        </atom>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="markdown">
+          <properties />
+        </atom>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+]]></value>
+            </property>
+          </properties>
         </atom>
         <atom name="label">
           <properties>
@@ -1620,426 +1977,7 @@ color: #456;
         <atom name="markdown">
           <properties>
             <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-]]></value>
-            </property>
-          </properties>
-        </atom>
-        <atom name="markdown">
-          <properties>
-            <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-]]></value>
-            </property>
-          </properties>
-        </atom>
-        <atom name="markdown">
-          <properties>
-            <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-]]></value>
-            </property>
-          </properties>
-        </atom>
-        <atom name="markdown">
-          <properties>
-            <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-]]></value>
-            </property>
-          </properties>
-        </atom>
-        <atom name="markdown">
-          <properties>
-            <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-]]></value>
-            </property>
-          </properties>
-        </atom>
-        <atom name="markdown">
-          <properties>
-            <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-##Badgers!
-
-###Badgers!
-
-####Badgers!
-
-#Monkeys!!
-
-]]></value>
+              <value xsi:type="fixed"><![CDATA[*add content here*]]></value>
             </property>
           </properties>
         </atom>
@@ -2330,7 +2268,85 @@ color: #456;
         <atom name="label">
           <properties>
             <property name="caption" type="text">
-              <value xsi:type="fixed"><![CDATA[Caption]]></value>
+              <value xsi:type="fixed"><![CDATA[fkasjhlfjahskjfhalksjfhajshflkajshflkjaslkjf]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+##Badgers!
+
+###Badgers!
+
+####Badgers!
+
+#Monkeys!!
+
+]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[*add content here*]]></value>
             </property>
           </properties>
         </atom>
@@ -4137,6 +4153,13 @@ Markdown provides backslash escapes for the following characters:
     .   dot
     !   exclamation mark
 ]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="fixed"><![CDATA[*add content here*]]></value>
             </property>
           </properties>
         </atom>
@@ -5985,86 +6008,5 @@ Markdown provides backslash escapes for the following characters:
       </components>
     </container>
   </components>
-  <amendments>
-    <addComponent>
-      <componentType>markdown</componentType>
-      <targetPath>1/38</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>markdown</componentType>
-      <targetPath>1/30</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>markdown</componentType>
-      <targetPath>1/36</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[arsebiscuits]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <propertyName>cache-buster</propertyName>
-      <fixedValue><![CDATA[jam]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <propertyName>cache-buster</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <propertyName>cache-buster</propertyName>
-      <fixedValue><![CDATA[badger]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <propertyName>cache-buster</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <propertyName>type</propertyName>
-      <fixedValue><![CDATA[text/css]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <propertyName>media</propertyName>
-      <fixedValue><![CDATA[hello]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <propertyName>media</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1</componentPath>
-      <propertyName>type</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
-    </setPropertyFixed>
-    <moveComponent>
-      <sourcePath>1/4</sourcePath>
-      <targetPath>1/3</targetPath>
-    </moveComponent>
-    <setPropertyFixed>
-      <componentPath>1/37</componentPath>
-      <propertyName>caption</propertyName>
-      <fixedValue><![CDATA[fkasjhlfjahskjfhalksjfhajshflkajshflkjaslkjf]]></fixedValue>
-    </setPropertyFixed>
-    <moveComponent>
-      <sourcePath>1/37</sourcePath>
-      <targetPath>1/35</targetPath>
-    </moveComponent>
-  </amendments>
+  <amendments />
 </template>
