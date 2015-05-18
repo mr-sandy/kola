@@ -32,11 +32,7 @@ color: #456;
       </components>
     </container>
     <container name="html-body">
-      <properties>
-        <property name="classes" type="text">
-          <value xsi:type="fixed"><![CDATA[asf]]></value>
-        </property>
-      </properties>
+      <properties />
       <components>
         <atom name="markdown">
           <properties>
@@ -2268,7 +2264,7 @@ color: #456;
         <atom name="label">
           <properties>
             <property name="caption" type="text">
-              <value xsi:type="fixed"><![CDATA[fkasjhlfjahskjfhalksjfhajshflkajshflkjaslkjf]]></value>
+              <value xsi:type="fixed"><![CDATA[asfasf]]></value>
             </property>
           </properties>
         </atom>
