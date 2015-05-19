@@ -63,6 +63,21 @@
                         }
 				    }
 
+					& > span {
+					    & > i.collapse {
+						    float: right;
+                            @include transition(all 100ms);
+					    }
+					}
+
+					&.collapsed {
+					    & > span {
+					        & > i.collapse {
+                                @include rotate(-90);
+                            }
+					    }
+					}
+
 
 				    ol {
 					    margin: $margin;

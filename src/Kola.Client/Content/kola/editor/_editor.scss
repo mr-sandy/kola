@@ -182,7 +182,7 @@
 
 			    button {
 				    color: #999;
-                    float: right;
+                    float: left;
                     height: 36px;
                     width: 36px;
 				    border: 2px solid transparent;
@@ -197,6 +197,10 @@
 				    &:disabled {
 					    color: #555;
 				    }
+
+					&.toolbox-settings {
+						float: right;
+					}
                 }
 		    }
         }

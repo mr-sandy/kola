@@ -61,5 +61,14 @@
         {
             throw new NotImplementedException();
         }
+
+        public AmendmentSurrogate Visit(SetCommentAmendment amendment)
+        {
+            return new SetCommentAmendmentSurrogate
+            {
+                ComponentPath = amendment.ComponentPath.ToComponentPathString(),
+                Comment = amendment.Comment
+            };
+        }
     }
 }

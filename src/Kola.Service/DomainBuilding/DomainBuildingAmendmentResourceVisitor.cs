@@ -32,5 +32,10 @@
         {
             return new SetPropertyFixedAmendment(resource.ComponentPath.ParseComponentPath(), resource.PropertyName, resource.Value);
         }
+
+        public IAmendment Visit(SetCommentAmendmentResource resource)
+        {
+            return new SetCommentAmendment(resource.ComponentPath.ParseComponentPath(), resource.Comment);
+        }
     }
 }

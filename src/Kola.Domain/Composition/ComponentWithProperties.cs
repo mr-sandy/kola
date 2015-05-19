@@ -29,6 +29,8 @@
             get { return this.properties; }
         }
 
+        public string Comment { get; set; }
+
         public Property FindOrCreateProperty(PropertySpecification specification)
         {
             var property = this.properties.Find(specification.Name);

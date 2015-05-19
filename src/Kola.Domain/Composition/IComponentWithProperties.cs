@@ -14,6 +14,8 @@
 
         void RemoveProperty(Property property);
 
+        string Comment { get; set; }
+
         // TODO 2015 - we need to do three things:
         // 1. Create properties with dfault value on initial creation of component
         // 2. Allow new and existing parameters to have values set

@@ -11,5 +11,7 @@
         T Visit(DuplicateComponentAmendmentSurrogate amendment);
 
         T Visit(SetPropertyFixedAmendmentSurrogate amendment);
+
+        T Visit(SetCommentAmendmentSurrogate amendment);
     }
 }

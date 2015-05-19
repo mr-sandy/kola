@@ -45,22 +45,11 @@
   <ItemGroup>
     <Compile Include="Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Renderers\MarkdownRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <EmbeddedResource Include="Views\HtmlBody.cshtml" />
-    <EmbeddedResource Include="Views\Text.cshtml" />
-    <EmbeddedResource Include="Views\HtmlHead.cshtml" />
-    <EmbeddedResource Include="Views\HtmlIeConditional.cshtml" />
-    <EmbeddedResource Include="Views\HtmlMetadata.cshtml" />
-    <EmbeddedResource Include="Views\HtmlScript.cshtml" />
-    <EmbeddedResource Include="Views\HtmlStyle.cshtml" />
-    <EmbeddedResource Include="Views\HtmlTitle.cshtml" />
-    <EmbeddedResource Include="Views\Label.cshtml" />
-    <EmbeddedResource Include="Views\Markdown.cshtml" />
-    <EmbeddedResource Include="Editors\css\editor.scss" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="Views\Div.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -74,38 +63,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\css\editor.css">
-      <DependentUpon>editor.scss</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\css\editor.min.css">
-      <DependentUpon>editor.scss</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\BooleanEditorTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\MarkdownEditorTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\NumberEditorTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\TextEditorTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\views\BooleanEditorView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\views\MarkdownEditorView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\views\NumberEditorView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Editors\views\TextEditorView.js" />
+    <Folder Include="Editors\css\" />
+    <Folder Include="Editors\templates\" />
+    <Folder Include="Editors\views\" />
+    <Folder Include="Renderers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

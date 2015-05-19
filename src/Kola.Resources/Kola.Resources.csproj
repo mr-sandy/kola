@@ -58,6 +58,7 @@
     <Compile Include="PropertyTypeResource.cs" />
     <Compile Include="PropertyValueResource.cs" />
     <Compile Include="RemoveComponentAmendmentResource.cs" />
+    <Compile Include="SetCommentAmendmentResource.cs" />
     <Compile Include="SetPropertyAmendmentResource.cs" />
     <Compile Include="TemplateResource.cs" />
     <Compile Include="WidgetResource.cs" />

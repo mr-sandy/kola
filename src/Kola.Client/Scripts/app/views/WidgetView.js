@@ -26,7 +26,8 @@
         events: {
             'mouseover': 'handleMouseover',
             'mouseout': 'handleMouseout',
-            'click': 'handleClick'
+            'click': 'handleClick',
+            'click i.collapse': 'toggle'
         },
 
         render: function () {
@@ -34,7 +35,7 @@
 
             var componentViewFactory = require('app/views/ComponentViewFactory');
 
-            this.$el.html(this.template(this.model.toJSON()));
+            this.$el.html(this.template(_.extend(this.model.toJSON(), { collapsed: this.collapsed })));
             this.$el.attr('data-component-path', this.model.get('path'));
 
             this.model.get('areas').each(function (component) {
@@ -58,6 +59,13 @@
         handleClick: function (e) {
             e.stopPropagation();
             this.model.toggleSelected();
+        },
+
+        toggle: function (e) {
+            e.stopPropagation();
+            this.collapsed = !this.collapsed || false;
+            this.$el.children('.area').slideToggle(100);
+            this.$el.toggleClass('collapsed');
         },
 
         showActive: function () {

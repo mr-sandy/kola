@@ -62,6 +62,7 @@
     <Compile Include="Surrogates\Amendments\IAmendmentSurrogateVisitor.cs" />
     <Compile Include="Surrogates\Amendments\MoveComponentAmendmentSurrogate.cs" />
     <Compile Include="Surrogates\Amendments\RemoveComponentAmendmentSurrogate.cs" />
+    <Compile Include="Surrogates\Amendments\SetCommentAmendmentSurrogate.cs" />
     <Compile Include="Surrogates\Amendments\SetPropertyFixedAmendmentSurrogate.cs" />
     <Compile Include="Surrogates\AreaSurrogate.cs" />
     <Compile Include="Surrogates\AtomSurrogate.cs" />

@@ -1,5 +1,7 @@
 ﻿namespace Kola.Nancy.Modules
 {
+    using System.Linq;
+
     using Kola.Domain.Composition;
 
     using global::Nancy;
@@ -20,7 +22,7 @@
         {
             var componentTypes = this.componentLibrary.FindAll();
 
-            var resource = new ComponentTypeResourceBuilder().Build(componentTypes);
+            var resource = new ComponentTypeResourceBuilder().Build(componentTypes).OrderBy(c => c.Type).ThenBy(c => c.Name);
 
             return this.Negotiate
                 .WithModel(resource)

@@ -218,6 +218,10 @@
       <Project>{61B22E63-05EB-4479-9033-B7A37D62EEF0}</Project>
       <Name>Kola.Plugins.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Sample.Plugin\Sample.Plugin.csproj">
+      <Project>{09961085-2828-421C-BFCD-8F6A6102B464}</Project>
+      <Name>Sample.Plugin</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">

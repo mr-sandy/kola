@@ -30,7 +30,7 @@
         handleRoute: function (handler, args) {
             var self = this;
 
-            this.closeCurrentView()
+            this.closeCurrentView();
 
             this.showView(new LoadingView());
 
@@ -47,7 +47,7 @@
         closeCurrentView: function () {
             if (this.currentView) {
                 this.currentView.setElement('');
-                return this.currentView.remove();
+                this.currentView.remove();
             }
         },
 

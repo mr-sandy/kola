@@ -2,26 +2,21 @@
 {
     using System.Collections.Generic;
 
-    using Kola.Domain.Extensions;
-
-    public class AddComponentAmendment : IAmendment
+    public class SetCommentAmendment : IAmendment
     {
-        public AddComponentAmendment(IEnumerable<int> targetPath, string componentName)
+        public SetCommentAmendment(IEnumerable<int> componentPath, string comment)
         {
-            this.ComponentName = componentName;
-            this.TargetPath = targetPath;
+            this.ComponentPath = componentPath;
+            this.Comment = comment;
         }
 
-        public string ComponentName { get; private set; }
+        public IEnumerable<int> ComponentPath { get; private set; }
 
-        public IEnumerable<int> TargetPath { get; internal set; }
+        public string Comment { get; private set; }
 
         public IEnumerable<IEnumerable<int>> SubjectPaths
         {
-            get
-            {
-                yield return this.TargetPath.TakeAllButLast();
-            }
+            get { yield return this.ComponentPath; }
         }
 
         public void Accept(IAmendmentVisitor visitor)

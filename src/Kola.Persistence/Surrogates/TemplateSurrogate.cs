@@ -19,6 +19,7 @@
         [XmlArrayItem(typeof(RemoveComponentAmendmentSurrogate))]
         [XmlArrayItem(typeof(DuplicateComponentAmendmentSurrogate))]
         [XmlArrayItem(typeof(SetPropertyFixedAmendmentSurrogate))]
+        [XmlArrayItem(typeof(SetCommentAmendmentSurrogate))]
         public AmendmentSurrogate[] Amendments { get; set; }
 
     }

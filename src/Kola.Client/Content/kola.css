@@ -291,6 +291,19 @@ button {
                   background-color: rgba(32, 113, 178, 0.5); }
                 .application .toolbars .block-editor div.content .holder ol li.selected.widget {
                   background-color: rgba(178, 97, 32, 0.5); }
+              .application .toolbars .block-editor div.content .holder ol li > span > i.collapse {
+                float: right;
+                -webkit-transition: all 100ms;
+                transition: all 100ms; }
+              .application .toolbars .block-editor div.content .holder ol li.collapsed > span > i.collapse {
+                -webkit-transform: rotate(-90deg);
+                -moz-transform: rotate(-90deg);
+                -ms-transform: rotate(-90deg);
+                -o-transform: rotate(-90deg);
+                transform: rotate(-90deg);
+                filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(-90), M12=0-sin(-90), M21=sin(-90), M22=cos(-90));
+                -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(-90), M12=0-sin(-90), M21=sin(-90), M22=cos(-90))";
+                zoom: 1; }
               .application .toolbars .block-editor div.content .holder ol li ol {
                 margin: 8px; }
               .application .toolbars .block-editor div.content .holder ol li.new {
@@ -478,9 +491,6 @@ button {
         .application .toolbars .properties div.content .property + .property-group,
         .application .toolbars .properties div.content .property-group + .property {
           margin-top: 4px; }
-      .application .toolbars .properties div.footer button#remove,
-      .application .toolbars .properties div.footer button#duplicate {
-        float: left; }
     .application .toolbars .toolbar {
       float: left;
       height: 100%;
@@ -509,7 +519,7 @@ button {
         background-color: rgba(51, 51, 51, 0.8); }
         .application .toolbars .toolbar > .footer button {
           color: #999;
-          float: right;
+          float: left;
           height: 36px;
           width: 36px;
           border: 2px solid transparent;
@@ -521,6 +531,8 @@ button {
             border: 2px solid #999; }
           .application .toolbars .toolbar > .footer button:disabled {
             color: #555; }
+          .application .toolbars .toolbar > .footer button.toolbox-settings {
+            float: right; }
     .application .toolbars ::-webkit-scrollbar {
       height: 9px;
       width: 9px;

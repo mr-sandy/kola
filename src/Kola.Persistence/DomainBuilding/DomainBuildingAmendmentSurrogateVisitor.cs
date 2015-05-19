@@ -32,5 +32,10 @@
         {
             return new SetPropertyFixedAmendment(surrogate.ComponentPath.ParseComponentPath(), surrogate.PropertyName, surrogate.FixedValue);
         }
+
+        public IAmendment Visit(SetCommentAmendmentSurrogate surrogate)
+        {
+            return new SetCommentAmendment(surrogate.ComponentPath.ParseComponentPath(), surrogate.Comment);
+        }
     }
 }

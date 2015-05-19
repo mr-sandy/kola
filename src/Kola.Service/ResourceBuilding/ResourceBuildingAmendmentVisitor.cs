@@ -81,6 +81,16 @@
             throw new NotImplementedException();
         }
 
+        public AmendmentResource Visit(SetCommentAmendment amendment, int index)
+        {
+            return new SetCommentAmendmentResource
+            {
+                ComponentPath = amendment.ComponentPath.ToComponentPathString(),
+                Comment = amendment.Comment,
+                Links = this.BuildLinks(amendment.SubjectPaths, index)
+            };
+        }
+
         private IEnumerable<LinkResource> BuildLinks(IEnumerable<IEnumerable<int>> subjectPaths, int index)
         {
             var path = this.templatePath.Concat(new[] { "_amendments", index.ToString() }).ToHttpPath();

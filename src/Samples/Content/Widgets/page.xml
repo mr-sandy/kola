@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<widgetSpecification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+  <propertySpecifications />
+    <components>
+    <container name="html-head">
+      <properties />
+      <components>
+        <atom name="html-metadata">
+          <properties>
+            <property name="httpEquiv" type="text">
+              <value xsi:type="fixed"><![CDATA[afasfasf]]></value>
+            </property>
+            <property name="content" type="text">
+              <value xsi:type="fixed"><![CDATA[asfasf]]></value>
+            </property>
+            <property name="charset" type="text">
+              <value xsi:type="fixed"><![CDATA[asfasf]]></value>
+            </property>
+            <property name="name" type="text">
+              <value xsi:type="fixed"><![CDATA[asfasfa]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-style">
+          <properties>
+            <property name="content" type="multiline-text">
+              <value xsi:type="fixed">
+                <![CDATA[h1 {
+color: #456;
+}]]>
+              </value>
+            </property>
+          </properties>
+        </atom>
+        <placeholder name="header" />
+      </components>
+    </container>
+    <container name="html-body">
+      <properties />
+      <components>
+        <placeholder name="content" />
+        <placeholder name="scripts" />
+      </components>
+    </container>
+  </components>
+</widgetSpecification>

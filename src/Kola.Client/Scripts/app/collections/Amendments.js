@@ -96,6 +96,19 @@
             this.add(amendment);
 
             amendment.save();
+        },
+
+        setComment: function (event) {
+            var amendment = new Amendment({
+                componentPath: event.componentPath,
+                comment: event.comment
+            });
+
+            amendment.url = this.combineUrls(this.url, 'setComment');
+
+            this.add(amendment);
+
+            amendment.save();
         }
     });
 });

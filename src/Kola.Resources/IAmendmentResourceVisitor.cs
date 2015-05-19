@@ -11,5 +11,7 @@
         T Visit(DuplicateComponentAmendmentResource resource);
 
         T Visit(SetPropertyAmendmentResource resource);
+
+        T Visit(SetCommentAmendmentResource resource);
     }
 }

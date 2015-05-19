@@ -48,6 +48,7 @@
     <Compile Include="Composition\Amendments\IAmendmentVisitor.cs" />
     <Compile Include="Composition\Amendments\MoveComponentAmendment.cs" />
     <Compile Include="Composition\Amendments\RemoveComponentAmendment.cs" />
+    <Compile Include="Composition\Amendments\SetCommentAmendment.cs" />
     <Compile Include="Composition\Amendments\SetPropertyFixedAmendment.cs" />
     <Compile Include="Composition\Amendments\SetPropertyInheritedAmendment.cs" />
     <Compile Include="Composition\Amendments\SetPropertyMultilingualAmendment.cs" />

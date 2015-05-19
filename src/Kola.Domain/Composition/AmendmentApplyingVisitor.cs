@@ -87,5 +87,12 @@
             var component = this.template.FindComponentWithProperties(amendment.ComponentPath);
             var specification = this.specificationLibrary.Lookup(component.Name);
         }
+
+        public void Visit(SetCommentAmendment amendment)
+        {
+            var component = this.template.FindComponentWithProperties(amendment.ComponentPath);
+            
+            component.Comment = amendment.Comment;
+        }
     }
 }
