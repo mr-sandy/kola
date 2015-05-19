@@ -1,185 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.kolacms.com/2013/kola">
   <components>
-    <container name="html-head">
+    <widget name="page">
       <properties />
-      <components>
-        <atom name="html-metadata">
-          <properties>
-            <property name="httpEquiv" type="text">
-              <value xsi:type="fixed"><![CDATA[afasfasf]]></value>
-            </property>
-            <property name="content" type="text">
-              <value xsi:type="fixed"><![CDATA[asfasf]]></value>
-            </property>
-            <property name="charset" type="text">
-              <value xsi:type="fixed"><![CDATA[asfasf]]></value>
-            </property>
-            <property name="name" type="text">
-              <value xsi:type="fixed"><![CDATA[asfasfa]]></value>
-            </property>
-          </properties>
-        </atom>
-        <atom name="html-style">
-          <properties>
-            <property name="content" type="multiline-text">
-              <value xsi:type="fixed"><![CDATA[h1 {
-color: #456;
-}]]></value>
-            </property>
-          </properties>
-        </atom>
-      </components>
-    </container>
-    <container name="html-body">
-      <properties />
-      <components />
-    </container>
-  </components>
-  <amendments>
-    <removeComponent>
-      <componentPath>0</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>0</componentPath>
-    </removeComponent>
-    <addComponent>
-      <componentType>page</componentType>
-      <targetPath>0</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>markdown</componentType>
-      <targetPath>0/0/0</targetPath>
-    </addComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>0/1/0</targetPath>
-    </moveComponent>
-    <addComponent>
-      <componentType>html-style</componentType>
-      <targetPath>0/0/0</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>0/0/0</componentPath>
-      <propertyName>type</propertyName>
-      <fixedValue><![CDATA[text/css]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[.red {
-border: 1px solid red;
-}]]></fixedValue>
-    </setPropertyFixed>
-    <addComponent>
-      <componentType>div</componentType>
-      <targetPath>0/1/0</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>0/1/0</componentPath>
-      <propertyName>classes</propertyName>
-      <fixedValue><![CDATA[red]]></fixedValue>
-    </setPropertyFixed>
-    <moveComponent>
-      <sourcePath>0/1/1</sourcePath>
-      <targetPath>0/1/0/0</targetPath>
-    </moveComponent>
-    <setPropertyFixed>
-      <componentPath>0/1/0/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Badgers!]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[.red {
-border: 4px solid #24680b;
-}]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[body {
-font-family: arial;
-}
-.red {
-border: 4px solid #24680b;
-}]]></fixedValue>
-    </setPropertyFixed>
-    <duplicateComponent>
-      <componentPath>0/1/0/0</componentPath>
-    </duplicateComponent>
-    <setPropertyFixed>
-      <componentPath>0/1/0/1</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##weasels]]></fixedValue>
-    </setPropertyFixed>
-    <duplicateComponent>
-      <componentPath>0/1/0/1</componentPath>
-    </duplicateComponent>
-    <duplicateComponent>
-      <componentPath>0/1/0/1</componentPath>
-    </duplicateComponent>
-    <setPropertyFixed>
-      <componentPath>0/1/0/2</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##fishcake]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1/0/3</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##otters]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[body {
-  font-family: arial;
-}
-
-.red {
-  border: 4px solid #24680b;
-  padding: 10px;
-}]]></fixedValue>
-    </setPropertyFixed>
-    <duplicateComponent>
-      <componentPath>0/1/0</componentPath>
-    </duplicateComponent>
-    <moveComponent>
-      <sourcePath>0/1/1</sourcePath>
-      <targetPath>0/1/0/4</targetPath>
-    </moveComponent>
-    <removeComponent>
-      <componentPath>0/1/0/3</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>0/1/0/2</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>0/1/0/2/0</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>0/1/0/2/0</componentPath>
-    </removeComponent>
-    <setPropertyFixed>
-      <componentPath>0/0/0</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[body {
-  font-family: arial;
-}
-
-.red {
-  border: 4px solid #24680b;
-  padding: 40px;
-}]]></fixedValue>
-    </setPropertyFixed>
-    <duplicateComponent>
-      <componentPath>0/1/0</componentPath>
-    </duplicateComponent>
-    <setPropertyFixed>
-      <componentPath>0/0/0</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[body {
+      <areas>
+        <area name="header">
+          <components>
+            <atom name="html-style">
+              <properties>
+                <property name="type" type="html-style-type">
+                  <value xsi:type="fixed"><![CDATA[text/css]]></value>
+                </property>
+                <property name="content" type="multiline-text">
+                  <value xsi:type="fixed"><![CDATA[body {
   font-family: arial;
 }
 
@@ -191,45 +24,118 @@ border: 4px solid #24680b;
 .red + .red {
   margin-top: 40px;
 }
-]]></fixedValue>
-    </setPropertyFixed>
+]]></value>
+                </property>
+              </properties>
+            </atom>
+          </components>
+        </area>
+        <area name="content">
+          <components>
+            <container name="div">
+              <properties>
+                <property name="classes" type="text">
+                  <value xsi:type="fixed"><![CDATA[red]]></value>
+                </property>
+              </properties>
+              <components>
+                <atom name="markdown">
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[#Badgers!]]></value>
+                    </property>
+                  </properties>
+                </atom>
+                <atom name="markdown">
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[##stoats]]></value>
+                    </property>
+                  </properties>
+                </atom>
+                <container name="div">
+                  <properties>
+                    <property name="classes" type="text">
+                      <value xsi:type="fixed"><![CDATA[red]]></value>
+                    </property>
+                  </properties>
+                  <components>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##fishcakes]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##otters]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                  </components>
+                </container>
+              </components>
+            </container>
+            <container name="div">
+              <properties>
+                <property name="classes" type="text">
+                  <value xsi:type="fixed"><![CDATA[red]]></value>
+                </property>
+              </properties>
+              <components>
+                <atom name="markdown">
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[#Wombles!]]></value>
+                    </property>
+                  </properties>
+                </atom>
+                <container name="div">
+                  <properties>
+                    <property name="classes" type="text">
+                      <value xsi:type="fixed"><![CDATA[red]]></value>
+                    </property>
+                  </properties>
+                  <components>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##hiccups]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                  </components>
+                </container>
+                <atom name="markdown">
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[##weasels]]></value>
+                    </property>
+                  </properties>
+                </atom>
+                <atom name="markdown">
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[##biscuits]]></value>
+                    </property>
+                  </properties>
+                </atom>
+              </components>
+            </container>
+          </components>
+        </area>
+        <area name="scripts">
+          <components />
+        </area>
+      </areas>
+    </widget>
+  </components>
+  <amendments>
     <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/1/1</targetPath>
+      <sourcePath>0/1/1</sourcePath>
+      <targetPath>0/1/0</targetPath>
     </moveComponent>
-    <setPropertyFixed>
-      <componentPath>0/1/1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Wombles!]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1/0/2/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##fishcakes]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1/1/2/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##biscuits]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1/1/2/1</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##crisps]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1/0/1</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##stoats]]></fixedValue>
-    </setPropertyFixed>
-    <moveComponent>
-      <sourcePath>0/1/1/2/1</sourcePath>
-      <targetPath>0/1/1/2/0</targetPath>
-    </moveComponent>
-    <setPropertyFixed>
-      <componentPath>0/1/1/2/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##hiccups]]></fixedValue>
-    </setPropertyFixed>
   </amendments>
 </template>

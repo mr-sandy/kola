@@ -291,19 +291,42 @@ button {
                   background-color: rgba(32, 113, 178, 0.5); }
                 .application .toolbars .block-editor div.content .holder ol li.selected.widget {
                   background-color: rgba(178, 97, 32, 0.5); }
+              .application .toolbars .block-editor div.content .holder ol li > span:hover > i.comment {
+                opacity: 1; }
               .application .toolbars .block-editor div.content .holder ol li > span > i.collapse {
                 float: right;
                 -webkit-transition: all 100ms;
-                transition: all 100ms; }
-              .application .toolbars .block-editor div.content .holder ol li.collapsed > span > i.collapse {
-                -webkit-transform: rotate(-90deg);
-                -moz-transform: rotate(-90deg);
-                -ms-transform: rotate(-90deg);
-                -o-transform: rotate(-90deg);
-                transform: rotate(-90deg);
-                filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(-90), M12=0-sin(-90), M21=sin(-90), M22=cos(-90));
-                -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(-90), M12=0-sin(-90), M21=sin(-90), M22=cos(-90))";
-                zoom: 1; }
+                transition: all 100ms;
+                margin-left: 10px; }
+              .application .toolbars .block-editor div.content .holder ol li > span > i.comment {
+                float: right;
+                opacity: 0;
+                transition: opacity 150ms; }
+              .application .toolbars .block-editor div.content .holder ol li.collapsed > span {
+                border: none; }
+                .application .toolbars .block-editor div.content .holder ol li.collapsed > span > i.collapse {
+                  -webkit-transform: rotate(-90deg);
+                  -moz-transform: rotate(-90deg);
+                  -ms-transform: rotate(-90deg);
+                  -o-transform: rotate(-90deg);
+                  transform: rotate(-90deg);
+                  filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(-90), M12=0-sin(-90), M21=sin(-90), M22=cos(-90));
+                  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(-90), M12=0-sin(-90), M21=sin(-90), M22=cos(-90))";
+                  zoom: 1; }
+              .application .toolbars .block-editor div.content .holder ol li textarea.comment {
+                display: none;
+                vertical-align: top;
+                outline: none;
+                border: none;
+                width: 100%;
+                max-width: 100%;
+                min-width: 100%;
+                padding: 10px; }
+              .application .toolbars .block-editor div.content .holder ol li span.comment {
+                width: 100%;
+                border: none;
+                color: #96ece7;
+                font-style: italic; }
               .application .toolbars .block-editor div.content .holder ol li ol {
                 margin: 8px; }
               .application .toolbars .block-editor div.content .holder ol li.new {

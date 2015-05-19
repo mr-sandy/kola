@@ -63,21 +63,54 @@
                         }
 				    }
 
+                    & > span:hover {
+                        & > i.comment {
+                            opacity: 1;
+                        }
+					}
+
+
 					& > span {
 					    & > i.collapse {
 						    float: right;
                             @include transition(all 100ms);
+							margin-left: 10px;
+					    }
+
+					    & > i.comment {
+						    float: right;
+                            opacity: 0;
+							transition: opacity 150ms;
 					    }
 					}
 
 					&.collapsed {
 					    & > span {
+							border: none;
+
 					        & > i.collapse {
                                 @include rotate(-90);
                             }
 					    }
 					}
 
+					textarea.comment {
+						display: none;
+						vertical-align: top;
+						outline: none;
+						border: none;
+						width: 100%;
+						max-width: 100%;
+						min-width: 100%;
+						padding: 10px;
+					}
+
+					span.comment {
+						width: 100%;
+						border: none;
+						color: #96ece7;
+						font-style: italic;
+					}
 
 				    ol {
 					    margin: $margin;

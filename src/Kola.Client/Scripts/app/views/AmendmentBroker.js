@@ -30,6 +30,10 @@
                     this.amendments.moveComponent(sourcePath, targetPath);
                 }
             }
+        },
+
+        setComment: function (componentPath, comment) {
+            this.amendments.setComment(componentPath, comment);
         }
     });
 

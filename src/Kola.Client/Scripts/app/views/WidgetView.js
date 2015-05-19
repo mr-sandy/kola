@@ -27,7 +27,10 @@
             'mouseover': 'handleMouseover',
             'mouseout': 'handleMouseout',
             'click': 'handleClick',
-            'click i.collapse': 'toggle'
+            'click i.collapse': 'toggle',
+            'click i.comment': 'editComment',
+            'click span.comment': 'editComment',
+            'focusout textarea.comment': 'submitComment'
         },
 
         render: function () {
@@ -66,6 +69,24 @@
             this.collapsed = !this.collapsed || false;
             this.$el.children('.area').slideToggle(100);
             this.$el.toggleClass('collapsed');
+        },
+
+        editComment: function (e) {
+            e.stopPropagation();
+            this.$el.children('span.comment').hide();
+            this.$el.children('textarea.comment').show().focus().select();
+        },
+
+        submitComment: function (e) {
+            e.stopPropagation();
+            var comment = this.$el.children('textarea.comment').val();
+
+            if (comment !== this.model.get('comment')) {
+                this.amendmentBroker.setComment(this.$el.attr('data-component-path'), comment);
+            } else {
+                this.$el.children('span.comment').show();
+                this.$el.children('textarea.comment').hide();
+            }
         },
 
         showActive: function () {

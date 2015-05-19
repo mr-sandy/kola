@@ -1,2 +1,4 @@
-﻿<span {{#if collapsed}}class="collapsed"{{/if}}>container: {{name}}<i class="fa fa-chevron-down collapse"></i></span>
+﻿<span {{#if collapsed}}class="collapsed"{{/if}}>container: {{name}}<i class="fa fa-chevron-down collapse"></i><i class="fa fa-comment-o comment"></i></span>
+<textarea class="comment">{{comment}}</textarea>
+{{#if comment}}<span class="comment">{{comment}}</span>{{/if}}
 <ol></ol>

@@ -12,7 +12,8 @@
 
             if (componentType === 'atom') {
                 return new AtomView({
-                    model: component
+                    model: component,
+                    amendmentBroker: amendmentBroker
                 });
             }
 

@@ -24,6 +24,7 @@
                     Name = atom.Name,
                     Path = context.Select(i => i.ToString()).ToHttpPath(),
                     Properties = this.BuildProperties(atom.Properties),
+                    Comment = atom.Comment,
                     Links = this.BuildLinks(context)
                 };
         }
@@ -36,6 +37,7 @@
                     Path = context.Select(i => i.ToString()).ToHttpPath(),
                     Components = container.Components.Select((c, i) => c.Accept(this, context.Append(i))),
                     Properties = this.BuildProperties(container.Properties),
+                    Comment = container.Comment,
                     Links = this.BuildLinks(context)
                 };
         }
@@ -48,6 +50,7 @@
                     Areas = widget.Areas.Select((c, i) => c.Accept(this, context.Append(i))),
                     Path = context.Select(i => i.ToString()).ToHttpPath(),
                     Properties = this.BuildProperties(widget.Properties),
+                    Comment = widget.Comment,
                     Links = this.BuildLinks(context)
                 };
         }

@@ -14,6 +14,9 @@
         className: 'atom',
 
         initialize: function (options) {
+            this.amendmentBroker = options.amendmentBroker;
+
+            this.model.on('sync', this.render, this);
             this.model.on('active', this.showActive, this);
             this.model.on('inactive', this.showInactive, this);
             this.model.on('selected', this.showSelected, this);
@@ -23,7 +26,10 @@
         events: {
             'mouseover': 'handleMouseover',
             'mouseout': 'handleMouseout',
-            'click': 'handleClick'
+            'click': 'handleClick',
+            'click i.comment': 'editComment',
+            'click span.comment': 'editComment',
+            'focusout textarea.comment': 'submitComment'
         },
 
         render: function () {
@@ -46,6 +52,24 @@
         handleClick: function (e) {
             e.stopPropagation();
             this.model.toggleSelected();
+        },
+
+        editComment: function (e) {
+            e.stopPropagation();
+            this.$el.children('span.comment').hide();
+            this.$el.children('textarea.comment').show().focus().select();
+        },
+
+        submitComment: function (e) {
+            e.stopPropagation();
+            var comment = this.$el.children('textarea.comment').val();
+
+            if (comment !== this.model.get('comment')) {
+                this.amendmentBroker.setComment(this.$el.attr('data-component-path'), comment);
+            } else {
+                this.$el.children('span.comment').show();
+                this.$el.children('textarea.comment').hide();
+            }
         },
 
         showActive: function () {

@@ -98,10 +98,10 @@
             amendment.save();
         },
 
-        setComment: function (event) {
+        setComment: function (componentPath, comment) {
             var amendment = new Amendment({
-                componentPath: event.componentPath,
-                comment: event.comment
+                componentPath: componentPath,
+                comment: comment
             });
 
             amendment.url = this.combineUrls(this.url, 'setComment');

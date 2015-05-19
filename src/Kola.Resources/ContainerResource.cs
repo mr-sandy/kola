@@ -10,6 +10,8 @@
 
         public IEnumerable<ComponentResource> Components { get; set; }
 
+        public string Comment { get; set; }
+
         public override string Type
         {
             get { return "container"; }
