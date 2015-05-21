@@ -1,9 +1,12 @@
 ﻿define(function (require) {
     "use strict";
 
+    // ReSharper disable InconsistentNaming
+
     var Backbone = require('backbone');
-    var _ = require('underscore');
     var domHelper = require('app/views/DomHelper');
+
+    // ReSharper restore InconsistentNaming
 
     return Backbone.View.extend({
 
@@ -28,7 +31,7 @@
             this.buildChildren(options.$html);
         },
 
-        handleSync: function (model, response, options) {
+        handleSync: function () {
             // if the element is not inside the body tag, we need to reload the whole page
             if (this.$el.parents('body').length === 0) {
                 this.fullRefresh();
@@ -49,7 +52,6 @@
 
             this.setElement(domHelper.findDirectlyOwned($html));
             this.buildChildren($html);
-            this.maskView.select(this);
         },
 
         buildChildren: function ($html) {
@@ -60,6 +62,7 @@
 
             if (childComponents) {
 
+                // ReSharper disable once InconsistentNaming
                 var WysiwygComponentView = require('app/views/WysiwygComponentView');
 
                 childComponents.each(function (component) {
@@ -71,7 +74,7 @@
 
         destroyChildren: function () {
             var child;
-            while (child = this.children.pop()) {
+            while ((child = this.children.pop())) {
                 child.destroy();
             }
         },

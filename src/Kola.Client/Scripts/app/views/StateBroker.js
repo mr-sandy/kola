@@ -1,14 +1,17 @@
 ﻿define(function (require) {
     "use strict";
 
+    // ReSharper disable InconsistentNaming
+
     var Backbone = require('backbone');
     var _ = require('underscore');
-    var $ = require('jquery');
 
     var StateBroker = function () {
         this.selected = null;
         this.active = null;
     };
+
+    // ReSharper restore InconsistentNaming
 
     _.extend(StateBroker.prototype, {
         register: function (component) {

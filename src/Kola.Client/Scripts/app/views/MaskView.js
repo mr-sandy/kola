@@ -1,9 +1,13 @@
 ﻿define(function (require) {
     "use strict";
 
+    // ReSharper disable InconsistentNaming
+
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
     var Template = require('text!app/templates/MaskTemplate.html');
+
+    // ReSharper restore InconsistentNaming
 
     return Backbone.View.extend({
 
@@ -60,19 +64,19 @@
         select: function (wysiwygComponentView) {
             this.selected = wysiwygComponentView;
 
-            this.refresh(wysiwygComponentView)
+            this.refresh(wysiwygComponentView);
         },
 
         deselect: function (wysiwygComponentView) {
             if (this.selected === wysiwygComponentView) {
                 this.selected = null;
-                this.refresh(wysiwygComponentView)
+                this.refresh(wysiwygComponentView);
             }
         },
 
         highlight: function (wysiwygComponentView) {
             if (this.selected === null) {
-                this.refresh(wysiwygComponentView)
+                this.refresh(wysiwygComponentView);
             }
         },
 
@@ -135,7 +139,7 @@
             coords = coords || { top: null, bottom: null, left: null, right: null };
 
             _.each(wysiwygComponentView.$el, function (node) {
-                if (node.nodeType == 1 && $(node).is(":visible")) {
+                if (node.nodeType === 1 && $(node).is(":visible")) {
                     var $node = $(node);
                     var offset = $node.offset();
 

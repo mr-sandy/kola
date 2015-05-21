@@ -57,36 +57,21 @@
                     <atom name="markdown">
                       <properties>
                         <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##hiccups]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                    <atom name="markdown">
-                      <comment><![CDATA[Helloo2]]></comment>
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##hiccups]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##weasels]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##weasels]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
                           <value xsi:type="fixed"><![CDATA[##stoats]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##hiccups]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##fishcakes]]></value>
                         </property>
                       </properties>
                     </atom>
@@ -118,13 +103,6 @@
                     <atom name="markdown">
                       <properties>
                         <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##fishcakes]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
                           <value xsi:type="fixed"><![CDATA[##biscuits]]></value>
                         </property>
                       </properties>
@@ -148,5 +126,30 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <moveComponent>
+      <sourcePath>0/1/0/1/0</sourcePath>
+      <targetPath>0/1/0/1/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/1/1</sourcePath>
+      <targetPath>0/1/0/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/1/1</sourcePath>
+      <targetPath>0/1/0/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/1/1</sourcePath>
+      <targetPath>0/1/0/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/1/0</sourcePath>
+      <targetPath>0/1/0/1/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/1/2</sourcePath>
+      <targetPath>0/1/0/1/0</targetPath>
+    </moveComponent>
+  </amendments>
 </template>
