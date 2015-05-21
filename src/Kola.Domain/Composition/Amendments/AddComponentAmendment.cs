@@ -16,12 +16,17 @@
 
         public IEnumerable<int> TargetPath { get; internal set; }
 
-        public IEnumerable<IEnumerable<int>> SubjectPaths
+        public IEnumerable<IEnumerable<int>> AffectedPaths
         {
             get
             {
                 yield return this.TargetPath.TakeAllButLast();
             }
+        }
+
+        public IEnumerable<int> SubjectPath
+        {
+            get { return this.TargetPath; }
         }
 
         public void Accept(IAmendmentVisitor visitor)

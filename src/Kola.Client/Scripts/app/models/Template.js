@@ -45,6 +45,13 @@
             return $.when(fetches);
         },
 
+        select: function (componentUrl) {
+
+            var componentPath = componentUrl ? _.without(componentUrl.split('/'), '') : [];
+            var component = this.findChild(this, componentPath);
+            component.select();
+        },
+
         findChild: function (candidate, componentPath) {
 
             if (componentPath.length === 0 || componentPath[0] === '') {

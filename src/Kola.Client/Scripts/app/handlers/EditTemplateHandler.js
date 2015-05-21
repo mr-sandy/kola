@@ -25,7 +25,17 @@
             $.when(componentTypes.fetch(), template.fetch()).then(function () {
 
                 template.listenTo(template.amendments, 'sync', function (amendment) {
-                    template.refresh(amendment.get('subjects'));
+                    var affected = amendment.get('affected');
+                    var subject = amendment.get('subject');
+
+                    template.refresh(affected).then(setTimeout(function () { template.select(subject); }, 200));
+                });
+
+                template.listenTo(template.amendments, 'undo', function (undoResponse) {
+                    var affected = undoResponse.get('affected');
+                    var subject = undoResponse.get('subject');
+
+                    template.refresh(affected).then(setTimeout(function () { template.select(subject); }, 200));
                 });
 
                 d.resolve(new EditTemplateView({

@@ -1,10 +1,14 @@
 ﻿define(function (require) {
     "use strict";
 
+    // ReSharper disable InconsistentNaming
+
     var Backbone = require('backbone');
     var AmendmentBroker = require('app/views/AmendmentBroker');
     var $ = require('jquery');
     var _ = require('underscore');
+
+    // ReSharper restore InconsistentNaming
 
     Backbone.View.prototype.navigate = function (e) {
         e.preventDefault();
@@ -16,23 +20,23 @@
     };
 
     Backbone.Model.prototype.getLink = function (links, rel) {
-        var link = _.find(links, function (l) { return l.rel == rel; });
+        var link = _.find(links, function (l) { return l.rel === rel; });
 
         return (link) ? link.href : '';
     };
+
+    function urlCombine(url1, url2) {
+        if (url1) {
+            url1 = url1.replace(/\/$/, '');
+        }
+        if (url2) {
+            url2 = url2.replace(/^\//, '');
+        }
+        return url1 + '/' + url2;
+    }
 
     AmendmentBroker.prototype.combineUrls = urlCombine;
     Backbone.View.prototype.combineUrls = urlCombine;
     Backbone.Model.prototype.combineUrls = urlCombine;
     Backbone.Collection.prototype.combineUrls = urlCombine;
-
-    function urlCombine(url1, url2) {
-        if (url1) {
-            url1 = url1.replace(/\/$/, "");
-        }
-        if (url2) {
-            url2 = url2.replace(/^\//, "");
-        }
-        return url1 + '/' + url2;
-    }
 });

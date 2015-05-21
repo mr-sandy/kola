@@ -6,6 +6,7 @@
     var $ = require('jquery');
     var Backbone = require('backbone');
     var Amendment = require('app/models/Amendment');
+    var UndoResponse = require('app/models/UndoResponse');
 
     // ReSharper restore InconsistentNaming
 
@@ -57,9 +58,9 @@
 
         undoAmendment: function () {
             var self = this;
-            $.post(this.combineUrls(this.url, 'undo')).then(
-            function () {
-                alert('undone!');
+            $.post(this.combineUrls(this.url, 'undo')).then(function (resp) {
+                self.fetch({ reset: true });
+                self.trigger('undo', new UndoResponse(resp, { parse: true }));
             });
         }
     });

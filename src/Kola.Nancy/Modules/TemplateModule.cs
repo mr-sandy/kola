@@ -197,7 +197,9 @@
 
             var resource = new
             {
-                Links = amendment.SubjectPaths.Select(subjectPath => new LinkResource { Rel = "subject", Href = string.Join("/", subjectPath) }).ToArray()
+                Links = amendment.AffectedPaths.Select(affectedPath => new LinkResource { Rel = "affected", Href = string.Join("/", affectedPath) })
+                        .Union(new[] { new LinkResource { Rel = "subject", Href = string.Join("/", amendment.AffectedPaths.First()) } })
+                        .ToArray()
             };
 
             return this.Negotiate

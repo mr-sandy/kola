@@ -40,5 +40,32 @@
 
             return new[] { shorter };
         }
+
+        public static IEnumerable<int> Compensate(this IEnumerable<int> list1, IEnumerable<int> list2)
+        {
+            var array1 = list1 as int[] ?? list1.ToArray();
+            var array2 = list2 as int[] ?? list2.ToArray();
+
+            var matching = true;
+
+            for (var i = 0; i < array2.Count(); i++)
+            {
+                if (matching && i < array1.Count() - 1)
+                {
+                    matching = array1[i].Equals(array2[i]);
+                }
+
+                yield return matching && i == array1.Count() - 1 && array1[i] <= array2[i]
+                    ? array2[i] - 1
+                    : array2[i];
+            }
+        }
+
+        public static IEnumerable<int> IncrementLast(this IEnumerable<int> list)
+        {
+            var array = list as int[] ?? list.ToArray();
+
+            return array.TakeAllButLast().Append(array.Last() + 1);
+        }
     }
 }

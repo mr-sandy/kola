@@ -11,7 +11,6 @@
 
             this.url = this.getLink(response.links, 'self');
             this.previewUrl = this.getLink(response.links, 'preview');
-            this.trigger('jam');
             return response;
         }
     });

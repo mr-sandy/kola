@@ -83,12 +83,14 @@
     <Compile Include="Domain\WidgetTests\WhenAddingContentToAWidgetPlaceholderInATemplate.cs" />
     <Compile Include="Domain\WidgetTests\WhenAddingAnAtomToAWidgetSpecification.cs" />
     <Compile Include="Domain\WidgetTests\WhenBuildingANestedWidgetWithEmbeddedPlaceholderInstance.cs" />
+    <Compile Include="Extensions\EnumerableExtensions\Compensate\WhenCompensatingListsWhenSecondListIsBeforeFirstList.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingIdenticalLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingEmptyLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingNonOverlappingLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingOneEmptyList.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingOverlappingLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingOverlappingLists2.cs" />
+    <Compile Include="Extensions\EnumerableExtensions\IncrementLast\WhenCompensatingListsWhenSecondListIsBeforeFirstList.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Overlap\WhenFindingOverlapOfEqualLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Overlap\WhenFindingOverlapOfNonEmptyLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Overlap\WhenFindingOverlapWithOneEmptyLists.cs" />

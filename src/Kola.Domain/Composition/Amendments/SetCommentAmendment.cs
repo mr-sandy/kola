@@ -14,9 +14,14 @@
 
         public string Comment { get; private set; }
 
-        public IEnumerable<IEnumerable<int>> SubjectPaths
+        public IEnumerable<IEnumerable<int>> AffectedPaths
         {
             get { yield return this.ComponentPath; }
+        }
+
+        public IEnumerable<int> SubjectPath
+        {
+            get { return this.ComponentPath; }
         }
 
         public void Accept(IAmendmentVisitor visitor)

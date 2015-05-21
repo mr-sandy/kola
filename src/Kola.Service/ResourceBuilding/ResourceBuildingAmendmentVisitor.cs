@@ -24,7 +24,7 @@
                 Id = index,
                 TargetPath = amendment.TargetPath.ToComponentPathString(),
                 ComponentType = amendment.ComponentName,
-                Links = this.BuildLinks(amendment.SubjectPaths, index)
+                Links = this.BuildLinks(amendment, index)
             };
         }
 
@@ -35,7 +35,7 @@
                 Id = index,
                 SourcePath = amendment.SourcePath.ToComponentPathString(),
                 TargetPath = amendment.TargetPath.ToComponentPathString(),
-                Links = this.BuildLinks(amendment.SubjectPaths, index)
+                Links = this.BuildLinks(amendment, index)
             };
         }
 
@@ -45,7 +45,7 @@
             {
                 Id = index,
                 ComponentPath = amendment.ComponentPath.ToComponentPathString(),
-                Links = this.BuildLinks(amendment.SubjectPaths, index)
+                Links = this.BuildLinks(amendment, index)
             };
         }
 
@@ -55,7 +55,7 @@
             {
                 Id = index,
                 ComponentPath = amendment.ComponentPath.ToComponentPathString(),
-                Links = this.BuildLinks(amendment.SubjectPaths, index)
+                Links = this.BuildLinks(amendment, index)
             };
         }
 
@@ -67,7 +67,7 @@
                     ComponentPath = amendment.ComponentPath.ToComponentPathString(),
                     PropertyName = amendment.PropertyName,
                     Value = amendment.FixedValue,
-                    Links = this.BuildLinks(amendment.SubjectPaths, index)
+                    Links = this.BuildLinks(amendment, index)
                 };
         }
 
@@ -87,11 +87,11 @@
             {
                 ComponentPath = amendment.ComponentPath.ToComponentPathString(),
                 Comment = amendment.Comment,
-                Links = this.BuildLinks(amendment.SubjectPaths, index)
+                Links = this.BuildLinks(amendment, index)
             };
         }
 
-        private IEnumerable<LinkResource> BuildLinks(IEnumerable<IEnumerable<int>> subjectPaths, int index)
+        private IEnumerable<LinkResource> BuildLinks(IAmendment amendment, int index)
         {
             var path = this.templatePath.Concat(new[] { "_amendments", index.ToString() });
 
@@ -101,19 +101,20 @@
                 Href = new[] { "_kola", "templates" }.Concat(path).ToHttpPath()
             };
 
-            foreach (var subjectPath in subjectPaths)
+            yield return new LinkResource
             {
-                yield return new LinkResource { Rel = "subject", Href = subjectPath.ToComponentPathString() };
-            }
+                Rel = "subject",
+                Href = amendment.SubjectPath.ToComponentPathString()
+            };
 
-            //if (isLast)
-            //{
-            //    yield return new LinkResource
-            //    {
-            //        Rel = "undo",
-            //        Href = path
-            //    };
-            //}
+            foreach (var affectedPath in amendment.AffectedPaths)
+            {
+                yield return new LinkResource
+                {
+                    Rel = "affected",
+                    Href = affectedPath.ToComponentPathString()
+                };
+            }
         }
     }
 }

@@ -21,6 +21,13 @@
             }
         },
 
+        select: function () {
+            if (!this.selected) {
+                this.selected = true;
+                this.trigger('selected');
+            }
+        },
+
         deselect: function () {
             if (this.selected) {
                 this.selected = false;

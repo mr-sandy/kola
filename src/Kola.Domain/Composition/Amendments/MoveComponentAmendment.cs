@@ -16,10 +16,15 @@
 
         public IEnumerable<int> SourcePath { get; private set; }
 
-        public IEnumerable<IEnumerable<int>> SubjectPaths
+        public IEnumerable<IEnumerable<int>> AffectedPaths
         {
             // Will need to consolidate to/from paths into a single path when appropriate
             get { return this.SourcePath.TakeAllButLast().Consolidate(this.TargetPath.TakeAllButLast()); }
+        }
+
+        public IEnumerable<int> SubjectPath
+        {
+            get { return this.SourcePath.Compensate(this.TargetPath); }
         }
 
         public void Accept(IAmendmentVisitor visitor)
