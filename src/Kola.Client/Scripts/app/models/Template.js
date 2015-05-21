@@ -1,10 +1,15 @@
 ﻿define(function (require) {
     "use strict";
 
+    // ReSharper disable InconsistentNaming
+
     var Backbone = require('backbone');
+    var $ = require('jquery');
     var _ = require('underscore');
     var Amendments = require('app/collections/Amendments');
     require('backbone-hypermedia');
+
+    // ReSharper restore InconsistentNaming
 
     return Backbone.HypermediaModel.extend({
 
@@ -15,6 +20,7 @@
         parse: function (response) {
             this.previewUrl = this.getLink(response.links, 'preview');
 
+            // ReSharper disable once InconsistentNaming
             var Components = require('app/collections/Components');
 
             return _.extend(response,
@@ -26,17 +32,21 @@
         refresh: function (componentUrls) {
             var self = this;
 
-            _.each(componentUrls, function (componentUrl) {
+            var findComponent = function (componentUrl) {
+                var componentPath = componentUrl ? _.without(componentUrl.split('/'), '') : [];
+                return self.findChild(self, componentPath);
+            };
 
-                var componentPath = componentUrl
-                                ? _.without(componentUrl.split('/'), '')
-                                : [];
+            var fetches = _.chain(componentUrls)
+                .map(findComponent)
+                .invoke('fetch')
+                .value();
 
-                self.findChild(self, componentPath).fetch();
-            });
+            return $.when(fetches);
         },
 
         findChild: function (candidate, componentPath) {
+
             if (componentPath.length === 0 || componentPath[0] === '') {
                 return candidate;
             }

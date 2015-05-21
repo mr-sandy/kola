@@ -34,6 +34,7 @@
 
             if (this.model !== null) {
                 this.listenTo(model, 'sync', this.render);
+                this.listenTo(model, 'jam', this.render);
             }
 
             this.render();

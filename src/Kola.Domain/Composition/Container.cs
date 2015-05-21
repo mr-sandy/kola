@@ -1,10 +1,7 @@
 ﻿namespace Kola.Domain.Composition
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
 
-    using Kola;
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
     using Kola.Domain.Instances.Context;
@@ -13,8 +10,8 @@
     {
         private readonly List<IComponent> components = new List<IComponent>();
 
-        public Container(string name, IEnumerable<Property> properties = null, IEnumerable<IComponent> components = null)
-            : base(name, properties)
+        public Container(string name, IEnumerable<Property> properties = null, IEnumerable<IComponent> components = null, string comment = "")
+            : base(name, properties, comment)
         {
             if (components != null)
             {
@@ -64,7 +61,7 @@
 
         public override IComponent Clone()
         {
-            return new Container(this.Name, this.Properties.Clone(), this.components.Clone());
+            return new Container(this.Name, this.Properties.Clone(), this.components.Clone(), this.Comment);
         }
     }
 }

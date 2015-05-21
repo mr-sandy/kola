@@ -24,7 +24,8 @@
 .red + .red {
   margin-top: 40px;
 }
-]]></value>
+
+                  ]]></value>
                 </property>
               </properties>
             </atom>
@@ -32,52 +33,6 @@
         </area>
         <area name="content">
           <components>
-            <container name="div">
-              <properties>
-                <property name="classes" type="text">
-                  <value xsi:type="fixed"><![CDATA[red]]></value>
-                </property>
-              </properties>
-              <components>
-                <atom name="markdown">
-                  <properties>
-                    <property name="markdown" type="markdown">
-                      <value xsi:type="fixed"><![CDATA[#Badgers!]]></value>
-                    </property>
-                  </properties>
-                </atom>
-                <atom name="markdown">
-                  <properties>
-                    <property name="markdown" type="markdown">
-                      <value xsi:type="fixed"><![CDATA[##stoats]]></value>
-                    </property>
-                  </properties>
-                </atom>
-                <container name="div">
-                  <properties>
-                    <property name="classes" type="text">
-                      <value xsi:type="fixed"><![CDATA[red]]></value>
-                    </property>
-                  </properties>
-                  <components>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##fishcakes]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##otters]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                  </components>
-                </container>
-              </components>
-            </container>
             <container name="div">
               <properties>
                 <property name="classes" type="text">
@@ -106,22 +61,83 @@
                         </property>
                       </properties>
                     </atom>
+                    <atom name="markdown">
+                      <comment><![CDATA[Helloo2]]></comment>
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##hiccups]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##weasels]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##weasels]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##stoats]]></value>
+                        </property>
+                      </properties>
+                    </atom>
                   </components>
                 </container>
+              </components>
+            </container>
+            <container name="div">
+              <properties>
+                <property name="classes" type="text">
+                  <value xsi:type="fixed"><![CDATA[red]]></value>
+                </property>
+              </properties>
+              <components>
                 <atom name="markdown">
                   <properties>
                     <property name="markdown" type="markdown">
-                      <value xsi:type="fixed"><![CDATA[##weasels]]></value>
+                      <value xsi:type="fixed"><![CDATA[#Badgers!]]></value>
                     </property>
                   </properties>
                 </atom>
-                <atom name="markdown">
+                <container name="div">
                   <properties>
-                    <property name="markdown" type="markdown">
-                      <value xsi:type="fixed"><![CDATA[##biscuits]]></value>
+                    <property name="classes" type="text">
+                      <value xsi:type="fixed"><![CDATA[red]]></value>
                     </property>
                   </properties>
-                </atom>
+                  <components>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##fishcakes]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##biscuits]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##otters]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                  </components>
+                </container>
               </components>
             </container>
           </components>
@@ -132,10 +148,5 @@
       </areas>
     </widget>
   </components>
-  <amendments>
-    <moveComponent>
-      <sourcePath>0/1/1</sourcePath>
-      <targetPath>0/1/0</targetPath>
-    </moveComponent>
-  </amendments>
+  <amendments />
 </template>

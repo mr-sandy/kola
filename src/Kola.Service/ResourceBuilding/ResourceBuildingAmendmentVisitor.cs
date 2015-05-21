@@ -93,12 +93,12 @@
 
         private IEnumerable<LinkResource> BuildLinks(IEnumerable<IEnumerable<int>> subjectPaths, int index)
         {
-            var path = this.templatePath.Concat(new[] { "_amendments", index.ToString() }).ToHttpPath();
+            var path = this.templatePath.Concat(new[] { "_amendments", index.ToString() });
 
             yield return new LinkResource
             {
                 Rel = "self",
-                Href = path
+                Href = new[] { "_kola", "templates" }.Concat(path).ToHttpPath()
             };
 
             foreach (var subjectPath in subjectPaths)

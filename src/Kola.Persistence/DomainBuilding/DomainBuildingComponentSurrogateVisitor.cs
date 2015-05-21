@@ -16,14 +16,16 @@
             return new Container(
                 surrogate.Name,
                 this.BuildProperties(surrogate.Properties).ToArray(),
-                surrogate.Components.Select(c => c.Accept(this)).ToArray());
+                surrogate.Components.Select(c => c.Accept(this)).ToArray(),
+                surrogate.Comment);
         }
 
         public IComponent Visit(AtomSurrogate surrogate)
         {
             return new Atom(
                 surrogate.Name,
-                this.BuildProperties(surrogate.Properties).ToArray());
+                this.BuildProperties(surrogate.Properties).ToArray(),
+                surrogate.Comment);
         }
 
         public IComponent Visit(WidgetSurrogate surrogate)
@@ -31,7 +33,8 @@
             return new Widget(
                 surrogate.Name,
                 surrogate.Areas.Select(a => a.Accept(this)).Cast<Area>().ToArray(),
-                this.BuildProperties(surrogate.Properties).ToArray());
+                this.BuildProperties(surrogate.Properties).ToArray(),
+                surrogate.Comment);
         }
 
         public IComponent Visit(PlaceholderSurrogate surrogate)

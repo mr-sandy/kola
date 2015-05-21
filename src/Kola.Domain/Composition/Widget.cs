@@ -8,8 +8,8 @@
 
     public class Widget : ComponentWithProperties
     {
-        public Widget(string name, IEnumerable<Area> areas, IEnumerable<Property> properties = null)
-            : base(name, properties)
+        public Widget(string name, IEnumerable<Area> areas, IEnumerable<Property> properties = null, string comment = "")
+            : base(name, properties, comment)
         {
             this.Areas = areas;
         }
@@ -38,7 +38,7 @@
 
         public override IComponent Clone()
         {
-            return new Widget(this.Name, this.Areas.Clone(), this.Properties.Clone());
+            return new Widget(this.Name, this.Areas.Clone(), this.Properties.Clone(), this.Comment);
         }
     }
 }

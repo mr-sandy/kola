@@ -1,6 +1,8 @@
 ﻿namespace Kola.Nancy.Modules
 {
+    using System.Collections.Generic;
     using System.Linq;
+    using System.Net;
 
     using global::Nancy;
     using global::Nancy.ModelBinding;
@@ -12,6 +14,9 @@
     using Kola.Resources;
     using Kola.Service.DomainBuilding;
     using Kola.Service.ResourceBuilding;
+    using Kola.Service.Extensions;
+
+    using HttpStatusCode = global::Nancy.HttpStatusCode;
 
     // TODO {SC} Refactor bulk of code into a service independent of Nancy (add to the Kola.Services namespace); make this module as lightweight as possible
     public class TemplateModule : NancyModule
@@ -37,7 +42,7 @@
             this.Post["/_amendments/setProperty", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<SetPropertyAmendmentResource>(p.templatePath);
             this.Post["/_amendments/setComment", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<SetCommentAmendmentResource>(p.templatePath);
             this.Post["/_amendments/apply", AcceptHeaderFilters.NotHtml] = p => this.PostApplyAmendments(p.templatePath);
-            this.Post["/_amendments/undo", AcceptHeaderFilters.NotHtml] = p => this.PostUndoAmendments(p.templatePath);
+            this.Post["/_amendments/undo", AcceptHeaderFilters.NotHtml] = p => this.PostUndoAmendment(p.templatePath);
         }
 
         private dynamic GetTemplate(string templatePath)
@@ -176,7 +181,7 @@
                 .WithStatusCode(HttpStatusCode.Created);
         }
 
-        private dynamic PostUndoAmendments(string rawTemplatePath)
+        private dynamic PostUndoAmendment(string rawTemplatePath)
         {
             var templatePath = rawTemplatePath.ParsePath();
             var template = this.templateRepository.Get(templatePath);
@@ -186,18 +191,19 @@
                 return HttpStatusCode.NotFound;
             }
 
-            template.UndoAmendment();
+            var amendment = template.UndoAmendment();
 
             this.templateRepository.Update(template);
 
-            template.ApplyAmendments(this.componentLibrary);
-
-            this.templateRepository.Update(template);
+            var resource = new
+            {
+                Links = amendment.SubjectPaths.Select(subjectPath => new LinkResource { Rel = "subject", Href = string.Join("/", subjectPath) }).ToArray()
+            };
 
             return this.Negotiate
-                .WithModel(new { jam = "biscuits" })
+                .WithModel(resource)
                 .WithAllowedMediaRange("application/json")
-                .WithStatusCode(HttpStatusCode.Created);
+                .WithStatusCode(HttpStatusCode.OK);
         }
     }
 }

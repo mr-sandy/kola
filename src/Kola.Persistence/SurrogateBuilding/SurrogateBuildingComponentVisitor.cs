@@ -16,7 +16,8 @@
             return new AtomSurrogate
             {
                 Name = atom.Name,
-                Properties = this.BuildProperties(atom.Properties).ToArray()
+                Properties = this.BuildProperties(atom.Properties).ToArray(),
+                Comment = atom.Comment
             };
         }
 
@@ -26,7 +27,8 @@
             {
                 Name = container.Name,
                 Components = container.Components.Select(c => c.Accept(this)).ToArray(),
-                Properties = this.BuildProperties(container.Properties).ToArray()
+                Properties = this.BuildProperties(container.Properties).ToArray(),
+                Comment = container.Comment
             };
         }
 
@@ -36,7 +38,8 @@
             {
                 Name = widget.Name,
                 Areas = widget.Areas.Select(a => a.Accept(this)).ToArray(),
-                Properties = this.BuildProperties(widget.Properties).ToArray()
+                Properties = this.BuildProperties(widget.Properties).ToArray(),
+                Comment = widget.Comment
             };
         }
 

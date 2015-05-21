@@ -76,12 +76,16 @@
             this.components.RemoveAt(index);
         }
 
-        public void UndoAmendment()
+        public IAmendment UndoAmendment()
         {
             if (this.amendments.Any())
             {
-                this.amendments.RemoveAt(this.amendments.Count() - 1);
+                var amendment = this.amendments.Last();
+                this.amendments.Remove(amendment);
+                return amendment;
             }
+
+            return null;
         }
 
         public PageInstance Build(IBuilder builder, IBuildContext buildContext)

@@ -22,10 +22,7 @@
 
         public IEnumerable<IEnumerable<int>> SubjectPaths
         {
-            get
-            {
-                yield return this.ComponentPath;
-            }
+            get { yield return this.ComponentPath; }
         }
 
         public void Accept(IAmendmentVisitor visitor)

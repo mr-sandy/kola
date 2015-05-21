@@ -1,8 +1,13 @@
 ﻿define(function (require) {
     "use strict";
 
+    // ReSharper disable InconsistentNaming
+
+    var $ = require('jquery');
     var Backbone = require('backbone');
     var Amendment = require('app/models/Amendment');
+
+    // ReSharper restore InconsistentNaming
 
     return Backbone.Collection.extend({
 
@@ -16,99 +21,46 @@
         },
 
         addComponent: function (componentType, targetPath) {
-
-            var amendment = new Amendment({
-                componentType: componentType,
-                targetPath: targetPath
-            });
-
-            amendment.url = this.combineUrls(this.url, 'addComponent');
-
-            this.add(amendment);
-
-            amendment.save();
+            this._saveAmendment({ componentType: componentType, targetPath: targetPath }, 'addComponent');
         },
 
         moveComponent: function (sourcePath, targetPath) {
-            var amendment = new Amendment({
-                sourcePath: sourcePath,
-                targetPath: targetPath
-            });
-
-            amendment.url = this.combineUrls(this.url, 'moveComponent');
-
-            this.add(amendment);
-
-            amendment.save();
+            this._saveAmendment({ sourcePath: sourcePath, targetPath: targetPath }, 'moveComponent');
         },
 
         removeComponent: function (componentPath) {
-            var amendment = new Amendment({
-                componentPath: componentPath
-            });
-
-            amendment.url = this.combineUrls(this.url, 'removeComponent');
-
-            this.add(amendment);
-
-            amendment.save();
+            this._saveAmendment({ componentPath: componentPath }, 'removeComponent');
         },
 
         duplicateComponent: function (componentPath) {
-            var amendment = new Amendment({
-                componentPath: componentPath
-            });
+            this._saveAmendment({ componentPath: componentPath }, 'duplicateComponent');
+        },
 
-            amendment.url = this.combineUrls(this.url, 'duplicateComponent');
+        setProperty: function (event) {
+            this._saveAmendment({ componentPath: event.componentPath, propertyName: event.propertyName, value: event.value }, 'setProperty');
+        },
 
+        setComment: function (componentPath, comment) {
+            this._saveAmendment({ componentPath: componentPath, comment: comment }, 'setComment');
+        },
+
+        _saveAmendment: function (attributes, type) {
+            var amendment = new Amendment(attributes);
             this.add(amendment);
-
-            amendment.save();
+            amendment.save(null, { url: this.combineUrls(this.url, type) });
         },
 
         applyAmendments: function () {
             var self = this;
-            var amendment = new Amendment();
-
-            amendment.url = this.combineUrls(this.url, 'apply');
-
-            amendment.save().then(function () { self.fetch({ reset: true }); });
+            $.post(this.combineUrls(this.url, 'apply')).then(function () { self.fetch({ reset: true }); });
         },
 
         undoAmendment: function () {
             var self = this;
-            var amendment = new Amendment();
-
-            amendment.url = this.combineUrls(this.url, 'undo');
-
-            amendment.save().then(function () { self.fetch({ reset: true }); });
-        },
-
-        setProperty: function (event) {
-            var amendment = new Amendment({
-                componentPath: event.componentPath,
-                propertyName: event.propertyName,
-                value: event.value
+            $.post(this.combineUrls(this.url, 'undo')).then(
+            function () {
+                alert('undone!');
             });
-
-            amendment.url = this.combineUrls(this.url, 'setProperty');
-
-            this.add(amendment);
-
-            amendment.save();
-        },
-
-        setComment: function (componentPath, comment) {
-            var amendment = new Amendment({
-                componentPath: componentPath,
-                comment: comment
-            });
-
-            amendment.url = this.combineUrls(this.url, 'setComment');
-
-            this.add(amendment);
-
-            amendment.save();
         }
     });
 });

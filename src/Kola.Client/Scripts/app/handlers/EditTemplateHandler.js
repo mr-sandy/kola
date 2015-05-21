@@ -1,10 +1,14 @@
 ﻿define(function (require) {
     "use strict";
 
+    // ReSharper disable InconsistentNaming
+
     var $ = require('jquery');
     var EditTemplateView = require('app/views/EditTemplateView');
     var ComponentTypes = require('app/collections/ComponentTypes');
     var Template = require('app/models/Template');
+
+    // ReSharper restore InconsistentNaming
 
     return {
         execute: function (options, templatePath) {

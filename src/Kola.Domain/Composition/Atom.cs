@@ -8,8 +8,8 @@
 
     public class Atom : ComponentWithProperties
     {
-        public Atom(string name, IEnumerable<Property> properties = null)
-            : base(name, properties)
+        public Atom(string name, IEnumerable<Property> properties = null, string comment = "")
+            : base(name, properties, comment)
         {
         }
 
@@ -35,7 +35,7 @@
 
         public override IComponent Clone()
         {
-            return new Atom(this.Name, this.Properties.Clone());
+            return new Atom(this.Name, this.Properties.Clone(), this.Comment);
         }
     }
 }

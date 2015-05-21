@@ -12,9 +12,10 @@
     {
         private readonly List<Property> properties = new List<Property>();
 
-        protected ComponentWithProperties(string name, IEnumerable<Property> properties)
+        protected ComponentWithProperties(string name, IEnumerable<Property> properties, string comment)
         {
             this.Name = name;
+            this.Comment = comment;
 
             if (properties != null)
             {
