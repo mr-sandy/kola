@@ -48,6 +48,14 @@
                     </property>
                   </properties>
                 </atom>
+                <atom name="markdown">
+                  <comment><![CDATA[otters]]></comment>
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[##otters]]></value>
+                    </property>
+                  </properties>
+                </atom>
                 <container name="div">
                   <properties>
                     <property name="classes" type="text">
@@ -64,10 +72,10 @@
                       </properties>
                     </atom>
                     <atom name="markdown">
-                      <comment><![CDATA[stoats]]></comment>
+                      <comment><![CDATA[fishcakes]]></comment>
                       <properties>
                         <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##stoats]]></value>
+                          <value xsi:type="fixed"><![CDATA[##fishcakes]]></value>
                         </property>
                       </properties>
                     </atom>
@@ -114,14 +122,6 @@
                   </properties>
                   <components>
                     <atom name="markdown">
-                      <comment><![CDATA[fishcakes]]></comment>
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##fishcakes]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                    <atom name="markdown">
                       <comment><![CDATA[beermats]]></comment>
                       <properties>
                         <property name="markdown" type="markdown">
@@ -130,10 +130,10 @@
                       </properties>
                     </atom>
                     <atom name="markdown">
-                      <comment><![CDATA[otters]]></comment>
+                      <comment><![CDATA[stoats]]></comment>
                       <properties>
                         <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##otters]]></value>
+                          <value xsi:type="fixed"><![CDATA[##stoats]]></value>
                         </property>
                       </properties>
                     </atom>
