@@ -149,5 +149,35 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <setComment>
+      <componentPath>0/1/0/1</componentPath>
+      <comment><![CDATA[otterssd;lkjg;slkdj]]></comment>
+    </setComment>
+    <setComment>
+      <componentPath>0/1/0/1</componentPath>
+      <comment><![CDATA[otter]]></comment>
+    </setComment>
+    <moveComponent>
+      <sourcePath>0/1/1</sourcePath>
+      <targetPath>0/1/0</targetPath>
+    </moveComponent>
+    <duplicateComponent>
+      <componentPath>0/1/0/0</componentPath>
+    </duplicateComponent>
+    <removeComponent>
+      <componentPath>0/1/0/1</componentPath>
+    </removeComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>0/1/0/1</targetPath>
+    </addComponent>
+    <removeComponent>
+      <componentPath>0/1/0/1</componentPath>
+    </removeComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/1/1</sourcePath>
+      <targetPath>0/1/0/1/0</targetPath>
+    </moveComponent>
+  </amendments>
 </template>

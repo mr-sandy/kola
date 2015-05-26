@@ -28,8 +28,8 @@
             'mouseout': 'handleMouseout',
             'click': 'handleClick',
             'click i.collapse': 'toggle',
-            'click i.comment': 'editComment',
-            'click span.comment': 'editComment',
+            'click i.comment': 'toggleComment',
+            'click textarea.comment': function (e) { e.stopPropagation(); },
             'focusout textarea.comment': 'submitComment'
         },
 
@@ -81,10 +81,10 @@
             this.$el.toggleClass('collapsed');
         },
 
-        editComment: function (e) {
+        toggleComment: function (e) {
             e.stopPropagation();
-            this.$el.children('span.comment').hide();
-            this.$el.children('textarea.comment').show().focus().select();
+            this.$el.children('span.comment').toggle();
+            this.$el.children('textarea.comment').toggle().focus().select();
         },
 
         submitComment: function (e) {
