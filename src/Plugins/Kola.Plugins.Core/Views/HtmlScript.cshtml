@@ -3,6 +3,7 @@
 @using Kola.Domain.Extensions
 @{
     var allAttributes = new[] {
+        Model.Properties.GetAsAttribute("id"),
         Model.Properties.GetAsAttribute("type"),
         Model.Properties.GetAsAttributeWithStaticUri("src", "cache-buster", "src")
     };

@@ -63,6 +63,7 @@
             this.Configure.Atom("html-script")
                 .WithView("HtmlScript")
                 .WithProperty("type", "html-script-type", "text/javascript")
+                .WithProperty("id", "text")
                 .WithProperty("src", "text")
                 .WithProperty("content", "multiline-text")
                 .WithProperty("ie-condition", "ie-condition")
