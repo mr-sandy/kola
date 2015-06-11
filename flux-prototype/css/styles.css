@@ -1,0 +1,104 @@
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body, input, button, select, textarea {
+  font-family: sans-serif;
+  font-size: 12px;
+  font-size: 0.75rem; }
+
+* {
+  box-sizing: border-box; }
+
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+.block-editor {
+  width: 250px;
+  padding: 10px; }
+  .block-editor ol {
+    min-height: 29px; }
+    .block-editor ol li {
+      border: 1px solid #ccc;
+      -webkit-transition: background-color 50ms;
+      transition: background-color 50ms; }
+      .block-editor ol li.selected {
+        border: 1px solid #333;
+        background-color: #eee; }
+      .block-editor ol li span {
+        cursor: default; }
+        .block-editor ol li span.chrome {
+          display: block;
+          padding: 8px; }
+          .block-editor ol li span.chrome button.collapse {
+            border: none;
+            background-color: transparent;
+            padding: 0;
+            float: right;
+            outline: none;
+            cursor: pointer;
+            -webkit-transition: all 100ms;
+            transition: all 100ms; }
+      .block-editor ol li + li {
+        margin-top: 8px; }
+      .block-editor ol li ol {
+        margin: 8px; }
+      .block-editor ol li.collapsed span.chrome button.collapse {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+        filter: progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(-90), M12=0-sin(-90), M21=sin(-90), M22=cos(-90));
+        -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=cos(-90), M12=0-sin(-90), M21=sin(-90), M22=cos(-90))";
+        zoom: 1; }
+      .block-editor ol li.collapsed ol {
+        display: none; }
