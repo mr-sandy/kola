@@ -32,7 +32,7 @@ var BlockEditorComponent = React.createClass({
             <li className={classes.join(' ')}
                 data-path={this.props.component.get('path')}
                 onClick = {this._onItemClick}>
-                <span className="chrome">{this.props.component.get('type')} - {this.props.component.get('name')}</span>
+                <span className="chrome">{this.props.component.get('type')} - {this.props.component.get('name')} - {this.props.component.get('sandy')}</span>
             </li>
         );
     },
@@ -60,7 +60,7 @@ var BlockEditorComponent = React.createClass({
             <li className={classes.join(' ')}
                 data-path={this.props.component.get('path')}
                 onClick = {this._onItemClick}>
-                <span className="chrome">{this.props.component.get('type')} - {this.props.component.get('name')}
+                <span className="chrome">{this.props.component.get('type')} - {this.props.component.get('name')} - {this.props.component.get('sandy')}
                     <button
                         className="collapse"
                         onClick={this._onCollapseClick}>

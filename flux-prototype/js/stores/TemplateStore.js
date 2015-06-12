@@ -10,14 +10,56 @@ var CHANGE_EVENT = 'change';
 var _template = {};
 var _selectedComponent = null;
 
+
+function _annotateComponents(components, parentPath) {
+
+    parentPath = parentPath || [];
+
+    for (var i = 0; i < components.count(); i++) {
+        components = components.setIn([i, 'sandy'], parentPath.concat([i]).join('/'));
+
+        if (components.hasIn([i, 'components'])) {
+            for (var j = 0; j < components.getIn([i, 'components']).count(); j++) {
+                components = components.setIn([i, 'components', j, 'sandy'], parentPath.concat([i, j]).join('/'));
+
+                var pathK = [i, 'components', j, 'components'];
+                if (components.hasIn(pathK)) {
+                    for (var k = 0; k < components.getIn(pathK).count(); k++) {
+                        components = components.setIn(pathK.concat([k, 'sandy']), parentPath.concat([i, j, k]).join('/'));
+                    }
+                }
+            }
+        }
+    }
+    return components;
+}
+
+/*
+ function _annotateComponents2(components, sofar) {
+ return components.map(function(component, index) {
+ return component.withMutations(function (c) {
+ var path = sofar.concat([index]);
+ c.merge({sandy: path});
+
+ if (c.get('components')) {
+ c.set('components', _annotateComponents(c.get('components'), path));
+ }
+ });
+ });
+ }
+ */
+
+function _annotate(template) {
+    return template.set('components', _annotateComponents(template.get('components')));
+}
+
 function init(rawTemplate) {
-    _template = Immutable.fromJS(rawTemplate);
+    _template = _annotate(Immutable.fromJS(rawTemplate));
 }
 
 function selectComponent(component) {
 
-    if (_selectedComponent)
-    {
+    if (_selectedComponent) {
         deselectComponent(_selectedComponent);
     }
 
@@ -77,10 +119,9 @@ function buildKeyPath(path) {
             var index = path[i];
             keyPath.push(index);
 
-            if (i !== path.length - 1)
-            {
+            if (i !== path.length - 1) {
                 var componentType = _template.getIn(keyPath).get('type');
-                switch (componentType){
+                switch (componentType) {
                     case 'widget':
                         keyPath.push('areas');
                         break;
