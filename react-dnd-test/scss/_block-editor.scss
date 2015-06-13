@@ -1,0 +1,62 @@
+@import "./utility";
+
+.block-editor {
+  $margin: 8px;
+  $empty-item-height: 29px;
+
+  width: 250px;
+  padding: 10px;
+
+  ol {
+    min-height: $empty-item-height;
+
+    li {
+      border: 1px solid #ccc;
+      @include transition(background-color 50ms);
+
+      &.selected {
+        border: 1px solid #333;
+        background-color: #eee;
+      }
+
+      span {
+        cursor: default;
+
+        &.chrome {
+          display: block;
+          padding: $margin;
+
+          button.collapse {
+            border: none;
+            background-color: transparent;
+            padding: 0;
+            float: right;
+            outline: none;
+            cursor: pointer;
+            @include transition(all 100ms);
+          }
+        }
+      }
+
+      & + li {
+        margin-top: $margin;
+      }
+
+      ol {
+        margin: $margin;
+      }
+
+      &.collapsed {
+        span.chrome {
+          button.collapse {
+            @include rotate(-90);
+          }
+        }
+
+        ol {
+          display: none;
+        }
+      }
+    }
+  }
+}
