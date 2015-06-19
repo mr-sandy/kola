@@ -10,51 +10,40 @@ var CHANGE_EVENT = 'change';
 var _template = {};
 var _selectedComponent = null;
 
-
-function _annotateComponents(components, parentPath) {
-
-    parentPath = parentPath || [];
-
-    for (var i = 0; i < components.count(); i++) {
-        components = components.setIn([i, 'sandy'], parentPath.concat([i]).join('/'));
-
-        if (components.hasIn([i, 'components'])) {
-            for (var j = 0; j < components.getIn([i, 'components']).count(); j++) {
-                components = components.setIn([i, 'components', j, 'sandy'], parentPath.concat([i, j]).join('/'));
-
-                var pathK = [i, 'components', j, 'components'];
-                if (components.hasIn(pathK)) {
-                    for (var k = 0; k < components.getIn(pathK).count(); k++) {
-                        components = components.setIn(pathK.concat([k, 'sandy']), parentPath.concat([i, j, k]).join('/'));
-                    }
-                }
-            }
-        }
-    }
-    return components;
+function makeComponentKey(index) {
+    return ['components', index];
 }
 
-/*
- function _annotateComponents2(components, sofar) {
- return components.map(function(component, index) {
- return component.withMutations(function (c) {
- var path = sofar.concat([index]);
- c.merge({sandy: path});
+function buildKeyPath(componentPath, finalKey) {
+    return _.chain(componentPath)
+        .map(makeComponentKey)
+        .flatten()
+        .concat([finalKey])
+        .value();
+}
 
- if (c.get('components')) {
- c.set('components', _annotateComponents(c.get('components'), path));
- }
- });
- });
- }
- */
+function annotatePaths(template, parentPath) {
 
-function _annotate(template) {
-    return template.set('components', _annotateComponents(template.get('components')));
+    parentPath = parentPath || [];
+    var componentsKeyPath = buildKeyPath(parentPath, 'components');
+
+    if (template.hasIn(componentsKeyPath)) {
+        for (var i = 0; i < template.getIn(componentsKeyPath).count(); i++) {
+            var pathKeyPath = componentsKeyPath.concat([i, 'path']);
+            if (template.hasIn(pathKeyPath)) {
+                template = template.mergeIn(pathKeyPath, parentPath.concat([i]));
+            }
+            else {
+                template = template.mergeIn(componentsKeyPath.concat([i]), {'path': parentPath.concat([i])});
+            }
+            template = annotatePaths(template, parentPath.concat([i]));
+        }
+    }
+    return template;
 }
 
 function init(rawTemplate) {
-    _template = _annotate(Immutable.fromJS(rawTemplate));
+    _template = annotatePaths(Immutable.fromJS(rawTemplate));
 }
 
 function selectComponent(component) {
@@ -63,77 +52,29 @@ function selectComponent(component) {
         deselectComponent(_selectedComponent);
     }
 
-    var componentPath = getComponentPath(component);
-    var keyPath = buildKeyPath(componentPath);
-
-    keyPath.push('selected');
+    var keyPath = buildKeyPath(component.get('path').toJS(), 'selected');
 
     _template = _template.setIn(keyPath, true);
     _selectedComponent = component;
 }
 
 function deselectComponent(component) {
-    var componentPath = getComponentPath(component);
-    var keyPath = buildKeyPath(componentPath);
-
-    keyPath.push('selected');
+    var keyPath = buildKeyPath(component.get('path').toJS(), 'selected');
 
     _template = _template.deleteIn(keyPath);
     _selectedComponent = null;
 }
 
 function expandComponent(component) {
-    var componentPath = getComponentPath(component);
-    var keyPath = buildKeyPath(componentPath);
-
-    keyPath.push('collapsed');
+    var keyPath = buildKeyPath(component.get('path').toJS(), 'collapsed');
 
     _template = _template.deleteIn(keyPath);
 }
 
 function collapseComponent(component) {
-    var componentPath = getComponentPath(component);
-    var keyPath = buildKeyPath(componentPath);
-
-    keyPath.push('collapsed');
+    var keyPath = buildKeyPath(component.get('path').toJS(), 'collapsed');
 
     _template = _template.setIn(keyPath, true);
-}
-
-function getComponentPath(component) {
-    return _.chain(component.get('path').split('/'))
-        .without('')
-        .map(_.parseInt)
-        .value();
-}
-
-function buildKeyPath(path) {
-
-    var keyPath = [];
-
-    if (path.length !== 0) {
-
-        keyPath.push('components');
-
-        for (var i = 0; i < path.length; i++) {
-            var index = path[i];
-            keyPath.push(index);
-
-            if (i !== path.length - 1) {
-                var componentType = _template.getIn(keyPath).get('type');
-                switch (componentType) {
-                    case 'widget':
-                        keyPath.push('areas');
-                        break;
-                    default:
-                        keyPath.push('components');
-                        break;
-                }
-            }
-        }
-    }
-
-    return keyPath;
 }
 
 var TemplateStore = assign({}, EventEmitter.prototype, {

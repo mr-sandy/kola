@@ -21,43 +21,35 @@ module.exports = {
                     components: [
                         {
                             type: 'atom',
-                            name: 'markdown',
-                            path: '0'
+                            name: 'markdown'
                         },
                         {
                             type: 'atom',
-                            name: 'markdown',
-                            path: '1'
+                            name: 'markdown'
                         },
                         {
                             type: 'container',
                             name: 'division',
-                            path: '2',
                             components: [
                                 {
                                     type: 'atom',
-                                    name: 'markdown',
-                                    path: '2/0'
+                                    name: 'markdown'
                                 },
                                 {
                                     type: 'atom',
-                                    name: 'markdown',
-                                    path: '2/1'
+                                    name: 'markdown'
                                 },
                                 {
                                     type: 'container',
                                     name: 'division',
-                                    path: '2/2',
                                     components: [
                                         {
                                             type: 'atom',
-                                            name: 'markdown',
-                                            path: '2/2/0'
+                                            name: 'markdown'
                                         },
                                         {
                                             type: 'atom',
-                                            name: 'markdown',
-                                            path: '2/2/1'
+                                            name: 'markdown'
                                         }
                                     ]
                                 }
