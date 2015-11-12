@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Kola.Plugins.Core</RootNamespace>
     <AssemblyName>Kola.Plugins.Core</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MarkdownSharp">
@@ -106,16 +109,6 @@
     <EmbeddedResource Include="Editors\templates\NumberEditorTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Kola.Configuration\Kola.Configuration.csproj">
-      <Project>{B507BF7D-EC86-4032-A0A9-D4010E49EB6B}</Project>
-      <Name>Kola.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Kola.Domain\Kola.Domain.csproj">
-      <Project>{30C44B29-C33B-4A77-A713-EFF0E2778F01}</Project>
-      <Name>Kola.Domain</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Editors\views\HtmlLinkTypeView.js" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +143,16 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Editors\views\HtmlStyleTypeView.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Kola.Configuration\Kola.Configuration.csproj">
+      <Project>{b507bf7d-ec86-4032-a0a9-d4010e49eb6b}</Project>
+      <Name>Kola.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Kola.Domain\Kola.Domain.csproj">
+      <Project>{30c44b29-c33b-4a77-a713-eff0e2778f01}</Project>
+      <Name>Kola.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

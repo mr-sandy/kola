@@ -12,3 +12,5 @@ NDependOut/
 .sass-cache/
 *nCrunch*
 *StyleCop.Cache
+node_modules/
+packages/
