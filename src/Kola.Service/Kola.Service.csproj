@@ -61,6 +61,16 @@
     <Compile Include="ResourceBuilding\ResourceBuildingComponentVisitor.cs" />
     <Compile Include="ResourceBuilding\ResourceBuildingPropertyValueVisitor.cs" />
     <Compile Include="ResourceBuilding\TemplateResourceBuilder.cs" />
+    <Compile Include="Services\IRenderingService.cs" />
+    <Compile Include="Services\RenderingService.cs" />
+    <Compile Include="Services\Results\CreatedResult.cs" />
+    <Compile Include="Services\Results\FailureResult.cs" />
+    <Compile Include="Services\Results\IContext.cs" />
+    <Compile Include="Services\Results\IResult.cs" />
+    <Compile Include="Services\Results\IResultVisitor.cs" />
+    <Compile Include="Services\Results\NotFoundResult.cs" />
+    <Compile Include="Services\Results\SuccessResult.cs" />
+    <Compile Include="Services\Results\UnauthorisedResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kola.Configuration\Kola.Configuration.csproj">

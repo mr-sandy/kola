@@ -15,6 +15,7 @@
     using global::Nancy.ViewEngines.Razor;
 
     using Kola.Nancy;
+    using Kola.Service.Services;
 
     using NUnit.Framework;
 
@@ -26,23 +27,24 @@
 
         protected BrowserResponse Response { get; set; }
 
-        protected IPageHandler PageHandler { get; set; }
+        protected IRenderingService RenderingService { get; set; }
 
         protected IRendererFactory HandlerFactory { get; set; }
 
         [SetUp]
         public void EstablishBaseContext()
         {
-            this.PageHandler = MockRepository.GenerateMock<IPageHandler>();
+            this.RenderingService = MockRepository.GenerateMock<IRenderingService>();
             this.HandlerFactory = MockRepository.GenerateMock<IRendererFactory>();
 
             var bootstrapper = new ConfigurableBootstrapper(
                 with =>
                     {
-                        with.Dependency(this.PageHandler);
+                        with.Dependency(this.RenderingService);
                         with.Module<RenderingModule>();
                         with.ViewEngine<RazorViewEngine>();
                         with.ViewLocationProvider<ResourceViewLocationProvider>();
+
                         ResourceViewLocationProvider.RootNamespaces.Clear();
                         ResourceViewLocationProvider.RootNamespaces.Add(typeof(KolaNancyBootstrapper).Assembly, "Kola.Nancy");
                     });

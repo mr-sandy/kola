@@ -65,11 +65,14 @@
     <Compile Include="Modules\AcceptHeaderFilters.cs" />
     <Compile Include="Modules\AdminModule.cs" />
     <Compile Include="Modules\ComponentTypeModule.cs" />
+    <Compile Include="Modules\RenderingModuleOld.cs" />
     <Compile Include="Modules\RenderingModule.cs" />
     <Compile Include="Modules\RenderQuery.cs" />
     <Compile Include="Modules\TemplateModule.cs" />
     <Compile Include="Modules\WidgetModule.cs" />
     <Compile Include="NancyRazorViewHelper.cs" />
+    <Compile Include="Processors\PageResultProcessor.cs" />
+    <Compile Include="Processors\Processor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultWrapper.cs" />
     <Compile Include="TinyIoCObjectFactory.cs" />

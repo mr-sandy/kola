@@ -94,7 +94,7 @@
     <Compile Include="Instances\Context\ContextSet.cs" />
     <Compile Include="Instances\Context\IBuildContext.cs" />
     <Compile Include="Instances\Context\IContextItem.cs" />
-    <Compile Include="Instances\IComponentInstance.cs" />
+    <Compile Include="Instances\ComponentInstance.cs" />
     <Compile Include="Instances\IComponentInstanceVisitor.cs" />
     <Compile Include="Instances\InstanceBuildingComponentVisitor.cs" />
     <Compile Include="Instances\PageInstance.cs" />
