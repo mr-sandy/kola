@@ -23,7 +23,7 @@ namespace Kola.Domain.Instances
             return new PageInstance(template.Components.Select((c, i) => c.Build(this, new[] { i }, buildContext)).ToList());
         }
 
-        public ComponentInstance Build(Atom atom, IEnumerable<int> path, IBuildContext buildContext)
+        public AtomInstance Build(Atom atom, IEnumerable<int> path, IBuildContext buildContext)
         {
             return new AtomInstance(
                 path, 
@@ -32,7 +32,7 @@ namespace Kola.Domain.Instances
                 atom.Properties.Select(p => p.Build(buildContext)).ToList());
         }
 
-        public ComponentInstance Build(Container container, IEnumerable<int> path, IBuildContext buildContext)
+        public ContainerInstance Build(Container container, IEnumerable<int> path, IBuildContext buildContext)
         {
             var propertyInstances = container.Properties.Select(p => p.Build(buildContext)).ToList();
 
@@ -50,7 +50,7 @@ namespace Kola.Domain.Instances
                 children);
         }
 
-        public ComponentInstance Build(Widget widget, IEnumerable<int> path, IBuildContext buildContext)
+        public WidgetInstance Build(Widget widget, IEnumerable<int> path, IBuildContext buildContext)
         {
             // Add the widget's parameters to the context to be picjed up by any children
             var propertyInstances = widget.Properties.Select(p => p.Build(buildContext)).ToList();
@@ -78,7 +78,7 @@ namespace Kola.Domain.Instances
                 components);
         }
 
-        public ComponentInstance Build(Placeholder placeholder, IEnumerable<int> path, IBuildContext buildContext)
+        public PlaceholderInstance Build(Placeholder placeholder, IEnumerable<int> path, IBuildContext buildContext)
         {
             var componentInstance = buildContext.AreaContents.Peek().ContainsKey(placeholder.Name)
                                         ? buildContext.AreaContents.Peek()[placeholder.Name]
@@ -90,7 +90,7 @@ namespace Kola.Domain.Instances
                 componentInstance);
         }
 
-        public ComponentInstance Build(Area area, IEnumerable<int> path, IBuildContext buildContext)
+        public AreaInstance Build(Area area, IEnumerable<int> path, IBuildContext buildContext)
         {
             return new AreaInstance(
                 path, 

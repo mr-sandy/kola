@@ -9,15 +9,14 @@
     {
         PageInstance Build(Template template, IBuildContext buildContext);
 
-        ComponentInstance Build(Atom atom, IEnumerable<int> path, IBuildContext buildContext);
+        AtomInstance Build(Atom atom, IEnumerable<int> path, IBuildContext buildContext);
 
-        ComponentInstance Build(Container container, IEnumerable<int> path, IBuildContext buildContext);
+        ContainerInstance Build(Container container, IEnumerable<int> path, IBuildContext buildContext);
 
-        ComponentInstance Build(Widget widget, IEnumerable<int> path, IBuildContext buildContext);
+        WidgetInstance Build(Widget widget, IEnumerable<int> path, IBuildContext buildContext);
 
-        ComponentInstance Build(Placeholder placeholder, IEnumerable<int> path, IBuildContext buildContext);
+        PlaceholderInstance Build(Placeholder placeholder, IEnumerable<int> path, IBuildContext buildContext);
 
-        ComponentInstance Build(Area area, IEnumerable<int> path, IBuildContext buildContext);
-
+        AreaInstance Build(Area area, IEnumerable<int> path, IBuildContext buildContext);
     }
 }

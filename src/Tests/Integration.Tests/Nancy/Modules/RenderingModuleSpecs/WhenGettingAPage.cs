@@ -20,14 +20,14 @@
         [SetUp]
         public void EstablishContext()
         {
-            var renderingInstructions = MockRepository.GenerateStub<RenderingInstructions>();
+            var renderingInstructions = MockRepository.GenerateStub<IRenderingInstructions>();
 
             var page = new PageInstance(new[] { new AtomInstance(new[] { 0 }, renderingInstructions, "atom1", Enumerable.Empty<PropertyInstance>()) });
 
             var atom1Handler = MockRepository.GenerateMock<IRenderer<AtomInstance>>();
             atom1Handler.Stub(h => h.Render(Arg<AtomInstance>.Is.Anything)).Return(new Result(h => "<atom1/>"));
 
-            this.PageHandler.Stub(h => h.GetPage(Arg<IEnumerable<string>>.Is.Anything, false)).Return(page);
+            this.PageHandler.Stub(h => h.GetPage(Arg<IEnumerable<string>>.Is.Anything, Arg<bool>.Is.Anything)).Return(page);
             this.HandlerFactory.Stub(f => f.GetAtomRenderer(Arg<string>.Is.Anything)).Return(atom1Handler);
 
             this.Response = this.Browser.Get("/", with => with.Header("Accept", "text/html"));
