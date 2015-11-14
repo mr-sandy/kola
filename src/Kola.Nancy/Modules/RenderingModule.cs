@@ -2,6 +2,7 @@
 {
     using global::Nancy;
     using global::Nancy.ModelBinding;
+    using global::Nancy.Responses;
     using global::Nancy.Responses.Negotiation;
 
     using Kola.Nancy.Extensions;
@@ -20,16 +21,14 @@
         }
 
 
-        private Negotiator GetPage()
+        private dynamic GetPage()
         {
             var path = this.Request.Path.ParsePath();
             var query = this.Bind<RenderQuery>();
 
             var model = this.renderingService.GetPage(path, query.IsPreview);
 
-            return this.Negotiate
-                .WithModel(model)
-                .WithView("Page");
+            return this.Negotiate.WithModel(model);
         }
     }
 }

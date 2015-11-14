@@ -1,11 +1,11 @@
-﻿namespace Kola.Domain.Rendering
-{
-    using System.Collections.Generic;
+﻿//namespace Kola.Domain.Rendering
+//{
+//    using System.Collections.Generic;
 
-    using Kola.Domain.Instances;
+//    using Kola.Domain.Instances;
 
-    public interface IPageHandler
-    {
-        PageInstance GetPage(IEnumerable<string> path, bool preview);
-    }
-}
+//    public interface IPageHandler
+//    {
+//        PageInstance GetPage(IEnumerable<string> path, bool preview);
+//    }
+//}

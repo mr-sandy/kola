@@ -24,7 +24,6 @@
         {
             var renderingInstructions = MockRepository.GenerateStub<IRenderingInstructions>();
 
-
             var atom1Handler = MockRepository.GenerateMock<IRenderer<AtomInstance>>();
             atom1Handler.Stub(h => h.Render(Arg<AtomInstance>.Is.Anything)).Return(new Result(h => "<atom1/>"));
 

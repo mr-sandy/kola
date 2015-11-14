@@ -40,6 +40,7 @@
             var bootstrapper = new ConfigurableBootstrapper(
                 with =>
                     {
+                        with.Dependency<Kola.Nancy.Processors.ViewProcessor>();
                         with.Dependency(this.RenderingService);
                         with.Module<RenderingModule>();
                         with.ViewEngine<RazorViewEngine>();
