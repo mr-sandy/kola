@@ -68,13 +68,10 @@
     <Compile Include="Modules\RenderingModuleOld.cs" />
     <Compile Include="Modules\RenderingModule.cs" />
     <Compile Include="Modules\RenderQuery.cs" />
-    <Compile Include="Modules\ResponseBuildingGetPageResultVisitor.cs" />
+    <Compile Include="Modules\NegotiatingResultVisitor.cs" />
     <Compile Include="Modules\TemplateModule.cs" />
     <Compile Include="Modules\WidgetModule.cs" />
     <Compile Include="NancyRazorViewHelper.cs" />
-    <Compile Include="Processors\PageResultProcessor.cs" />
-    <Compile Include="Processors\Processor.cs" />
-    <Compile Include="Processors\ResponseBuildingPageResultVisitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultWrapper.cs" />
     <Compile Include="TinyIoCObjectFactory.cs" />

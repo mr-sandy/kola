@@ -51,7 +51,6 @@
     <Compile Include="IPropertySpecificationLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertySpecificationLibrary.cs" />
-    <Compile Include="Rendering\PageHandler.cs" />
     <Compile Include="ResourceBuilding\AmendmentResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\ComponentNamingSpecificationVisitor.cs" />
     <Compile Include="ResourceBuilding\ComponentResourceBuilder.cs" />

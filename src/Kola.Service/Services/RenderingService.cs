@@ -22,7 +22,7 @@
             this.componentLibrary = componentLibrary;
         }
 
-        public IResult<PageInstance> GetPage(IEnumerable<string> path, bool preview)
+        public IResult<PageInstance> GetPage(IEnumerable<string> path, RenderingInstructions renderingInstructions)
         {
             var template = this.templateRepository.Get(path);
 
@@ -31,23 +31,39 @@
                 return new NotFoundResult<PageInstance>();
             }
 
+            var page = this.BuildPage(template, renderingInstructions);
+
+            return new SuccessResult<PageInstance>(page);
+        }
+
+        public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, RenderingInstructions renderingInstructions, IEnumerable<int> componentPath)
+        {
+            var template = this.templateRepository.Get(path);
+
+            if (template == null)
+            {
+                return new NotFoundResult<ComponentInstance>();
+            }
+
+            var page = this.BuildPage(template, renderingInstructions);
+
+            var finder = new ComponentFindingComponentInstanceVisitor();
+
+            var fragment = finder.Find(page, componentPath);
+
+            return new SuccessResult<ComponentInstance>(fragment);
+        }
+
+        private PageInstance BuildPage(Template template, RenderingInstructions renderingInstructions)
+        {
             template.ApplyAmendments(this.componentLibrary);
 
-            var buildContext = new BuildContext
-            {
-                WidgetSpecificationFinder = n => this.widgetSpecificationRepository.Find(n)
-            };
-
-            var renderingInstructions = new RenderingInstructions(useCache: !preview, annotateComponentPaths: preview);
+            var buildContext = new BuildContext { WidgetSpecificationFinder = n => this.widgetSpecificationRepository.Find(n) };
 
             var builder = new Builder(renderingInstructions);
 
-            return new SuccessResult<PageInstance>(template.Build(builder, buildContext));
-        }
-
-        public IResult<PageInstance> GetFragment(IEnumerable<string> path, IEnumerable<int> componentPath)
-        {
-            throw new System.NotImplementedException();
+            var page = template.Build(builder, buildContext);
+            return page;
         }
     }
 }

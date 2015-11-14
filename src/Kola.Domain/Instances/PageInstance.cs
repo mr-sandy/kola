@@ -4,7 +4,7 @@
 
     public class PageInstance
     {
-        public PageInstance(IEnumerable<ComponentInstance> components = null)
+        public PageInstance(IEnumerable<ComponentInstance> components)
         {
             this.Components = components;
         }

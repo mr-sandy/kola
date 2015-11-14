@@ -3,12 +3,13 @@
     using System.Collections.Generic;
 
     using Kola.Domain.Instances;
+    using Kola.Domain.Rendering;
     using Kola.Service.Services.Results;
 
     public interface IRenderingService
     {
-        IResult<PageInstance> GetPage(IEnumerable<string> path, bool preview);
+        IResult<PageInstance> GetPage(IEnumerable<string> path, RenderingInstructions renderingInstructions);
 
-        IResult<PageInstance> GetFragment(IEnumerable<string> path, IEnumerable<int> componentPath);
+        IResult<ComponentInstance> GetFragment(IEnumerable<string> path, RenderingInstructions renderingInstructions, IEnumerable<int> componentPath);
     }
 }

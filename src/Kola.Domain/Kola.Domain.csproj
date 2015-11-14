@@ -112,7 +112,6 @@
     <Compile Include="Rendering\EmptyResult.cs" />
     <Compile Include="Rendering\IMultiRenderer.cs" />
     <Compile Include="Rendering\IObjectFactory.cs" />
-    <Compile Include="Rendering\IPageHandler.cs" />
     <Compile Include="Rendering\IRenderer.cs" />
     <Compile Include="Rendering\IRendererFactory.cs" />
     <Compile Include="Rendering\IRenderingInstructions.cs" />

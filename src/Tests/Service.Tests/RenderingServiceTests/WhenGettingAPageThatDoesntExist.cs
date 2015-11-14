@@ -3,6 +3,7 @@
     using FluentAssertions;
 
     using Kola.Domain.Instances;
+    using Kola.Domain.Rendering;
     using Kola.Service.Services.Results;
 
     using NUnit.Framework;
@@ -19,7 +20,7 @@
             var path = new[] { "path1, path2 " };
 
             this.TemplateRepository.Stub(r => r.Get(path)).Return(null);
-            this.result = this.RenderingService.GetPage(path, false);
+            this.result = this.RenderingService.GetPage(path, new RenderingInstructions(false, true));
         }
 
         [Test]
