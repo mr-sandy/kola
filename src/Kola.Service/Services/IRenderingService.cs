@@ -8,8 +8,8 @@
 
     public interface IRenderingService
     {
-        IResult<PageInstance> GetPage(IEnumerable<string> path, RenderingInstructions renderingInstructions);
+        IResult<PageInstance> GetPage(IEnumerable<string> path, IRenderingInstructions renderingInstructions);
 
-        IResult<ComponentInstance> GetFragment(IEnumerable<string> path, RenderingInstructions renderingInstructions, IEnumerable<int> componentPath);
+        IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IRenderingInstructions renderingInstructions, IEnumerable<int> componentPath);
     }
 }

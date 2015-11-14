@@ -87,10 +87,5 @@
 
             return null;
         }
-
-        public PageInstance Build(IBuilder builder, IBuildContext buildContext)
-        {
-            return builder.Build(this, buildContext);
-        }
     }
 }

@@ -11,16 +11,16 @@ namespace Kola.Domain.Instances
 
     public class Builder : IBuilder
     {
-        private readonly RenderingInstructions renderingInstructions;
+        private readonly IRenderingInstructions renderingInstructions;
 
-        public Builder(RenderingInstructions renderingInstructions)
+        public Builder(IRenderingInstructions renderingInstructions)
         {
             this.renderingInstructions = renderingInstructions;
         }
 
         public PageInstance Build(Template template, IBuildContext buildContext)
         {
-            return new PageInstance(template.Components.Select((c, i) => c.Build(this, new[] { i }, buildContext)).ToList());
+            return new PageInstance(template.Components.Select((c, i) => c.Build(this, new[] { i }, buildContext)).ToList(), this.renderingInstructions);
         }
 
         public AtomInstance Build(Atom atom, IEnumerable<int> path, IBuildContext buildContext)

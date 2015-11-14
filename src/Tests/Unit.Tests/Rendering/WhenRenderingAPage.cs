@@ -53,7 +53,7 @@
                             new AtomInstance(new[] { 0 }, renderingInstructions, "atom1", Enumerable.Empty<PropertyInstance>()),
                             new AtomInstance(new[] { 1 }, renderingInstructions, "atom2", Enumerable.Empty<PropertyInstance>()),
                             new ContainerInstance(new[] { 2 }, renderingInstructions, "container1", null, new[] { new AtomInstance(new[] { 2, 0 }, renderingInstructions, "atom3", Enumerable.Empty<PropertyInstance>()) })
-                        });
+                        }, renderingInstructions);
 
             var viewFactory = new TestViewFactory(renderer);
             var viewHelper = new TestViewHelper(viewFactory);

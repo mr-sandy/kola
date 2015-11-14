@@ -22,7 +22,7 @@
             this.componentLibrary = componentLibrary;
         }
 
-        public IResult<PageInstance> GetPage(IEnumerable<string> path, RenderingInstructions renderingInstructions)
+        public IResult<PageInstance> GetPage(IEnumerable<string> path, IRenderingInstructions renderingInstructions)
         {
             var template = this.templateRepository.Get(path);
 
@@ -36,7 +36,7 @@
             return new SuccessResult<PageInstance>(page);
         }
 
-        public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, RenderingInstructions renderingInstructions, IEnumerable<int> componentPath)
+        public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IRenderingInstructions renderingInstructions, IEnumerable<int> componentPath)
         {
             var template = this.templateRepository.Get(path);
 
@@ -54,7 +54,7 @@
             return new SuccessResult<ComponentInstance>(fragment);
         }
 
-        private PageInstance BuildPage(Template template, RenderingInstructions renderingInstructions)
+        private PageInstance BuildPage(Template template, IRenderingInstructions renderingInstructions)
         {
             template.ApplyAmendments(this.componentLibrary);
 
@@ -62,8 +62,7 @@
 
             var builder = new Builder(renderingInstructions);
 
-            var page = template.Build(builder, buildContext);
-            return page;
+            return builder.Build(template, buildContext);
         }
     }
 }

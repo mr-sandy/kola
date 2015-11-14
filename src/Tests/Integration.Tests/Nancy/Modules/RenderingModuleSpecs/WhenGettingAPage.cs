@@ -23,11 +23,12 @@
         public void EstablishContext()
         {
             var renderingInstructions = MockRepository.GenerateStub<IRenderingInstructions>();
+            renderingInstructions.Stub(r => r.UseCache).Return(true);
 
             var atom1Handler = MockRepository.GenerateMock<IRenderer<AtomInstance>>();
             atom1Handler.Stub(h => h.Render(Arg<AtomInstance>.Is.Anything)).Return(new Result(h => "<atom1/>"));
 
-            var page = new PageInstance(new[] { new AtomInstance(new[] { 0 }, renderingInstructions, "atom1", Enumerable.Empty<PropertyInstance>()) });
+            var page = new PageInstance(new[] { new AtomInstance(new[] { 0 }, renderingInstructions, "atom1", Enumerable.Empty<PropertyInstance>()) }, renderingInstructions);
 
             this.RenderingService.Stub(h => h.GetPage(Arg<IEnumerable<string>>.Is.Anything, Arg<RenderingInstructions>.Is.Anything)).Return(new SuccessResult<PageInstance>(page));
             this.HandlerFactory.Stub(f => f.GetAtomRenderer(Arg<string>.Is.Anything)).Return(atom1Handler);

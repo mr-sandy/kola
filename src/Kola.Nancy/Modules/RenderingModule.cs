@@ -42,7 +42,7 @@
 
             var result = this.renderingService.GetPage(path, renderingInstructions);
 
-            return result.Accept(new NegotiatingResultVisitor<PageInstance>(this, "Page", query.IsPreview));
+            return result.Accept(new PageInstanceNegotiatingResultVisitor(this));
         }
 
         private Negotiator GetFragment(RenderQuery query)
@@ -55,7 +55,7 @@
 
             var result = this.renderingService.GetFragment(path, renderingInstructions, componentPath);
 
-            return result.Accept(new NegotiatingResultVisitor<ComponentInstance>(this, "Fragment", true));
+            return result.Accept(new ComponentInstanceNegotiatingResultVisitor(this));
         }
     }
 }

@@ -64,7 +64,9 @@
     <Compile Include="KolaNancyBootstrapper.cs" />
     <Compile Include="Modules\AcceptHeaderFilters.cs" />
     <Compile Include="Modules\AdminModule.cs" />
+    <Compile Include="Modules\ComponentInstanceNegotiatingResultVisitor.cs" />
     <Compile Include="Modules\ComponentTypeModule.cs" />
+    <Compile Include="Modules\PageInstanceNegotiatingResultVisitor.cs" />
     <Compile Include="Modules\RenderingModuleOld.cs" />
     <Compile Include="Modules\RenderingModule.cs" />
     <Compile Include="Modules\RenderQuery.cs" />
