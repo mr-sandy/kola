@@ -1,4 +1,4 @@
-﻿namespace Kola.Nancy.Modules
+﻿namespace Kola.Nancy.Models
 {
     using System;
 

@@ -7,6 +7,9 @@
 
     using global::Nancy.Testing;
 
+    using Kola.Nancy.Processors;
+    using Kola.Service.ResourceBuilding;
+
     using NUnit.Framework;
 
     using Rhino.Mocks;
@@ -28,6 +31,8 @@
                 with =>
                 {
                     with.Dependencies(new object[] { this.ComponentLibrary });
+                    with.Dependency<TemplateResourceBuilder>();
+                    with.Dependency<TemplateResultProcessor>();
                     with.Module<ComponentTypeModule>();
                 });
 

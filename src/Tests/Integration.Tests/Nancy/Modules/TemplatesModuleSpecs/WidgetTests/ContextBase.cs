@@ -5,6 +5,7 @@
     using Kola.Domain.Composition;
     using Kola.Nancy.Modules;
     using Kola.Persistence;
+    using Kola.Service.ResourceBuilding;
 
     using NUnit.Framework;
 
@@ -30,6 +31,7 @@
                 with =>
                     {
                         with.Dependencies(new object[] { this.WidgetSpecificationRepository, this.ComponentLibrary });
+                        with.Dependency<TemplateResourceBuilder>();
                         with.Module<WidgetModule>();
                     });
 

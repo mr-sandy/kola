@@ -9,20 +9,26 @@
     using Kola.Persistence.SurrogateBuilding;
     using Kola.Persistence.Surrogates;
 
-    internal class TemplateRepository : ITemplateRepository
+    internal class ContentRepository : IContentRepository
     {
         private const string TemplateFileName = "Template.xml";
 
         private readonly SerializationHelper serializationHelper;
+
         private readonly FileSystemHelper fileSystemHelper;
+
         private readonly string templatesDirectory;
 
-        public TemplateRepository(SerializationHelper serializationHelper, FileSystemHelper fileSystemHelper)
-            : this(serializationHelper, fileSystemHelper, rootDirectory: ConfigurationManager.AppSettings["ContentRoot"])
+        public ContentRepository(SerializationHelper serializationHelper, FileSystemHelper fileSystemHelper)
+            : this(serializationHelper, fileSystemHelper, rootDirectory: ConfigurationManager.AppSettings["ContentRoot"]
+                )
         {
         }
 
-        public TemplateRepository(SerializationHelper serializationHelper, FileSystemHelper fileSystemHelper, string rootDirectory)
+        public ContentRepository(
+            SerializationHelper serializationHelper,
+            FileSystemHelper fileSystemHelper,
+            string rootDirectory)
         {
             this.serializationHelper = serializationHelper;
             this.fileSystemHelper = fileSystemHelper;
@@ -30,23 +36,32 @@
 
         }
 
-        public void Add(Template template)
+        public void Add(IContent content)
         {
-            var surrogate = new TemplateSurrogateBuilder().Build(template);
-            var directoryPath = this.fileSystemHelper.CombinePaths(this.templatesDirectory, template.Path.ToFileSystemPath());
-
-            if (!this.fileSystemHelper.DirectoryExists(directoryPath))
+            var template = content as Template;
+            if (template != null)
             {
-                this.fileSystemHelper.CreateDirectory(directoryPath);
-            }
+                var surrogate = new TemplateSurrogateBuilder().Build(template);
+                var directoryPath = this.fileSystemHelper.CombinePaths(
+                    this.templatesDirectory,
+                    template.Path.ToFileSystemPath());
 
-            var path = this.fileSystemHelper.CombinePaths(directoryPath, TemplateFileName);
-            this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
+                if (!this.fileSystemHelper.DirectoryExists(directoryPath))
+                {
+                    this.fileSystemHelper.CreateDirectory(directoryPath);
+                }
+
+                var path = this.fileSystemHelper.CombinePaths(directoryPath, TemplateFileName);
+                this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
+            }
         }
 
-        public Template Get(IEnumerable<string> templatePath)
+        public IContent Get(IEnumerable<string> contentPath)
         {
-            var path = this.fileSystemHelper.CombinePaths(this.templatesDirectory, templatePath.ToFileSystemPath(), TemplateFileName);
+            var path = this.fileSystemHelper.CombinePaths(
+                this.templatesDirectory,
+                contentPath.ToFileSystemPath(),
+                TemplateFileName);
 
             if (!this.fileSystemHelper.FileExists(path))
             {
@@ -54,14 +69,21 @@
             }
 
             var surrogate = this.serializationHelper.Deserialize<TemplateSurrogate>(path);
-            return new TemplateDomainBuilder(templatePath).Build(surrogate);
+            return new TemplateDomainBuilder(contentPath).Build(surrogate);
         }
 
-        public void Update(Template template)
+        public void Update(IContent content)
         {
-            var surrogate = new TemplateSurrogateBuilder().Build(template);
-            var path = this.fileSystemHelper.CombinePaths(this.templatesDirectory, template.Path.ToFileSystemPath(), TemplateFileName);
-            this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
+            var template = content as Template;
+            if (template != null)
+            {
+                var surrogate = new TemplateSurrogateBuilder().Build(template);
+                var path = this.fileSystemHelper.CombinePaths(
+                    this.templatesDirectory,
+                    template.Path.ToFileSystemPath(),
+                    TemplateFileName);
+                this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
+            }
         }
     }
 }

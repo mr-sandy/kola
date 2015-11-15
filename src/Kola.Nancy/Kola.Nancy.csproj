@@ -64,13 +64,16 @@
     <Compile Include="KolaNancyBootstrapper.cs" />
     <Compile Include="Modules\AcceptHeaderFilters.cs" />
     <Compile Include="Modules\AdminModule.cs" />
-    <Compile Include="Modules\ComponentInstanceNegotiatingResultVisitor.cs" />
+    <Compile Include="Modules\TemplateModuleOld.cs" />
+    <Compile Include="Processors\Processor.cs" />
+    <Compile Include="Processors\ResponseBuildingResultVisitor.cs" />
+    <Compile Include="Processors\TemplateResultProcessor.cs" />
+    <Compile Include="ResponseNegotiators\ComponentInstanceNegotiatingResultVisitor.cs" />
     <Compile Include="Modules\ComponentTypeModule.cs" />
-    <Compile Include="Modules\PageInstanceNegotiatingResultVisitor.cs" />
-    <Compile Include="Modules\RenderingModuleOld.cs" />
+    <Compile Include="ResponseNegotiators\PageInstanceNegotiatingResultVisitor.cs" />
     <Compile Include="Modules\RenderingModule.cs" />
-    <Compile Include="Modules\RenderQuery.cs" />
-    <Compile Include="Modules\NegotiatingResultVisitor.cs" />
+    <Compile Include="Models\RenderQuery.cs" />
+    <Compile Include="ResponseNegotiators\NegotiatingResultVisitor.cs" />
     <Compile Include="Modules\TemplateModule.cs" />
     <Compile Include="Modules\WidgetModule.cs" />
     <Compile Include="NancyRazorViewHelper.cs" />
@@ -124,6 +127,7 @@
     <EmbeddedResource Include="Views\Error.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

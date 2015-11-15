@@ -1,8 +1,6 @@
 ﻿namespace Kola.Nancy.Modules
 {
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Net;
 
     using global::Nancy;
     using global::Nancy.ModelBinding;
@@ -14,22 +12,17 @@
     using Kola.Resources;
     using Kola.Service.DomainBuilding;
     using Kola.Service.ResourceBuilding;
-    using Kola.Service.Extensions;
-
-    using HttpStatusCode = global::Nancy.HttpStatusCode;
+    using Kola.Service.Services;
 
     // TODO {SC} Refactor bulk of code into a service independent of Nancy (add to the Kola.Services namespace); make this module as lightweight as possible
     public class TemplateModule : NancyModule
     {
-        private readonly ITemplateRepository templateRepository;
+        private readonly ITemplateService templateService;
 
-        private readonly IComponentSpecificationLibrary componentLibrary;
-
-        public TemplateModule(ITemplateRepository templateRepository, IComponentSpecificationLibrary componentLibrary)
+        public TemplateModule(ITemplateService templateService)
             : base("/_kola/templates/{templatePath*}")
         {
-            this.templateRepository = templateRepository;
-            this.componentLibrary = componentLibrary;
+            this.templateService = templateService;
 
             this.Get["/", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
             this.Get["/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.GetComponent(p.templatePath, p.componentPath);
@@ -45,167 +38,71 @@
             this.Post["/_amendments/undo", AcceptHeaderFilters.NotHtml] = p => this.PostUndoAmendment(p.templatePath);
         }
 
-        private dynamic GetTemplate(string templatePath)
+        private dynamic GetTemplate(string rawPath)
         {
-            var template = this.templateRepository.Get(templatePath.ParsePath());
+            var path = rawPath.ParsePath();
 
-            if (template == null)
-            {
-                return HttpStatusCode.NotFound;
-            }
+            var result = this.templateService.GetTemplate(path);
 
-            template.ApplyAmendments(this.componentLibrary);
-
-            new ComponentRefreshingVisitor(this.componentLibrary).Refresh(template);
-
-            var resource = new TemplateResourceBuilder().Build(template);
-
-            return this.Negotiate
-                .WithModel(resource)
-                .WithAllowedMediaRange("application/json");
+            return this.Negotiate.WithModel(result);
         }
 
-        private dynamic GetAmendments(string rawTemplatePath)
+        private dynamic GetAmendments(string rawPath)
         {
-            var templatePath = rawTemplatePath.ParsePath();
-            var template = this.templateRepository.Get(templatePath);
+            var path = rawPath.ParsePath();
 
-            if (template == null)
-            {
-                return HttpStatusCode.NotFound;
-            }
+            var result = this.templateService.GetAmendments(path);
 
-            var resource = new AmendmentResourceBuilder().Build(template.Amendments, template.Path);
-
-            return this.Negotiate
-                .WithModel(resource)
-                .WithAllowedMediaRange("application/json")
-                .WithHeader("location", string.Format("/{0}", rawTemplatePath));
+            return this.Negotiate.WithModel(result);
         }
 
         private dynamic GetComponent(string rawTemplatePath, string rawComponentPath)
         {
             var templatePath = rawTemplatePath.ParsePath();
-            var template = this.templateRepository.Get(templatePath);
-
-            if (template == null)
-            {
-                return HttpStatusCode.NotFound;
-            }
-
-            template.ApplyAmendments(this.componentLibrary);
-
             var componentPath = rawComponentPath.ParseComponentPath();
 
-            var component = template.FindComponent(componentPath);
+            var result = this.templateService.GetComponent(templatePath, componentPath);
 
-            // Add all properties for this component type (not just those with values set)
-            component.Accept(new ComponentRefreshingVisitor(this.componentLibrary));
-
-            var resource = new ComponentResourceBuilder().Build(component, componentPath, template.Path);
-
-            return this.Negotiate
-                .WithModel(resource)
-                .WithAllowedMediaRange("application/json")
-                .WithHeader("location", string.Format("/{0}", rawTemplatePath));
+            return this.Negotiate.WithModel(result);
         }
 
 
-        private dynamic PutTemplate(string rawTemplatePath)
+        private dynamic PutTemplate(string rawPath)
         {
-            var templatePath = rawTemplatePath.ParsePath();
+            var path = rawPath.ParsePath();
 
-            var existingTemplate = this.templateRepository.Get(templatePath);
-            if (existingTemplate != null)
-            {
-                return HttpStatusCode.Conflict;
-            }
+            var result = this.templateService.CreateTemplate(path);
 
-            var template = new Template(templatePath);
-
-            this.templateRepository.Add(template);
-
-            var resource = new TemplateResourceBuilder().Build(template);
-
-            return this.Negotiate
-                .WithModel(resource)
-                .WithAllowedMediaRange("application/json")
-                .WithStatusCode(HttpStatusCode.Created)
-                .WithHeader("location", string.Format("/{0}", rawTemplatePath));
+            return this.Negotiate.WithModel(result);
         }
 
-        private dynamic PostAmendment<T>(string rawTemplatePath)
+        private dynamic PostAmendment<T>(string rawPath)
             where T : AmendmentResource
         {
+            var path = rawPath.ParsePath();
             var amendment = new AmendmentDomainBuilder().Build(this.Bind<T>());
 
-            var templatePath = rawTemplatePath.ParsePath();
-            var template = this.templateRepository.Get(templatePath);
+            var result = this.templateService.AddAmendment(path, amendment);
 
-            if (template == null)
-            {
-                return HttpStatusCode.NotFound;
-            }
-
-            template.AddAmendment(amendment);
-
-            this.templateRepository.Update(template);
-
-            template.ApplyAmendments(this.componentLibrary);
-
-            var resource = new AmendmentResourceBuilder().Build(amendment, template.Path, template.Amendments.Count() - 1);
-
-            return this.Negotiate
-                .WithModel(resource)
-                .WithAllowedMediaRange("application/json")
-                .WithStatusCode(HttpStatusCode.Created);
+            return this.Negotiate.WithModel(result);
         }
 
-        private dynamic PostApplyAmendments(string rawTemplatePath)
+        private dynamic PostApplyAmendments(string rawPath)
         {
-            var templatePath = rawTemplatePath.ParsePath();
-            var template = this.templateRepository.Get(templatePath);
+            var path = rawPath.ParsePath();
 
-            if (template == null)
-            {
-                return HttpStatusCode.NotFound;
-            }
+            var result = this.templateService.ApplyAmendments(path);
 
-            template.ApplyAmendments(this.componentLibrary, reset: true);
-
-            this.templateRepository.Update(template);
-
-            return this.Negotiate
-                .WithModel(new { jam = "biscuits" })
-                .WithAllowedMediaRange("application/json")
-                .WithStatusCode(HttpStatusCode.Created);
+            return this.Negotiate.WithModel(result);
         }
 
-        private dynamic PostUndoAmendment(string rawTemplatePath)
+        private dynamic PostUndoAmendment(string rawPath)
         {
-            var templatePath = rawTemplatePath.ParsePath();
-            var template = this.templateRepository.Get(templatePath);
+            var path = rawPath.ParsePath();
 
-            if (template == null)
-            {
-                return HttpStatusCode.NotFound;
-            }
+            var result = this.templateService.UndoAmendment(path);
 
-            var amendment = template.UndoAmendment();
-
-            this.templateRepository.Update(template);
-
-            var resource = new
-            {
-                Links = amendment.AffectedPaths.Select(affectedPath => new LinkResource { Rel = "affected", Href = string.Join("/", affectedPath) })
-                        .Union(new[] { new LinkResource { Rel = "subject", Href = string.Join("/", amendment.AffectedPaths.First()) } })
-                        .ToArray()
-            };
-
-            return this.Negotiate
-                .WithModel(resource)
-                .WithAllowedMediaRange("application/json")
-                .WithStatusCode(HttpStatusCode.OK);
+            return this.Negotiate.WithModel(result);
         }
     }
 }

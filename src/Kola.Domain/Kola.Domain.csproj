@@ -68,6 +68,7 @@
     <Compile Include="Composition\IComponentSpecificationLibrary.cs" />
     <Compile Include="Composition\IComponentVisitor.cs" />
     <Compile Include="Composition\IComponentWithProperties.cs" />
+    <Compile Include="Composition\IContent.cs" />
     <Compile Include="Composition\Placeholder.cs" />
     <Compile Include="Composition\Property.cs" />
     <Compile Include="Composition\PropertyValues\FixedPropertyValue.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Composition\PropertyValues\IPropertyValueVisitor.cs" />
     <Compile Include="Composition\PropertyValues\MultilingualPropertyValue.cs" />
     <Compile Include="Composition\PropertyValues\MultilingualVariant.cs" />
+    <Compile Include="Composition\Redirect.cs" />
     <Compile Include="Composition\Template.cs" />
     <Compile Include="Composition\Widget.cs" />
     <Compile Include="Extensions\CloningExtensions.cs" />

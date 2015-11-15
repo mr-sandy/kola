@@ -22,22 +22,26 @@
             this.Get["/_kola/{*}", AcceptHeaderFilters.Html] = this.GetPage;
         }
 
-        private Negotiator GetPage(dynamic properties)
+        private Negotiator GetPage(dynamic _)
         {
             var serialiser = new JavaScriptSerializer();
 
             var propertyEditors = from plugin in this.kolaConfigurationRegistry.KolaConfiguration.Plugins
                                   from property in plugin.PropertyTypeSpecifications
-                                  select new { name = property.Name, url = string.Format("/_kola/editors/{0}/views/{1}", plugin.PluginName.Urlify(), property.EditorName) };
+                                  select new
+                                  {
+                                      name = property.Name,
+                                      url = $"/_kola/editors/{plugin.PluginName.Urlify()}/views/{property.EditorName}"
+                                  };
 
             var editorStylesheets = from plugin in this.kolaConfigurationRegistry.KolaConfiguration.Plugins
                                     from stylesheet in plugin.EditorStylesheets
-                                    select string.Format("/_kola/editors/{0}/css/{1}", plugin.PluginName.Urlify(), stylesheet);
+                                    select $"/_kola/editors/{plugin.PluginName.Urlify()}/css/{stylesheet}";
             var model = new
-                {
-                    PropertyEditors = serialiser.Serialize(propertyEditors),
-                    EditorStylesheets = editorStylesheets
-                };
+            {
+                PropertyEditors = serialiser.Serialize(propertyEditors),
+                EditorStylesheets = editorStylesheets
+            };
 
             return this.Negotiate
                 .WithModel(model)

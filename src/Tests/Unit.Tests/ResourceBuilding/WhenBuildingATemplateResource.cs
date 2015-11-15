@@ -28,7 +28,7 @@
                     new Widget("widget 2", areas: new[] { new Area("area 1", new[] { new Atom("atom 2.0.0") }), })
                 });
 
-            this.resource = new TemplateResourceBuilder().Build(template);
+            this.resource = new TemplateResourceBuilder().Build(template) as TemplateResource;
         }
 
         [Test]

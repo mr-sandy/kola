@@ -3,12 +3,9 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    using Kola;
     using Kola.Domain.Composition.Amendments;
-    using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
 
-    public class Template : IComponentCollection
+    public class Template : IComponentCollection, IContent
     {
         private readonly List<IAmendment> amendments = new List<IAmendment>();
         

@@ -14,7 +14,10 @@
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
 
+    using Kola.Domain.Composition;
     using Kola.Nancy;
+    using Kola.Nancy.Processors;
+    using Kola.Service.ResourceBuilding;
     using Kola.Service.Services;
 
     using NUnit.Framework;

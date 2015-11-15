@@ -55,12 +55,14 @@
     <Compile Include="ResourceBuilding\ComponentNamingSpecificationVisitor.cs" />
     <Compile Include="ResourceBuilding\ComponentResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\ComponentTypeResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\IResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\PropertyTypeResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\ResourceBuildingAmendmentVisitor.cs" />
     <Compile Include="ResourceBuilding\ResourceBuildingComponentVisitor.cs" />
     <Compile Include="ResourceBuilding\ResourceBuildingPropertyValueVisitor.cs" />
     <Compile Include="ResourceBuilding\TemplateResourceBuilder.cs" />
     <Compile Include="Services\IRenderingService.cs" />
+    <Compile Include="Services\ITemplateService.cs" />
     <Compile Include="Services\RenderingService.cs" />
     <Compile Include="Services\Results\CreatedResult.cs" />
     <Compile Include="Services\Results\FailureResult.cs" />
@@ -70,6 +72,7 @@
     <Compile Include="Services\Results\NotFoundResult.cs" />
     <Compile Include="Services\Results\SuccessResult.cs" />
     <Compile Include="Services\Results\UnauthorisedResult.cs" />
+    <Compile Include="Services\TemplateService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kola.Configuration\Kola.Configuration.csproj">

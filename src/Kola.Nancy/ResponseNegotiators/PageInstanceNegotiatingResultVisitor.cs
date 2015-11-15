@@ -1,4 +1,4 @@
-namespace Kola.Nancy.Modules
+namespace Kola.Nancy.ResponseNegotiators
 {
     using global::Nancy;
     using global::Nancy.Responses.Negotiation;

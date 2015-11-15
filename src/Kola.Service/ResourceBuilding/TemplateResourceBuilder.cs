@@ -6,9 +6,9 @@
     using Kola.Resources;
     using Kola.Service.Extensions;
 
-    public class TemplateResourceBuilder
+    public class TemplateResourceBuilder : IResourceBuilder<Template>
     {
-        public TemplateResource Build(Template template)
+        public object Build(Template template)
         {
             var visitor = new ResourceBuildingComponentVisitor(template.Path);
 

@@ -30,7 +30,7 @@
                 MockRepository.GenerateStub<IComponentSpecification<IComponentWithProperties>>();
 
             componentSpecification.Stub(s => s.Create()).Return(component);
-            this.TemplateRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(this.template);
+            this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(this.template);
             this.ComponentLibrary.Stub(r => r.Lookup("component name")).Return(componentSpecification);
 
             var request = new { targetPath = "0", componentType = "component name" };
@@ -54,13 +54,13 @@
         [Test]
         public void ShouldUpdateTemplateToRepository()
         {
-            this.TemplateRepository.AssertWasCalled(r => r.Update(Arg<Template>.Is.Anything));
+            this.ContentRepository.AssertWasCalled(r => r.Update(Arg<Template>.Is.Anything));
         }
 
         [Test]
         public void ShouldAddAnAmendmentToTheTemplate()
         {
-            var args = this.TemplateRepository.GetArgumentsForCallsMadeOn(r => r.Update(Arg<Template>.Is.Anything));
+            var args = this.ContentRepository.GetArgumentsForCallsMadeOn(r => r.Update(Arg<Template>.Is.Anything));
             var updatedTemplate = (Template)args[0][0];
             updatedTemplate.Amendments.Should().HaveCount(1);
         }

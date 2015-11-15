@@ -27,7 +27,7 @@
         {
             var template = new Template(new[] { "test", "path" });
 
-            this.TemplateRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(template);
+            this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(template);
 
 
             this.Response = this.Browser.Get(string.Format("/_kola/templates/{0}", this.templatePath), with => with.Header("Accept", "application/json"));

@@ -10,7 +10,7 @@
 
     public abstract class ContextBase
     {
-        protected ITemplateRepository TemplateRepository;
+        protected IContentRepository ContentRepository;
         protected IWidgetSpecificationRepository WidgetSpecificationRepository;
         protected IComponentSpecificationLibrary ComponentLibrary;
 
@@ -19,11 +19,11 @@
         [SetUp]
         public void SetUpBase()
         {
-            this.TemplateRepository = MockRepository.GenerateStub<ITemplateRepository>();
+            this.ContentRepository = MockRepository.GenerateStub<IContentRepository>();
             this.WidgetSpecificationRepository = MockRepository.GenerateStub<IWidgetSpecificationRepository>();
             this.ComponentLibrary = MockRepository.GenerateStub<IComponentSpecificationLibrary>();
 
-            this.RenderingService = new RenderingService(this.TemplateRepository, this.WidgetSpecificationRepository, this.ComponentLibrary);
+            this.RenderingService = new RenderingService(this.ContentRepository, this.WidgetSpecificationRepository, this.ComponentLibrary);
         }
     }
 }

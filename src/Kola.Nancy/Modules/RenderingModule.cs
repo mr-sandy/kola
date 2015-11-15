@@ -7,6 +7,8 @@
     using global::Nancy.Responses.Negotiation;
 
     using Kola.Nancy.Extensions;
+    using Kola.Nancy.Models;
+    using Kola.Nancy.ResponseNegotiators;
     using Kola.Service.Services;
 
     public class RenderingModule : NancyModule

@@ -51,7 +51,7 @@
     <Compile Include="DomainBuilding\WidgetSpecificationDomainBuilder.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="FileSystemHelper.cs" />
-    <Compile Include="ITemplateRepository.cs" />
+    <Compile Include="IContentRepository.cs" />
     <Compile Include="IWidgetSpecificationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializationHelper.cs" />
