@@ -28,7 +28,7 @@ namespace Integration.Tests.Nancy.Modules.RenderingModuleSpecs
 
             var page = new PageInstance(new[] { new AtomInstance(new[] { 0 }, renderingInstructions, "atom1", Enumerable.Empty<PropertyInstance>()) }, renderingInstructions);
 
-            this.RenderingService.Stub(h => h.GetPage(Arg<IEnumerable<string>>.Is.Anything, Arg<RenderingInstructions>.Is.Anything)).Return(new SuccessResult<PageInstance>(page));
+            this.RenderingService.Stub(h => h.GetPage(Arg<IEnumerable<string>>.Is.Anything, Arg<bool>.Is.Anything)).Return(new SuccessResult<PageInstance>(page));
             this.HandlerFactory.Stub(f => f.GetAtomRenderer(Arg<string>.Is.Anything)).Return(atom1Handler);
 
             this.Response = this.Browser.Get("/",

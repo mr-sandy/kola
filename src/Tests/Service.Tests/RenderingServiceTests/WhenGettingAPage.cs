@@ -21,7 +21,7 @@
             var path = new[] { "path1, path2 " };
             var template = new Template(path);
             this.TemplateRepository.Stub(r => r.Get(path)).Return(template);
-            this.result = this.RenderingService.GetPage(path, new RenderingInstructions(false, true));
+            this.result = this.RenderingService.GetPage(path, false);
         }
 
         [Test]

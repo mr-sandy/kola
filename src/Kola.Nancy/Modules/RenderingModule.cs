@@ -4,14 +4,10 @@
 
     using global::Nancy;
     using global::Nancy.ModelBinding;
-    using global::Nancy.Responses;
     using global::Nancy.Responses.Negotiation;
 
-    using Kola.Domain.Instances;
-    using Kola.Domain.Rendering;
     using Kola.Nancy.Extensions;
     using Kola.Service.Services;
-    using Kola.Service.Services.Results;
 
     public class RenderingModule : NancyModule
     {
@@ -20,40 +16,31 @@
         public RenderingModule(IRenderingService renderingService)
         {
             this.renderingService = renderingService;
-            this.Get["/"] = p => this.GetResponse();
-            this.Get["/(.*)"] = p => this.GetResponse();
-            this.Get["/{path*}"] = p => this.GetResponse();
+            this.Get["/"] = this.GetResponse;
+            this.Get["/(.*)"] = this.GetResponse;
+            this.Get["/{path*}"] = this.GetResponse;
         }
 
-        private Negotiator GetResponse()
+        private Negotiator GetResponse(dynamic _)
         {
             var query = this.Bind<RenderQuery>();
-
-            return string.IsNullOrEmpty(query.ComponentPath) 
-                ? this.GetPage(query) 
-                : this.GetFragment(query);
-        }
-
-        private Negotiator GetPage(RenderQuery query)
-        {
             var path = this.Request.Path.ParsePath();
 
-            var renderingInstructions = new RenderingInstructions(useCache: !query.IsPreview, annotateComponentPaths: query.IsPreview);
+            return string.IsNullOrEmpty(query.ComponentPath) 
+                ? this.GetPage(path, query.IsPreview) 
+                : this.GetFragment(path, query.ComponentPath.ParseComponentPath());
+        }
 
-            var result = this.renderingService.GetPage(path, renderingInstructions);
+        private Negotiator GetPage(IEnumerable<string> path, bool preview)
+        {
+            var result = this.renderingService.GetPage(path, preview);
 
             return result.Accept(new PageInstanceNegotiatingResultVisitor(this));
         }
 
-        private Negotiator GetFragment(RenderQuery query)
+        private Negotiator GetFragment(IEnumerable<string> path, IEnumerable<int> componentPath)
         {
-            var path = this.Request.Path.ParsePath();
-
-            var renderingInstructions = new RenderingInstructions(useCache: false, annotateComponentPaths: true);
-
-            var componentPath = query.ComponentPath.ParseComponentPath();
-
-            var result = this.renderingService.GetFragment(path, renderingInstructions, componentPath);
+            var result = this.renderingService.GetFragment(path, componentPath);
 
             return result.Accept(new ComponentInstanceNegotiatingResultVisitor(this));
         }

@@ -22,7 +22,7 @@
             this.componentLibrary = componentLibrary;
         }
 
-        public IResult<PageInstance> GetPage(IEnumerable<string> path, IRenderingInstructions renderingInstructions)
+        public IResult<PageInstance> GetPage(IEnumerable<string> path, bool preview)
         {
             var template = this.templateRepository.Get(path);
 
@@ -31,12 +31,12 @@
                 return new NotFoundResult<PageInstance>();
             }
 
-            var page = this.BuildPage(template, renderingInstructions);
+            var page = this.BuildPage(template, this.GetRenderingInstructions(preview));
 
             return new SuccessResult<PageInstance>(page);
         }
 
-        public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IRenderingInstructions renderingInstructions, IEnumerable<int> componentPath)
+        public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IEnumerable<int> componentPath)
         {
             var template = this.templateRepository.Get(path);
 
@@ -45,7 +45,7 @@
                 return new NotFoundResult<ComponentInstance>();
             }
 
-            var page = this.BuildPage(template, renderingInstructions);
+            var page = this.BuildPage(template, this.GetRenderingInstructions(true));
 
             var finder = new ComponentFindingComponentInstanceVisitor();
 
@@ -63,6 +63,11 @@
             var builder = new Builder(renderingInstructions);
 
             return builder.Build(template, buildContext);
+        }
+
+        private IRenderingInstructions GetRenderingInstructions(bool preview)
+        {
+            return new RenderingInstructions(useCache: !preview, annotateComponentPaths: preview);
         }
     }
 }

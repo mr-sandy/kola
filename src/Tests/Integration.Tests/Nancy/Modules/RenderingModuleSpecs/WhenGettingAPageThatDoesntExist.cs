@@ -22,7 +22,7 @@ namespace Integration.Tests.Nancy.Modules.RenderingModuleSpecs
         public void EstablishContext()
         {
 
-            this.RenderingService.Stub(h => h.GetPage(Arg<IEnumerable<string>>.Is.Anything, Arg<RenderingInstructions>.Is.Anything)).Return(new NotFoundResult<PageInstance>());
+            this.RenderingService.Stub(h => h.GetPage(Arg<IEnumerable<string>>.Is.Anything, Arg<bool>.Is.Anything)).Return(new NotFoundResult<PageInstance>());
 
             this.Response = this.Browser.Get("/", with => with.Header("Accept", "text/html"));
         }
