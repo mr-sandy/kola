@@ -1,4 +1,4 @@
-﻿namespace Integration.Tests.Nancy.Modules.TemplatesModuleSpecs
+﻿namespace Integration.Tests.Nancy.Modules.TemplatesModuleTests
 {
     using global::Nancy.Testing;
 
@@ -24,7 +24,7 @@
         protected IComponentSpecificationLibrary ComponentLibrary { get; set; }
 
         [SetUp]
-        public void EstablishBaseContext()
+        public void SetUpBase()
         {
             this.ContentRepository = MockRepository.GenerateMock<IContentRepository>();
             this.ComponentLibrary = MockRepository.GenerateMock<IComponentSpecificationLibrary>();
@@ -35,9 +35,11 @@
                         with.Dependencies(new object[] { this.ContentRepository, this.ComponentLibrary });
                         with.Dependency<TemplateResourceBuilder>();
                         with.Dependency<AmendmentResourceBuilder>();
+                        with.Dependency<AmendmentsResourceBuilder>();
                         with.Dependency<ComponentResourceBuilder>();
                         with.ResponseProcessor<TemplateResultProcessor>();
                         with.ResponseProcessor<AmendmentResultProcessor>();
+                        with.ResponseProcessor<AmendmentsResultProcessor>();
                         with.ResponseProcessor<ComponentResultProcessor>();
                         with.Dependency<TemplateService>();
                         with.Module<TemplateModule>();

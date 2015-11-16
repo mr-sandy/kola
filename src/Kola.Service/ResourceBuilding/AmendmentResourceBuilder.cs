@@ -1,5 +1,6 @@
 ﻿namespace Kola.Service.ResourceBuilding
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -7,7 +8,6 @@
     using Kola.Domain.Composition.Amendments;
     using Kola.Resources;
     using Kola.Service.Extensions;
-    using Kola.Service.Services;
     using Kola.Service.Services.Models;
 
     public class AmendmentResourceBuilder : IResourceBuilder<TemplateAndAmendment>
@@ -31,13 +31,6 @@
             result.Add(this.GetAmendmentIndex(model.Template, model.Amendment).ToString());
 
             return result.ToHttpPath();
-        }
-
-        public IEnumerable<AmendmentResource> Build(IEnumerable<IAmendment> amendments, IEnumerable<string> templatePath)
-        {
-            var visitor = new ResourceBuildingAmendmentVisitor(templatePath);
-
-            return amendments.Select((amendment, index) => amendment.Accept(visitor, index));
         }
 
         private int GetAmendmentIndex(Template template, IAmendment amendment)

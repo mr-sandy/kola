@@ -1,15 +1,12 @@
-namespace Integration.Tests.Nancy.Modules.RenderingModuleSpecs
+namespace Integration.Tests.Nancy.Modules.RenderingModuleTests
 {
     using System.Collections.Generic;
-    using System.Linq;
 
     using FluentAssertions;
 
     using global::Nancy;
-    using global::Nancy.Testing;
 
     using Kola.Domain.Instances;
-    using Kola.Domain.Rendering;
     using Kola.Service.Services.Results;
 
     using NUnit.Framework;
@@ -19,7 +16,7 @@ namespace Integration.Tests.Nancy.Modules.RenderingModuleSpecs
     public class WhenGettingAPageThatDoesntExist : ContextBase
     {
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
 
             this.RenderingService.Stub(h => h.GetPage(Arg<IEnumerable<string>>.Is.Anything, Arg<bool>.Is.Anything)).Return(new NotFoundResult<PageInstance>());

@@ -90,9 +90,16 @@
             return new CreatedResult<TemplateAndAmendment>(new TemplateAndAmendment(template, amendment));
         }
 
-        public IResult<IEnumerable<IAmendment>> GetAmendments(IEnumerable<string> path)
+        public IResult<TemplateAndAmendments> GetAmendments(IEnumerable<string> path)
         {
-            throw new System.NotImplementedException();
+            var template = this.contentRepository.Get(path) as Template;
+
+            if (template == null)
+            {
+                return new NotFoundResult<TemplateAndAmendments>();
+            }
+
+            return new SuccessResult<TemplateAndAmendments>(new TemplateAndAmendments(template, template.Amendments));
         }
 
         public IResult<Template> ApplyAmendments(IEnumerable<string> path)

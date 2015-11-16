@@ -14,7 +14,7 @@
     public class WhenCreatingAWidget : ContextBase
     {
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var widgetName = "widgetName";
 

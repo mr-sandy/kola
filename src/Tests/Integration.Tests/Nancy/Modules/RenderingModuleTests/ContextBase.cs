@@ -1,4 +1,4 @@
-﻿namespace Integration.Tests.Nancy.Modules.RenderingModuleSpecs
+﻿namespace Integration.Tests.Nancy.Modules.RenderingModuleTests
 {
     using global::Nancy.Responses.Negotiation;
     using global::Nancy.Testing;
@@ -9,8 +9,6 @@
     using Kola.Domain.Rendering;
     using Kola.Nancy;
     using Kola.Nancy.Modules;
-    using Kola.Nancy.Processors;
-    using Kola.Service.ResourceBuilding;
     using Kola.Service.Services;
 
     using NUnit.Framework;
@@ -28,7 +26,7 @@
         protected IRendererFactory HandlerFactory { get; set; }
 
         [SetUp]
-        public void EstablishBaseContext()
+        public void SetUpBase()
         {
             this.RenderingService = MockRepository.GenerateMock<IRenderingService>();
             this.HandlerFactory = MockRepository.GenerateMock<IRendererFactory>();

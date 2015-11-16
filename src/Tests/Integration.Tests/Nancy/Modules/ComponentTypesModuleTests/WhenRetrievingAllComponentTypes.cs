@@ -1,4 +1,4 @@
-﻿namespace Integration.Tests.Nancy.Modules.ComponentTypesModuleSpecs
+﻿namespace Integration.Tests.Nancy.Modules.ComponentTypesModuleTests
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -18,7 +18,7 @@
     internal class WhenRetrievingAllComponentTypes : ContextBase
     {
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var components = new[]
                 {

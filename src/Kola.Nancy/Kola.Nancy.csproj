@@ -66,6 +66,7 @@
     <Compile Include="Modules\AdminModule.cs" />
     <Compile Include="Modules\TemplateModuleOld.cs" />
     <Compile Include="Processors\AmendmentResultProcessor.cs" />
+    <Compile Include="Processors\AmendmentsResultProcessor.cs" />
     <Compile Include="Processors\ComponentResultProcessor.cs" />
     <Compile Include="Processors\Processor.cs" />
     <Compile Include="Processors\ResponseBuildingResultVisitor.cs" />

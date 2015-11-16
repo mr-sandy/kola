@@ -1,10 +1,10 @@
-﻿namespace Integration.Tests.Nancy.Modules.TemplatesModuleSpecs
+﻿namespace Integration.Tests.Nancy.Modules.TemplatesModuleTests
 {
     using FluentAssertions;
 
-    using Kola.Domain.Composition;
-
     using global::Nancy;
+
+    using Kola.Domain.Composition;
 
     using NUnit.Framework;
 
@@ -13,7 +13,7 @@
     public class WhenCreatingATemplate : ContextBase
     {
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var templatePath = @"test/path";
 

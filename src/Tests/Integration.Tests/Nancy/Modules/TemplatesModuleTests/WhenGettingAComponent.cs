@@ -1,4 +1,4 @@
-namespace Integration.Tests.Nancy.Modules.TemplatesModuleSpecs
+namespace Integration.Tests.Nancy.Modules.TemplatesModuleTests
 {
     using System.Collections.Generic;
     using System.Linq;

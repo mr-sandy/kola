@@ -22,7 +22,7 @@
         protected IComponentSpecificationLibrary ComponentLibrary { get; set; }
 
         [SetUp]
-        public void EstablishBaseContext()
+        public void SetUpBase()
         {
             this.WidgetSpecificationRepository = MockRepository.GenerateMock<IWidgetSpecificationRepository>();
             this.ComponentLibrary = MockRepository.GenerateMock<IComponentSpecificationLibrary>();

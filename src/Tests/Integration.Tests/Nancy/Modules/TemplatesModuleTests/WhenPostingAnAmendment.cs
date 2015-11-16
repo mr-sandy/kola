@@ -1,14 +1,14 @@
-﻿namespace Integration.Tests.Nancy.Modules.TemplatesModuleSpecs
+﻿namespace Integration.Tests.Nancy.Modules.TemplatesModuleTests
 {
     using System.Collections.Generic;
 
     using FluentAssertions;
 
-    using Kola.Domain.Composition;
-    using Kola.Domain.Specifications;
-
     using global::Nancy;
     using global::Nancy.Testing;
+
+    using Kola.Domain.Composition;
+    using Kola.Domain.Specifications;
 
     using NUnit.Framework;
 
@@ -19,7 +19,7 @@
         private Template template;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var templatePath = @"test/path";
 

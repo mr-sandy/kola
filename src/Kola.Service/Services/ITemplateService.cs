@@ -18,7 +18,7 @@
 
         IResult<TemplateAndAmendment> AddAmendment(IEnumerable<string> path, IAmendment amendment);
 
-        IResult<IEnumerable<IAmendment>> GetAmendments(IEnumerable<string> path);
+        IResult<TemplateAndAmendments> GetAmendments(IEnumerable<string> path);
 
         IResult<Template> ApplyAmendments(IEnumerable<string> path);
 

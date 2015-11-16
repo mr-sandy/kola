@@ -1,4 +1,4 @@
-﻿namespace Integration.Tests.Nancy.Modules.ComponentTypesModuleSpecs
+﻿namespace Integration.Tests.Nancy.Modules.ComponentTypesModuleTests
 {
     using global::Nancy.Responses.Negotiation;
     using global::Nancy.Testing;
@@ -19,7 +19,7 @@
         protected IComponentSpecificationLibrary ComponentLibrary { get; set; }
 
         [SetUp]
-        public void EstablishBaseContext()
+        public void SetUpBase()
         {
             this.ComponentLibrary = MockRepository.GenerateMock<IComponentSpecificationLibrary>();
 
