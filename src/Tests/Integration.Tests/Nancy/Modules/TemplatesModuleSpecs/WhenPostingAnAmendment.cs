@@ -51,9 +51,8 @@
         [Test]
         public void ShouldReturnALocationHeader()
         {
-            this.Response.Headers["location"].Should().Be("test/path");
+            this.Response.Headers["location"].Should().Be("/test/path/_amendments/0");
         }
-
 
         [Test]
         public void ShouldUpdateTemplateToRepository()

@@ -1,17 +1,11 @@
 ﻿namespace Kola.Nancy.Modules
 {
-    using System.Linq;
-
     using global::Nancy;
     using global::Nancy.ModelBinding;
 
-    using Kola.Domain.Composition;
-    using Kola.Domain.Extensions;
     using Kola.Nancy.Extensions;
-    using Kola.Persistence;
     using Kola.Resources;
     using Kola.Service.DomainBuilding;
-    using Kola.Service.ResourceBuilding;
     using Kola.Service.Services;
 
     // TODO {SC} Refactor bulk of code into a service independent of Nancy (add to the Kola.Services namespace); make this module as lightweight as possible

@@ -1,5 +1,9 @@
 namespace Kola.Nancy.Processors
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Xml.XPath;
+
     using global::Nancy;
     using global::Nancy.Responses;
 
@@ -40,7 +44,7 @@ namespace Kola.Nancy.Processors
             return new JsonResponse(this.builder.Build(result.Data), this.serializer)
                     .WithStatusCode(HttpStatusCode.Created)
                     .WithContentType("application/json")
-                    .WithHeader("location", "");
+                    .WithHeader("location", this.builder.Location(result.Data));
         }
 
         public Response Visit(FailureResult<T> result)

@@ -35,8 +35,10 @@
                         with.Dependencies(new object[] { this.ContentRepository, this.ComponentLibrary });
                         with.Dependency<TemplateResourceBuilder>();
                         with.Dependency<AmendmentResourceBuilder>();
+                        with.Dependency<ComponentResourceBuilder>();
                         with.ResponseProcessor<TemplateResultProcessor>();
                         with.ResponseProcessor<AmendmentResultProcessor>();
+                        with.ResponseProcessor<ComponentResultProcessor>();
                         with.Dependency<TemplateService>();
                         with.Module<TemplateModule>();
                     });

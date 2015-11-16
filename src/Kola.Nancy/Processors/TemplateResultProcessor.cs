@@ -1,5 +1,6 @@
 ﻿namespace Kola.Nancy.Processors
 {
+    using System;
     using System.Collections.Generic;
 
     using global::Nancy;

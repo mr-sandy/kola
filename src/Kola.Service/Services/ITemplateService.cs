@@ -5,6 +5,7 @@
 
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.Amendments;
+    using Kola.Service.Services.Models;
     using Kola.Service.Services.Results;
 
     public interface ITemplateService {
@@ -13,9 +14,9 @@
 
         IResult<Template> GetTemplate(IEnumerable<string> path);
 
-        IResult<IComponent> GetComponent(IEnumerable<string> templatePath, IEnumerable<int> componentPath);
+        IResult<TemplateAndComponent> GetComponent(IEnumerable<string> templatePath, IEnumerable<int> componentPath);
 
-        IResult<Tuple<Template, IAmendment>> AddAmendment(IEnumerable<string> path, IAmendment amendment);
+        IResult<TemplateAndAmendment> AddAmendment(IEnumerable<string> path, IAmendment amendment);
 
         IResult<IEnumerable<IAmendment>> GetAmendments(IEnumerable<string> path);
 

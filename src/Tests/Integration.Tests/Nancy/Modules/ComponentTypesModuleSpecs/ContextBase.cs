@@ -1,18 +1,10 @@
 ﻿namespace Integration.Tests.Nancy.Modules.ComponentTypesModuleSpecs
 {
-    using System;
-
     using global::Nancy.Responses.Negotiation;
-
-    using Kola.Domain;
-    using Kola.Domain.Composition;
-    using Kola.Nancy;
-    using Kola.Nancy.Modules;
-
     using global::Nancy.Testing;
 
-    using Kola.Nancy.Processors;
-    using Kola.Service.ResourceBuilding;
+    using Kola.Domain.Composition;
+    using Kola.Nancy.Modules;
 
     using NUnit.Framework;
 
@@ -34,7 +26,7 @@
             var bootstrapper = new ConfigurableBootstrapper(
                 with =>
                 {
-                    with.Dependencies(new object[] { this.ComponentLibrary });
+                    with.Dependency(this.ComponentLibrary);
                     with.ResponseProcessor<JsonProcessor>();
                     with.Module<ComponentTypeModule>();
                 });

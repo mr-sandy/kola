@@ -1,17 +1,30 @@
 ﻿namespace Kola.Service.ResourceBuilding
 {
     using System.Collections.Generic;
+    using System.Linq;
 
-    using Kola.Domain.Composition;
-    using Kola.Resources;
+    using Kola.Service.Extensions;
+    using Kola.Service.Services;
+    using Kola.Service.Services.Models;
 
-    public class ComponentResourceBuilder
+    public class ComponentResourceBuilder : IResourceBuilder<TemplateAndComponent>
     {
-        public ComponentResource Build(IComponent component, IEnumerable<int> path, IEnumerable<string> templatePath)
+        public object Build(TemplateAndComponent model)
         {
-            var visitor = new ResourceBuildingComponentVisitor(templatePath);
+            var visitor = new ResourceBuildingComponentVisitor(model.Template.Path);
 
-            return component.Accept(visitor, path);
+            return model.Component.Accept(visitor, model.ComponentPath);
+        }
+
+        public string Location(TemplateAndComponent model)
+        {
+            var result = new List<string>();
+
+            result.AddRange(model.Template.Path);
+            result.Add("_components");
+            result.AddRange(model.ComponentPath.Select(i => i.ToString()));
+
+            return result.ToHttpPath();
         }
     }
 }

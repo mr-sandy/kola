@@ -1,18 +1,36 @@
 ﻿namespace Kola.Service.ResourceBuilding
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.Amendments;
     using Kola.Resources;
+    using Kola.Service.Extensions;
+    using Kola.Service.Services;
+    using Kola.Service.Services.Models;
 
-    public class AmendmentResourceBuilder : IResourceBuilder<Tuple<Template, IAmendment>>
+    public class AmendmentResourceBuilder : IResourceBuilder<TemplateAndAmendment>
     {
-        public object Build(Tuple<Template, IAmendment> model)
+        public object Build(TemplateAndAmendment model)
         {
-            return this.Build(model.Item2, model.Item1.Path, model.Item1.Amendments.Count() - 1);
+            var index = this.GetAmendmentIndex(model.Template, model.Amendment);
+
+            var visitor = new ResourceBuildingAmendmentVisitor(model.Template.Path);
+
+            return model.Amendment.Accept(visitor, index);
+
+        }
+
+        public string Location(TemplateAndAmendment model)
+        {
+            var result = new List<string>();
+
+            result.AddRange(model.Template.Path);
+            result.Add("_amendments");
+            result.Add(this.GetAmendmentIndex(model.Template, model.Amendment).ToString());
+
+            return result.ToHttpPath();
         }
 
         public IEnumerable<AmendmentResource> Build(IEnumerable<IAmendment> amendments, IEnumerable<string> templatePath)
@@ -22,12 +40,9 @@
             return amendments.Select((amendment, index) => amendment.Accept(visitor, index));
         }
 
-        public AmendmentResource Build(IAmendment amendment, IEnumerable<string> templatePath, int index)
+        private int GetAmendmentIndex(Template template, IAmendment amendment)
         {
-            var visitor = new ResourceBuildingAmendmentVisitor(templatePath);
-
-            return amendment.Accept(visitor, index);
+            return template.Amendments.Select((a, i) => new { Amendment = a, Index = i }).First(a => a.Amendment == amendment).Index;
         }
-
     }
 }

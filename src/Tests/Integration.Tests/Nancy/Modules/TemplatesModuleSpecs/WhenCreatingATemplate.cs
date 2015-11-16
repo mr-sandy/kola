@@ -22,30 +22,30 @@
         }
 
         [Test]
-        public void Test1()
+        public void ShouldReturnCreated()
         {
             this.Response.StatusCode.Should().Be(HttpStatusCode.Created);
         }
 
         [Test]
-        public void Test2()
+        public void ShouldReturnALocationHeader()
         {
-            this.Response.StatusCode.Should().Be(HttpStatusCode.Created);
+            this.Response.Headers["location"].Should().Be("/test/path");
         }
 
-        //[Test]
-        //public void ShouldAddTemplateToRepository()
-        //{
-        //    this.ContentRepository.AssertWasCalled(r => r.Add(Arg<Template>.Is.Anything));
-        //}
+        [Test]
+        public void ShouldAddTemplateToRepository()
+        {
+            this.ContentRepository.AssertWasCalled(r => r.Add(Arg<Template>.Is.Anything));
+        }
 
-        //[Test]
-        //public void ShouldAddTemplateWithCorrectPath()
-        //{
-        //    var args = this.ContentRepository.GetArgumentsForCallsMadeOn(r => r.Add(Arg<Template>.Is.Anything));
-        //    var template = (Template)args[0][0];
-        //    template.Path.Should().BeEquivalentTo(new[] { "test", "path" });
-        //}
+        [Test]
+        public void ShouldAddTemplateWithCorrectPath()
+        {
+            var args = this.ContentRepository.GetArgumentsForCallsMadeOn(r => r.Add(Arg<Template>.Is.Anything));
+            var template = (Template)args[0][0];
+            template.Path.Should().BeEquivalentTo(new[] { "test", "path" });
+        }
 
     }
 }

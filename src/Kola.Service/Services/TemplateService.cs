@@ -5,7 +5,9 @@
 
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.Amendments;
+    using Kola.Domain.Extensions;
     using Kola.Persistence;
+    using Kola.Service.Services.Models;
     using Kola.Service.Services.Results;
 
     public class TemplateService : ITemplateService
@@ -22,6 +24,7 @@
         public IResult<Template> CreateTemplate(IEnumerable<string> path)
         {
             var existingTemplate = this.contentRepository.Get(path) as Template;
+
             if (existingTemplate != null)
             {
                 return new ConflictResult<Template>();
@@ -50,18 +53,32 @@
             return new SuccessResult<Template>(template);
         }
 
-        public IResult<IComponent> GetComponent(IEnumerable<string> templatePath, IEnumerable<int> componentPath)
+        public IResult<TemplateAndComponent> GetComponent(IEnumerable<string> templatePath, IEnumerable<int> componentPath)
         {
-            throw new System.NotImplementedException();
+            var template = this.contentRepository.Get(templatePath) as Template;
+
+            if (template == null)
+            {
+                return new NotFoundResult<TemplateAndComponent>();
+            }
+
+            template.ApplyAmendments(this.componentLibrary);
+
+            var component = template.FindComponent(componentPath);
+
+            // Add all properties for this component type (not just those with values set)
+            component.Accept(new ComponentRefreshingVisitor(this.componentLibrary));
+
+            return new SuccessResult<TemplateAndComponent>(new TemplateAndComponent(template, component, componentPath));
         }
 
-        public IResult<Tuple<Template, IAmendment>> AddAmendment(IEnumerable<string> path, IAmendment amendment)
+        public IResult<TemplateAndAmendment> AddAmendment(IEnumerable<string> path, IAmendment amendment)
         {
             var template = this.contentRepository.Get(path) as Template;
 
             if (template == null)
             {
-                return new NotFoundResult<Tuple<Template, IAmendment>>();
+                return new NotFoundResult<TemplateAndAmendment>();
             }
 
             template.AddAmendment(amendment);
@@ -70,8 +87,7 @@
 
             template.ApplyAmendments(this.componentLibrary);
 
-            //            var resource = new AmendmentResourceBuilder().Build(amendment, template.Path, template.Amendments.Count() - 1);
-            return new CreatedResult<Tuple<Template, IAmendment>>(new Tuple<Template, IAmendment>(template, amendment));
+            return new CreatedResult<TemplateAndAmendment>(new TemplateAndAmendment(template, amendment));
         }
 
         public IResult<IEnumerable<IAmendment>> GetAmendments(IEnumerable<string> path)

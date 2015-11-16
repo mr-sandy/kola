@@ -1,5 +1,6 @@
 namespace Kola.Nancy.Processors
 {
+    using System;
     using System.Collections.Generic;
 
     using global::Nancy;
@@ -12,7 +13,7 @@ namespace Kola.Nancy.Processors
     {
         private readonly IResourceBuilder<T> builder;
 
-        protected ResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<T> builder )
+        protected ResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<T> builder)
             : base(serializers)
         {
             this.builder = builder;

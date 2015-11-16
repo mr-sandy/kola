@@ -59,7 +59,7 @@
         {
             var resources = this.Response.Body.DeserializeJson<IEnumerable<ComponentTypeResource>>();
 
-            resources.First().Links.Where(l => l.Rel == "self").Single().Href.Should().Be("/_kola/component-types/component-a");
+            resources.First().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/component-types/component-a");
         }
 
         [Test]
@@ -67,7 +67,7 @@
         {
             var resources = this.Response.Body.DeserializeJson<IEnumerable<ComponentTypeResource>>();
 
-            resources.ElementAt(1).Links.Where(l => l.Rel == "self").Single().Href.Should().Be("/_kola/component-types/component-b");
+            resources.ElementAt(1).Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/component-types/component-b");
         }
     }
 }

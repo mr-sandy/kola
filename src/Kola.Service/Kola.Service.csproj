@@ -73,6 +73,8 @@
     <Compile Include="Services\Results\NotFoundResult.cs" />
     <Compile Include="Services\Results\SuccessResult.cs" />
     <Compile Include="Services\Results\UnauthorisedResult.cs" />
+    <Compile Include="Services\Models\TemplateAndAmendment.cs" />
+    <Compile Include="Services\Models\TemplateAndComponent.cs" />
     <Compile Include="Services\TemplateService.cs" />
   </ItemGroup>
   <ItemGroup>

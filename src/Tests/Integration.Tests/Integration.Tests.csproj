@@ -93,8 +93,9 @@
     <Compile Include="Nancy\Modules\RenderingModuleSpecs\WhenGettingAPageThatDoesntExist.cs" />
     <Compile Include="Nancy\Modules\RenderingModuleSpecs\WhenGettingAPageWithPreview.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\ContextBase.cs" />
+    <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenGettingAComponent.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenPostingAnAmendment.cs" />
-    <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenRetrievingATemplate.cs" />
+    <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenGettingATemplate.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenCreatingATemplate.cs" />
     <Compile Include="Nancy\Modules\WidgetModuleTests\ContextBase.cs" />
     <Compile Include="Nancy\Modules\WidgetModuleTests\WhenCreatingAWidget.cs" />

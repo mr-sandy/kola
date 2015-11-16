@@ -35,5 +35,10 @@
                             }
             };
         }
+
+        public string Location(Template model)
+        {
+            return model.Path.ToHttpPath();
+        }
     }
 }
