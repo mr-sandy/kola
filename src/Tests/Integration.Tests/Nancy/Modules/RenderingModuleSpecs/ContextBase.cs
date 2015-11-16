@@ -1,21 +1,13 @@
 ﻿namespace Integration.Tests.Nancy.Modules.RenderingModuleSpecs
 {
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Reflection;
-
-    using global::Nancy;
-
-    using Kola.Configuration;
-    using Kola.Domain.Rendering;
-    using Kola.Nancy.Modules;
-
     using global::Nancy.Testing;
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
 
-    using Kola.Domain.Composition;
+    using Kola.Configuration;
+    using Kola.Domain.Rendering;
     using Kola.Nancy;
+    using Kola.Nancy.Modules;
     using Kola.Nancy.Processors;
     using Kola.Service.ResourceBuilding;
     using Kola.Service.Services;
@@ -44,6 +36,10 @@
                 with =>
                     {
                         with.Dependency(this.RenderingService);
+                        with.Dependency<TemplateResultProcessor>();
+                        with.Dependency<TemplateResourceBuilder>();
+                        with.Dependency<AmendmentResultProcessor>();
+                        with.Dependency<AmendmentResourceBuilder>();
                         with.Module<RenderingModule>();
                         with.ViewEngine<RazorViewEngine>();
                         with.ViewLocationProvider<ResourceViewLocationProvider>();

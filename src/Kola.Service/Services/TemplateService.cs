@@ -21,7 +21,17 @@
 
         public IResult<Template> CreateTemplate(IEnumerable<string> path)
         {
-            throw new System.NotImplementedException();
+            var existingTemplate = this.contentRepository.Get(path) as Template;
+            if (existingTemplate != null)
+            {
+                return new ConflictResult<Template>();
+            }
+
+            var template = new Template(path);
+
+            this.contentRepository.Add(template);
+
+            return new CreatedResult<Template>(template, template.Path);
         }
 
         public IResult<Template> GetTemplate(IEnumerable<string> path)
@@ -61,7 +71,7 @@
             template.ApplyAmendments(this.componentLibrary);
 
             //            var resource = new AmendmentResourceBuilder().Build(amendment, template.Path, template.Amendments.Count() - 1);
-            return new CreatedResult<Tuple<Template, IAmendment>>(new Tuple<Template, IAmendment>(template, amendment));
+            return new CreatedResult<Tuple<Template, IAmendment>>(new Tuple<Template, IAmendment>(template, amendment), new [] {""});
         }
 
         public IResult<IEnumerable<IAmendment>> GetAmendments(IEnumerable<string> path)

@@ -4,6 +4,7 @@
 
     using Kola.Domain.Composition;
     using Kola.Nancy.Modules;
+    using Kola.Nancy.Processors;
     using Kola.Persistence;
     using Kola.Service.ResourceBuilding;
 
@@ -31,7 +32,10 @@
                 with =>
                     {
                         with.Dependencies(new object[] { this.WidgetSpecificationRepository, this.ComponentLibrary });
+                        with.Dependency<TemplateResultProcessor>();
                         with.Dependency<TemplateResourceBuilder>();
+                        with.Dependency<AmendmentResultProcessor>();
+                        with.Dependency<AmendmentResourceBuilder>();
                         with.Module<WidgetModule>();
                     });
 

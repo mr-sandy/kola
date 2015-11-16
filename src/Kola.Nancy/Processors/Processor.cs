@@ -7,10 +7,6 @@ namespace Kola.Nancy.Processors
     using global::Nancy;
     using global::Nancy.Responses.Negotiation;
 
-    using Kola.Domain.Composition;
-    using Kola.Service.ResourceBuilding;
-    using Kola.Service.Services.Results;
-
     public abstract class Processor<T> : IResponseProcessor
     {
         protected readonly ISerializer Serializer;
@@ -40,33 +36,5 @@ namespace Kola.Nancy.Processors
         }
 
         public abstract Response Process(MediaRange requestedMediaRange, dynamic model, NancyContext context);
-    }
-
-    public class ResultProcessor<T> : Processor<IResult<T>>
-    {
-        private readonly IResourceBuilder<T> builder;
-
-        public ResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<T> builder )
-            : base(serializers)
-        {
-            this.builder = builder;
-        }
-
-        public override Response Process(MediaRange requestedMediaRange, dynamic model, NancyContext context)
-        {
-            var result = (IResult<T>)model;
-
-            var responseBuilder = new ResponseBuildingResultVisitor<T>(this.builder, this.Serializer);
-
-            return result.Accept(responseBuilder);
-        }
-    }
-
-    public class TemplateResultProcessor : ResultProcessor<Template>
-    {
-        public TemplateResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<Template> builder)
-            : base(serializers, builder)
-        {
-        }
     }
 }

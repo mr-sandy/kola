@@ -1,17 +1,16 @@
 ﻿namespace Integration.Tests.Nancy.Modules.TemplatesModuleSpecs
 {
+    using global::Nancy.Testing;
+
     using Kola.Domain.Composition;
     using Kola.Nancy.Modules;
-    using Kola.Persistence;
-    using global::Nancy.Testing;
-    using global::Nancy.Responses.Negotiation;
-
     using Kola.Nancy.Processors;
+    using Kola.Persistence;
     using Kola.Service.ResourceBuilding;
     using Kola.Service.Services;
-    using Kola.Service.Services.Results;
 
     using NUnit.Framework;
+
     using Rhino.Mocks;
 
     public abstract class ContextBase
@@ -34,8 +33,10 @@
                 with =>
                     {
                         with.Dependencies(new object[] { this.ContentRepository, this.ComponentLibrary });
+                        with.Dependency<TemplateResultProcessor>();
                         with.Dependency<TemplateResourceBuilder>();
-                        with.Dependency<IResponseProcessor>(typeof(TemplateResultProcessor));
+                        with.Dependency<AmendmentResultProcessor>();
+                        with.Dependency<AmendmentResourceBuilder>();
                         with.Dependency<TemplateService>();
                         with.Module<TemplateModule>();
                     });

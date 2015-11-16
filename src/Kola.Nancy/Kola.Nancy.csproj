@@ -65,8 +65,10 @@
     <Compile Include="Modules\AcceptHeaderFilters.cs" />
     <Compile Include="Modules\AdminModule.cs" />
     <Compile Include="Modules\TemplateModuleOld.cs" />
+    <Compile Include="Processors\AmendmentResultProcessor.cs" />
     <Compile Include="Processors\Processor.cs" />
     <Compile Include="Processors\ResponseBuildingResultVisitor.cs" />
+    <Compile Include="Processors\ResultProcessor.cs" />
     <Compile Include="Processors\TemplateResultProcessor.cs" />
     <Compile Include="ResponseNegotiators\ComponentInstanceNegotiatingResultVisitor.cs" />
     <Compile Include="Modules\ComponentTypeModule.cs" />

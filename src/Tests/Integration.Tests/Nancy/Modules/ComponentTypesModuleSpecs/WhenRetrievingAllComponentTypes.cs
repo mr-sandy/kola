@@ -5,13 +5,11 @@
 
     using FluentAssertions;
 
-    using Kola.Configuration;
-    using Kola.Domain;
-    using Kola.Domain.Specifications;
-    using Kola.Resources;
-
     using global::Nancy;
     using global::Nancy.Testing;
+
+    using Kola.Domain.Specifications;
+    using Kola.Resources;
 
     using NUnit.Framework;
 

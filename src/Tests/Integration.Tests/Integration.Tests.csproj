@@ -77,6 +77,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Tests.txt" />
+    <Compile Include="Crazy\CrazyModel.cs" />
+    <Compile Include="Crazy\CrazyModule.cs" />
+    <Compile Include="Crazy\CrazyProcessor.cs" />
+    <Compile Include="Crazy\CrazyResource.cs" />
+    <Compile Include="Crazy\CrazyResourceBuilder.cs" />
+    <Compile Include="Crazy\CrazyService.cs" />
+    <Compile Include="Crazy\CrazyTest.cs" />
+    <Compile Include="Crazy\ICrazyService.cs" />
+    <Compile Include="Crazy\Processor.cs" />
     <Compile Include="Nancy\Modules\ComponentTypesModuleSpecs\ContextBase.cs" />
     <Compile Include="Nancy\Modules\ComponentTypesModuleSpecs\WhenRetrievingAllComponentTypes.cs" />
     <Compile Include="Nancy\Modules\RenderingModuleSpecs\ContextBase.cs" />

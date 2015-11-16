@@ -20,18 +20,14 @@ namespace Kola.Nancy.Processors
         public Response Visit(SuccessResult<T> result)
         {
             return new JsonResponse(this.builder.Build(result.Data), this.serializer)
-                       {
-                           StatusCode = HttpStatusCode.OK,
-                           ContentType = "application/json"
-                       };
+                    .WithStatusCode(HttpStatusCode.OK)
+                    .WithContentType("application/json");
         }
 
         public Response Visit(UnauthorisedResult<T> result)
         {
             return new JsonResponse(new { errors = new[] { result.Message } }, this.serializer)
-                       {
-                           StatusCode = HttpStatusCode.Unauthorized
-                       };
+                    .WithStatusCode(HttpStatusCode.Unauthorized);
         }
 
         public Response Visit(NotFoundResult<T> result)
@@ -42,18 +38,20 @@ namespace Kola.Nancy.Processors
         public Response Visit(CreatedResult<T> result)
         {
             return new JsonResponse(this.builder.Build(result.Data), this.serializer)
-                       {
-                           StatusCode = HttpStatusCode.Created,
-                           ContentType = "application/json"
-                       };
+                    .WithStatusCode(HttpStatusCode.Created)
+                    .WithContentType("application/json")
+                    .WithHeader("location", string.Join("/", result.Path));
         }
 
         public Response Visit(FailureResult<T> result)
         {
             return new JsonResponse(new { errors = new[] { result.Message } }, this.serializer)
-                       {
-                           StatusCode = HttpStatusCode.BadRequest
-                       };
+                    .WithStatusCode(HttpStatusCode.BadRequest);
+        }
+
+        public Response Visit(ConflictResult<T> result)
+        {
+            return new Response().WithStatusCode(HttpStatusCode.Conflict);
         }
     }
 }

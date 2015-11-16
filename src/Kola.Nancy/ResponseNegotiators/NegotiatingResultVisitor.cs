@@ -37,5 +37,10 @@
         {
             throw new NotImplementedException();
         }
+
+        public Negotiator Visit(ConflictResult<T> result)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

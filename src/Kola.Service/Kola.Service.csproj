@@ -64,6 +64,7 @@
     <Compile Include="Services\IRenderingService.cs" />
     <Compile Include="Services\ITemplateService.cs" />
     <Compile Include="Services\RenderingService.cs" />
+    <Compile Include="Services\Results\ConflictResult.cs" />
     <Compile Include="Services\Results\CreatedResult.cs" />
     <Compile Include="Services\Results\FailureResult.cs" />
     <Compile Include="Services\Results\IContext.cs" />
