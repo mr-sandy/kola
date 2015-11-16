@@ -33,10 +33,10 @@
                 with =>
                     {
                         with.Dependencies(new object[] { this.ContentRepository, this.ComponentLibrary });
-                        with.Dependency<TemplateResultProcessor>();
                         with.Dependency<TemplateResourceBuilder>();
-                        with.Dependency<AmendmentResultProcessor>();
                         with.Dependency<AmendmentResourceBuilder>();
+                        with.ResponseProcessor<TemplateResultProcessor>();
+                        with.ResponseProcessor<AmendmentResultProcessor>();
                         with.Dependency<TemplateService>();
                         with.Module<TemplateModule>();
                     });

@@ -1,5 +1,6 @@
 ﻿namespace Integration.Tests.Nancy.Modules.RenderingModuleSpecs
 {
+    using global::Nancy.Responses.Negotiation;
     using global::Nancy.Testing;
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
@@ -36,10 +37,7 @@
                 with =>
                     {
                         with.Dependency(this.RenderingService);
-                        with.Dependency<TemplateResultProcessor>();
-                        with.Dependency<TemplateResourceBuilder>();
-                        with.Dependency<AmendmentResultProcessor>();
-                        with.Dependency<AmendmentResourceBuilder>();
+                        with.ResponseProcessor<ViewProcessor>();
                         with.Module<RenderingModule>();
                         with.ViewEngine<RazorViewEngine>();
                         with.ViewLocationProvider<ResourceViewLocationProvider>();

@@ -1,5 +1,9 @@
 ﻿namespace Integration.Tests.Nancy.Modules.ComponentTypesModuleSpecs
 {
+    using System;
+
+    using global::Nancy.Responses.Negotiation;
+
     using Kola.Domain;
     using Kola.Domain.Composition;
     using Kola.Nancy;
@@ -31,10 +35,7 @@
                 with =>
                 {
                     with.Dependencies(new object[] { this.ComponentLibrary });
-                    with.Dependency<TemplateResultProcessor>();
-                    with.Dependency<TemplateResourceBuilder>();
-                    with.Dependency<AmendmentResultProcessor>();
-                    with.Dependency<AmendmentResourceBuilder>();
+                    with.ResponseProcessor<JsonProcessor>();
                     with.Module<ComponentTypeModule>();
                 });
 

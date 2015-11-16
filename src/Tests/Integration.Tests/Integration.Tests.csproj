@@ -96,8 +96,8 @@
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenPostingAnAmendment.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenRetrievingATemplate.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WhenCreatingATemplate.cs" />
-    <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WidgetTests\ContextBase.cs" />
-    <Compile Include="Nancy\Modules\TemplatesModuleSpecs\WidgetTests\WhenCreatingAWidget.cs" />
+    <Compile Include="Nancy\Modules\WidgetModuleTests\ContextBase.cs" />
+    <Compile Include="Nancy\Modules\WidgetModuleTests\WhenCreatingAWidget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

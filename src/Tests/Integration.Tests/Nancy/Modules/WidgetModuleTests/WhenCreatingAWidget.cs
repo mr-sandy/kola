@@ -1,12 +1,11 @@
-﻿namespace Integration.Tests.Nancy.Modules.TemplatesModuleSpecs.WidgetTests
+﻿namespace Integration.Tests.Nancy.Modules.WidgetModuleTests
 {
     using FluentAssertions;
 
-    using Kola.Domain.Specifications;
-    using Kola.Domain.Composition;
-
     using global::Nancy;
     using global::Nancy.Testing;
+
+    using Kola.Domain.Specifications;
 
     using NUnit.Framework;
 

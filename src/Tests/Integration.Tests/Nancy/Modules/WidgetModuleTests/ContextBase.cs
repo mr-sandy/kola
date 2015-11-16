@@ -1,12 +1,11 @@
-﻿namespace Integration.Tests.Nancy.Modules.TemplatesModuleSpecs.WidgetTests
+﻿namespace Integration.Tests.Nancy.Modules.WidgetModuleTests
 {
+    using global::Nancy.Responses.Negotiation;
     using global::Nancy.Testing;
 
     using Kola.Domain.Composition;
     using Kola.Nancy.Modules;
-    using Kola.Nancy.Processors;
     using Kola.Persistence;
-    using Kola.Service.ResourceBuilding;
 
     using NUnit.Framework;
 
@@ -32,10 +31,7 @@
                 with =>
                     {
                         with.Dependencies(new object[] { this.WidgetSpecificationRepository, this.ComponentLibrary });
-                        with.Dependency<TemplateResultProcessor>();
-                        with.Dependency<TemplateResourceBuilder>();
-                        with.Dependency<AmendmentResultProcessor>();
-                        with.Dependency<AmendmentResourceBuilder>();
+                        with.ResponseProcessor<JsonProcessor>();
                         with.Module<WidgetModule>();
                     });
 

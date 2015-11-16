@@ -49,6 +49,13 @@
         }
 
         [Test]
+        public void ShouldReturnALocationHeader()
+        {
+            this.Response.Headers["location"].Should().Be("test/path");
+        }
+
+
+        [Test]
         public void ShouldUpdateTemplateToRepository()
         {
             this.ContentRepository.AssertWasCalled(r => r.Update(Arg<Template>.Is.Anything));

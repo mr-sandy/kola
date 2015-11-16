@@ -31,7 +31,7 @@
 
             this.contentRepository.Add(template);
 
-            return new CreatedResult<Template>(template, template.Path);
+            return new CreatedResult<Template>(template);
         }
 
         public IResult<Template> GetTemplate(IEnumerable<string> path)
@@ -71,7 +71,7 @@
             template.ApplyAmendments(this.componentLibrary);
 
             //            var resource = new AmendmentResourceBuilder().Build(amendment, template.Path, template.Amendments.Count() - 1);
-            return new CreatedResult<Tuple<Template, IAmendment>>(new Tuple<Template, IAmendment>(template, amendment), new [] {""});
+            return new CreatedResult<Tuple<Template, IAmendment>>(new Tuple<Template, IAmendment>(template, amendment));
         }
 
         public IResult<IEnumerable<IAmendment>> GetAmendments(IEnumerable<string> path)

@@ -40,7 +40,7 @@ namespace Kola.Nancy.Processors
             return new JsonResponse(this.builder.Build(result.Data), this.serializer)
                     .WithStatusCode(HttpStatusCode.Created)
                     .WithContentType("application/json")
-                    .WithHeader("location", string.Join("/", result.Path));
+                    .WithHeader("location", "");
         }
 
         public Response Visit(FailureResult<T> result)
