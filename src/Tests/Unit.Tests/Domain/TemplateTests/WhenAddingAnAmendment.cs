@@ -15,7 +15,7 @@
         private Template template;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             this.template = new Template(new[] { "path" });
 

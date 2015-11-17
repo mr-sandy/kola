@@ -16,7 +16,7 @@
         private Container container;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             this.container = new Container("existing container", null);
             this.Template.Insert(0, this.container);

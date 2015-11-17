@@ -16,7 +16,7 @@
         private TemplateResource resource;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var template = new Template(new[] { "test", "path" }, new IComponent[]
                 {

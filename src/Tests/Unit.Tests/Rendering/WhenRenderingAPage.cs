@@ -22,7 +22,7 @@
         private string result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var atom1Specification = MockRepository.GenerateStub<IPluginComponentSpecification<IComponentWithProperties>>();
             var atom2Specification = MockRepository.GenerateStub<IPluginComponentSpecification<IComponentWithProperties>>();

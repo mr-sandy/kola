@@ -14,7 +14,7 @@
         private WidgetSpecification widgetSpecification;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             this.widgetSpecification = new WidgetSpecification("widgetName");
             var placeholder = new Placeholder("area 1");

@@ -15,7 +15,7 @@
     public class WhenProcessingAnAddComponentAmendmentToCreateAContainerInTheRoot : ContextBase
     {
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             this.ComponentSpecification.Stub(s => s.Create()).Return(new Container("new container", null));
 

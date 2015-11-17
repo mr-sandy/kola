@@ -11,7 +11,7 @@
     public class WhenProcessingARemoveComponentAmendment : ContextBase
     {
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             this.Template.Insert(0, new Atom("existing", null));
 

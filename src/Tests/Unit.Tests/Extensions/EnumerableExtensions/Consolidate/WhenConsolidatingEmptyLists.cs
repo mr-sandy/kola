@@ -14,7 +14,7 @@
         private IEnumerable<IEnumerable<int>> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list1 = Enumerable.Empty<int>();
             var list2 = Enumerable.Empty<int>();

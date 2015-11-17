@@ -15,7 +15,7 @@
         private KolaConfiguration configuration;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var plugin1Configuration = MockRepository.GenerateStub<PluginConfiguration>("plugin1");
             var plugin2Configuration = MockRepository.GenerateStub<PluginConfiguration>("plugin2");

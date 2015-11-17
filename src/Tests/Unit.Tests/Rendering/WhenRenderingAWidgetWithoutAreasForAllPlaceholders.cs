@@ -24,7 +24,7 @@
         private IViewHelper viewHelper;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var placeholder1 = new Placeholder("area 1");
             var placeholder2 = new Placeholder("area 2");

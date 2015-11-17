@@ -60,7 +60,7 @@ namespace Unit.Tests.Domain.WidgetTests
          *          └─ PlaceholderInstance
          *             └─ Atom
          */
-        public void EstablishContext()
+        public void SetUp()
         {
             var specification1 = new WidgetSpecification(
                 "widget 1",

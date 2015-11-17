@@ -10,7 +10,7 @@
         private Template template;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var templatePath = new[] { "test", "path" };
             this.template = new Template(templatePath);

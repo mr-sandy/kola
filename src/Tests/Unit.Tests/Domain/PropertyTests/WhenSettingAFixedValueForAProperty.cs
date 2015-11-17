@@ -8,7 +8,7 @@
     public class WhenSettingAFixedValueForAProperty
     {
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var property = new Property(string.Empty, string.Empty, new FixedPropertyValue("value"));
         }

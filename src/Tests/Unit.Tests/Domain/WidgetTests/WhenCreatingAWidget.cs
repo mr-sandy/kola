@@ -14,7 +14,7 @@
         private Widget widget;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var specification =
                 new WidgetSpecification(

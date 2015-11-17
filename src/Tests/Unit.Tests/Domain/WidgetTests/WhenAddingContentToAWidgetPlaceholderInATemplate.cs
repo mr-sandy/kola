@@ -11,7 +11,7 @@
         private Template template;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
         }
 

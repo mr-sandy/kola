@@ -13,7 +13,7 @@
         private IComponentCollection found;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var components = new IComponent[]
                 {

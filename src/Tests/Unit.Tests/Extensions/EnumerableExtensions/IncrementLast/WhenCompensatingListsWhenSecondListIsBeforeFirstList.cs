@@ -13,7 +13,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list = new[] { 0 };
 
@@ -31,7 +31,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list = new[] { 0, 1 };
 
@@ -49,7 +49,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list = new[] { 0, 1, 2 };
 

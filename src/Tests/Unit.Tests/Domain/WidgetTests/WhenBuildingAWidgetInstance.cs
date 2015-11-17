@@ -20,7 +20,7 @@
         private WidgetInstance instance;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var specification = new WidgetSpecification(
                 "widget name",

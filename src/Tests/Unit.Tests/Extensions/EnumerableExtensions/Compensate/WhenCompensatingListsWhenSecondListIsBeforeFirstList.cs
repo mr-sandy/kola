@@ -14,7 +14,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list1 = new[] { 0, 1, 2 };
             var list2 = new[] { 1, 2, 3 };
@@ -33,7 +33,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list1 = new[] { 0 };
             var list2 = new[] { 1 };
@@ -52,7 +52,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list1 = new[] { 0 };
             var list2 = new[] { 1, 0 };
@@ -71,7 +71,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list1 = new[] { 0, 0 };
             var list2 = new[] { 1, 0 };
@@ -90,7 +90,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list1 = new[] { 1, 0 };
             var list2 = new[] { 1, 1 };
@@ -109,7 +109,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list1 = new[] { 1, 6 };
             var list2 = new[] { 1, 1 };
@@ -128,7 +128,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list1 = new[] { 1, 6 };
             var list2 = new[] { 1, 2, 3, 4, 5, 6 };
@@ -147,7 +147,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list1 = new[] { 1, 1 };
             var list2 = new[] { 1, 2, 3, 4, 5, 6 };
@@ -166,7 +166,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list1 = new[] { 0 };
             var list2 = new[] { 1, 2, 3, 4, 5, 6 };
@@ -185,7 +185,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list1 = new[] { 2 };
             var list2 = new[] { 1, 2, 3, 4, 5, 6 };
@@ -204,7 +204,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list1 = new[] { 1, 0 };
             var list2 = new[] { 1, 2, 3, 4, 5, 6 };
@@ -223,7 +223,7 @@
         private IEnumerable<int> result;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var list1 = new[] { 0, 1, 0, 0 };
             var list2 = new[] { 0, 1, 0, 1, 0 };

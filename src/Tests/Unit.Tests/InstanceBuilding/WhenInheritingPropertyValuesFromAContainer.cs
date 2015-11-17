@@ -18,7 +18,7 @@
         private ComponentInstance instance;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var atom = new Atom(
                 "atom",

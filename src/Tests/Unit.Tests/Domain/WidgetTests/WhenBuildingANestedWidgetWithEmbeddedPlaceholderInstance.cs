@@ -56,7 +56,7 @@
          *       └─ PlaceholderInstance                 1.2.0
          *          └─ AtomInstance B                   1.2.0.0
          */
-        public void EstablishContext()
+        public void SetUp()
         {
             var specification1 = new WidgetSpecification(
                 "widget 1",

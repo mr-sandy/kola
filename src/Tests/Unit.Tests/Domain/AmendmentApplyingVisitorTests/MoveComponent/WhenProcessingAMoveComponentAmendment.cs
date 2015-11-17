@@ -13,7 +13,7 @@
     public class WhenProcessingAMoveComponentAmendment : ContextBase
     {
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             this.Template.Insert(0, new Atom("first", null));
             this.Template.Insert(1, new Atom("second", null));

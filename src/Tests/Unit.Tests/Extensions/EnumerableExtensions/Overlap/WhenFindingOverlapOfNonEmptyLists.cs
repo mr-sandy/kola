@@ -13,7 +13,7 @@
 //        private IEnumerable<int> result;
 
 //        [SetUp]
-//        public void EstablishContext()
+//        public void SetUp()
 //        {
 //            var list1 = new[] { 1, 2, 3, 4, 5 };
 //            var list2 = new[] { 1, 2, 3 };

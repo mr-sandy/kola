@@ -16,7 +16,7 @@
     public class WhenApplyingAFixedPropertyAmendmentForAFixedPropertyValueWhenNoPropertyExists : ContextBase
     {
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             this.Template.Insert(0, new Atom("the atom", Enumerable.Empty<Property>()));
 

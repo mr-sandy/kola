@@ -16,7 +16,7 @@
         private PropertyInstance propertyInstance;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             var property = new Property("property name", "property type", new InheritedPropertyValue("key"));
 

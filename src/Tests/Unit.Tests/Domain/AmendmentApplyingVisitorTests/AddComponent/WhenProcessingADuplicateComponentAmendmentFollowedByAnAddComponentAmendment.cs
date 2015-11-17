@@ -14,7 +14,7 @@
     public class WhenProcessingADuplicateComponentAmendmentFollowedByAnAddComponentAmendment : ContextBase
     {
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             this.ComponentSpecification.Stub(s => s.Create()).Return(new Atom("new atom"));
 

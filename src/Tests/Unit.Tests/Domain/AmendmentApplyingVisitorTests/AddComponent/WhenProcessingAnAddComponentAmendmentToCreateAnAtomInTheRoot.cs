@@ -15,7 +15,7 @@
     public class WhenProcessingAnAddComponentAmendmentToCreateAnAtomInTheRoot : ContextBase
     {
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             ComponentSpecification.Stub(s => s.Create()).Return(new Atom("new atom", null));
 

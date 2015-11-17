@@ -14,7 +14,7 @@
         private WidgetSpecification widgetSpecification;
 
         [SetUp]
-        public void EstablishContext()
+        public void SetUp()
         {
             this.widgetSpecification = new WidgetSpecification("widget name");
             this.widgetSpecification.Insert(0, new Atom("atom name", Enumerable.Empty<Property>()));
