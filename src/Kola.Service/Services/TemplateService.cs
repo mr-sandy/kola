@@ -22,7 +22,7 @@
 
         public IResult<Template> CreateTemplate(IEnumerable<string> path)
         {
-            var existingTemplate = this.contentRepository.Get(path) as Template;
+            var existingTemplate = this.contentRepository.GetTemplate(path);
 
             if (existingTemplate != null)
             {
@@ -38,7 +38,7 @@
 
         public IResult<Template> GetTemplate(IEnumerable<string> path)
         {
-            var template = this.contentRepository.Get(path) as Template;
+            var template = this.contentRepository.GetTemplate(path);
 
             if (template == null)
             {
@@ -73,7 +73,7 @@
 
         public IResult<AmendmentDetails> AddAmendment(IEnumerable<string> path, IAmendment amendment)
         {
-            var template = this.contentRepository.Get(path) as Template;
+            var template = this.contentRepository.GetTemplate(path);
 
             if (template == null)
             {
@@ -91,7 +91,7 @@
 
         public IResult<AmendmentsDetails> GetAmendments(IEnumerable<string> path)
         {
-            var template = this.contentRepository.Get(path) as Template;
+            var template = this.contentRepository.GetTemplate(path);
 
             if (template == null)
             {
@@ -103,7 +103,7 @@
 
         public IResult<AmendmentsDetails> ApplyAmendments(IEnumerable<string> path)
         {
-            var template = this.contentRepository.Get(path) as Template;
+            var template = this.contentRepository.GetTemplate(path);
 
             if (template == null)
             {
@@ -119,7 +119,7 @@
 
         public IResult<UndoAmendmentDetails> UndoAmendment(IEnumerable<string> path)
         {
-            var template = this.contentRepository.Get(path) as Template;
+            var template = this.contentRepository.GetTemplate(path);
 
             if (template == null)
             {

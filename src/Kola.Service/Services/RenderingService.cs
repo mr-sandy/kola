@@ -46,7 +46,7 @@
 
         public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IEnumerable<int> componentPath)
         {
-            var template = this.contentRepository.Get(path) as Template;
+            var template = this.contentRepository.GetTemplate(path);
 
             if (template == null)
             {

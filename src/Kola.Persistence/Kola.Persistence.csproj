@@ -47,6 +47,7 @@
     <Compile Include="DomainBuilding\DomainBuildingAmendmentSurrogateVisitor.cs" />
     <Compile Include="DomainBuilding\DomainBuildingComponentSurrogateVisitor.cs" />
     <Compile Include="DomainBuilding\DomainBuildingPropertyValueVisitor.cs" />
+    <Compile Include="DomainBuilding\RedirectDomainBuilder.cs" />
     <Compile Include="DomainBuilding\TemplateDomainBuilder.cs" />
     <Compile Include="DomainBuilding\WidgetSpecificationDomainBuilder.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
@@ -80,10 +81,11 @@
     <Compile Include="Surrogates\PropertyValues\IPropertyValueSurrogateVisitor.cs" />
     <Compile Include="Surrogates\PropertyValues\MultilingualPropertyValueSurrogate.cs" />
     <Compile Include="Surrogates\PropertyValues\PropertyValueSurrogate.cs" />
+    <Compile Include="Surrogates\RedirectSurrogate.cs" />
     <Compile Include="Surrogates\TemplateSurrogate.cs" />
     <Compile Include="Surrogates\WidgetSpecificationSurrogate.cs" />
     <Compile Include="Surrogates\WidgetSurrogate.cs" />
-    <Compile Include="TemplateRepository.cs" />
+    <Compile Include="ContentRepository.cs" />
     <Compile Include="WidgetSpecificationRepository.cs" />
   </ItemGroup>
   <ItemGroup>

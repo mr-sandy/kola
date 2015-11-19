@@ -12,6 +12,7 @@
     internal class ContentRepository : IContentRepository
     {
         private const string TemplateFileName = "Template.xml";
+        private const string RedirectFileName = "Redirect.xml";
 
         private readonly SerializationHelper serializationHelper;
 
@@ -20,8 +21,7 @@
         private readonly string templatesDirectory;
 
         public ContentRepository(SerializationHelper serializationHelper, FileSystemHelper fileSystemHelper)
-            : this(serializationHelper, fileSystemHelper, rootDirectory: ConfigurationManager.AppSettings["ContentRoot"]
-                )
+            : this(serializationHelper, fileSystemHelper, rootDirectory: ConfigurationManager.AppSettings["ContentRoot"])
         {
         }
 
@@ -56,20 +56,41 @@
             }
         }
 
-        public IContent Get(IEnumerable<string> contentPath)
+        public Template GetTemplate(IEnumerable<string> path)
         {
-            var path = this.fileSystemHelper.CombinePaths(
+            var templatePath = this.fileSystemHelper.CombinePaths(
                 this.templatesDirectory,
-                contentPath.ToFileSystemPath(),
+                path.ToFileSystemPath(),
                 TemplateFileName);
 
-            if (!this.fileSystemHelper.FileExists(path))
+            if (!this.fileSystemHelper.FileExists(templatePath))
             {
                 return null;
             }
 
-            var surrogate = this.serializationHelper.Deserialize<TemplateSurrogate>(path);
-            return new TemplateDomainBuilder(contentPath).Build(surrogate);
+            var surrogate = this.serializationHelper.Deserialize<TemplateSurrogate>(templatePath);
+            return new TemplateDomainBuilder(path).Build(surrogate);
+        }
+
+        public Redirect GetRedirect(IEnumerable<string> path)
+        {
+            var redirectPath = this.fileSystemHelper.CombinePaths(
+                this.templatesDirectory,
+                path.ToFileSystemPath(),
+                RedirectFileName);
+
+            if (!this.fileSystemHelper.FileExists(redirectPath))
+            {
+                return null;
+            }
+
+            var surrogate = this.serializationHelper.Deserialize<RedirectSurrogate>(redirectPath);
+            return new RedirectDomainBuilder().Build(surrogate);
+        }
+
+        public IContent Get(IEnumerable<string> path)
+        {
+            return (IContent)this.GetRedirect(path) ?? (IContent)this.GetTemplate(path);
         }
 
         public void Update(IContent content)

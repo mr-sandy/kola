@@ -9,7 +9,11 @@
         void Add(IContent content);
 
         IContent Get(IEnumerable<string> path);
-        
+
+        Template GetTemplate(IEnumerable<string> path);
+
+        Redirect GetRedirect(IEnumerable<string> path);
+
         void Update(IContent content);
     }
 }
