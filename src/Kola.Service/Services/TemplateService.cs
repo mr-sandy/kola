@@ -1,6 +1,5 @@
 ﻿namespace Kola.Service.Services
 {
-    using System;
     using System.Collections.Generic;
 
     using Kola.Domain.Composition;
@@ -53,13 +52,13 @@
             return new SuccessResult<Template>(template);
         }
 
-        public IResult<TemplateAndComponent> GetComponent(IEnumerable<string> templatePath, IEnumerable<int> componentPath)
+        public IResult<ComponentDetails> GetComponent(IEnumerable<string> templatePath, IEnumerable<int> componentPath)
         {
             var template = this.contentRepository.Get(templatePath) as Template;
 
             if (template == null)
             {
-                return new NotFoundResult<TemplateAndComponent>();
+                return new NotFoundResult<ComponentDetails>();
             }
 
             template.ApplyAmendments(this.componentLibrary);
@@ -69,16 +68,16 @@
             // Add all properties for this component type (not just those with values set)
             component.Accept(new ComponentRefreshingVisitor(this.componentLibrary));
 
-            return new SuccessResult<TemplateAndComponent>(new TemplateAndComponent(template, component, componentPath));
+            return new SuccessResult<ComponentDetails>(new ComponentDetails(template, component, componentPath));
         }
 
-        public IResult<TemplateAndAmendment> AddAmendment(IEnumerable<string> path, IAmendment amendment)
+        public IResult<AmendmentDetails> AddAmendment(IEnumerable<string> path, IAmendment amendment)
         {
             var template = this.contentRepository.Get(path) as Template;
 
             if (template == null)
             {
-                return new NotFoundResult<TemplateAndAmendment>();
+                return new NotFoundResult<AmendmentDetails>();
             }
 
             template.AddAmendment(amendment);
@@ -87,29 +86,51 @@
 
             template.ApplyAmendments(this.componentLibrary);
 
-            return new CreatedResult<TemplateAndAmendment>(new TemplateAndAmendment(template, amendment));
+            return new CreatedResult<AmendmentDetails>(new AmendmentDetails(template, amendment));
         }
 
-        public IResult<TemplateAndAmendments> GetAmendments(IEnumerable<string> path)
+        public IResult<AmendmentsDetails> GetAmendments(IEnumerable<string> path)
         {
             var template = this.contentRepository.Get(path) as Template;
 
             if (template == null)
             {
-                return new NotFoundResult<TemplateAndAmendments>();
+                return new NotFoundResult<AmendmentsDetails>();
             }
 
-            return new SuccessResult<TemplateAndAmendments>(new TemplateAndAmendments(template, template.Amendments));
+            return new SuccessResult<AmendmentsDetails>(new AmendmentsDetails(template));
         }
 
-        public IResult<Template> ApplyAmendments(IEnumerable<string> path)
+        public IResult<AmendmentsDetails> ApplyAmendments(IEnumerable<string> path)
         {
-            throw new System.NotImplementedException();
+            var template = this.contentRepository.Get(path) as Template;
+
+            if (template == null)
+            {
+                return new NotFoundResult<AmendmentsDetails>();
+            }
+
+            template.ApplyAmendments(this.componentLibrary, reset: true);
+
+            this.contentRepository.Update(template);
+
+            return new SuccessResult<AmendmentsDetails>(new AmendmentsDetails(template));
         }
 
-        public IResult<IEnumerable<IEnumerable<int>>> UndoAmendment(IEnumerable<string> path)
+        public IResult<UndoAmendmentDetails> UndoAmendment(IEnumerable<string> path)
         {
-            throw new System.NotImplementedException();
+            var template = this.contentRepository.Get(path) as Template;
+
+            if (template == null)
+            {
+                return new NotFoundResult<UndoAmendmentDetails>();
+            }
+
+            var amendment = template.UndoAmendment();
+
+            this.contentRepository.Update(template);
+
+            return new SuccessResult<UndoAmendmentDetails>(new UndoAmendmentDetails(template, amendment));
         }
     }
 }

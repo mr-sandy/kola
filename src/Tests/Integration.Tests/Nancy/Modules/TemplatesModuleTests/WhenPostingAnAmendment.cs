@@ -16,30 +16,25 @@
 
     public class WhenPostingAnAmendment : ContextBase
     {
-        private Template template;
-
         [SetUp]
         public void SetUp()
         {
-            var templatePath = @"test/path";
+            var template = new Template(new[] { "test", "path" });
+            this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" }))).Return(template);
 
-            this.template = new Template(new[] { "test", "path" });
+            var componentSpecification = new AtomSpecification("atom name");
+            this.ComponentLibrary.Stub(r => r.Lookup("atom name")).Return(componentSpecification);
 
-            var component = MockRepository.GenerateStub<IComponentWithProperties>();
-            var componentSpecification = MockRepository.GenerateStub<IComponentSpecification<IComponentWithProperties>>();
-
-            componentSpecification.Stub(s => s.Create()).Return(component);
-            this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(this.template);
-            this.ComponentLibrary.Stub(r => r.Lookup("component name")).Return(componentSpecification);
-
-            var request = new { targetPath = "0", componentType = "component name" };
-
-            this.Response = this.Browser.Post((string)$"/_kola/templates/{templatePath}/_amendments/addComponent",
-                    with =>
+            this.Response = this.Browser.Post("/_kola/templates/test/path/_amendments/addComponent",
+                with =>
+                    {
+                        with.JsonBody(new
                         {
-                            with.JsonBody(request);
-                            with.Header("Accept", "application/json");
+                            targetPath = "0",
+                            componentType = "atom name"
                         });
+                        with.Header("Accept", "application/json");
+                    });
         }
 
         [Test]
@@ -51,7 +46,7 @@
         [Test]
         public void ShouldReturnALocationHeader()
         {
-            this.Response.Headers["location"].Should().Be("/test/path/_amendments/0");
+            this.Response.Headers["location"].Should().Be("/_kola/templates/test/path/_amendments/0");
         }
 
         [Test]

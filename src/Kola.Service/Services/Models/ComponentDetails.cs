@@ -4,9 +4,9 @@ namespace Kola.Service.Services.Models
 
     using Kola.Domain.Composition;
 
-    public class TemplateAndComponent 
+    public class ComponentDetails
     {
-        public TemplateAndComponent(Template template, IComponent component, IEnumerable<int> componentPath)
+        public ComponentDetails(Template template, IComponent component, IEnumerable<int> componentPath)
         {
             this.Template = template;
             this.Component = component;

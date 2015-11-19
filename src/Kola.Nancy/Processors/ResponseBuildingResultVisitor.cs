@@ -1,9 +1,5 @@
 namespace Kola.Nancy.Processors
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Xml.XPath;
-
     using global::Nancy;
     using global::Nancy.Responses;
 

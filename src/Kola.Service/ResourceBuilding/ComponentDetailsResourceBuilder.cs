@@ -4,19 +4,18 @@
     using System.Linq;
 
     using Kola.Service.Extensions;
-    using Kola.Service.Services;
     using Kola.Service.Services.Models;
 
-    public class ComponentResourceBuilder : IResourceBuilder<TemplateAndComponent>
+    public class ComponentDetailsResourceBuilder : IResourceBuilder<ComponentDetails>
     {
-        public object Build(TemplateAndComponent model)
+        public object Build(ComponentDetails model)
         {
             var visitor = new ResourceBuildingComponentVisitor(model.Template.Path);
 
             return model.Component.Accept(visitor, model.ComponentPath);
         }
 
-        public string Location(TemplateAndComponent model)
+        public string Location(ComponentDetails model)
         {
             var result = new List<string>();
 

@@ -3,9 +3,9 @@ namespace Kola.Service.Services.Models
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.Amendments;
 
-    public class TemplateAndAmendment
+    public class AmendmentDetails
     {
-        public TemplateAndAmendment(Template template, IAmendment amendment)
+        public AmendmentDetails(Template template, IAmendment amendment)
         {
             this.Template = template;
             this.Amendment = amendment;

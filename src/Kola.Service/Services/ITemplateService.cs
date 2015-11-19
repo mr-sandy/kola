@@ -1,6 +1,5 @@
 ﻿namespace Kola.Service.Services
 {
-    using System;
     using System.Collections.Generic;
 
     using Kola.Domain.Composition;
@@ -14,14 +13,14 @@
 
         IResult<Template> GetTemplate(IEnumerable<string> path);
 
-        IResult<TemplateAndComponent> GetComponent(IEnumerable<string> templatePath, IEnumerable<int> componentPath);
+        IResult<ComponentDetails> GetComponent(IEnumerable<string> templatePath, IEnumerable<int> componentPath);
 
-        IResult<TemplateAndAmendment> AddAmendment(IEnumerable<string> path, IAmendment amendment);
+        IResult<AmendmentDetails> AddAmendment(IEnumerable<string> path, IAmendment amendment);
 
-        IResult<TemplateAndAmendments> GetAmendments(IEnumerable<string> path);
+        IResult<AmendmentsDetails> GetAmendments(IEnumerable<string> path);
 
-        IResult<Template> ApplyAmendments(IEnumerable<string> path);
+        IResult<AmendmentsDetails> ApplyAmendments(IEnumerable<string> path);
 
-        IResult<IEnumerable<IEnumerable<int>>> UndoAmendment(IEnumerable<string> path);
+        IResult<UndoAmendmentDetails> UndoAmendment(IEnumerable<string> path);
     }
 }

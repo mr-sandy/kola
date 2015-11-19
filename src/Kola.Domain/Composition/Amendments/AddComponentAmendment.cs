@@ -24,10 +24,7 @@
             }
         }
 
-        public IEnumerable<int> SubjectPath
-        {
-            get { return this.TargetPath; }
-        }
+        public IEnumerable<int> SubjectPath => this.TargetPath;
 
         public void Accept(IAmendmentVisitor visitor)
         {

@@ -14,6 +14,10 @@
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
 
+    using Kola.Domain.Composition;
+    using Kola.Service.ResourceBuilding;
+    using Kola.Service.Services.Models;
+
     public class KolaNancyBootstrapper : DefaultNancyBootstrapper
     {
         protected override NancyInternalConfiguration InternalConfiguration
@@ -31,6 +35,12 @@
         {
             // TODO {SC} Use the IOC container to hold the Kola configuration
             new KolaConfigurationBuilder().Build(new PluginFinder(), new TinyIoCObjectFactory(container));
+
+            container.Register<IResourceBuilder<AmendmentDetails>, AmendmentDetailsResourceBuilder>();
+            container.Register<IResourceBuilder<AmendmentsDetails>, AmendmentsDetailsResourceBuilder>();
+            container.Register<IResourceBuilder<Template>, TemplateResourceBuilder>();
+            container.Register<IResourceBuilder<ComponentDetails>, ComponentDetailsResourceBuilder>();
+            container.Register<IResourceBuilder<UndoAmendmentDetails>, UndoAmendmentDetailsResourceBuilder>();
 
             foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
             {

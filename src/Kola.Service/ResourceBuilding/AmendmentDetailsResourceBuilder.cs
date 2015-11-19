@@ -1,18 +1,16 @@
 ﻿namespace Kola.Service.ResourceBuilding
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.Amendments;
-    using Kola.Resources;
     using Kola.Service.Extensions;
     using Kola.Service.Services.Models;
 
-    public class AmendmentResourceBuilder : IResourceBuilder<TemplateAndAmendment>
+    public class AmendmentDetailsResourceBuilder : IResourceBuilder<AmendmentDetails>
     {
-        public object Build(TemplateAndAmendment model)
+        public object Build(AmendmentDetails model)
         {
             var index = this.GetAmendmentIndex(model.Template, model.Amendment);
 
@@ -22,10 +20,11 @@
 
         }
 
-        public string Location(TemplateAndAmendment model)
+        public string Location(AmendmentDetails model)
         {
             var result = new List<string>();
 
+            result.AddRange(new[] { "_kola", "templates" });
             result.AddRange(model.Template.Path);
             result.Add("_amendments");
             result.Add(this.GetAmendmentIndex(model.Template, model.Amendment).ToString());

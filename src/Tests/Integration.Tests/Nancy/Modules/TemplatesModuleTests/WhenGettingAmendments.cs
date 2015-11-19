@@ -22,11 +22,9 @@
         {
             var template = new Template(new[] { "test", "path" }, null, new[] { new AddComponentAmendment(new[] { 0 }, "atom 1") });
 
-            this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" })))
-                .Return(template);
+            this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" }))).Return(template);
 
-            this.Response = this.Browser.Get("/_kola/templates/test/path/_amendments",
-                with => with.Header("Accept", "application/json"));
+            this.Response = this.Browser.Get("/_kola/templates/test/path/_amendments", with => with.Header("Accept", "application/json"));
         }
 
         [Test]

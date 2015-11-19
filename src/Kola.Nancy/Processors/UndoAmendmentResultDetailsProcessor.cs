@@ -5,12 +5,11 @@
     using global::Nancy;
 
     using Kola.Service.ResourceBuilding;
-    using Kola.Service.Services;
     using Kola.Service.Services.Models;
 
-    public class ComponentResultProcessor : ResultProcessor<TemplateAndComponent>
+    public class UndoAmendmentDetailsResultProcessor : ResultProcessor<UndoAmendmentDetails>
     {
-        public ComponentResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<TemplateAndComponent> builder)
+        public UndoAmendmentDetailsResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<UndoAmendmentDetails> builder)
             : base(serializers, builder)
         {
         }

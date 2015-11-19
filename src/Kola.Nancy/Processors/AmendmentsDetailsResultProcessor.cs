@@ -4,13 +4,12 @@
 
     using global::Nancy;
 
-    using Kola.Domain.Composition.Amendments;
     using Kola.Service.ResourceBuilding;
     using Kola.Service.Services.Models;
 
-    public class AmendmentsResultProcessor : ResultProcessor<TemplateAndAmendments>
+    public class AmendmentsDetailsResultProcessor : ResultProcessor<AmendmentsDetails>
     {
-        public AmendmentsResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<TemplateAndAmendments> builder)
+        public AmendmentsDetailsResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<AmendmentsDetails> builder)
             : base(serializers, builder)
         {
         }

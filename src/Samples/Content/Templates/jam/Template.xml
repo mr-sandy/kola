@@ -56,18 +56,18 @@
                   </properties>
                   <components>
                     <atom name="markdown">
-                      <comment><![CDATA[stoats]]></comment>
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##stoats]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                    <atom name="markdown">
                       <comment><![CDATA[beermats]]></comment>
                       <properties>
                         <property name="markdown" type="markdown">
                           <value xsi:type="fixed"><![CDATA[##beermats]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                    <atom name="markdown">
+                      <comment><![CDATA[stoats]]></comment>
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##stoats]]></value>
                         </property>
                       </properties>
                     </atom>
@@ -79,8 +79,19 @@
               <properties />
               <components>
                 <container name="div">
-                  <properties />
+                  <properties>
+                    <property name="classes" type="text">
+                      <value xsi:type="fixed"><![CDATA[red]]></value>
+                    </property>
+                  </properties>
                   <components>
+                    <atom name="markdown">
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[**More content**]]></value>
+                        </property>
+                      </properties>
+                    </atom>
                     <atom name="markdown">
                       <properties>
                         <property name="markdown" type="markdown">
@@ -100,18 +111,18 @@
               </properties>
               <components>
                 <atom name="markdown">
-                  <comment><![CDATA[Wombles!]]></comment>
-                  <properties>
-                    <property name="markdown" type="markdown">
-                      <value xsi:type="fixed"><![CDATA[#Wombles!]]></value>
-                    </property>
-                  </properties>
-                </atom>
-                <atom name="markdown">
                   <comment><![CDATA[otter]]></comment>
                   <properties>
                     <property name="markdown" type="markdown">
                       <value xsi:type="fixed"><![CDATA[##otters]]></value>
+                    </property>
+                  </properties>
+                </atom>
+                <atom name="markdown">
+                  <comment><![CDATA[Wombles!]]></comment>
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[#Wombles!]]></value>
                     </property>
                   </properties>
                 </atom>
@@ -142,7 +153,7 @@
                       <comment><![CDATA[hiccups]]></comment>
                       <properties>
                         <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##hiccups]]></value>
+                          <value xsi:type="fixed"><![CDATA[##hiccups!]]></value>
                         </property>
                       </properties>
                     </atom>
@@ -168,44 +179,9 @@
   </components>
   <amendments>
     <setPropertyFixed>
-      <componentPath>0/1/1/0</componentPath>
-      <propertyName>classes</propertyName>
-      <fixedValue><![CDATA[red]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1/1/0</componentPath>
-      <propertyName>classes</propertyName>
-      <fixedValue><![CDATA[green]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1/1/0</componentPath>
-      <propertyName>classes</propertyName>
-      <fixedValue><![CDATA[red]]></fixedValue>
-    </setPropertyFixed>
-    <moveComponent>
-      <sourcePath>0/1/2/0</sourcePath>
-      <targetPath>0/1/2/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0/1/1</sourcePath>
-      <targetPath>0/1/0/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0/1/1</sourcePath>
-      <targetPath>0/1/0/1/0</targetPath>
-    </moveComponent>
-    <addComponent>
-      <componentType>markdown</componentType>
-      <targetPath>0/1/1/0/1</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>0/1/1/0/1</componentPath>
+      <componentPath>0/1/2/2/2</componentPath>
       <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[**More content**]]></fixedValue>
+      <fixedValue><![CDATA[##hiccups]]></fixedValue>
     </setPropertyFixed>
-    <moveComponent>
-      <sourcePath>0/1/1/0/1</sourcePath>
-      <targetPath>0/1/1/0/0</targetPath>
-    </moveComponent>
   </amendments>
 </template>

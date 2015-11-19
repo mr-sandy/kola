@@ -51,10 +51,10 @@
     <Compile Include="IPropertySpecificationLibrary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertySpecificationLibrary.cs" />
-    <Compile Include="ResourceBuilding\AmendmentResourceBuilder.cs" />
-    <Compile Include="ResourceBuilding\AmendmentsResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\AmendmentDetailsResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\AmendmentsDetailsResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\ComponentNamingSpecificationVisitor.cs" />
-    <Compile Include="ResourceBuilding\ComponentResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\ComponentDetailsResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\ComponentTypeResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\IResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\PropertyTypeResourceBuilder.cs" />
@@ -62,9 +62,11 @@
     <Compile Include="ResourceBuilding\ResourceBuildingComponentVisitor.cs" />
     <Compile Include="ResourceBuilding\ResourceBuildingPropertyValueVisitor.cs" />
     <Compile Include="ResourceBuilding\TemplateResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\UndoAmendmentDetailsResourceBuilder.cs" />
     <Compile Include="Services\IRenderingService.cs" />
     <Compile Include="Services\ITemplateService.cs" />
-    <Compile Include="Services\Models\TemplateAndAmendments.cs" />
+    <Compile Include="Services\Models\AmendmentsDetails.cs" />
+    <Compile Include="Services\Models\UndoAmendmentDetails.cs" />
     <Compile Include="Services\RenderingService.cs" />
     <Compile Include="Services\Results\ConflictResult.cs" />
     <Compile Include="Services\Results\CreatedResult.cs" />
@@ -75,8 +77,8 @@
     <Compile Include="Services\Results\NotFoundResult.cs" />
     <Compile Include="Services\Results\SuccessResult.cs" />
     <Compile Include="Services\Results\UnauthorisedResult.cs" />
-    <Compile Include="Services\Models\TemplateAndAmendment.cs" />
-    <Compile Include="Services\Models\TemplateAndComponent.cs" />
+    <Compile Include="Services\Models\AmendmentDetails.cs" />
+    <Compile Include="Services\Models\ComponentDetails.cs" />
     <Compile Include="Services\TemplateService.cs" />
   </ItemGroup>
   <ItemGroup>

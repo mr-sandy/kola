@@ -6,16 +6,16 @@ namespace Kola.Service.ResourceBuilding
     using Kola.Service.Extensions;
     using Kola.Service.Services.Models;
 
-    public class AmendmentsResourceBuilder : IResourceBuilder<TemplateAndAmendments>
+    public class AmendmentsDetailsResourceBuilder : IResourceBuilder<AmendmentsDetails>
     {
-        public object Build(TemplateAndAmendments model)
+        public object Build(AmendmentsDetails model)
         {
             var visitor = new ResourceBuildingAmendmentVisitor(model.Template.Path);
 
-            return model.Amendments.Select((amendment, index) => amendment.Accept(visitor, index));
+            return model.Template.Amendments.Select((amendment, index) => amendment.Accept(visitor, index));
         }
 
-        public string Location(TemplateAndAmendments model)
+        public string Location(AmendmentsDetails model)
         {
             var result = new List<string>();
 

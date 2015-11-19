@@ -36,9 +36,9 @@
             };
         }
 
-        public string Location(Template model)
+        public string Location(Template template)
         {
-            return model.Path.ToHttpPath();
+            return new[] { "_kola", "templates" }.Concat(template.Path).ToHttpPath();
         }
     }
 }

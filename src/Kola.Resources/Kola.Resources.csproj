@@ -64,6 +64,7 @@
     <Compile Include="SetCommentAmendmentResource.cs" />
     <Compile Include="SetPropertyAmendmentResource.cs" />
     <Compile Include="TemplateResource.cs" />
+    <Compile Include="UndoAmendmentResource.cs" />
     <Compile Include="WidgetResource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

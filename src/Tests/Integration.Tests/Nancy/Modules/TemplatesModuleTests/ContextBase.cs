@@ -34,13 +34,15 @@
                     {
                         with.Dependencies(new object[] { this.ContentRepository, this.ComponentLibrary });
                         with.Dependency<TemplateResourceBuilder>();
-                        with.Dependency<AmendmentResourceBuilder>();
-                        with.Dependency<AmendmentsResourceBuilder>();
-                        with.Dependency<ComponentResourceBuilder>();
+                        with.Dependency<AmendmentDetailsResourceBuilder>();
+                        with.Dependency<AmendmentsDetailsResourceBuilder>();
+                        with.Dependency<UndoAmendmentDetailsResourceBuilder>();
+                        with.Dependency<ComponentDetailsResourceBuilder>();
                         with.ResponseProcessor<TemplateResultProcessor>();
-                        with.ResponseProcessor<AmendmentResultProcessor>();
-                        with.ResponseProcessor<AmendmentsResultProcessor>();
-                        with.ResponseProcessor<ComponentResultProcessor>();
+                        with.ResponseProcessor<AmendmentDetailsResultProcessor>();
+                        with.ResponseProcessor<AmendmentsDetailsResultProcessor>();
+                        with.ResponseProcessor<UndoAmendmentDetailsResultProcessor>();
+                        with.ResponseProcessor<ComponentDetailsResultProcessor>();
                         with.Dependency<TemplateService>();
                         with.Module<TemplateModule>();
                     });

@@ -21,12 +21,9 @@
         {
             var template = new Template(new[] { "test", "path" });
 
-            this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" })))
-                .Return(template);
+            this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" }))).Return(template);
 
-            this.Response = this.Browser.Get(
-                "/_kola/templates/test/path",
-                with => with.Header("Accept", "application/json"));
+            this.Response = this.Browser.Get("/_kola/templates/test/path", with => with.Header("Accept", "application/json"));
         }
 
         [Test]
@@ -44,18 +41,13 @@
         [Test]
         public void ShouldContainASelfLink()
         {
-            this.Response.Body.DeserializeJson<TemplateResource>()
-                .Links.Should()
-                .Contain(l => l.Rel == "self" && l.Href == "/_kola/templates/test/path");
+            this.Response.Body.DeserializeJson<TemplateResource>().Links.Should().Contain(l => l.Rel == "self" && l.Href == "/_kola/templates/test/path");
         }
-
 
         [Test]
         public void ShouldContainAPreviewLink()
         {
-            this.Response.Body.DeserializeJson<TemplateResource>()
-                .Links.Should()
-                .Contain(l => l.Rel == "preview" && l.Href == "/test/path?preview=y");
+            this.Response.Body.DeserializeJson<TemplateResource>().Links.Should().Contain(l => l.Rel == "preview" && l.Href == "/test/path?preview=y");
         }
     }
 }
