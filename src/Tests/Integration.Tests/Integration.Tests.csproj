@@ -90,8 +90,9 @@
     <Compile Include="Nancy\Modules\ComponentTypesModuleTests\WhenRetrievingAllComponentTypes.cs" />
     <Compile Include="Nancy\Modules\RenderingModuleTests\ContextBase.cs" />
     <Compile Include="Nancy\Modules\RenderingModuleTests\WhenGettingAPage.cs" />
+    <Compile Include="Nancy\Modules\RenderingModuleTests\WhenGettingAPageForPreview.cs" />
+    <Compile Include="Nancy\Modules\RenderingModuleTests\WhenGettingAPageFragment.cs" />
     <Compile Include="Nancy\Modules\RenderingModuleTests\WhenGettingAPageThatDoesntExist.cs" />
-    <Compile Include="Nancy\Modules\RenderingModuleTests\WhenGettingAPageWithPreview.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleTests\ContextBase.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleTests\WhenApplyingAmendments.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleTests\WhenGettingAComponent.cs" />
@@ -106,6 +107,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <EmbeddedResource Include="Nancy\Modules\RenderingModuleTests\Views\Atom1.cshtml" />
+    <EmbeddedResource Include="Nancy\Modules\RenderingModuleTests\Views\Container1.cshtml" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

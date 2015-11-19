@@ -13,24 +13,26 @@ namespace Kola.Nancy.Processors
     {
         private readonly IViewFactory viewFactory;
         private readonly NancyContext context;
+        private readonly string viewName;
+        private readonly Action<Response, T> responseDecorator;
 
-        public ViewResponseResultVisitor(IViewFactory viewFactory, NancyContext context)
+        public ViewResponseResultVisitor(IViewFactory viewFactory, NancyContext context, string viewName, Action<Response, T> responseDecorator)
         {
             this.viewFactory = viewFactory;
             this.context = context;
+            this.viewName = viewName;
+            this.responseDecorator = responseDecorator;
         }
 
         public Response Visit(SuccessResult<T> result)
         {
-            var viewResponse = this.viewFactory.RenderView("Page", result.Data, GetViewLocationContext(this.context));
+            var viewResponse = this.viewFactory.RenderView(this.viewName, result.Data, GetViewLocationContext(this.context));
 
             var response = StaticConfiguration.DisableErrorTraces ? viewResponse : new MaterialisingResponse(viewResponse);
 
-            return response;
+            this.responseDecorator?.Invoke(response, result.Data);
 
-            //    return result.Data.RenderingInstructions.UseCache
-            //        ? response.WithHeader("Cache-Control", "public, max-age=600")
-            //        : response.WithHeader("Cache-Control", "no-cache");
+            return response;
         }
 
         public Response Visit(UnauthorisedResult<T> result)
@@ -40,7 +42,11 @@ namespace Kola.Nancy.Processors
 
         public Response Visit(NotFoundResult<T> result)
         {
-            return new NotFoundResponse();
+            var viewResponse = this.viewFactory.RenderView("404", null, GetViewLocationContext(this.context));
+
+            return viewResponse.WithStatusCode(HttpStatusCode.NotFound);
+
+            //return new NotFoundResponse();
         }
 
         public Response Visit(CreatedResult<T> result)

@@ -1,4 +1,4 @@
-﻿namespace Integration.Tests.Nancy.Modules.RenderingModuleTests
+namespace Integration.Tests.Nancy.Modules.RenderingModuleTests
 {
     using System.Collections.Generic;
 
@@ -13,7 +13,7 @@
 
     using Rhino.Mocks;
 
-    public class WhenGettingAPage : ContextBase
+    public class WhenGettingAPageFragment : ContextBase
     {
         [SetUp]
         public void SetUp()
@@ -25,10 +25,14 @@
                 new[] { "test", "path" },
                 new[] { new Container("container1", null, new[] { new Atom("atom1") }) });
 
-            this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" })))
-                .Return(template);
+            this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" }))).Return(template);
 
-            this.Response = this.Browser.Get("/test/path", with => with.Header("Accept", "text/html"));
+            this.Response = this.Browser.Get("/test/path",
+                with =>
+                    {
+                        with.Header("Accept", "text/html");
+                        with.Query("componentPath", "0/0");
+                    });
         }
 
         [Test]
@@ -40,13 +44,7 @@
         [Test]
         public void ShouldReturnHtml()
         {
-            this.Response.Body.AsString().Should().Contain("<container1>\r\n<atom1/>\r\n</ container1>");
-        }
-
-        [Test]
-        public void ShouldBeCacheable()
-        {
-            this.Response.Headers["Cache-Control"].Should().Be("public, max-age=600");
+            this.Response.Body.AsString().Should().Be("<!--/0/0-start--><atom1/><!--/0/0-end-->\r\n");
         }
     }
 }

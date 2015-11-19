@@ -32,7 +32,8 @@
             var bootstrapper = new ConfigurableBootstrapper(
                 with =>
                     {
-                        with.Dependencies(new object[] { this.ContentRepository, this.ComponentLibrary });
+                        with.Dependency(this.ContentRepository);
+                        with.Dependency(this.ComponentLibrary);
                         with.Dependency<TemplateResourceBuilder>();
                         with.Dependency<AmendmentDetailsResourceBuilder>();
                         with.Dependency<AmendmentsDetailsResourceBuilder>();

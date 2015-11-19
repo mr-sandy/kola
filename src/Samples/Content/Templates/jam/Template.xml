@@ -183,5 +183,17 @@
       <propertyName>markdown</propertyName>
       <fixedValue><![CDATA[##hiccups]]></fixedValue>
     </setPropertyFixed>
+    <moveComponent>
+      <sourcePath>0/1/0/1/1</sourcePath>
+      <targetPath>0/1/0/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/1</sourcePath>
+      <targetPath>0/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0</sourcePath>
+      <targetPath>0/1/1</targetPath>
+    </moveComponent>
   </amendments>
 </template>

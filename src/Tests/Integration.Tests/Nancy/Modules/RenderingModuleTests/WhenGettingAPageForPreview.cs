@@ -1,4 +1,4 @@
-﻿namespace Integration.Tests.Nancy.Modules.RenderingModuleTests
+namespace Integration.Tests.Nancy.Modules.RenderingModuleTests
 {
     using System.Collections.Generic;
 
@@ -13,7 +13,7 @@
 
     using Rhino.Mocks;
 
-    public class WhenGettingAPage : ContextBase
+    public class WhenGettingAPageForPreview : ContextBase
     {
         [SetUp]
         public void SetUp()
@@ -28,7 +28,12 @@
             this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" })))
                 .Return(template);
 
-            this.Response = this.Browser.Get("/test/path", with => with.Header("Accept", "text/html"));
+            this.Response = this.Browser.Get("/test/path",
+                with =>
+                    {
+                        with.Header("Accept", "text/html");
+                        with.Query("preview", "y");
+                    });
         }
 
         [Test]
@@ -40,13 +45,13 @@
         [Test]
         public void ShouldReturnHtml()
         {
-            this.Response.Body.AsString().Should().Contain("<container1>\r\n<atom1/>\r\n</ container1>");
+            this.Response.Body.AsString().Should().Contain("<!--/0-start--><container1>\r\n<!--/0/0-start--><atom1/><!--/0/0-end-->\r\n</ container1><!--/0-end-->");
         }
 
         [Test]
-        public void ShouldBeCacheable()
+        public void ShouldNotBeCacheable()
         {
-            this.Response.Headers["Cache-Control"].Should().Be("public, max-age=600");
+            this.Response.Headers["Cache-Control"].Should().Be("no-cache");
         }
     }
 }

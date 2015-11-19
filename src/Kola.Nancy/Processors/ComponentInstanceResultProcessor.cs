@@ -7,7 +7,7 @@ namespace Kola.Nancy.Processors
     public class ComponentInstanceResultProcessor : ViewResultProcessor<ComponentInstance>
     {
         public ComponentInstanceResultProcessor(IViewFactory viewFactory)
-            : base(viewFactory)
+            : base(viewFactory, "Fragment")
         {
         }
     }

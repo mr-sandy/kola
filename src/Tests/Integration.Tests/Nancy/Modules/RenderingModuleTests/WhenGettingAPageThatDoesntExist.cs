@@ -19,7 +19,7 @@ namespace Integration.Tests.Nancy.Modules.RenderingModuleTests
         public void SetUp()
         {
 
-            this.RenderingService.Stub(h => h.GetPage(Arg<IEnumerable<string>>.Is.Anything, Arg<bool>.Is.Anything)).Return(new NotFoundResult<PageInstance>());
+            this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything)).Return(null);
 
             this.Response = this.Browser.Get("/", with => with.Header("Accept", "text/html"));
         }
