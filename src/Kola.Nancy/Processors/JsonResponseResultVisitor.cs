@@ -6,12 +6,12 @@ namespace Kola.Nancy.Processors
     using Kola.Service.ResourceBuilding;
     using Kola.Service.Services.Results;
 
-    public class ResponseBuildingResultVisitor<T> : IResultVisitor<T, Response>
+    public class JsonResponseResultVisitor<T> : IResultVisitor<T, Response>
     {
         private readonly IResourceBuilder<T> builder;
         private readonly ISerializer serializer;
 
-        public ResponseBuildingResultVisitor(IResourceBuilder<T> builder, ISerializer serializer)
+        public JsonResponseResultVisitor(IResourceBuilder<T> builder, ISerializer serializer)
         {
             this.builder = builder;
             this.serializer = serializer;

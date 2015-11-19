@@ -2,39 +2,37 @@ namespace Kola.Nancy.Processors
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     using global::Nancy;
     using global::Nancy.Responses.Negotiation;
 
     public abstract class Processor<T> : IResponseProcessor
     {
-        protected readonly ISerializer Serializer;
+        protected readonly MediaRange MediaRange;
 
-        private readonly MediaRange mediaRange = new MediaRange("application/json");
-
-        protected Processor(IEnumerable<ISerializer> serializers)
+        protected Processor(MediaRange mediaRange)
         {
-            this.Serializer = serializers.FirstOrDefault(x => x.CanSerialize(this.mediaRange.ToString()));
-            this.ExtensionMappings = new List<Tuple<string, MediaRange>>();
+            this.MediaRange = mediaRange;
         }
-
-        public IEnumerable<Tuple<string, MediaRange>> ExtensionMappings { get; }
 
         public ProcessorMatch CanProcess(MediaRange requestedMediaRange, dynamic model, NancyContext context)
         {
-            var modelResult = model is T ? MatchResult.ExactMatch : MatchResult.NoMatch;
-            var requestedContentTypeResult = requestedMediaRange.Matches(this.mediaRange)
-                                                 ? MatchResult.ExactMatch
-                                                 : MatchResult.NoMatch;
-
             return new ProcessorMatch
-            {
-                ModelResult = modelResult,
-                RequestedContentTypeResult = requestedContentTypeResult
-            };
+                       {
+                           ModelResult = model is T 
+                                            ? MatchResult.ExactMatch 
+                                            : MatchResult.NoMatch,
+                           RequestedContentTypeResult = requestedMediaRange.Matches(this.MediaRange)
+                                            ? MatchResult.ExactMatch
+                                            : MatchResult.NoMatch
+                       };
         }
 
         public abstract Response Process(MediaRange requestedMediaRange, dynamic model, NancyContext context);
+
+        public IEnumerable<Tuple<string, MediaRange>> ExtensionMappings
+        {
+            get { yield break; }
+        }
     }
 }

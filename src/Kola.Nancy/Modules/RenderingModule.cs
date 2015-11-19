@@ -4,11 +4,9 @@
 
     using global::Nancy;
     using global::Nancy.ModelBinding;
-    using global::Nancy.Responses.Negotiation;
 
     using Kola.Nancy.Extensions;
     using Kola.Nancy.Models;
-    using Kola.Nancy.ResponseNegotiators;
     using Kola.Service.Services;
 
     public class RenderingModule : NancyModule
@@ -23,7 +21,7 @@
             this.Get["/{path*}"] = this.GetResponse;
         }
 
-        private Negotiator GetResponse(dynamic _)
+        private dynamic GetResponse(dynamic _)
         {
             var query = this.Bind<RenderQuery>();
             var path = this.Request.Path.ParsePath();
@@ -33,18 +31,18 @@
                 : this.GetFragment(path, query.ComponentPath.ParseComponentPath());
         }
 
-        private Negotiator GetPage(IEnumerable<string> path, bool preview)
+        private dynamic GetPage(IEnumerable<string> path, bool preview)
         {
             var result = this.renderingService.GetPage(path, preview);
 
-            return result.Accept(new PageInstanceNegotiatingResultVisitor(this));
+            return this.Negotiate.WithModel(result);
         }
 
-        private Negotiator GetFragment(IEnumerable<string> path, IEnumerable<int> componentPath)
+        private dynamic GetFragment(IEnumerable<string> path, IEnumerable<int> componentPath)
         {
             var result = this.renderingService.GetFragment(path, componentPath);
 
-            return result.Accept(new ComponentInstanceNegotiatingResultVisitor(this));
+            return this.Negotiate.WithModel(result);
         }
     }
 }

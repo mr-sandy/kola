@@ -1,6 +1,5 @@
 ﻿namespace Integration.Tests.Nancy.Modules.RenderingModuleTests
 {
-    using global::Nancy.Responses.Negotiation;
     using global::Nancy.Testing;
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
@@ -9,6 +8,7 @@
     using Kola.Domain.Rendering;
     using Kola.Nancy;
     using Kola.Nancy.Modules;
+    using Kola.Nancy.Processors;
     using Kola.Service.Services;
 
     using NUnit.Framework;
@@ -35,7 +35,7 @@
                 with =>
                     {
                         with.Dependency(this.RenderingService);
-                        with.ResponseProcessor<ViewProcessor>();
+                        with.ResponseProcessor<PageInstanceResultProcessor>();
                         with.Module<RenderingModule>();
                         with.ViewEngine<RazorViewEngine>();
                         with.ViewLocationProvider<ResourceViewLocationProvider>();

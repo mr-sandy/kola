@@ -30,7 +30,7 @@
                 {
                     with.Dependency(this.ComponentLibrary);
                     with.Dependency<ComponentSpecificationsResourceBuilder>();
-                    with.ResponseProcessor<ComponentSpecificationsResultProcessor>();
+                    with.ResponseProcessor<ComponentSpecificationsJsonResultProcessor>();
                     with.Dependency<ComponentSpecificationService>();
                     with.Module<ComponentTypeModule>();
                 });

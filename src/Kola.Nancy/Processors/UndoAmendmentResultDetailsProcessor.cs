@@ -7,9 +7,9 @@
     using Kola.Service.ResourceBuilding;
     using Kola.Service.Services.Models;
 
-    public class UndoAmendmentDetailsResultProcessor : ResultProcessor<UndoAmendmentDetails>
+    public class UndoAmendmentDetailsJsonResultProcessor : JsonResultProcessor<UndoAmendmentDetails>
     {
-        public UndoAmendmentDetailsResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<UndoAmendmentDetails> builder)
+        public UndoAmendmentDetailsJsonResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<UndoAmendmentDetails> builder)
             : base(serializers, builder)
         {
         }

@@ -38,11 +38,11 @@
                         with.Dependency<AmendmentsDetailsResourceBuilder>();
                         with.Dependency<UndoAmendmentDetailsResourceBuilder>();
                         with.Dependency<ComponentDetailsResourceBuilder>();
-                        with.ResponseProcessor<TemplateResultProcessor>();
-                        with.ResponseProcessor<AmendmentDetailsResultProcessor>();
-                        with.ResponseProcessor<AmendmentsDetailsResultProcessor>();
-                        with.ResponseProcessor<UndoAmendmentDetailsResultProcessor>();
-                        with.ResponseProcessor<ComponentDetailsResultProcessor>();
+                        with.ResponseProcessor<TemplateJsonResultProcessor>();
+                        with.ResponseProcessor<AmendmentDetailsJsonResultProcessor>();
+                        with.ResponseProcessor<AmendmentsDetailsJsonResultProcessor>();
+                        with.ResponseProcessor<UndoAmendmentDetailsJsonResultProcessor>();
+                        with.ResponseProcessor<ComponentDetailsJsonResultProcessor>();
                         with.Dependency<TemplateService>();
                         with.Module<TemplateModule>();
                     });

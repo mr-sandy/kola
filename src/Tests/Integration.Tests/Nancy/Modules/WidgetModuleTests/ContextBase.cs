@@ -36,7 +36,7 @@
                         with.Dependency(this.WidgetSpecificationRepository);
                         with.Dependency(this.ComponentLibrary);
                         with.Dependency<WidgetSpecificationResourceBuilder>();
-                        with.ResponseProcessor<WidgetSpecificationResultProcessor>();
+                        with.ResponseProcessor<WidgetSpecificationJsonResultProcessor>();
                         with.Dependency<WidgetService>();
                         with.Module<WidgetModule>();
                     });

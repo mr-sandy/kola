@@ -7,9 +7,9 @@
     using Kola.Domain.Specifications;
     using Kola.Service.ResourceBuilding;
 
-    public class WidgetSpecificationResultProcessor : ResultProcessor<WidgetSpecification>
+    public class WidgetSpecificationJsonResultProcessor : JsonResultProcessor<WidgetSpecification>
     {
-        public WidgetSpecificationResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<WidgetSpecification> builder)
+        public WidgetSpecificationJsonResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<WidgetSpecification> builder)
             : base(serializers, builder)
         {
         }

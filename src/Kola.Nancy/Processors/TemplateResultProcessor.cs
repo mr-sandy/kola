@@ -7,9 +7,9 @@
     using Kola.Domain.Composition;
     using Kola.Service.ResourceBuilding;
 
-    public class TemplateResultProcessor : ResultProcessor<Template>
+    public class TemplateJsonResultProcessor : JsonResultProcessor<Template>
     {
-        public TemplateResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<Template> builder)
+        public TemplateJsonResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<Template> builder)
             : base(serializers, builder)
         {
         }

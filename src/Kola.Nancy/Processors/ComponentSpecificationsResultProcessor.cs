@@ -8,9 +8,9 @@ namespace Kola.Nancy.Processors
     using Kola.Domain.Specifications;
     using Kola.Service.ResourceBuilding;
 
-    public class ComponentSpecificationsResultProcessor : ResultProcessor<IEnumerable<IComponentSpecification<IComponentWithProperties>>>
+    public class ComponentSpecificationsJsonResultProcessor : JsonResultProcessor<IEnumerable<IComponentSpecification<IComponentWithProperties>>>
     {
-        public ComponentSpecificationsResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<IEnumerable<IComponentSpecification<IComponentWithProperties>>> builder)
+        public ComponentSpecificationsJsonResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<IEnumerable<IComponentSpecification<IComponentWithProperties>>> builder)
             : base(serializers, builder)
         {
         }

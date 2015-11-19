@@ -7,9 +7,9 @@
     using Kola.Service.ResourceBuilding;
     using Kola.Service.Services.Models;
 
-    public class AmendmentDetailsResultProcessor : ResultProcessor<AmendmentDetails>
+    public class AmendmentDetailsJsonResultProcessor : JsonResultProcessor<AmendmentDetails>
     {
-        public AmendmentDetailsResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<AmendmentDetails> builder)
+        public AmendmentDetailsJsonResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<AmendmentDetails> builder)
             : base(serializers, builder)
         {
         }

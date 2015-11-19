@@ -7,9 +7,9 @@
     using Kola.Service.ResourceBuilding;
     using Kola.Service.Services.Models;
 
-    public class ComponentDetailsResultProcessor : ResultProcessor<ComponentDetails>
+    public class ComponentDetailsJsonResultProcessor : JsonResultProcessor<ComponentDetails>
     {
-        public ComponentDetailsResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<ComponentDetails> builder)
+        public ComponentDetailsJsonResultProcessor(IEnumerable<ISerializer> serializers, IResourceBuilder<ComponentDetails> builder)
             : base(serializers, builder)
         {
         }
