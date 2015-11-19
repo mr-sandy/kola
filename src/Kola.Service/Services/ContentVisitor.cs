@@ -4,13 +4,13 @@ namespace Kola.Service.Services
 
     using Kola.Domain.Composition;
 
-    public class GenericContentVisitor<T> : IContentVisitor<T>
+    public class ContentVisitor<T> : IContentVisitor<T>
     {
         private readonly Func<Template, T> templateFunction;
 
         private readonly Func<Redirect, T> redirectFunction;
 
-        public GenericContentVisitor(Func<Template, T> templateFunction, Func<Redirect, T> redirectFunction)
+        public ContentVisitor(Func<Template, T> templateFunction, Func<Redirect, T> redirectFunction)
         {
             this.templateFunction = templateFunction;
             this.redirectFunction = redirectFunction;

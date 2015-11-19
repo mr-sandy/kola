@@ -62,7 +62,6 @@
     <Compile Include="Extensions\HtmlHelpersExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="KolaNancyBootstrapper.cs" />
-    <Compile Include="Modules\AcceptHeaderFilters.cs" />
     <Compile Include="Models\ApplicationModel.cs" />
     <Compile Include="Modules\ApplicationModule.cs" />
     <Compile Include="Processors\AmendmentDetailsResultProcessor.cs" />

@@ -31,7 +31,7 @@
                 return new NotFoundResult<PageInstance>();
             }
 
-            var visitor = new GenericContentVisitor<IResult<PageInstance>>(
+            var visitor = new ContentVisitor<IResult<PageInstance>>(
                 template =>
                 {
                     var page = this.BuildPage(template, this.GetRenderingInstructions(preview));

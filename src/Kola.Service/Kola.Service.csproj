@@ -66,7 +66,7 @@
     <Compile Include="ResourceBuilding\UndoAmendmentDetailsResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\WidgetSpecificationResourceBuilder.cs" />
     <Compile Include="Services\ComponentSpecificationService.cs" />
-    <Compile Include="Services\GenericContentVisitor.cs" />
+    <Compile Include="Services\ContentVisitor.cs" />
     <Compile Include="Services\IComponentSpecificationService.cs" />
     <Compile Include="Services\IRenderingService.cs" />
     <Compile Include="Services\ITemplateService.cs" />
