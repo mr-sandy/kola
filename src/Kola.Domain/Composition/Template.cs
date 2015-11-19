@@ -84,5 +84,10 @@
 
             return null;
         }
+
+        public T Accept<T>(IContentVisitor<T> visitor)
+        {
+            return visitor.Visit(this);
+        }
     }
 }

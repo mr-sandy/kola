@@ -89,6 +89,7 @@
     <Compile Include="Nancy\Modules\ComponentTypesModuleTests\ContextBase.cs" />
     <Compile Include="Nancy\Modules\ComponentTypesModuleTests\WhenRetrievingAllComponentTypes.cs" />
     <Compile Include="Nancy\Modules\RenderingModuleTests\ContextBase.cs" />
+    <Compile Include="Nancy\Modules\RenderingModuleTests\WhenGettingARedirect.cs" />
     <Compile Include="Nancy\Modules\RenderingModuleTests\WhenGettingAPage.cs" />
     <Compile Include="Nancy\Modules\RenderingModuleTests\WhenGettingAPageForPreview.cs" />
     <Compile Include="Nancy\Modules\RenderingModuleTests\WhenGettingAPageFragment.cs" />

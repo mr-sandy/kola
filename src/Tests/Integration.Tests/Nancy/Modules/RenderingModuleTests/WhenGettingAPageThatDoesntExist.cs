@@ -6,9 +6,6 @@ namespace Integration.Tests.Nancy.Modules.RenderingModuleTests
 
     using global::Nancy;
 
-    using Kola.Domain.Instances;
-    using Kola.Service.Services.Results;
-
     using NUnit.Framework;
 
     using Rhino.Mocks;

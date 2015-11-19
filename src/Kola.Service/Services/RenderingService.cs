@@ -24,17 +24,25 @@
 
         public IResult<PageInstance> GetPage(IEnumerable<string> path, bool preview)
         {
-            var template = this.contentRepository.Get(path) as Template;
+            var content = this.contentRepository.Get(path);
 
-            if (template == null)
+            if (content == null)
             {
                 return new NotFoundResult<PageInstance>();
             }
 
-            var page = this.BuildPage(template, this.GetRenderingInstructions(preview));
+            var visitor = new GenericContentVisitor<IResult<PageInstance>>(
+                template =>
+                {
+                    var page = this.BuildPage(template, this.GetRenderingInstructions(preview));
 
-            return new SuccessResult<PageInstance>(page);
+                    return new SuccessResult<PageInstance>(page);
+                },
+                redirect => new MovedPermanentlyResult<PageInstance>(redirect.Location));
+
+            return content.Accept(visitor);
         }
+
 
         public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IEnumerable<int> componentPath)
         {

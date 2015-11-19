@@ -1,7 +1,6 @@
 namespace Kola.Nancy.Processors
 {
     using System;
-    using System.Runtime.Remoting;
 
     using global::Nancy;
     using global::Nancy.Responses;
@@ -9,7 +8,7 @@ namespace Kola.Nancy.Processors
 
     using Kola.Service.Services.Results;
 
-    public class ViewResponseResultVisitor<T> : IResultVisitor<T, Response>
+    public class ViewResponseResultVisitor<T> : ResponseResultVisitor<T>
     {
         private readonly IViewFactory viewFactory;
         private readonly NancyContext context;
@@ -24,7 +23,7 @@ namespace Kola.Nancy.Processors
             this.responseDecorator = responseDecorator;
         }
 
-        public Response Visit(SuccessResult<T> result)
+        public override Response Visit(SuccessResult<T> result)
         {
             var viewResponse = this.viewFactory.RenderView(this.viewName, result.Data, GetViewLocationContext(this.context));
 
@@ -35,12 +34,7 @@ namespace Kola.Nancy.Processors
             return response;
         }
 
-        public Response Visit(UnauthorisedResult<T> result)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Response Visit(NotFoundResult<T> result)
+        public override Response Visit(NotFoundResult<T> result)
         {
             var viewResponse = this.viewFactory.RenderView("404", null, GetViewLocationContext(this.context));
 
@@ -49,19 +43,11 @@ namespace Kola.Nancy.Processors
             //return new NotFoundResponse();
         }
 
-        public Response Visit(CreatedResult<T> result)
+        public override Response Visit(MovedPermanentlyResult<T> result)
         {
-            throw new NotImplementedException();
-        }
-
-        public Response Visit(FailureResult<T> result)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Response Visit(ConflictResult<T> result)
-        {
-            throw new NotImplementedException();
+            return new Response()
+                .WithStatusCode(HttpStatusCode.MovedPermanently)
+                .WithHeader("Location", result.Location);
         }
 
         private static ViewLocationContext GetViewLocationContext(NancyContext context)

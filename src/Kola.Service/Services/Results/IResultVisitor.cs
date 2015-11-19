@@ -13,5 +13,7 @@
         TV Visit(FailureResult<T> result);
 
         TV Visit(ConflictResult<T> result);
+
+        TV Visit(MovedPermanentlyResult<T> result);
     }
 }

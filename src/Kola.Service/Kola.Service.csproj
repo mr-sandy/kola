@@ -66,6 +66,7 @@
     <Compile Include="ResourceBuilding\UndoAmendmentDetailsResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\WidgetSpecificationResourceBuilder.cs" />
     <Compile Include="Services\ComponentSpecificationService.cs" />
+    <Compile Include="Services\GenericContentVisitor.cs" />
     <Compile Include="Services\IComponentSpecificationService.cs" />
     <Compile Include="Services\IRenderingService.cs" />
     <Compile Include="Services\ITemplateService.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Services\Results\IContext.cs" />
     <Compile Include="Services\Results\IResult.cs" />
     <Compile Include="Services\Results\IResultVisitor.cs" />
+    <Compile Include="Services\Results\MovedPermanentlyResult.cs" />
     <Compile Include="Services\Results\NotFoundResult.cs" />
     <Compile Include="Services\Results\SuccessResult.cs" />
     <Compile Include="Services\Results\UnauthorisedResult.cs" />

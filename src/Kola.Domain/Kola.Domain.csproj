@@ -69,6 +69,7 @@
     <Compile Include="Composition\IComponentVisitor.cs" />
     <Compile Include="Composition\IComponentWithProperties.cs" />
     <Compile Include="Composition\IContent.cs" />
+    <Compile Include="Composition\IContentVisitor.cs" />
     <Compile Include="Composition\Placeholder.cs" />
     <Compile Include="Composition\Property.cs" />
     <Compile Include="Composition\PropertyValues\FixedPropertyValue.cs" />

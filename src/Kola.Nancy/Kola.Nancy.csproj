@@ -71,6 +71,7 @@
     <Compile Include="Processors\ComponentSpecificationsResultProcessor.cs" />
     <Compile Include="Processors\PageInstanceResultProcessor.cs" />
     <Compile Include="Processors\Processor.cs" />
+    <Compile Include="Processors\ResponseResultVisitor.cs" />
     <Compile Include="Processors\ViewResponseResultVisitor.cs" />
     <Compile Include="Processors\JsonResponseResultVisitor.cs" />
     <Compile Include="Processors\JsonResultProcessor.cs" />
