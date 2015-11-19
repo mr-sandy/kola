@@ -24,7 +24,9 @@
 
         public IResult<PageInstance> GetPage(IEnumerable<string> path, bool preview)
         {
-            var content = this.contentRepository.Get(path);
+            var content = preview 
+                ? this.contentRepository.GetTemplate(path) 
+                : this.contentRepository.Get(path);
 
             if (content == null)
             {
