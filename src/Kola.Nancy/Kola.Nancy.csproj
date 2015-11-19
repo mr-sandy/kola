@@ -64,7 +64,6 @@
     <Compile Include="KolaNancyBootstrapper.cs" />
     <Compile Include="Modules\AcceptHeaderFilters.cs" />
     <Compile Include="Modules\AdminModule.cs" />
-    <Compile Include="Modules\TemplateModuleOld.cs" />
     <Compile Include="Processors\AmendmentDetailsResultProcessor.cs" />
     <Compile Include="Processors\AmendmentsDetailsResultProcessor.cs" />
     <Compile Include="Processors\ComponentDetailsResultProcessor.cs" />
@@ -73,6 +72,7 @@
     <Compile Include="Processors\ResultProcessor.cs" />
     <Compile Include="Processors\TemplateResultProcessor.cs" />
     <Compile Include="Processors\UndoAmendmentResultDetailsProcessor.cs" />
+    <Compile Include="Processors\WidgetSpecificationResultProcessor.cs" />
     <Compile Include="ResponseNegotiators\ComponentInstanceNegotiatingResultVisitor.cs" />
     <Compile Include="Modules\ComponentTypeModule.cs" />
     <Compile Include="ResponseNegotiators\PageInstanceNegotiatingResultVisitor.cs" />

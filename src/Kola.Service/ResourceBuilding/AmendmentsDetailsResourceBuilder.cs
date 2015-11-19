@@ -15,11 +15,11 @@ namespace Kola.Service.ResourceBuilding
             return model.Template.Amendments.Select((amendment, index) => amendment.Accept(visitor, index));
         }
 
-        public string Location(AmendmentsDetails model)
+        public string Location(AmendmentsDetails widgetSpecification)
         {
             var result = new List<string>();
 
-            result.AddRange(model.Template.Path);
+            result.AddRange(widgetSpecification.Template.Path);
             result.Add("_amendments");
 
             return result.ToHttpPath();

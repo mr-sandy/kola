@@ -36,9 +36,9 @@
             };
         }
 
-        public string Location(Template template)
+        public string Location(Template widgetSpecification)
         {
-            return new[] { "_kola", "templates" }.Concat(template.Path).ToHttpPath();
+            return new[] { "_kola", "templates" }.Concat(widgetSpecification.Path).ToHttpPath();
         }
     }
 }

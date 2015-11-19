@@ -34,12 +34,12 @@ namespace Kola.Service.ResourceBuilding
             }
         }
 
-        public string Location(UndoAmendmentDetails model)
+        public string Location(UndoAmendmentDetails widgetSpecification)
         {
             var result = new List<string>();
 
             result.AddRange(new[] { "_kola", "templates" });
-            result.AddRange(model.Template.Path);
+            result.AddRange(widgetSpecification.Template.Path);
             result.Add("_amendments");
 
             return result.ToHttpPath();

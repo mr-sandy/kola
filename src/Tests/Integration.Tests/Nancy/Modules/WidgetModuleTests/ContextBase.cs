@@ -5,7 +5,10 @@
 
     using Kola.Domain.Composition;
     using Kola.Nancy.Modules;
+    using Kola.Nancy.Processors;
     using Kola.Persistence;
+    using Kola.Service.ResourceBuilding;
+    using Kola.Service.Services;
 
     using NUnit.Framework;
 
@@ -30,8 +33,11 @@
             var bootstrapper = new ConfigurableBootstrapper(
                 with =>
                     {
-                        with.Dependencies(new object[] { this.WidgetSpecificationRepository, this.ComponentLibrary });
-                        with.ResponseProcessor<JsonProcessor>();
+                        with.Dependency(this.WidgetSpecificationRepository);
+                        with.Dependency(this.ComponentLibrary);
+                        with.Dependency<WidgetSpecificationResourceBuilder>();
+                        with.ResponseProcessor<WidgetSpecificationResultProcessor>();
+                        with.Dependency<WidgetService>();
                         with.Module<WidgetModule>();
                     });
 

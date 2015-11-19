@@ -15,13 +15,13 @@
             return model.Component.Accept(visitor, model.ComponentPath);
         }
 
-        public string Location(ComponentDetails model)
+        public string Location(ComponentDetails widgetSpecification)
         {
             var result = new List<string>();
 
-            result.AddRange(model.Template.Path);
+            result.AddRange(widgetSpecification.Template.Path);
             result.Add("_components");
-            result.AddRange(model.ComponentPath.Select(i => i.ToString()));
+            result.AddRange(widgetSpecification.ComponentPath.Select(i => i.ToString()));
 
             return result.ToHttpPath();
         }

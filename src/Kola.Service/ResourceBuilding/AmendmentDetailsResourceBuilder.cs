@@ -20,14 +20,14 @@
 
         }
 
-        public string Location(AmendmentDetails model)
+        public string Location(AmendmentDetails widgetSpecification)
         {
             var result = new List<string>();
 
             result.AddRange(new[] { "_kola", "templates" });
-            result.AddRange(model.Template.Path);
+            result.AddRange(widgetSpecification.Template.Path);
             result.Add("_amendments");
-            result.Add(this.GetAmendmentIndex(model.Template, model.Amendment).ToString());
+            result.Add(this.GetAmendmentIndex(widgetSpecification.Template, widgetSpecification.Amendment).ToString());
 
             return result.ToHttpPath();
         }

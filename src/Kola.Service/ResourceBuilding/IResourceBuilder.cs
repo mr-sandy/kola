@@ -4,6 +4,6 @@
     {
         object Build(T model);
 
-        string Location(T model);
+        string Location(T widgetSpecification);
     }
 }
