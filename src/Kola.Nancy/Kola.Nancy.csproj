@@ -63,7 +63,8 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="KolaNancyBootstrapper.cs" />
     <Compile Include="Modules\AcceptHeaderFilters.cs" />
-    <Compile Include="Modules\AdminModule.cs" />
+    <Compile Include="Models\ApplicationModel.cs" />
+    <Compile Include="Modules\ApplicationModule.cs" />
     <Compile Include="Processors\AmendmentDetailsResultProcessor.cs" />
     <Compile Include="Processors\AmendmentsDetailsResultProcessor.cs" />
     <Compile Include="Processors\ComponentDetailsResultProcessor.cs" />
@@ -93,7 +94,7 @@
     <EmbeddedResource Include="Views\404.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Admin.cshtml" />
+    <EmbeddedResource Include="Views\Application.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Fragment.cshtml" />

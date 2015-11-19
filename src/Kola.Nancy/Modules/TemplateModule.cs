@@ -1,9 +1,13 @@
 ﻿namespace Kola.Nancy.Modules
 {
+    using System;
+
     using global::Nancy;
     using global::Nancy.ModelBinding;
 
+    using Kola.Configuration;
     using Kola.Nancy.Extensions;
+    using Kola.Nancy.Models;
     using Kola.Resources;
     using Kola.Service.DomainBuilding;
     using Kola.Service.Services;
@@ -12,33 +16,36 @@
     public class TemplateModule : NancyModule
     {
         private readonly ITemplateService templateService;
+        private readonly IKolaConfigurationRegistry kolaConfigurationRegistry;
 
-        public TemplateModule(ITemplateService templateService)
+        public TemplateModule(ITemplateService templateService, IKolaConfigurationRegistry kolaConfigurationRegistry)
             : base("/_kola/templates/{templatePath*}")
         {
             this.templateService = templateService;
+            this.kolaConfigurationRegistry = kolaConfigurationRegistry;
 
-            this.Get["/", AcceptHeaderFilters.NotHtml] = p => this.GetTemplate(p.templatePath);
-            this.Get["/_components/{componentPath*}", AcceptHeaderFilters.NotHtml] = p => this.GetComponent(p.templatePath, p.componentPath);
-            this.Get["/_amendments", AcceptHeaderFilters.NotHtml] = p => this.GetAmendments(p.templatePath);
-            this.Put["/", AcceptHeaderFilters.NotHtml] = p => this.PutTemplate(p.templatePath);
-            this.Post["/_amendments/addComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<AddComponentAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/moveComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<MoveComponentAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/removeComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<RemoveComponentAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/duplicateComponent", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<DuplicateComponentAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/setProperty", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<SetPropertyAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/setComment", AcceptHeaderFilters.NotHtml] = p => this.PostAmendment<SetCommentAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/apply", AcceptHeaderFilters.NotHtml] = p => this.PostApplyAmendments(p.templatePath);
-            this.Post["/_amendments/undo", AcceptHeaderFilters.NotHtml] = p => this.PostUndoAmendment(p.templatePath);
+            this.Get["/"] = p => this.GetTemplate(p.templatePath);
+            this.Put["/"] = p => this.PutTemplate(p.templatePath);
+            this.Get["/_components/{componentPath*}"] = p => this.GetComponent(p.templatePath, p.componentPath);
+            this.Get["/_amendments"] = p => this.GetAmendments(p.templatePath);
+            this.Post["/_amendments/addComponent"] = p => this.PostAmendment<AddComponentAmendmentResource>(p.templatePath);
+            this.Post["/_amendments/moveComponent"] = p => this.PostAmendment<MoveComponentAmendmentResource>(p.templatePath);
+            this.Post["/_amendments/removeComponent"] = p => this.PostAmendment<RemoveComponentAmendmentResource>(p.templatePath);
+            this.Post["/_amendments/duplicateComponent"] = p => this.PostAmendment<DuplicateComponentAmendmentResource>(p.templatePath);
+            this.Post["/_amendments/setProperty"] = p => this.PostAmendment<SetPropertyAmendmentResource>(p.templatePath);
+            this.Post["/_amendments/setComment"] = p => this.PostAmendment<SetCommentAmendmentResource>(p.templatePath);
+            this.Post["/_amendments/apply"] = p => this.PostApplyAmendments(p.templatePath);
+            this.Post["/_amendments/undo"] = p => this.PostUndoAmendment(p.templatePath);
         }
 
         private dynamic GetTemplate(string rawPath)
         {
             var path = rawPath.ParsePath();
 
-            var result = this.templateService.GetTemplate(path);
-
-            return this.Negotiate.WithModel(result);
+            return this.Negotiate
+                .WithView("Application")
+                .WithMediaRangeModel("application/json", () => this.templateService.GetTemplate(path))
+                .WithMediaRangeModel("text/html", () => ApplicationModel.Build(this.kolaConfigurationRegistry));
         }
 
         private dynamic GetAmendments(string rawPath)

@@ -56,6 +56,14 @@
                   </properties>
                   <components>
                     <atom name="markdown">
+                      <comment><![CDATA[stoats]]></comment>
+                      <properties>
+                        <property name="markdown" type="markdown">
+                          <value xsi:type="fixed"><![CDATA[##stoats]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                    <atom name="markdown">
                       <comment><![CDATA[beermats]]></comment>
                       <properties>
                         <property name="markdown" type="markdown">
@@ -63,11 +71,10 @@
                         </property>
                       </properties>
                     </atom>
-                    <atom name="markdown">
-                      <comment><![CDATA[stoats]]></comment>
+                    <atom name="text">
                       <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##stoats]]></value>
+                        <property name="text" type="text">
+                          <value xsi:type="fixed"><![CDATA[hELLO!]]></value>
                         </property>
                       </properties>
                     </atom>
@@ -153,7 +160,7 @@
                       <comment><![CDATA[hiccups]]></comment>
                       <properties>
                         <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[##hiccups!]]></value>
+                          <value xsi:type="fixed"><![CDATA[##hiccups]]></value>
                         </property>
                       </properties>
                     </atom>
@@ -177,23 +184,5 @@
       </areas>
     </widget>
   </components>
-  <amendments>
-    <setPropertyFixed>
-      <componentPath>0/1/2/2/2</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##hiccups]]></fixedValue>
-    </setPropertyFixed>
-    <moveComponent>
-      <sourcePath>0/1/0/1/1</sourcePath>
-      <targetPath>0/1/0/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/1</sourcePath>
-      <targetPath>0/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/1/1</targetPath>
-    </moveComponent>
-  </amendments>
+  <amendments />
 </template>

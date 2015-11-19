@@ -12,7 +12,7 @@
         {
             this.componentSpecificationService = componentSpecificationService;
 
-            this.Get["/_kola/component-types", AcceptHeaderFilters.NotHtml] = p => this.GetComponentTypes();
+            this.Get["/_kola/component-types"] = p => this.GetComponentTypes();
         }
 
         private dynamic GetComponentTypes()
