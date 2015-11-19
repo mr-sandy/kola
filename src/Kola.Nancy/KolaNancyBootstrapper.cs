@@ -1,5 +1,6 @@
 ﻿namespace Kola.Nancy
 {
+    using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
 
@@ -15,6 +16,7 @@
     using global::Nancy.ViewEngines.Razor;
 
     using Kola.Domain.Composition;
+    using Kola.Domain.Specifications;
     using Kola.Service.ResourceBuilding;
     using Kola.Service.Services.Models;
 
@@ -41,6 +43,8 @@
             container.Register<IResourceBuilder<Template>, TemplateResourceBuilder>();
             container.Register<IResourceBuilder<ComponentDetails>, ComponentDetailsResourceBuilder>();
             container.Register<IResourceBuilder<UndoAmendmentDetails>, UndoAmendmentDetailsResourceBuilder>();
+            container.Register<IResourceBuilder<WidgetSpecification>, WidgetSpecificationResourceBuilder>();
+            container.Register<IResourceBuilder<IEnumerable<IComponentSpecification<IComponentWithProperties>>>, ComponentSpecificationsResourceBuilder>();
 
             foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
             {

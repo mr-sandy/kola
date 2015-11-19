@@ -1,10 +1,12 @@
 ﻿namespace Integration.Tests.Nancy.Modules.ComponentTypesModuleTests
 {
-    using global::Nancy.Responses.Negotiation;
     using global::Nancy.Testing;
 
     using Kola.Domain.Composition;
     using Kola.Nancy.Modules;
+    using Kola.Nancy.Processors;
+    using Kola.Service.ResourceBuilding;
+    using Kola.Service.Services;
 
     using NUnit.Framework;
 
@@ -27,7 +29,9 @@
                 with =>
                 {
                     with.Dependency(this.ComponentLibrary);
-                    with.ResponseProcessor<JsonProcessor>();
+                    with.Dependency<ComponentSpecificationsResourceBuilder>();
+                    with.ResponseProcessor<ComponentSpecificationsResultProcessor>();
+                    with.Dependency<ComponentSpecificationService>();
                     with.Module<ComponentTypeModule>();
                 });
 

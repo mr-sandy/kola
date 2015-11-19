@@ -67,6 +67,7 @@
     <Compile Include="Processors\AmendmentDetailsResultProcessor.cs" />
     <Compile Include="Processors\AmendmentsDetailsResultProcessor.cs" />
     <Compile Include="Processors\ComponentDetailsResultProcessor.cs" />
+    <Compile Include="Processors\ComponentSpecificationsResultProcessor.cs" />
     <Compile Include="Processors\Processor.cs" />
     <Compile Include="Processors\ResponseBuildingResultVisitor.cs" />
     <Compile Include="Processors\ResultProcessor.cs" />

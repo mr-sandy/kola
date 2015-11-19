@@ -1,32 +1,23 @@
 ﻿namespace Kola.Nancy.Modules
 {
-    using System.Linq;
-
-    using Kola.Domain.Composition;
-
     using global::Nancy;
 
-    using Kola.Service.ResourceBuilding;
+    using Kola.Service.Services;
 
     public class ComponentTypeModule : NancyModule
     {
-        private readonly IComponentSpecificationLibrary componentLibrary;
+        private readonly IComponentSpecificationService componentSpecificationService;
 
-        public ComponentTypeModule(IComponentSpecificationLibrary componentLibrary)
+        public ComponentTypeModule(IComponentSpecificationService componentSpecificationService)
         {
-            this.componentLibrary = componentLibrary;
+            this.componentSpecificationService = componentSpecificationService;
+
             this.Get["/_kola/component-types", AcceptHeaderFilters.NotHtml] = p => this.GetComponentTypes();
         }
 
         private dynamic GetComponentTypes()
         {
-            var componentTypes = this.componentLibrary.FindAll();
-
-            var resource = new ComponentTypeResourceBuilder().Build(componentTypes).OrderBy(c => c.Type).ThenBy(c => c.Name);
-
-            return this.Negotiate
-                .WithModel(resource)
-                .WithAllowedMediaRange("application/json");
+            return this.componentSpecificationService.GetComponentSpecifications();
         }
     }
 }
