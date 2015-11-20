@@ -1,11 +1,9 @@
 namespace Kola.Persistence
 {
-    using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
 
-    using Kola.Domain.Composition;
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances.Context;
 
@@ -40,9 +38,11 @@ namespace Kola.Persistence
             {
                 foreach (var candidate in this.GetCandidates(pathSoFar, pathArray.First(), contextItems))
                 {
-                    foreach (var p in this.Find(pathArray.Skip(1), candidate.Path, candidate.ContextItems))
+                    var matchingPaths = this.Find(pathArray.Skip(1), candidate.Path, candidate.ContextItems);
+
+                    foreach (var matchingPath in matchingPaths)
                     {
-                        yield return p;
+                        yield return matchingPath;
                     }
                 }
             }
@@ -54,7 +54,7 @@ namespace Kola.Persistence
 
             if (this.fileSystemHelper.DirectoryExists(staticPath))
             {
-                yield return new ContentDirectory(staticPath, null);
+                yield return new ContentDirectory(staticPath, context);
             }
 
             //Find any dynamic options 

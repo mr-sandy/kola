@@ -2,6 +2,7 @@ namespace Kola.Domain.Extensions
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Net.Mime;
 
     using Kola.Domain.Instances.Context;
 
@@ -19,7 +20,7 @@ namespace Kola.Domain.Extensions
                 return context2;
             }
 
-            return context1.Union(context2);
+            return context2.Union(context1.Where(c1 => context2.All(c2 => c1.Name != c2.Name)));
         }
     }
 }

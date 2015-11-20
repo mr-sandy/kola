@@ -4,11 +4,7 @@
 
     using FluentAssertions;
 
-    using Kola.Domain.Composition;
-
     using NUnit.Framework;
-
-    using Rhino.Mocks;
 
     public class WhenSeekingTheRootPath : ContextBase
     {

@@ -87,6 +87,9 @@
     <Compile Include="Domain\WidgetTests\WhenAddingContentToAWidgetPlaceholderInATemplate.cs" />
     <Compile Include="Domain\WidgetTests\WhenAddingAnAtomToAWidgetSpecification.cs" />
     <Compile Include="Domain\WidgetTests\WhenBuildingANestedWidgetWithEmbeddedPlaceholderInstance.cs" />
+    <Compile Include="Extensions\ContextItemExtensions\WhenMergingContextsWithCompetingItems.cs" />
+    <Compile Include="Extensions\ContextItemExtensions\WhenMergingTwoDisinctContexts.cs" />
+    <Compile Include="Extensions\ContextItemExtensions\WhenMergingOverlappingContexts.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Compensate\WhenCompensatingListsWhenSecondListIsBeforeFirstList.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingIdenticalLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingEmptyLists.cs" />
