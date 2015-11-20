@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentDirectory.cs" />
     <Compile Include="ContentFinder.cs" />
     <Compile Include="DomainBuilding\DomainBuildingAmendmentSurrogateVisitor.cs" />
     <Compile Include="DomainBuilding\DomainBuildingComponentSurrogateVisitor.cs" />

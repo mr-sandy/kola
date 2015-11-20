@@ -10,11 +10,7 @@
 
         IEnumerable<string> FindChildDirectories(string path, string pattern);
 
-        string CombinePaths(params string[] paths);
-
         void CreateDirectory(string path);
-
-        void DeleteFile(string path);
 
         IEnumerable<string> GetFiles(string path);
     }

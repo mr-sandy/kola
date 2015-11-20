@@ -3,6 +3,7 @@ namespace Persistence.Tests.ContentFinderTests
     using System.Collections.Generic;
 
     using Kola.Domain.Composition;
+    using Kola.Domain.DynamicSources;
     using Kola.Persistence;
 
     using NUnit.Framework;

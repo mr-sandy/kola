@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Configuration;
+    using System.IO;
 
     using Kola.Domain.Composition;
     using Kola.Persistence.DomainBuilding;
@@ -16,23 +17,23 @@
 
         private readonly SerializationHelper serializationHelper;
 
-        private readonly FileSystemHelper fileSystemHelper;
+        private readonly IFileSystemHelper fileSystemHelper;
 
         private readonly string templatesDirectory;
 
-        public ContentRepository(SerializationHelper serializationHelper, FileSystemHelper fileSystemHelper)
+        public ContentRepository(SerializationHelper serializationHelper, IFileSystemHelper fileSystemHelper)
             : this(serializationHelper, fileSystemHelper, rootDirectory: ConfigurationManager.AppSettings["ContentRoot"])
         {
         }
 
         public ContentRepository(
             SerializationHelper serializationHelper,
-            FileSystemHelper fileSystemHelper,
+            IFileSystemHelper fileSystemHelper,
             string rootDirectory)
         {
             this.serializationHelper = serializationHelper;
             this.fileSystemHelper = fileSystemHelper;
-            this.templatesDirectory = fileSystemHelper.CombinePaths(new[] { rootDirectory, "Templates" });
+            this.templatesDirectory = Path.Combine(rootDirectory, "Templates");
 
         }
 
@@ -42,7 +43,7 @@
             if (template != null)
             {
                 var surrogate = new TemplateSurrogateBuilder().Build(template);
-                var directoryPath = this.fileSystemHelper.CombinePaths(
+                var directoryPath = Path.Combine(
                     this.templatesDirectory,
                     template.Path.ToFileSystemPath());
 
@@ -51,16 +52,16 @@
                     this.fileSystemHelper.CreateDirectory(directoryPath);
                 }
 
-                var path = this.fileSystemHelper.CombinePaths(directoryPath, TemplateFileName);
+                var path = Path.Combine(directoryPath, TemplateFileName);
                 this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
             }
         }
 
         public IEnumerable<IContent> FindContents(IEnumerable<string> path)
         {
-            var directoryPath = this.fileSystemHelper.CombinePaths(this.templatesDirectory, path.ToFileSystemPath());
-            var redirectPath = this.fileSystemHelper.CombinePaths(directoryPath, RedirectFileName);
-            var templatePath = this.fileSystemHelper.CombinePaths(directoryPath, TemplateFileName);
+            var directoryPath = Path.Combine(this.templatesDirectory, path.ToFileSystemPath());
+            var redirectPath = Path.Combine(directoryPath, RedirectFileName);
+            var templatePath = Path.Combine(directoryPath, TemplateFileName);
 
             if (this.fileSystemHelper.FileExists(redirectPath))
             {
@@ -81,7 +82,7 @@
             if (template != null)
             {
                 var surrogate = new TemplateSurrogateBuilder().Build(template);
-                var path = this.fileSystemHelper.CombinePaths(
+                var path = Path.Combine(
                     this.templatesDirectory,
                     template.Path.ToFileSystemPath(),
                     TemplateFileName);

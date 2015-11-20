@@ -25,19 +25,9 @@
             return childPaths.Select(d => new DirectoryInfo(d).Name);
         }
 
-        public string CombinePaths(params string[] paths)
-        {
-            return Path.Combine(paths.ToArray());
-        }
-
         public void CreateDirectory(string path)
         {
             Directory.CreateDirectory(path);
-        }
-
-        public void DeleteFile(string path)
-        {
-            File.Delete(path);
         }
 
         public IEnumerable<string> GetFiles(string path)

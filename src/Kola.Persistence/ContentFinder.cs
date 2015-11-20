@@ -4,6 +4,7 @@ namespace Kola.Persistence
     using System.IO;
     using System.Linq;
 
+    using Kola.Domain.DynamicSources;
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances.Context;
 
@@ -26,91 +27,45 @@ namespace Kola.Persistence
             return this.Find(path, this.root, Enumerable.Empty<IContextItem>());
         }
 
-        private IEnumerable<ContentDirectory> Find(IEnumerable<string> path, string pathSoFar, IEnumerable<IContextItem> contextItems)
+        private IEnumerable<ContentDirectory> Find(IEnumerable<string> path, string pathSoFar, IEnumerable<IContextItem> context)
         {
-            var pathArray = path as string[] ?? path.ToArray();
+            var pathItems = path as string[] ?? path.ToArray();
+            var contextItems = context as IContextItem[] ?? context.ToArray();
 
-            if (!pathArray.Any())
+            if (!pathItems.Any())
             {
-                yield return new ContentDirectory(pathSoFar, contextItems);
+                return new[] { new ContentDirectory(pathSoFar, contextItems) };
             }
-            else
-            {
-                foreach (var candidate in this.GetCandidates(pathSoFar, pathArray.First(), contextItems))
+
+            var staticResults = this.FindStatic(pathItems, pathSoFar, contextItems);
+            var dynamicResults = this.FindDynamic(pathItems, pathSoFar, contextItems);
+
+            return staticResults.Concat(dynamicResults);
+        }
+
+        private IEnumerable<ContentDirectory> FindStatic(string[] path, string pathSoFar, IEnumerable<IContextItem> context)
+        {
+            var staticPath = Path.Combine(pathSoFar, path.First());
+
+            return this.fileSystemHelper.DirectoryExists(staticPath)
+                ? this.Find(path.Skip(1), staticPath, context)
+                : Enumerable.Empty<ContentDirectory>();
+        }
+
+        private IEnumerable<ContentDirectory> FindDynamic(string[] path, string pathSoFar, IContextItem[] context)
+        {
+            var dynamicChildren = this.fileSystemHelper.FindChildDirectories(pathSoFar, "-*-") ?? Enumerable.Empty<string>();
+
+            return dynamicChildren.SelectMany(sourceName =>
                 {
-                    var matchingPaths = this.Find(pathArray.Skip(1), candidate.Path, candidate.ContextItems);
+                    var source = this.dynamicSourceProvider.Get(sourceName);
 
-                    foreach (var matchingPath in matchingPaths)
-                    {
-                        yield return matchingPath;
-                    }
-                }
-            }
+                    var lookup = source?.Lookup(path.First(), context);
+
+                    return lookup != null && lookup.Found
+                        ? this.Find(path.Skip(1), Path.Combine(pathSoFar, sourceName), context.Merge(lookup.ContextItems))
+                        : Enumerable.Empty<ContentDirectory>();
+                });
         }
-
-        private IEnumerable<ContentDirectory> GetCandidates(string pathSoFar, string element, IEnumerable<IContextItem> context)
-        {
-            var staticPath = Path.Combine(pathSoFar, element);
-
-            if (this.fileSystemHelper.DirectoryExists(staticPath))
-            {
-                yield return new ContentDirectory(staticPath, context);
-            }
-
-            //Find any dynamic options 
-            foreach (var dynamicChild in this.FindDynamicChildren(pathSoFar))
-            {
-                var source = this.dynamicSourceProvider.Get(dynamicChild);
-
-                var lookup = source?.Lookup(element, context);
-
-                if (lookup != null && lookup.Found)
-                {
-                    yield return new ContentDirectory(Path.Combine(pathSoFar, dynamicChild), context.Merge(lookup.ContextItems));
-                }
-            }
-        }
-
-
-        private IEnumerable<string> FindDynamicChildren(string pathSoFar)
-        {
-            return this.fileSystemHelper.FindChildDirectories(pathSoFar, "-*-") ?? Enumerable.Empty<string>();
-        }
-    }
-
-    public interface IDynamicSourceProvider
-    {
-        IDynamicSource Get(string sourceName);
-    }
-
-    public interface IDynamicSource
-    {
-        SourceLookupResponse Lookup(string value, IEnumerable<IContextItem> context);
-    }
-
-    public class SourceLookupResponse
-    {
-        public SourceLookupResponse(bool found, IEnumerable<IContextItem> contextItems = null)
-        {
-            this.Found = found;
-            this.ContextItems = contextItems;
-        }
-
-        public bool Found { get; }
-
-        public IEnumerable<IContextItem> ContextItems { get; }
-    }
-
-    public class ContentDirectory
-    {
-        public ContentDirectory(string path, IEnumerable<IContextItem> contextItems)
-        {
-            this.Path = path;
-            this.ContextItems = contextItems;
-        }
-
-        public string Path { get; }
-
-        public IEnumerable<IContextItem> ContextItems { get; }
     }
 }

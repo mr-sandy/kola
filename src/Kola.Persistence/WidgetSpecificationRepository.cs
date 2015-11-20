@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Configuration;
+    using System.IO;
     using System.Linq;
 
     using Kola.Domain.Specifications;
@@ -12,25 +13,25 @@
     public class WidgetSpecificationRepository : IWidgetSpecificationRepository
     {
         private readonly SerializationHelper serializationHelper;
-        private readonly FileSystemHelper fileSystemHelper;
+        private readonly IFileSystemHelper fileSystemHelper;
 
         private readonly string widgetsDirectory;
 
-        public WidgetSpecificationRepository(SerializationHelper serializationHelper, FileSystemHelper fileSystemHelper)
+        public WidgetSpecificationRepository(SerializationHelper serializationHelper, IFileSystemHelper fileSystemHelper)
             : this(serializationHelper, fileSystemHelper, rootDirectory: ConfigurationManager.AppSettings["ContentRoot"])
         {
         }
 
-        public WidgetSpecificationRepository(SerializationHelper serializationHelper, FileSystemHelper fileSystemHelper, string rootDirectory)
+        public WidgetSpecificationRepository(SerializationHelper serializationHelper, IFileSystemHelper fileSystemHelper, string rootDirectory)
         {
             this.serializationHelper = serializationHelper;
             this.fileSystemHelper = fileSystemHelper;
-            this.widgetsDirectory = fileSystemHelper.CombinePaths(new[] { rootDirectory, "Widgets" });
+            this.widgetsDirectory = Path.Combine(rootDirectory, "Widgets");
         }
 
         public WidgetSpecification Find(string name)
         {
-            var path = this.fileSystemHelper.CombinePaths(this.widgetsDirectory, name + ".xml");
+            var path = Path.Combine(this.widgetsDirectory, name + ".xml");
 
             if (this.fileSystemHelper.FileExists(path))
             {
@@ -54,14 +55,14 @@
             throw new NotImplementedException();
 
             //var surrogate = widgetSpecification.ToSurrogate();
-            //var directoryPath = this.fileSystemHelper.CombinePaths(RootDirectory, widgetSpecification.Path.ToFileSystemPath());
+            //var directoryPath = Path.Combine(RootDirectory, widgetSpecification.Path.ToFileSystemPath());
 
             //if (!this.fileSystemHelper.DirectoryExists(directoryPath))
             //{
             //    this.fileSystemHelper.CreateDirectory(directoryPath);
             //}
 
-            //var path = this.fileSystemHelper.CombinePaths(directoryPath, TemplateFileName);
+            //var path = Path.Combine(directoryPath, TemplateFileName);
             //this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
         }
     }
