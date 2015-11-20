@@ -28,8 +28,8 @@
                 null,
                 new[] { new AddComponentAmendment(new[] { 0 }, "atom name") });
 
-            this.ContentRepository.Stub(r => r.GetTemplate(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" })))
-                .Return(this.template);
+            this.ContentRepository.Stub(r => r.FindContents(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" })))
+                .Return(new[] { this.template });
 
             this.ComponentLibrary.Stub(l => l.Lookup("atom name")).Return(new AtomSpecification("atom name"));
 
@@ -69,7 +69,7 @@
         }
 
         [Test]
-       public void ShouldUpdateTemplateToRepository()
+        public void ShouldUpdateTemplateToRepository()
         {
             this.ContentRepository.AssertWasCalled(r => r.Update(Arg<Template>.Is.Anything));
         }

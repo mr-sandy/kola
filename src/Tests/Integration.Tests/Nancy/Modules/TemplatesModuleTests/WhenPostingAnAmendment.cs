@@ -20,7 +20,7 @@
         public void SetUp()
         {
             var template = new Template(new[] { "test", "path" });
-            this.ContentRepository.Stub(r => r.GetTemplate(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" }))).Return(template);
+            this.ContentRepository.Stub(r => r.FindContents(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" }))).Return(new [] {template});
 
             var componentSpecification = new AtomSpecification("atom name");
             this.ComponentLibrary.Stub(r => r.Lookup("atom name")).Return(componentSpecification);

@@ -20,7 +20,7 @@
         {
             var path = new[] { "path1, path2 " };
             var template = new Template(path);
-            this.ContentRepository.Stub(r => r.Get(path)).Return(template);
+            this.ContentRepository.Stub(r => r.FindContents(path)).Return(new [] { template });
             this.result = this.RenderingService.GetPage(path, false);
         }
 

@@ -6,6 +6,7 @@
     using Kola.Domain.Composition.Amendments;
     using Kola.Domain.Extensions;
     using Kola.Persistence;
+    using Kola.Persistence.Extensions;
     using Kola.Service.Services.Models;
     using Kola.Service.Services.Results;
 
@@ -22,7 +23,7 @@
 
         public IResult<Template> CreateTemplate(IEnumerable<string> path)
         {
-            var existingTemplate = this.contentRepository.GetTemplate(path);
+            var existingTemplate = this.contentRepository.FindContents(path).TakeTemplate();
 
             if (existingTemplate != null)
             {
@@ -38,7 +39,7 @@
 
         public IResult<Template> GetTemplate(IEnumerable<string> path)
         {
-            var template = this.contentRepository.GetTemplate(path);
+            var template = this.contentRepository.FindContents(path).TakeTemplate();
 
             if (template == null)
             {
@@ -54,7 +55,7 @@
 
         public IResult<ComponentDetails> GetComponent(IEnumerable<string> templatePath, IEnumerable<int> componentPath)
         {
-            var template = this.contentRepository.Get(templatePath) as Template;
+            var template = this.contentRepository.FindContents(templatePath).TakeTemplate();
 
             if (template == null)
             {
@@ -73,7 +74,7 @@
 
         public IResult<AmendmentDetails> AddAmendment(IEnumerable<string> path, IAmendment amendment)
         {
-            var template = this.contentRepository.GetTemplate(path);
+            var template = this.contentRepository.FindContents(path).TakeTemplate();
 
             if (template == null)
             {
@@ -91,7 +92,7 @@
 
         public IResult<AmendmentsDetails> GetAmendments(IEnumerable<string> path)
         {
-            var template = this.contentRepository.GetTemplate(path);
+            var template = this.contentRepository.FindContents(path).TakeTemplate();
 
             if (template == null)
             {
@@ -103,7 +104,7 @@
 
         public IResult<AmendmentsDetails> ApplyAmendments(IEnumerable<string> path)
         {
-            var template = this.contentRepository.GetTemplate(path);
+            var template = this.contentRepository.FindContents(path).TakeTemplate();
 
             if (template == null)
             {
@@ -119,7 +120,7 @@
 
         public IResult<UndoAmendmentDetails> UndoAmendment(IEnumerable<string> path)
         {
-            var template = this.contentRepository.GetTemplate(path);
+            var template = this.contentRepository.FindContents(path).TakeTemplate();
 
             if (template == null)
             {

@@ -51,6 +51,7 @@
     <Compile Include="DomainBuilding\RedirectDomainBuilder.cs" />
     <Compile Include="DomainBuilding\TemplateDomainBuilder.cs" />
     <Compile Include="DomainBuilding\WidgetSpecificationDomainBuilder.cs" />
+    <Compile Include="Extensions\GetContentExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="FileSystemHelper.cs" />
     <Compile Include="IContentRepository.cs" />

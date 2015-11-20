@@ -29,7 +29,7 @@ namespace Integration.Tests.Nancy.Modules.TemplatesModuleTests
             this.ComponentLibrary.Stub(l => l.Lookup("atom 1")).Return(new AtomSpecification("atom 1"));
             this.ComponentLibrary.Stub(l => l.Lookup("container 1")).Return(new ContainerSpecification("container 1"));
 
-            this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" }))).Return(template);
+            this.ContentRepository.Stub(r => r.FindContents(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" }))).Return(new [] {template});
 
             this.Response = this.Browser.Get("/_kola/templates/test/path/_components/0/0", with => with.Header("Accept", "application/json"));
         }

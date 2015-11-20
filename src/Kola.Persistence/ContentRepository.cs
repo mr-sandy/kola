@@ -56,41 +56,23 @@
             }
         }
 
-        public Template GetTemplate(IEnumerable<string> path)
+        public IEnumerable<IContent> FindContents(IEnumerable<string> path)
         {
-            var templatePath = this.fileSystemHelper.CombinePaths(
-                this.templatesDirectory,
-                path.ToFileSystemPath(),
-                TemplateFileName);
+            var directoryPath = this.fileSystemHelper.CombinePaths(this.templatesDirectory, path.ToFileSystemPath());
+            var redirectPath = this.fileSystemHelper.CombinePaths(directoryPath, RedirectFileName);
+            var templatePath = this.fileSystemHelper.CombinePaths(directoryPath, TemplateFileName);
 
-            if (!this.fileSystemHelper.FileExists(templatePath))
+            if (this.fileSystemHelper.FileExists(redirectPath))
             {
-                return null;
+                var surrogate = this.serializationHelper.Deserialize<RedirectSurrogate>(redirectPath);
+                yield return new RedirectDomainBuilder().Build(surrogate);
             }
 
-            var surrogate = this.serializationHelper.Deserialize<TemplateSurrogate>(templatePath);
-            return new TemplateDomainBuilder(path).Build(surrogate);
-        }
-
-        public Redirect GetRedirect(IEnumerable<string> path)
-        {
-            var redirectPath = this.fileSystemHelper.CombinePaths(
-                this.templatesDirectory,
-                path.ToFileSystemPath(),
-                RedirectFileName);
-
-            if (!this.fileSystemHelper.FileExists(redirectPath))
+            if (this.fileSystemHelper.FileExists(templatePath))
             {
-                return null;
+                var surrogate = this.serializationHelper.Deserialize<TemplateSurrogate>(templatePath);
+                yield return new TemplateDomainBuilder(path).Build(surrogate);
             }
-
-            var surrogate = this.serializationHelper.Deserialize<RedirectSurrogate>(redirectPath);
-            return new RedirectDomainBuilder().Build(surrogate);
-        }
-
-        public IContent Get(IEnumerable<string> path)
-        {
-            return (IContent)this.GetRedirect(path) ?? (IContent)this.GetTemplate(path);
         }
 
         public void Update(IContent content)

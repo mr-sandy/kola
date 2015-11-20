@@ -7,6 +7,7 @@
     using Kola.Domain.Instances.Context;
     using Kola.Domain.Rendering;
     using Kola.Persistence;
+    using Kola.Persistence.Extensions;
     using Kola.Service.Services.Results;
 
     public class RenderingService : IRenderingService
@@ -24,9 +25,10 @@
 
         public IResult<PageInstance> GetPage(IEnumerable<string> path, bool preview)
         {
+            var contents = this.contentRepository.FindContents(path);
             var content = preview 
-                ? this.contentRepository.GetTemplate(path) 
-                : this.contentRepository.Get(path);
+                ? contents.TakeTemplate() 
+                : contents.TakeRedirectElseTemplate();
 
             if (content == null)
             {
@@ -48,7 +50,7 @@
 
         public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IEnumerable<int> componentPath)
         {
-            var template = this.contentRepository.GetTemplate(path);
+            var template = this.contentRepository.FindContents(path).TakeTemplate();
 
             if (template == null)
             {

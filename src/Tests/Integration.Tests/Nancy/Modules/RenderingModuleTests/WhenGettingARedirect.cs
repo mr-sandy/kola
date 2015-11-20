@@ -19,8 +19,8 @@
         {
             var redirect = new Redirect("new/location");
 
-            this.ContentRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" })))
-                .Return(redirect);
+            this.ContentRepository.Stub(r => r.FindContents(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" })))
+                .Return(new [] { redirect });
 
             this.Response = this.Browser.Get("/test/path", with => with.Header("Accept", "text/html"));
         }
