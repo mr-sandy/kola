@@ -28,7 +28,7 @@
         [Test]
         public void TheDirectoryPathShouldBeReturned()
         {
-            this.Result.Single().Should().Be(@"\root\directory1\directory2");
+            this.Result.Single().Path.Should().Be(@"\root\directory1\directory2");
         }
     }
 }

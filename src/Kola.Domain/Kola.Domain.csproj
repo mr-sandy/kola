@@ -83,6 +83,7 @@
     <Compile Include="Composition\Widget.cs" />
     <Compile Include="Extensions\CloningExtensions.cs" />
     <Compile Include="Extensions\ComponentCollectionExtensions.cs" />
+    <Compile Include="Extensions\ContextItemExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="Extensions\PropertyExtensions.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Instances\ComponentFindingComponentInstanceVisitor.cs" />
     <Compile Include="Instances\ContainerInstance.cs" />
     <Compile Include="Instances\Context\BuildContext.cs" />
+    <Compile Include="Instances\Context\ContextItem.cs" />
     <Compile Include="Instances\Context\ContextSet.cs" />
     <Compile Include="Instances\Context\IBuildContext.cs" />
     <Compile Include="Instances\Context\IContextItem.cs" />

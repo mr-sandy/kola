@@ -14,7 +14,7 @@ namespace Persistence.Tests.ContentFinderTests
         protected ContentFinder ContentFinder;
         protected IFileSystemHelper FileSystemHelper;
         protected IDynamicSourceProvider DynamicSourceProvider;
-        protected IEnumerable<string> Result;
+        protected IEnumerable<ContentDirectory> Result;
 
         [SetUp]
         public void SetUpBase()

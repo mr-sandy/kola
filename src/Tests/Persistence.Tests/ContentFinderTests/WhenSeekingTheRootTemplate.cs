@@ -27,7 +27,7 @@
         [Test]
         public void TheRootPathShouldBeReturned()
         {
-            this.Result.Single().Should().Be(@"\root");
+            this.Result.Single().Path.Should().Be(@"\root");
         }
     }
 }

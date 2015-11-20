@@ -4,9 +4,12 @@ namespace Persistence.Tests.ContentFinderTests
 
     using FluentAssertions;
 
+    using Kola.Domain.Instances.Context;
     using Kola.Persistence;
 
     using NUnit.Framework;
+
+    using Persistence.Tests.ContentFinderTests.FakeSources;
 
     using Rhino.Mocks;
 
@@ -15,11 +18,19 @@ namespace Persistence.Tests.ContentFinderTests
         [SetUp]
         public void SetUp()
         {
-            var bandSource = MockRepository.GenerateMock<IDynamicSource>();
-            var albumSource = MockRepository.GenerateMock<IDynamicSource>();
+            var bandSource = new TestSource
+            {
+                Func = (name, context) => name == "the-beatles"
+                                              ? new SourceLookupResponse(true, new[] { new ContextItem("band name", "The Beatles") })
+                                              : new SourceLookupResponse(false)
+            };
 
-            bandSource.Stub(s => s.AcceptsValue("the-beatles")).Return(true);
-            albumSource.Stub(s => s.AcceptsValue("revolver")).Return(true);
+            var albumSource = new TestSource
+            {
+                Func = (name, context) => name == "pet-sounds" && context.Any(c => c.Name == "band name" && c.Value != "Beach Boys")
+                                              ? new SourceLookupResponse(false)
+                                              : new SourceLookupResponse(true, new[] { new ContextItem("album name", "Revolver") })
+            };
 
             this.DynamicSourceProvider.Stub(p => p.Get("-bands-")).Return(bandSource);
             this.DynamicSourceProvider.Stub(p => p.Get("-albums-")).Return(albumSource);
@@ -39,7 +50,25 @@ namespace Persistence.Tests.ContentFinderTests
         [Test]
         public void TheDirectoryPathShouldBeReturned()
         {
-            this.Result.Single().Should().Be(@"\root\-bands-\-albums-");
+            this.Result.Single().Path.Should().Be(@"\root\-bands-\-albums-");
+        }
+
+        [Test]
+        public void TheContentDirectoryShouldIncludeAllContextItems()
+        {
+            this.Result.Single().ContextItems.Should().HaveCount(2);
+        }
+
+        [Test]
+        public void TheContextItemShouldHaveTheExpectedBandContextValue()
+        {
+            this.Result.Single().ContextItems.Where(i => i.Name == "band name" && i.Value == "The Beatles").Should().HaveCount(1);
+        }
+
+        [Test]
+        public void TheContextItemShouldHaveTheExpectedAlbumContextValue()
+        {
+            this.Result.Single().ContextItems.Where(i => i.Name == "album name" && i.Value == "Revolver").Should().HaveCount(1);
         }
     }
 }
