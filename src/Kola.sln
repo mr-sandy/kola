@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kola.Client", "Kola.Client\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Tests", "tests\Service.Tests\Service.Tests.csproj", "{F302F9CB-306E-42A5-B623-C664015774E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence.Tests", "tests\Persistence.Tests\Persistence.Tests.csproj", "{018D46D9-28CC-4F7A-B92C-D91AD212E8CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -195,6 +197,18 @@ Global
 		{F302F9CB-306E-42A5-B623-C664015774E0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F302F9CB-306E-42A5-B623-C664015774E0}.Release|x86.ActiveCfg = Release|Any CPU
 		{F302F9CB-306E-42A5-B623-C664015774E0}.Release|x86.Build.0 = Release|Any CPU
+		{018D46D9-28CC-4F7A-B92C-D91AD212E8CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{018D46D9-28CC-4F7A-B92C-D91AD212E8CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{018D46D9-28CC-4F7A-B92C-D91AD212E8CE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{018D46D9-28CC-4F7A-B92C-D91AD212E8CE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{018D46D9-28CC-4F7A-B92C-D91AD212E8CE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{018D46D9-28CC-4F7A-B92C-D91AD212E8CE}.Debug|x86.Build.0 = Debug|Any CPU
+		{018D46D9-28CC-4F7A-B92C-D91AD212E8CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{018D46D9-28CC-4F7A-B92C-D91AD212E8CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{018D46D9-28CC-4F7A-B92C-D91AD212E8CE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{018D46D9-28CC-4F7A-B92C-D91AD212E8CE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{018D46D9-28CC-4F7A-B92C-D91AD212E8CE}.Release|x86.ActiveCfg = Release|Any CPU
+		{018D46D9-28CC-4F7A-B92C-D91AD212E8CE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -209,6 +223,7 @@ Global
 		{F1BC4866-B5D6-41C9-9866-435927CCB399} = {59DCFBA1-03F4-4015-A94C-1A5E3A62B272}
 		{5E0DCE93-E1BC-47B4-9377-B731F35D1D93} = {5121A586-915F-41CC-A7CD-B5D55B61D8EB}
 		{F302F9CB-306E-42A5-B623-C664015774E0} = {5B82A235-4ACA-4990-9F00-05194D985E88}
+		{018D46D9-28CC-4F7A-B92C-D91AD212E8CE} = {5B82A235-4ACA-4990-9F00-05194D985E88}
 	EndGlobalSection
 	GlobalSection(NDepend) = preSolution
 		Project = ".\Kola.ndproj"

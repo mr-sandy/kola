@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContentFinder.cs" />
     <Compile Include="DomainBuilding\DomainBuildingAmendmentSurrogateVisitor.cs" />
     <Compile Include="DomainBuilding\DomainBuildingComponentSurrogateVisitor.cs" />
     <Compile Include="DomainBuilding\DomainBuildingPropertyValueVisitor.cs" />
@@ -53,6 +54,8 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="FileSystemHelper.cs" />
     <Compile Include="IContentRepository.cs" />
+    <Compile Include="IFileSystemHelper.cs" />
+    <Compile Include="ISerializationHelper.cs" />
     <Compile Include="IWidgetSpecificationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerializationHelper.cs" />

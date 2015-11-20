@@ -5,7 +5,7 @@
     using System.IO;
     using System.Linq;
 
-    public class FileSystemHelper
+    public class FileSystemHelper : IFileSystemHelper
     {
         public bool FileExists(string path)
         {

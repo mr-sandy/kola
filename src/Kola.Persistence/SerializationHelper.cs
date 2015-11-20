@@ -4,7 +4,7 @@
     using System.Xml;
     using System.Xml.Serialization;
 
-    public class SerializationHelper
+    public class SerializationHelper : ISerializationHelper
     {
         public void Serialize<T>(object o, string path) 
         {
