@@ -10,22 +10,24 @@
 
     using Rhino.Mocks;
 
-    public class WhenSeekingTheRootTemplate : ContextBase
+    public class WhenSeekingTheRootPath : ContextBase
     {
-
         [SetUp]
         public void SetUp()
         {
-            this.FileSystemHelper.Stub(f => f.FileExists(@"\root\Template.xml")).Return(true);
-            this.SerializationHelper.Stub(f => f.Deserialize<Template>(@"\root\Template.xml")).Return(new Template(Enumerable.Empty<string>()));
-
-            this.Result = this.ContentFinder.Find(Enumerable.Empty<string>());
+            this.Result = this.ContentFinder.FindContentDirectories(Enumerable.Empty<string>());
         }
 
         [Test]
-        public void TheTemplateShouldBeReturned()
+        public void OnlyOnePathShouldBeReturned()
         {
-            this.Result.Should().BeOfType<Template>();
+            this.Result.Should().HaveCount(1);
+        }
+
+        [Test]
+        public void TheRootPathShouldBeReturned()
+        {
+            this.Result.Single().Should().Be(@"\root");
         }
     }
 }

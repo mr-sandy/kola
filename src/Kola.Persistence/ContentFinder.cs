@@ -10,44 +10,82 @@ namespace Kola.Persistence
     public class ContentFinder
     {
         private readonly IFileSystemHelper fileSystemHelper;
-        private readonly ISerializationHelper serializationHelper;
-
-        private const string TemplateFilename = "Template.xml";
+        private readonly IDynamicSourceProvider dynamicSourceProvider;
 
         private readonly string root;
 
-        public ContentFinder(IFileSystemHelper fileSystemHelper, ISerializationHelper serializationHelper, string root)
+        public ContentFinder(IFileSystemHelper fileSystemHelper, IDynamicSourceProvider dynamicSourceProvider, string root)
         {
             this.fileSystemHelper = fileSystemHelper;
-            this.serializationHelper = serializationHelper;
+            this.dynamicSourceProvider = dynamicSourceProvider;
             this.root = root;
         }
 
-        public IContent Find(IEnumerable<string> path)
+        public IEnumerable<string> FindContentDirectories(IEnumerable<string> path)
         {
-            return this.FindContent(path, this.root);
+            return this.Find(path, this.root);
         }
 
-        private IContent FindContent(IEnumerable<string> contentPath, string fileSystemPath)
+        private IEnumerable<string> Find(IEnumerable<string> path, string pathSoFar)
         {
-            if (contentPath.Any())
+            var pathArray = path as string[] ?? path.ToArray();
+
+            if (!pathArray.Any())
             {
-                throw new NotImplementedException();
+                yield return pathSoFar;
             }
-
-            var templatePath = this.CombinePaths(fileSystemPath, TemplateFilename);
-
-            if (this.fileSystemHelper.FileExists(templatePath))
+            else
             {
-                return this.serializationHelper.Deserialize<Template>(templatePath);
+                foreach (var candidatePath in this.GetCandidatePaths(pathSoFar, pathArray.First()))
+                {
+                    foreach (var p in this.Find(pathArray.Skip(1), candidatePath))
+                    {
+                        yield return p;
+                    }
+                }
             }
-
-            return null;
         }
 
-        private string CombinePaths(params string [] paths)
+        private IEnumerable<string> GetCandidatePaths(string pathSoFar, string element)
         {
-            return Path.Combine(paths.ToArray());
+            var staticPath = Path.Combine(pathSoFar, element);
+
+            if (this.fileSystemHelper.DirectoryExists(staticPath))
+            {
+                yield return staticPath;
+            }
+
+            //Find any dynamic options 
+            foreach (var dynamicChild in this.FindDynamicChildren(pathSoFar))
+            {
+                if (this.CheckDynamicSource(dynamicChild, element))
+                {
+                    yield return Path.Combine(pathSoFar, dynamicChild);
+                }
+            }
+        }
+
+        private bool CheckDynamicSource(string sourceName, string value)
+        {
+            var source = this.dynamicSourceProvider.Get(sourceName);
+
+            return source != null && source.AcceptsValue(value);
+        }
+
+        private IEnumerable<string> FindDynamicChildren(string pathSoFar)
+        {
+            return this.fileSystemHelper.FindChildDirectories(pathSoFar, "-*-") ?? Enumerable.Empty<string>();
         }
     }
+
+    public interface IDynamicSourceProvider
+    {
+        IDynamicSource Get(string sourceName);
+    }
+
+    public interface IDynamicSource
+    {
+        bool AcceptsValue(string value);
+    }
+
 }

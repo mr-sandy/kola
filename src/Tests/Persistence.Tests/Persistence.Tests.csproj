@@ -63,6 +63,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContentFinderTests\ContextBase.cs" />
+    <Compile Include="ContentFinderTests\WhenSeekingADynamicPath.cs" />
+    <Compile Include="ContentFinderTests\WhenSeekingADynamicPathWithComplimentaryElementa.cs" />
+    <Compile Include="ContentFinderTests\WhenSeekingADynamicPathWithConflictingElementa.cs" />
+    <Compile Include="ContentFinderTests\WhenSeekingAStaticPath.cs" />
+    <Compile Include="ContentFinderTests\WhenSeekingAStaticPathThatDoenstExist.cs" />
     <Compile Include="ContentFinderTests\WhenSeekingTheRootTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

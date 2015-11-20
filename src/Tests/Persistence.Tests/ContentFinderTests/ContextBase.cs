@@ -1,5 +1,7 @@
 namespace Persistence.Tests.ContentFinderTests
 {
+    using System.Collections.Generic;
+
     using Kola.Domain.Composition;
     using Kola.Persistence;
 
@@ -11,16 +13,16 @@ namespace Persistence.Tests.ContentFinderTests
     {
         protected ContentFinder ContentFinder;
         protected IFileSystemHelper FileSystemHelper;
-        protected ISerializationHelper SerializationHelper;
-        protected IContent Result;
+        protected IDynamicSourceProvider DynamicSourceProvider;
+        protected IEnumerable<string> Result;
 
         [SetUp]
         public void SetUpBase()
         {
             this.FileSystemHelper = MockRepository.GenerateStub<IFileSystemHelper>();
-            this.SerializationHelper = MockRepository.GenerateStub<ISerializationHelper>();
+            this.DynamicSourceProvider = MockRepository.GenerateStub<IDynamicSourceProvider>();
 
-            this.ContentFinder = new ContentFinder(this.FileSystemHelper, this.SerializationHelper, @"\root");
+            this.ContentFinder = new ContentFinder(this.FileSystemHelper, this.DynamicSourceProvider, @"\root");
         }
     }
 }
