@@ -47,7 +47,6 @@
             return content.Accept(visitor);
         }
 
-
         public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IEnumerable<int> componentPath)
         {
             var template = this.contentRepository.FindContents(path).TakeTemplate();

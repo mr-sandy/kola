@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="ContentDirectory.cs" />
     <Compile Include="ContentFinder.cs" />
+    <Compile Include="ContentWithContext.cs" />
     <Compile Include="DomainBuilding\DomainBuildingAmendmentSurrogateVisitor.cs" />
     <Compile Include="DomainBuilding\DomainBuildingComponentSurrogateVisitor.cs" />
     <Compile Include="DomainBuilding\DomainBuildingPropertyValueVisitor.cs" />

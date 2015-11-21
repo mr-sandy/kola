@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Configuration;
     using System.IO;
+    using System.Linq;
 
     using Kola.Domain.Composition;
     using Kola.Persistence.DomainBuilding;
@@ -57,9 +58,25 @@
             }
         }
 
+        public Template GetTemplate(IEnumerable<string> path)
+        {
+            var pathItems = path as string[] ?? path.ToArray();
+            var templatePath = Path.Combine(this.templatesDirectory, pathItems.ToFileSystemPath(), TemplateFileName);
+
+            if (!this.fileSystemHelper.FileExists(templatePath))
+            {
+                return null;
+            }
+
+            var surrogate = this.serializationHelper.Deserialize<TemplateSurrogate>(templatePath);
+            return new TemplateDomainBuilder(pathItems).Build(surrogate);
+        }
+
         public IEnumerable<IContent> FindContents(IEnumerable<string> path)
         {
-            var directoryPath = Path.Combine(this.templatesDirectory, path.ToFileSystemPath());
+            var pathItems = path as string[] ?? path.ToArray();
+
+            var directoryPath = Path.Combine(this.templatesDirectory, pathItems.ToFileSystemPath());
             var redirectPath = Path.Combine(directoryPath, RedirectFileName);
             var templatePath = Path.Combine(directoryPath, TemplateFileName);
 
@@ -72,7 +89,7 @@
             if (this.fileSystemHelper.FileExists(templatePath))
             {
                 var surrogate = this.serializationHelper.Deserialize<TemplateSurrogate>(templatePath);
-                yield return new TemplateDomainBuilder(path).Build(surrogate);
+                yield return new TemplateDomainBuilder(pathItems).Build(surrogate);
             }
         }
 

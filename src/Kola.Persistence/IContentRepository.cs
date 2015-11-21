@@ -10,6 +10,8 @@
 
         IEnumerable<IContent> FindContents(IEnumerable<string> path);
 
+        Template GetTemplate(IEnumerable<string> path);
+
         void Update(IContent content);
     }
 }

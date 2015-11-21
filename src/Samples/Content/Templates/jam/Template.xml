@@ -184,5 +184,19 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <moveComponent>
+      <sourcePath>0/1/0/1/1</sourcePath>
+      <targetPath>0/1/0/1/0</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>0/1/0/1/1</targetPath>
+    </addComponent>
+    <setPropertyFixed>
+      <componentPath>0/1/0/1/1</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[jam]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>
