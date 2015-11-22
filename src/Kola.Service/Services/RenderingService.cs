@@ -1,6 +1,7 @@
 ﻿namespace Kola.Service.Services
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using Kola.Domain.Composition;
     using Kola.Domain.Instances;
@@ -25,38 +26,32 @@
 
         public IResult<PageInstance> GetPage(IEnumerable<string> path, bool preview)
         {
-            var contents = this.contentRepository.FindContents(path);
-            var content = preview 
-                ? contents.TakeTemplate() 
-                : contents.TakeRedirectElseTemplate();
+            var results = (this.contentRepository.FindContent(path) ?? Enumerable.Empty<FindContentResult>()).ToArray();
 
-            if (content == null)
+            if (!results.Any())
             {
                 return new NotFoundResult<PageInstance>();
             }
 
-            var visitor = new ContentVisitor<IResult<PageInstance>>(
-                template =>
-                {
-                    var page = this.BuildPage(template, this.GetRenderingInstructions(preview));
+            var result = preview ? results.TakeTemplateResult() : results.FavourRedirectResult();
 
-                    return new SuccessResult<PageInstance>(page);
-                },
+            var visitor = new ContentVisitor<IResult<PageInstance>>(
+                template => new SuccessResult<PageInstance>(this.BuildPage(template, result.Context, preview)),
                 redirect => new MovedPermanentlyResult<PageInstance>(redirect.Location));
 
-            return content.Accept(visitor);
+            return result.Content.Accept(visitor);
         }
 
         public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IEnumerable<int> componentPath)
         {
-            var template = this.contentRepository.FindContents(path).TakeTemplate();
+            var result = this.contentRepository.FindContent(path).TakeTemplateResult();
 
-            if (template == null)
+            if (result == null)
             {
                 return new NotFoundResult<ComponentInstance>();
             }
 
-            var page = this.BuildPage(template, this.GetRenderingInstructions(true));
+            var page = this.BuildPage(result.Content as Template, result.Context, true);
 
             var finder = new ComponentFindingComponentInstanceVisitor();
 
@@ -65,20 +60,21 @@
             return new SuccessResult<ComponentInstance>(fragment);
         }
 
-        private PageInstance BuildPage(Template template, IRenderingInstructions renderingInstructions)
+        private PageInstance BuildPage(Template template, IEnumerable<IContextItem> context, bool preview)
         {
+
             template.ApplyAmendments(this.componentLibrary);
 
-            var buildContext = new BuildContext { WidgetSpecificationFinder = n => this.widgetSpecificationRepository.Find(n) };
+            var buildContext = new BuildContext
+            {
+                WidgetSpecificationFinder = n => this.widgetSpecificationRepository.Find(n)
+            };
 
-            var builder = new Builder(renderingInstructions);
+            buildContext.ContextSets.Push(new ContextSet(context));
+
+            var builder = new Builder(new RenderingInstructions(useCache: !preview, annotateComponentPaths: preview));
 
             return builder.Build(template, buildContext);
-        }
-
-        private IRenderingInstructions GetRenderingInstructions(bool preview)
-        {
-            return new RenderingInstructions(useCache: !preview, annotateComponentPaths: preview);
         }
     }
 }

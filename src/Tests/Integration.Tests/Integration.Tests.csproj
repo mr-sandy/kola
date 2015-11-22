@@ -103,6 +103,7 @@
     <Compile Include="Nancy\Modules\TemplatesModuleTests\WhenGettingATemplate.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleTests\WhenCreatingATemplate.cs" />
     <Compile Include="Nancy\Modules\TemplatesModuleTests\WhenUndoingAnAmendment.cs" />
+    <Compile Include="Nancy\Modules\TinyIocTest.cs" />
     <Compile Include="Nancy\Modules\WidgetModuleTests\ContextBase.cs" />
     <Compile Include="Nancy\Modules\WidgetModuleTests\WhenCreatingAWidget.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

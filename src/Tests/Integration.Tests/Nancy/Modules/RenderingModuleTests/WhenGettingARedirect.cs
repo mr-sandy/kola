@@ -7,6 +7,7 @@
     using global::Nancy;
 
     using Kola.Domain.Composition;
+    using Kola.Persistence;
 
     using NUnit.Framework;
 
@@ -17,10 +18,10 @@
         [SetUp]
         public void SetUp()
         {
-            var redirect = new Redirect("new/location");
+            var redirect = new FindContentResult(new Redirect("new/location"), null);
 
-            this.ContentRepository.Stub(r => r.FindContents(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" })))
-                .Return(new [] { redirect });
+            this.ContentRepository.Stub(r => r.FindContent(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" })))
+                .Return(new[] { redirect });
 
             this.Response = this.Browser.Get("/test/path", with => with.Header("Accept", "text/html"));
         }

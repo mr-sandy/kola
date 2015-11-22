@@ -5,9 +5,9 @@
     using Kola.Domain.Composition;
     using Kola.Domain.Instances.Context;
 
-    public class ContentWithContext
+    public class FindContentResult
     {
-        public ContentWithContext(IContent content, IEnumerable<IContextItem> context)
+        public FindContentResult(IContent content, IEnumerable<IContextItem> context)
         {
             this.Content = content;
             this.Context = context;

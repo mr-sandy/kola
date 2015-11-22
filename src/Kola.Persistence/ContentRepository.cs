@@ -11,31 +11,27 @@
     using Kola.Persistence.SurrogateBuilding;
     using Kola.Persistence.Surrogates;
 
-    internal class ContentRepository : IContentRepository
+    public class ContentRepository : IContentRepository
     {
         private const string TemplateFileName = "Template.xml";
         private const string RedirectFileName = "Redirect.xml";
 
-        private readonly SerializationHelper serializationHelper;
+        private readonly ISerializationHelper serializationHelper;
 
         private readonly IFileSystemHelper fileSystemHelper;
 
-        private readonly string templatesDirectory;
+        private readonly IContentFinder contentFinder;
 
-        public ContentRepository(SerializationHelper serializationHelper, IFileSystemHelper fileSystemHelper)
-            : this(serializationHelper, fileSystemHelper, rootDirectory: ConfigurationManager.AppSettings["ContentRoot"])
-        {
-        }
+        private const string TemplatesDirectory = "Templates";
 
         public ContentRepository(
-            SerializationHelper serializationHelper,
+            ISerializationHelper serializationHelper,
             IFileSystemHelper fileSystemHelper,
-            string rootDirectory)
+            IContentFinder contentFinder)
         {
             this.serializationHelper = serializationHelper;
             this.fileSystemHelper = fileSystemHelper;
-            this.templatesDirectory = Path.Combine(rootDirectory, "Templates");
-
+            this.contentFinder = contentFinder;
         }
 
         public void Add(IContent content)
@@ -45,7 +41,7 @@
             {
                 var surrogate = new TemplateSurrogateBuilder().Build(template);
                 var directoryPath = Path.Combine(
-                    this.templatesDirectory,
+                    TemplatesDirectory,
                     template.Path.ToFileSystemPath());
 
                 if (!this.fileSystemHelper.DirectoryExists(directoryPath))
@@ -61,7 +57,7 @@
         public Template GetTemplate(IEnumerable<string> path)
         {
             var pathItems = path as string[] ?? path.ToArray();
-            var templatePath = Path.Combine(this.templatesDirectory, pathItems.ToFileSystemPath(), TemplateFileName);
+            var templatePath = Path.Combine(TemplatesDirectory, pathItems.ToFileSystemPath(), TemplateFileName);
 
             if (!this.fileSystemHelper.FileExists(templatePath))
             {
@@ -72,24 +68,30 @@
             return new TemplateDomainBuilder(pathItems).Build(surrogate);
         }
 
-        public IEnumerable<IContent> FindContents(IEnumerable<string> path)
+        public IEnumerable<FindContentResult> FindContent(IEnumerable<string> path)
         {
             var pathItems = path as string[] ?? path.ToArray();
 
-            var directoryPath = Path.Combine(this.templatesDirectory, pathItems.ToFileSystemPath());
-            var redirectPath = Path.Combine(directoryPath, RedirectFileName);
-            var templatePath = Path.Combine(directoryPath, TemplateFileName);
+            var directories = this.contentFinder.FindContentDirectories(pathItems);
 
-            if (this.fileSystemHelper.FileExists(redirectPath))
+            foreach (var directory in directories)
             {
-                var surrogate = this.serializationHelper.Deserialize<RedirectSurrogate>(redirectPath);
-                yield return new RedirectDomainBuilder().Build(surrogate);
-            }
+                var redirectPath = Path.Combine(directory.Path, RedirectFileName);
+                var templatePath = Path.Combine(directory.Path, TemplateFileName);
 
-            if (this.fileSystemHelper.FileExists(templatePath))
-            {
-                var surrogate = this.serializationHelper.Deserialize<TemplateSurrogate>(templatePath);
-                yield return new TemplateDomainBuilder(pathItems).Build(surrogate);
+                if (this.fileSystemHelper.FileExists(redirectPath))
+                {
+                    var surrogate = this.serializationHelper.Deserialize<RedirectSurrogate>(redirectPath);
+                    var redirect = new RedirectDomainBuilder().Build(surrogate);
+                    yield return new FindContentResult(redirect, directory.ContextItems);
+                }
+
+                if (this.fileSystemHelper.FileExists(templatePath))
+                {
+                    var surrogate = this.serializationHelper.Deserialize<TemplateSurrogate>(templatePath);
+                    var template = new TemplateDomainBuilder(pathItems).Build(surrogate);
+                    yield return new FindContentResult(template, directory.ContextItems);
+                }
             }
         }
 
@@ -100,7 +102,7 @@
             {
                 var surrogate = new TemplateSurrogateBuilder().Build(template);
                 var path = Path.Combine(
-                    this.templatesDirectory,
+                    TemplatesDirectory,
                     template.Path.ToFileSystemPath(),
                     TemplateFileName);
                 this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);

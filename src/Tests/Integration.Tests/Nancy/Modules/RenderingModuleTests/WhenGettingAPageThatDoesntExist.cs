@@ -16,7 +16,7 @@ namespace Integration.Tests.Nancy.Modules.RenderingModuleTests
         public void SetUp()
         {
 
-            this.ContentRepository.Stub(r => r.FindContents(Arg<IEnumerable<string>>.Is.Anything)).Return(null);
+            this.ContentRepository.Stub(r => r.FindContent(Arg<IEnumerable<string>>.Is.Anything)).Return(null);
 
             this.Response = this.Browser.Get("/", with => with.Header("Accept", "text/html"));
         }

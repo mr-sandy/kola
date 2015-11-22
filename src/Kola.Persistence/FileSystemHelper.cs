@@ -2,37 +2,50 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.IO;
     using System.Linq;
 
     public class FileSystemHelper : IFileSystemHelper
     {
-        public bool FileExists(string path)
+        private readonly string root;
+
+        public FileSystemHelper(string root)
         {
-            return File.Exists(path);
+            this.root = root;
         }
 
-        public bool DirectoryExists(string path)
+        public bool FileExists(string relativePath)
         {
-            return Directory.Exists(path);
+            var fullPath = Path.Combine(this.root, relativePath);
+            return File.Exists(fullPath);
         }
 
-        public IEnumerable<string> FindChildDirectories(string path, string pattern)
+        public bool DirectoryExists(string relativePath)
         {
-            if (!Directory.Exists(path)) return Enumerable.Empty<string>();
+            var fullPath = Path.Combine(this.root, relativePath);
+            return Directory.Exists(fullPath);
+        }
 
-            var childPaths = Directory.GetDirectories(path, pattern, SearchOption.TopDirectoryOnly);
+        public IEnumerable<string> FindChildDirectories(string relativePath, string pattern)
+        {
+            var fullPath = Path.Combine(this.root, relativePath);
+            if (!Directory.Exists(fullPath)) return Enumerable.Empty<string>();
+
+            var childPaths = Directory.GetDirectories(fullPath, pattern, SearchOption.TopDirectoryOnly);
             return childPaths.Select(d => new DirectoryInfo(d).Name);
         }
 
-        public void CreateDirectory(string path)
+        public void CreateDirectory(string relativePath)
         {
-            Directory.CreateDirectory(path);
+            var fullPath = Path.Combine(this.root, relativePath);
+            Directory.CreateDirectory(fullPath);
         }
 
-        public IEnumerable<string> GetFiles(string path)
+        public IEnumerable<string> GetFiles(string relativePath)
         {
-            return Directory.GetFiles(path).Select(Path.GetFileName);
+            var fullPath = Path.Combine(this.root, relativePath);
+            return Directory.GetFiles(fullPath).Select(Path.GetFileName);
         }
     }
 }

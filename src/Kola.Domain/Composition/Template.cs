@@ -26,15 +26,9 @@
             }
         }
 
-        public IEnumerable<IAmendment> Amendments
-        {
-            get { return this.amendments; }
-        }
+        public IEnumerable<IAmendment> Amendments => this.amendments;
 
-        public IEnumerable<IComponent> Components
-        {
-            get { return this.components; }
-        }
+        public IEnumerable<IComponent> Components => this.components;
 
         public IEnumerable<string> Path { get; private set; }
 

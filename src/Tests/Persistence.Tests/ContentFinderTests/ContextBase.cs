@@ -23,7 +23,7 @@ namespace Persistence.Tests.ContentFinderTests
             this.FileSystemHelper = MockRepository.GenerateStub<IFileSystemHelper>();
             this.DynamicSourceProvider = MockRepository.GenerateStub<IDynamicSourceProvider>();
 
-            this.ContentFinder = new ContentFinder(this.FileSystemHelper, this.DynamicSourceProvider, @"\root");
+            this.ContentFinder = new ContentFinder(this.FileSystemHelper, this.DynamicSourceProvider);
         }
     }
 }

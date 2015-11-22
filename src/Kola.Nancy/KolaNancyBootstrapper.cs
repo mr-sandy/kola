@@ -1,22 +1,24 @@
 ﻿namespace Kola.Nancy
 {
     using System.Collections.Generic;
+    using System.Configuration;
     using System.Linq;
     using System.Reflection;
-
-    using Kola.Client;
-    using Kola.Configuration;
 
     using global::Nancy;
     using global::Nancy.Bootstrapper;
     using global::Nancy.Conventions;
     using global::Nancy.Embedded.Conventions;
+    using global::Nancy.Json;
     using global::Nancy.TinyIoc;
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
 
+    using Kola.Client;
+    using Kola.Configuration;
     using Kola.Domain.Composition;
     using Kola.Domain.Specifications;
+    using Kola.Persistence;
     using Kola.Service.ResourceBuilding;
     using Kola.Service.Services.Models;
 
@@ -35,6 +37,8 @@
 
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
+            base.ConfigureApplicationContainer(container);
+
             // TODO {SC} Use the IOC container to hold the Kola configuration
             new KolaConfigurationBuilder().Build(new PluginFinder(), new TinyIoCObjectFactory(container));
 
@@ -46,6 +50,10 @@
             container.Register<IResourceBuilder<WidgetSpecification>, WidgetSpecificationResourceBuilder>();
             container.Register<IResourceBuilder<IEnumerable<IComponentSpecification<IComponentWithProperties>>>, ComponentSpecificationsResourceBuilder>();
 
+            var contentRoot = ConfigurationManager.AppSettings["ContentRoot"];
+            container.Register<IFileSystemHelper>((c, o) => new FileSystemHelper(contentRoot));
+            container.Register<ISerializationHelper>((c, o) => new SerializationHelper(contentRoot));
+
             foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
             {
                 ResourceViewLocationProvider.RootNamespaces.Add(plugin.GetType().Assembly, plugin.ViewLocation);
@@ -55,14 +63,12 @@
             ResourceViewLocationProvider.Ignore.Add(typeof(RazorViewEngine).Assembly);
             ResourceViewLocationProvider.Ignore.Add(Assembly.Load("System.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"));
             AppDomainAssemblyTypeScanner.AddAssembliesToScan(AppDomainAssemblyTypeScanner.DefaultAssembliesToScan.ToArray());
-
-            base.ConfigureApplicationContainer(container);
         }
 
         protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
-            global::Nancy.Json.JsonSettings.MaxJsonLength = int.MaxValue;
+            JsonSettings.MaxJsonLength = int.MaxValue;
         }
 
         protected override void ConfigureConventions(NancyConventions conventions)

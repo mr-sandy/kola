@@ -11,8 +11,8 @@
         [SetUp]
         public void SetUp()
         {
-            this.FileSystemHelper.Stub(f => f.DirectoryExists(@"\root\directory1")).Return(true);
-            this.FileSystemHelper.Stub(f => f.DirectoryExists(@"\root\directory1\directory2")).Return(false);
+            this.FileSystemHelper.Stub(f => f.DirectoryExists(@"directory1")).Return(true);
+            this.FileSystemHelper.Stub(f => f.DirectoryExists(@"directory1\directory2")).Return(false);
 
             this.Result = this.ContentFinder.FindContentDirectories(new[] { "directory1", "directory2" });
         }

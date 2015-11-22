@@ -19,7 +19,7 @@
         {
             var path = new[] { "path1, path2 " };
 
-            this.ContentRepository.Stub(r => r.FindContents(path)).Return(null);
+            this.ContentRepository.Stub(r => r.FindContent(path)).Return(null);
             this.result = this.RenderingService.GetPage(path, false);
         }
 

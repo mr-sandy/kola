@@ -5,6 +5,7 @@
     using Kola.Domain.Composition;
     using Kola.Domain.Instances;
     using Kola.Domain.Rendering;
+    using Kola.Persistence;
     using Kola.Service.Services.Results;
 
     using NUnit.Framework;
@@ -20,7 +21,7 @@
         {
             var path = new[] { "path1, path2 " };
             var template = new Template(path);
-            this.ContentRepository.Stub(r => r.FindContents(path)).Return(new [] { template });
+            this.ContentRepository.Stub(r => r.FindContent(path)).Return(new [] { new FindContentResult(template, null) });
             this.result = this.RenderingService.GetPage(path, false);
         }
 

@@ -23,7 +23,7 @@
         [Test]
         public void TheRootPathShouldBeReturned()
         {
-            this.Result.Single().Path.Should().Be(@"\root");
+            this.Result.Single().Path.Should().Be(@"Templates");
         }
     }
 }

@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="ContentDirectory.cs" />
     <Compile Include="ContentFinder.cs" />
-    <Compile Include="ContentWithContext.cs" />
+    <Compile Include="FindContentResult.cs" />
     <Compile Include="DomainBuilding\DomainBuildingAmendmentSurrogateVisitor.cs" />
     <Compile Include="DomainBuilding\DomainBuildingComponentSurrogateVisitor.cs" />
     <Compile Include="DomainBuilding\DomainBuildingPropertyValueVisitor.cs" />
@@ -56,6 +56,7 @@
     <Compile Include="Extensions\GetContentExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="FileSystemHelper.cs" />
+    <Compile Include="IContentFinder.cs" />
     <Compile Include="IContentRepository.cs" />
     <Compile Include="IFileSystemHelper.cs" />
     <Compile Include="ISerializationHelper.cs" />

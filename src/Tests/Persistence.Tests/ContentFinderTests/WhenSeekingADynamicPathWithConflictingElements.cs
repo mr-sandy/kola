@@ -35,8 +35,8 @@ namespace Persistence.Tests.ContentFinderTests
             this.DynamicSourceProvider.Stub(p => p.Get("-bands-")).Return(bandSource);
             this.DynamicSourceProvider.Stub(p => p.Get("-albums-")).Return(albumSource);
 
-            this.FileSystemHelper.Stub(f => f.FindChildDirectories(@"\root", "-*-")).Return(new[] { "-bands-" });
-            this.FileSystemHelper.Stub(f => f.FindChildDirectories(@"\root\-bands-", "-*-")).Return(new[] { "-albums-" });
+            this.FileSystemHelper.Stub(f => f.FindChildDirectories(@"", "-*-")).Return(new[] { "-bands-" });
+            this.FileSystemHelper.Stub(f => f.FindChildDirectories(@"-bands-", "-*-")).Return(new[] { "-albums-" });
 
             this.Result = this.ContentFinder.FindContentDirectories(new[] { "the-beatles", "pet-sounds" });
         }

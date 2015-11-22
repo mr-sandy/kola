@@ -36,8 +36,8 @@ namespace Persistence.Tests.ContentFinderTests
             this.DynamicSourceProvider.Stub(p => p.Get("-bands-")).Return(bandSource);
             this.DynamicSourceProvider.Stub(p => p.Get("-albums-")).Return(albumSource);
 
-            this.FileSystemHelper.Stub(f => f.FindChildDirectories(@"\root", "-*-")).Return(new[] { "-bands-" });
-            this.FileSystemHelper.Stub(f => f.FindChildDirectories(@"\root\-bands-", "-*-")).Return(new[] { "-albums-" });
+            this.FileSystemHelper.Stub(f => f.FindChildDirectories(@"Templates", "-*-")).Return(new[] { "-bands-" });
+            this.FileSystemHelper.Stub(f => f.FindChildDirectories(@"Templates\-bands-", "-*-")).Return(new[] { "-albums-" });
 
             this.Result = this.ContentFinder.FindContentDirectories(new[] { "the-beatles", "revolver" });
         }
@@ -51,7 +51,7 @@ namespace Persistence.Tests.ContentFinderTests
         [Test]
         public void TheDirectoryPathShouldBeReturned()
         {
-            this.Result.Single().Path.Should().Be(@"\root\-bands-\-albums-");
+            this.Result.Single().Path.Should().Be(@"Templates\-bands-\-albums-");
         }
 
         [Test]

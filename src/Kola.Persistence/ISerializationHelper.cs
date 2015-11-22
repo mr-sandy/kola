@@ -2,8 +2,8 @@
 {
     public interface ISerializationHelper
     {
-        T Deserialize<T>(string path);
+        T Deserialize<T>(string relativePath);
 
-        void Serialize<T>(object o, string path);
+        void Serialize<T>(object obj, string relativePath);
     }
 }

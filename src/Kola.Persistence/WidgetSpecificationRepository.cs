@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Configuration;
     using System.IO;
     using System.Linq;
 
@@ -12,26 +11,20 @@
 
     public class WidgetSpecificationRepository : IWidgetSpecificationRepository
     {
-        private readonly SerializationHelper serializationHelper;
+        private readonly ISerializationHelper serializationHelper;
         private readonly IFileSystemHelper fileSystemHelper;
 
-        private readonly string widgetsDirectory;
+        private const string WidgetsDirectory = "Widgets";
 
-        public WidgetSpecificationRepository(SerializationHelper serializationHelper, IFileSystemHelper fileSystemHelper)
-            : this(serializationHelper, fileSystemHelper, rootDirectory: ConfigurationManager.AppSettings["ContentRoot"])
-        {
-        }
-
-        public WidgetSpecificationRepository(SerializationHelper serializationHelper, IFileSystemHelper fileSystemHelper, string rootDirectory)
+        public WidgetSpecificationRepository(ISerializationHelper serializationHelper, IFileSystemHelper fileSystemHelper)
         {
             this.serializationHelper = serializationHelper;
             this.fileSystemHelper = fileSystemHelper;
-            this.widgetsDirectory = Path.Combine(rootDirectory, "Widgets");
         }
 
         public WidgetSpecification Find(string name)
         {
-            var path = Path.Combine(this.widgetsDirectory, name + ".xml");
+            var path = Path.Combine(WidgetsDirectory, name + ".xml");
 
             if (this.fileSystemHelper.FileExists(path))
             {
@@ -46,7 +39,7 @@
         public IEnumerable<WidgetSpecification> FindAll()
         {
             return this.fileSystemHelper
-                .GetFiles(this.widgetsDirectory)
+                .GetFiles(WidgetsDirectory)
                 .Select(f => this.Find(f.Replace(".xml", string.Empty)));
         }
 

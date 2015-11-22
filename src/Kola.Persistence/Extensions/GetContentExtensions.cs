@@ -5,22 +5,27 @@
 
     using Kola.Domain.Composition;
 
-    public static class ContentsExtensions
+    public static class ContentWithContextExtensions
     {
-        public static Template TakeTemplate(this IEnumerable<IContent> contents)
+        public static FindContentResult TakeTemplateResult(this IEnumerable<FindContentResult> contents)
         {
-            return contents?.OfType<Template>().FirstOrDefault();
+            return contents?.FirstOrDefault(c => c.Content is Template);
         }
 
-        public static Redirect TakeRedirect(this IEnumerable<IContent> contents)
+        public static FindContentResult TakeRedirectResult(this IEnumerable<FindContentResult> contents)
         {
-            return contents?.OfType<Redirect>().FirstOrDefault();
+            return contents?.FirstOrDefault(c => c.Content is Redirect);
         }
 
-        public static IContent TakeRedirectElseTemplate(this IEnumerable<IContent> contents)
+        public static FindContentResult FavourRedirectResult(this IEnumerable<FindContentResult> contents)
         {
-            if (contents == null) return null;
-            return contents.TakeRedirect() ?? contents.TakeTemplate() as IContent;
+            if (contents == null)
+            {
+                return null;
+            }
+
+            var contentWithContexts = contents as FindContentResult[] ?? contents.ToArray();
+            return contentWithContexts.TakeRedirectResult() ?? contentWithContexts.TakeTemplateResult();
         }
     }
 }

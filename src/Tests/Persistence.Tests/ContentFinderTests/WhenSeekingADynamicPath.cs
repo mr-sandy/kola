@@ -22,7 +22,7 @@
 
             this.DynamicSourceProvider.Stub(p => p.Get("-dynamic1-")).Return(source1);
 
-            this.FileSystemHelper.Stub(f => f.FindChildDirectories(@"\root", "-*-")).Return(new[] { "-dynamic1-" });
+            this.FileSystemHelper.Stub(f => f.FindChildDirectories(@"Templates", "-*-")).Return(new[] { "-dynamic1-" });
 
             this.Result = this.ContentFinder.FindContentDirectories(new[] { "path1" });
         }
@@ -36,7 +36,7 @@
         [Test]
         public void TheDirectoryPathShouldBeReturned()
         {
-            this.Result.Single().Path.Should().Be(@"\root\-dynamic1-");
+            this.Result.Single().Path.Should().Be(@"Templates\-dynamic1-");
         }
 
         [Test]

@@ -8,23 +8,23 @@ namespace Kola.Persistence
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances.Context;
 
-    public class ContentFinder
+    public class ContentFinder : IContentFinder
     {
         private readonly IFileSystemHelper fileSystemHelper;
         private readonly IDynamicSourceProvider dynamicSourceProvider;
 
-        private readonly string root;
+        private readonly string templatesDirectory = "Templates";
 
-        public ContentFinder(IFileSystemHelper fileSystemHelper, IDynamicSourceProvider dynamicSourceProvider, string root)
+
+        public ContentFinder(IFileSystemHelper fileSystemHelper, IDynamicSourceProvider dynamicSourceProvider)
         {
             this.fileSystemHelper = fileSystemHelper;
             this.dynamicSourceProvider = dynamicSourceProvider;
-            this.root = root;
         }
 
         public IEnumerable<ContentDirectory> FindContentDirectories(IEnumerable<string> path)
         {
-            return this.Find(path, this.root, Enumerable.Empty<IContextItem>());
+            return this.Find(path, this.templatesDirectory, Enumerable.Empty<IContextItem>());
         }
 
         private IEnumerable<ContentDirectory> Find(IEnumerable<string> path, string pathSoFar, IEnumerable<IContextItem> context)

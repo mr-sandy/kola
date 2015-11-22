@@ -22,8 +22,8 @@ namespace Persistence.Tests.ContentFinderTests
 
             this.DynamicSourceProvider.Stub(p => p.Get("-dynamic1-")).Return(source1);
 
-            this.FileSystemHelper.Stub(f => f.FindChildDirectories(@"\root", "-*-")).Return(new[] { "-dynamic1-" });
-            this.FileSystemHelper.Stub(f => f.DirectoryExists(@"\root\-dynamic1-\static")).Return(true);
+            this.FileSystemHelper.Stub(f => f.FindChildDirectories(@"Templates", "-*-")).Return(new[] { "-dynamic1-" });
+            this.FileSystemHelper.Stub(f => f.DirectoryExists(@"Templates\-dynamic1-\static")).Return(true);
 
             this.Result = this.ContentFinder.FindContentDirectories(new[] { "dynamic", "static" });
         }
@@ -37,7 +37,7 @@ namespace Persistence.Tests.ContentFinderTests
         [Test]
         public void TheDirectoryPathShouldBeReturned()
         {
-            this.Result.Single().Path.Should().Be(@"\root\-dynamic1-\static");
+            this.Result.Single().Path.Should().Be(@"Templates\-dynamic1-\static");
         }
 
         [Test]
