@@ -1,5 +1,6 @@
 namespace Integration.Tests.Nancy.Modules.TinyIocTests
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -54,9 +55,14 @@ namespace Integration.Tests.Nancy.Modules.TinyIocTests
     {
         public string Name { get; set; }
 
-        public SourceLookupResponse Lookup(string value, IEnumerable<IContextItem> context)
+        public DynamicItem Lookup(string value, IEnumerable<IContextItem> context)
         {
-            return new SourceLookupResponse(true);
+            return new DynamicItem(value);
+        }
+
+        IEnumerable<DynamicItem> IDynamicSource.GetAllItems(IEnumerable<IContextItem> context)
+        {
+            throw new NotImplementedException();
         }
     }
 

@@ -1,4 +1,4 @@
-﻿namespace Persistence.Tests.ContentFinderTests.FakeSources
+namespace Unit.Tests.ResourceBuilding
 {
     using System;
     using System.Collections.Generic;
@@ -8,18 +8,20 @@
 
     internal class TestSource : IDynamicSource
     {
-        public Func<string, IEnumerable<IContextItem>, DynamicItem> Func { get; set; }
+        public Func<string, IEnumerable<IContextItem>, DynamicItem> LookupFunc { get; set; }
+
+        public Func<IEnumerable<IContextItem>, IEnumerable<DynamicItem>> GetAllItemsFunc { get; set; }
 
         public string Name { get; set; }
 
         public DynamicItem Lookup(string value, IEnumerable<IContextItem> context)
         {
-            return this.Func(value, context);
+            return this.LookupFunc(value, context);
         }
 
         public IEnumerable<DynamicItem> GetAllItems(IEnumerable<IContextItem> context)
         {
-            throw new NotImplementedException();
+            return this.GetAllItemsFunc(context);
         }
     }
 }

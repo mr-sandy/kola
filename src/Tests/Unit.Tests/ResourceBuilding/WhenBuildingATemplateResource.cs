@@ -6,10 +6,13 @@
 
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.PropertyValues;
+    using Kola.Domain.DynamicSources;
     using Kola.Resources;
     using Kola.Service.ResourceBuilding;
 
     using NUnit.Framework;
+
+    using Rhino.Mocks;
 
     public class WhenBuildingATemplateResource
     {
@@ -18,6 +21,8 @@
         [SetUp]
         public void SetUp()
         {
+            var dynamicSourceProvider = MockRepository.GenerateMock<IDynamicSourceProvider>();
+
             var template = new Template(new[] { "test", "path" }, new IComponent[]
                 {
                     new Atom("atom 0", new[]
@@ -29,7 +34,7 @@
                     new Widget("widget 2", areas: new[] { new Area("area 1", new[] { new Atom("atom 2.0.0") }), })
                 });
 
-            this.resource = new TemplateResourceBuilder().Build(template) as TemplateResource;
+            this.resource = new TemplateResourceBuilder(dynamicSourceProvider).Build(template) as TemplateResource;
         }
 
         [Test]

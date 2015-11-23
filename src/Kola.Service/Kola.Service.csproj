@@ -58,6 +58,7 @@
     <Compile Include="ResourceBuilding\ComponentSpecificationsResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\ComponentTypeResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\IResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\PathInstanceBuilder.cs" />
     <Compile Include="ResourceBuilding\PropertyTypeResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\ResourceBuildingAmendmentVisitor.cs" />
     <Compile Include="ResourceBuilding\ResourceBuildingComponentVisitor.cs" />

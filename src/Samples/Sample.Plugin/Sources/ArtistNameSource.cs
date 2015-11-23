@@ -20,13 +20,23 @@
 
         public string Name => "-artist-name-";
 
-        public SourceLookupResponse Lookup(string value, IEnumerable<IContextItem> context)
+        public DynamicItem Lookup(string value, IEnumerable<IContextItem> context)
         {
             var candidates = this.musicService.FindArtists(a => a.Name.Urlify() == value).ToArray();
 
             return candidates.Any() 
-                ? new SourceLookupResponse(true, new[] { new ContextItem("artist-id", candidates.First().Id) }) 
-                : new SourceLookupResponse(false);
+                ? this.BuildItem(candidates.First()) 
+                : null;
+        }
+
+        public IEnumerable<DynamicItem> GetAllItems(IEnumerable<IContextItem> context)
+        {
+            return this.musicService.FindArtists(a => true).Select(this.BuildItem);
+        }
+
+        private DynamicItem BuildItem(Artist artist)
+        {
+            return new DynamicItem(artist.Name.Urlify(), new [] { new ContextItem("artist-id", artist.Id) });
         }
     }
 }

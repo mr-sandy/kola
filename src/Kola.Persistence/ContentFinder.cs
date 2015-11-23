@@ -62,8 +62,8 @@ namespace Kola.Persistence
 
                     var lookup = source?.Lookup(path.First(), context);
 
-                    return lookup != null && lookup.Found
-                        ? this.Find(path.Skip(1), Path.Combine(pathSoFar, sourceName), context.Merge(lookup.ContextItems))
+                    return lookup != null
+                        ? this.Find(path.Skip(1), Path.Combine(pathSoFar, sourceName), context.Merge(lookup.Context))
                         : Enumerable.Empty<ContentDirectory>();
                 });
         }

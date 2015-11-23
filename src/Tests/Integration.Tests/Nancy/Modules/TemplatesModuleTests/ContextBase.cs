@@ -4,6 +4,7 @@
 
     using Kola.Configuration;
     using Kola.Domain.Composition;
+    using Kola.Domain.DynamicSources;
     using Kola.Nancy.Modules;
     using Kola.Nancy.Processors;
     using Kola.Persistence;
@@ -26,12 +27,16 @@
 
         protected IKolaConfigurationRegistry KolaConfigurationRegistry { get; set; }
 
+        protected IDynamicSourceProvider DynamicSourceProvider { get; set; }
+
+
         [SetUp]
         public void SetUpBase()
         {
             this.ContentRepository = MockRepository.GenerateMock<IContentRepository>();
             this.ComponentLibrary = MockRepository.GenerateMock<IComponentSpecificationLibrary>();
             this.KolaConfigurationRegistry = MockRepository.GenerateMock<IKolaConfigurationRegistry>();
+            this.DynamicSourceProvider = MockRepository.GenerateMock<IDynamicSourceProvider>();
 
             var bootstrapper = new ConfigurableBootstrapper(
                 with =>
@@ -39,6 +44,7 @@
                         with.Dependency(this.ContentRepository);
                         with.Dependency(this.ComponentLibrary);
                         with.Dependency(this.KolaConfigurationRegistry);
+                        with.Dependency(this.DynamicSourceProvider);
                         with.Dependency<TemplateResourceBuilder>();
                         with.Dependency<AmendmentDetailsResourceBuilder>();
                         with.Dependency<AmendmentsDetailsResourceBuilder>();

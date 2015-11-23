@@ -84,7 +84,7 @@
     <Compile Include="DynamicSources\DynamicSourceProvider.cs" />
     <Compile Include="DynamicSources\IDynamicSource.cs" />
     <Compile Include="DynamicSources\IDynamicSourceProvider.cs" />
-    <Compile Include="DynamicSources\SourceLookupResponse.cs" />
+    <Compile Include="DynamicSources\DynamicItem.cs" />
     <Compile Include="Extensions\CloningExtensions.cs" />
     <Compile Include="Extensions\ComponentCollectionExtensions.cs" />
     <Compile Include="Extensions\ContextItemExtensions.cs" />

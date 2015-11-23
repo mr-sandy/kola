@@ -21,7 +21,7 @@
 
         public string Name => "-album-name-";
 
-        public SourceLookupResponse Lookup(string value, IEnumerable<IContextItem> context)
+        public DynamicItem Lookup(string value, IEnumerable<IContextItem> context)
         {
             var candidates = this.musicService.FindAlbums(a => a.Name.Urlify() == value).ToArray();
 
@@ -35,16 +35,32 @@
 
                     if (firstMatch != null)
                     {
-                        return new SourceLookupResponse(true, new[] { new ContextItem("album-id", firstMatch.Id) });
+                        var album = candidates.First();
+                        return new DynamicItem(value, new[] { new ContextItem("album-id", album.Id) });
                     }
                 }
                 else
                 {
-                    return new SourceLookupResponse(true, new[] { new ContextItem("album-id", candidates.First().Id) });
+                    var album = candidates.First();
+                    return new DynamicItem(value, new[] { new ContextItem("album-id", album.Id) });
                 }
             }
 
-            return new SourceLookupResponse(false);
+            return null;
+        }
+
+        public IEnumerable<DynamicItem> GetAllItems(IEnumerable<IContextItem> context)
+        {
+            var artistIdContext = context.FirstOrDefault(c => c.Name == "artist-id");
+
+            return artistIdContext == null 
+                ? this.musicService.FindAlbums(a => true).Select(this.BuildItem) 
+                : this.musicService.FindAlbums(a => a.ArtistId == artistIdContext.Value).Select(this.BuildItem);
+        }
+
+        private DynamicItem BuildItem(Album album)
+        {
+            return new DynamicItem(album.Name.Urlify(), new[] { new ContextItem("album-id", album.Id) });
         }
     }
 }

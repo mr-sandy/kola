@@ -21,15 +21,15 @@ namespace Persistence.Tests.ContentFinderTests
             var bandSource = new TestSource
             {
                 Func = (name, context) => name == "the-beatles"
-                                              ? new SourceLookupResponse(true, new[] { new ContextItem("band name", "The Beatles") })
-                                              : new SourceLookupResponse(false)
+                                              ? new DynamicItem("the-beatles", new[] { new ContextItem("band name", "The Beatles") })
+                                              : null
             };
 
             var albumSource = new TestSource
             {
                 Func = (name, context) => name == "pet-sounds" &&  context.Any(c => c.Name == "band name" && c.Value != "Beach Boys")
-                                              ? new SourceLookupResponse(false)
-                                              : new SourceLookupResponse(true, new[] { new ContextItem("album name", "Revolver") }) };
+                                              ? null
+                                              : new DynamicItem("pet-sounds", new[] { new ContextItem("album name", "Revolver") }) };
 
             this.DynamicSourceProvider.Stub(p => p.Get("-bands-")).Return(bandSource);
             this.DynamicSourceProvider.Stub(p => p.Get("-albums-")).Return(albumSource);

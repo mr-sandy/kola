@@ -1,5 +1,6 @@
 namespace Kola.Domain.DynamicSources
 {
+    using System.Collections;
     using System.Collections.Generic;
 
     using Kola.Domain.Instances.Context;
@@ -8,6 +9,8 @@ namespace Kola.Domain.DynamicSources
     {
         string Name { get; }
 
-        SourceLookupResponse Lookup(string value, IEnumerable<IContextItem> context);
+        DynamicItem Lookup(string value, IEnumerable<IContextItem> context);
+
+        IEnumerable<DynamicItem> GetAllItems(IEnumerable<IContextItem> context);
     }
 }

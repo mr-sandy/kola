@@ -125,7 +125,9 @@
     <Compile Include="Domain\WidgetTests\WhenBuildingAWidgetInstance.cs" />
     <Compile Include="Domain\WidgetTests\WhenCreatingAWidget.cs" />
     <Compile Include="Rendering\WhenRenderingAWidgetWithoutAreasForAllPlaceholders.cs" />
+    <Compile Include="ResourceBuilding\TestSource.cs" />
     <Compile Include="ResourceBuilding\WhenBuildingATemplateResource.cs" />
+    <Compile Include="ResourceBuilding\WhenBuildingATemplateResourceForATemplateWithADynamicPath.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">
