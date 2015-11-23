@@ -4,9 +4,6 @@
     {
         public string Value { get; set; }
 
-        public override string Type
-        {
-            get { return "fixed"; }
-        }
+        public override string Type => "fixed";
     }
 }

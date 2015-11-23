@@ -81,6 +81,7 @@
     <Compile Include="Composition\Redirect.cs" />
     <Compile Include="Composition\Template.cs" />
     <Compile Include="Composition\Widget.cs" />
+    <Compile Include="DynamicSources\DynamicSourceProvider.cs" />
     <Compile Include="DynamicSources\IDynamicSource.cs" />
     <Compile Include="DynamicSources\IDynamicSourceProvider.cs" />
     <Compile Include="DynamicSources\SourceLookupResponse.cs" />

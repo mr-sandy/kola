@@ -1,4 +1,4 @@
-﻿namespace Integration.Tests.Nancy.Modules
+﻿namespace Integration.Tests.Nancy.Modules.TinyIocTests
 {
     using FluentAssertions;
 

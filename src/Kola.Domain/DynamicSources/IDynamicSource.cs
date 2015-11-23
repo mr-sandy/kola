@@ -6,6 +6,8 @@ namespace Kola.Domain.DynamicSources
 
     public interface IDynamicSource
     {
+        string Name { get; }
+
         SourceLookupResponse Lookup(string value, IEnumerable<IContextItem> context);
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="DuplicateComponentAmendmentResource.cs" />
     <Compile Include="FixedPropertyValueResource.cs" />
     <Compile Include="IAmendmentResourceVisitor.cs" />
+    <Compile Include="InheritedPropertyValueResource.cs" />
     <Compile Include="LinkResource.cs" />
     <Compile Include="MoveComponentAmendmentResource.cs" />
     <Compile Include="PlacehlolderResource.cs" />

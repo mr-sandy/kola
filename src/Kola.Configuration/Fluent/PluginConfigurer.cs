@@ -2,6 +2,7 @@
 namespace Kola.Configuration.Fluent
 {
     using Kola.Configuration.Plugins;
+    using Kola.Domain.DynamicSources;
     using Kola.Domain.Specifications;
 
     public class PluginConfigurer
@@ -21,6 +22,11 @@ namespace Kola.Configuration.Fluent
         public void EditorStylesheets(string stylesheetName)
         {
             this.configuration.Add(stylesheetName);
+        }
+
+        public void Source<T>() where T : IDynamicSource
+        {
+            this.configuration.AddSourceType(typeof(T));
         }
 
         public ComponentConfigurer Container(string componentName)

@@ -10,14 +10,17 @@
         public PropertyValueResource Visit(FixedPropertyValue fixedPropertyValue)
         {
             return new FixedPropertyValueResource
-                {
-                    Value = fixedPropertyValue.Value
-                };
+            {
+                Value = fixedPropertyValue.Value
+            };
         }
 
         public PropertyValueResource Visit(InheritedPropertyValue inheritedPropertyValue)
         {
-            throw new NotImplementedException();
+            return new InheritedPropertyValueResource
+            {
+                Key = inheritedPropertyValue.Key
+            };
         }
 
         public PropertyValueResource Visit(MultilingualPropertyValue multilingualPropertyValue)

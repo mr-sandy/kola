@@ -22,7 +22,8 @@
                 {
                     new Atom("atom 0", new[]
                         {
-                            new Property("property 0", "property 0 type", new FixedPropertyValue("property 0 value"))
+                            new Property("property 0", "property 0 type", new FixedPropertyValue("property 0 value")),
+                            new Property("property 1", "property 1 type", new InheritedPropertyValue("property 1 key")),
                         }), 
                     new Container("container 1", components: new[] { new Atom("atom 1.0") }),
                     new Widget("widget 2", areas: new[] { new Area("area 1", new[] { new Atom("atom 2.0.0") }), })
@@ -84,6 +85,31 @@
         {
             this.resource.Components.ElementAt(0).As<AtomResource>().Properties.ElementAt(0).Value.As<FixedPropertyValueResource>().Value.Should().Be("property 0 value");
         }
+
+        [Test]
+        public void ShouldSetCorrectNameForComponent0Property1()
+        {
+            this.resource.Components.ElementAt(0).As<AtomResource>().Properties.ElementAt(1).Name.Should().Be("property 1");
+        }
+
+        [Test]
+        public void ShouldSetCorrectTypeForComponent0Property1()
+        {
+            this.resource.Components.ElementAt(0).As<AtomResource>().Properties.ElementAt(1).Type.Should().Be("property 1 type");
+        }
+
+        [Test]
+        public void ShouldSetCorrectValueTypeForComponent0Property1()
+        {
+            this.resource.Components.ElementAt(0).As<AtomResource>().Properties.ElementAt(1).Value.As<InheritedPropertyValueResource>().Type.Should().Be("inherited");
+        }
+
+        [Test]
+        public void ShouldSetCorrectValueForComponent0Property1()
+        {
+            this.resource.Components.ElementAt(0).As<AtomResource>().Properties.ElementAt(1).Value.As<InheritedPropertyValueResource>().Key.Should().Be("property 1 key");
+        }
+
 
         [Test]
         public void ShouldSetCorrectNameForComponent1()

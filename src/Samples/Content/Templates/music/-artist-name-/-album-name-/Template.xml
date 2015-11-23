@@ -19,14 +19,14 @@
                 <atom name="artist">
                   <properties>
                     <property name="artist-id" type="text">
-                      <value xsi:type="fixed"><![CDATA[1]]></value>
+                      <value xsi:type="inherited" key="artist-id" />
                     </property>
                   </properties>
                 </atom>
                 <atom name="album">
                   <properties>
                     <property name="album-id" type="text">
-                      <value xsi:type="fixed"><![CDATA[11]]></value>
+                      <value xsi:type="inherited" key="album-id" />
                     </property>
                   </properties>
                 </atom>

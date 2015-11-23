@@ -4,10 +4,7 @@
     {
         public static KolaConfiguration Instance { get; private set; }
 
-        public KolaConfiguration KolaConfiguration
-        {
-            get { return Instance; }
-        }
+        public KolaConfiguration KolaConfiguration => Instance;
 
         public static void Register(KolaConfiguration kolaConfiguration)
         {

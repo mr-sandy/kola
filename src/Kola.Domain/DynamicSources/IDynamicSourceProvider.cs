@@ -4,12 +4,4 @@ namespace Kola.Domain.DynamicSources
     {
         IDynamicSource Get(string sourceName);
     }
-
-    public class DynamicSourceProvider : IDynamicSourceProvider
-    {
-        public IDynamicSource Get(string sourceName)
-        {
-            return null;
-        }
-    }
 }

@@ -1,5 +1,6 @@
 ﻿namespace Kola.Nancy
 {
+    using System;
     using System.Collections.Generic;
     using System.Configuration;
     using System.Linq;
@@ -17,6 +18,7 @@
     using Kola.Client;
     using Kola.Configuration;
     using Kola.Domain.Composition;
+    using Kola.Domain.DynamicSources;
     using Kola.Domain.Specifications;
     using Kola.Persistence;
     using Kola.Service.ResourceBuilding;
@@ -53,6 +55,12 @@
             var contentRoot = ConfigurationManager.AppSettings["ContentRoot"];
             container.Register<IFileSystemHelper>((c, o) => new FileSystemHelper(contentRoot));
             container.Register<ISerializationHelper>((c, o) => new SerializationHelper(contentRoot));
+
+            // TODO {SC} This should probably be moved somewhere into the Kola Config - it's not really Nancy/TinyIoc specific
+            var sourceTypes = from plugin in KolaConfigurationRegistry.Instance.Plugins
+                                  from source in plugin.SourceTypes
+                                  select source;
+            container.Register((c, o) => sourceTypes.Select(c.Resolve).Cast<IDynamicSource>());
 
             foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
             {

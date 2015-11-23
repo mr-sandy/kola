@@ -2,6 +2,9 @@
 {
     using Kola.Configuration.Plugins;
 
+    using Sample.Plugin.Renderers;
+    using Sample.Plugin.Sources;
+
     public class Configuration : PluginConfiguration
     {
         public Configuration()
@@ -14,10 +17,19 @@
             this.ConfigureContainers();
 
             this.ConfigurePropertyTypes();
+
+            this.ConfigureSources();
         }
 
         private void ConfigureAtoms()
         {
+            this.Configure.Atom("artist")
+                .WithRenderer<ArtistRenderer>()
+                .WithProperty("artist-id", "text");
+
+            this.Configure.Atom("album")
+                .WithRenderer<AlbumRenderer>()
+                .WithProperty("album-id", "text");
         }
 
         private void ConfigureContainers()
@@ -29,6 +41,12 @@
 
         private void ConfigurePropertyTypes()
         {
+        }
+
+        private void ConfigureSources()
+        {
+            this.Configure.Source<AlbumNameSource>();
+            this.Configure.Source<ArtistNameSource>();
         }
     }
 }

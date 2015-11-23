@@ -47,12 +47,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
+    <Compile Include="Proxies\Music\Album.cs" />
+    <Compile Include="Proxies\Music\Artist.cs" />
+    <Compile Include="Proxies\Music\IMusicService.cs" />
+    <Compile Include="Renderers\AlbumRenderer.cs" />
+    <Compile Include="Renderers\ArtistRenderer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxies\Music\MusicService.cs" />
+    <Compile Include="Sources\AlbumNameSource.cs" />
+    <Compile Include="Sources\ArtistNameSource.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\Div.cshtml" />
+    <EmbeddedResource Include="Views\Artist.cshtml" />
+    <EmbeddedResource Include="Views\Album.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -69,7 +80,6 @@
     <Folder Include="Editors\css\" />
     <Folder Include="Editors\templates\" />
     <Folder Include="Editors\views\" />
-    <Folder Include="Renderers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
