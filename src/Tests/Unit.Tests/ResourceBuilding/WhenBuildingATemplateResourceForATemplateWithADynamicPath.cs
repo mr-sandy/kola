@@ -47,9 +47,11 @@ namespace Unit.Tests.ResourceBuilding
             dynamicSourceProvider.Stub(p => p.Get("-artist-")).Return(source1);
             dynamicSourceProvider.Stub(p => p.Get("-album-")).Return(source2);
 
+            var pathInstanceBuilder = new PathInstanceBuilder(dynamicSourceProvider);
+
             var template = new Template(new[] { "static", "-artist-", "-album-" });
 
-            this.resource = new TemplateResourceBuilder(dynamicSourceProvider).Build(template) as TemplateResource;
+            this.resource = new TemplateResourceBuilder(pathInstanceBuilder).Build(template) as TemplateResource;
         }
 
         [Test]

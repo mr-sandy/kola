@@ -22,6 +22,7 @@
         public void SetUp()
         {
             var dynamicSourceProvider = MockRepository.GenerateMock<IDynamicSourceProvider>();
+            var pathInstanceBuilder = new PathInstanceBuilder(dynamicSourceProvider);
 
             var template = new Template(new[] { "test", "path" }, new IComponent[]
                 {
@@ -34,7 +35,7 @@
                     new Widget("widget 2", areas: new[] { new Area("area 1", new[] { new Atom("atom 2.0.0") }), })
                 });
 
-            this.resource = new TemplateResourceBuilder(dynamicSourceProvider).Build(template) as TemplateResource;
+            this.resource = new TemplateResourceBuilder(pathInstanceBuilder).Build(template) as TemplateResource;
         }
 
         [Test]

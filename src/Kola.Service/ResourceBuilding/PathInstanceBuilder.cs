@@ -56,11 +56,9 @@ namespace Kola.Service.ResourceBuilding
                 yield break;
             }
 
-            var contextItems = context as IContextItem[] ?? context.ToArray();
-
-            foreach (var item in provider.GetAllItems(contextItems))
+            foreach (var item in provider.GetAllItems(context))
             {
-                foreach (var previewUrl in this.Find(pathItems.Skip(1), $"{pathSoFar}/{item.Value}", contextItems.Merge(item.Context)))
+                foreach (var previewUrl in this.Find(pathItems.Skip(1), $"{pathSoFar}/{item.Value}", context.Merge(item.Context)))
                 {
                     yield return previewUrl;
                 }
