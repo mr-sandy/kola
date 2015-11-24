@@ -4,6 +4,7 @@
     var Backbone = require('backbone');
     var Handlebars = require('handlebars');
     var $ = require('jquery');
+    var _ = require('underscore');
     var WysiwygComponentView = require('app/views/WysiwygComponentView');
     var MaskView = require('app/views/MaskView');
     var domHelper = require('app/views/DomHelper');
@@ -16,11 +17,22 @@
         initialize: function (options) {
             this.listenTo(this.model, 'sync', this.handleSync);
 
+            this.previewUrl = _.first(this.model.previewUrls);
+
             this.maskView = new MaskView({ uiStateDispatcher: options.uiStateDispatcher });
 
             _.bindAll(this, 'buildChildren');
 
             this.children = [];
+        },
+
+        events: {
+            'change select': 'changePreview'
+        },
+
+        changePreview: function() {
+            this.previewUrl = $(this.el).find('select').val();
+            this.fullRefresh();
         },
 
         handleSync: function () {
@@ -29,8 +41,9 @@
                 this.fullRefresh();
             }
             else {
+                alert('Is this called?');
                 $.ajax({
-                    url: this.model.previewUrl,
+                    url: this.previewUrl,
                     dataType: 'html',
                     context: this
                 }).done(this.refresh);
@@ -48,12 +61,18 @@
         },
 
         render: function () {
-            this.$el.html(this.template());
+
+            var previewUrl = this.previewUrl;
+            var previewUrls = _.map(this.model.previewUrls, function (url) { return { url: url, selected: url === previewUrl } });
+
+            var model = previewUrls.length > 1 ? previewUrls : null;
+
+            this.$el.html(this.template(model));
 
             var $iframe = this.$('iframe');
 
             $iframe.on('load', this.buildChildren);
-            $iframe.attr('src', this.model.previewUrl);
+            $iframe.attr('src', this.previewUrl);
 
             return this;
         },
@@ -68,7 +87,13 @@
 
             this.model.get('components').each(function (component) {
                 var $elements = domHelper.findElements($html, component.get('path'));
-                this.children.push(new WysiwygComponentView({ model: component, $html: $elements, fullRefresh: $.proxy(this.fullRefresh, this), maskView: this.maskView }));
+                this.children.push(new WysiwygComponentView({
+                    model: component,
+                    previewUrl: this.previewUrl,
+                    $html: $elements,
+                    fullRefresh: $.proxy(this.fullRefresh, this),
+                    maskView: this.maskView
+                }));
             }, this);
         },
 

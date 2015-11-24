@@ -81,7 +81,7 @@
                 {
                     Name = property.Name,
                     Type = property.Type,
-                    Value = property.Value == null ? null : property.Value.Accept(this.propertyValueBuilder),
+                    Value = property.Value?.Accept(this.propertyValueBuilder),
                     Links = new[]
                         {
                             new LinkResource { Rel = "type", Href = "/_kola/property-types/" + property.Type.Urlify() }
@@ -100,7 +100,7 @@
             yield return new LinkResource
             {
                 Rel = "preview",
-                Href = string.Format("{0}?preview=y&componentPath={1}", this.templatePath.ToHttpPath(), context.Select(i => i.ToString()).ToHttpPath())
+                Href = context.Select(i => i.ToString()).ToHttpPath()
             };
         }
     }

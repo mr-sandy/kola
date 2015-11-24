@@ -1,4 +1,12 @@
 ﻿<div class="inner">
-    <iframe seamless="seamless">
-    </iframe>
+    {{#if .}}
+    <div class="address-bar">
+        <select>
+            {{#each .}}
+            <option value="{{url}}"{{#if selected}} selected="selected"{{/if}}>{{url}}</option>
+            {{/each}}
+        </select>
+    </div>
+    {{/if}}
+    <iframe seamless="seamless"></iframe>
 </div>

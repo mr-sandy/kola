@@ -19,6 +19,7 @@
         initialize: function (options) {
             this.fullRefresh = options.fullRefresh;
             this.maskView = options.maskView;
+            this.previewUrl = options.previewUrl;
 
             this.listenTo(this.model, 'sync', this.handleSync);
             this.listenTo(this.model, 'active', this.showActive);
@@ -38,7 +39,7 @@
             }
             else {
                 $.ajax({
-                    url: this.model.previewUrl,
+                    url: this.previewUrl + '&componentPath=' + this.model.get('path'),
                     dataType: 'html',
                     context: this
                 }).done(this.refresh);
@@ -67,7 +68,13 @@
 
                 childComponents.each(function (component) {
                     var $elements = domHelper.findElements($html, component.get('path'));
-                    this.children.push(new WysiwygComponentView({ model: component, $html: $elements, fullRefresh: this.fullRefresh, maskView: this.maskView }));
+                    this.children.push(new WysiwygComponentView({
+                        model: component,
+                        previewUrl : this.previewUrl,
+                        $html: $elements,
+                        fullRefresh: this.fullRefresh,
+                        maskView: this.maskView
+                    }));
                 }, this);
             }
         },

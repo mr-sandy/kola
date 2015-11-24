@@ -10,14 +10,17 @@
         public PropertyValueSurrogate Visit(FixedPropertyValue fixedPropertyValue)
         {
             return new FixedPropertyValueSurrogate
-                {
-                    Value = fixedPropertyValue.Value
-                };
+            {
+                Value = fixedPropertyValue.Value
+            };
         }
 
         public PropertyValueSurrogate Visit(InheritedPropertyValue inheritedPropertyValue)
         {
-            return new InheritedPropertyValueSurrogate();
+            return new InheritedPropertyValueSurrogate
+            {
+                Key = inheritedPropertyValue.Key
+            };
         }
 
         public PropertyValueSurrogate Visit(MultilingualPropertyValue multilingualPropertyValue)

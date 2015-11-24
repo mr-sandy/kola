@@ -35,8 +35,7 @@
 
                     if (firstMatch != null)
                     {
-                        var album = candidates.First();
-                        return new DynamicItem(value, new[] { new ContextItem("album-id", album.Id) });
+                        return new DynamicItem(value, new[] { new ContextItem("album-id", firstMatch.Id) });
                     }
                 }
                 else

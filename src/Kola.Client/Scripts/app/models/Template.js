@@ -18,7 +18,10 @@
         },
 
         parse: function (response) {
-            this.previewUrl = this.getLink(response.links, 'preview');
+            this.previewUrls = _.chain(response.links)
+                .filter(function (l) { return l.rel === 'preview'; })
+                .pluck('href')
+                .value();
 
             // ReSharper disable once InconsistentNaming
             var Components = require('app/collections/Components');

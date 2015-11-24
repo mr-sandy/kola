@@ -21,7 +21,7 @@
 
         initialize: function (options) {
 
-            this.uiStateDispatcher = _.clone(Backbone.Events)
+            this.uiStateDispatcher = _.clone(Backbone.Events);
 
             this.blockEditorView = new BlockEditorView({
                 model: this.model,

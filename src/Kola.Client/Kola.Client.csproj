@@ -185,6 +185,7 @@
     <None Include="Content\bootstrap-theme.css.map" />
     <None Include="Content\bootstrap.css.map" />
     <EmbeddedResource Include="Content\kola.scss" />
+    <None Include="Content\kola\editor\_wysiwyg-editor.scss" />
     <None Include="Content\kola\editor\_modal.scss" />
     <None Include="Content\kola\editor\_block-editor.scss" />
     <None Include="Content\kola\editor\_editor.scss" />

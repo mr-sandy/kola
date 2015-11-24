@@ -16,6 +16,13 @@
                 </property>
               </properties>
               <components>
+                <atom name="text">
+                  <properties>
+                    <property name="text" type="text">
+                      <value xsi:type="fixed"><![CDATA[Hey Hey, it's...]]></value>
+                    </property>
+                  </properties>
+                </atom>
                 <atom name="artist">
                   <properties>
                     <property name="artist-id" type="text">
@@ -23,6 +30,10 @@
                     </property>
                   </properties>
                 </atom>
+                <container name="div">
+                  <properties />
+                  <components />
+                </container>
                 <atom name="album">
                   <properties>
                     <property name="album-id" type="text">
