@@ -25,8 +25,8 @@ module.exports = Backbone.View.extend({
             cancel: false,
             opacity: 0.7,
             iframeFix: true,
-            connectToSortable: '.block-editor-root',
             scroll: false,
+            connectToSortable: '.block-editor-root',
             helper: function () {
                 return $('<li class="tool" data-href="' + $(this).attr('data-href') + '" style="list-style:none;display:inline-block;width:70px;height:70px;background-color:#999;color:#eee;border:1px solid #eee;text-align:center;padding-top:30px"></li>').text($(this).text());
             }

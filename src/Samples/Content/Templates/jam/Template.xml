@@ -9,31 +9,27 @@
         </area>
         <area name="content">
           <components>
+            <atom name="album">
+              <properties>
+                <property name="album-id" type="text">
+                  <value xsi:type="fixed"><![CDATA[11]]></value>
+                </property>
+              </properties>
+            </atom>
+            <atom name="artist">
+              <properties>
+                <property name="artist-id" type="text">
+                  <value xsi:type="fixed"><![CDATA[1]]></value>
+                </property>
+              </properties>
+            </atom>
             <container name="div">
               <properties>
                 <property name="classes" type="text">
                   <value xsi:type="fixed"><![CDATA[red]]></value>
                 </property>
               </properties>
-              <components>
-                <atom name="text">
-                  <properties />
-                </atom>
-                <atom name="artist">
-                  <properties>
-                    <property name="artist-id" type="text">
-                      <value xsi:type="fixed"><![CDATA[1]]></value>
-                    </property>
-                  </properties>
-                </atom>
-                <atom name="album">
-                  <properties>
-                    <property name="album-id" type="text">
-                      <value xsi:type="fixed"><![CDATA[11]]></value>
-                    </property>
-                  </properties>
-                </atom>
-              </components>
+              <components />
             </container>
           </components>
         </area>
@@ -42,55 +38,14 @@
         </area>
       </areas>
     </widget>
+    <atom name="text">
+      <properties />
+    </atom>
   </components>
   <amendments>
-    <moveComponent>
-      <sourcePath>0/1/0/2</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/1/0/1</sourcePath>
-      <targetPath>1/1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>1/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/2</sourcePath>
-      <targetPath>0/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>1/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1/1/1/0</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>2</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>1/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/1</sourcePath>
-      <targetPath>0/1/0</targetPath>
-    </moveComponent>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>0/1/2/0</targetPath>
+    </addComponent>
   </amendments>
 </template>
