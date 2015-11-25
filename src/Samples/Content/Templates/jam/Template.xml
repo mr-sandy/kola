@@ -16,6 +16,9 @@
                 </property>
               </properties>
               <components>
+                <atom name="text">
+                  <properties />
+                </atom>
                 <atom name="artist">
                   <properties>
                     <property name="artist-id" type="text">
@@ -40,5 +43,54 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <moveComponent>
+      <sourcePath>0/1/0/2</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/1/0/1</sourcePath>
+      <targetPath>1/1/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/2</sourcePath>
+      <targetPath>0/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/1/1/0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>2</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/1</sourcePath>
+      <targetPath>0/1/0</targetPath>
+    </moveComponent>
+  </amendments>
 </template>

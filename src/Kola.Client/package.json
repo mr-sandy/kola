@@ -1,0 +1,24 @@
+{
+  "name": "Kola.Client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "handlebars": "^4.0.5",
+    "handlebars-loader": "^1.1.4",
+    "path": "^0.12.7"
+  },
+  "dependencies": {
+    "backbone": "^1.2.3",
+    "backbone-hypermedia": "^0.4.3",
+    "handlebars": "^4.0.5",
+    "jquery": "^2.1.4",
+    "jquery-ui": "^1.10.5"
+  }
+}

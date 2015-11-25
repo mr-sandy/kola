@@ -12,12 +12,12 @@
     }
 </head>
 <body>
-    <section class="application"></section>
-    <script type="text/javascript" src="/_kola/Scripts/require.js" data-main="/_kola/Scripts/main"></script>
+    <section id="app" class="application"></section>
+    <script type="text/javascript" src="/_kola/Scripts/kola.js"></script>
     <script type="text/javascript">
-        define('propertyEditors', function () {
+        @*define('propertyEditors', function () {
             return @Html.Raw(this.Model.PropertyEditors);
-        });
+        });*@
     </script>
 </body>
 </html>
