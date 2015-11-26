@@ -1,5 +1,5 @@
 ﻿var _ = require('underscore');
-require('jquery-ui');
+require('jquery-ui-bundle');
 
 var AmendmentBroker = function (amendments) {
     this.amendments = amendments;

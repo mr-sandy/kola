@@ -29,7 +29,15 @@
                   <value xsi:type="fixed"><![CDATA[red]]></value>
                 </property>
               </properties>
-              <components />
+              <components>
+                <atom name="markdown">
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[*add content here*]]></value>
+                    </property>
+                  </properties>
+                </atom>
+              </components>
             </container>
           </components>
         </area>
@@ -42,10 +50,5 @@
       <properties />
     </atom>
   </components>
-  <amendments>
-    <addComponent>
-      <componentType>markdown</componentType>
-      <targetPath>0/1/2/0</targetPath>
-    </addComponent>
-  </amendments>
+  <amendments />
 </template>

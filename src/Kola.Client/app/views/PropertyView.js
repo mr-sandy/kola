@@ -4,7 +4,7 @@ var _ = require('underscore');
 var template = require('app/templates/PropertyTemplate.hbs');
 //var propertyEditors = require('propertyEditors');
 
-require('jquery-ui');
+require('jquery-ui-bundle');
 
 module.exports = Backbone.View.extend({
 

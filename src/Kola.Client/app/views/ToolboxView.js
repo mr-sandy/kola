@@ -3,7 +3,7 @@ var $ = require('jquery');
 var template = require('app/templates/ToolboxTemplate.hbs');
 
 require('app/controls/accordian');
-require('jquery-ui');
+require('jquery-ui-bundle');
 
 module.exports = Backbone.View.extend({
 

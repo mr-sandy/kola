@@ -19,6 +19,6 @@
     "backbone-hypermedia": "^0.4.3",
     "handlebars": "^4.0.5",
     "jquery": "^2.1.4",
-    "jquery-ui": "^1.10.5"
+    "jquery-ui-bundle": "^1.11.4"
   }
 }
