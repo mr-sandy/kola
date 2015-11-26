@@ -1,0 +1,1 @@
+﻿var kola = kola || { propertyEditors: [] };

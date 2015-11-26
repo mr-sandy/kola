@@ -1,7 +1,6 @@
 ﻿var Backbone = require('backbone');
 var _ = require('underscore');
 var template = require('app/templates/PropertyTemplate.hbs');
-var PropertyValueTypeView = require('app/views/PropertyValueTypeView');
 
 module.exports = Backbone.View.extend({
 
@@ -15,18 +14,11 @@ module.exports = Backbone.View.extend({
         this.editMode = false;
         this.amendments = options.amendments;
         this.componentPath = options.componentPath;
-
-        this.propertyValueTypeView = new PropertyValueTypeView({
-            model: this.model.value.type
-        });
     },
 
     render: function () {
 
         this.$el.html(this.template(this.model));
-
-        this.propertyValueTypeView.setElement(this.$('.valueType')).render();
-
 
         if (this.model.value) {
             switch (this.model.value.type) {

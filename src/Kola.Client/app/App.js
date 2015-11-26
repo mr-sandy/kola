@@ -2,7 +2,6 @@
 var Router = require('app/Router');
 require('app/Extensions');
 
-
 var appView = new AppView({
     router: new Router()
 });

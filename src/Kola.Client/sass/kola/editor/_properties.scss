@@ -2,44 +2,88 @@
 @import "../utility";
 
 .properties {
-	width: 250px;
+    width: 250px;
 
     div.content {
         padding: 10px 0;
 
         .property {
-			padding: 0 10px;
+            padding: 0 10px;
 
             .name {
-				padding: 8px 0;
-                display: block;
-				text-transform: capitalize;
+                padding: 8px 0;
+                display: inline;
+                text-transform: capitalize;
             }
 
-			&.unset {
-				.value {
-					display: none;
-				}
-			}
+            .valueType {
+                float: right;
+                position: relative;
+
+                .currentValueType {
+                    padding: 2px 6px;
+                    margin-right: 10px;
+                    background-color: #666;
+                    color: #ccc;
+                    border-radius: 2px;
+                }
+
+                button {
+                    display: inline;
+                    background-color: transparent;
+                    color: #eee;
+                    padding: 0;
+                }
+
+                div {
+                    position: absolute;
+                    right: 0;
+                    top: 15px;
+                    width: 100px;
+                    border: 1px #ccc solid;
+
+                    span {
+                        display: block;
+                        padding: 4px 6px;
+                        cursor: pointer;
+
+                        &.selected {
+                            background-color: #ddd;
+                            color: #333;
+                        }
+
+                        &:hover {
+                            background-color: #fff;
+                            color: #333;
+                        }
+                    }
+                }
+            }
+
+            &.unset {
+                .value {
+                    display: none;
+                }
+            }
 
             .value {
-				& > span,
-				& > label {
+                & > span,
+                & > label {
                     display: block;
                     background-color: #ddd;
                     color: #333;
                     padding: 8px;
-				    cursor: pointer;
-					min-height: 28px;
-					overflow: hidden;
+                    cursor: pointer;
+                    min-height: 28px;
+                    overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
-				    @include transition(background-color 150ms);
+                    @include transition(background-color 150ms);
 
-			        &:hover {
+                    &:hover {
                         background-color: #eee;
                     }
-				}
+                }
 
                 table {
                     padding: 0;
@@ -48,8 +92,8 @@
                     min-height: 28px;
                     background-color: #ddd;
                     color: #333;
-				    cursor: pointer;
-				    @include transition(background-color 150ms);
+                    cursor: pointer;
+                    @include transition(background-color 150ms);
 
                     :hover {
                         background-color: #eee;
@@ -102,16 +146,16 @@
                             }
                         }
                     }
-				}
+                }
 
                 form:not(.modal) {
-					& > * {
+                    & > * {
                         display: block;
                         background-color: #ddd;
                         color: #333;
                         padding: 8px;
-					    min-height: 28px;
-					}
+                        min-height: 28px;
+                    }
 
                     input, select, textarea {
                         width: 100%;
@@ -121,10 +165,10 @@
                     }
                 }
 
-				@import "modal";
-			}
+                @import "modal";
+            }
         }
-    
+
         .property-group {
             .items {
                 padding: 0 0 10px 0;
@@ -133,8 +177,8 @@
         }
 
         .property + .property,
-		.property + .property-group,
-		.property-group + .property {
+        .property + .property-group,
+        .property-group + .property {
             margin-top: 4px;
         }
     }

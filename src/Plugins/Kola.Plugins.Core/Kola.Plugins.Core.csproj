@@ -66,8 +66,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\css\editor.scss" />
+    <EmbeddedResource Include="editors\css\editor.scss" />
     <None Include="app.config" />
+    <None Include="app\templates\MarkdownEditorTemplate.hbs" />
+    <None Include="package.json" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\Markdown.cshtml" />
     <EmbeddedResource Include="Views\Label.cshtml" />
@@ -82,72 +84,72 @@
     <EmbeddedResource Include="Views\HtmlLink.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\views\MarkdownEditorView.js" />
+    <EmbeddedResource Include="editors\views\MarkdownEditorView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\MarkdownEditorTemplate.html" />
+    <EmbeddedResource Include="editors\templates\MarkdownEditorTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\views\BooleanEditorView.js" />
+    <EmbeddedResource Include="editors\views\BooleanEditorView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\BooleanEditorTemplate.html" />
+    <EmbeddedResource Include="editors\templates\BooleanEditorTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\views\TextEditorView.js" />
+    <EmbeddedResource Include="editors\views\TextEditorView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\TextEditorTemplate.html" />
+    <EmbeddedResource Include="editors\templates\TextEditorTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\css\editor.css">
+    <EmbeddedResource Include="editors\css\editor.css">
       <DependentUpon>editor.scss</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editors\css\editor.min.css">
+    <EmbeddedResource Include="editors\css\editor.min.css">
       <DependentUpon>editor.scss</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\views\NumberEditorView.js" />
+    <EmbeddedResource Include="editors\views\NumberEditorView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\NumberEditorTemplate.html" />
+    <EmbeddedResource Include="editors\templates\NumberEditorTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\views\HtmlLinkTypeView.js" />
+    <EmbeddedResource Include="editors\views\HtmlLinkTypeView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\HtmlLinkTypeTemplate.html" />
+    <EmbeddedResource Include="editors\templates\HtmlLinkTypeTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\views\HtmlLinkRelTypeView.js" />
+    <EmbeddedResource Include="editors\views\HtmlLinkRelTypeView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\views\HtmlScriptTypeView.js" />
+    <EmbeddedResource Include="editors\views\HtmlScriptTypeView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\views\IeConditionView.js" />
+    <EmbeddedResource Include="editors\views\IeConditionView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\HtmlLinkRelTypeTemplate.html" />
+    <EmbeddedResource Include="editors\templates\HtmlLinkRelTypeTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\HtmlScriptTypeTemplate.html" />
+    <EmbeddedResource Include="editors\templates\HtmlScriptTypeTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\IeConditionTemplate.html" />
+    <EmbeddedResource Include="editors\templates\IeConditionTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\views\MultilineTextView.js" />
+    <EmbeddedResource Include="editors\views\MultilineTextView.js" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\MultilineTextTemplate.html" />
+    <EmbeddedResource Include="editors\templates\MultilineTextTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\templates\HtmlStyleTypeTemplate.html" />
+    <EmbeddedResource Include="editors\templates\HtmlStyleTypeTemplate.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Editors\views\HtmlStyleTypeView.js" />
+    <EmbeddedResource Include="editors\views\HtmlStyleTypeView.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Kola.Configuration\Kola.Configuration.csproj">
@@ -159,6 +161,15 @@
       <Name>Kola.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\views\MarkdownEditor.js" />
+    <None Include="app\templates\TextEditorTemplate.hbs" />
+    <Content Include="app\views\TextEditor.js" />
+    <Content Include="app\App.js" />
+    <EmbeddedResource Include="editors\scripts\editor.js" />
+    <Content Include="webpack.config.js" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

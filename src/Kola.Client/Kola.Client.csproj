@@ -50,9 +50,11 @@
     <Content Include="app\models\UndoResponse.js" />
     <Content Include="app\controls\accordian.js" />
     <EmbeddedResource Include="fonts\fontawesome-webfont.svg" />
-    <EmbeddedResource Include="Content\font-awesome.css" />
-    <EmbeddedResource Include="Content\font-awesome.min.css" />
+    <EmbeddedResource Include="content\font-awesome.css" />
+    <EmbeddedResource Include="content\font-awesome.min.css" />
     <Content Include="app\templates\AppTemplate.hbs" />
+    <Content Include="app\views\PropertyView - Copy %282%29.js" />
+    <Content Include="app\views\PropertyValueTypeView.js" />
     <Content Include="app\views\WysiwygEditorView.js" />
     <Content Include="app\views\WysiwygComponentView.js" />
     <Content Include="app\views\WidgetView.js" />
@@ -106,48 +108,34 @@
     <Content Include="app\collections\Areas.js" />
     <Content Include="app\collections\Amendments.js" />
     <Content Include="app\App.js" />
-    <EmbeddedResource Include="Content\kola.min.css">
-      <DependentUpon>kola.scss</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Content\kola.css">
-      <DependentUpon>kola.scss</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Content\jquery-ui\jquery-ui-1.10.3.custom.min.css" />
-    <EmbeddedResource Include="Content\jquery-ui\jquery-ui-1.10.3.custom.css" />
-    <EmbeddedResource Include="Content\images\loading.gif" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Content\kola.scss" />
-    <None Include="Content\kola\editor\_wysiwyg-editor.scss" />
-    <None Include="Content\kola\editor\_modal.scss" />
-    <None Include="Content\kola\editor\_block-editor.scss" />
-    <None Include="Content\kola\editor\_editor.scss" />
-    <None Include="Content\kola\editor\_properties.scss" />
-    <None Include="Content\kola\editor\_toolbox.scss" />
-    <None Include="Content\kola\old\_base.scss" />
-    <None Include="Content\kola\old\_block-editor.scss" />
-    <None Include="Content\kola\old\_colours.scss" />
-    <None Include="Content\kola\old\_edit-template.scss" />
-    <None Include="Content\kola\old\_editors.scss" />
-    <None Include="Content\kola\old\_properties.scss" />
-    <None Include="Content\kola\old\_tabbed.scss" />
-    <None Include="Content\kola\old\_toolbox.scss" />
-    <None Include="Content\kola\old\_wysiwyg-editor.scss" />
-    <None Include="Content\kola\_accordian.scss" />
-    <None Include="Content\kola\_base.scss" />
-    <None Include="Content\kola\_buttons.scss" />
-    <None Include="Content\kola\_reset.scss" />
-    <None Include="Content\kola\_utility.scss" />
+    <None Include="app\templates\PropertyValueTypeTemplate.hbs" />
     <EmbeddedResource Include="fonts\fontawesome-webfont.eot" />
     <EmbeddedResource Include="fonts\fontawesome-webfont.ttf" />
     <EmbeddedResource Include="fonts\fontawesome-webfont.woff" />
     <EmbeddedResource Include="fonts\fontawesome-webfont.woff2" />
     <EmbeddedResource Include="fonts\FontAwesome.otf" />
     <None Include="package.json" />
+    <EmbeddedResource Include="sass\kola.scss" />
+    <None Include="sass\kola\editor\_block-editor.scss" />
+    <None Include="sass\kola\editor\_editor.scss" />
+    <None Include="sass\kola\editor\_modal.scss" />
+    <None Include="sass\kola\editor\_properties.scss" />
+    <None Include="sass\kola\editor\_toolbox.scss" />
+    <None Include="sass\kola\editor\_wysiwyg-editor.scss" />
+    <None Include="sass\kola\_accordian.scss" />
+    <None Include="sass\kola\_base.scss" />
+    <None Include="sass\kola\_buttons.scss" />
+    <None Include="sass\kola\_reset.scss" />
+    <None Include="sass\kola\_utility.scss" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\views\appView1.js" />
-    <EmbeddedResource Include="Scripts\kola.js" />
+    <EmbeddedResource Include="scripts\kola.js" />
+    <EmbeddedResource Include="scripts\kola.plugins.js" />
+    <EmbeddedResource Include="content\kola.min.css" />
+    <Content Include="gulpfile.js" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup />

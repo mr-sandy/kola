@@ -9,7 +9,8 @@
             : base("KolaCore")
         {
             this.Configure.ViewLocation("Kola.Plugins.Core.Views");
-            this.Configure.EditorStylesheets("editor.css");
+            this.Configure.PropertyEditorStylesheets("css/editor.css");
+            this.Configure.PropertyEditor("scripts/editor.js");
 
             this.ConfigureAtoms();
 
@@ -82,35 +83,16 @@
 
         private void ConfigurePropertyTypes()
         {
-            this.Configure.PropertyType("markdown")
-                .WithEditor("MarkdownEditorView.js");
-
-            this.Configure.PropertyType("boolean")
-                .WithEditor("BooleanEditorView.js");
-
-            this.Configure.PropertyType("text")
-                .WithEditor("TextEditorView.js");
-
-            this.Configure.PropertyType("number")
-                .WithEditor("NumberEditorView.js");
-
-            this.Configure.PropertyType("html-link-type")
-                .WithEditor("HtmlLinkTypeView.js");
-
-            this.Configure.PropertyType("html-link-rel-type")
-                .WithEditor("HtmlLinkRelTypeView.js");
-
-            this.Configure.PropertyType("html-style-type")
-                .WithEditor("HtmlStyleTypeView.js");
-
-            this.Configure.PropertyType("html-script-type")
-                .WithEditor("HtmlScriptTypeView.js");
-
-            this.Configure.PropertyType("multiline-text")
-                .WithEditor("MultilineTextView.js");
-
-            this.Configure.PropertyType("ie-condition")
-                .WithEditor("IeConditionView.js");
+            this.Configure.PropertyType("markdown");
+            this.Configure.PropertyType("boolean");
+            this.Configure.PropertyType("text");
+            this.Configure.PropertyType("number");
+            this.Configure.PropertyType("html-link-type");
+            this.Configure.PropertyType("html-link-rel-type");
+            this.Configure.PropertyType("html-style-type");
+            this.Configure.PropertyType("html-script-type");
+            this.Configure.PropertyType("multiline-text");
+            this.Configure.PropertyType("ie-condition");
         }
     }
 }

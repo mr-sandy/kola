@@ -85,12 +85,12 @@
             conventions.StaticContentsConventions.AddDirectory("/Scripts");
             conventions.StaticContentsConventions.AddDirectory("/cdn");
             conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/fonts", typeof(ClientIdentifier).Assembly, "/fonts"));
-            conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Scripts", typeof(ClientIdentifier).Assembly, "/Scripts"));
-            conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Content", typeof(ClientIdentifier).Assembly, "/Content"));
+            conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/scripts", typeof(ClientIdentifier).Assembly, "/scripts"));
+            conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/content", typeof(ClientIdentifier).Assembly, "/content"));
 
             foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
             {
-                conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/Editors/" + plugin.PluginName, plugin.GetType().Assembly, "/Editors"));
+                conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/plugins/" + plugin.PluginName, plugin.GetType().Assembly, "/editors"));
             } 
         }
     }

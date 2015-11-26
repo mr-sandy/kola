@@ -1,0 +1,17 @@
+{
+  "name": "Kola.Plugins.Core",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "handlebars": "^4.0.5",
+    "handlebars-loader": "^1.1.4",
+    "path": "^0.12.7"
+  }
+}

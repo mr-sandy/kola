@@ -4,8 +4,8 @@
 <html>
 <head>
     <title>Kola CMS</title>
-    <link type="text/css" rel="stylesheet" href="/_kola/Content/font-awesome.min.css" />
-    <link type="text/css" rel="stylesheet" href="/_kola/Content/kola.css" />
+    <link type="text/css" rel="stylesheet" href="/_kola/content/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="/_kola/content/kola.min.css" />
     @foreach (var stylesheet in Model.EditorStylesheets)
     {
     <link type="text/css" rel="stylesheet" href="@stylesheet" />
@@ -13,11 +13,11 @@
 </head>
 <body>
     <section id="app" class="application"></section>
-    <script type="text/javascript" src="/_kola/Scripts/kola.js"></script>
-    <script type="text/javascript">
-        @*define('propertyEditors', function () {
-            return @Html.Raw(this.Model.PropertyEditors);
-        });*@
-    </script>
+    <script type="text/javascript" src="/_kola/scripts/kola.plugins.js"></script>
+    @foreach (var plugin in Model.EditorScripts)
+    {
+    <script type="text/javascript" src="@plugin"></script>
+    }
+    <script type="text/javascript" src="/_kola/scripts/kola.js"></script>
 </body>
 </html>

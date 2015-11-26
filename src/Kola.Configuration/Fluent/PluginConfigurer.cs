@@ -19,9 +19,15 @@ namespace Kola.Configuration.Fluent
             this.configuration.ViewLocation = viewLocation;
         }
 
-        public void EditorStylesheets(string stylesheetName)
+        public void PropertyEditor(string propertyEditor)
         {
-            this.configuration.Add(stylesheetName);
+            this.configuration.PropertyEditor = propertyEditor;
+        }
+
+
+        public void PropertyEditorStylesheets(string stylesheetName)
+        {
+            this.configuration.PropertyEditorStylesheet = stylesheetName;
         }
 
         public void Source<T>() where T : IDynamicSource
@@ -47,13 +53,9 @@ namespace Kola.Configuration.Fluent
             return new ComponentConfigurer(specification);
         }
 
-        public PropertyTypeConfigurer PropertyType(string propertyName)
+        public void PropertyType(string propertyName)
         {
-            var specification = new PropertyTypeSpecification(propertyName);
-
-            this.configuration.Add(specification);
-
-            return new PropertyTypeConfigurer(specification);
+            this.configuration.AddPropertyType(propertyName);
         }
     }
 }

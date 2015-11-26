@@ -77,9 +77,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Editors\css\" />
-    <Folder Include="Editors\templates\" />
-    <Folder Include="Editors\views\" />
+    <Folder Include="editors\css\" />
+    <Folder Include="editors\templates\" />
+    <Folder Include="editors\views\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

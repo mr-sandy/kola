@@ -3,8 +3,6 @@ var AmendmentBroker = require('app/views/AmendmentBroker');
 var $ = require('jquery');
 var _ = require('underscore');
 
-// ReSharper restore InconsistentNaming
-
 Backbone.View.prototype.navigate = function (e) {
     e.preventDefault();
     this.options.router.navigate($(e.target).attr('href'), { trigger: true });
