@@ -2,6 +2,9 @@
 var _ = require('underscore');
 var template = require('app/templates/PropertyTemplate.hbs');
 var PropertyValueTypeView = require('app/views/PropertyValueTypeView');
+var PropertyValueTypeComponent = require('app/components/PropertyValueTypeComponent.jsx');
+var React = require('react');
+var ReactDOM = require('react-dom');
 
 module.exports = Backbone.View.extend({
 
@@ -21,12 +24,16 @@ module.exports = Backbone.View.extend({
         });
     },
 
-    render: function () {
+    clickHandler: function () {
+        alert('click!');
+    },
 
+    render: function () {
         this.$el.html(this.template(this.model));
 
-        this.propertyValueTypeView.setElement(this.$('.valueType')).render();
-
+        ReactDOM.render(React.createElement(PropertyValueTypeComponent, {
+            handleClick: this.clickHandler.bind(this)
+        }), this.$('.valueType')[0]);
 
         if (this.model.value) {
             switch (this.model.value.type) {

@@ -47,6 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app\components\PropertyValueTypeComponent.jsx" />
     <Content Include="app\models\UndoResponse.js" />
     <Content Include="app\controls\accordian.js" />
     <EmbeddedResource Include="fonts\fontawesome-webfont.svg" />
@@ -136,6 +137,7 @@
     <EmbeddedResource Include="scripts\kola.plugins.js" />
     <EmbeddedResource Include="content\kola.min.css" />
     <Content Include="gulpfile.js" />
+    <None Include=".babelrc" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup />
