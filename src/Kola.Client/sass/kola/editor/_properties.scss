@@ -17,44 +17,49 @@
             }
 
             .valueType {
-                float: right;
-                position: relative;
+                & > div {
+                    float: right;
+                    position: relative;
 
-                .currentValueType {
-                    padding: 2px 6px;
-                    margin-right: 10px;
-                    background-color: #666;
-                    color: #ccc;
-                    border-radius: 2px;
-                }
+                    .currentValue {
+                        padding: 2px 6px;
+                        margin-right: 10px;
+                        background-color: #666;
+                        color: #ccc;
+                        border-radius: 2px;
+                        font-family: monospace;
+                        font-size: 10px;
+                    }
 
-                button {
-                    display: inline;
-                    background-color: transparent;
-                    color: #eee;
-                    padding: 0;
-                }
+                    button {
+                        display: inline;
+                        background-color: transparent;
+                        color: #eee;
+                        padding: 0;
+                    }
 
-                div {
-                    position: absolute;
-                    right: 0;
-                    top: 15px;
-                    width: 100px;
-                    border: 1px #ccc solid;
 
-                    span {
-                        display: block;
-                        padding: 4px 6px;
-                        cursor: pointer;
+                    div {
+                        position: absolute;
+                        right: 0;
+                        top: 15px;
+                        width: 100px;
+                        border: 1px #ccc solid;
 
-                        &.selected {
-                            background-color: #ddd;
-                            color: #333;
-                        }
+                        span {
+                            display: block;
+                            padding: 4px 6px;
+                            cursor: pointer;
 
-                        &:hover {
-                            background-color: #fff;
-                            color: #333;
+                            &.selected {
+                                background-color: #ddd;
+                                color: #333;
+                            }
+
+                            &:hover {
+                                background-color: #fff;
+                                color: #333;
+                            }
                         }
                     }
                 }

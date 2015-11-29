@@ -2,11 +2,23 @@
 var ReactDOM = require('react-dom');
 
 class TestComponent extends React.Component {
-  render() {
-    return <div><span className="currentValueType">Fixed</span></div>
-  }
+    handleClick() {
+        alert("click");
+    }
+
+    render() {
+        return (
+            <div>
+                <span className="currentValue">Fixedy</span>
+                <button onClick={this.handleClick}><i className="fa fa-angle-double-down"></i></button>
+                <div>
+                    <span className="valueTypeOption selected">Fixed</span>
+                    <span className="valueTypeOption">Inherited</span>
+                </div>
+            </div>
+        )
+    }
 }
 
 module.exports = TestComponent;
 
-//     <a href="#" onClick={this.props.handleClick}>Do something!</a>
