@@ -24,15 +24,17 @@ module.exports = Backbone.View.extend({
         });
     },
 
-    clickHandler: function () {
-        alert('click!');
+    clickHandler: function (selected) {
+        this.model.value.type = selected;
+        this.render();
     },
 
     render: function () {
         this.$el.html(this.template(this.model));
 
         ReactDOM.render(React.createElement(PropertyValueTypeComponent, {
-            handleClick: this.clickHandler.bind(this)
+            currentValue: this.model.value.type,
+            handleSelect: this.clickHandler.bind(this)
         }), this.$('.valueType')[0]);
 
         if (this.model.value) {
