@@ -11,11 +11,14 @@ var PropertyComponent = React.createClass({
 
     render: function () {
         return (
-            <div>
-                <PropertyName name={this.props.name} />
-                <PropertyValueTypeComponent currentValue={this.props.value.type} />
-                <FixedPropertyValueComponent propertyType={this.props.type} propertyValue={this.props.value.value} />
-            </div>);
+            <div className="property">
+                <div className="chrome">
+                    <PropertyName name={this.props.propertyName} />
+                    <PropertyValueTypeComponent currentValue={this.props.propertyValue.type} />
+                </div>
+                <FixedPropertyValueComponent propertyType={this.props.propertyType} propertyValue={this.props.propertyValue.value} />
+            </div>
+            );
     }
 });
 

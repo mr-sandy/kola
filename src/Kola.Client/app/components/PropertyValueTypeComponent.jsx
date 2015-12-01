@@ -6,8 +6,10 @@ var ValueType = (props) => {
 }
 
 var DropDown = (props) => {
+    var divClass = (props.expanded) ? "dropdown expanded" : "dropdown";
+
     return (
-        <div className="dropdown">
+        <div className={divClass}>
             {props.valueTypes.map(function(valueType) {
             return <ValueType key={valueType} name={valueType} selected={valueType.toUpperCase() === props.currentValue.toUpperCase()} handleSelect={props.handleSelect} />;
             })}
@@ -30,18 +32,13 @@ var PropertyValueTypeComponent = React.createClass({
 
     render: function () {
 
-        var dropDown = null;
-
-        if (this.state.expanded) {
-            var valueTypes = ["Fixed", "Inherited"];
-            dropDown = <DropDown currentValue={this.props.currentValue} valueTypes={valueTypes} handleSelect={this.handleSelect} />;
-        };
+        var valueTypes = ["Fixed", "Inherited"];
 
         return (
             <div className="valueType" onClick={this.handleClick}>
                 <span className="currentValue">{this.props.currentValue}</span>
                 <button><i className={this.state.expanded ? "fa fa-angle-double-up" : "fa fa-angle-double-down"}></i></button>
-                {dropDown}
+                <DropDown expanded={this.state.expanded} currentValue={this.props.currentValue} valueTypes={valueTypes} handleSelect={this.handleSelect} />
             </div>);
     }
 });

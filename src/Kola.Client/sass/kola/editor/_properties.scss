@@ -10,60 +10,68 @@
         .property {
             padding: 0 10px;
 
-            .name {
+            .chrome {
                 padding: 8px 0;
-                display: inline;
-                text-transform: capitalize;
-            }
 
-            .valueType {
-                float: right;
-                position: relative;
-
-                .currentValue {
-                    padding: 2px 6px;
-                    margin-right: 10px;
-                    background-color: #666;
-                    color: #ccc;
-                    border-radius: 2px;
-                    font-family: monospace;
-                    font-size: 10px;
+                .name {
+                    text-transform: capitalize;
                 }
 
-                button {
-                    display: inline;
-                    background-color: transparent;
-                    color: #eee;
-                    padding: 0;
-                }
+                .valueType {
+                    float: right;
+                    position: relative;
+
+                    .currentValue {
+                        padding: 2px 6px;
+                        margin-right: 10px;
+                        background-color: #666;
+                        color: #ccc;
+                        border-radius: 2px;
+                        font-family: monospace;
+                        font-size: 10px;
+                    }
+
+                    button {
+                        display: inline;
+                        background-color: transparent;
+                        color: #eee;
+                        padding: 0;
+                    }
 
 
-                div.dropdown {
-                    position: absolute;
-                    right: 0;
-                    top: 15px;
-                    width: 100px;
-                    border: 1px #ccc solid;
-                    margin-top: 5px;
-                    z-index: 10;
+                    div.dropdown {
+                        position: absolute;
+                        display: none;
+                        right: 0;
+                        top: 15px;
+                        width: 100px;
+                        border: 1px #ccc solid;
+                        margin-top: 5px;
+                        z-index: 10;
 
-                    span {
-                        display: block;
-                        padding: 4px 6px;
-                        cursor: pointer;
-
-                        &.selected {
-                            background-color: #ddd;
-                            color: #333;
+                        &.expanded {
+                            display: block;
                         }
 
-                        &:hover {
-                            background-color: #fff;
-                            color: #333;
+                        span {
+                            display: block;
+                            padding: 4px 6px;
+                            cursor: pointer;
+
+                            &.selected {
+                                background-color: #ddd;
+                                color: #333;
+                            }
+
+                            &:hover {
+                                background-color: #fff;
+                                color: #333;
+                            }
                         }
                     }
                 }
             }
+
 
             &.unset {
                 .value {
@@ -72,6 +80,8 @@
             }
 
             .value {
+                clear: both;
+
                 & > span,
                 & > label {
                     display: block;

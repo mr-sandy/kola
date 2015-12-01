@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app\components\FixedPropertyValueComponent.jsx" />
+    <None Include="app\components\PropertiesComponent.jsx" />
     <None Include="app\components\PropertyComponent.jsx" />
     <None Include="app\components\PropertyValueTypeComponent.jsx" />
     <Content Include="app\models\UndoResponse.js" />

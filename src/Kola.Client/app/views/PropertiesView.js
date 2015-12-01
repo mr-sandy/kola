@@ -2,8 +2,10 @@
 var $ = require('jquery');
 var _ = require('underscore');
 var stateBroker = require('app/views/StateBroker');
-var PropertyView = require('app/views/PropertyView');
+var PropertiesComponent = require('app/components/PropertiesComponent.jsx');
 var template = require('app/templates/PropertiesTemplate.hbs');
+var React = require('react');
+var ReactDOM = require('react-dom');
 
 module.exports = Backbone.View.extend({
 
@@ -52,15 +54,21 @@ module.exports = Backbone.View.extend({
             var $content = this.$el.find('.content').first();
             var componentPath = this.model.get('path');
 
-            _.each(this.model.get('properties'), function (property) {
-                var propertyView = new PropertyView({
-                    model: property,
-                    amendments: self.amendments,
-                    componentPath: componentPath
-                });
+            this.model.get('properties');
 
-                $content.append(propertyView.render().$el);
-            });
+            var model = { properties: this.model.get('properties') };
+            ReactDOM.render(React.createElement(PropertiesComponent, model), $content[0]);
+
+
+            //_.each(this.model.get('properties'), function (property) {
+            //    var propertyView = new PropertyView({
+            //        model: property,
+            //        amendments: self.amendments,
+            //        componentPath: componentPath
+            //    });
+
+            //    $content.append(propertyView.render().$el);
+            //});
         }
         else {
             this.$el.html(this.template({ 'disabled': true }));
