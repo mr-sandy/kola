@@ -7,14 +7,14 @@ var ValueType = (props) => {
 
 var DropDown = (props) => {
     return (
-        <div>
+        <div className="dropdown">
             {props.valueTypes.map(function(valueType) {
             return <ValueType key={valueType} name={valueType} selected={valueType.toUpperCase() === props.currentValue.toUpperCase()} handleSelect={props.handleSelect} />;
             })}
         </div>);
 }
 
-var TestComponent = React.createClass({
+var PropertyValueTypeComponent = React.createClass({
 
     getInitialState: function () {
         return { expanded: false };
@@ -38,7 +38,7 @@ var TestComponent = React.createClass({
         };
 
         return (
-            <div onClick={this.handleClick}>
+            <div className="valueType" onClick={this.handleClick}>
                 <span className="currentValue">{this.props.currentValue}</span>
                 <button><i className={this.state.expanded ? "fa fa-angle-double-up" : "fa fa-angle-double-down"}></i></button>
                 {dropDown}
@@ -46,4 +46,4 @@ var TestComponent = React.createClass({
     }
 });
 
-module.exports = TestComponent;
+module.exports = PropertyValueTypeComponent;

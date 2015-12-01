@@ -17,50 +17,49 @@
             }
 
             .valueType {
-                & > div {
-                    float: right;
-                    position: relative;
+                float: right;
+                position: relative;
 
-                    .currentValue {
-                        padding: 2px 6px;
-                        margin-right: 10px;
-                        background-color: #666;
-                        color: #ccc;
-                        border-radius: 2px;
-                        font-family: monospace;
-                        font-size: 10px;
-                    }
+                .currentValue {
+                    padding: 2px 6px;
+                    margin-right: 10px;
+                    background-color: #666;
+                    color: #ccc;
+                    border-radius: 2px;
+                    font-family: monospace;
+                    font-size: 10px;
+                }
 
-                    button {
-                        display: inline;
-                        background-color: transparent;
-                        color: #eee;
-                        padding: 0;
-                    }
+                button {
+                    display: inline;
+                    background-color: transparent;
+                    color: #eee;
+                    padding: 0;
+                }
 
 
-                    div {
-                        position: absolute;
-                        right: 0;
-                        top: 15px;
-                        width: 100px;
-                        border: 1px #ccc solid;
-                        margin-top: 5px;
+                div.dropdown {
+                    position: absolute;
+                    right: 0;
+                    top: 15px;
+                    width: 100px;
+                    border: 1px #ccc solid;
+                    margin-top: 5px;
+                    z-index: 10;
 
-                        span {
-                            display: block;
-                            padding: 4px 6px;
-                            cursor: pointer;
+                    span {
+                        display: block;
+                        padding: 4px 6px;
+                        cursor: pointer;
 
-                            &.selected {
-                                background-color: #ddd;
-                                color: #333;
-                            }
+                        &.selected {
+                            background-color: #ddd;
+                            color: #333;
+                        }
 
-                            &:hover {
-                                background-color: #fff;
-                                color: #333;
-                            }
+                        &:hover {
+                            background-color: #fff;
+                            color: #333;
                         }
                     }
                 }

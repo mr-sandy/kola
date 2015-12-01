@@ -1,8 +1,0 @@
-﻿{{#unless expanded}}<span class="currentValueType">{{valueType}}</span>{{/unless}}<button><i class="fa {{#if expanded}}fa-angle-double-up{{else}}fa-angle-double-down{{/if}}"></i></button>
-{{#if expanded}}
-<div>
-{{#each valueTypes}}
-    <span class="valueTypeOption {{#if selected}}selected{{/if}}">{{name}}</span>
-{{/each}}
-</div>
-{{/if}}

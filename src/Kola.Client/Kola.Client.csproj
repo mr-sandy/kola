@@ -47,6 +47,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app\components\FixedPropertyValueComponent.jsx" />
+    <None Include="app\components\PropertyComponent.jsx" />
     <None Include="app\components\PropertyValueTypeComponent.jsx" />
     <Content Include="app\models\UndoResponse.js" />
     <Content Include="app\controls\accordian.js" />
@@ -54,8 +56,7 @@
     <EmbeddedResource Include="content\font-awesome.css" />
     <EmbeddedResource Include="content\font-awesome.min.css" />
     <Content Include="app\templates\AppTemplate.hbs" />
-    <Content Include="app\views\PropertyView - Copy %282%29.js" />
-    <Content Include="app\views\PropertyValueTypeView.js" />
+    <Content Include="app\views\PropertyView - old.js" />
     <Content Include="app\views\WysiwygEditorView.js" />
     <Content Include="app\views\WysiwygComponentView.js" />
     <Content Include="app\views\WidgetView.js" />
@@ -111,7 +112,6 @@
     <Content Include="app\App.js" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app\templates\PropertyValueTypeTemplate.hbs" />
     <EmbeddedResource Include="fonts\fontawesome-webfont.eot" />
     <EmbeddedResource Include="fonts\fontawesome-webfont.ttf" />
     <EmbeddedResource Include="fonts\fontawesome-webfont.woff" />
@@ -132,7 +132,6 @@
     <None Include="sass\kola\_utility.scss" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app\views\appView1.js" />
     <EmbeddedResource Include="scripts\kola.js" />
     <EmbeddedResource Include="scripts\kola.plugins.js" />
     <EmbeddedResource Include="content\kola.min.css" />

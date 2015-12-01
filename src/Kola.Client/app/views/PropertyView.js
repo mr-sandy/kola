@@ -1,14 +1,10 @@
 ﻿var Backbone = require('backbone');
 var _ = require('underscore');
-var template = require('app/templates/PropertyTemplate.hbs');
-var PropertyValueTypeView = require('app/views/PropertyValueTypeView');
-var PropertyValueTypeComponent = require('app/components/PropertyValueTypeComponent.jsx');
+var PropertyComponent = require('app/components/PropertyComponent.jsx');
 var React = require('react');
 var ReactDOM = require('react-dom');
 
 module.exports = Backbone.View.extend({
-
-    template: template,
 
     tagName: 'div',
 
@@ -18,53 +14,14 @@ module.exports = Backbone.View.extend({
         this.editMode = false;
         this.amendments = options.amendments;
         this.componentPath = options.componentPath;
-
-        this.propertyValueTypeView = new PropertyValueTypeView({
-            model: this.model.value.type
-        });
-    },
-
-    clickHandler: function (selected) {
-        this.model.value.type = selected;
-        this.render();
     },
 
     render: function () {
-        this.$el.html(this.template(this.model));
+        //handleSelect: this.clickHandler.bind(this)
 
-        ReactDOM.render(React.createElement(PropertyValueTypeComponent, {
-            currentValue: this.model.value.type,
-            handleSelect: this.clickHandler.bind(this)
-        }), this.$('.valueType')[0]);
-
-        if (this.model.value) {
-            switch (this.model.value.type) {
-                case 'fixed':
-                    this.renderFixed();
-                    break;
-                case 'inherited':
-                    this.renderInherited();
-                    break;
-                default:
-            }
-        }
-        //var propertyType = this.model.type;
-        //var plugin = _.find(kola.propertyEditors, function (ed) {
-        //    return ed.propertyType === propertyType;
-        //});
-
-        //if (plugin) {
-        //    this.$el.html(this.template(this.model));
-        //    var $editorElement = this.$el.find('.value').last();
-
-        //    plugin.render($editorElement, this.model.value.value);
-        //}
+        var model = _.extend({}, this.model, {});
+        ReactDOM.render(React.createElement(PropertyComponent, model), this.$el[0]);
 
         return this;
-    },
-
-    renderFixed: function () { },
-
-    renderInherited: function () { }
-
+    }
 });
