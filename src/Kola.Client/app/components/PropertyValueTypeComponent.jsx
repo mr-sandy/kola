@@ -32,12 +32,13 @@ var PropertyValueTypeComponent = React.createClass({
 
     render: function () {
 
+
         var valueTypes = ["Fixed", "Inherited"];
 
         return (
             <div className="valueType" onClick={this.handleClick}>
                 <span className="currentValue">{this.props.currentValue}</span>
-                <button><i className={this.state.expanded ? "fa fa-angle-double-up" : "fa fa-angle-double-down"}></i></button>
+                <button><i className={this.state.expanded ? "fa fa-angle-double-up" : "fa fa-angle-double-down"}></i></button>  
                 <DropDown expanded={this.state.expanded} currentValue={this.props.currentValue} valueTypes={valueTypes} handleSelect={this.handleSelect} />
             </div>);
     }

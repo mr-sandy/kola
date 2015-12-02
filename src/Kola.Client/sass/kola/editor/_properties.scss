@@ -5,10 +5,12 @@
     width: 250px;
 
     div.content {
-        padding: 10px 0;
+        padding: 2px 0;
 
         .property {
             padding: 0 10px;
+            margin: 8px;
+            border-radius: 4px;
 
             .chrome {
                 padding: 8px 0;
@@ -32,10 +34,14 @@
                     }
 
                     button {
-                        display: inline;
+                        display: none;
                         background-color: transparent;
-                        color: #eee;
+                        color: #ddd;
                         padding: 0;
+
+                        &:hover {
+                            color: #fff;
+                        }
                     }
 
 
@@ -71,7 +77,6 @@
                     }
                 }
             }
-
 
             &.unset {
                 .value {
@@ -182,7 +187,48 @@
 
                 @import "modal";
             }
+
+            .controls {
+                padding: 8px 0px;
+                display: none;
+
+                button {
+                    float: right;
+                    background-color: transparent;
+                    color: #ddd;
+                    padding: 2px;
+
+                    &.submit {
+                        color: #9e9;
+                    }
+
+                    &:hover {
+                        color: #fff;
+                    }
+
+                    &:first-child {
+                        margin-left: 4px;
+                    }
+                }
+            }
+
+            &.editMode {
+                background-color: #999;
+
+                .chrome {
+                    .valueType {
+                        button {
+                            display: inline;
+                        }
+                    }
+                }
+
+                .controls {
+                    display: block;
+                }
+            }
         }
+
 
         .property-group {
             .items {
