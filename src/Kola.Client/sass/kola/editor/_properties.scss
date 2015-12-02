@@ -11,6 +11,8 @@
             padding: 0 10px;
             margin: 8px;
             border-radius: 4px;
+            cursor: pointer;
+            @include transition(background-color 75ms);
 
             .chrome {
                 padding: 8px 0;
@@ -19,62 +21,17 @@
                     text-transform: capitalize;
                 }
 
-                .valueType {
+                .propertyValueType {
                     float: right;
-                    position: relative;
+                }
 
-                    .currentValue {
-                        padding: 2px 6px;
-                        margin-right: 10px;
-                        background-color: #666;
-                        color: #ccc;
-                        border-radius: 2px;
-                        font-family: monospace;
-                        font-size: 10px;
-                    }
-
-                    button {
-                        display: none;
-                        background-color: transparent;
-                        color: #ddd;
-                        padding: 0;
-
-                        &:hover {
-                            color: #fff;
-                        }
-                    }
-
-
-                    div.dropdown {
-                        position: absolute;
-                        display: none;
-                        right: 0;
-                        top: 15px;
-                        width: 100px;
-                        border: 1px #ccc solid;
-                        margin-top: 5px;
-                        z-index: 10;
-
-                        &.expanded {
-                            display: block;
-                        }
-
-                        span {
-                            display: block;
-                            padding: 4px 6px;
-                            cursor: pointer;
-
-                            &.selected {
-                                background-color: #ddd;
-                                color: #333;
-                            }
-
-                            &:hover {
-                                background-color: #fff;
-                                color: #333;
-                            }
-                        }
-                    }
+                span.propertyValueType {
+                    padding: 3px 6px;
+                    background-color: #666;
+                    color: #ccc;
+                    border-radius: 2px;
+                    font-family: monospace;
+                    font-size: 10px;
                 }
             }
 
@@ -93,16 +50,11 @@
                     background-color: #ddd;
                     color: #333;
                     padding: 8px;
-                    cursor: pointer;
                     min-height: 28px;
                     overflow: hidden;
                     text-overflow: ellipsis;
                     white-space: nowrap;
                     @include transition(background-color 150ms);
-
-                    &:hover {
-                        background-color: #eee;
-                    }
                 }
 
                 table {
@@ -213,7 +165,8 @@
             }
 
             &.editMode {
-                background-color: #999;
+                background-color: #777;
+                cursor: default;
 
                 .chrome {
                     .valueType {

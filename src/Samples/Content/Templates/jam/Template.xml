@@ -2,7 +2,14 @@
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
     <widget name="page">
-      <properties />
+      <properties>
+        <property name="property1" type="text">
+          <value xsi:type="fixed"><![CDATA[hello there]]></value>
+        </property>
+        <property name="property2" type="text">
+          <value xsi:type="fixed"><![CDATA[I am a badger]]></value>
+        </property>
+      </properties>
       <areas>
         <area name="header">
           <components />
@@ -47,10 +54,22 @@
                 <atom name="text">
                   <properties>
                     <property name="text" type="text">
-                      <value xsi:type="fixed"><![CDATA[The Text]]></value>
+                      <value xsi:type="fixed"><![CDATA[Text content]]></value>
                     </property>
                   </properties>
                 </atom>
+                <container name="div">
+                  <properties />
+                  <components>
+                    <atom name="text">
+                      <properties>
+                        <property name="text" type="text">
+                          <value xsi:type="fixed"><![CDATA[The quick brown fox jumps over the lazy brown dog]]></value>
+                        </property>
+                      </properties>
+                    </atom>
+                  </components>
+                </container>
               </components>
             </container>
           </components>

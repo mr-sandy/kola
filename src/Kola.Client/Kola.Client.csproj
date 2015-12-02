@@ -47,10 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app\components\FixedPropertyValueComponent.jsx" />
-    <None Include="app\components\PropertiesComponent.jsx" />
-    <None Include="app\components\PropertyComponent.jsx" />
-    <None Include="app\components\PropertyValueTypeComponent.jsx" />
+    <None Include="app\components\properties\FixedPropertyValueComponent.jsx" />
+    <None Include="app\components\properties\PropertiesComponent.jsx" />
+    <None Include="app\components\properties\PropertyComponent.jsx" />
+    <None Include="app\components\properties\PropertyValueTypeComponent.jsx" />
     <Content Include="app\models\UndoResponse.js" />
     <Content Include="app\controls\accordian.js" />
     <EmbeddedResource Include="fonts\fontawesome-webfont.svg" />

@@ -34,6 +34,10 @@ module.exports = Backbone.Collection.extend({
         this._saveAmendment({ componentPath: event.componentPath, propertyName: event.propertyName, value: event.value }, 'setProperty');
     },
 
+    setPropertyFixed: function (componentPath, propertyName, value) {
+        this._saveAmendment({ componentPath: componentPath, propertyName: propertyName, value: value }, 'setProperty');
+    },
+
     setComment: function (componentPath, comment) {
         this._saveAmendment({ componentPath: componentPath, comment: comment }, 'setComment');
     },

@@ -10,9 +10,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-util": "^3.0.7",
     "handlebars": "^4.0.5",
     "handlebars-loader": "^1.1.4",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "webpack": "^1.12.9"
   },
   "dependencies": {
     "jquery": "^2.1.4",

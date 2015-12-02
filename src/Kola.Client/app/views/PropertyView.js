@@ -1,6 +1,6 @@
 ﻿var Backbone = require('backbone');
 var _ = require('underscore');
-var PropertyComponent = require('app/components/PropertyComponent.jsx');
+var PropertyComponent = require('app/components/properties/PropertyComponent.jsx');
 var React = require('react');
 var ReactDOM = require('react-dom');
 

@@ -167,6 +167,7 @@
     <Content Include="app\views\TextEditor.js" />
     <Content Include="app\App.js" />
     <EmbeddedResource Include="editors\scripts\editor.js" />
+    <Content Include="gulpfile.js" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
   <ItemGroup />

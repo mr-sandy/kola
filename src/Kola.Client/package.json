@@ -18,10 +18,12 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.0",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "handlebars": "^4.0.5",
     "handlebars-loader": "^1.1.4",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "webpack": "^1.12.9"
   },
   "dependencies": {
     "babel-preset-react": "^6.1.18",

@@ -2,7 +2,7 @@
 var $ = require('jquery');
 var _ = require('underscore');
 var stateBroker = require('app/views/StateBroker');
-var PropertiesComponent = require('app/components/PropertiesComponent.jsx');
+var PropertiesComponent = require('app/components/properties/PropertiesComponent.jsx');
 var template = require('app/templates/PropertiesTemplate.hbs');
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -12,7 +12,7 @@ module.exports = Backbone.View.extend({
     template: template,
 
     initialize: function (options) {
-        _.bindAll(this, 'render');
+        _.bindAll(this, 'render', 'handlePropertyChange');
         this.amendments = options.amendments;
 
         this.uiStateDispatcher = options.uiStateDispatcher;
@@ -45,30 +45,29 @@ module.exports = Backbone.View.extend({
         this.render();
     },
 
-    render: function () {
-        var self = this;
+    handlePropertyChange: function (data) {
 
+        var path = this.model.get('path');
+
+        switch (data.propertyValueType) {
+            case 'fixed':
+                this.amendments.setPropertyFixed(path, data.propertyName, data.propertyValue);
+                break;
+        }
+    },
+
+    render: function () {
         if (this.model) {
             this.$el.html(this.template(this.model.toJSON()));
 
             var $content = this.$el.find('.content').first();
-            var componentPath = this.model.get('path');
 
-            this.model.get('properties');
+            var model = {
+                properties: this.model.get('properties'),
+                handleChange: this.handlePropertyChange
+            };
 
-            var model = { properties: this.model.get('properties') };
             ReactDOM.render(React.createElement(PropertiesComponent, model), $content[0]);
-
-
-            //_.each(this.model.get('properties'), function (property) {
-            //    var propertyView = new PropertyView({
-            //        model: property,
-            //        amendments: self.amendments,
-            //        componentPath: componentPath
-            //    });
-
-            //    $content.append(propertyView.render().$el);
-            //});
         }
         else {
             this.$el.html(this.template({ 'disabled': true }));
