@@ -38,6 +38,11 @@ module.exports = Backbone.Collection.extend({
         this._saveAmendment({ componentPath: componentPath, propertyName: propertyName, value: value }, 'setProperty');
     },
 
+    setPropertyInherited: function (componentPath, propertyName, key) {
+        alert(componentPath, propertyName, key);
+        //this._saveAmendment({ componentPath: componentPath, propertyName: propertyName, key: key }, 'setPropertyInherited');
+    },
+
     setComment: function (componentPath, comment) {
         this._saveAmendment({ componentPath: componentPath, comment: comment }, 'setComment');
     },

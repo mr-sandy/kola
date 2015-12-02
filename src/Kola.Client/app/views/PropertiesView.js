@@ -49,9 +49,12 @@ module.exports = Backbone.View.extend({
 
         var path = this.model.get('path');
 
-        switch (data.propertyValueType) {
+        switch (data.propertyValue.type) {
             case 'fixed':
-                this.amendments.setPropertyFixed(path, data.propertyName, data.propertyValue);
+                this.amendments.setPropertyFixed(path, data.propertyName, data.propertyValue.value);
+                break;
+            case 'inherited':
+                this.amendments.setPropertyInherited(path, data.propertyName, data.propertyValue.key);
                 break;
         }
     },
@@ -64,7 +67,7 @@ module.exports = Backbone.View.extend({
 
             var model = {
                 properties: this.model.get('properties'),
-                handleChange: this.handlePropertyChange
+                onChange: this.handlePropertyChange
             };
 
             ReactDOM.render(React.createElement(PropertiesComponent, model), $content[0]);

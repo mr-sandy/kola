@@ -10,11 +10,11 @@ var FixedPropertyValueComponent = React.createClass({
         return <div className={divClass} ref={this.captureElement}></div>;
     },
 
-    shouldComponentUpdate: function(nextProps, nextState) {
+    shouldComponentUpdate: function (nextProps, nextState) {
         return true;
     },
 
-    componentDidUpdate: function(prevProps, prevState){
+    componentDidUpdate: function (prevProps, prevState) {
         this.renderFromPlugin();
     },
 
@@ -27,7 +27,10 @@ var FixedPropertyValueComponent = React.createClass({
     },
 
     value: function () {
-        return this.editor.value();
+        return {
+            type: 'fixed',
+            value: this.editor.value()
+        };
     },
 
     renderFromPlugin() {
@@ -41,12 +44,12 @@ var FixedPropertyValueComponent = React.createClass({
 
             this.editor.render(this._element, propertyValue, this.props.editMode);
 
-            var handleSubmit = this.props.handleSubmit;
+            var onSubmit = this.props.onSubmit;
 
             $(this._element).find('form').children().first().focus().select();
             $(this._element).find('form').submit(function (e) {
                 e.preventDefault();
-                handleSubmit();
+                onSubmit();
             });
 
         }

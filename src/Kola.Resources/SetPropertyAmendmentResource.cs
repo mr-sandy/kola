@@ -8,10 +8,7 @@
 
         public string Value { get; set; }
 
-        public override string Type
-        {
-            get { return "Set Property"; }
-        }
+        public override string Type => "Set Property";
 
         public override T Accept<T>(IAmendmentResourceVisitor<T> visitor)
         {

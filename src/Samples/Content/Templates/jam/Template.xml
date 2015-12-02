@@ -80,5 +80,21 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0/1/2/3/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/2/3/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[sandy]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/2/3/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[sandy2]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>
