@@ -28,7 +28,7 @@
             return new DuplicateComponentAmendment(resource.ComponentPath.ParseComponentPath());
         }
 
-        public IAmendment Visit(SetPropertyAmendmentResource resource)
+        public IAmendment Visit(SetPropertyFixedAmendmentResource resource)
         {
             return new SetPropertyFixedAmendment(resource.ComponentPath.ParseComponentPath(), resource.PropertyName, resource.Value);
         }
@@ -36,6 +36,11 @@
         public IAmendment Visit(SetCommentAmendmentResource resource)
         {
             return new SetCommentAmendment(resource.ComponentPath.ParseComponentPath(), resource.Comment);
+        }
+
+        public IAmendment Visit(SetPropertyInheritedAmendmentResource resource)
+        {
+            return new SetPropertyInheritedAmendment(resource.ComponentPath.ParseComponentPath(), resource.PropertyName, resource.Key);
         }
     }
 }

@@ -3,7 +3,7 @@
     using System.Xml;
     using System.Xml.Serialization;
 
-    [XmlType(Namespace = "http://www.kolacms.com/2013/kola", TypeName = "setPropertyFixed")]
+    [XmlType(Namespace = "http://www.kolacms.com/2013/kola", TypeName = "setProperty")]
     public class SetPropertyFixedAmendmentSurrogate : AmendmentSurrogate
     {
         [XmlElement("componentPath")]

@@ -54,7 +54,12 @@
 
         public AmendmentSurrogate Visit(SetPropertyInheritedAmendment amendment)
         {
-            throw new NotImplementedException();
+            return new SetPropertyInheritedAmendmentSurrogate
+            {
+                ComponentPath = amendment.ComponentPath.ToComponentPathString(),
+                PropertyName = amendment.PropertyName,
+                Key = amendment.Key
+            };
         }
 
         public AmendmentSurrogate Visit(SetPropertyMultilingualAmendment amendment)

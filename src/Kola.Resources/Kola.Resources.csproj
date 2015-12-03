@@ -63,7 +63,8 @@
     <Compile Include="PropertyValueResource.cs" />
     <Compile Include="RemoveComponentAmendmentResource.cs" />
     <Compile Include="SetCommentAmendmentResource.cs" />
-    <Compile Include="SetPropertyAmendmentResource.cs" />
+    <Compile Include="SetPropertyFixedAmendmentResource.cs" />
+    <Compile Include="SetPropertyInheritedAmendmentResource.cs" />
     <Compile Include="TemplateResource.cs" />
     <Compile Include="UndoAmendmentResource.cs" />
     <Compile Include="WidgetResource.cs" />

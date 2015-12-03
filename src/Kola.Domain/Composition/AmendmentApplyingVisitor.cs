@@ -79,7 +79,12 @@
 
         public void Visit(SetPropertyInheritedAmendment amendment)
         {
-            throw new NotImplementedException();
+            var component = this.template.FindComponentWithProperties(amendment.ComponentPath);
+            var specification = this.specificationLibrary.Lookup(component.Name);
+
+            var property = component.FindOrCreateProperty(specification.Properties.Find(amendment.PropertyName));
+
+            property.Value = new InheritedPropertyValue(amendment.Key);
         }
 
         public void Visit(SetPropertyMultilingualAmendment amendment)

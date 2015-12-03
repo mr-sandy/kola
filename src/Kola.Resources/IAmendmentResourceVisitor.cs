@@ -10,8 +10,10 @@
 
         T Visit(DuplicateComponentAmendmentResource resource);
 
-        T Visit(SetPropertyAmendmentResource resource);
+        T Visit(SetPropertyFixedAmendmentResource resource);
 
         T Visit(SetCommentAmendmentResource resource);
+
+        T Visit(SetPropertyInheritedAmendmentResource resource);
     }
 }

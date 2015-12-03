@@ -75,6 +75,7 @@
     <Compile Include="Surrogates\Amendments\RemoveComponentAmendmentSurrogate.cs" />
     <Compile Include="Surrogates\Amendments\SetCommentAmendmentSurrogate.cs" />
     <Compile Include="Surrogates\Amendments\SetPropertyFixedAmendmentSurrogate.cs" />
+    <Compile Include="Surrogates\Amendments\SetPropertyInheritedAmendmentSurrogate.cs" />
     <Compile Include="Surrogates\AreaSurrogate.cs" />
     <Compile Include="Surrogates\AtomSurrogate.cs" />
     <Compile Include="Surrogates\ComponentSurrogate.cs" />

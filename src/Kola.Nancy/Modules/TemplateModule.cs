@@ -1,7 +1,5 @@
 ﻿namespace Kola.Nancy.Modules
 {
-    using System;
-
     using global::Nancy;
     using global::Nancy.ModelBinding;
 
@@ -12,7 +10,6 @@
     using Kola.Service.DomainBuilding;
     using Kola.Service.Services;
 
-    // TODO {SC} Refactor bulk of code into a service independent of Nancy (add to the Kola.Services namespace); make this module as lightweight as possible
     public class TemplateModule : NancyModule
     {
         private readonly ITemplateService templateService;
@@ -32,7 +29,8 @@
             this.Post["/_amendments/moveComponent"] = p => this.PostAmendment<MoveComponentAmendmentResource>(p.templatePath);
             this.Post["/_amendments/removeComponent"] = p => this.PostAmendment<RemoveComponentAmendmentResource>(p.templatePath);
             this.Post["/_amendments/duplicateComponent"] = p => this.PostAmendment<DuplicateComponentAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/setProperty"] = p => this.PostAmendment<SetPropertyAmendmentResource>(p.templatePath);
+            this.Post["/_amendments/setPropertyFixed"] = p => this.PostAmendment<SetPropertyFixedAmendmentResource>(p.templatePath);
+            this.Post["/_amendments/setPropertyInherited"] = p => this.PostAmendment<SetPropertyInheritedAmendmentResource>(p.templatePath);
             this.Post["/_amendments/setComment"] = p => this.PostAmendment<SetCommentAmendmentResource>(p.templatePath);
             this.Post["/_amendments/apply"] = p => this.PostApplyAmendments(p.templatePath);
             this.Post["/_amendments/undo"] = p => this.PostUndoAmendment(p.templatePath);
@@ -66,7 +64,6 @@
 
             return this.Negotiate.WithModel(result);
         }
-
 
         private dynamic PutTemplate(string rawPath)
         {

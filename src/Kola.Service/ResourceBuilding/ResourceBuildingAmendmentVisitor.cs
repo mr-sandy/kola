@@ -61,7 +61,7 @@
 
         public AmendmentResource Visit(SetPropertyFixedAmendment amendment, int index)
         {
-            return new SetPropertyAmendmentResource
+            return new SetPropertyFixedAmendmentResource
                 {
                     Id = index,
                     ComponentPath = amendment.ComponentPath.ToComponentPathString(),
@@ -73,7 +73,14 @@
 
         public AmendmentResource Visit(SetPropertyInheritedAmendment amendment, int index)
         {
-            throw new NotImplementedException();
+            return new SetPropertyInheritedAmendmentResource
+            {
+                Id = index,
+                ComponentPath = amendment.ComponentPath.ToComponentPathString(),
+                PropertyName = amendment.PropertyName,
+                Key = amendment.Key,
+                Links = this.BuildLinks(amendment, index)
+            };
         }
 
         public AmendmentResource Visit(SetPropertyMultilingualAmendment amendment, int index)

@@ -30,17 +30,16 @@ module.exports = Backbone.Collection.extend({
         this._saveAmendment({ componentPath: componentPath }, 'duplicateComponent');
     },
 
-    setProperty: function (event) {
-        this._saveAmendment({ componentPath: event.componentPath, propertyName: event.propertyName, value: event.value }, 'setProperty');
-    },
+    //setProperty: function (event) {
+    //    this._saveAmendment({ componentPath: event.componentPath, propertyName: event.propertyName, value: event.value }, 'setProperty');
+    //},
 
     setPropertyFixed: function (componentPath, propertyName, value) {
-        this._saveAmendment({ componentPath: componentPath, propertyName: propertyName, value: value }, 'setProperty');
+        this._saveAmendment({ componentPath: componentPath, propertyName: propertyName, value: value }, 'setPropertyFixed');
     },
 
     setPropertyInherited: function (componentPath, propertyName, key) {
-        alert(componentPath, propertyName, key);
-        //this._saveAmendment({ componentPath: componentPath, propertyName: propertyName, key: key }, 'setPropertyInherited');
+        this._saveAmendment({ componentPath: componentPath, propertyName: propertyName, key: key }, 'setPropertyInherited');
     },
 
     setComment: function (componentPath, comment) {

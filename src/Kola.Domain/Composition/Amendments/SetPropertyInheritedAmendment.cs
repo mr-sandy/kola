@@ -4,28 +4,25 @@
 
     public class SetPropertyInheritedAmendment : IAmendment
     {
-        public SetPropertyInheritedAmendment(IEnumerable<int> componentPath, string propertyName, string inheritedKey)
+        public SetPropertyInheritedAmendment(IEnumerable<int> componentPath, string propertyName, string key)
         {
             this.ComponentPath = componentPath;
             this.PropertyName = propertyName;
-            this.InheritedKey = inheritedKey;
+            this.Key = key;
         }
 
-        public IEnumerable<int> ComponentPath { get; private set; }
+        public IEnumerable<int> ComponentPath { get; }
 
-        public string PropertyName { get; private set; }
+        public string PropertyName { get; }
 
-        public string InheritedKey { get; private set; }
+        public string Key { get; }
 
         public IEnumerable<IEnumerable<int>> AffectedPaths
         {
             get { yield return this.ComponentPath; }
         }
 
-        public IEnumerable<int> SubjectPath
-        {
-            get { return this.ComponentPath; }
-        }
+        public IEnumerable<int> SubjectPath => this.ComponentPath;
 
         public void Accept(IAmendmentVisitor visitor)
         {

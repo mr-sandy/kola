@@ -7,19 +7,21 @@ var InheritedPropertyValueComponent = React.createClass({
     render: function () {
         return this.props.editMode
             ? <div className="value"><form ref={this.captureForm}><input type="text" value={this.state.key} onChange={this.handleChange} /></form></div>
-            : <div className="value"><span>{this.props.propertyValueKey}</span></div>;
+            : <div className="value"><span>{this.state.key}</span></div>;
     },
 
     captureForm(form) {
+        var onSubmit = this.props.onSubmit;
+
         $(form).children().first().focus().select();
         $(form).submit(function (e) {
             e.preventDefault();
-            this.props.onSubmit();
+            onSubmit();
         });
     },
 
     getInitialState: function () {
-        return { key: this.props.propertyType };
+        return { key: this.props.propertyValue.key };
     },
 
     handleChange: function(e){

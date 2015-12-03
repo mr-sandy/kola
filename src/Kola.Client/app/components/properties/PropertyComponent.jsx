@@ -3,16 +3,12 @@ var FixedPropertyValueComponent = require('app/components/properties/FixedProper
 var InheritedPropertyValueComponent = require('app/components/properties/InheritedPropertyValueComponent.jsx');
 var React = require('react');
 
-var PropertyName = (props) => {
-    return <label className="name">{props.name}</label>;
-}
-
 var PropertyComponent = React.createClass({
 
     getInitialState: function () {
         return {
             editMode: false,
-            propertyValueType: this.props.propertyValue.type
+            propertyValue: this.fillInWithDefaults(this.props.propertyValue)
         };
     },
 
@@ -20,15 +16,15 @@ var PropertyComponent = React.createClass({
 
         var divClass = this.state.editMode ? 'property editMode' : 'property';
 
-        var valueComponent = this.state.propertyValueType === 'fixed'
-            ? <FixedPropertyValueComponent ref={this.captureValueElement} editMode={this.state.editMode} propertyType={this.props.propertyType} propertyValue={this.props.propertyValue.value} onSubmit={this.handleSubmit} />
-            : <InheritedPropertyValueComponent ref={this.captureValueElement} editMode={this.state.editMode} propertyType={this.props.propertyType} propertyValueKey={this.props.propertyValue.key} onSubmit={this.handleSubmit} />;
+        var valueComponent = this.state.propertyValue.type === 'fixed'
+            ? <FixedPropertyValueComponent ref={this.captureValueComponent} editMode={this.state.editMode} propertyType={this.props.propertyType} propertyValue={this.state.propertyValue} onSubmit={this.handleSubmit} />
+            : <InheritedPropertyValueComponent ref={this.captureValueComponent} editMode={this.state.editMode} propertyType={this.props.propertyType} propertyValue={this.state.propertyValue} onSubmit={this.handleSubmit} />;
 
         return (
             <div className={divClass} onClick={this.handleEdit}>
                 <div className="chrome">
-                    <PropertyName name={this.props.propertyName}  />
-                    <PropertyValueTypeComponent currentValue={this.state.propertyValueType} editMode={this.state.editMode} onChange={this.handlePropertyValueTypeChange} />
+                    <label className="name">{this.props.propertyName}</label>
+                    <PropertyValueTypeComponent currentValue={this.state.propertyValue.type} editMode={this.state.editMode} onChange={this.handlePropertyValueTypeChange} />
                     <div style={{clear:'both'}}></div>
                 </div>
                 {valueComponent}
@@ -41,7 +37,7 @@ var PropertyComponent = React.createClass({
             );
     },
 
-    captureValueElement: function(c) {
+    captureValueComponent: function (c) {
         this._valueComponent = c;
     },
 
@@ -63,13 +59,39 @@ var PropertyComponent = React.createClass({
 
     handleCancel: function () {
         if (this.state.editMode) {
-            this.setState({ editMode: false });
+            this.setState({
+                editMode: false,
+                propertyValue: this.props.propertyValue
+            });
         }
     },
 
     handlePropertyValueTypeChange: function (propertyValueType) {
-        if (this.state.propertyValueType !== propertyValueType) {
-            this.setState({ propertyValueType: propertyValueType });
+        if (this.state.propertyValue.type !== propertyValueType) {
+            this.setState({ propertyValue: this.fillInWithDefaults({ type: propertyValueType }) });
+        }
+    },
+
+    fillInWithDefaults: function (propertyValue) {
+        switch (propertyValue.type) {
+            case 'fixed':
+                var value = propertyValue.value
+                ? propertyValue.value
+                : this.props.propertyValue.value ? this.props.propertyValue.value : '';
+                return {
+                    type: 'fixed',
+                    value: value
+                };
+            case 'inherited':
+                var key = propertyValue.key
+                ? propertyValue.key
+                : this.props.propertyValue.key ? this.props.propertyValue.key : this.props.propertyName;
+                return {
+                    type: 'inherited',
+                    key: key
+                };
+            default:
+                return propertyValue;
         }
     }
 });

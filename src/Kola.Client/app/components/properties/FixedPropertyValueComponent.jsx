@@ -36,13 +36,12 @@ var FixedPropertyValueComponent = React.createClass({
     renderFromPlugin() {
         if (this._element != null) {
             var propertyType = this.props.propertyType;
-            var propertyValue = this.props.propertyValue;
 
             this.editor = _.find(kola.propertyEditors, function (ed) {
                 return ed.propertyType === propertyType;
             });
 
-            this.editor.render(this._element, propertyValue, this.props.editMode);
+            this.editor.render(this._element, this.props.propertyValue.value, this.props.editMode);
 
             var onSubmit = this.props.onSubmit;
 

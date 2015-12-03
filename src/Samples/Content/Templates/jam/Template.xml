@@ -64,7 +64,7 @@
                     <atom name="text">
                       <properties>
                         <property name="text" type="text">
-                          <value xsi:type="fixed"><![CDATA[The quick brown fox jumps over the lazy brown dog]]></value>
+                          <value xsi:type="fixed"><![CDATA[sandy2]]></value>
                         </property>
                       </properties>
                     </atom>
@@ -80,21 +80,5 @@
       </areas>
     </widget>
   </components>
-  <amendments>
-    <setPropertyFixed>
-      <componentPath>0/1/2/3/0</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1/2/3/0</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[sandy]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1/2/3/0</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[sandy2]]></fixedValue>
-    </setPropertyFixed>
-  </amendments>
+  <amendments />
 </template>
