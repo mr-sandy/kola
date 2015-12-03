@@ -1,23 +1,26 @@
-﻿var $ = require('jquery');
-var template = require('app/templates/TextEditorTemplate.hbs');
-
+﻿var TextEditor = require('app/components/TextEditorComponent.jsx');
+var React = require('react');
+var ReactDOM = require('react-dom');
 
 module.exports = {
     propertyType: 'text',
 
     render: function (el, value, editMode) {
 
-        this.$el = $(el);
-
-        var context = {
+        var model = {
             value: value,
-            editMode: editMode
+            editMode: editMode,
+            ref: this.captureComponent.bind(this)
         };
 
-        this.$el.html(template(context));
+        ReactDOM.render(React.createElement(TextEditor, model), el);
+    },
+
+    captureComponent: function(c) {
+        this._component = c;
     },
 
     value: function() {
-        return this.$el.find('input').val();
+        return this._component.value();
     }
 }

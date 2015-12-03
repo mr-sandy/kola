@@ -10,11 +10,11 @@ var FixedPropertyValueComponent = React.createClass({
         return <div className={divClass} ref={this.captureElement}></div>;
     },
 
-    shouldComponentUpdate: function (nextProps, nextState) {
+    shouldComponentUpdate: function () {
         return true;
     },
 
-    componentDidUpdate: function (prevProps, prevState) {
+    componentDidUpdate: function () {
         this.renderFromPlugin();
     },
 
@@ -50,7 +50,6 @@ var FixedPropertyValueComponent = React.createClass({
                 e.preventDefault();
                 onSubmit();
             });
-
         }
     }
 });

@@ -80,5 +80,16 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <setProperty>
+      <componentPath>0/1/2/3/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[Here is the cntent]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/2/3/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[Here is the content]]></fixedValue>
+    </setProperty>
+  </amendments>
 </template>

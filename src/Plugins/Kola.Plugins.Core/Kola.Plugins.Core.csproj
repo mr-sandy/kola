@@ -67,7 +67,10 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="editors\css\editor.scss" />
+    <None Include=".babelrc" />
     <None Include="app.config" />
+    <None Include="app\components\TextEditorComponent.jsx" />
+    <None Include="app\components\MarkdownEditorComponent.jsx" />
     <None Include="app\templates\MarkdownEditorTemplate.hbs" />
     <None Include="package.json" />
     <None Include="packages.config" />

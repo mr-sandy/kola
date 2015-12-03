@@ -76,16 +76,19 @@ var PropertyComponent = React.createClass({
         switch (propertyValue.type) {
             case 'fixed':
                 var value = propertyValue.value
-                ? propertyValue.value
-                : this.props.propertyValue.value ? this.props.propertyValue.value : '';
+                    ? propertyValue.value
+                    : this.props.propertyValue.value ? this.props.propertyValue.value : '';
+
                 return {
                     type: 'fixed',
                     value: value
                 };
+
             case 'inherited':
                 var key = propertyValue.key
-                ? propertyValue.key
-                : this.props.propertyValue.key ? this.props.propertyValue.key : this.props.propertyName;
+                    ? propertyValue.key
+                    : this.props.propertyValue.key ? this.props.propertyValue.key : this.props.propertyName;
+
                 return {
                     type: 'inherited',
                     key: key

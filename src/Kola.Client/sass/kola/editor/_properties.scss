@@ -35,12 +35,6 @@
                 }
             }
 
-            &.unset {
-                .value {
-                    display: none;
-                }
-            }
-
             .value {
                 clear: both;
 
@@ -57,70 +51,9 @@
                     @include transition(background-color 150ms);
                 }
 
-                table {
-                    padding: 0;
-                    width: 100%;
-                    display: table;
-                    min-height: 28px;
-                    background-color: #ddd;
-                    color: #333;
-                    cursor: pointer;
-                    @include transition(background-color 150ms);
+                @import "property-table";
 
-                    :hover {
-                        background-color: #eee;
-                    }
-
-                    tbody {
-                        width: 100%;
-                    }
-
-                    &.responsive {
-                        & > tbody {
-                            & > tr {
-                                & > td {
-                                    &:not(.tabular) {
-                                        padding: 8px;
-                                    }
-
-                                    &:first-child {
-                                        width: 36px;
-                                        background-color: #555;
-                                        color: #eee;
-                                        vertical-align: middle;
-                                    }
-                                }
-
-                                & + tr {
-                                    border-top: 3px solid #444;
-                                }
-                            }
-                        }
-                    }
-
-                    &.composite {
-                        & > tbody {
-                            & > tr {
-                                & > td {
-                                    padding: 8px;
-
-                                    &:first-child {
-                                        width: 33%;
-                                        background-color: #999;
-                                        color: #eee;
-                                        vertical-align: middle;
-                                    }
-                                }
-
-                                & + tr {
-                                    border-top: 1px solid #bbb;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                form:not(.modal) {
+                form {
                     & > * {
                         display: block;
                         background-color: #ddd;
@@ -129,15 +62,23 @@
                         min-height: 28px;
                     }
 
-                    input, select, textarea {
+                    & > input,
+                    & > select,
+                    & > textarea {
                         width: 100%;
                         background-color: #fff;
                         border: none;
                         outline: none;
                     }
-                }
 
-                @import "modal";
+                    & > span {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+
+                    @import "modal";
+                }
             }
 
             .controls {

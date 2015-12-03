@@ -1,1 +1,15 @@
-﻿<span>{{ . }}</span>
+﻿<span>{{value}}</span>
+{{#if editMode}}
+<form class="modal">
+    <div class="chrome">
+        <span>Markdown</span>
+    </div>
+    <div class="content">
+        <textarea rows="20">{{value}}</textarea>
+    </div>
+    <div class="controls">
+        <button class="cancel" value="cancel">Cancel</button>
+        <input type="submit" value="Ok" />
+    </div>
+</form>
+{{/if}}

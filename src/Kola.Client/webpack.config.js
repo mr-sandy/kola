@@ -10,7 +10,7 @@ module.exports = {
 
     resolve: {
         root: path.resolve('./'),
-        extensions: ['', '.js']
+        extensions: ['', '.js', '.jsx']
     },
 
     devtool: 'inline-source-map',

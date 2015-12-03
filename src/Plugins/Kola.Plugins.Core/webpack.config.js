@@ -10,12 +10,22 @@ module.exports = {
 
     resolve: {
         root: path.resolve('./'),
-        extensions: ['', '.js']
+        extensions: ['', '.js', '.jsx']
     },
 
     devtool: 'inline-source-map',
 
     module: {
-        loaders: [{ test: /\.hbs/, loader: 'handlebars-loader' }]
+        loaders: [
+            {
+                test: /\.js/,
+                exclude: /node_modules/,
+                loader: 'babel-loader'
+            },
+            {
+                test: /\.hbs/,
+                loader: 'handlebars-loader'
+            }
+        ]
     }
 }
