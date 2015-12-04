@@ -3,12 +3,12 @@ var FixedPropertyValueComponent = require('app/components/properties/FixedProper
 var InheritedPropertyValueComponent = require('app/components/properties/InheritedPropertyValueComponent.jsx');
 var React = require('react');
 
-var PropertyComponent = React.createClass({
+module.exports = React.createClass({
 
     getInitialState: function () {
         return {
             editMode: false,
-            propertyValue: this.fillInWithDefaults(this.props.propertyValue)
+            propertyValue: this.props.propertyValue
         };
     },
 
@@ -17,8 +17,8 @@ var PropertyComponent = React.createClass({
         var divClass = this.state.editMode ? 'property editMode' : 'property';
 
         var valueComponent = this.state.propertyValue.type === 'fixed'
-            ? <FixedPropertyValueComponent ref={this.captureValueComponent} editMode={this.state.editMode} propertyType={this.props.propertyType} propertyValue={this.state.propertyValue} onSubmit={this.handleSubmit} />
-            : <InheritedPropertyValueComponent ref={this.captureValueComponent} editMode={this.state.editMode} propertyType={this.props.propertyType} propertyValue={this.state.propertyValue} onSubmit={this.handleSubmit} />;
+            ? <FixedPropertyValueComponent ref={this.captureValueComponent} editMode={this.state.editMode} onFastEdit={this.handleEdit} propertyType={this.props.propertyType} propertyValue={this.state.propertyValue} onSubmit={this.handleSubmit} />
+            : <InheritedPropertyValueComponent ref={this.captureValueComponent} editMode={this.state.editMode} propertyType={this.props.propertyType} propertyName={this.props.propertyName} propertyValue={this.state.propertyValue} onSubmit={this.handleSubmit} />;
 
         return (
             <div className={divClass} onClick={this.handleEdit}>
@@ -68,37 +68,15 @@ var PropertyComponent = React.createClass({
 
     handlePropertyValueTypeChange: function (propertyValueType) {
         if (this.state.propertyValue.type !== propertyValueType) {
-            this.setState({ propertyValue: this.fillInWithDefaults({ type: propertyValueType }) });
-        }
-    },
 
-    fillInWithDefaults: function (propertyValue) {
-        switch (propertyValue.type) {
-            case 'fixed':
-                var value = propertyValue.value
-                    ? propertyValue.value
-                    : this.props.propertyValue.value ? this.props.propertyValue.value : '';
+            var propertyValue = propertyValueType === this.props.propertyValue.type
+                ? this.props.propertyValue
+                : { type: propertyValueType };
 
-                return {
-                    type: 'fixed',
-                    value: value
-                };
-
-            case 'inherited':
-                var key = propertyValue.key
-                    ? propertyValue.key
-                    : this.props.propertyValue.key ? this.props.propertyValue.key : this.props.propertyName;
-
-                return {
-                    type: 'inherited',
-                    key: key
-                };
-            default:
-                return propertyValue;
+            this.setState({ propertyValue: propertyValue });
         }
     }
 });
 
-module.exports = PropertyComponent;
 
 

@@ -2,14 +2,14 @@
 var $ = require('jquery');
 var React = require('react');
 
-var InheritedPropertyValueComponent = React.createClass({
+module.exports = React.createClass({
 
     render: function () {
         return this.props.editMode
             ? (
             <div className="value">
-                <form ref={this.captureForm}>
-                    <input type="text" value={this.state.key} onChange={this.handleChange} />
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" value={this.state.key} onChange={this.handleChange} onBlur={this.handleBlur} ref={this.captureInput} />
                 </form>
             </div>)
             : (
@@ -18,22 +18,27 @@ var InheritedPropertyValueComponent = React.createClass({
             </div>);
     },
 
-    captureForm: function(form) {
-        var onSubmit = this.props.onSubmit;
-
-        $(form).children().first().focus().select();
-        $(form).submit(function (e) {
-            e.preventDefault();
-            onSubmit();
-        });
+    captureInput: function (input) {
+        $(input).focus().select();
     },
 
     getInitialState: function () {
-        return { key: this.props.propertyValue.key };
+        return { key: this.props.propertyValue.key ? this.props.propertyValue.key : this.props.propertyName };
     },
 
-    handleChange: function(e){
+    handleChange: function (e) {
         this.setState({ key: e.target.value });
+    },
+
+    handleBlur: function () {
+        if (this.props.propertyValue.key !== this.state.key) {
+            this.props.onSubmit();
+        }
+    },
+
+    handleSubmit: function (e) {
+        e.preventDefault();
+        this.props.onSubmit();
     },
 
     value: function () {
@@ -44,4 +49,3 @@ var InheritedPropertyValueComponent = React.createClass({
     }
 });
 
-module.exports = InheritedPropertyValueComponent;

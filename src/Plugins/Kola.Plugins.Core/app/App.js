@@ -1,5 +1,7 @@
-﻿var textEditor = require('app/views/TextEditor');
-var markdownEditor = require('app/views/MarkdownEditor');
+﻿var editorRegistry = require('app/EditorRegistry');
+var textEditor = require('app/editors/TextEditor.jsx');
+var markdownEditor = require('app/editors/MarkdownEditor.jsx');
 
-kola.propertyEditors.push(textEditor);
-kola.propertyEditors.push(markdownEditor);
+editorRegistry.register('text', textEditor);
+editorRegistry.register('markdown', markdownEditor);
+

@@ -5,9 +5,7 @@ var React = require('react');
 var FixedPropertyValueComponent = React.createClass({
 
     render: function () {
-        var divClass = 'value ' + this.props.propertyType;
-
-        return <div className={divClass} ref={this.captureElement}></div>;
+        return <div className={`value ${this.props.propertyType}`} ref={this.captureElement}></div>;
     },
 
     shouldComponentUpdate: function () {
@@ -41,16 +39,9 @@ var FixedPropertyValueComponent = React.createClass({
                 return ed.propertyType === propertyType;
             });
 
-            this.editor.render(this._element, this.props.propertyValue.value, this.props.editMode, this.props.onSubmit);
+            this.editor.render(this._element, this.props.propertyValue.value, this.props.editMode, this.props.onSubmit, this.props.onFastEdit);
 
-
-            //var onSubmit = this.props.onSubmit;
-
-            //$(this._element).find('form').children().first().focus().select();
-            //$(this._element).find('form').submit(function (e) {
-            //    e.preventDefault();
-            //    onSubmit();
-            //});
+            $(this._element).find('input').first().focus().select();
         }
     }
 });
