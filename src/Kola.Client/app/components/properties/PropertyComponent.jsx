@@ -26,7 +26,7 @@ module.exports = React.createClass({
         return (
             <div className={divClass} onClick={this.handleClick}>
                 <PropertyHeaderComponent {...childProps} onPropertyValueTypeChange={this.handlePropertyValueTypeChange} />
-                <PropertyValueComponent {...childProps} onEditModeChange={this.handleEditModeChange} onSubmit={this.handleSubmit} />
+                <PropertyValueComponent {...childProps} onSubmit={this.handleSubmit} ref={this.captureValueComponent} />
             </div>
         );
     },
@@ -39,7 +39,12 @@ module.exports = React.createClass({
     },
 
     handleClick: function () {
-        this.handleEditModeChange(!this.state.editMode);
+        if (this.state.editMode) {
+            this.handleSubmit();
+        }
+        else {
+            this.handleEditModeChange(true);
+        }
     },
 
     handleEditModeChange: function (editMode) {
@@ -59,12 +64,16 @@ module.exports = React.createClass({
         }
     },
 
-    handleSubmit: function (value) {
+    handleSubmit: function () {
         this.props.onChange({
             propertyName: this.props.propertyName,
             propertyType: this.props.propertyType,
-            propertyValue: value
+            propertyValue: this.valueComponent.value()
         });
+    },
+
+    captureValueComponent: function (c) {
+        this.valueComponent = c;
     }
 });
 

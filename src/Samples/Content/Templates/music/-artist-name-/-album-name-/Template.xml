@@ -10,7 +10,11 @@
         <area name="content">
           <components>
             <container name="div">
-              <properties />
+              <properties>
+                <property name="classes" type="text">
+                  <value xsi:type="inherited" key="classes" />
+                </property>
+              </properties>
               <components />
             </container>
             <container name="div">
@@ -26,7 +30,7 @@
                 <atom name="text">
                   <properties>
                     <property name="text" type="text">
-                      <value xsi:type="inherited" key="artist-id" />
+                      <value xsi:type="inherited" key="text" />
                     </property>
                   </properties>
                 </atom>
@@ -95,84 +99,54 @@ Unicode is supported. ☺
     </widget>
   </components>
   <amendments>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artist-id2</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artist-id</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artist-idd</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artist-idd</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artist-id</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artist-id</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artist-i</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artist-i</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artist-id</key>
-    </setPropertyInherited>
     <setProperty>
       <componentPath>0/1/1/1</componentPath>
       <propertyName>text</propertyName>
-      <fixedValue><![CDATA[badger]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[badger!]]></fixedValue>
+      <fixedValue><![CDATA[as]]></fixedValue>
     </setProperty>
     <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>text</key>
+      <componentPath>0/1/1/0</componentPath>
+      <propertyName>artist-id</propertyName>
+      <key>artist-ids</key>
     </setPropertyInherited>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[badger!]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[badger!"]]></fixedValue>
-    </setProperty>
     <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
+      <componentPath>0/1/1/0</componentPath>
+      <propertyName>artist-id</propertyName>
       <key>artist-id</key>
     </setPropertyInherited>
     <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
+      <componentPath>0/1/1/0</componentPath>
+      <propertyName>artist-id</propertyName>
+      <key>artist-id</key>
+    </setPropertyInherited>
+    <setProperty>
+      <componentPath>0/1/1/0</componentPath>
+      <propertyName>artist-id</propertyName>
+      <fixedValue><![CDATA[jam]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/1/0</componentPath>
+      <propertyName>artist-id</propertyName>
+      <fixedValue><![CDATA[jam]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/1/0</componentPath>
+      <propertyName>artist-id</propertyName>
+      <fixedValue><![CDATA[1]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/1/0</componentPath>
+      <propertyName>artist-id</propertyName>
+      <fixedValue><![CDATA[1]]></fixedValue>
+    </setProperty>
+    <setPropertyInherited>
+      <componentPath>0/1/1/0</componentPath>
+      <propertyName>artist-id</propertyName>
+      <key>artist-id</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/1/0</componentPath>
+      <propertyName>artist-id</propertyName>
       <key>artist-id</key>
     </setPropertyInherited>
     <setPropertyInherited>
@@ -183,72 +157,32 @@ Unicode is supported. ☺
     <setProperty>
       <componentPath>0/1/1/1</componentPath>
       <propertyName>text</propertyName>
-      <fixedValue><![CDATA[badger]]></fixedValue>
+      <fixedValue><![CDATA[jam]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/1/1</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[jam]]></fixedValue>
     </setProperty>
     <setPropertyInherited>
       <componentPath>0/1/1/1</componentPath>
       <propertyName>text</propertyName>
-      <key>textasdas</key>
-    </setPropertyInherited>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[badger]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[badger]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[badgers]]></fixedValue>
-    </setProperty>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>aretist-id</key>
+      <key>album-id</key>
     </setPropertyInherited>
     <setPropertyInherited>
       <componentPath>0/1/1/1</componentPath>
       <propertyName>text</propertyName>
-      <key>aretist-id</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artist-id</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artist-id</key>
+      <key>album-id</key>
     </setPropertyInherited>
     <setProperty>
       <componentPath>0/1/1/1</componentPath>
       <propertyName>text</propertyName>
-      <fixedValue><![CDATA[asda]]></fixedValue>
+      <fixedValue><![CDATA[]]></fixedValue>
     </setProperty>
     <setProperty>
       <componentPath>0/1/1/1</componentPath>
       <propertyName>text</propertyName>
-      <fixedValue><![CDATA[asdad]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[hello there]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[hello theresf]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[hello there]]></fixedValue>
+      <fixedValue><![CDATA[hello]]></fixedValue>
     </setProperty>
   </amendments>
 </template>

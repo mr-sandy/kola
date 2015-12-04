@@ -6,13 +6,12 @@ module.exports = {
         kola.propertyEditors.push({
             propertyType: type,
 
-            render: function(el, value, editMode, submitHandler, fastEditHandler) {
+            render: function(el, value, editMode, submitHandler) {
 
                 var model = {
                     value: value,
                     editMode: editMode,
                     onSubmit: submitHandler,
-                    onFastEdit: fastEditHandler,
                     ref: this.captureComponent.bind(this)
                 };
 

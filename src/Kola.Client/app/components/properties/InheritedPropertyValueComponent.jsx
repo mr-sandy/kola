@@ -9,8 +9,7 @@ module.exports = React.createClass({
         propertyName: React.PropTypes.string.isRequired,
         propertyType: React.PropTypes.string.isRequired,
         propertyValue: React.PropTypes.object.isRequired,
-        onSubmit: React.PropTypes.func.isRequired,
-        onEditModeChange: React.PropTypes.func.isRequired
+        onSubmit: React.PropTypes.func.isRequired
     },
 
     render: function () {
@@ -19,12 +18,12 @@ module.exports = React.createClass({
             ? 
             <div className="value">
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" value={this.state.key} onChange={this.handleChange} onBlur={this.handleBlur} ref={this.captureInput} />
+                    <input type="text" value={this.state.key} onChange={this.handleChange} onBlur={this.handleBlur} onClick={this.handleClick} ref={this.captureInput} />
                 </form>
             </div>
             : 
             <div className="value">
-                <span onClick={this.handleEditModeChange}>{this.state.key}</span>
+                <span>{this.state.key}</span>
             </div>;
     },
 
@@ -42,17 +41,19 @@ module.exports = React.createClass({
 
     handleBlur: function () {
         if (this.props.propertyValue.key !== this.state.key) {
-            this.props.onSubmit(this.value());
+            this.props.onSubmit();
+        }
+    },
+
+    handleClick: function (e) {
+        if (this.props.editMode) {
+            e.stopPropagation();
         }
     },
 
     handleSubmit: function (e) {
         e.preventDefault();
-        this.props.onSubmit(this.value());
-    },
-
-    handleEditModeChange: function() {
-        this.props.onEditModeChange(true);
+        this.props.onSubmit();
     },
 
     value: function () {

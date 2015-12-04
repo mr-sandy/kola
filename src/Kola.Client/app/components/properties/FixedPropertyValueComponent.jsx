@@ -6,17 +6,13 @@ module.exports = React.createClass({
 
     propTypes: {
         editMode: React.PropTypes.bool.isRequired,
-        //propertyName: React.PropTypes.string.isRequired,
         propertyType: React.PropTypes.string.isRequired,
         propertyValue: React.PropTypes.object.isRequired,
-        onSubmit: React.PropTypes.func.isRequired,
-        onEditModeChange: React.PropTypes.func.isRequired
+        onSubmit: React.PropTypes.func.isRequired
     },
 
     render: function () {
-        return this.props.editMode
-            ? <div className={`value ${this.props.propertyType}`} ref={this.captureElement}></div>
-            : <div className={`value ${this.props.propertyType}`} ref={this.captureElement} onClick={this.handleEditModeChange}></div>;
+        return <div className={`value ${this.props.propertyType}`} ref={this.captureElement} onClick={this.handleClick}></div>;
     },
 
     captureElement(el) {
@@ -35,15 +31,21 @@ module.exports = React.createClass({
         this.renderFromPlugin();
     },
 
-    handleEditModeChange: function () {
-        this.props.onEditModeChange(true);
+    handleSubmit: function () {
+        this.props.onSubmit();
     },
 
-    handleSubmit: function () {
-        this.props.onSubmit({
+    value: function(){
+        return {
             type: 'fixed',
             value: this.editor.value()
-        });
+        };
+    },
+
+    handleClick: function (e) {
+        if (this.props.editMode) {
+            e.stopPropagation();
+        }
     },
 
     renderFromPlugin() {

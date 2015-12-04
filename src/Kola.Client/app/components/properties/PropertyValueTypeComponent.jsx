@@ -11,7 +11,7 @@ module.exports = React.createClass({
     render: function () {
         if (this.props.editMode) {
             return (
-            <select className="propertyValueType" value={this.props.propertyValue.type} onChange={this.handleChange}>
+            <select className="propertyValueType" value={this.props.propertyValue.type} onClick={this.handleClick} onChange={this.handleChange}>
                 <option value="fixed">fixed</option>
                 <option value="inherited">inherited</option>
             </select>);
@@ -23,5 +23,9 @@ module.exports = React.createClass({
 
     handleChange: function (e) {
         this.props.onPropertyValueTypeChange(e.target.value);
+    },
+    
+    handleClick: function (e) {
+        e.stopPropagation();
     }
 });
