@@ -1,24 +1,27 @@
 ﻿var React = require('react');
 
-var PropertyValueTypeComponent = React.createClass({
-    propertyValueTypes: ['fixed', 'inherited'],
+module.exports = React.createClass({
+
+    propTypes: {
+        editMode: React.PropTypes.bool.isRequired,
+        propertyValue: React.PropTypes.object.isRequired,
+        onPropertyValueTypeChange: React.PropTypes.func.isRequired
+    },
 
     render: function () {
         if (this.props.editMode) {
-            var options = this.propertyValueTypes.map(function (valueType) {
-                return <option key={valueType} value={valueType}>{valueType}</option>;
-            });
-
-            return <select className="propertyValueType" onChange={this.handleChange} value={this.props.currentValue}>{options}</select>;
+            return (
+            <select className="propertyValueType" value={this.props.propertyValue.type} onChange={this.handleChange}>
+                <option value="fixed">fixed</option>
+                <option value="inherited">inherited</option>
+            </select>);
         }
         else {
-            return <span className="propertyValueType">{this.props.currentValue}</span>;
+            return <span className="propertyValueType">{this.props.propertyValue.type}</span>;
         }
     },
 
     handleChange: function (e) {
-        this.props.onChange(e.target.value);
+        this.props.onPropertyValueTypeChange(e.target.value);
     }
 });
-
-module.exports = PropertyValueTypeComponent;

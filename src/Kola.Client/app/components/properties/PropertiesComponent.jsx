@@ -3,6 +3,11 @@ var React = require('react');
 
 var PropertiesComponent = React.createClass({
 
+    propTypes: {
+        onChange: React.PropTypes.func.isRequired,
+        properties: React.PropTypes.array
+    },
+
     render: function () {
         var onChange = this.props.onChange;
 

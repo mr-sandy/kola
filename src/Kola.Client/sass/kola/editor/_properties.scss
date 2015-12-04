@@ -8,14 +8,13 @@
         padding: 2px 0;
 
         .property {
-            padding: 0 10px;
+            padding: 10px;
             margin: 8px;
             border-radius: 4px;
-            cursor: pointer;
             @include transition(background-color 75ms);
 
             .chrome {
-                padding: 8px 0;
+                cursor: pointer;
 
                 .name {
                     text-transform: capitalize;
@@ -36,7 +35,9 @@
             }
 
             .value {
+                margin-top: 8px;
                 clear: both;
+                cursor: pointer;
 
                 & > span,
                 & > label {
