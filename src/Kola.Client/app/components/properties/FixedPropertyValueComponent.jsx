@@ -41,15 +41,16 @@ var FixedPropertyValueComponent = React.createClass({
                 return ed.propertyType === propertyType;
             });
 
-            this.editor.render(this._element, this.props.propertyValue.value, this.props.editMode);
+            this.editor.render(this._element, this.props.propertyValue.value, this.props.editMode, this.props.onSubmit);
 
-            var onSubmit = this.props.onSubmit;
 
-            $(this._element).find('form').children().first().focus().select();
-            $(this._element).find('form').submit(function (e) {
-                e.preventDefault();
-                onSubmit();
-            });
+            //var onSubmit = this.props.onSubmit;
+
+            //$(this._element).find('form').children().first().focus().select();
+            //$(this._element).find('form').submit(function (e) {
+            //    e.preventDefault();
+            //    onSubmit();
+            //});
         }
     }
 });

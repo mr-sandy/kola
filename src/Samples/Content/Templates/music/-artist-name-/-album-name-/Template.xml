@@ -1188,5 +1188,59 @@ Unicode is supported. ☺
       <sourcePath>0/1/0/1</sourcePath>
       <targetPath>0/1/0/3/0</targetPath>
     </moveComponent>
+    <setProperty>
+      <componentPath>0/1/0/2/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[Hey Hey, it's...ast]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/0/2/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[Hey Hey, it's..]]></fixedValue>
+    </setProperty>
+    <moveComponent>
+      <sourcePath>0/1/0/2</sourcePath>
+      <targetPath>0/1/0</targetPath>
+    </moveComponent>
+    <setProperty>
+      <componentPath>0/1/0/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[Hey Hey, it'ss..]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/0/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[Hey Hey, it'ss..]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/0/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[Hey Hey, it'ss..s]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/0/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[Hey Hey, it'ss..s]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/0/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[Hey Hey, it'ss..sss]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/0/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[Hey Hey, it'ss..ssss]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/0/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[Hey Hey, it'ss..ssss]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/0/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[Hey Hey, it'ss..s]]></fixedValue>
+    </setProperty>
   </amendments>
 </template>

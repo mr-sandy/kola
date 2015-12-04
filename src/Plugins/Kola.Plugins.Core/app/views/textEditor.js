@@ -5,11 +5,12 @@ var ReactDOM = require('react-dom');
 module.exports = {
     propertyType: 'text',
 
-    render: function (el, value, editMode) {
+    render: function (el, value, editMode, submitHandler) {
 
         var model = {
             value: value,
             editMode: editMode,
+            onSubmit: submitHandler,
             ref: this.captureComponent.bind(this)
         };
 
