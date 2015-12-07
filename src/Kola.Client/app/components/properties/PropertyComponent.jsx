@@ -1,6 +1,7 @@
 ﻿var PropertyHeaderComponent = require('app/components/properties/PropertyHeaderComponent.jsx');
 var PropertyValueComponent = require('app/components/properties/PropertyValueComponent.jsx');
 var _ = require('underscore');
+var $ = require('jquery');
 var React = require('react');
 
 module.exports = React.createClass({
@@ -13,8 +14,6 @@ module.exports = React.createClass({
 
     render: function () {
 
-        const divClass = this.state.editMode ? 'property editMode' : 'property';
-
         const childProps = {
             editMode: this.state.editMode,
             propertyName: this.props.propertyName,
@@ -22,12 +21,22 @@ module.exports = React.createClass({
             propertyValue: this.state.propertyValue
         };
 
+        const divClass = this.state.editMode ? 'property editMode' : 'property';
+
         return (
-            <div className={divClass} onClick={this.handleClick}>
-                <PropertyHeaderComponent {...childProps} onPropertyValueTypeChange={this.handlePropertyValueTypeChange} />
-                <PropertyValueComponent {...childProps} onSubmit={this.handleSubmit} onBlur={this.handlePropertyValueBlur} onChange={this.handlePropertyValueChange} />
+            <div className={divClass} onClick={this.handleClick} onKeyUp={this.handleKeyUp}>
+                <PropertyHeaderComponent {...childProps} onChange={this.handlePropertyValueTypeChange} />
+                <PropertyValueComponent {...childProps} onChange={this.handlePropertyValueChange} />
             </div>
         );
+    },
+
+    componentDidMount: function() {
+        $(document.body).on('keyup', this.handleKeyUp);
+    },
+
+    componentWillUnmount: function() {
+        $(document.body).off('keyup', this.handleKeyUp);
     },
 
     getInitialState: function () {
@@ -38,27 +47,27 @@ module.exports = React.createClass({
     },
 
     handleClick: function () {
-        if (this.state.editMode) {
-            this.handleSubmit();
-        }
-        else {
-            this.handleEditModeChange(true);
+        console.log('handleClick');
+        if (!this.state.editMode) {
+            this.setState({ editMode: true });
         }
     },
 
-    handleEditModeChange: function (editMode) {
-        if (this.state.editMode !== editMode) {
-            this.setState({ editMode: editMode });
+    handleKeyUp: function (e) {
+        if (e.which === 27) {
+            this.doCancel();
         }
     },
 
     handlePropertyValueChange: function (propertyValue) {
-        this.setState({ propertyValue: propertyValue });
-    },
+        console.log('handlePropertyValueChange');
 
-    handlePropertyValueBlur: function () {
-        if (this.state.propertyValue !== this.props.propertyValue) {
-            this.handleSubmit();
+        if (this.setState.propertyValue !== propertyValue) {
+            this.props.onChange({
+                propertyName: this.props.propertyName,
+                propertyType: this.props.propertyType,
+                propertyValue: propertyValue
+            });
         }
     },
 
@@ -77,21 +86,45 @@ module.exports = React.createClass({
         }
     },
 
-    handleSubmit: function () {
+    doCancel: function () {
         if (this.state.editMode) {
-            this.setState({ editMode: false });
-
-            if (this.state.propertyValue !== this.props.propertyValue) {
-                this.props.onChange({
-                    propertyName: this.props.propertyName,
-                    propertyType: this.props.propertyType,
-                    propertyValue: this.state.propertyValue
-                });
-            }
+            this.setState({
+                editMode: false,
+                propertyValue: this.props.propertyValue
+            });
         }
     }
 });
 
+//handlePropertyValueBlur: function () {
+//    console.log('handlePropertyValueBlur');
+//    if (this.state.propertyValue !== this.props.propertyValue) {
+//        this.handleSubmit();
+//    }
+//},
+
+//handleEditModeChange: function (editMode) {
+//    console.log('handleEditModeChange');
+//    if (this.state.editMode !== editMode) {
+//        this.setState({ editMode: editMode });
+//    }
+//},
+
+//handleSubmit: function () {
+//    console.log('handleSubmit - outer');
+//    if (this.state.editMode) {
+//        console.log('handleSubmit - inner');
+//        this.setState({ editMode: false });
+
+//        if (this.state.propertyValue !== this.props.propertyValue) {
+//            this.props.onChange({
+//                propertyName: this.props.propertyName,
+//                propertyType: this.props.propertyType,
+//                propertyValue: this.state.propertyValue
+//            });
+//        }
+//    }
+//},
 
 //handleCancel: function () {
 //    if (this.state.editMode) {
@@ -100,8 +133,7 @@ module.exports = React.createClass({
 //            propertyValue: this.props.propertyValue
 //        });
 //    }
-//},
-
+//}
 
 
 

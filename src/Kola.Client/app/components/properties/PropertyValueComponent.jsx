@@ -10,9 +10,7 @@ module.exports = React.createClass({
         propertyName: React.PropTypes.string.isRequired,
         propertyType: React.PropTypes.string.isRequired,
         propertyValue: React.PropTypes.object.isRequired,
-        onChange: React.PropTypes.func.isRequired,
-        onBlur: React.PropTypes.func.isRequired,
-        onSubmit: React.PropTypes.func.isRequired
+        onChange: React.PropTypes.func.isRequired
     },
 
     render: function () {

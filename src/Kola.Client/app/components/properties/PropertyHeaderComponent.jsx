@@ -8,12 +8,12 @@ module.exports = React.createClass({
         editMode: React.PropTypes.bool.isRequired,
         propertyName: React.PropTypes.string.isRequired,
         propertyValue: React.PropTypes.object.isRequired,
-        onPropertyValueTypeChange: React.PropTypes.func.isRequired
+        onChange: React.PropTypes.func.isRequired
     },
 
 
     render: function () {
-        const childProps = _.pick(this.props, 'editMode', 'propertyValue', 'onPropertyValueTypeChange');
+        const childProps = _.pick(this.props, 'editMode', 'propertyValue', 'onChange');
 
         return (
                 <div className="chrome clearfix">

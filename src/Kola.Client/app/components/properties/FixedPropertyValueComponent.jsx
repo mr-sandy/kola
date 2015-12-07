@@ -8,13 +8,12 @@ module.exports = React.createClass({
         propertyName: React.PropTypes.string.isRequired,
         propertyType: React.PropTypes.string.isRequired,
         propertyValue: React.PropTypes.object.isRequired,
-        onChange: React.PropTypes.func.isRequired,
-        onBlur: React.PropTypes.func.isRequired,
-        onSubmit: React.PropTypes.func.isRequired
+        onChange: React.PropTypes.func.isRequired
     },
 
     render: function () {
-        return <div className={`value ${this.props.propertyType}`} ref={this.captureElement} onClick={this.handleClick}></div>;
+        const divClasses = 'value ' + this.props.propertyType;
+        return <div className={divClasses} ref={this.captureElement} onClick={this.handleClick}></div>;
     },
 
     captureElement(el) {
@@ -28,34 +27,24 @@ module.exports = React.createClass({
             return ed.propertyType === propertyType;
         });
 
-        this.renderFromPlugin();
+        this.componentDidUpdate();
     },
 
     componentDidUpdate: function () {
-        this.renderFromPlugin();
-    },
-
-    handleChange: function (value) {
-        this.props.onChange({
-            type: 'fixed',
-            value: value
-        });
-    },
-
-    handleClick: function (e) {
-        if (this.props.editMode) {
-            e.stopPropagation();
-        }
-    },
-
-    renderFromPlugin() {
         this.editor.render({
             element: this._element,
             value: this.props.propertyValue.value,
             editMode: this.props.editMode,
-            onChange: this.handleChange,
-            onSubmit: this.props.onSubmit,
-            onBlur: this.props.onBlur
+            onChange: this.handleChange
         });
+    },
+
+    handleChange: function (value) {
+        if (this.props.propertyValue.value !== value) {
+            this.props.onChange({
+                type: 'fixed',
+                value: value
+            });
+        }
     }
 });

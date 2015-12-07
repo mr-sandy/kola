@@ -9,9 +9,7 @@ module.exports = React.createClass({
         propertyName: React.PropTypes.string.isRequired,
         propertyType: React.PropTypes.string.isRequired,
         propertyValue: React.PropTypes.object.isRequired,
-        onChange: React.PropTypes.func.isRequired,
-        onBlur: React.PropTypes.func.isRequired,
-        onSubmit: React.PropTypes.func.isRequired
+        onChange: React.PropTypes.func.isRequired
     },
 
     render: function () {
@@ -19,7 +17,7 @@ module.exports = React.createClass({
         return this.props.editMode
             ? <div className="value">
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" value={this.props.propertyValue.key} onChange={this.handleChange} onBlur={this.props.onBlur} onClick={this.handleClick} ref={this.setFocus} />
+                    <input type="text" value={this.state.key} onChange={this.handleChange} onBlur={this.handleBlur} onClick={this.handleClick} ref={this.setFocus} />
                 </form>
             </div>
             : <div className="value">
@@ -27,25 +25,36 @@ module.exports = React.createClass({
             </div>;
     },
 
+    getInitialState: function () {
+        return { key: this.props.propertyValue.key };
+    },
+
     setFocus: function (el) {
         $(el).focus().select();
     },
 
     handleChange: function (e) {
-        this.props.onChange({
-            type: 'inherited',
-            key: e.target.value
-        });
+        this.setState({ key: e.target.value });
+    },
+
+
+    handleSubmit: function (e) {
+        e.preventDefault();
+        this.handleBlur();
+    },
+
+    handleBlur: function () {
+        if (this.props.propertyValue.key !== this.state.key) {
+            this.props.onChange({
+                type: 'inherited',
+                key: this.state.key
+            });
+        }
     },
 
     handleClick: function (e) {
         if (this.props.editMode) {
             e.stopPropagation();
         }
-    },
-
-    handleSubmit: function (e) {
-        e.preventDefault();
-        this.props.onSubmit();
     }
 });

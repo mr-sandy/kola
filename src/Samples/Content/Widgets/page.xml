@@ -3,6 +3,7 @@
   <propertySpecifications>
     <propertySpecification name="property1" type="text" />
     <propertySpecification name="property2" type="text" />
+    <propertySpecification name="text" type="text" />
   </propertySpecifications>
     <components>
     <container name="html-head">
