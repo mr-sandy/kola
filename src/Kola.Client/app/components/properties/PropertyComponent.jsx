@@ -81,9 +81,7 @@ module.exports = React.createClass({
         if (this.state.editMode) {
             this.setState({ editMode: false });
 
-            console.log('handling submit');
-
-            if (this.state.propertyValue != this.props.propertyValue) {
+            if (this.state.propertyValue !== this.props.propertyValue) {
                 this.props.onChange({
                     propertyName: this.props.propertyName,
                     propertyType: this.props.propertyType,

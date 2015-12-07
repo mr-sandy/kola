@@ -27,14 +27,14 @@
                 <atom name="artist">
                   <properties>
                     <property name="artist-id" type="text">
-                      <value xsi:type="fixed"><![CDATA[2]]></value>
+                      <value xsi:type="inherited" key="artist-id" />
                     </property>
                   </properties>
                 </atom>
                 <atom name="text">
                   <properties>
                     <property name="text" type="text">
-                      <value xsi:type="fixed"><![CDATA[hello]]></value>
+                      <value xsi:type="fixed"><![CDATA[sandy]]></value>
                     </property>
                   </properties>
                 </atom>
@@ -104,9 +104,29 @@ Unicode is supported. ☺
   </components>
   <amendments>
     <setPropertyInherited>
-      <componentPath>0/1/1/0</componentPath>
-      <propertyName>artist-id</propertyName>
+      <componentPath>0/1/1/1</componentPath>
+      <propertyName>text</propertyName>
+      <key>artistid</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/1/1</componentPath>
+      <propertyName>text</propertyName>
       <key>artist-id</key>
     </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/1/1</componentPath>
+      <propertyName>text</propertyName>
+      <key>album-id</key>
+    </setPropertyInherited>
+    <setProperty>
+      <componentPath>0/1/1/1</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[jam]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/1/1</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[hello]]></fixedValue>
+    </setProperty>
   </amendments>
 </template>

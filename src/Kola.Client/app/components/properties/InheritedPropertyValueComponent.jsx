@@ -17,14 +17,12 @@ module.exports = React.createClass({
     render: function () {
 
         return this.props.editMode
-            ?
-            <div className="value">
+            ? <div className="value">
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" value={this.props.propertyValue.key} onChange={this.handleChange} onBlur={this.props.onBlur} onClick={this.handleClick} ref={this.setFocus} />
                 </form>
             </div>
-            :
-            <div className="value">
+            : <div className="value">
                 <span>{this.props.propertyValue.key}</span>
             </div>;
     },
@@ -51,12 +49,3 @@ module.exports = React.createClass({
         this.props.onSubmit();
     }
 });
-
-//getInitialState: function () {
-//    return {
-//        propertyValue: {
-//            type: "inherited",
-//            key: this.props.propertyValue.key ? this.props.propertyValue.key : this.props.propertyName
-//        }
-//    };
-//},

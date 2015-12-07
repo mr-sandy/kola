@@ -21,11 +21,17 @@ module.exports = React.createClass({
         this._element = el;
     },
 
-    componentDidUpdate: function () {
+    componentDidMount: function () {
+        var propertyType = this.props.propertyType;
+
+        this.editor = _.find(kola.propertyEditors, function (ed) {
+            return ed.propertyType === propertyType;
+        });
+
         this.renderFromPlugin();
     },
 
-    componentDidMount: function () {
+    componentDidUpdate: function () {
         this.renderFromPlugin();
     },
 
@@ -43,12 +49,6 @@ module.exports = React.createClass({
     },
 
     renderFromPlugin() {
-        var propertyType = this.props.propertyType;
-
-        this.editor = _.find(kola.propertyEditors, function (ed) {
-            return ed.propertyType === propertyType;
-        });
-
         this.editor.render({
             element: this._element,
             value: this.props.propertyValue.value,
@@ -57,6 +57,5 @@ module.exports = React.createClass({
             onSubmit: this.props.onSubmit,
             onBlur: this.props.onBlur
         });
-
     }
 });
