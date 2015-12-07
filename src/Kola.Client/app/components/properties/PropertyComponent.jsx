@@ -47,10 +47,7 @@ module.exports = React.createClass({
     },
 
     handleClick: function () {
-        console.log('handleClick');
-        if (!this.state.editMode) {
-            this.setState({ editMode: true });
-        }
+        this.setState({ editMode: !this.state.editMode });
     },
 
     handleKeyUp: function (e) {
@@ -62,7 +59,8 @@ module.exports = React.createClass({
     handlePropertyValueChange: function (propertyValue) {
         console.log('handlePropertyValueChange');
 
-        if (this.setState.propertyValue !== propertyValue) {
+        if (this.valuesDiffer(this.props.propertyValue, propertyValue)) {
+
             this.props.onChange({
                 propertyName: this.props.propertyName,
                 propertyType: this.props.propertyType,
@@ -84,6 +82,23 @@ module.exports = React.createClass({
 
             this.setState({ propertyValue: propertyValue });
         }
+    },
+
+    valuesDiffer: function (val1, val2) {
+
+        if (val1.type !== val2.type) {
+            return true;
+        }
+        
+        if (val1.type === 'fixed' && val1.value !== val2.value) {
+            return true;
+        }
+
+        if (val1.type === 'inherited' && val1.key !== val2.key) {
+            return true;
+        }
+
+        return false
     },
 
     doCancel: function () {

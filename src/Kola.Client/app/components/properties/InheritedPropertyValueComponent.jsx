@@ -44,12 +44,12 @@ module.exports = React.createClass({
     },
 
     handleBlur: function () {
-        if (this.props.propertyValue.key !== this.state.key) {
+//        if (this.props.propertyValue.key !== this.state.key) {
             this.props.onChange({
                 type: 'inherited',
                 key: this.state.key
             });
-        }
+//        }
     },
 
     handleClick: function (e) {
