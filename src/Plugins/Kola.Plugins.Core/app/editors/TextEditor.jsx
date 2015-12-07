@@ -13,12 +13,12 @@ module.exports = React.createClass({
 
     render: function () {
         return this.props.editMode
-            ? <form onSubmit={this.handleSubmit}><input ref={this.highlightText} type="text" value={this.props.value} onChange={this.handleChange} onBlur={this.props.onBlur} /></form>
+            ? <form onSubmit={this.handleSubmit}><input type="text" ref={this.highlightText} value={this.props.value} onChange={this.handleChange} onBlur={this.props.onBlur} /></form>
             : <span>{this.props.value}</span>;
     },
 
-    highlightText: function(el){
-        $(el).focus().select();
+    highlightText: function(element){
+        $(element).focus().select();
     },
 
     handleChange: function(e){

@@ -34,7 +34,7 @@
                 <atom name="text">
                   <properties>
                     <property name="text" type="text">
-                      <value xsi:type="fixed"><![CDATA[sandy]]></value>
+                      <value xsi:type="fixed"><![CDATA[hello]]></value>
                     </property>
                   </properties>
                 </atom>
@@ -64,7 +64,7 @@
                 <atom name="markdown">
                   <properties>
                     <property name="markdown" type="markdown">
-                      <value xsi:type="fixed"><![CDATA[An big header!
+                      <value xsi:type="fixed"><![CDATA[An big header!!!
 ============
 
 Paragraphs are separated by a blank line.
@@ -104,29 +104,89 @@ Unicode is supported. ☺
   </components>
   <amendments>
     <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artistid</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artist-id</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>album-id</key>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>markdown</key>
     </setPropertyInherited>
     <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[jam]]></fixedValue>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[*add content here*
+
+]]></fixedValue>
+    </setProperty>
+    <setPropertyInherited>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>artist-id</key>
+    </setPropertyInherited>
+    <setProperty>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[badger
+]]></fixedValue>
+    </setProperty>
+    <setPropertyInherited>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>artst-id</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>artist-id</key>
+    </setPropertyInherited>
+    <setProperty>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[badgererererererers]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[you lay about the house nuthing mych to barj abooiyt]]></fixedValue>
     </setProperty>
     <setProperty>
       <componentPath>0/1/1/1</componentPath>
       <propertyName>text</propertyName>
-      <fixedValue><![CDATA[hello]]></fixedValue>
+      <fixedValue><![CDATA[asasf]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[you lay about the house nuthing mych to barj about]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[you lay about the house nuthing mych to bark about]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[you lay about the house nothing much to bark about]]></fixedValue>
+    </setProperty>
+    <setPropertyInherited>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>markdown</key>
+    </setPropertyInherited>
+    <setProperty>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[helllo
+]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[Hello
+]]></fixedValue>
     </setProperty>
   </amendments>
 </template>
