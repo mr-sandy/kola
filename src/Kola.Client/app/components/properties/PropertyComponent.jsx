@@ -1,6 +1,5 @@
 ﻿var PropertyHeaderComponent = require('app/components/properties/PropertyHeaderComponent.jsx');
 var PropertyValueComponent = require('app/components/properties/PropertyValueComponent.jsx');
-//var PropertyControlsComponent = require('app/components/properties/PropertyControlsComponent.jsx');
 var _ = require('underscore');
 var React = require('react');
 
@@ -26,7 +25,7 @@ module.exports = React.createClass({
         return (
             <div className={divClass} onClick={this.handleClick}>
                 <PropertyHeaderComponent {...childProps} onPropertyValueTypeChange={this.handlePropertyValueTypeChange} />
-                <PropertyValueComponent {...childProps} onSubmit={this.handleSubmit} ref={this.captureValueComponent} />
+                <PropertyValueComponent {...childProps} onSubmit={this.handleSubmit} onBlur={this.handlePropertyValueBlur} onChange={this.handlePropertyValueChange} />
             </div>
         );
     },
@@ -53,6 +52,16 @@ module.exports = React.createClass({
         }
     },
 
+    handlePropertyValueChange: function (propertyValue) {
+        this.setState({ propertyValue: propertyValue });
+    },
+
+    handlePropertyValueBlur: function () {
+        if (this.state.propertyValue !== this.props.propertyValue) {
+            this.handleSubmit();
+        }
+    },
+
     handlePropertyValueTypeChange: function (propertyValueType) {
         if (this.state.propertyValue.type !== propertyValueType) {
 
@@ -60,36 +69,31 @@ module.exports = React.createClass({
                 ? this.props.propertyValue
                 : { type: propertyValueType };
 
+            if (propertyValue.type === 'inherited' && !propertyValue.key) {
+                propertyValue.key = this.props.propertyName;
+            }
+
             this.setState({ propertyValue: propertyValue });
         }
     },
 
     handleSubmit: function () {
-        this.props.onChange({
-            propertyName: this.props.propertyName,
-            propertyType: this.props.propertyType,
-            propertyValue: this.valueComponent.value()
-        });
-    },
+        if (this.state.editMode) {
+            this.setState({ editMode: false });
 
-    captureValueComponent: function (c) {
-        this.valueComponent = c;
+            console.log('handling submit');
+
+            if (this.state.propertyValue != this.props.propertyValue) {
+                this.props.onChange({
+                    propertyName: this.props.propertyName,
+                    propertyType: this.props.propertyType,
+                    propertyValue: this.state.propertyValue
+                });
+            }
+        }
     }
 });
 
-//captureValueComponent: function (c) {
-//    this._valueComponent = c;
-//},
-
-//handleSubmit: function () {
-//    if (this.state.editMode) {
-//        this.props.onChange({
-//            propertyName: this.props.propertyName,
-//            propertyType: this.props.propertyType,
-//            propertyValue: this._valueComponent.value()
-//        });
-//    }
-//},
 
 //handleCancel: function () {
 //    if (this.state.editMode) {

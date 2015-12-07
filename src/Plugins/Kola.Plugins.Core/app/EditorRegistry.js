@@ -1,29 +1,18 @@
-﻿var React = require('react');
+﻿var _ = require('underscore');
+var React = require('react');
 var ReactDOM = require('react-dom');
 
 module.exports = {
     register: function(type, editor) {
+
         kola.propertyEditors.push({
             propertyType: type,
 
-            render: function(el, value, editMode, submitHandler) {
+            render: function (opts) {
 
-                var model = {
-                    value: value,
-                    editMode: editMode,
-                    onSubmit: submitHandler,
-                    ref: this.captureComponent.bind(this)
-                };
+                var props = _.pick(opts, 'value', 'editMode', 'onChange', 'onSubmit', 'onBlur');
 
-                ReactDOM.render(React.createElement(editor, model), el);
-            },
-
-            captureComponent: function(c) {
-                this._component = c;
-            },
-
-            value: function() {
-                return this._component.value();
+                ReactDOM.render(React.createElement(editor, props), opts.element);
             }
         });
     }

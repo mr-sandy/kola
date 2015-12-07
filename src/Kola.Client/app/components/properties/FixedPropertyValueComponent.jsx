@@ -1,13 +1,15 @@
 ﻿var _ = require('underscore');
-var $ = require('jquery');
 var React = require('react');
 
 module.exports = React.createClass({
 
     propTypes: {
         editMode: React.PropTypes.bool.isRequired,
+        propertyName: React.PropTypes.string.isRequired,
         propertyType: React.PropTypes.string.isRequired,
         propertyValue: React.PropTypes.object.isRequired,
+        onChange: React.PropTypes.func.isRequired,
+        onBlur: React.PropTypes.func.isRequired,
         onSubmit: React.PropTypes.func.isRequired
     },
 
@@ -19,10 +21,6 @@ module.exports = React.createClass({
         this._element = el;
     },
 
-    shouldComponentUpdate: function () {
-        return true;
-    },
-
     componentDidUpdate: function () {
         this.renderFromPlugin();
     },
@@ -31,15 +29,11 @@ module.exports = React.createClass({
         this.renderFromPlugin();
     },
 
-    handleSubmit: function () {
-        this.props.onSubmit();
-    },
-
-    value: function(){
-        return {
+    handleChange: function (value) {
+        this.props.onChange({
             type: 'fixed',
-            value: this.editor.value()
-        };
+            value: value
+        });
     },
 
     handleClick: function (e) {
@@ -55,8 +49,14 @@ module.exports = React.createClass({
             return ed.propertyType === propertyType;
         });
 
-        this.editor.render(this._element, this.props.propertyValue.value, this.props.editMode, this.handleSubmit);
+        this.editor.render({
+            element: this._element,
+            value: this.props.propertyValue.value,
+            editMode: this.props.editMode,
+            onChange: this.handleChange,
+            onSubmit: this.props.onSubmit,
+            onBlur: this.props.onBlur
+        });
 
-        $(this._element).find('input').first().focus().select();
     }
 });

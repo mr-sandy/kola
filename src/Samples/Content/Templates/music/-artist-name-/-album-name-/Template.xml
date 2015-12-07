@@ -18,19 +18,23 @@
               <components />
             </container>
             <container name="div">
-              <properties />
+              <properties>
+                <property name="classes" type="text">
+                  <value xsi:type="fixed"><![CDATA[sandy]]></value>
+                </property>
+              </properties>
               <components>
                 <atom name="artist">
                   <properties>
                     <property name="artist-id" type="text">
-                      <value xsi:type="inherited" key="artist-id" />
+                      <value xsi:type="fixed"><![CDATA[2]]></value>
                     </property>
                   </properties>
                 </atom>
                 <atom name="text">
                   <properties>
                     <property name="text" type="text">
-                      <value xsi:type="inherited" key="text" />
+                      <value xsi:type="fixed"><![CDATA[hello]]></value>
                     </property>
                   </properties>
                 </atom>
@@ -99,90 +103,10 @@ Unicode is supported. ☺
     </widget>
   </components>
   <amendments>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[as]]></fixedValue>
-    </setProperty>
-    <setPropertyInherited>
-      <componentPath>0/1/1/0</componentPath>
-      <propertyName>artist-id</propertyName>
-      <key>artist-ids</key>
-    </setPropertyInherited>
     <setPropertyInherited>
       <componentPath>0/1/1/0</componentPath>
       <propertyName>artist-id</propertyName>
       <key>artist-id</key>
     </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/0</componentPath>
-      <propertyName>artist-id</propertyName>
-      <key>artist-id</key>
-    </setPropertyInherited>
-    <setProperty>
-      <componentPath>0/1/1/0</componentPath>
-      <propertyName>artist-id</propertyName>
-      <fixedValue><![CDATA[jam]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/1/0</componentPath>
-      <propertyName>artist-id</propertyName>
-      <fixedValue><![CDATA[jam]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/1/0</componentPath>
-      <propertyName>artist-id</propertyName>
-      <fixedValue><![CDATA[1]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/1/0</componentPath>
-      <propertyName>artist-id</propertyName>
-      <fixedValue><![CDATA[1]]></fixedValue>
-    </setProperty>
-    <setPropertyInherited>
-      <componentPath>0/1/1/0</componentPath>
-      <propertyName>artist-id</propertyName>
-      <key>artist-id</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/0</componentPath>
-      <propertyName>artist-id</propertyName>
-      <key>artist-id</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>artist-id</key>
-    </setPropertyInherited>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[jam]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[jam]]></fixedValue>
-    </setProperty>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>album-id</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>album-id</key>
-    </setPropertyInherited>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/1/1</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[hello]]></fixedValue>
-    </setProperty>
   </amendments>
 </template>

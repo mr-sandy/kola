@@ -10,26 +10,16 @@ module.exports = React.createClass({
         propertyName: React.PropTypes.string.isRequired,
         propertyType: React.PropTypes.string.isRequired,
         propertyValue: React.PropTypes.object.isRequired,
+        onChange: React.PropTypes.func.isRequired,
+        onBlur: React.PropTypes.func.isRequired,
         onSubmit: React.PropTypes.func.isRequired
     },
 
     render: function () {
-        const childProps = _.omit(this.props, 'onEditModeChange');
-
         return this.props.propertyValue.type === 'fixed'
-            ? <FixedPropertyValueComponent {...childProps} ref={this.captureComponent} />
-            : <InheritedPropertyValueComponent {...childProps} ref={this.captureComponent} />;
-    },
-
-    captureComponent: function(c)
-    {
-        this.component = c;
-    },
-
-    value: function () {
-        return this.component.value();
+            ? <FixedPropertyValueComponent {...this.props} />
+            : <InheritedPropertyValueComponent {...this.props} />;
     }
-
 });
 
 

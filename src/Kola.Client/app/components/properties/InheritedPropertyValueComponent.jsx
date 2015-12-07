@@ -9,40 +9,35 @@ module.exports = React.createClass({
         propertyName: React.PropTypes.string.isRequired,
         propertyType: React.PropTypes.string.isRequired,
         propertyValue: React.PropTypes.object.isRequired,
+        onChange: React.PropTypes.func.isRequired,
+        onBlur: React.PropTypes.func.isRequired,
         onSubmit: React.PropTypes.func.isRequired
     },
 
     render: function () {
 
         return this.props.editMode
-            ? 
+            ?
             <div className="value">
                 <form onSubmit={this.handleSubmit}>
-                    <input type="text" value={this.state.key} onChange={this.handleChange} onBlur={this.handleBlur} onClick={this.handleClick} ref={this.captureInput} />
+                    <input type="text" value={this.props.propertyValue.key} onChange={this.handleChange} onBlur={this.props.onBlur} onClick={this.handleClick} ref={this.setFocus} />
                 </form>
             </div>
-            : 
+            :
             <div className="value">
-                <span>{this.state.key}</span>
+                <span>{this.props.propertyValue.key}</span>
             </div>;
     },
 
-    captureInput: function (input) {
-        $(input).focus().select();
-    },
-
-    getInitialState: function () {
-        return { key: this.props.propertyValue.key ? this.props.propertyValue.key : this.props.propertyName };
+    setFocus: function (el) {
+        $(el).focus().select();
     },
 
     handleChange: function (e) {
-        this.setState({ key: e.target.value });
-    },
-
-    handleBlur: function () {
-        if (this.props.propertyValue.key !== this.state.key) {
-            this.props.onSubmit();
-        }
+        this.props.onChange({
+            type: 'inherited',
+            key: e.target.value
+        });
     },
 
     handleClick: function (e) {
@@ -54,13 +49,14 @@ module.exports = React.createClass({
     handleSubmit: function (e) {
         e.preventDefault();
         this.props.onSubmit();
-    },
-
-    value: function () {
-        return {
-            type: 'inherited',
-            key: this.state.key
-        };
     }
 });
 
+//getInitialState: function () {
+//    return {
+//        propertyValue: {
+//            type: "inherited",
+//            key: this.props.propertyValue.key ? this.props.propertyValue.key : this.props.propertyName
+//        }
+//    };
+//},
