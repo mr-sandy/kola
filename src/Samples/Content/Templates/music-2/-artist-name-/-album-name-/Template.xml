@@ -52,9 +52,40 @@
     </container>
   </components>
   <amendments>
-    <clearProperty>
-      <componentPath>1/0/2</componentPath>
-      <propertyName>markdown</propertyName>
-    </clearProperty>
+    <reset_x0020__x0020_Property>
+      <componentPath>1/0/1</componentPath>
+      <propertyName>text</propertyName>
+    </reset_x0020__x0020_Property>
+    <setProperty>
+      <componentPath>1/0/1</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[jam]]></fixedValue>
+    </setProperty>
+    <reset_x0020__x0020_Property>
+      <componentPath>1/0/1</componentPath>
+      <propertyName>text</propertyName>
+    </reset_x0020__x0020_Property>
+    <setProperty>
+      <componentPath>1/0/1</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[ketchup]]></fixedValue>
+    </setProperty>
+    <removeComponent>
+      <componentPath>1/0/1</componentPath>
+    </removeComponent>
+    <removeComponent>
+      <componentPath>1/0/1</componentPath>
+    </removeComponent>
+    <removeComponent>
+      <componentPath>1/0/0</componentPath>
+    </removeComponent>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>1/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>1/0/1</targetPath>
+    </addComponent>
   </amendments>
 </template>

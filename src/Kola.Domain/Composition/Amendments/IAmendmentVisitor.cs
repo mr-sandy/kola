@@ -18,7 +18,7 @@
 
         void Visit(SetCommentAmendment amendment);
 
-        void Visit(ClearPropertyAmendment amendment);
+        void Visit(ResetPropertyAmendment amendment);
     }
 
     public interface IAmendmentVisitor<out T>
@@ -39,7 +39,7 @@
 
         T Visit(SetCommentAmendment amendment);
 
-        T Visit(ClearPropertyAmendment amendment);
+        T Visit(ResetPropertyAmendment amendment);
     }
 
     public interface IAmendmentVisitor<out T, in TContext>
@@ -60,6 +60,6 @@
 
         T Visit(SetCommentAmendment amendment, TContext context);
 
-        T Visit(ClearPropertyAmendment amendment, TContext context);
+        T Visit(ResetPropertyAmendment amendment, TContext context);
     }
 }

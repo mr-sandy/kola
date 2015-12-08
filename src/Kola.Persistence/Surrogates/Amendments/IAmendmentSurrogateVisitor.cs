@@ -16,6 +16,6 @@
 
         T Visit(SetPropertyInheritedAmendmentSurrogate amendment);
 
-        T Visit(ClearPropertyAmendmentSurrogate amendment);
+        T Visit(ResetPropertyAmendmentSurrogate amendment);
     }
 }

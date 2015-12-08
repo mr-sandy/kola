@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="Composition\AmendmentApplyingVisitor.cs" />
     <Compile Include="Composition\Amendments\AddComponentAmendment.cs" />
-    <Compile Include="Composition\Amendments\ClearPropertyAmendment.cs" />
+    <Compile Include="Composition\Amendments\ResetPropertyAmendment.cs" />
     <Compile Include="Composition\Amendments\DuplicateComponentAmendment.cs" />
     <Compile Include="Composition\Amendments\IAmendment.cs" />
     <Compile Include="Composition\Amendments\IAmendmentVisitor.cs" />

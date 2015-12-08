@@ -43,9 +43,9 @@
             return new SetPropertyInheritedAmendment(surrogate.ComponentPath.ParseComponentPath(), surrogate.PropertyName, surrogate.Key);
         }
 
-        public IAmendment Visit(ClearPropertyAmendmentSurrogate surrogate)
+        public IAmendment Visit(ResetPropertyAmendmentSurrogate surrogate)
         {
-            return new ClearPropertyAmendment(surrogate.ComponentPath.ParseComponentPath(), surrogate.PropertyName);
+            return new ResetPropertyAmendment(surrogate.ComponentPath.ParseComponentPath(), surrogate.PropertyName);
         }
     }
 }

@@ -98,9 +98,9 @@
             };
         }
 
-        public AmendmentResource Visit(ClearPropertyAmendment amendment, int index)
+        public AmendmentResource Visit(ResetPropertyAmendment amendment, int index)
         {
-            return new ClearPropertyAmendmentResource
+            return new ResetPropertyAmendmentResource
             {
                 Id = index,
                 ComponentPath = amendment.ComponentPath.ToComponentPathString(),

@@ -76,9 +76,9 @@
             };
         }
 
-        public AmendmentSurrogate Visit(ClearPropertyAmendment amendment)
+        public AmendmentSurrogate Visit(ResetPropertyAmendment amendment)
         {
-            return new ClearPropertyAmendmentSurrogate
+            return new ResetPropertyAmendmentSurrogate
             {
                 ComponentPath = amendment.ComponentPath.ToComponentPathString(),
                 PropertyName = amendment.PropertyName

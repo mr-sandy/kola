@@ -49,7 +49,7 @@ module.exports = Backbone.View.extend({
         var path = this.model.get('path');
 
         if (data.propertyValue === null) {
-            this.amendments.clearProperty(path, data.propertyName);
+            this.amendments.resetProperty(path, data.propertyName);
         } else {
             switch (data.propertyValue.type) {
                 case 'fixed':

@@ -6,6 +6,7 @@
     using Kola.Domain.Composition.Amendments;
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Extensions;
+    using Kola.Domain.Specifications;
 
     public class AmendmentApplyingVisitor : IAmendmentVisitor
     {
@@ -68,15 +69,6 @@
             var property = component.FindOrCreateProperty(specification.Properties.Find(amendment.PropertyName));
 
             property.Value = new FixedPropertyValue(amendment.FixedValue);
-
-            //if (string.IsNullOrEmpty(amendment.FixedValue))
-            //{
-            //    component.RemoveProperty(property);
-            //}
-            //else
-            //{
-            //    property.Value = new FixedPropertyValue(amendment.FixedValue);
-            //}
         }
 
         public void Visit(SetPropertyInheritedAmendment amendment)
@@ -102,15 +94,27 @@
             component.Comment = amendment.Comment;
         }
 
-        public void Visit(ClearPropertyAmendment amendment)
+        public void Visit(ResetPropertyAmendment amendment)
         {
             var component = this.template.FindComponentWithProperties(amendment.ComponentPath);
 
-            var property = component.Properties.Find(amendment.PropertyName);
+            var specification = this.specificationLibrary.Lookup(component.Name);
+            var propertySpecification = specification.Properties.Find(amendment.PropertyName);
 
-            if (property != null)
+            if (!string.IsNullOrEmpty(propertySpecification.DefaultValue))
             {
-                component.RemoveProperty(property);
+                var property = component.FindOrCreateProperty(propertySpecification);
+
+                property.Value = new FixedPropertyValue(propertySpecification.DefaultValue);
+            }
+            else
+            {
+                var property = component.Properties.Find(amendment.PropertyName);
+
+                if (property != null)
+                {
+                    component.RemoveProperty(property);
+                }
             }
         }
     }

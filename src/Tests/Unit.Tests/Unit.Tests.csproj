@@ -62,6 +62,7 @@
     <Compile Include="Configuration\WhenInitialisingConfiguration.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingADuplicateComponentAmendmentFollowedByAnAddComponentAmendment.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingADuplicateComponentAmendmentToCreateAContainerInAChildComponent.cs" />
+    <Compile Include="Domain\AmendmentApplyingVisitorTests\ResetProperty\WhenApplyingAResetPropertyAmendmentWhenThereIsADefaultValue.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\ContextBase.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateASecondAtomInAChildComponent.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAContainerInAChildComponent.cs" />
@@ -70,7 +71,7 @@
     <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingAnAddComponentAmendmentToCreateAnAtomInTheRoot.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\MoveComponent\WhenProcessingAMoveComponentAmendment.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\RemoveComponent\WhenProcessingARemoveComponentAmendment.cs" />
-    <Compile Include="Domain\AmendmentApplyingVisitorTests\ClearProperty\WhenApplyingAFixedPropertyAmendmentForAFixedPropertyValueWhenNoPropertyExists.cs" />
+    <Compile Include="Domain\AmendmentApplyingVisitorTests\ResetProperty\WhenApplyingAResetPropertyAmendmentWhenThereIsNoDefaultValue.cs" />
     <Compile Include="Domain\CollectionFindingComponentVisitorTests\WhenFindingATemplate.cs" />
     <Compile Include="Domain\ComponentFindingComponentVisitorTests\WhenFindingAContainerAtTheRootOfATemplate.cs" />
     <Compile Include="Domain\ComponentFindingComponentVisitorTests\WhenFindingAnAtomFromWithinAnArea.cs" />

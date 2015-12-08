@@ -16,6 +16,6 @@
 
         T Visit(SetPropertyInheritedAmendmentResource resource);
 
-        T Visit(ClearPropertyAmendmentResource resource);
+        T Visit(ResetPropertyAmendmentResource resource);
     }
 }
