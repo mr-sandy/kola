@@ -81,7 +81,6 @@
     <Content Include="app\templates\WysiwygEditorTemplate.hbs" />
     <Content Include="app\templates\WidgetTemplate.hbs" />
     <Content Include="app\templates\ToolboxTemplate.hbs" />
-    <Content Include="app\templates\PropertyTemplate.hbs" />
     <Content Include="app\templates\PropertiesTemplate.hbs" />
     <Content Include="app\templates\MaskTemplate.hbs" />
     <Content Include="app\templates\LoadingTemplate.hbs" />

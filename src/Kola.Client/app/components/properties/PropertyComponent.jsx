@@ -4,6 +4,10 @@ var _ = require('underscore');
 var $ = require('jquery');
 var React = require('react');
 
+function ResetButton(props) {
+    return <button className="reset" type="button" onClick={props.onClick}>reset</button>;
+}
+
 module.exports = React.createClass({
     propTypes: {
         onChange: React.PropTypes.func.isRequired,
@@ -27,8 +31,8 @@ module.exports = React.createClass({
             <div className={divClass} onClick={this.handleClick} onKeyUp={this.handleKeyUp}>
                 <PropertyHeaderComponent {...childProps} onChange={this.handlePropertyValueTypeChange} />
                 <PropertyValueComponent {...childProps} onChange={this.handlePropertyValueChange} />
-            </div>
-        );
+                {this.state.editMode ? <ResetButton onClick={this.handleReset} /> : false}
+            </div>);
     },
 
     componentWillMount: function () {
@@ -71,41 +75,34 @@ module.exports = React.createClass({
     },
 
     handlePropertyValueChange: function (propertyValue) {
-        this.processChangeOnce(propertyValue);
-    },
-
-
-    // TODO {SC} these two methods are a bit messy, aren't they?
-    processChange: function (propertyValue) {
         if (this.valuesDiffer(this.props.propertyValue, propertyValue)) {
-            this.props.onChange({
-                propertyName: this.props.propertyName,
-                propertyType: this.props.propertyType,
-                propertyValue: propertyValue
-            });
+            this.processChangeOnce(propertyValue);
         } else {
             this.setState({ editMode: false });
-            this.processChangeOnce = _.once(this.processChange);
         }
     },
 
+    handleReset: function () {
+        this.processChangeOnce(null);
+    },
+
+    processChange: function (propertyValue) {
+        this.props.onChange({
+            propertyName: this.props.propertyName,
+            propertyType: this.props.propertyType,
+            propertyValue: propertyValue
+        });
+    },
+
     handlePropertyValueTypeChange: function (propertyValueType) {
-        
+
         if (!this.state.propertyValue || this.state.propertyValue.type !== propertyValueType) {
 
-            if (propertyValueType === '') {
-                this.props.onChange({
-                    propertyName: this.props.propertyName,
-                    propertyType: this.props.propertyType,
-                    propertyValue: null
-                });
-            } else {
-                const propertyValue = this.props.propertyValue && propertyValueType === this.props.propertyValue.type
-                    ? this.props.propertyValue
-                    : { type: propertyValueType };
+            const propertyValue = this.props.propertyValue && propertyValueType === this.props.propertyValue.type
+                ? this.props.propertyValue
+                : { type: propertyValueType };
 
-                this.setState({ propertyValue: propertyValue });
-            }
+            this.setState({ propertyValue: propertyValue });
         }
     },
 

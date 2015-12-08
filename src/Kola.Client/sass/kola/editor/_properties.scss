@@ -13,11 +13,17 @@
             border-radius: 4px;
             @include transition(background-color 75ms);
 
+            &.editMode {
+                background-color: #777;
+                cursor: default;
+            }
+
             .chrome {
                 cursor: pointer;
 
                 .name {
                     text-transform: capitalize;
+                    line-height: 16px;
                 }
 
                 .propertyValueType {
@@ -82,48 +88,18 @@
                 }
             }
 
-            .controls {
-                padding: 8px 0px;
-                display: none;
+            button.reset {
+                background-color: #ccc;
+                border-radius: 2px;
+                margin-top: 8px;
+                padding: 2px 6px;
+                @include transition(background-color 75ms);
 
-                button {
-                    float: right;
-                    background-color: transparent;
-                    color: #ddd;
-                    padding: 2px;
-
-                    &.submit {
-                        color: #9e9;
-                    }
-
-                    &:hover {
-                        color: #fff;
-                    }
-
-                    &:first-child {
-                        margin-left: 4px;
-                    }
-                }
-            }
-
-            &.editMode {
-                background-color: #777;
-                cursor: default;
-
-                .chrome {
-                    .valueType {
-                        button {
-                            display: inline;
-                        }
-                    }
-                }
-
-                .controls {
-                    display: block;
+                &:hover {
+                    background-color: #ddd;
                 }
             }
         }
-
 
         .property-group {
             .items {

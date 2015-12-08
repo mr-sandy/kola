@@ -21,12 +21,11 @@ module.exports = React.createClass({
 
         return (
             <div className="chrome clearfix">
-                    <span className="name">{this.props.propertyName}</span>
-                    <select className="propertyValueType" value={propertyValueType} onClick={this.handleClick} onChange={this.handleChange}>
-                        <option value=""></option>
-                        <option value="fixed">fixed</option>
-                        <option value="inherited">inherited</option>
-                    </select>
+                <span className="name">{this.props.propertyName}</span>
+                <select className="propertyValueType" value={propertyValueType} onClick={this.handleClick} onChange={this.handleChange}>
+                    <option value="fixed">fixed</option>
+                    <option value="inherited">inherited</option>
+                </select>
             </div>
         );
     },
