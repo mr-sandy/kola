@@ -3,7 +3,7 @@ var InheritedPropertyValueComponent = require('app/components/properties/Inherit
 var React = require('react');
 
 function Unset(props) {
-    const divClasses = 'value unnsett ' + props.propertyType;
+    const divClasses = 'value ' + props.propertyType;
     return <div className={divClasses}></div>;
 }
 
@@ -16,8 +16,6 @@ module.exports = React.createClass({
         propertyValue: React.PropTypes.object,
         onChange: React.PropTypes.func.isRequired
     },
-
-
 
     render: function () {
         const propertyValueType = this.props.propertyValue ? this.props.propertyValue.type : '';

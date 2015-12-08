@@ -12,18 +12,14 @@
             this.DefaultValue = defaultValue;
         }
 
-        public string Name { get; private set; }
+        public string Name { get; }
 
-        public string Type { get; private set; }
+        public string Type { get; }
 
-        public string DefaultValue { get; private set; }
+        public string DefaultValue { get; }
 
-        public Property Create()
+        public Property Create(IPropertyValue value = null)
         {
-            var value = !string.IsNullOrEmpty(this.DefaultValue) 
-                ? new FixedPropertyValue(this.DefaultValue)
-                : null;
-
             return new Property(this.Name, this.Type, value);
         }
     }

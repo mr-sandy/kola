@@ -4,6 +4,7 @@
     using System.Linq;
 
     using Kola.Domain.Composition;
+    using Kola.Domain.Composition.PropertyValues;
 
     public abstract class ComponentSpecification<T> : IComponentSpecification<T>
         where T : IComponentWithProperties
@@ -38,7 +39,7 @@
 
         protected IEnumerable<Property> CreateDefaultProperties()
         {
-            return this.Properties.Where(p => !string.IsNullOrWhiteSpace(p.DefaultValue)).Select(p => p.Create()).ToList();
+            return this.Properties.Where(p => !string.IsNullOrWhiteSpace(p.DefaultValue)).Select(p => p.Create(new FixedPropertyValue(p.DefaultValue))).ToList();
         }
     }
 }
