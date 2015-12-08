@@ -9,7 +9,7 @@ module.exports = React.createClass({
         onChange: React.PropTypes.func.isRequired,
         propertyName: React.PropTypes.string.isRequired,
         propertyType: React.PropTypes.string.isRequired,
-        propertyValue: React.PropTypes.object.isRequired
+        propertyValue: React.PropTypes.object
     },
 
     render: function () {

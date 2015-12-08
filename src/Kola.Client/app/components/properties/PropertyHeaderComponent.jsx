@@ -7,7 +7,7 @@ module.exports = React.createClass({
     propTypes: {
         editMode: React.PropTypes.bool.isRequired,
         propertyName: React.PropTypes.string.isRequired,
-        propertyValue: React.PropTypes.object.isRequired,
+        propertyValue: React.PropTypes.object,
         onChange: React.PropTypes.func.isRequired
     },
 
