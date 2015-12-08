@@ -30,7 +30,7 @@ module.exports = React.createClass({
         return (
             <div className={divClass} onClick={this.handleClick} onKeyUp={this.handleKeyUp}>
                 <PropertyHeaderComponent {...childProps} onChange={this.handlePropertyValueTypeChange} />
-                <PropertyValueComponent {...childProps} onChange={this.handlePropertyValueChange} />
+                <PropertyValueComponent {...childProps} onChange={this.handlePropertyValueChange} onCancel={this.handleCancel} />
                 {this.state.editMode ? <ResetButton onClick={this.handleReset} /> : false}
             </div>);
     },
@@ -70,7 +70,7 @@ module.exports = React.createClass({
 
     handleKeyUp: function (e) {
         if (e.which === 27) {
-            this.doCancel();
+            this.handleCancel();
         }
     },
 
@@ -106,7 +106,7 @@ module.exports = React.createClass({
         }
     },
 
-    doCancel: function () {
+    handleCancel: function () {
         if (this.state.editMode) {
             this.setState({
                 editMode: false,

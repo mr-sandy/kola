@@ -13,11 +13,11 @@
         </atom>
         <atom name="html-style">
           <properties>
-            <property name="type" type="html-style-type">
-              <value xsi:type="fixed"><![CDATA[text/css]]></value>
-            </property>
             <property name="cache-buster" type="text">
               <value xsi:type="fixed"><![CDATA[afsasasf]]></value>
+            </property>
+            <property name="type" type="html-style-type">
+              <value xsi:type="fixed"><![CDATA[text/css]]></value>
             </property>
           </properties>
         </atom>
@@ -33,137 +33,67 @@
         <container name="div">
           <properties />
           <components>
-            <atom name="text">
-              <properties />
-            </atom>
-            <atom name="markdown">
+            <atom name="artist">
               <properties>
-                <property name="markdown" type="markdown">
-                  <value xsi:type="fixed"><![CDATA[*add content here*]]></value>
+                <property name="artist-id" type="text">
+                  <value xsi:type="inherited" key="artist-id" />
                 </property>
               </properties>
             </atom>
-            <widget name="container">
+            <atom name="album">
               <properties>
-                <property name="header-text" type="markdown">
-                  <value xsi:type="fixed"><![CDATA[###Header Text]]></value>
+                <property name="album-id" type="text">
+                  <value xsi:type="inherited" key="album-id" />
                 </property>
               </properties>
-              <areas>
-                <area name="bits">
-                  <components>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[*add content here*]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                    <atom name="text">
-                      <properties>
-                        <property name="text" type="text">
-                          <value xsi:type="fixed"><![CDATA[]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="inherited" key="header-text" />
-                        </property>
-                      </properties>
-                    </atom>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="inherited" key="header-text" />
-                        </property>
-                      </properties>
-                    </atom>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="inherited" key="header-text" />
-                        </property>
-                      </properties>
-                    </atom>
-                  </components>
-                </area>
-              </areas>
-            </widget>
+            </atom>
+          </components>
+        </container>
+        <container name="div">
+          <properties />
+          <components>
+            <atom name="artist">
+              <properties>
+                <property name="artist-id" type="text">
+                  <value xsi:type="inherited" key="artist-id" />
+                </property>
+              </properties>
+            </atom>
+            <atom name="album">
+              <properties>
+                <property name="album-id" type="text">
+                  <value xsi:type="inherited" key="album-id" />
+                </property>
+              </properties>
+            </atom>
           </components>
         </container>
       </components>
     </container>
   </components>
   <amendments>
+    <addComponent>
+      <componentType>container</componentType>
+      <targetPath>1/1/2</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>1/1/2/0/0</targetPath>
+    </addComponent>
+    <setPropertyInherited>
+      <componentPath>1/1/2/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>header-text</key>
+    </setPropertyInherited>
     <setProperty>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
+      <componentPath>1/1/2</componentPath>
+      <propertyName>header-text</propertyName>
+      <fixedValue><![CDATA[###Trampolines]]></fixedValue>
     </setProperty>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-    </reset_x0020__x0020_Property>
     <setProperty>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
-    </setProperty>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-    </reset_x0020__x0020_Property>
-    <setProperty>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
-    </setProperty>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-    </reset_x0020__x0020_Property>
-    <setProperty>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
-    </setProperty>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-    </reset_x0020__x0020_Property>
-    <setProperty>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[jam]]></fixedValue>
-    </setProperty>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-    </reset_x0020__x0020_Property>
-    <setProperty>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[jam]]></fixedValue>
-    </setProperty>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-    </reset_x0020__x0020_Property>
-    <setProperty>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
-    </setProperty>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-    </reset_x0020__x0020_Property>
-    <setProperty>
-      <componentPath>1/0/0</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
+      <componentPath>1/1/2</componentPath>
+      <propertyName>header-text</propertyName>
+      <fixedValue><![CDATA[#Trampolines]]></fixedValue>
     </setProperty>
   </amendments>
 </template>

@@ -14,7 +14,8 @@ module.exports = React.createClass({
         propertyName: React.PropTypes.string.isRequired,
         propertyType: React.PropTypes.string.isRequired,
         propertyValue: React.PropTypes.object,
-        onChange: React.PropTypes.func.isRequired
+        onChange: React.PropTypes.func.isRequired,
+        onCancel: React.PropTypes.func.isRequired
     },
 
     render: function () {

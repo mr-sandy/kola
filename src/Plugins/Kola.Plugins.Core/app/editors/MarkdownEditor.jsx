@@ -6,14 +6,15 @@ module.exports = React.createClass({
     propTypes: {
         editMode: React.PropTypes.bool.isRequired,
         value: React.PropTypes.string,
-        onChange: React.PropTypes.func.isRequired
+        onChange: React.PropTypes.func.isRequired,
+        onCancel: React.PropTypes.func.isRequired
     },
 
 
     render: function () {
         return this.props.editMode
             ? this.renderEditMode()
-            : <span onMouseUp={this.handleOpen}>{this.props.value}</span>;
+            : <span onMouseUp={this.handleExpand}>{this.props.value}</span>;
     },
 
     renderEditMode: function () {
@@ -21,7 +22,7 @@ module.exports = React.createClass({
 
         return (
         <form>
-            <span onClick={this.handleOpen}>{this.props.value}</span>
+            <span onClick={this.handleExpand}>{this.props.value}</span>
             <div className={modalClass}>
                 <div className="chrome">
                     <span>Markdown</span>
@@ -30,7 +31,7 @@ module.exports = React.createClass({
                     <textarea rows="20" ref={this.highlightText} value={this.state.value} onChange={this.handleChange}></textarea>
                 </div>
                 <div className="controls">
-                    <button type="button" className="cancel" value="cancel" onClick={this.handleClose}>Cancel</button>
+                    <button type="button" className="cancel" value="cancel" onClick={this.handleCancel}>Cancel</button>
                     <button type="button" value="Ok" onClick={this.handleSubmit}>Ok</button>
                 </div>
             </div>
@@ -48,12 +49,13 @@ module.exports = React.createClass({
         $(element).focus().select();
     },
 
-    handleOpen: function () {
+    handleExpand: function () {
         this.setState({ expanded: true });
     },
 
-    handleClose: function () {
+    handleCancel: function () {
         this.setState({ expanded: false });
+        this.props.onCancel();
     },
 
     handleChange: function (e) {
@@ -62,6 +64,7 @@ module.exports = React.createClass({
 
     handleSubmit: function (e) {
         e.preventDefault();
+        this.setState({ expanded: false });
         this.props.onChange(this.state.value);
     }
 });

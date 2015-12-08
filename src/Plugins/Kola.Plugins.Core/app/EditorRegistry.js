@@ -10,7 +10,7 @@ module.exports = {
 
             render: function (opts) {
 
-                var props = _.pick(opts, 'value', 'editMode', 'onChange');
+                var props = _.pick(opts, 'value', 'editMode', 'onChange', 'onCancel');
 
                 ReactDOM.render(React.createElement(editor, props), opts.element);
             }

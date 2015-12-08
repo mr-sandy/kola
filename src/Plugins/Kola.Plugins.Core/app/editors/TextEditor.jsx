@@ -16,7 +16,7 @@ module.exports = React.createClass({
     },
 
     getInitialState: function () {
-        return { value: this.props.value ? this.props.value : '' };
+        return { value: this.props.value };
     },
 
     highlightText: function (element) {
@@ -40,6 +40,6 @@ module.exports = React.createClass({
     },
 
     doChange: function(){
-        this.props.onChange(this.state.value);
+        this.props.onChange(this.state.value ? this.state.value : '');
     }
 });
