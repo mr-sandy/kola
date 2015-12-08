@@ -26,7 +26,7 @@ module.exports = React.createClass({
     },
 
     getInitialState: function () {
-        return { key: this.props.propertyValue.key };
+        return { key: this.props.propertyValue.key ? this.props.propertyValue.key : this.props.propertyName };
     },
 
     setFocus: function (el) {
@@ -44,16 +44,17 @@ module.exports = React.createClass({
     },
 
     handleBlur: function () {
-        if (this.props.propertyValue.key !== this.state.key) {
+        const key = this.state.key ? this.state.key : '';
+        if (this.props.propertyValue.key !== key) {
             this.doSubmit();
         }
     },
 
-
     doSubmit: function() {
+        const key = this.state.key ? this.state.key : '';
         this.props.onChange({
             type: 'inherited',
-            key: this.state.key
+            key: key
         });
     },
 

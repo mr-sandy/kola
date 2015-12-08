@@ -40,15 +40,10 @@ module.exports = React.createClass({
     },
 
     handleChange: function (value) {
-
-        //value = value ? value : '';
-
-        //if (this.props.propertyValue.value !== value) {
-            this.props.onChange({
-                type: 'fixed',
-                value: value
-            });
-        //}
+        this.props.onChange({
+            type: 'fixed',
+            value: value
+        });
     },
 
     handleClick: function (e) {

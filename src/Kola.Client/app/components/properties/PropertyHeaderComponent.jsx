@@ -11,7 +11,6 @@ module.exports = React.createClass({
         onChange: React.PropTypes.func.isRequired
     },
 
-
     render: function () {
         const childProps = _.pick(this.props, 'editMode', 'propertyValue', 'onChange');
 

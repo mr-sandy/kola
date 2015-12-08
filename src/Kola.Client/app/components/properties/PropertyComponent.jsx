@@ -32,7 +32,7 @@ module.exports = React.createClass({
     },
 
     componentWillMount: function () {
-        this.processChange = _.once(this.processChange);
+        this.processChangeOnce = _.once(this.processChange);
     },
 
     componentDidMount: function () {
@@ -51,7 +51,9 @@ module.exports = React.createClass({
     },
 
     handleClick: function () {
-        this.setState({ editMode: !this.state.editMode });
+        if (!this.state.editMode) {
+            this.setState({ editMode: !this.state.editMode });
+        }
     },
 
     handleKeyUp: function (e) {
@@ -61,19 +63,20 @@ module.exports = React.createClass({
     },
 
     handlePropertyValueChange: function (propertyValue) {
-        console.log('handlePropertyValueChange');
-
-        if (true || this.valuesDiffer(this.props.propertyValue, propertyValue)) {
-            this.processChange(propertyValue);
-        }
+        this.processChangeOnce(propertyValue);
     },
 
     processChange: function (propertyValue) {
-        this.props.onChange({
-            propertyName: this.props.propertyName,
-            propertyType: this.props.propertyType,
-            propertyValue: propertyValue
-        });
+        if (this.valuesDiffer(this.props.propertyValue, propertyValue)) {
+            this.props.onChange({
+                propertyName: this.props.propertyName,
+                propertyType: this.props.propertyType,
+                propertyValue: propertyValue
+            });
+        } else {
+            this.setState({ editMode: false });
+            this.processChangeOnce = _.once(this.processChange);
+        }
     },
 
     handlePropertyValueTypeChange: function (propertyValueType) {
@@ -83,11 +86,16 @@ module.exports = React.createClass({
                 ? this.props.propertyValue
                 : { type: propertyValueType };
 
-            if (propertyValue.type === 'inherited' && !propertyValue.key) {
-                propertyValue.key = this.props.propertyName;
-            }
-
             this.setState({ propertyValue: propertyValue });
+        }
+    },
+
+    doCancel: function () {
+        if (this.state.editMode) {
+            this.setState({
+                editMode: false,
+                propertyValue: this.props.propertyValue
+            });
         }
     },
 
@@ -105,15 +113,6 @@ module.exports = React.createClass({
             return true;
         }
 
-        return false
-    },
-
-    doCancel: function () {
-        if (this.state.editMode) {
-            this.setState({
-                editMode: false,
-                propertyValue: this.props.propertyValue
-            });
-        }
+        return false;
     }
 });
