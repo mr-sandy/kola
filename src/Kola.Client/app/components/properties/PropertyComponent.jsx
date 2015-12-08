@@ -52,7 +52,15 @@ module.exports = React.createClass({
 
     handleClick: function () {
         if (!this.state.editMode) {
-            this.setState({ editMode: !this.state.editMode });
+
+            var propertyValue = this.state.propertyValue
+                ? this.state.propertyValue
+                : { type: 'fixed' };
+
+            this.setState({
+                editMode: !this.state.editMode,
+                propertyValue: propertyValue
+            });
         }
     },
 
@@ -67,7 +75,7 @@ module.exports = React.createClass({
     },
 
 
-    // TODO {SC} these two methods are a bit messy, aren't they
+    // TODO {SC} these two methods are a bit messy, aren't they?
     processChange: function (propertyValue) {
         if (this.valuesDiffer(this.props.propertyValue, propertyValue)) {
             this.props.onChange({

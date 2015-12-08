@@ -13,11 +13,14 @@
         </atom>
         <atom name="html-style">
           <properties>
-            <property name="type" type="html-style-type">
-              <value xsi:type="fixed"><![CDATA[text/css]]></value>
-            </property>
             <property name="cache-buster" type="text">
-              <value xsi:type="fixed"><![CDATA[afsasasf]]></value>
+              <value xsi:type="inherited" key="artist-id" />
+            </property>
+            <property name="media" type="text">
+              <value xsi:type="fixed"><![CDATA[asfasf]]></value>
+            </property>
+            <property name="type" type="html-style-type">
+              <value xsi:type="inherited" key="type" />
             </property>
           </properties>
         </atom>
@@ -30,19 +33,9 @@
           <properties />
           <components>
             <atom name="markdown">
-              <properties />
-            </atom>
-            <atom name="text">
-              <properties>
-                <property name="text" type="text">
-                  <value xsi:type="fixed"><![CDATA[asfasf]]></value>
-                </property>
-              </properties>
-            </atom>
-            <atom name="markdown">
               <properties>
                 <property name="markdown" type="markdown">
-                  <value xsi:type="fixed"><![CDATA[]]></value>
+                  <value xsi:type="fixed"><![CDATA[*add content here*asf]]></value>
                 </property>
               </properties>
             </atom>
@@ -53,8 +46,42 @@
   </components>
   <amendments>
     <clearProperty>
-      <componentPath>1/0/2</componentPath>
-      <propertyName>markdown</propertyName>
+      <componentPath>0/1</componentPath>
+      <propertyName>media</propertyName>
     </clearProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>cache-buster</propertyName>
+      <fixedValue><![CDATA[Nov2015]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/0</componentPath>
+      <propertyName>classes</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/0</componentPath>
+      <propertyName>classes</propertyName>
+      <fixedValue><![CDATA[the calsses]]></fixedValue>
+    </setProperty>
+    <setPropertyInherited>
+      <componentPath>1/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>classes</key>
+    </setPropertyInherited>
+    <clearProperty>
+      <componentPath>1/0</componentPath>
+      <propertyName>classes</propertyName>
+    </clearProperty>
+    <setProperty>
+      <componentPath>1</componentPath>
+      <propertyName>classes</propertyName>
+      <fixedValue><![CDATA[hello there!]]></fixedValue>
+    </setProperty>
   </amendments>
 </template>

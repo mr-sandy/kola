@@ -1,9 +1,6 @@
 ﻿namespace Kola.Domain.Specifications
 {
-    using System.Linq;
-
     using Kola.Domain.Composition;
-    using Kola.Domain.Composition.PropertyValues;
 
     public class ContainerSpecification : PluginComponentSpecification<Container>
     {

@@ -1,6 +1,4 @@
-﻿var PropertyValueTypeComponent = require('app/components/properties/PropertyValueTypeComponent.jsx');
-var _ = require('underscore');
-var React = require('react');
+﻿var React = require('react');
 
 module.exports = React.createClass({
 
@@ -12,14 +10,44 @@ module.exports = React.createClass({
     },
 
     render: function () {
-        const childProps = _.pick(this.props, 'editMode', 'propertyValue', 'onChange');
+
+        return this.props.editMode
+            ? this.renderEditMode()
+            : this.renderReadOnlyMode();
+    },
+
+    renderEditMode: function () {
+        const propertyValueType = this.props.propertyValue ? this.props.propertyValue.type : '';
+
+        return (
+            <div className="chrome clearfix">
+                    <span className="name">{this.props.propertyName}</span>
+                    <select className="propertyValueType" value={propertyValueType} onClick={this.handleClick} onChange={this.handleChange}>
+                        <option value=""></option>
+                        <option value="fixed">fixed</option>
+                        <option value="inherited">inherited</option>
+                    </select>
+            </div>
+        );
+    },
+
+    renderReadOnlyMode: function () {
+        const propertyValueType = this.props.propertyValue ? this.props.propertyValue.type : 'unset';
 
         return (
                 <div className="chrome clearfix">
                     <span className="name">{this.props.propertyName}</span>
-                    <PropertyValueTypeComponent {...childProps} />
+                    <span className="propertyValueType">{propertyValueType}</span>
                 </div>
             );
+    },
+
+    handleChange: function (e) {
+        this.props.onChange(e.target.value);
+    },
+
+    handleClick: function (e) {
+        e.stopPropagation();
     }
 });
 

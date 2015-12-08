@@ -23,12 +23,9 @@
             }
         }
 
-        public string Name { get; private set; }
+        public string Name { get; }
 
-        public IEnumerable<Property> Properties
-        {
-            get { return this.properties; }
-        }
+        public IEnumerable<Property> Properties => this.properties;
 
         public string Comment { get; set; }
 
