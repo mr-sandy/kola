@@ -41,11 +41,13 @@ module.exports = Backbone.HypermediaModel.extend({
         return $.when(fetches);
     },
 
-    select: function (componentUrl) {
+    selectComponent: function (componentUrl) {
 
-        var componentPath = componentUrl ? _.without(componentUrl.split('/'), '') : [];
-        var component = this.findChild(this, componentPath);
-        component.select();
+        if (componentUrl) {
+            var componentPath = _.without(componentUrl.split('/'), '');
+            var component = this.findChild(this, componentPath);
+            component.select();
+        }
     },
 
     findChild: function (candidate, componentPath) {

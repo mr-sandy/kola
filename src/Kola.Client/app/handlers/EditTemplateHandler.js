@@ -21,14 +21,14 @@ module.exports = {
                 var affected = amendment.get('affected');
                 var subject = amendment.get('subject');
 
-                template.refresh(affected).then(setTimeout(function () { template.select(subject); }, 200));
+                template.refresh(affected).then(setTimeout(function () { template.selectComponent(subject); }, 200));
             });
 
             template.listenTo(template.amendments, 'undo', function (undoResponse) {
                 var affected = undoResponse.get('affected');
                 var subject = undoResponse.get('subject');
 
-                template.refresh(affected).then(setTimeout(function () { template.select(subject); }, 200));
+                template.refresh(affected).then(setTimeout(function () { template.selectComponent(subject); }, 200));
             });
 
             d.resolve(new EditTemplateView({

@@ -70,6 +70,7 @@
     <None Include=".babelrc" />
     <None Include="app.config" />
     <None Include="app\editors\HtmlStyleTypeEditor.jsx" />
+    <None Include="app\editors\MultilineTextEditor.jsx" />
     <None Include="app\editors\TextEditor.jsx" />
     <None Include="app\editors\MarkdownEditor.jsx" />
     <None Include="package.json" />
