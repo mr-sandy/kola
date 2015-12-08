@@ -63,7 +63,7 @@ module.exports = React.createClass({
     handlePropertyValueChange: function (propertyValue) {
         console.log('handlePropertyValueChange');
 
-        if (this.valuesDiffer(this.props.propertyValue, propertyValue)) {
+        if (true || this.valuesDiffer(this.props.propertyValue, propertyValue)) {
             this.processChange(propertyValue);
         }
     },

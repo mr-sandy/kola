@@ -40,16 +40,21 @@ module.exports = React.createClass({
 
     handleSubmit: function (e) {
         e.preventDefault();
-        this.handleBlur();
+        this.doSubmit();
     },
 
     handleBlur: function () {
-//        if (this.props.propertyValue.key !== this.state.key) {
-            this.props.onChange({
-                type: 'inherited',
-                key: this.state.key
-            });
-//        }
+        if (this.props.propertyValue.key !== this.state.key) {
+            this.doSubmit();
+        }
+    },
+
+
+    doSubmit: function() {
+        this.props.onChange({
+            type: 'inherited',
+            key: this.state.key
+        });
     },
 
     handleClick: function (e) {

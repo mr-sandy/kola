@@ -29,10 +29,17 @@ module.exports = React.createClass({
 
     handleSubmit: function (e) {
         e.preventDefault();
-        this.handleBlur();
+        this.doChange();
     },
 
     handleBlur: function () {
+        if (this.props.value != this.state.value)
+        {
+            this.doChange();
+        }
+    },
+
+    doChange: function(){
         this.props.onChange(this.state.value);
     }
 });

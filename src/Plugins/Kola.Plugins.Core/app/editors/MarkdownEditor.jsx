@@ -13,7 +13,7 @@ module.exports = React.createClass({
     render: function () {
         return this.props.editMode
             ? this.renderEditMode()
-            : <span>{this.props.value}</span>;
+            : <span onMouseUp={this.handleOpen}>{this.props.value}</span>;
     },
 
     renderEditMode: function () {
@@ -39,7 +39,7 @@ module.exports = React.createClass({
 
     getInitialState: function () {
         return {
-            expanded: true,
+            expanded: false,
             value: this.props.value
         };
     },

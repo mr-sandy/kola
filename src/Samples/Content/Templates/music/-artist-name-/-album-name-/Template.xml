@@ -52,12 +52,19 @@
                 <atom name="text">
                   <properties>
                     <property name="text" type="text">
-                      <value xsi:type="fixed"><![CDATA[banjo!]]></value>
+                      <value xsi:type="inherited" key="text" />
                     </property>
                   </properties>
                 </atom>
               </components>
             </container>
+            <atom name="markdown">
+              <properties>
+                <property name="markdown" type="markdown">
+                  <value xsi:type="fixed"><![CDATA[*add content here*]]></value>
+                </property>
+              </properties>
+            </atom>
             <container name="div">
               <properties>
                 <property name="classes" type="text">
@@ -68,7 +75,14 @@
                 <atom name="markdown">
                   <properties>
                     <property name="markdown" type="markdown">
-                      <value xsi:type="inherited" key="markdown" />
+                      <value xsi:type="inherited" key="text" />
+                    </property>
+                  </properties>
+                </atom>
+                <atom name="markdown">
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="inherited" key="artist-id" />
                     </property>
                   </properties>
                 </atom>
@@ -83,15 +97,82 @@
     </widget>
   </components>
   <amendments>
+    <setPropertyInherited>
+      <componentPath>0/1/3/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>album-id</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/3/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>album-id</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/3/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>album-id</key>
+    </setPropertyInherited>
     <setProperty>
-      <componentPath>0/1/2/0</componentPath>
+      <componentPath>0/1/3/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/3/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[badger!
+]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/3/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#badger!
+]]></fixedValue>
+    </setProperty>
+    <setPropertyInherited>
+      <componentPath>0/1/3/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>text</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/3/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>albu,-id</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/3/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>album-id</key>
+    </setPropertyInherited>
+    <setProperty>
+      <componentPath>0/1/3/1</componentPath>
       <propertyName>markdown</propertyName>
       <fixedValue><![CDATA[jam]]></fixedValue>
     </setProperty>
     <setProperty>
-      <componentPath>0/1/2/0</componentPath>
+      <componentPath>0/1/3/1</componentPath>
       <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[jam oh dear]]></fixedValue>
+      <fixedValue><![CDATA[]]></fixedValue>
     </setProperty>
+    <setProperty>
+      <componentPath>0/1/3/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[*add content here*]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/3/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[*add content here*]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/3/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[*add content here*]]></fixedValue>
+    </setProperty>
+    <setPropertyInherited>
+      <componentPath>0/1/3/1</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>markdown</key>
+    </setPropertyInherited>
   </amendments>
 </template>
