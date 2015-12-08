@@ -4,17 +4,20 @@ module.exports = React.createClass({
 
     propTypes: {
         editMode: React.PropTypes.bool.isRequired,
-        propertyValue: React.PropTypes.object.isRequired,
+        propertyValue: React.PropTypes.object,
         onChange: React.PropTypes.func.isRequired
     },
 
     render: function () {
+        const propertyValueType = this.props.propertyValue ? this.props.propertyValue.type : 'unset';
+
         return this.props.editMode
-            ? <select className="propertyValueType" value={this.props.propertyValue.type} onClick={this.handleClick} onChange={this.handleChange}>
+            ? <select className="propertyValueType" value={propertyValueType} onClick={this.handleClick} onChange={this.handleChange}>
+                <option value=""></option>
                 <option value="fixed">fixed</option>
                 <option value="inherited">inherited</option>
             </select>
-            : <span className="propertyValueType">{this.props.propertyValue.type}</span>;
+            : <span className="propertyValueType">{propertyValueType}</span>;
     },
 
     handleChange: function (e) {

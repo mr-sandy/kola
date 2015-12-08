@@ -42,5 +42,10 @@
         {
             return new SetPropertyInheritedAmendment(resource.ComponentPath.ParseComponentPath(), resource.PropertyName, resource.Key);
         }
+
+        public IAmendment Visit(ClearPropertyAmendmentResource resource)
+        {
+            return new ClearPropertyAmendment(resource.ComponentPath.ParseComponentPath(), resource.PropertyName);
+        }
     }
 }

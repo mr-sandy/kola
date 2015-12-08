@@ -69,6 +69,7 @@
     <Compile Include="SurrogateBuilding\TemplateSurrogateBuilder.cs" />
     <Compile Include="Surrogates\Amendments\AddComponentAmendmentSurrogate.cs" />
     <Compile Include="Surrogates\Amendments\AmendmentSurrogate.cs" />
+    <Compile Include="Surrogates\Amendments\ClearPropertyAmendmentSurrogate.cs" />
     <Compile Include="Surrogates\Amendments\DuplicateComponentAmendmentSurrogate.cs" />
     <Compile Include="Surrogates\Amendments\IAmendmentSurrogateVisitor.cs" />
     <Compile Include="Surrogates\Amendments\MoveComponentAmendmentSurrogate.cs" />

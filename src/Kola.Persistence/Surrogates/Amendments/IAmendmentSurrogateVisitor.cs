@@ -15,5 +15,7 @@
         T Visit(SetCommentAmendmentSurrogate amendment);
 
         T Visit(SetPropertyInheritedAmendmentSurrogate amendment);
+
+        T Visit(ClearPropertyAmendmentSurrogate amendment);
     }
 }

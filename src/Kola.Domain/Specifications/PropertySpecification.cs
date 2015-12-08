@@ -20,9 +20,9 @@
 
         public Property Create()
         {
-            var value = string.IsNullOrEmpty(this.DefaultValue) 
-                ? new FixedPropertyValue(string.Empty)
-                : new FixedPropertyValue(this.DefaultValue);
+            var value = !string.IsNullOrEmpty(this.DefaultValue) 
+                ? new FixedPropertyValue(this.DefaultValue)
+                : null;
 
             return new Property(this.Name, this.Type, value);
         }

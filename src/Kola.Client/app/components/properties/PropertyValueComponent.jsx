@@ -1,7 +1,11 @@
 ﻿var FixedPropertyValueComponent = require('app/components/properties/FixedPropertyValueComponent.jsx');
 var InheritedPropertyValueComponent = require('app/components/properties/InheritedPropertyValueComponent.jsx');
-var _ = require('underscore');
 var React = require('react');
+
+function Unset(props) {
+    const divClasses = 'value unnsett ' + props.propertyType;
+    return <div className={divClasses}></div>;
+}
 
 module.exports = React.createClass({
 
@@ -13,12 +17,20 @@ module.exports = React.createClass({
         onChange: React.PropTypes.func.isRequired
     },
 
+
+
     render: function () {
-        return this.props.propertyValue.type === 'fixed'
-            ? <FixedPropertyValueComponent {...this.props} />
-            : <InheritedPropertyValueComponent {...this.props} />;
+        const propertyValueType = this.props.propertyValue ? this.props.propertyValue.type : '';
+
+        switch (propertyValueType) {
+            case 'inherited':
+                return <InheritedPropertyValueComponent {...this.props} />;
+
+            case 'fixed':
+                return <FixedPropertyValueComponent {...this.props} />;
+
+            default:
+                return <Unset />;
+        };
     }
 });
-
-
-

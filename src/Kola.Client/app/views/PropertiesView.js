@@ -46,16 +46,19 @@ module.exports = Backbone.View.extend({
     },
 
     handlePropertyChange: function (data) {
-
         var path = this.model.get('path');
 
-        switch (data.propertyValue.type) {
-            case 'fixed':
-                this.amendments.setPropertyFixed(path, data.propertyName, data.propertyValue.value);
-                break;
-            case 'inherited':
-                this.amendments.setPropertyInherited(path, data.propertyName, data.propertyValue.key);
-                break;
+        if (data.propertyValue === null) {
+            this.amendments.clearProperty(path, data.propertyName);
+        } else {
+            switch (data.propertyValue.type) {
+                case 'fixed':
+                    this.amendments.setPropertyFixed(path, data.propertyName, data.propertyValue.value);
+                    break;
+                case 'inherited':
+                    this.amendments.setPropertyInherited(path, data.propertyName, data.propertyValue.key);
+                    break;
+            }
         }
     },
 

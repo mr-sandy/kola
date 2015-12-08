@@ -39,7 +39,7 @@ module.exports = React.createClass({
         $(document.body).on('keyup', this.handleKeyUp);
     },
 
-    componentWillUnmount: function() {
+    componentWillUnmount: function () {
         $(document.body).off('keyup', this.handleKeyUp);
     },
 
@@ -66,6 +66,8 @@ module.exports = React.createClass({
         this.processChangeOnce(propertyValue);
     },
 
+
+    // TODO {SC} these two methods are a bit messy, aren't they
     processChange: function (propertyValue) {
         if (this.valuesDiffer(this.props.propertyValue, propertyValue)) {
             this.props.onChange({
@@ -80,13 +82,22 @@ module.exports = React.createClass({
     },
 
     handlePropertyValueTypeChange: function (propertyValueType) {
-        if (this.state.propertyValue.type !== propertyValueType) {
+        
+        if (!this.state.propertyValue || this.state.propertyValue.type !== propertyValueType) {
 
-            const propertyValue = propertyValueType === this.props.propertyValue.type
-                ? this.props.propertyValue
-                : { type: propertyValueType };
+            if (propertyValueType === '') {
+                this.props.onChange({
+                    propertyName: this.props.propertyName,
+                    propertyType: this.props.propertyType,
+                    propertyValue: null
+                });
+            } else {
+                const propertyValue = this.props.propertyValue && propertyValueType === this.props.propertyValue.type
+                    ? this.props.propertyValue
+                    : { type: propertyValueType };
 
-            this.setState({ propertyValue: propertyValue });
+                this.setState({ propertyValue: propertyValue });
+            }
         }
     },
 
@@ -101,10 +112,14 @@ module.exports = React.createClass({
 
     valuesDiffer: function (val1, val2) {
 
+        if (!val1 || !val2) {
+            return true;
+        }
+
         if (val1.type !== val2.type) {
             return true;
         }
-        
+
         if (val1.type === 'fixed' && val1.value !== val2.value) {
             return true;
         }

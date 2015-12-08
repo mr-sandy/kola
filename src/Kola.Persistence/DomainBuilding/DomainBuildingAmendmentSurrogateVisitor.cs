@@ -42,5 +42,10 @@
         {
             return new SetPropertyInheritedAmendment(surrogate.ComponentPath.ParseComponentPath(), surrogate.PropertyName, surrogate.Key);
         }
+
+        public IAmendment Visit(ClearPropertyAmendmentSurrogate surrogate)
+        {
+            return new ClearPropertyAmendment(surrogate.ComponentPath.ParseComponentPath(), surrogate.PropertyName);
+        }
     }
 }

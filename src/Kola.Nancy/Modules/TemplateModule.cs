@@ -29,6 +29,7 @@
             this.Post["/_amendments/moveComponent"] = p => this.PostAmendment<MoveComponentAmendmentResource>(p.templatePath);
             this.Post["/_amendments/removeComponent"] = p => this.PostAmendment<RemoveComponentAmendmentResource>(p.templatePath);
             this.Post["/_amendments/duplicateComponent"] = p => this.PostAmendment<DuplicateComponentAmendmentResource>(p.templatePath);
+            this.Post["/_amendments/clearProperty"] = p => this.PostAmendment<ClearPropertyAmendmentResource>(p.templatePath);
             this.Post["/_amendments/setPropertyFixed"] = p => this.PostAmendment<SetPropertyFixedAmendmentResource>(p.templatePath);
             this.Post["/_amendments/setPropertyInherited"] = p => this.PostAmendment<SetPropertyInheritedAmendmentResource>(p.templatePath);
             this.Post["/_amendments/setComment"] = p => this.PostAmendment<SetCommentAmendmentResource>(p.templatePath);

@@ -101,5 +101,17 @@
             
             component.Comment = amendment.Comment;
         }
+
+        public void Visit(ClearPropertyAmendment amendment)
+        {
+            var component = this.template.FindComponentWithProperties(amendment.ComponentPath);
+
+            var property = component.Properties.Find(amendment.PropertyName);
+
+            if (property != null)
+            {
+                component.RemoveProperty(property);
+            }
+        }
     }
 }

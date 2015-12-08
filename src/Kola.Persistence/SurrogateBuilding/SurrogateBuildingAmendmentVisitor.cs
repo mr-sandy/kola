@@ -75,5 +75,14 @@
                 Comment = amendment.Comment
             };
         }
+
+        public AmendmentSurrogate Visit(ClearPropertyAmendment amendment)
+        {
+            return new ClearPropertyAmendmentSurrogate
+            {
+                ComponentPath = amendment.ComponentPath.ToComponentPathString(),
+                PropertyName = amendment.PropertyName
+            };
+        }
     }
 }

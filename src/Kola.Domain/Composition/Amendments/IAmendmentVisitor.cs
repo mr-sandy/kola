@@ -17,6 +17,8 @@
         void Visit(SetPropertyMultilingualAmendment amendment);
 
         void Visit(SetCommentAmendment amendment);
+
+        void Visit(ClearPropertyAmendment amendment);
     }
 
     public interface IAmendmentVisitor<out T>
@@ -36,6 +38,8 @@
         T Visit(SetPropertyMultilingualAmendment amendment);
 
         T Visit(SetCommentAmendment amendment);
+
+        T Visit(ClearPropertyAmendment amendment);
     }
 
     public interface IAmendmentVisitor<out T, in TContext>
@@ -55,5 +59,7 @@
         T Visit(SetPropertyMultilingualAmendment amendment, TContext context);
 
         T Visit(SetCommentAmendment amendment, TContext context);
+
+        T Visit(ClearPropertyAmendment amendment, TContext context);
     }
 }

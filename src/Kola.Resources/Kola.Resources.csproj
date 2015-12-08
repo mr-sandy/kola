@@ -47,6 +47,7 @@
     <Compile Include="AmendmentResource.cs" />
     <Compile Include="AreaResource.cs" />
     <Compile Include="AtomResource.cs" />
+    <Compile Include="ClearPropertyAmendmentResource.cs" />
     <Compile Include="ComponentResource.cs" />
     <Compile Include="ComponentTypeResource.cs" />
     <Compile Include="ContainerResource.cs" />

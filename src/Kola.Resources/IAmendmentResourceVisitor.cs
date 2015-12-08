@@ -15,5 +15,7 @@
         T Visit(SetCommentAmendmentResource resource);
 
         T Visit(SetPropertyInheritedAmendmentResource resource);
+
+        T Visit(ClearPropertyAmendmentResource resource);
     }
 }

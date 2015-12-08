@@ -15,20 +15,20 @@
             this.Value = value;
         }
 
-        public string Name { get; private set; }
+        public string Name { get; }
 
-        public string Type { get; private set; }
+        public string Type { get; }
 
         public IPropertyValue Value { get; set; }
 
         public PropertyInstance Build(IBuildContext buildContext)
         {
-            return new PropertyInstance(this.Name, this.Value.Resolve(buildContext));
+            return new PropertyInstance(this.Name, this.Value?.Resolve(buildContext));
         }
 
         public Property Clone()
         {
-            return new Property(this.Name, this.Type, this.Value == null ? null : this.Value.Clone());
+            return new Property(this.Name, this.Type, this.Value?.Clone());
         }
     }
 }

@@ -98,6 +98,17 @@
             };
         }
 
+        public AmendmentResource Visit(ClearPropertyAmendment amendment, int index)
+        {
+            return new ClearPropertyAmendmentResource
+            {
+                Id = index,
+                ComponentPath = amendment.ComponentPath.ToComponentPathString(),
+                PropertyName = amendment.PropertyName,
+                Links = this.BuildLinks(amendment, index)
+            };
+        }
+
         private IEnumerable<LinkResource> BuildLinks(IAmendment amendment, int index)
         {
             var path = this.templatePath.Concat(new[] { "_amendments", index.ToString() });
