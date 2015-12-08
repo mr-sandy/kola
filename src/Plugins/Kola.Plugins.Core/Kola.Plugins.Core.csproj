@@ -69,6 +69,7 @@
     <EmbeddedResource Include="editors\css\editor.scss" />
     <None Include=".babelrc" />
     <None Include="app.config" />
+    <None Include="app\editors\HtmlStyleTypeEditor.jsx" />
     <None Include="app\editors\TextEditor.jsx" />
     <None Include="app\editors\MarkdownEditor.jsx" />
     <None Include="package.json" />
@@ -86,22 +87,10 @@
     <EmbeddedResource Include="Views\HtmlLink.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="editors\views\MarkdownEditorView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\templates\MarkdownEditorTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="editors\views\BooleanEditorView.js" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="editors\templates\BooleanEditorTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\views\TextEditorView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\templates\TextEditorTemplate.html" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="editors\css\editor.css">

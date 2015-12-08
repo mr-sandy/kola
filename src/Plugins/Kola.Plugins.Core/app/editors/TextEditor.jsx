@@ -33,7 +33,7 @@ module.exports = React.createClass({
     },
 
     handleBlur: function () {
-        if (this.props.value != this.state.value)
+        if (this.props.value !== this.state.value)
         {
             this.doChange();
         }

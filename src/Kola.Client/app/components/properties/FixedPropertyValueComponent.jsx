@@ -27,16 +27,22 @@ module.exports = React.createClass({
             return ed.propertyType === propertyType;
         });
 
+        if (!this.editor) {
+            console.log('No editor for property type ' + this.props.propertyType);
+        }
+
         this.componentDidUpdate();
     },
 
     componentDidUpdate: function () {
-        this.editor.render({
-            element: this._element,
-            value: this.props.propertyValue.value,
-            editMode: this.props.editMode,
-            onChange: this.handleChange
-        });
+        if (this.editor) {
+            this.editor.render({
+                element: this._element,
+                value: this.props.propertyValue.value,
+                editMode: this.props.editMode,
+                onChange: this.handleChange
+            });
+        }
     },
 
     handleChange: function (value) {

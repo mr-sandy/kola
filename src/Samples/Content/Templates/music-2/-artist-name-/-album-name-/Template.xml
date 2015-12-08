@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+  <components>
+    <container name="html-head">
+      <properties />
+      <components>
+        <atom name="html-title">
+          <properties>
+            <property name="title" type="text">
+              <value xsi:type="fixed"><![CDATA[Biscuits]]></value>
+            </property>
+          </properties>
+        </atom>
+        <atom name="html-style">
+          <properties>
+            <property name="type" type="html-style-type">
+              <value xsi:type="fixed"><![CDATA[text/css]]></value>
+            </property>
+            <property name="cache-buster" type="text">
+              <value xsi:type="fixed"><![CDATA[g]]></value>
+            </property>
+            <property name="content" type="multiline-text">
+              <value xsi:type="inherited" key="content" />
+            </property>
+            <property name="media" type="text">
+              <value xsi:type="fixed"><![CDATA[rr]]></value>
+            </property>
+          </properties>
+        </atom>
+      </components>
+    </container>
+    <container name="html-body">
+      <properties />
+      <components>
+        <container name="div">
+          <properties />
+          <components>
+            <atom name="markdown">
+              <properties>
+                <property name="markdown" type="markdown">
+                  <value xsi:type="fixed"><![CDATA[#Hello]]></value>
+                </property>
+              </properties>
+            </atom>
+          </components>
+        </container>
+      </components>
+    </container>
+  </components>
+  <amendments>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setProperty>
+    <setPropertyInherited>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <key>test</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <key>album-id</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1</componentPath>
+      <propertyName>content</propertyName>
+      <key>artist-id</key>
+    </setPropertyInherited>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1</componentPath>
+      <propertyName>type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setProperty>
+  </amendments>
+</template>
