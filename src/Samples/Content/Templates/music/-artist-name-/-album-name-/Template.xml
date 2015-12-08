@@ -38,7 +38,7 @@
                 <atom name="text">
                   <properties>
                     <property name="text" type="text">
-                      <value xsi:type="fixed"><![CDATA[asfasfa]]></value>
+                      <value xsi:type="fixed"><![CDATA[sandy]]></value>
                     </property>
                   </properties>
                 </atom>
@@ -68,8 +68,7 @@
                 <atom name="markdown">
                   <properties>
                     <property name="markdown" type="markdown">
-                      <value xsi:type="fixed"><![CDATA[Hello
-]]></value>
+                      <value xsi:type="inherited" key="markdown" />
                     </property>
                   </properties>
                 </atom>
@@ -83,5 +82,16 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <setProperty>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[jam]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/1/2/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[jam oh dear]]></fixedValue>
+    </setProperty>
+  </amendments>
 </template>

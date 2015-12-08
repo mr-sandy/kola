@@ -31,7 +31,11 @@ module.exports = React.createClass({
         );
     },
 
-    componentDidMount: function() {
+    componentWillMount: function () {
+        this.processChange = _.once(this.processChange);
+    },
+
+    componentDidMount: function () {
         $(document.body).on('keyup', this.handleKeyUp);
     },
 
@@ -60,13 +64,16 @@ module.exports = React.createClass({
         console.log('handlePropertyValueChange');
 
         if (this.valuesDiffer(this.props.propertyValue, propertyValue)) {
-
-            this.props.onChange({
-                propertyName: this.props.propertyName,
-                propertyType: this.props.propertyType,
-                propertyValue: propertyValue
-            });
+            this.processChange(propertyValue);
         }
+    },
+
+    processChange: function (propertyValue) {
+        this.props.onChange({
+            propertyName: this.props.propertyName,
+            propertyType: this.props.propertyType,
+            propertyValue: propertyValue
+        });
     },
 
     handlePropertyValueTypeChange: function (propertyValueType) {
@@ -110,45 +117,3 @@ module.exports = React.createClass({
         }
     }
 });
-
-//handlePropertyValueBlur: function () {
-//    console.log('handlePropertyValueBlur');
-//    if (this.state.propertyValue !== this.props.propertyValue) {
-//        this.handleSubmit();
-//    }
-//},
-
-//handleEditModeChange: function (editMode) {
-//    console.log('handleEditModeChange');
-//    if (this.state.editMode !== editMode) {
-//        this.setState({ editMode: editMode });
-//    }
-//},
-
-//handleSubmit: function () {
-//    console.log('handleSubmit - outer');
-//    if (this.state.editMode) {
-//        console.log('handleSubmit - inner');
-//        this.setState({ editMode: false });
-
-//        if (this.state.propertyValue !== this.props.propertyValue) {
-//            this.props.onChange({
-//                propertyName: this.props.propertyName,
-//                propertyType: this.props.propertyType,
-//                propertyValue: this.state.propertyValue
-//            });
-//        }
-//    }
-//},
-
-//handleCancel: function () {
-//    if (this.state.editMode) {
-//        this.setState({
-//            editMode: false,
-//            propertyValue: this.props.propertyValue
-//        });
-//    }
-//}
-
-
-

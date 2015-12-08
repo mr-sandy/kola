@@ -18,10 +18,14 @@ module.exports = Backbone.View.extend({
 
     render: function () {
         var context = _.extend(this.collection.toJSON(),
-            { hasAmendments: this.collection.length > 0 }
+            {
+                hasAmendments: this.collection.length > 0,
+                count: this.collection.length
+            }
         );
 
         this.$el.html(this.template(context));
+
         return this;
     },
 

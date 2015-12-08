@@ -6,10 +6,9 @@ module.exports = React.createClass({
     propTypes: {
         editMode: React.PropTypes.bool.isRequired,
         value: React.PropTypes.string,
-        onChange: React.PropTypes.func.isRequired,
-        onSubmit: React.PropTypes.func.isRequired,
-        onBlur: React.PropTypes.func.isRequired
+        onChange: React.PropTypes.func.isRequired
     },
+
 
     render: function () {
         return this.props.editMode
@@ -28,7 +27,7 @@ module.exports = React.createClass({
                     <span>Markdown</span>
                 </div>
                 <div className="content">
-                    <textarea rows="20" value={this.props.value} onChange={this.handleChange}></textarea>
+                    <textarea rows="20" ref={this.highlightText} value={this.state.value} onChange={this.handleChange}></textarea>
                 </div>
                 <div className="controls">
                     <button type="button" className="cancel" value="cancel" onClick={this.handleClose}>Cancel</button>
@@ -39,7 +38,14 @@ module.exports = React.createClass({
     },
 
     getInitialState: function () {
-        return { expanded: true };
+        return {
+            expanded: true,
+            value: this.props.value
+        };
+    },
+    
+    highlightText: function (element) {
+        $(element).focus().select();
     },
 
     handleOpen: function () {
@@ -51,11 +57,11 @@ module.exports = React.createClass({
     },
 
     handleChange: function (e) {
-        this.props.onChange(e.target.value);
+        this.setState({ value: e.target.value });
     },
 
     handleSubmit: function (e) {
         e.preventDefault();
-        this.props.onSubmit();
+        this.props.onChange(this.state.value);
     }
 });
