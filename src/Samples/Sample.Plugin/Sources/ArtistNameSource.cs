@@ -36,7 +36,7 @@
 
         private DynamicItem BuildItem(Artist artist)
         {
-            return new DynamicItem(artist.Name.Urlify(), new [] { new ContextItem("artist-id", artist.Id) });
+            return new DynamicItem(artist.Name.Urlify(), new [] { new ContextItem("artist-id", artist.Id), new ContextItem("artist-name", artist.Name) });
         }
     }
 }

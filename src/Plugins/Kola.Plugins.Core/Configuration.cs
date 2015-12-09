@@ -46,10 +46,9 @@
 
             this.Configure.Atom("html-style")
                 .WithView("HtmlStyle")
-                .WithProperty("type", "html-style-type")
+                .WithProperty("type", "html-style-type", "text/css")
                 .WithProperty("content", "multiline-text")
-                .WithProperty("media", "text")
-                .WithProperty("cache-buster", "text");
+                .WithProperty("media", "text");
 
             this.Configure.Atom("html-link")
                 .WithView("HtmlLink")
@@ -69,6 +68,19 @@
                 .WithProperty("content", "multiline-text")
                 .WithProperty("ie-condition", "ie-condition")
                 .WithProperty("cache-buster", "text");
+
+            this.Configure.Atom("magical-atom")
+                .WithView("Text")
+                .WithProperty("markdown", "markdown")
+                .WithProperty("boolean", "boolean")
+                .WithProperty("text", "text")
+                .WithProperty("number", "number")
+                .WithProperty("html-link-type", "html-link-type")
+                .WithProperty("html-link-rel-type", "html-link-rel-type")
+                .WithProperty("html-style-type", "html-style-type")
+                .WithProperty("html-script-type", "html-script-type")
+                .WithProperty("multiline-text", "multiline-text")
+                .WithProperty("ie-condition", "ie-condition");
         }
 
         private void ConfigureContainers()

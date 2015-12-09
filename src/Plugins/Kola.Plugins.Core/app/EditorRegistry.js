@@ -3,14 +3,17 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 module.exports = {
-    register: function(type, editor) {
+    register: function(type, editor, settings) {
 
-        kola.propertyEditors.push({
+        window.kola.propertyEditors.push({
             propertyType: type,
 
             render: function (opts) {
 
-                var props = _.pick(opts, 'value', 'editMode', 'onChange', 'onCancel');
+                const props = _.chain(opts)
+                    .pick('value', 'editMode', 'onChange', 'onCancel')
+                    .extend(settings)
+                    .value();
 
                 ReactDOM.render(React.createElement(editor, props), opts.element);
             }

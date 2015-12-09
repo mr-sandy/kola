@@ -69,10 +69,10 @@
     <EmbeddedResource Include="editors\css\editor.scss" />
     <None Include=".babelrc" />
     <None Include="app.config" />
-    <None Include="app\editors\HtmlStyleTypeEditor.jsx" />
-    <None Include="app\editors\MultilineTextEditor.jsx" />
-    <None Include="app\editors\TextEditor.jsx" />
-    <None Include="app\editors\MarkdownEditor.jsx" />
+    <None Include="app\editors\RadioButtonEditor.jsx" />
+    <None Include="app\editors\SelectBoxEditor.jsx" />
+    <None Include="app\editors\TextareaEditor.jsx" />
+    <None Include="app\editors\InputEditor.jsx" />
     <None Include="package.json" />
     <None Include="packages.config" />
     <EmbeddedResource Include="Views\Markdown.cshtml" />
@@ -100,48 +100,6 @@
     <EmbeddedResource Include="editors\css\editor.min.css">
       <DependentUpon>editor.scss</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\views\NumberEditorView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\templates\NumberEditorTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\views\HtmlLinkTypeView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\templates\HtmlLinkTypeTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\views\HtmlLinkRelTypeView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\views\HtmlScriptTypeView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\views\IeConditionView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\templates\HtmlLinkRelTypeTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\templates\HtmlScriptTypeTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\templates\IeConditionTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\views\MultilineTextView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\templates\MultilineTextTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\templates\HtmlStyleTypeTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\views\HtmlStyleTypeView.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Kola.Configuration\Kola.Configuration.csproj">
