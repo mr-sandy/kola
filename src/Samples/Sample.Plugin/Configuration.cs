@@ -27,7 +27,15 @@
                 .WithRenderer<ArtistRenderer>()
                 .WithProperty("artist-id", "text");
 
+            this.Configure.Atom("artist-image")
+                .WithRenderer<ArtistRenderer>()
+                .WithProperty("artist-id", "text");
+
             this.Configure.Atom("album")
+                .WithRenderer<AlbumRenderer>()
+                .WithProperty("album-id", "text");
+
+            this.Configure.Atom("album-art")
                 .WithRenderer<AlbumRenderer>()
                 .WithProperty("album-id", "text");
         }

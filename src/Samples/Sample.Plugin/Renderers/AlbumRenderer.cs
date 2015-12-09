@@ -27,7 +27,14 @@ namespace Sample.Plugin.Renderers
 
             var album = this.musicService.GetAlbum(albumIdProperty.Value);
 
-            return new Result(h => h.RenderPartial("Album", album));
+            switch (component.Name)
+            {
+                case "album-art":
+                    return new Result(h => h.RenderPartial("AlbumArt", album));
+
+                default:
+                    return new Result(h => h.RenderPartial("Album", album));
+            }
         }
     }
 }

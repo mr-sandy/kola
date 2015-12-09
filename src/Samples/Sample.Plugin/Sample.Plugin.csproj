@@ -64,6 +64,8 @@
     <EmbeddedResource Include="Views\Div.cshtml" />
     <EmbeddedResource Include="Views\Artist.cshtml" />
     <EmbeddedResource Include="Views\Album.cshtml" />
+    <EmbeddedResource Include="Views\ArtistImage.cshtml" />
+    <EmbeddedResource Include="Views\AlbumArt.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup>

@@ -27,7 +27,14 @@
 
             var artist = this.musicService.GetArtist(artistIdProperty.Value);
 
-            return new Result(h => h.RenderPartial("Artist", artist));
+            switch (component.Name)
+            {
+                case "artist-image":
+                    return new Result(h => h.RenderPartial("ArtistImage", artist));
+
+                default:
+                    return new Result(h => h.RenderPartial("Artist", artist));
+            }
         }
     }
 }

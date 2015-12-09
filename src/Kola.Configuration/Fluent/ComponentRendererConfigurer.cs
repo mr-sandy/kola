@@ -14,10 +14,7 @@
             this.specification = specification;
         }
 
-        public CacheConfigurer Cache
-        {
-            get { return new CacheConfigurer(this.specification); }
-        }
+        public CacheConfigurer Cache => new CacheConfigurer(this.specification);
 
         public ComponentRendererConfigurer WithProperty(string propertyName, string propertyType, string defaultValue = "")
         {
