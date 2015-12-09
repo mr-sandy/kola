@@ -18,12 +18,13 @@ _.extend(Accordian.prototype, {
     initialise: function () {
         var $header = this.$element.find('.accordian-header');
 
-        $header.on('click', $.proxy(this.toggle, this));
+        $header.on('click', this.toggle);
     },
 
-    toggle: function () {
-        this.$element.toggleClass('collapsed');
-        this.$element.find('.accordian-content').slideToggle(100);
+    toggle: function (e) {
+        e.stopPropagation();
+        $(this).toggleClass('collapsed');
+        $(this).next('.accordian-content').slideToggle(100);
     }
 });
 

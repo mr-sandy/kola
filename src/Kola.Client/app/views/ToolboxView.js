@@ -16,15 +16,21 @@ module.exports = Backbone.View.extend({
     },
 
     render: function () {
-        var context = this.collection.toJSON();
 
-        var context2 = _.groupBy(context, 'category');
+        // TODO {SC} My, this is ugly.
+        var context = _.chain(this.collection.toJSON())
+            .groupBy('category')
+            .pairs()
+            .map(function(pair) { return { name: pair[0] === 'null' ? '' : pair[0], items: pair[1] }; })
+            .sortBy('name')
+            .map(function (g) { return { name: g.name === '' ? 'general' : g.name, items: g.items }; })
+            .value();
 
         this.$el.html(this.template(context));
 
         this.$('.accordian').accordian();
 
-        this.$(".tool").draggable(
+        this.$('.tool').draggable(
         {
             cancel: false,
             opacity: 0.7,

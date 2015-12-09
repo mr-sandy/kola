@@ -1,11 +1,13 @@
 ﻿<div class="content">
     <div class="accordian">
-        <span class="accordian-header no-select">standard<i class="fa fa-chevron-down"></i></span>
+        {{#each .}}
+        <span class="accordian-header no-select">{{name}}<i class="fa fa-chevron-down"></i></span>
         <div class="accordian-content">
-            {{#each .}}
+            {{#each items}}
             <button type="button" class="tool {{type}}" data-href='{{id}}'><span>{{name}}</span></button>
             {{/each}}
         </div>
+        {{/each}}
     </div>
 </div>
 <div class="footer">

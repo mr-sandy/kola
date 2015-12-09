@@ -6,27 +6,25 @@
         display: block;
         text-transform: uppercase;
         cursor: pointer;
-		padding: 10px;
+        padding: 10px;
 
         i {
             float: right;
             @include transition(all 100ms);
         }
 
-		&:hover {
-			color: #fff;
-		}
-    }
-    
-    .accordian-content {
-        overflow: hidden;
-    }
-
-    &.collapsed {
-        .accordian-header {
+        &.collapsed {
             i {
                 @include rotate(-90);
             }
         }
+
+        &:hover {
+            color: #fff;
+        }
+    }
+
+    .accordian-content {
+        overflow: hidden;
     }
 }
