@@ -15,7 +15,7 @@ module.exports = React.createClass({
 
         const buttons = this.props.options.map(function (o) {
             const checked = o === currentValue;
-            return <label className="radio-button" for={o}><input key={o} id={o} type="radio" name="options" checked={checked} value={o} onChange={handleChange} />{o}</label>;
+            return <label key={o} className="radio-button" htmlFor={o}><input id={o} type="radio" name="options" checked={checked} value={o} onChange={handleChange} />{o}</label>;
         });
 
         return this.props.editMode

@@ -9,6 +9,8 @@ var webpack = require('webpack');
 var gutil = require('gulp-util');
 var webpackConfig = require('./webpack.config.js');
 
+var devCompiler = webpack(webpackConfig);
+
 gulp.task('sass', function () {
     gulp.src('./sass/**/*.scss')
         .pipe(plumber())
@@ -18,8 +20,6 @@ gulp.task('sass', function () {
         .pipe(rename('kola.min.css'))
         .pipe(gulp.dest('./content'));
 });
-
-var devCompiler = webpack(webpackConfig);
 
 gulp.task('webpack', function (callback) {
     devCompiler.run(function (err, stats) {

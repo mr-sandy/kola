@@ -9,7 +9,7 @@
             : base("KolaCore")
         {
             this.Configure.ViewLocation("Kola.Plugins.Core.Views");
-            this.Configure.PropertyEditorStylesheets("css/editor.css");
+            this.Configure.PropertyEditorStylesheets("css/editor.min.css");
             this.Configure.PropertyEditor("scripts/editor.js");
 
             this.ConfigureAtoms();

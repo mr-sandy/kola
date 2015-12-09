@@ -66,7 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="editors\css\editor.scss" />
+    <EmbeddedResource Include="sass\editor.scss" />
     <None Include=".babelrc" />
     <None Include="app.config" />
     <None Include="app\editors\RadioButtonEditor.jsx" />
@@ -88,20 +88,6 @@
     <EmbeddedResource Include="Views\HtmlLink.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="editors\views\BooleanEditorView.js" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\templates\BooleanEditorTemplate.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="editors\css\editor.css">
-      <DependentUpon>editor.scss</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="editors\css\editor.min.css">
-      <DependentUpon>editor.scss</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\Kola.Configuration\Kola.Configuration.csproj">
       <Project>{b507bf7d-ec86-4032-a0a9-d4010e49eb6b}</Project>
       <Name>Kola.Configuration</Name>
@@ -115,6 +101,7 @@
     <Content Include="app\EditorRegistry.js" />
     <Content Include="app\App.js" />
     <EmbeddedResource Include="editors\scripts\editor.js" />
+    <EmbeddedResource Include="editors\css\editor.min.css" />
     <Content Include="gulpfile.js" />
     <Content Include="webpack.config.js" />
   </ItemGroup>
