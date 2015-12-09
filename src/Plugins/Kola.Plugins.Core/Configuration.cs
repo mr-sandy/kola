@@ -15,13 +15,12 @@
             this.ConfigureAtoms();
 
             this.ConfigureContainers();
-
-            this.ConfigurePropertyTypes();
         }
 
         private void ConfigureAtoms()
         {
             this.Configure.Atom("markdown")
+                .WithCategory("html")
                 .WithRenderer<MarkdownRenderer>()
                 .WithProperty("markdown", "markdown", "*add content here*");
 
@@ -91,20 +90,6 @@
             this.Configure.Container("html-body")
                 .WithView("HtmlBody")
                 .WithProperty("classes", "text");
-        }
-
-        private void ConfigurePropertyTypes()
-        {
-            this.Configure.PropertyType("markdown");
-            this.Configure.PropertyType("boolean");
-            this.Configure.PropertyType("text");
-            this.Configure.PropertyType("number");
-            this.Configure.PropertyType("html-link-type");
-            this.Configure.PropertyType("html-link-rel-type");
-            this.Configure.PropertyType("html-style-type");
-            this.Configure.PropertyType("html-script-type");
-            this.Configure.PropertyType("multiline-text");
-            this.Configure.PropertyType("ie-condition");
         }
     }
 }

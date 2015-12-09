@@ -17,6 +17,7 @@
             return new ComponentTypeResource
                 {
                     Name = component.Name,
+                    Category = component.Category,
                     Type = component.Accept(this.namingVisitor),
                     Links = new[]
                         {

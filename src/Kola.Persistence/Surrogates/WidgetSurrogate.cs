@@ -7,6 +7,7 @@
     {
         [XmlArray("areas")]
         [XmlArrayItem(typeof(AreaSurrogate))]
+
         public ComponentSurrogate[] Areas { get; set; }
 
         public override T Accept<T>(IComponentSurrogateVisitor<T> visitor)

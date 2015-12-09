@@ -20,6 +20,6 @@
 
         public string ViewName { get; set; }
 
-        public override abstract T Create();
+        public abstract override T Create();
     }
 }

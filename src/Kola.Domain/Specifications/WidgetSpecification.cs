@@ -10,19 +10,18 @@
     {
         private readonly List<IComponent> components = new List<IComponent>();
 
-        public WidgetSpecification(string name, IEnumerable<PropertySpecification> properties = null, IEnumerable<IComponent> components = null)
+        public WidgetSpecification(string name, IEnumerable<PropertySpecification> properties = null, IEnumerable<IComponent> components = null, string category = null)
             : base(name, properties)
         {
             if (components != null)
             {
                 this.components.AddRange(components);
             }
+
+            this.Category = category;
         }
 
-        public IEnumerable<IComponent> Components
-        {
-            get { return this.components; }
-        }
+        public IEnumerable<IComponent> Components => this.components;
 
         public void Insert(int index, IComponent component)
         {

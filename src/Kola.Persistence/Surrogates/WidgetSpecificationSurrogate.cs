@@ -5,6 +5,9 @@
     [XmlRoot(Namespace = "http://www.kolacms.com/2013/kola", ElementName = "widgetSpecification")]
     public class WidgetSpecificationSurrogate
     {
+        [XmlAttribute("category")]
+        public string Category { get; set; }
+
         [XmlArray("components")]
         [XmlArrayItem(typeof(AtomSurrogate))]
         [XmlArrayItem(typeof(ContainerSurrogate))]

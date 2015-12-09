@@ -24,5 +24,11 @@
             this.specification.ViewName = viewName;
             return this.WithRenderer<DefaultRenderer>();
         }
+
+        public ComponentConfigurer WithCategory(string category)
+        {
+            this.specification.Category = category;
+            return this;
+        }
     }
 }

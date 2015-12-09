@@ -99,47 +99,5 @@ img {
       </components>
     </container>
   </components>
-  <amendments>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[true]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[false]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-link-rel-type</propertyName>
-      <fixedValue><![CDATA[stylesheet]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-script-type</propertyName>
-      <fixedValue><![CDATA[text/javascript]]></fixedValue>
-    </setProperty>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
-    </reset_x0020__x0020_Property>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-link-rel-type</propertyName>
-    </reset_x0020__x0020_Property>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-script-type</propertyName>
-    </reset_x0020__x0020_Property>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-link-rel-type</propertyName>
-      <fixedValue><![CDATA[stylesheet]]></fixedValue>
-    </setProperty>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-link-rel-type</propertyName>
-    </reset_x0020__x0020_Property>
-  </amendments>
+  <amendments />
 </template>

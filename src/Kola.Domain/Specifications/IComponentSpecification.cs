@@ -9,6 +9,8 @@
     {
         string Name { get; }
 
+        string Category { get; set; }
+
         IEnumerable<PropertySpecification> Properties { get; }
 
         void AddProperty(PropertySpecification property);

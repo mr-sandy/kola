@@ -52,10 +52,5 @@ namespace Kola.Configuration.Fluent
 
             return new ComponentConfigurer(specification);
         }
-
-        public void PropertyType(string propertyName)
-        {
-            this.configuration.AddPropertyType(propertyName);
-        }
     }
 }

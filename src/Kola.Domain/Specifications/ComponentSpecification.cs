@@ -21,12 +21,11 @@
             }
         }
 
-        public string Name { get; private set; }
+        public string Name { get; }
 
-        public IEnumerable<PropertySpecification> Properties
-        {
-            get { return this.properties; }
-        }
+        public string Category { get; set; }
+
+        public IEnumerable<PropertySpecification> Properties => this.properties;
 
         public void AddProperty(PropertySpecification property)
         {

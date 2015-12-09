@@ -1,5 +1,6 @@
 ﻿var Backbone = require('backbone');
 var $ = require('jquery');
+var _ = require('underscore');
 var template = require('app/templates/ToolboxTemplate.hbs');
 
 require('app/controls/accordian');
@@ -16,6 +17,9 @@ module.exports = Backbone.View.extend({
 
     render: function () {
         var context = this.collection.toJSON();
+
+        var context2 = _.groupBy(context, 'category');
+
         this.$el.html(this.template(context));
 
         this.$('.accordian').accordian();

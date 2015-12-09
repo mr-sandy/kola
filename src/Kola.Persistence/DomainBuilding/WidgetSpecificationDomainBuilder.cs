@@ -21,7 +21,8 @@
             return new WidgetSpecification(
                 this.name,
                 surrogate.PropertySpecifications.Select(this.BuildPropertySpecification).ToArray(),
-                surrogate.Components.Select(c => c.Accept(componentBuilder)).ToArray());
+                surrogate.Components.Select(c => c.Accept(componentBuilder)).ToArray(),
+                surrogate.Category);
         }
 
         private PropertySpecification BuildPropertySpecification(PropertySpecificationSurrogate surrogate)
