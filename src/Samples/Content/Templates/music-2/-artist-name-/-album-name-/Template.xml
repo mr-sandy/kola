@@ -94,36 +94,20 @@ img {
           </properties>
         </atom>
         <atom name="magical-atom">
-          <properties />
+          <properties>
+            <property name="html-link-rel-type" type="html-link-rel-type">
+              <value xsi:type="inherited" key="html-link-rel-type" />
+            </property>
+            <property name="html-link-type" type="html-link-type">
+              <value xsi:type="fixed"><![CDATA[text/css]]></value>
+            </property>
+            <property name="html-script-type" type="html-script-type">
+              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+            </property>
+          </properties>
         </atom>
       </components>
     </container>
   </components>
-  <amendments>
-    <setPropertyInherited>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-link-rel-type</propertyName>
-      <key>html-link-rel-type</key>
-    </setPropertyInherited>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-link-type</propertyName>
-      <fixedValue><![CDATA[text/css]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-link-type</propertyName>
-      <fixedValue><![CDATA[image/x-icon]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-link-type</propertyName>
-      <fixedValue><![CDATA[text/css]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-script-type</propertyName>
-      <fixedValue><![CDATA[text/javascript]]></fixedValue>
-    </setProperty>
-  </amendments>
+  <amendments />
 </template>
