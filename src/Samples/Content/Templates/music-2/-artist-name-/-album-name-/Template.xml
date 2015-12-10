@@ -99,5 +99,31 @@ img {
       </components>
     </container>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyInherited>
+      <componentPath>1/8</componentPath>
+      <propertyName>html-link-rel-type</propertyName>
+      <key>html-link-rel-type</key>
+    </setPropertyInherited>
+    <setProperty>
+      <componentPath>1/8</componentPath>
+      <propertyName>html-link-type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/8</componentPath>
+      <propertyName>html-link-type</propertyName>
+      <fixedValue><![CDATA[image/x-icon]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/8</componentPath>
+      <propertyName>html-link-type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/8</componentPath>
+      <propertyName>html-script-type</propertyName>
+      <fixedValue><![CDATA[text/javascript]]></fixedValue>
+    </setProperty>
+  </amendments>
 </template>
