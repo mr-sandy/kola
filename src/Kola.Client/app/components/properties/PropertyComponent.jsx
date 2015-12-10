@@ -8,6 +8,12 @@ function ResetButton(props) {
     return <button className="reset" type="button" onClick={props.onClick}>reset</button>;
 }
 
+const Outcomes = {
+    cancel: 'cancel',
+    change: 'change',
+    reset: 'reset'
+};
+
 module.exports = React.createClass({
     propTypes: {
         onChange: React.PropTypes.func.isRequired,
@@ -35,10 +41,6 @@ module.exports = React.createClass({
             </div>);
     },
 
-    componentWillMount: function () {
-        this.processChangeOnce = _.once(this.processChange);
-    },
-
     componentDidMount: function () {
         $(document.body).on('keyup', this.handleKeyUp);
     },
@@ -56,42 +58,25 @@ module.exports = React.createClass({
 
     handleClick: function () {
         if (!this.state.editMode) {
+            this.processOutcomeOnce = _.once(this.processOutcome);
 
-            var propertyValue = this.state.propertyValue
+            const propertyValue = this.state.propertyValue
                 ? this.state.propertyValue
                 : { type: 'fixed' };
 
             this.setState({
-                editMode: !this.state.editMode,
+                editMode: true,
                 propertyValue: propertyValue
             });
+        } else {
+            this.processOutcomeOnce(Outcomes.cancel);
         }
     },
 
     handleKeyUp: function (e) {
-        if (e.which === 27) {
-            this.handleCancel();
+        if (e.which === 27 && this.state.editMode) {
+            this.processOutcomeOnce(Outcomes.cancel);
         }
-    },
-
-    handlePropertyValueChange: function (propertyValue) {
-        if (this.valuesDiffer(this.props.propertyValue, propertyValue)) {
-            this.processChangeOnce(propertyValue);
-        } else {
-            this.setState({ editMode: false });
-        }
-    },
-
-    handleReset: function () {
-        this.processChangeOnce(null);
-    },
-
-    processChange: function (propertyValue) {
-        this.props.onChange({
-            propertyName: this.props.propertyName,
-            propertyType: this.props.propertyType,
-            propertyValue: propertyValue
-        });
     },
 
     handlePropertyValueTypeChange: function (propertyValueType) {
@@ -106,13 +91,20 @@ module.exports = React.createClass({
         }
     },
 
-    handleCancel: function () {
-        if (this.state.editMode) {
-            this.setState({
-                editMode: false,
-                propertyValue: this.props.propertyValue
-            });
+    handlePropertyValueChange: function (propertyValue) {
+        if (this.valuesDiffer(this.props.propertyValue, propertyValue)) {
+            this.processOutcomeOnce(Outcomes.change, propertyValue);
+        } else {
+            this.processOutcomeOnce(Outcomes.cancel);
         }
+    },
+
+    handleReset: function () {
+        this.processOutcomeOnce(Outcomes.reset);
+    },
+
+    handleCancel: function () {
+        this.processOutcomeOnce(Outcomes.cancel);
     },
 
     valuesDiffer: function (val1, val2) {
@@ -134,5 +126,32 @@ module.exports = React.createClass({
         }
 
         return false;
+    },
+
+    processOutcome: function (outcome, propertyValue) {
+        switch (outcome) {
+            case Outcomes.change:
+                this.props.onChange({
+                    propertyName: this.props.propertyName,
+                    propertyType: this.props.propertyType,
+                    propertyValue: propertyValue
+                });
+                break;
+
+            case Outcomes.reset:
+                this.props.onChange({
+                    propertyName: this.props.propertyName,
+                    propertyType: this.props.propertyType,
+                    propertyValue: null
+                });
+                break;
+
+            case Outcomes.cancel:
+                this.setState({
+                    editMode: false,
+                    propertyValue: this.props.propertyValue
+                });
+                break;
+        }
     }
 });

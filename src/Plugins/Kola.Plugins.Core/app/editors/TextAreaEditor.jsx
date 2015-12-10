@@ -29,7 +29,7 @@ module.exports = React.createClass({
                     <span>{this.props.title}</span>
                 </div>
                 <div className="content">
-                    <textarea rows="20" ref={this.highlightText} value={this.state.value} onChange={this.handleChange}></textarea>
+                    <textarea rows="20" ref={this.captureElement} value={this.state.value} onChange={this.handleChange}></textarea>
                 </div>
                 <div className="controls">
                     <button type="button" className="cancel" value="cancel" onClick={this.handleCancel}>Cancel</button>
@@ -46,12 +46,25 @@ module.exports = React.createClass({
         };
     },
 
-    highlightText: function (element) {
-        $(element).focus().select();
+    componentDidMount: function() {
+        if (this.state.expanded) {
+            this.highlightText();
+        }
+    },
+
+    captureElement: function (element) {
+        this.element = element;
+    },
+
+    highlightText: function () {
+        $(this.element).focus().select();
     },
 
     handleExpand: function () {
         this.setState({ expanded: true });
+
+        var self = this;
+        setTimeout(function() { self.highlightText(); }, 100);
     },
 
     handleCancel: function () {

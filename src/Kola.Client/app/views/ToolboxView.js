@@ -18,12 +18,11 @@ module.exports = Backbone.View.extend({
     render: function () {
 
         // TODO {SC} My, this is ugly.
-        var context = _.chain(this.collection.toJSON())
+        const context = _.chain(this.collection.toJSON())
             .groupBy('category')
             .pairs()
-            .map(function(pair) { return { name: pair[0] === 'null' ? '' : pair[0], items: pair[1] }; })
+            .map(function (pair) { return { name: pair[0] === 'null' ? 'general' : pair[0], items: pair[1] }; })
             .sortBy('name')
-            .map(function (g) { return { name: g.name === '' ? 'general' : g.name, items: g.items }; })
             .value();
 
         this.$el.html(this.template(context));

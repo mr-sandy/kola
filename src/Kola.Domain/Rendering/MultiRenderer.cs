@@ -1,12 +1,10 @@
 ﻿namespace Kola.Domain.Rendering
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
 
     using Kola.Domain.Instances;
 
-    // TODO the references to the NancyKolaConfigurationRegistry seems a bit stinky
     public class MultiRenderer : IMultiRenderer
     {
         private readonly IRendererFactory rendererFactory;

@@ -78,11 +78,7 @@
       <Name>Kola.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="editors\css\" />
-    <Folder Include="editors\templates\" />
-    <Folder Include="editors\views\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

@@ -20,23 +20,27 @@
         private void ConfigureAtoms()
         {
             this.Configure.Atom("markdown")
-                .WithCategory("html")
+                .WithCategory("core")
                 .WithRenderer<MarkdownRenderer>()
                 .WithProperty("markdown", "markdown", "*add content here*");
 
             this.Configure.Atom("label")
+                .WithCategory("core")
                 .WithView("Label")
                 .WithProperty("caption", "text");
 
             this.Configure.Atom("text")
+                .WithCategory("core")
                 .WithView("Text")
                 .WithProperty("text", "text");
 
             this.Configure.Atom("html-title")
+                .WithCategory("html")
                 .WithView("HtmlTitle")
                 .WithProperty("title", "text");
 
             this.Configure.Atom("html-metadata")
+                .WithCategory("html")
                 .WithView("HtmlMetadata")
                 .WithProperty("name", "text")
                 .WithProperty("content", "text")
@@ -44,12 +48,14 @@
                 .WithProperty("httpEquiv", "text");
 
             this.Configure.Atom("html-style")
+                .WithCategory("html")
                 .WithView("HtmlStyle")
                 .WithProperty("type", "html-style-type", "text/css")
                 .WithProperty("content", "multiline-text")
                 .WithProperty("media", "text");
 
             this.Configure.Atom("html-link")
+                .WithCategory("core")
                 .WithView("HtmlLink")
                 .WithProperty("type", "html-link-type")
                 .WithProperty("rel", "html-link-rel-type")
@@ -60,6 +66,7 @@
                 .WithProperty("media", "text");
 
             this.Configure.Atom("html-script")
+                .WithCategory("html")
                 .WithView("HtmlScript")
                 .WithProperty("type", "html-script-type", "text/javascript")
                 .WithProperty("id", "text")
@@ -69,6 +76,7 @@
                 .WithProperty("cache-buster", "text");
 
             this.Configure.Atom("magical-atom")
+                .WithCategory("core")
                 .WithView("Text")
                 .WithProperty("markdown", "markdown")
                 .WithProperty("boolean", "boolean")
@@ -85,9 +93,11 @@
         private void ConfigureContainers()
         {
             this.Configure.Container("html-head")
+                .WithCategory("html")
                 .WithView("HtmlHead");
 
             this.Configure.Container("html-body")
+                .WithCategory("html")
                 .WithView("HtmlBody")
                 .WithProperty("classes", "text");
         }

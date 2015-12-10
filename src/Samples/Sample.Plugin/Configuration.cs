@@ -16,26 +16,28 @@
 
             this.ConfigureContainers();
 
-            this.ConfigurePropertyTypes();
-
             this.ConfigureSources();
         }
 
         private void ConfigureAtoms()
         {
             this.Configure.Atom("artist")
+                .WithCategory("music")
                 .WithRenderer<ArtistRenderer>()
                 .WithProperty("artist-id", "text");
 
             this.Configure.Atom("artist-image")
+                .WithCategory("music")
                 .WithRenderer<ArtistRenderer>()
                 .WithProperty("artist-id", "text");
 
             this.Configure.Atom("album")
+                .WithCategory("music")
                 .WithRenderer<AlbumRenderer>()
                 .WithProperty("album-id", "text");
 
             this.Configure.Atom("album-art")
+                .WithCategory("music")
                 .WithRenderer<AlbumRenderer>()
                 .WithProperty("album-id", "text");
         }
@@ -43,12 +45,9 @@
         private void ConfigureContainers()
         {
             this.Configure.Container("div")
+                .WithCategory("core")
                 .WithView("Div")
                 .WithProperty("classes", "text");
-        }
-
-        private void ConfigurePropertyTypes()
-        {
         }
 
         private void ConfigureSources()

@@ -89,7 +89,7 @@ img {
         <atom name="markdown">
           <properties>
             <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[#markdown content here]]></value>
+              <value xsi:type="fixed"><![CDATA[]]></value>
             </property>
           </properties>
         </atom>

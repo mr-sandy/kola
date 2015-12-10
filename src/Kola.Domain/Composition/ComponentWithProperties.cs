@@ -42,8 +42,6 @@
             return property;
         }
 
-
-        // TODO {SC} Some tests for this, please!
         public void RemoveProperty(Property property)
         {
             this.properties.Remove(property);
