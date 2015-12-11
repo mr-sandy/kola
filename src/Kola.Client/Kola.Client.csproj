@@ -120,7 +120,6 @@
     <None Include="package.json" />
     <EmbeddedResource Include="sass\kola.scss" />
     <None Include="sass\kola\editor\_property-table.scss" />
-    <None Include="sass\kola\editor\_property-form.scss" />
     <None Include="sass\kola\editor\_block-editor.scss" />
     <None Include="sass\kola\editor\_editor.scss" />
     <None Include="sass\kola\editor\_modal.scss" />

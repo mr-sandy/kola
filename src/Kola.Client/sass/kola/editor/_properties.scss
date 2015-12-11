@@ -47,9 +47,9 @@
                 & > span,
                 & > label {
                     display: block;
-                    background-color: #ddd;
                     color: #333;
-                    padding: 8px;
+                    background-color: #ddd;
+                    padding: 9px 8px 7px 8px;
                     min-height: 28px;
                     overflow: hidden;
                     text-overflow: ellipsis;
@@ -59,27 +59,40 @@
                 @import "property-table";
 
                 form {
-                    & > * {
+                    & > input,
+                    & > select,
+                    & > textarea,
+                    & > span {
                         display: block;
-                        background-color: #ddd;
                         color: #333;
+                    }
+
+                    & > input,
+                    & > textarea {
                         padding: 8px;
+                    }
+
+                    & > select {
+                        padding: 0 4px;
                         min-height: 28px;
+                    }
+
+                    & > span {
+                        background-color: #ddd;
+                        padding: 9px 8px 7px 8px;
+                        min-height: 28px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
                     }
 
                     & > input,
                     & > select,
                     & > textarea {
-                        width: 100%;
-                        background-color: #fff;
                         border: none;
                         outline: none;
-                    }
-
-                    & > span {
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
+                        width: 100%;
+                        background-color: #fff;
                     }
 
                     @import "modal";

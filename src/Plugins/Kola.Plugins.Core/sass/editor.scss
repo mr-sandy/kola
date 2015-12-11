@@ -21,8 +21,9 @@
             border-radius: 4px;
 
             label.radio-button {
-                min-height: initial;
-                padding: 2px 8px;
+                padding: 2px;
+                display: block;
+                color: #333;
 
                 input {
                     vertical-align: bottom;
