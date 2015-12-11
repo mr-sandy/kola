@@ -2,10 +2,9 @@
 @import "../utility";
 
 table {
+    display: table;
     padding: 0;
     width: 100%;
-    display: table;
-    min-height: 28px;
     background-color: #ddd;
     color: #333;
     cursor: pointer;
