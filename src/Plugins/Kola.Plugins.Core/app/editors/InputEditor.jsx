@@ -20,6 +20,10 @@ module.exports = React.createClass({
         return { value: this.props.value };
     },
 
+    componentWillReceiveProps: function (nextProps) {
+        this.setState({value: nextProps.value});
+    },
+
     highlightText: function (element) {
         $(element).focus().select();
     },

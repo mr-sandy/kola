@@ -207,5 +207,55 @@ g
       <componentPath>1/8</componentPath>
       <propertyName>boolean</propertyName>
     </reset_x0020__x0020_Property>
+    <setProperty>
+      <componentPath>1/8</componentPath>
+      <propertyName>number</propertyName>
+      <fixedValue><![CDATA[2]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/8</componentPath>
+      <propertyName>number</propertyName>
+      <fixedValue><![CDATA[3]]></fixedValue>
+    </setProperty>
+    <setPropertyInherited>
+      <componentPath>1/8</componentPath>
+      <propertyName>text</propertyName>
+      <key>yrdy</key>
+    </setPropertyInherited>
+    <setProperty>
+      <componentPath>1/8</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[asgfags]]></fixedValue>
+    </setProperty>
+    <setPropertyInherited>
+      <componentPath>1/8</componentPath>
+      <propertyName>text</propertyName>
+      <key>classes</key>
+    </setPropertyInherited>
+    <setProperty>
+      <componentPath>1/8</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[badger]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/8</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[true]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/8</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[false]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/8</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[true]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/8</componentPath>
+      <propertyName>multiline-text</propertyName>
+      <fixedValue><![CDATA[sandy]]></fixedValue>
+    </setProperty>
   </amendments>
 </template>

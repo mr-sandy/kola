@@ -41,6 +41,13 @@ module.exports = React.createClass({
             </div>);
     },
 
+    componentWillReceiveProps: function (nextProps) {
+        this.setState({
+            editMode: false,
+            propertyValue: nextProps.propertyValue
+        });
+    },
+
     componentDidMount: function () {
         $(document.body).on('keyup', this.handleKeyUp);
     },
@@ -139,6 +146,7 @@ module.exports = React.createClass({
                     propertyType: this.props.propertyType,
                     propertyValue: propertyValue
                 });
+                //this.setState({ editMode: false });
                 break;
 
             case Outcomes.reset:
@@ -147,6 +155,7 @@ module.exports = React.createClass({
                     propertyType: this.props.propertyType,
                     propertyValue: null
                 });
+                //this.setState({ editMode: false });
                 break;
 
             case Outcomes.cancel:

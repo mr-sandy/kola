@@ -4,6 +4,7 @@ var _ = require('underscore');
 var stateBroker = require('app/views/StateBroker');
 var PropertiesComponent = require('app/components/properties/PropertiesComponent.jsx');
 var template = require('app/templates/PropertiesTemplate.hbs');
+var footerTemplate = require('app/templates/PropertiesButtonsTemplate.hbs');
 var React = require('react');
 var ReactDOM = require('react-dom');
 
@@ -62,25 +63,64 @@ module.exports = Backbone.View.extend({
         }
     },
 
+    //render: function () {
+    //    if (this.model) {
+    //        this.$el.html(this.template(this.model.toJSON()));
+
+    //        var $content = this.$el.find('.content').first();
+
+    //        var model = {
+    //            properties: this.model.get('properties'),
+    //            onChange: this.handlePropertyChange
+    //        };
+
+    //        ReactDOM.render(React.createElement(PropertiesComponent, model), $content[0]);
+    //    }
+    //    else {
+    //        this.$el.html(this.template({ 'disabled': true }));
+    //    }
+
+    //    return this;
+    //},
+
     render: function () {
-        if (this.model) {
-            this.$el.html(this.template(this.model.toJSON()));
+        return !this.rendered ? this.initialRender() : this.updateRender();
+    },
 
-            var $content = this.$el.find('.content').first();
+    initialRender: function () {
 
-            var model = {
-                properties: this.model.get('properties'),
-                onChange: this.handlePropertyChange
-            };
+        this.rendered = true;
 
-            ReactDOM.render(React.createElement(PropertiesComponent, model), $content[0]);
-        }
-        else {
-            this.$el.html(this.template({ 'disabled': true }));
-        }
+        this.$el.html(template());
+
+        var $content = this.$el.find('.content').first();
+
+        var props = {
+            properties: this.model ? this.model.get('properties') : [],
+            onChange: this.handlePropertyChange
+        };
+
+        this.reactComponent = ReactDOM.render(React.createElement(PropertiesComponent, props), $content[0]);
+
+        this.$footer = this.$el.find('.footer').first();
+        this.$footer.html(footerTemplate({ disabled: this.model ? true : false }));
 
         return this;
     },
+
+    updateRender: function () {
+
+        var props = {
+            properties: this.model ? this.model.get('properties') : [],
+            onChange: this.handlePropertyChange
+        };
+
+        this.reactComponent.replaceProps(props);
+        this.$footer.html(footerTemplate({ disabled: this.model ? true : false }));
+
+        return this;
+    },
+
 
     remove: function (e) {
         e.preventDefault();

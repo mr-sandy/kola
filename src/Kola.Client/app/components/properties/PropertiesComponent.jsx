@@ -11,9 +11,9 @@ var PropertiesComponent = React.createClass({
     render: function () {
         var onChange = this.props.onChange;
 
-        var properties = this.props.properties ? this.props.properties : [];
+        const properties = this.props.properties ? this.props.properties : [];
 
-        var propertyComponents = properties.map(function (property) {
+        const propertyComponents = properties.map(function (property) {
             return <PropertyComponent key={property.name} propertyName={property.name} propertyType={property.type} propertyValue={property.value} onChange={onChange} />;
         });
 

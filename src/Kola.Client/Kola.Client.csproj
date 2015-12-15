@@ -117,6 +117,7 @@
     <EmbeddedResource Include="fonts\fontawesome-webfont.woff" />
     <EmbeddedResource Include="fonts\fontawesome-webfont.woff2" />
     <EmbeddedResource Include="fonts\FontAwesome.otf" />
+    <Content Include="app\templates\PropertiesButtonsTemplate.hbs" />
     <None Include="package.json" />
     <EmbeddedResource Include="sass\kola.scss" />
     <None Include="sass\kola\editor\_property-table.scss" />

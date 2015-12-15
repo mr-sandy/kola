@@ -46,6 +46,12 @@ module.exports = React.createClass({
         };
     },
 
+    componentWillReceiveProps: function (nextProps) {
+        this.setState({
+            value: nextProps.value ? nextProps.value : ''
+        });
+    },
+
     componentDidMount: function() {
         if (this.state.expanded) {
             this.highlightText();
