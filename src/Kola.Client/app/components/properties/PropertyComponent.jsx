@@ -104,7 +104,10 @@ module.exports = React.createClass({
     },
 
     handleCancel: function () {
-        this.processOutcomeOnce(Outcomes.cancel);
+        //TODO {SC} This check seems to be required on 'esc'.  Establish why.
+        if (this.processOutcomeOnce) {
+            this.processOutcomeOnce(Outcomes.cancel);
+        }
     },
 
     valuesDiffer: function (val1, val2) {
