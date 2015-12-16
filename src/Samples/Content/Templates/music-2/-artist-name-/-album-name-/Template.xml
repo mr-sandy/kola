@@ -148,114 +148,127 @@ g
     </container>
   </components>
   <amendments>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>ie-condition</propertyName>
-      <fixedValue><![CDATA[lt9]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-style-type</propertyName>
-      <fixedValue><![CDATA[text/css]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-script-type</propertyName>
-      <fixedValue><![CDATA[]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-script-type</propertyName>
-      <fixedValue><![CDATA[text/javascript]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[true]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[false]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[true]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[false]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[true]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[false]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[true]]></fixedValue>
-    </setProperty>
     <reset_x0020__x0020_Property>
       <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
+      <propertyName>ie-condition</propertyName>
     </reset_x0020__x0020_Property>
-    <setProperty>
+    <reset_x0020__x0020_Property>
+      <componentPath>1/8</componentPath>
+      <propertyName>html-script-type</propertyName>
+    </reset_x0020__x0020_Property>
+    <reset_x0020__x0020_Property>
+      <componentPath>1/8</componentPath>
+      <propertyName>html-link-type</propertyName>
+    </reset_x0020__x0020_Property>
+    <reset_x0020__x0020_Property>
+      <componentPath>1/8</componentPath>
+      <propertyName>html-link-rel-type</propertyName>
+    </reset_x0020__x0020_Property>
+    <reset_x0020__x0020_Property>
+      <componentPath>1/8</componentPath>
+      <propertyName>markdown</propertyName>
+    </reset_x0020__x0020_Property>
+    <reset_x0020__x0020_Property>
+      <componentPath>1/8</componentPath>
+      <propertyName>multiline-text</propertyName>
+    </reset_x0020__x0020_Property>
+    <reset_x0020__x0020_Property>
       <componentPath>1/8</componentPath>
       <propertyName>number</propertyName>
-      <fixedValue><![CDATA[2]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>number</propertyName>
-      <fixedValue><![CDATA[3]]></fixedValue>
-    </setProperty>
+    </reset_x0020__x0020_Property>
     <setPropertyInherited>
       <componentPath>1/8</componentPath>
       <propertyName>text</propertyName>
       <key>yrdy</key>
     </setPropertyInherited>
+    <reset_x0020__x0020_Property>
+      <componentPath>1/8</componentPath>
+      <propertyName>text</propertyName>
+    </reset_x0020__x0020_Property>
     <setProperty>
       <componentPath>1/8</componentPath>
       <propertyName>text</propertyName>
-      <fixedValue><![CDATA[asgfags]]></fixedValue>
+      <fixedValue><![CDATA[bingo]]></fixedValue>
     </setProperty>
-    <setPropertyInherited>
-      <componentPath>1/8</componentPath>
+    <removeComponent>
+      <componentPath>1/2</componentPath>
+    </removeComponent>
+    <removeComponent>
+      <componentPath>1/1</componentPath>
+    </removeComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>1/6</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>1/7</sourcePath>
+      <targetPath>1/6/0</targetPath>
+    </moveComponent>
+    <removeComponent>
+      <componentPath>1/5</componentPath>
+    </removeComponent>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>1/0</targetPath>
+    </addComponent>
+    <setProperty>
+      <componentPath>1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[I love {{artist-name}}]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[I love **{{artist-name}}**]]></fixedValue>
+    </setProperty>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>1/1</targetPath>
+    </addComponent>
+    <setProperty>
+      <componentPath>1/1</componentPath>
       <propertyName>text</propertyName>
-      <key>classes</key>
-    </setPropertyInherited>
+      <fixedValue><![CDATA[I love **{{artist-name}}**]]></fixedValue>
+    </setProperty>
     <setProperty>
-      <componentPath>1/8</componentPath>
+      <componentPath>1/1</componentPath>
       <propertyName>text</propertyName>
-      <fixedValue><![CDATA[badger]]></fixedValue>
+      <fixedValue><![CDATA[I love {{artist-name}}]]></fixedValue>
+    </setProperty>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>1/1</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>1/2</sourcePath>
+      <targetPath>1/1/0</targetPath>
+    </moveComponent>
+    <setProperty>
+      <componentPath>1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[I love ##{{artist-name}}##]]></fixedValue>
     </setProperty>
     <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[true]]></fixedValue>
+      <componentPath>1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#{{artist-name}}#
+I love *{{artist-name}}*]]></fixedValue>
     </setProperty>
     <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[false]]></fixedValue>
+      <componentPath>1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#{{artist-name}}#
+I love *{{artist-name}}*
+I love **{{artist-name}}**]]></fixedValue>
     </setProperty>
     <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[true]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>multiline-text</propertyName>
-      <fixedValue><![CDATA[sandy]]></fixedValue>
+      <componentPath>1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#{{artist-name}}#
+
+I love *{{artist-name}}*
+
+I love **{{artist-name}}**]]></fixedValue>
     </setProperty>
   </amendments>
 </template>

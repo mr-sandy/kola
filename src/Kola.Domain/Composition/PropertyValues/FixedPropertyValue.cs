@@ -1,7 +1,6 @@
 ﻿namespace Kola.Domain.Composition.PropertyValues
 {
-    using System;
-
+    using Kola.Domain.Extensions;
     using Kola.Domain.Instances.Context;
 
     public class FixedPropertyValue : IPropertyValue
@@ -15,7 +14,7 @@
 
         public string Resolve(IBuildContext buildContext)
         {
-            return this.Value;
+            return this.Value.ResolveContextData(buildContext?.ContextSets);
         }
 
         public T Accept<T>(IPropertyValueVisitor<T> visitor)

@@ -2,12 +2,12 @@
 var InheritedPropertyValueComponent = require('app/components/properties/InheritedPropertyValueComponent.jsx');
 var React = require('react');
 
-function Unset(props) {
+var Unset = (props) => {
     const divClasses = 'value ' + props.propertyType;
     return <div className={divClasses}></div>;
-}
+};
 
-module.exports = React.createClass({
+var PropertyValueComponent = React.createClass({
 
     propTypes: {
         editMode: React.PropTypes.bool.isRequired,
@@ -33,3 +33,5 @@ module.exports = React.createClass({
         };
     }
 });
+
+module.exports = PropertyValueComponent;

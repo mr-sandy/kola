@@ -2,7 +2,7 @@
 var $ = require('jquery');
 var React = require('react');
 
-module.exports = React.createClass({
+var InheritedPropertyValueComponent = React.createClass({
 
     propTypes: {
         editMode: React.PropTypes.bool.isRequired,
@@ -64,3 +64,5 @@ module.exports = React.createClass({
         }
     }
 });
+
+module.exports = InheritedPropertyValueComponent;

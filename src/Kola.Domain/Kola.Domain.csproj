@@ -79,6 +79,7 @@
     <Compile Include="Composition\PropertyValues\IPropertyValueVisitor.cs" />
     <Compile Include="Composition\PropertyValues\MultilingualPropertyValue.cs" />
     <Compile Include="Composition\PropertyValues\MultilingualVariant.cs" />
+    <Compile Include="Composition\PropertyValues\ContextSourcedContentResolver.cs" />
     <Compile Include="Composition\Redirect.cs" />
     <Compile Include="Composition\Template.cs" />
     <Compile Include="Composition\Widget.cs" />

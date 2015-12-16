@@ -1,9 +1,15 @@
 ﻿namespace Kola.Domain.Extensions
 {
     using System;
+    using System.Collections.Generic;
     using System.Configuration;
+    using System.Linq;
+    using System.Text.RegularExpressions;
 
-    internal static class StringExtensions
+    using Kola.Domain.Composition.PropertyValues;
+    using Kola.Domain.Instances.Context;
+
+    public static class StringExtensions
     {
         public static string StrongTrim(this string str)
         {
@@ -18,7 +24,7 @@
             {
                 var joiner = path.Contains("?") ? "&" : "?";
 
-                path = string.Format("{0}{1}{2}", path, joiner, queryString);
+                path = $"{path}{joiner}{queryString}";
             }
 
             if (path.StartsWith("http"))
@@ -34,6 +40,12 @@
             }
 
             return new Uri(hostUri, path);
+        }
+
+        public static string ResolveContextData(this string source, IEnumerable<ContextSet> contextSets)
+        {
+            var resolver = new ContextSourcedContentResolver(contextSets);
+            return resolver.Resolve(source);
         }
     }
 }

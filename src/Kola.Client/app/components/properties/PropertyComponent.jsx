@@ -4,9 +4,9 @@ var _ = require('underscore');
 var $ = require('jquery');
 var React = require('react');
 
-function ResetButton(props) {
+var ResetButton = (props) => {
     return <button className="reset" type="button" onClick={props.onClick}>reset</button>;
-}
+};
 
 const Outcomes = {
     cancel: 'cancel',
@@ -14,7 +14,7 @@ const Outcomes = {
     reset: 'reset'
 };
 
-module.exports = React.createClass({
+var PropertyComponent = React.createClass({
     propTypes: {
         onChange: React.PropTypes.func.isRequired,
         propertyName: React.PropTypes.string.isRequired,
@@ -167,3 +167,5 @@ module.exports = React.createClass({
         }
     }
 });
+
+module.exports = PropertyComponent;

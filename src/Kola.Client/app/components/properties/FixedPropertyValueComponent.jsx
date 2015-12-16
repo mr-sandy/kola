@@ -1,7 +1,7 @@
 ﻿var _ = require('underscore');
 var React = require('react');
 
-module.exports = React.createClass({
+var FixedPropertyValueComponent = React.createClass({
 
     propTypes: {
         editMode: React.PropTypes.bool.isRequired,
@@ -60,3 +60,5 @@ module.exports = React.createClass({
         }
     }
 });
+
+module.exports = FixedPropertyValueComponent;

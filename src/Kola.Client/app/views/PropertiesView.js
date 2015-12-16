@@ -8,7 +8,7 @@ var footerTemplate = require('app/templates/PropertiesButtonsTemplate.hbs');
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-module.exports = Backbone.View.extend({
+var PropertiesView = Backbone.View.extend({
 
     template: template,
 
@@ -63,26 +63,6 @@ module.exports = Backbone.View.extend({
         }
     },
 
-    //render: function () {
-    //    if (this.model) {
-    //        this.$el.html(this.template(this.model.toJSON()));
-
-    //        var $content = this.$el.find('.content').first();
-
-    //        var model = {
-    //            properties: this.model.get('properties'),
-    //            onChange: this.handlePropertyChange
-    //        };
-
-    //        ReactDOM.render(React.createElement(PropertiesComponent, model), $content[0]);
-    //    }
-    //    else {
-    //        this.$el.html(this.template({ 'disabled': true }));
-    //    }
-
-    //    return this;
-    //},
-
     render: function () {
         return !this.rendered ? this.initialRender() : this.updateRender();
     },
@@ -93,9 +73,9 @@ module.exports = Backbone.View.extend({
 
         this.$el.html(template());
 
-        var $content = this.$el.find('.content').first();
+        const $content = this.$el.find('.content').first();
 
-        var props = {
+        const props = {
             properties: this.model ? this.model.get('properties') : [],
             onChange: this.handlePropertyChange
         };
@@ -110,13 +90,13 @@ module.exports = Backbone.View.extend({
 
     updateRender: function () {
 
-        var props = {
+        const props = {
             properties: this.model ? this.model.get('properties') : [],
             onChange: this.handlePropertyChange
         };
 
         this.reactComponent.replaceProps(props);
-        this.$footer.html(footerTemplate({ disabled: this.model ? true : false }));
+        this.$footer.html(footerTemplate({ disabled: this.model ? false : true }));
 
         return this;
     },
@@ -139,3 +119,5 @@ module.exports = Backbone.View.extend({
         this.$el.toggleClass('hidden');
     }
 });
+
+module.exports = PropertiesView;

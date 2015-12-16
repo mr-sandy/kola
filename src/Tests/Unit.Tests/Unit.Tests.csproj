@@ -84,6 +84,7 @@
     <Compile Include="Domain\PropertyTests\WhenCreatingAnInstanceOfAPropertyWithAnInheritedPropertyValue.cs" />
     <Compile Include="Domain\PropertyTests\WhenCreatingAnInstanceOfAPropertyWithAFixedPropertyValue.cs" />
     <Compile Include="Domain\PropertyTests\WhenSettingAFixedValueForAProperty.cs" />
+    <Compile Include="Domain\ContextSourcedContentResolverTests\WhenResolvingContextSourcedContent.cs" />
     <Compile Include="Domain\TemplateTests\WhenAddingAnAmendment.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\SetPropertyFixed\WhenApplyingAFixedPropertyAmendmentForAFixedPropertyValueWhenNoPropertyExists.cs" />
     <Compile Include="Domain\WidgetTests\WhenAddingAPlaceholderToAWidget.cs" />
