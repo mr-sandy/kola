@@ -1,5 +1,6 @@
 ﻿var PropertyHeaderComponent = require('app/components/properties/PropertyHeaderComponent.jsx');
 var PropertyValueComponent = require('app/components/properties/PropertyValueComponent.jsx');
+var classNames = require('classNames');
 var _ = require('underscore');
 var $ = require('jquery');
 var React = require('react');
@@ -31,7 +32,7 @@ var PropertyComponent = React.createClass({
             propertyValue: this.state.propertyValue
         };
 
-        const divClass = this.state.editMode ? 'property editMode' : 'property';
+        const divClass = classNames('property', { 'editMode': this.state.editMode, 'unset': !this.state.propertyValue });
 
         return (
             <div className={divClass} onClick={this.handleClick} onKeyUp={this.handleKeyUp}>

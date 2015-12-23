@@ -270,5 +270,31 @@ I love *{{artist-name}}*
 
 I love **{{artist-name}}**]]></fixedValue>
     </setProperty>
+    <setProperty>
+      <componentPath>1/7/0</componentPath>
+      <propertyName>html-script-type</propertyName>
+      <fixedValue><![CDATA[text/javascript]]></fixedValue>
+    </setProperty>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>1/7/1</targetPath>
+    </addComponent>
+    <setProperty>
+      <componentPath>1/7/0</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[true]]></fixedValue>
+    </setProperty>
+    <reset_x0020__x0020_Property>
+      <componentPath>1/7/0</componentPath>
+      <propertyName>boolean</propertyName>
+    </reset_x0020__x0020_Property>
+    <setPropertyInherited>
+      <componentPath>1/7/0</componentPath>
+      <propertyName>html-script-type</propertyName>
+      <key>html-script-type</key>
+    </setPropertyInherited>
+    <duplicateComponent>
+      <componentPath>1/7/0</componentPath>
+    </duplicateComponent>
   </amendments>
 </template>

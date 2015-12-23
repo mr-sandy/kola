@@ -8,11 +8,11 @@ table {
     background-color: #ddd;
     color: #333;
     cursor: pointer;
-    @include transition(background-color 150ms);
+    /*@include transition(background-color 150ms);*/
 
-    :hover {
+    /*:hover {
         background-color: #eee;
-    }
+    }*/
 
     tbody {
         width: 100%;

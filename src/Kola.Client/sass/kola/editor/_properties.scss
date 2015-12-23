@@ -7,12 +7,19 @@
     div.content {
         padding: 2px 0;
 
+        .filter-unset {
+            .property.unset{
+                display: none;
+            }
+        }
+
         .property {
-            padding: 10px;
+            padding: 10px 10px 0 10px;
             margin: 8px;
             border-radius: 4px;
 
             &.editMode {
+                padding: 10px;
                 background-color: #777;
                 cursor: default;
             }
@@ -40,7 +47,7 @@
             }
 
             .value {
-                margin-top: 8px;
+                margin-top: 6px;
                 clear: both;
                 cursor: pointer;
 
@@ -119,10 +126,10 @@
             }
         }
 
-        .property + .property,
+        /*.property + .property,
         .property + .property-group,
         .property-group + .property {
             margin-top: 4px;
-        }
+        }*/
     }
 }

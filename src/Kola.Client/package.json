@@ -29,6 +29,7 @@
   "dependencies": {
     "backbone": "^1.2.3",
     "backbone-hypermedia": "^0.4.3",
+    "classnames": "^2.2.1",
     "handlebars": "^4.0.5",
     "jquery": "^2.1.4",
     "jquery-ui-bundle": "^1.11.4",

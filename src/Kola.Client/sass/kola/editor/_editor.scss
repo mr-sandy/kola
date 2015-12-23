@@ -213,6 +213,12 @@
 					&.toolbox-settings {
 						float: right;
 					}
+
+                    &.selected{
+                        background-color: #555;
+                        border: 2px solid #333;
+                        color: #ccc;
+                    }
                 }
 		    }
         }

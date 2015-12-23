@@ -15,6 +15,7 @@ var PropertiesView = Backbone.View.extend({
     initialize: function (options) {
         _.bindAll(this, 'render', 'handlePropertyChange');
         this.amendments = options.amendments;
+        this.filterUnset = false;
 
         this.uiStateDispatcher = options.uiStateDispatcher;
         this.uiStateDispatcher.on('toggle-properties', this.toggleHidden, this);
@@ -25,7 +26,8 @@ var PropertiesView = Backbone.View.extend({
 
     events: {
         'click #remove': 'remove',
-        'click #duplicate': 'duplicate'
+        'click #duplicate': 'duplicate',
+        'click #toggle-filter-unset': 'toggleUnset'
     },
 
     handleSelected: function (model) {
@@ -47,7 +49,7 @@ var PropertiesView = Backbone.View.extend({
     },
 
     handlePropertyChange: function (data) {
-        var path = this.model.get('path');
+        const path = this.model.get('path');
 
         if (data.propertyValue === null) {
             this.amendments.resetProperty(path, data.propertyName);
@@ -77,13 +79,14 @@ var PropertiesView = Backbone.View.extend({
 
         const props = {
             properties: this.model ? this.model.get('properties') : [],
+            filterUnset: this.filterUnset,
             onChange: this.handlePropertyChange
         };
 
         this.reactComponent = ReactDOM.render(React.createElement(PropertiesComponent, props), $content[0]);
 
         this.$footer = this.$el.find('.footer').first();
-        this.$footer.html(footerTemplate({ disabled: this.model ? true : false }));
+        this.renderFooter();
 
         return this;
     },
@@ -92,27 +95,36 @@ var PropertiesView = Backbone.View.extend({
 
         const props = {
             properties: this.model ? this.model.get('properties') : [],
+            filterUnset: this.filterUnset,
             onChange: this.handlePropertyChange
         };
 
         this.reactComponent.replaceProps(props);
-        this.$footer.html(footerTemplate({ disabled: this.model ? false : true }));
+        this.renderFooter();
 
         return this;
     },
 
+    renderFooter: function() {
+        this.$footer.html(footerTemplate({
+            disabled: this.model ? false : true,
+            filterUnset: this.filterUnset
+        }));
+    },
 
     remove: function (e) {
-        e.preventDefault();
-        var componentPath = this.model.get('path');
+        const componentPath = this.model.get('path');
         this.amendments.removeComponent(componentPath);
-        //this.stateBroker.deselect();
     },
 
     duplicate: function (e) {
-        e.preventDefault();
-        var componentPath = this.model.get('path');
+        const componentPath = this.model.get('path');
         this.amendments.duplicateComponent(componentPath);
+    },
+
+    toggleUnset: function () {
+        this.filterUnset = !this.filterUnset;
+        this.render();
     },
 
     toggleHidden: function () {
