@@ -1,12 +1,10 @@
 ﻿namespace Kola.Domain.Composition
 {
-    using System;
     using System.Linq;
 
     using Kola.Domain.Composition.Amendments;
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Extensions;
-    using Kola.Domain.Specifications;
 
     public class AmendmentApplyingVisitor : IAmendmentVisitor
     {

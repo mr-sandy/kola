@@ -239,62 +239,34 @@ g
       <componentType>div</componentType>
       <targetPath>1/1</targetPath>
     </addComponent>
+    <setProperty>
+      <componentPath>1/4</componentPath>
+      <propertyName>artist-id</propertyName>
+      <fixedValue><![CDATA[2]]></fixedValue>
+    </setProperty>
     <moveComponent>
       <sourcePath>1/2</sourcePath>
       <targetPath>1/1/0</targetPath>
     </moveComponent>
     <setProperty>
-      <componentPath>1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[I love ##{{artist-name}}##]]></fixedValue>
+      <componentPath>1/7/0</componentPath>
+      <propertyName>html-style-type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
     </setProperty>
     <setProperty>
-      <componentPath>1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#{{artist-name}}#
-I love *{{artist-name}}*]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#{{artist-name}}#
-I love *{{artist-name}}*
-I love **{{artist-name}}**]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#{{artist-name}}#
+      <componentPath>1/7/0</componentPath>
+      <propertyName>multiline-text</propertyName>
+      <fixedValue><![CDATA[jam
+a
+jam 
 
-I love *{{artist-name}}*
-
-I love **{{artist-name}}**]]></fixedValue>
+asfa
+]]></fixedValue>
     </setProperty>
     <setProperty>
       <componentPath>1/7/0</componentPath>
-      <propertyName>html-script-type</propertyName>
-      <fixedValue><![CDATA[text/javascript]]></fixedValue>
+      <propertyName>ie-condition</propertyName>
+      <fixedValue><![CDATA[lt9]]></fixedValue>
     </setProperty>
-    <addComponent>
-      <componentType>div</componentType>
-      <targetPath>1/7/1</targetPath>
-    </addComponent>
-    <setProperty>
-      <componentPath>1/7/0</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[true]]></fixedValue>
-    </setProperty>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/7/0</componentPath>
-      <propertyName>boolean</propertyName>
-    </reset_x0020__x0020_Property>
-    <setPropertyInherited>
-      <componentPath>1/7/0</componentPath>
-      <propertyName>html-script-type</propertyName>
-      <key>html-script-type</key>
-    </setPropertyInherited>
-    <duplicateComponent>
-      <componentPath>1/7/0</componentPath>
-    </duplicateComponent>
   </amendments>
 </template>

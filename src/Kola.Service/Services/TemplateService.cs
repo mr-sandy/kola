@@ -1,12 +1,12 @@
 ﻿namespace Kola.Service.Services
 {
     using System.Collections.Generic;
+    using System.Linq;
 
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.Amendments;
     using Kola.Domain.Extensions;
     using Kola.Persistence;
-    using Kola.Persistence.Extensions;
     using Kola.Service.Services.Models;
     using Kola.Service.Services.Results;
 
@@ -21,8 +21,10 @@
             this.componentLibrary = componentLibrary;
         }
 
-        public IResult<Template> CreateTemplate(IEnumerable<string> path)
+        public IResult<Template> CreateTemplate(IEnumerable<string> rawPath)
         {
+            var path = rawPath as string[] ?? rawPath.ToArray();
+
             var existingTemplate = this.contentRepository.GetTemplate(path);
 
             if (existingTemplate != null)
@@ -53,7 +55,7 @@
             return new SuccessResult<Template>(template);
         }
 
-        public IResult<ComponentDetails> GetComponent(IEnumerable<string> templatePath, IEnumerable<int> componentPath)
+        public IResult<ComponentDetails> GetComponent(IEnumerable<string> templatePath, IEnumerable<int> rawComponentPath)
         {
             var template = this.contentRepository.GetTemplate(templatePath);
 
@@ -63,6 +65,8 @@
             }
 
             template.ApplyAmendments(this.componentLibrary);
+
+            var componentPath = rawComponentPath as int[] ?? rawComponentPath.ToArray();
 
             var component = template.FindComponent(componentPath);
 
