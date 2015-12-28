@@ -12,25 +12,30 @@ namespace Kola.Persistence
     {
         private readonly IFileSystemHelper fileSystemHelper;
         private readonly IDynamicSourceProvider dynamicSourceProvider;
+        private readonly IContextSettingsRepository contextSettingsRepository;
 
         private readonly string templatesDirectory = "Templates";
 
 
-        public ContentFinder(IFileSystemHelper fileSystemHelper, IDynamicSourceProvider dynamicSourceProvider)
+        public ContentFinder(IFileSystemHelper fileSystemHelper, IDynamicSourceProvider dynamicSourceProvider, IContextSettingsRepository contextSettingsRepository)
         {
             this.fileSystemHelper = fileSystemHelper;
             this.dynamicSourceProvider = dynamicSourceProvider;
+            this.contextSettingsRepository = contextSettingsRepository;
         }
 
         public IEnumerable<ContentDirectory> FindContentDirectories(IEnumerable<string> path)
         {
-            return this.Find(path, this.templatesDirectory, Enumerable.Empty<IContextItem>());
+            return this.Find(path, this.templatesDirectory, Enumerable.Empty<ContextItem>());
         }
 
         private IEnumerable<ContentDirectory> Find(IEnumerable<string> path, string pathSoFar, IEnumerable<IContextItem> context)
         {
             var pathItems = path as string[] ?? path.ToArray();
-            var contextItems = context as IContextItem[] ?? context.ToArray();
+            //var contextItems = context as IContextItem[] ?? context.ToArray();
+
+            var newContext = this.contextSettingsRepository.Get(pathSoFar);
+            var contextItems = context.Merge(newContext).ToArray();
 
             if (!pathItems.Any())
             {
@@ -52,7 +57,7 @@ namespace Kola.Persistence
                 : Enumerable.Empty<ContentDirectory>();
         }
 
-        private IEnumerable<ContentDirectory> FindDynamic(string[] path, string pathSoFar, IContextItem[] context)
+        private IEnumerable<ContentDirectory> FindDynamic(string[] path, string pathSoFar, IEnumerable<IContextItem> context)
         {
             var dynamicChildren = this.fileSystemHelper.FindChildDirectories(pathSoFar, "-*-") ?? Enumerable.Empty<string>();
 

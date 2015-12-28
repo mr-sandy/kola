@@ -148,43 +148,11 @@ g
     </container>
   </components>
   <amendments>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/8</componentPath>
-      <propertyName>ie-condition</propertyName>
-    </reset_x0020__x0020_Property>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-script-type</propertyName>
-    </reset_x0020__x0020_Property>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-link-type</propertyName>
-    </reset_x0020__x0020_Property>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/8</componentPath>
-      <propertyName>html-link-rel-type</propertyName>
-    </reset_x0020__x0020_Property>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/8</componentPath>
-      <propertyName>markdown</propertyName>
-    </reset_x0020__x0020_Property>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/8</componentPath>
-      <propertyName>multiline-text</propertyName>
-    </reset_x0020__x0020_Property>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/8</componentPath>
-      <propertyName>number</propertyName>
-    </reset_x0020__x0020_Property>
     <setPropertyInherited>
       <componentPath>1/8</componentPath>
       <propertyName>text</propertyName>
       <key>yrdy</key>
     </setPropertyInherited>
-    <reset_x0020__x0020_Property>
-      <componentPath>1/8</componentPath>
-      <propertyName>text</propertyName>
-    </reset_x0020__x0020_Property>
     <setProperty>
       <componentPath>1/8</componentPath>
       <propertyName>text</propertyName>
@@ -268,5 +236,15 @@ asfa
       <propertyName>ie-condition</propertyName>
       <fixedValue><![CDATA[lt9]]></fixedValue>
     </setProperty>
+    <setPropertyInherited>
+      <componentPath>1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <key>username</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>1/3</componentPath>
+      <propertyName>artist-id</propertyName>
+      <key>artist-id</key>
+    </setPropertyInherited>
   </amendments>
 </template>

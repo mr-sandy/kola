@@ -15,6 +15,7 @@
     {
         private const string TemplateFileName = "Template.xml";
         private const string RedirectFileName = "Redirect.xml";
+        private const string TemplatesDirectory = "Templates";
 
         private readonly ISerializationHelper serializationHelper;
 
@@ -22,7 +23,6 @@
 
         private readonly IContentFinder contentFinder;
 
-        private const string TemplatesDirectory = "Templates";
 
         public ContentRepository(
             ISerializationHelper serializationHelper,

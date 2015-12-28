@@ -3,7 +3,7 @@
     using System.Xml;
     using System.Xml.Serialization;
 
-    [XmlType(Namespace = "http://www.kolacms.com/2013/kola", TypeName = "reset  Property")]
+    [XmlType(Namespace = "http://www.kolacms.com/2013/kola", TypeName = "resetProperty")]
     public class ResetPropertyAmendmentSurrogate : AmendmentSurrogate
     {
         [XmlElement("componentPath")]

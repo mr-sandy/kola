@@ -4,6 +4,7 @@ namespace Persistence.Tests.ContentFinderTests
 
     using Kola.Domain.Composition;
     using Kola.Domain.DynamicSources;
+    using Kola.Domain.Instances.Context;
     using Kola.Persistence;
 
     using NUnit.Framework;
@@ -15,6 +16,7 @@ namespace Persistence.Tests.ContentFinderTests
         protected ContentFinder ContentFinder;
         protected IFileSystemHelper FileSystemHelper;
         protected IDynamicSourceProvider DynamicSourceProvider;
+        protected IContextSettingsRepository ContextSettingsRepository;
         protected IEnumerable<ContentDirectory> Result;
 
         [SetUp]
@@ -22,8 +24,12 @@ namespace Persistence.Tests.ContentFinderTests
         {
             this.FileSystemHelper = MockRepository.GenerateStub<IFileSystemHelper>();
             this.DynamicSourceProvider = MockRepository.GenerateStub<IDynamicSourceProvider>();
+            this.ContextSettingsRepository = MockRepository.GenerateMock<IContextSettingsRepository>();
 
-            this.ContentFinder = new ContentFinder(this.FileSystemHelper, this.DynamicSourceProvider);
+            this.ContextSettingsRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything))
+                .Return(new ContextItem[] { });
+
+            this.ContentFinder = new ContentFinder(this.FileSystemHelper, this.DynamicSourceProvider, this.ContextSettingsRepository);
         }
     }
 }
