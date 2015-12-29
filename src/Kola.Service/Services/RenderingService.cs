@@ -37,6 +37,18 @@
 
             var visitor = new ContentVisitor<IResult<PageInstance>>(
                 template => new SuccessResult<PageInstance>(this.BuildPage(template, result.Context, preview)),
+                //template => {
+
+
+                //    var page = this.BuildPage(template, result.Context, preview);
+
+                //    if (preview || true)
+                //    {
+                //        return new SuccessResult<PageInstance>(page);
+                //    }
+
+                //    return new UnauthorisedResult<PageInstance>();
+                //},
                 redirect => new MovedPermanentlyResult<PageInstance>(redirect.Location));
 
             return result.Content.Accept(visitor);
@@ -62,17 +74,13 @@
 
         private PageInstance BuildPage(Template template, IEnumerable<IContextItem> context, bool preview)
         {
-
             template.ApplyAmendments(this.componentLibrary);
 
-            var buildContext = new BuildContext
-            {
-                WidgetSpecificationFinder = n => this.widgetSpecificationRepository.Find(n)
-            };
+            var buildContext = new BuildContext();
 
             buildContext.ContextSets.Push(new ContextSet(context));
 
-            var builder = new Builder(new RenderingInstructions(useCache: !preview, annotateComponentPaths: preview));
+            var builder = new Builder(new RenderingInstructions(useCache: !preview, annotateComponentPaths: preview), this.widgetSpecificationRepository.Find);
 
             return builder.Build(template, buildContext);
         }

@@ -39,7 +39,7 @@
             grandparent.Properties.Single().Value = new FixedPropertyValue("property-value");
             grandparent.Insert(0, parent);
 
-            var builder = new Builder(new RenderingInstructions(false, true));
+            var builder = new Builder(new RenderingInstructions(false, true), null);
             this.instance = grandparent.Build(builder, new[] { 0 }, buildContext);
         }
 

@@ -31,17 +31,15 @@
                 new[] { new PropertySpecification("property-alias", "property-type", string.Empty) },
                 new[] { placeholder });
 
-            var buildContext = new BuildContext
-                {
-                    WidgetSpecificationFinder = w => widgetSpecification
-                };
+            var buildContext = new BuildContext();
 
             var widget = widgetSpecification.Create();
             widget.FindOrCreateProperty(new PropertySpecification("property-alias", "property-type", string.Empty));
             widget.Properties.Single().Value = new FixedPropertyValue("property-value");
             widget.Areas.Single().Insert(0, container);
 
-            var builder = new Builder(new RenderingInstructions(false, true));
+            var builder = new Builder(new RenderingInstructions(false, true), w => widgetSpecification);
+
             this.instance = widget.Build(builder, new[] { 0 }, buildContext);
         }
 

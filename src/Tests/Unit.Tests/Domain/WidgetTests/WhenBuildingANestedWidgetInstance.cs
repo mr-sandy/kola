@@ -114,12 +114,10 @@ namespace Unit.Tests.Domain.WidgetTests
                             })
                     });
 
-            var buildContext = new BuildContext
-                {
-                    WidgetSpecificationFinder = n => n == "widget 1" ? specification1 : specification2
-                };
+            var buildContext = new BuildContext();
 
-            var builder = new Builder(new RenderingInstructions(false, true));
+            var builder = new Builder(new RenderingInstructions(false, true), n => n == "widget 1" ? specification1 : specification2);
+
             this.instance = (WidgetInstance)widget.Build(builder, new[] { 0 }, buildContext);
         }
 

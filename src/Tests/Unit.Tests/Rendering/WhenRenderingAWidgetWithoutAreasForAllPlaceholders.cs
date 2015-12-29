@@ -34,13 +34,11 @@
 
             var area = new Area("area 1");
             var widget = new Widget("widget", new[] { area });
-            
-            var buildContext = new BuildContext
-                {
-                    WidgetSpecificationFinder = w => widgetSpecification
-                };
 
-            var builder = new Builder(new RenderingInstructions(false, true));
+            var buildContext = new BuildContext();
+
+            var builder = new Builder(new RenderingInstructions(false, true), w => widgetSpecification);
+
             var instance = widget.Build(builder, new[] { 0 }, buildContext);
 
             var rendererFactory = MockRepository.GenerateStub<IRendererFactory>();

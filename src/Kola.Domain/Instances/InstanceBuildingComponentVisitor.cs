@@ -1,6 +1,7 @@
 ﻿
 namespace Kola.Domain.Instances
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -8,14 +9,17 @@ namespace Kola.Domain.Instances
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances.Context;
     using Kola.Domain.Rendering;
+    using Kola.Domain.Specifications;
 
     public class Builder : IBuilder
     {
         private readonly IRenderingInstructions renderingInstructions;
+        private readonly Func<string, WidgetSpecification> widgetSpecificationFinder;
 
-        public Builder(IRenderingInstructions renderingInstructions)
+        public Builder(IRenderingInstructions renderingInstructions, Func<string, WidgetSpecification> widgetSpecificationFinder)
         {
             this.renderingInstructions = renderingInstructions;
+            this.widgetSpecificationFinder = widgetSpecificationFinder;
         }
 
         public PageInstance Build(Template template, IBuildContext buildContext)
@@ -63,7 +67,7 @@ namespace Kola.Domain.Instances
 
             buildContext.AreaContents.Push(areas);
 
-            var specification = buildContext.WidgetSpecificationFinder(widget.Name);
+            var specification = this.widgetSpecificationFinder(widget.Name);
 
             // Notice that we're passing null as the path - we don't want to annotate the components from the widget 
             // specification because they're not components that the editor of the current template can do anything about
