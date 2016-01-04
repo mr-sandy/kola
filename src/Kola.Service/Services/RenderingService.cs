@@ -24,7 +24,7 @@
             this.componentLibrary = componentLibrary;
         }
 
-        public IResult<PageInstance> GetPage(IEnumerable<string> path, bool preview)
+        public IResult<PageInstance> GetPage(IEnumerable<string> path, bool preview, IUser user)
         {
             var results = (this.contentRepository.FindContent(path) ?? Enumerable.Empty<FindContentResult>()).ToArray();
 
@@ -36,19 +36,15 @@
             var result = preview ? results.TakeTemplateResult() : results.FavourRedirectResult();
 
             var visitor = new ContentVisitor<IResult<PageInstance>>(
-                template => new SuccessResult<PageInstance>(this.BuildPage(template, result.Context, preview)),
-                //template => {
+                template =>
+                    {
+                        if (result.Context?.AuthChecks != null && result.Context.AuthChecks.Any() && !result.Context.AuthChecks.All(a => a.Test(user)))
+                        {
+                            return new UnauthorisedResult<PageInstance>();
+                        }
 
-
-                //    var page = this.BuildPage(template, result.Context, preview);
-
-                //    if (preview || true)
-                //    {
-                //        return new SuccessResult<PageInstance>(page);
-                //    }
-
-                //    return new UnauthorisedResult<PageInstance>();
-                //},
+                        return new SuccessResult<PageInstance>(this.BuildPage(template, result.Context?.ContextItems, preview));
+                    },
                 redirect => new MovedPermanentlyResult<PageInstance>(redirect.Location));
 
             return result.Content.Accept(visitor);
@@ -63,7 +59,7 @@
                 return new NotFoundResult<ComponentInstance>();
             }
 
-            var page = this.BuildPage(result.Content as Template, result.Context, true);
+            var page = this.BuildPage(result.Content as Template, result.Context?.ContextItems, true);
 
             var finder = new ComponentFindingComponentInstanceVisitor();
 
@@ -72,17 +68,22 @@
             return new SuccessResult<ComponentInstance>(fragment);
         }
 
-        private PageInstance BuildPage(Template template, IEnumerable<IContextItem> context, bool preview)
+        private PageInstance BuildPage(Template template, IEnumerable<IContextItem> contextItems, bool preview)
         {
             template.ApplyAmendments(this.componentLibrary);
 
             var buildContext = new BuildContext();
 
-            buildContext.ContextSets.Push(new ContextSet(context));
+            if (contextItems != null && contextItems.Any())
+            {
+                buildContext.ContextSets.Push(new ContextSet(contextItems));
+            }
 
             var builder = new Builder(new RenderingInstructions(useCache: !preview, annotateComponentPaths: preview), this.widgetSpecificationRepository.Find);
 
             return builder.Build(template, buildContext);
         }
     }
+
+
 }

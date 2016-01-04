@@ -34,7 +34,7 @@
             this.container.Register<IComponentSpecificationLibrary, ComponentSpecificationLibrary>();
             this.container.Register<IComponentSpecificationService, ComponentSpecificationService>();
             this.container.Register<IRenderingService, RenderingService>();
-            this.container.Register<IContextSettingsRepository, ContextSettingsRepository>();
+            this.container.Register<IContextRepository, ContextRepository>();
             this.renderingModule = this.container.Resolve<RenderingModule>();
         }
 

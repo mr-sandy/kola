@@ -6,14 +6,14 @@ namespace Kola.Persistence
 
     public class ContentDirectory
     {
-        public ContentDirectory(string path, IEnumerable<IContextItem> contextItems)
+        public ContentDirectory(string path, IContext context)
         {
             this.Path = path;
-            this.ContextItems = contextItems;
+            this.Context = context;
         }
 
         public string Path { get; }
 
-        public IEnumerable<IContextItem> ContextItems { get; }
+        public IContext Context { get; }
     }
 }

@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="ContentDirectory.cs" />
     <Compile Include="ContentFinder.cs" />
-    <Compile Include="ContextSettingsRepository.cs" />
+    <Compile Include="ContextRepository.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="FindContentResult.cs" />
     <Compile Include="DomainBuilding\DomainBuildingAmendmentSurrogateVisitor.cs" />
@@ -60,7 +60,7 @@
     <Compile Include="FileSystemHelper.cs" />
     <Compile Include="IContentFinder.cs" />
     <Compile Include="IContentRepository.cs" />
-    <Compile Include="IContextSettingsRepository.cs" />
+    <Compile Include="IContextRepository.cs" />
     <Compile Include="IFileSystemHelper.cs" />
     <Compile Include="ISerializationHelper.cs" />
     <Compile Include="IWidgetSpecificationRepository.cs" />

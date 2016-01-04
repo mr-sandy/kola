@@ -4,7 +4,9 @@
 
     using global::Nancy;
     using global::Nancy.ModelBinding;
+    using global::Nancy.Security;
 
+    using Kola.Domain.Instances.Context;
     using Kola.Nancy.Extensions;
     using Kola.Nancy.Models;
     using Kola.Service.Services;
@@ -33,7 +35,7 @@
 
         private dynamic GetPage(IEnumerable<string> path, bool preview)
         {
-            var result = this.renderingService.GetPage(path, preview);
+            var result = this.renderingService.GetPage(path, preview, new NancyUser(this.Context.CurrentUser));
 
             return this.Negotiate.WithModel(result);
         }
@@ -43,6 +45,14 @@
             var result = this.renderingService.GetFragment(path, componentPath);
 
             return this.Negotiate.WithModel(result);
+        }
+    }
+
+    public class NancyUser : IUser
+    {
+        public NancyUser(IUserIdentity user)
+        {
+            
         }
     }
 }

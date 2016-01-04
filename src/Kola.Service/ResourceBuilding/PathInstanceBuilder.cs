@@ -58,7 +58,7 @@ namespace Kola.Service.ResourceBuilding
 
             foreach (var item in provider.GetAllItems(context))
             {
-                foreach (var previewUrl in this.Find(pathItems.Skip(1), $"{pathSoFar}/{item.Value}", context.Merge(item.Context)))
+                foreach (var previewUrl in this.Find(pathItems.Skip(1), $"{pathSoFar}/{item.Value}", context.Merge(item.ContextItems)))
                 {
                     yield return previewUrl;
                 }

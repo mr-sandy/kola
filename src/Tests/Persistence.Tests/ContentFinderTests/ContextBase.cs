@@ -16,7 +16,7 @@ namespace Persistence.Tests.ContentFinderTests
         protected ContentFinder ContentFinder;
         protected IFileSystemHelper FileSystemHelper;
         protected IDynamicSourceProvider DynamicSourceProvider;
-        protected IContextSettingsRepository ContextSettingsRepository;
+        protected IContextRepository ContextSettingsRepository;
         protected IEnumerable<ContentDirectory> Result;
 
         [SetUp]
@@ -24,10 +24,10 @@ namespace Persistence.Tests.ContentFinderTests
         {
             this.FileSystemHelper = MockRepository.GenerateStub<IFileSystemHelper>();
             this.DynamicSourceProvider = MockRepository.GenerateStub<IDynamicSourceProvider>();
-            this.ContextSettingsRepository = MockRepository.GenerateMock<IContextSettingsRepository>();
+            this.ContextSettingsRepository = MockRepository.GenerateMock<IContextRepository>();
 
-            this.ContextSettingsRepository.Stub(r => r.Get(Arg<IEnumerable<string>>.Is.Anything))
-                .Return(new ContextItem[] { });
+            this.ContextSettingsRepository.Stub(r => r.Get(Arg<string>.Is.Anything))
+                .Return(new Context());
 
             this.ContentFinder = new ContentFinder(this.FileSystemHelper, this.DynamicSourceProvider, this.ContextSettingsRepository);
         }

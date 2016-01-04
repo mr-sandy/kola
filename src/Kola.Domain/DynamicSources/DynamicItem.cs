@@ -6,14 +6,14 @@ namespace Kola.Domain.DynamicSources
 
     public class DynamicItem
     {
-        public DynamicItem(string value, IEnumerable<IContextItem> context = null)
+        public DynamicItem(string value, IEnumerable<IContextItem> contextItems = null)
         {
             this.Value = value;
-            this.Context = context;
+            this.ContextItems = contextItems;
         }
 
         public string Value { get; }
 
-        public IEnumerable<IContextItem> Context { get; }
+        public IEnumerable<IContextItem> ContextItems { get; }
     }
 }

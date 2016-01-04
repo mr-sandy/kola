@@ -48,13 +48,13 @@
         [Test]
         public void TheContentDirectoryShouldIncludeOneContextItem()
         {
-            this.Result.Single().ContextItems.Should().HaveCount(1);
+            this.Result.Single().Context.ContextItems.Should().HaveCount(1);
         }
 
         [Test]
         public void TheContextItemShouldHaveTheExpectedNameAndValue()
         {
-            this.Result.Single().ContextItems.Where(i => i.Name == "item name 2" && i.Value == "item value 2").Should().HaveCount(1);
+            this.Result.Single().Context.ContextItems.Where(i => i.Name == "item name 2" && i.Value == "item value 2").Should().HaveCount(1);
         }
     }
 }
