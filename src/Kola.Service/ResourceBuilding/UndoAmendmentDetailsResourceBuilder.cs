@@ -34,15 +34,9 @@ namespace Kola.Service.ResourceBuilding
             }
         }
 
-        public string Location(UndoAmendmentDetails widgetSpecification)
+        public string Location(UndoAmendmentDetails amendment)
         {
-            var result = new List<string>();
-
-            result.AddRange(new[] { "_kola", "templates" });
-            result.AddRange(widgetSpecification.Template.Path);
-            result.Add("_amendments");
-
-            return result.ToHttpPath();
+            return $"/_kola/template/amendments?templatePath={amendment.Template.Path.ToHttpPath()}";
         }
     }
 }

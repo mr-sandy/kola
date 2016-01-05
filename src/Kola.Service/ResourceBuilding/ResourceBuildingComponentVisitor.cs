@@ -94,8 +94,8 @@
             yield return new LinkResource
                 {
                     Rel = "self",
-                    Href = new[] { "_kola", "templates" }.Concat(this.templatePath).Append("_components").Concat(context.Select(i => i.ToString())).ToHttpPath()
-                };
+                    Href = $"/_kola/template/components?templatePath={this.templatePath.ToHttpPath()}&componentPath={context.Select(i => i.ToString()).ToHttpPath()}"
+            };
 
             yield return new LinkResource
             {

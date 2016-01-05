@@ -33,8 +33,12 @@
             this.ComponentLibrary.Stub(l => l.Lookup("atom name")).Return(new AtomSpecification("atom name"));
 
             this.Response = this.Browser.Post(
-                "/_kola/templates/test/path/_amendments/apply",
-                with => { with.Header("Accept", "application/json"); });
+                "/_kola/template/amendments/apply",
+                with =>
+                    {
+                        with.Query("templatePath", "/test/path");
+                        with.Header("Accept", "application/json");
+                    });
         }
 
         [Test]

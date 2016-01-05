@@ -1,6 +1,5 @@
 namespace Kola.Service.ResourceBuilding
 {
-    using System.Collections.Generic;
     using System.Linq;
 
     using Kola.Service.Extensions;
@@ -15,14 +14,9 @@ namespace Kola.Service.ResourceBuilding
             return model.Template.Amendments.Select((amendment, index) => amendment.Accept(visitor, index));
         }
 
-        public string Location(AmendmentsDetails widgetSpecification)
+        public string Location(AmendmentsDetails amendment)
         {
-            var result = new List<string>();
-
-            result.AddRange(widgetSpecification.Template.Path);
-            result.Add("_amendments");
-
-            return result.ToHttpPath();
+            return $"/_kola/template/amendments?templatePath={amendment.Template.Path.ToHttpPath()}";
         }
     }
 }

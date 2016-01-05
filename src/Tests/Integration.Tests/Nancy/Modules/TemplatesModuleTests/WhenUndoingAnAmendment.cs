@@ -29,7 +29,13 @@
 
             this.ComponentLibrary.Stub(l => l.Lookup("atom name")).Return(new AtomSpecification("atom name"));
 
-            this.Response = this.Browser.Post("/_kola/templates/test/path/_amendments/undo", with => { with.Header("Accept", "application/json"); });
+            this.Response = this.Browser.Post(
+                "/_kola/template/amendments/undo",
+                with =>
+                    {
+                        with.Query("templatePath", "/test/path");
+                        with.Header("Accept", "application/json");
+                    });
         }
 
         [Test]
@@ -53,7 +59,7 @@
         [Test]
         public void ShouldIncludeASelfLink()
         {
-            this.Response.Body.DeserializeJson<UndoAmendmentResource>().Links.Should().Contain(l => l.Rel == "self" && l.Href == "/_kola/templates/test/path/_amendments");
+            this.Response.Body.DeserializeJson<UndoAmendmentResource>().Links.Should().Contain(l => l.Rel == "self" && l.Href == "/_kola/template/amendments?templatePath=/test/path");
         }
 
         [Test]

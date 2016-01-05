@@ -15,7 +15,11 @@
         [SetUp]
         public void SetUp()
         {
-            this.Response = this.Browser.Put("/_kola/templates/test/path", with => with.Header("Accept", "application/json"));
+            this.Response = this.Browser.Put("/_kola/template", with =>
+                {
+                    with.Query("templatePath", "/test/path");
+                    with.Header("Accept", "application/json");
+                });
         }
 
         [Test]
@@ -27,7 +31,7 @@
         [Test]
         public void ShouldReturnALocationHeader()
         {
-            this.Response.Headers["location"].Should().Be("/_kola/templates/test/path");
+            this.Response.Headers["location"].Should().Be("/_kola/template?templatePath=/test/path");
         }
 
         [Test]
@@ -35,7 +39,7 @@
         {
             var args = this.ContentRepository.GetArgumentsForCallsMadeOn(r => r.Add(Arg<Template>.Is.Anything));
             var template = (Template)args[0][0];
-            template.Path.Should().BeEquivalentTo(new[] { "test", "path" });
+            template.Path.Should().BeEquivalentTo("test", "path");
         }
     }
 }

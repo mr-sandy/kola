@@ -111,12 +111,10 @@
 
         private IEnumerable<LinkResource> BuildLinks(IAmendment amendment, int index)
         {
-            var path = this.templatePath.Concat(new[] { "_amendments", index.ToString() });
-
             yield return new LinkResource
             {
                 Rel = "self",
-                Href = new[] { "_kola", "templates" }.Concat(path).ToHttpPath()
+                Href = $"/_kola/template/amendments?templatePath={this.templatePath.ToHttpPath()}&amendmentIndex={index}"
             };
 
             yield return new LinkResource

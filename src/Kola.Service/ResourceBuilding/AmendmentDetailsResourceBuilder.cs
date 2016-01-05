@@ -20,16 +20,9 @@
 
         }
 
-        public string Location(AmendmentDetails widgetSpecification)
+        public string Location(AmendmentDetails amendment)
         {
-            var result = new List<string>();
-
-            result.AddRange(new[] { "_kola", "templates" });
-            result.AddRange(widgetSpecification.Template.Path);
-            result.Add("_amendments");
-            result.Add(this.GetAmendmentIndex(widgetSpecification.Template, widgetSpecification.Amendment).ToString());
-
-            return result.ToHttpPath();
+            return $"/_kola/template/amendments?templatePath={amendment.Template.Path.ToHttpPath()}&amendmentIndex={this.GetAmendmentIndex(amendment.Template, amendment.Amendment)}";
         }
 
         private int GetAmendmentIndex(Template template, IAmendment amendment)

@@ -15,15 +15,9 @@
             return model.Component.Accept(visitor, model.ComponentPath);
         }
 
-        public string Location(ComponentDetails widgetSpecification)
+        public string Location(ComponentDetails component)
         {
-            var result = new List<string>();
-
-            result.AddRange(widgetSpecification.Template.Path);
-            result.Add("_components");
-            result.AddRange(widgetSpecification.ComponentPath.Select(i => i.ToString()));
-
-            return result.ToHttpPath();
+            return $"/_kola/template/components?templatePath={component.Template.Path.ToHttpPath()}&componentPath={component.ComponentPath.Select(i => i.ToString()).ToHttpPath()}";
         }
     }
 }

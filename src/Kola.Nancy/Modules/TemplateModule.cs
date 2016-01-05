@@ -16,30 +16,31 @@
         private readonly IKolaConfigurationRegistry kolaConfigurationRegistry;
 
         public TemplateModule(ITemplateService templateService, IKolaConfigurationRegistry kolaConfigurationRegistry)
-            : base("/_kola/templates/{templatePath*}")
+            : base("/_kola/template")
         {
             this.templateService = templateService;
             this.kolaConfigurationRegistry = kolaConfigurationRegistry;
 
-            this.Get["/"] = p => this.GetTemplate(p.templatePath);
-            this.Put["/"] = p => this.PutTemplate(p.templatePath);
-            this.Get["/_components/{componentPath*}"] = p => this.GetComponent(p.templatePath, p.componentPath);
-            this.Get["/_amendments"] = p => this.GetAmendments(p.templatePath);
-            this.Post["/_amendments/addComponent"] = p => this.PostAmendment<AddComponentAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/moveComponent"] = p => this.PostAmendment<MoveComponentAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/removeComponent"] = p => this.PostAmendment<RemoveComponentAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/duplicateComponent"] = p => this.PostAmendment<DuplicateComponentAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/resetProperty"] = p => this.PostAmendment<ResetPropertyAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/setPropertyFixed"] = p => this.PostAmendment<SetPropertyFixedAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/setPropertyInherited"] = p => this.PostAmendment<SetPropertyInheritedAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/setComment"] = p => this.PostAmendment<SetCommentAmendmentResource>(p.templatePath);
-            this.Post["/_amendments/apply"] = p => this.PostApplyAmendments(p.templatePath);
-            this.Post["/_amendments/undo"] = p => this.PostUndoAmendment(p.templatePath);
+            this.Get["/"] = p => this.GetTemplate();
+            this.Put["/"] = p => this.PutTemplate();
+            this.Get["/components"] = p => this.GetComponent();
+            this.Get["/amendments"] = p => this.GetAmendments();
+            this.Post["/amendments/addComponent"] = p => this.PostAmendment<AddComponentAmendmentResource>();
+            this.Post["/amendments/moveComponent"] = p => this.PostAmendment<MoveComponentAmendmentResource>();
+            this.Post["/amendments/removeComponent"] = p => this.PostAmendment<RemoveComponentAmendmentResource>();
+            this.Post["/amendments/duplicateComponent"] = p => this.PostAmendment<DuplicateComponentAmendmentResource>();
+            this.Post["/amendments/resetProperty"] = p => this.PostAmendment<ResetPropertyAmendmentResource>();
+            this.Post["/amendments/setPropertyFixed"] = p => this.PostAmendment<SetPropertyFixedAmendmentResource>();
+            this.Post["/amendments/setPropertyInherited"] = p => this.PostAmendment<SetPropertyInheritedAmendmentResource>();
+            this.Post["/amendments/setComment"] = p => this.PostAmendment<SetCommentAmendmentResource>();
+            this.Post["/amendments/apply"] = p => this.PostApplyAmendments();
+            this.Post["/amendments/undo"] = p => this.PostUndoAmendment();
         }
 
-        private dynamic GetTemplate(string rawPath)
+        private dynamic GetTemplate()
         {
-            var path = rawPath.ParsePath();
+            var query = this.Bind<TemplateQuery>();
+            var path = query.TemplatePath.ParsePath();
 
             return this.Negotiate
                 .WithView("Application")
@@ -47,38 +48,42 @@
                 .WithMediaRangeModel("text/html", () => ApplicationModel.Build(this.kolaConfigurationRegistry));
         }
 
-        private dynamic GetAmendments(string rawPath)
+        private dynamic GetAmendments()
         {
-            var path = rawPath.ParsePath();
+            var query = this.Bind<TemplateQuery>();
+            var path = query.TemplatePath.ParsePath();
 
             var result = this.templateService.GetAmendments(path);
 
             return this.Negotiate.WithModel(result);
         }
 
-        private dynamic GetComponent(string rawTemplatePath, string rawComponentPath)
+        private dynamic GetComponent()
         {
-            var templatePath = rawTemplatePath.ParsePath();
-            var componentPath = rawComponentPath.ParseComponentPath();
+            var query = this.Bind<TemplateQuery>();
+            var templatePath = query.TemplatePath.ParsePath();
+            var componentPath = query.ComponentPath.ParseComponentPath();
 
             var result = this.templateService.GetComponent(templatePath, componentPath);
 
             return this.Negotiate.WithModel(result);
         }
 
-        private dynamic PutTemplate(string rawPath)
+        private dynamic PutTemplate()
         {
-            var path = rawPath.ParsePath();
+            var query = this.Bind<TemplateQuery>();
+            var path = query.TemplatePath.ParsePath();
 
             var result = this.templateService.CreateTemplate(path);
 
             return this.Negotiate.WithModel(result);
         }
 
-        private dynamic PostAmendment<T>(string rawPath)
+        private dynamic PostAmendment<T>()
             where T : AmendmentResource
         {
-            var path = rawPath.ParsePath();
+            var query = this.Bind<TemplateQuery>();
+            var path = query.TemplatePath.ParsePath();
             var amendment = new AmendmentDomainBuilder().Build(this.Bind<T>());
 
             var result = this.templateService.AddAmendment(path, amendment);
@@ -86,22 +91,54 @@
             return this.Negotiate.WithModel(result);
         }
 
-        private dynamic PostApplyAmendments(string rawPath)
+        private dynamic PostApplyAmendments()
         {
-            var path = rawPath.ParsePath();
+            var query = this.Bind<TemplateQuery>();
+            var path = query.TemplatePath.ParsePath();
 
             var result = this.templateService.ApplyAmendments(path);
 
             return this.Negotiate.WithModel(result);
         }
 
-        private dynamic PostUndoAmendment(string rawPath)
+        private dynamic PostUndoAmendment()
         {
-            var path = rawPath.ParsePath();
+            var query = this.Bind<TemplateQuery>();
+            var path = query.TemplatePath.ParsePath();
 
             var result = this.templateService.UndoAmendment(path);
 
             return this.Negotiate.WithModel(result);
+        }
+    }
+
+    public class TemplateQuery
+    {
+        private string templatePath;
+        private string componentPath;
+
+        public string TemplatePath
+        {
+            get
+            {
+                return this.templatePath ?? string.Empty;
+            }
+            set
+            {
+                this.templatePath= value;
+            }
+        }
+
+        public string ComponentPath
+        {
+            get
+            {
+                return this.componentPath ?? string.Empty;
+            }
+            set
+            {
+                this.componentPath = value;
+            }
         }
     }
 }

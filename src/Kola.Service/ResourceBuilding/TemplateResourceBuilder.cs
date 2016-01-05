@@ -27,9 +27,9 @@
             };
         }
 
-        public string Location(Template widgetSpecification)
+        public string Location(Template template)
         {
-            return new[] { "_kola", "templates" }.Concat(widgetSpecification.Path).ToHttpPath();
+            return $"/_kola/template?templatePath={template.Path.ToHttpPath()}";
         }
 
         private IEnumerable<LinkResource> GetLinks(Template template)
@@ -37,13 +37,13 @@
             yield return new LinkResource
             {
                 Rel = "self",
-                Href = new[] { "_kola", "templates" }.Concat(template.Path).ToHttpPath()
+                Href = $"/_kola/template?templatePath={template.Path.ToHttpPath()}"
             };
 
             yield return new LinkResource
             {
                 Rel = "amendments",
-                Href = new[] { "_kola", "templates" }.Concat(template.Path).Append("_amendments").ToHttpPath()
+                Href = $"/_kola/template/amendments?templatePath={template.Path.ToHttpPath()}"
             };
 
             foreach (var previewUrl in this.pathInstanceBuilder.Build(template.Path))

@@ -19,7 +19,7 @@
 
         public static IEnumerable<int> ParseComponentPath(this string path)
         {
-            return path.Split('/').Where(s => !string.IsNullOrWhiteSpace(s)).Select(s => int.Parse(s));
+            return path.Split('/').Where(s => !string.IsNullOrWhiteSpace(s)).Select(int.Parse);
         }
     }
 }

@@ -23,7 +23,13 @@
 
             this.ContentRepository.Stub(r => r.GetTemplate(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" }))).Return(template);
 
-            this.Response = this.Browser.Get("/_kola/templates/test/path", with => with.Header("Accept", "application/json"));
+            this.Response = this.Browser.Get(
+                "/_kola/template",
+                with =>
+                    {
+                        with.Query("templatePath", "/test/path");
+                        with.Header("Accept", "application/json");
+                    });
         }
 
         [Test]
@@ -41,7 +47,7 @@
         [Test]
         public void ShouldContainASelfLink()
         {
-            this.Response.Body.DeserializeJson<TemplateResource>().Links.Should().Contain(l => l.Rel == "self" && l.Href == "/_kola/templates/test/path");
+            this.Response.Body.DeserializeJson<TemplateResource>().Links.Should().Contain(l => l.Rel == "self" && l.Href == "/_kola/template?templatePath=/test/path");
         }
 
         [Test]
