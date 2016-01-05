@@ -25,10 +25,11 @@
             var componentSpecification = new AtomSpecification("atom name");
             this.ComponentLibrary.Stub(r => r.Lookup("atom name")).Return(componentSpecification);
 
-            this.Response = this.Browser.Post("/_kola/template/amendments/addComponent",
+            this.Response = this.Browser.Post("/_kola/template/amendments",
                 with =>
                     {
                         with.Query("templatePath", "/test/path");
+                        with.Query("amendmentType", "addComponent");
                         with.JsonBody(new
                         {
                             targetPath = "0",

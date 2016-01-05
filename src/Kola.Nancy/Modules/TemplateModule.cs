@@ -4,6 +4,7 @@
     using global::Nancy.ModelBinding;
 
     using Kola.Configuration;
+    using Kola.Domain.Composition.Amendments;
     using Kola.Nancy.Extensions;
     using Kola.Nancy.Models;
     using Kola.Resources;
@@ -13,6 +14,7 @@
     public class TemplateModule : NancyModule
     {
         private readonly ITemplateService templateService;
+
         private readonly IKolaConfigurationRegistry kolaConfigurationRegistry;
 
         public TemplateModule(ITemplateService templateService, IKolaConfigurationRegistry kolaConfigurationRegistry)
@@ -25,16 +27,9 @@
             this.Put["/"] = p => this.PutTemplate();
             this.Get["/components"] = p => this.GetComponent();
             this.Get["/amendments"] = p => this.GetAmendments();
-            this.Post["/amendments/addComponent"] = p => this.PostAmendment<AddComponentAmendmentResource>();
-            this.Post["/amendments/moveComponent"] = p => this.PostAmendment<MoveComponentAmendmentResource>();
-            this.Post["/amendments/removeComponent"] = p => this.PostAmendment<RemoveComponentAmendmentResource>();
-            this.Post["/amendments/duplicateComponent"] = p => this.PostAmendment<DuplicateComponentAmendmentResource>();
-            this.Post["/amendments/resetProperty"] = p => this.PostAmendment<ResetPropertyAmendmentResource>();
-            this.Post["/amendments/setPropertyFixed"] = p => this.PostAmendment<SetPropertyFixedAmendmentResource>();
-            this.Post["/amendments/setPropertyInherited"] = p => this.PostAmendment<SetPropertyInheritedAmendmentResource>();
-            this.Post["/amendments/setComment"] = p => this.PostAmendment<SetCommentAmendmentResource>();
-            this.Post["/amendments/apply"] = p => this.PostApplyAmendments();
-            this.Post["/amendments/undo"] = p => this.PostUndoAmendment();
+            this.Post["/amendments"] = p => this.PostAmendment();
+            this.Put["/amendments"] = p => this.ApplyAmendments();
+            this.Delete["/amendments"] = p => this.UndoAmendment();
         }
 
         private dynamic GetTemplate()
@@ -42,10 +37,10 @@
             var query = this.Bind<TemplateQuery>();
             var path = query.TemplatePath.ParsePath();
 
-            return this.Negotiate
-                .WithView("Application")
-                .WithMediaRangeModel("application/json", () => this.templateService.GetTemplate(path))
-                .WithMediaRangeModel("text/html", () => ApplicationModel.Build(this.kolaConfigurationRegistry));
+            return
+                this.Negotiate.WithView("Application")
+                    .WithMediaRangeModel("application/json", () => this.templateService.GetTemplate(path))
+                    .WithMediaRangeModel("text/html", () => ApplicationModel.Build(this.kolaConfigurationRegistry));
         }
 
         private dynamic GetAmendments()
@@ -79,19 +74,18 @@
             return this.Negotiate.WithModel(result);
         }
 
-        private dynamic PostAmendment<T>()
-            where T : AmendmentResource
+        private dynamic PostAmendment()
         {
             var query = this.Bind<TemplateQuery>();
             var path = query.TemplatePath.ParsePath();
-            var amendment = new AmendmentDomainBuilder().Build(this.Bind<T>());
+            var amendment = this.BuildAmendment(query.AmendmentType);
 
             var result = this.templateService.AddAmendment(path, amendment);
 
             return this.Negotiate.WithModel(result);
         }
 
-        private dynamic PostApplyAmendments()
+        private dynamic ApplyAmendments()
         {
             var query = this.Bind<TemplateQuery>();
             var path = query.TemplatePath.ParsePath();
@@ -101,7 +95,7 @@
             return this.Negotiate.WithModel(result);
         }
 
-        private dynamic PostUndoAmendment()
+        private dynamic UndoAmendment()
         {
             var query = this.Bind<TemplateQuery>();
             var path = query.TemplatePath.ParsePath();
@@ -110,34 +104,39 @@
 
             return this.Negotiate.WithModel(result);
         }
-    }
 
-    public class TemplateQuery
-    {
-        private string templatePath;
-        private string componentPath;
-
-        public string TemplatePath
+        private IAmendment BuildAmendment(string amendmentType)
         {
-            get
-            {
-                return this.templatePath ?? string.Empty;
-            }
-            set
-            {
-                this.templatePath= value;
-            }
-        }
+            var builder = new AmendmentDomainBuilder();
 
-        public string ComponentPath
-        {
-            get
+            switch (amendmentType)
             {
-                return this.componentPath ?? string.Empty;
-            }
-            set
-            {
-                this.componentPath = value;
+                case "addComponent":
+                    return builder.Build(this.Bind<AddComponentAmendmentResource>());
+
+                case "moveComponent":
+                    return builder.Build(this.Bind<MoveComponentAmendmentResource>());
+
+                case "removeComponent":
+                    return builder.Build(this.Bind<RemoveComponentAmendmentResource>());
+
+                case "duplicateComponent":
+                    return builder.Build(this.Bind<DuplicateComponentAmendmentResource>());
+
+                case "resetProperty":
+                    return builder.Build(this.Bind<ResetPropertyAmendmentResource>());
+
+                case "setPropertyFixed":
+                    return builder.Build(this.Bind<SetPropertyFixedAmendmentResource>());
+
+                case "setPropertyInherited":
+                    return builder.Build(this.Bind<SetPropertyInheritedAmendmentResource>());
+
+                case "setComment":
+                    return builder.Build(this.Bind<SetCommentAmendmentResource>());
+
+                default:
+                    throw new KolaException("Unexpected amendment type");
             }
         }
     }

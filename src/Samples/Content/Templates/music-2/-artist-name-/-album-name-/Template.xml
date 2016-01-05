@@ -41,20 +41,29 @@ img {
         </property>
       </properties>
       <components>
+        <atom name="markdown">
+          <properties>
+            <property name="markdown" type="markdown">
+              <value xsi:type="inherited" key="username" />
+            </property>
+          </properties>
+        </atom>
+        <container name="div">
+          <properties />
+          <components>
+            <atom name="text">
+              <properties>
+                <property name="text" type="text">
+                  <value xsi:type="fixed"><![CDATA[I love {{artist-name}}]]></value>
+                </property>
+              </properties>
+            </atom>
+          </components>
+        </container>
         <atom name="text">
           <properties>
             <property name="text" type="text">
               <value xsi:type="inherited" key="artist-name" />
-            </property>
-          </properties>
-        </atom>
-        <atom name="text">
-          <properties />
-        </atom>
-        <atom name="markdown">
-          <properties>
-            <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[]]></value>
             </property>
           </properties>
         </atom>
@@ -86,43 +95,36 @@ img {
             </property>
           </properties>
         </atom>
-        <atom name="markdown">
-          <properties>
-            <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[]]></value>
-            </property>
-          </properties>
-        </atom>
-        <atom name="magical-atom">
-          <properties>
-            <property name="html-link-rel-type" type="html-link-rel-type">
-              <value xsi:type="inherited" key="html-link-rel-type" />
-            </property>
-            <property name="html-link-type" type="html-link-type">
-              <value xsi:type="fixed"><![CDATA[text/css]]></value>
-            </property>
-            <property name="html-script-type" type="html-script-type">
-              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
-            </property>
-            <property name="text" type="text">
-              <value xsi:type="inherited" key="text" />
-            </property>
-            <property name="number" type="number">
-              <value xsi:type="fixed"><![CDATA[1]]></value>
-            </property>
-            <property name="multiline-text" type="multiline-text">
-              <value xsi:type="fixed"><![CDATA[hashfahsf
+        <container name="div">
+          <properties />
+          <components>
+            <atom name="magical-atom">
+              <properties>
+                <property name="html-link-rel-type" type="html-link-rel-type">
+                  <value xsi:type="inherited" key="html-link-rel-type" />
+                </property>
+                <property name="html-link-type" type="html-link-type">
+                  <value xsi:type="fixed"><![CDATA[text/css]]></value>
+                </property>
+                <property name="html-script-type" type="html-script-type">
+                  <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+                </property>
+                <property name="text" type="text">
+                  <value xsi:type="fixed"><![CDATA[bingo]]></value>
+                </property>
+                <property name="number" type="number">
+                  <value xsi:type="fixed"><![CDATA[1]]></value>
+                </property>
+                <property name="multiline-text" type="multiline-text">
+                  <value xsi:type="fixed"><![CDATA[jam
+a
+jam 
 
-hashfahsf
-
-
-hashfahsf
-
-
-hashfahsf]]></value>
-            </property>
-            <property name="markdown" type="markdown">
-              <value xsi:type="fixed"><![CDATA[###Hnansfa
+asfa
+]]></value>
+                </property>
+                <property name="markdown" type="markdown">
+                  <value xsi:type="fixed"><![CDATA[###Hnansfa
 as
 a
 a
@@ -138,57 +140,21 @@ sg
 as
 g
 ]]></value>
-            </property>
-            <property name="ie-condition" type="ie-condition">
-              <value xsi:type="fixed"><![CDATA[gt8]]></value>
-            </property>
-          </properties>
-        </atom>
+                </property>
+                <property name="ie-condition" type="ie-condition">
+                  <value xsi:type="fixed"><![CDATA[lt9]]></value>
+                </property>
+                <property name="html-style-type" type="html-style-type">
+                  <value xsi:type="fixed"><![CDATA[text/css]]></value>
+                </property>
+              </properties>
+            </atom>
+          </components>
+        </container>
       </components>
     </container>
   </components>
   <amendments>
-    <setPropertyInherited>
-      <componentPath>1/8</componentPath>
-      <propertyName>text</propertyName>
-      <key>yrdy</key>
-    </setPropertyInherited>
-    <setProperty>
-      <componentPath>1/8</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[bingo]]></fixedValue>
-    </setProperty>
-    <removeComponent>
-      <componentPath>1/2</componentPath>
-    </removeComponent>
-    <removeComponent>
-      <componentPath>1/1</componentPath>
-    </removeComponent>
-    <addComponent>
-      <componentType>div</componentType>
-      <targetPath>1/6</targetPath>
-    </addComponent>
-    <moveComponent>
-      <sourcePath>1/7</sourcePath>
-      <targetPath>1/6/0</targetPath>
-    </moveComponent>
-    <removeComponent>
-      <componentPath>1/5</componentPath>
-    </removeComponent>
-    <addComponent>
-      <componentType>markdown</componentType>
-      <targetPath>1/0</targetPath>
-    </addComponent>
-    <setProperty>
-      <componentPath>1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[I love {{artist-name}}]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[I love **{{artist-name}}**]]></fixedValue>
-    </setProperty>
     <addComponent>
       <componentType>text</componentType>
       <targetPath>1/1</targetPath>
@@ -196,55 +162,67 @@ g
     <setProperty>
       <componentPath>1/1</componentPath>
       <propertyName>text</propertyName>
-      <fixedValue><![CDATA[I love **{{artist-name}}**]]></fixedValue>
+      <fixedValue><![CDATA[sandy]]></fixedValue>
     </setProperty>
     <setProperty>
       <componentPath>1/1</componentPath>
       <propertyName>text</propertyName>
-      <fixedValue><![CDATA[I love {{artist-name}}]]></fixedValue>
+      <fixedValue><![CDATA[cormie]]></fixedValue>
     </setProperty>
     <addComponent>
       <componentType>div</componentType>
       <targetPath>1/1</targetPath>
     </addComponent>
-    <setProperty>
-      <componentPath>1/4</componentPath>
-      <propertyName>artist-id</propertyName>
-      <fixedValue><![CDATA[2]]></fixedValue>
-    </setProperty>
     <moveComponent>
       <sourcePath>1/2</sourcePath>
       <targetPath>1/1/0</targetPath>
     </moveComponent>
+    <duplicateComponent>
+      <componentPath>1/1/0</componentPath>
+    </duplicateComponent>
+    <duplicateComponent>
+      <componentPath>1/1/1</componentPath>
+    </duplicateComponent>
     <setProperty>
-      <componentPath>1/7/0</componentPath>
-      <propertyName>html-style-type</propertyName>
-      <fixedValue><![CDATA[text/css]]></fixedValue>
+      <componentPath>1/1/1</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[badger]]></fixedValue>
     </setProperty>
-    <setProperty>
-      <componentPath>1/7/0</componentPath>
-      <propertyName>multiline-text</propertyName>
-      <fixedValue><![CDATA[jam
-a
-jam 
-
-asfa
-]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/7/0</componentPath>
-      <propertyName>ie-condition</propertyName>
-      <fixedValue><![CDATA[lt9]]></fixedValue>
-    </setProperty>
-    <setPropertyInherited>
-      <componentPath>1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <key>username</key>
-    </setPropertyInherited>
-    <setPropertyInherited>
-      <componentPath>1/3</componentPath>
-      <propertyName>artist-id</propertyName>
-      <key>artist-id</key>
-    </setPropertyInherited>
+    <moveComponent>
+      <sourcePath>1/1/1</sourcePath>
+      <targetPath>1/1/0</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>1/1/1</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>1/1/2</sourcePath>
+      <targetPath>1/1/1/0</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>1/1/1</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>1/1/0</sourcePath>
+      <targetPath>1/1/1/0</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>1/1/2</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>1/1/3</sourcePath>
+      <targetPath>1/1/2/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/1/1</sourcePath>
+      <targetPath>1/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/1/0</sourcePath>
+      <targetPath>1/1/1</targetPath>
+    </moveComponent>
   </amendments>
 </template>

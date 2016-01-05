@@ -19,7 +19,7 @@
             <atom name="album">
               <properties>
                 <property name="album-id" type="text">
-                  <value xsi:type="fixed"><![CDATA[11]]></value>
+                  <value xsi:type="fixed"><![CDATA[12]]></value>
                 </property>
               </properties>
             </atom>
@@ -64,7 +64,7 @@
                     <atom name="text">
                       <properties>
                         <property name="text" type="text">
-                          <value xsi:type="fixed"><![CDATA[sandy2]]></value>
+                          <value xsi:type="fixed"><![CDATA[Here is the content]]></value>
                         </property>
                       </properties>
                     </atom>
@@ -80,16 +80,5 @@
       </areas>
     </widget>
   </components>
-  <amendments>
-    <setProperty>
-      <componentPath>0/1/2/3/0</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[Here is the cntent]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/2/3/0</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[Here is the content]]></fixedValue>
-    </setProperty>
-  </amendments>
+  <amendments />
 </template>

@@ -65,6 +65,7 @@
     <Compile Include="KolaNancyBootstrapper.cs" />
     <Compile Include="Models\ApplicationModel.cs" />
     <Compile Include="Modules\ApplicationModule.cs" />
+    <Compile Include="Models\TemplateQuery.cs" />
     <Compile Include="Processors\AmendmentDetailsResultProcessor.cs" />
     <Compile Include="Processors\AmendmentsDetailsResultProcessor.cs" />
     <Compile Include="Processors\ComponentDetailsResultProcessor.cs" />

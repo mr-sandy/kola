@@ -29,8 +29,8 @@
 
             this.ComponentLibrary.Stub(l => l.Lookup("atom name")).Return(new AtomSpecification("atom name"));
 
-            this.Response = this.Browser.Post(
-                "/_kola/template/amendments/undo",
+            this.Response = this.Browser.Delete(
+                "/_kola/template/amendments",
                 with =>
                     {
                         with.Query("templatePath", "/test/path");
@@ -39,7 +39,7 @@
         }
 
         [Test]
-        public void ShouldReturnCreated()
+        public void ShouldReturnOk()
         {
             this.Response.StatusCode.Should().Be(HttpStatusCode.OK);
         }

@@ -53,17 +53,17 @@ module.exports = Backbone.Collection.extend({
     _saveAmendment: function (attributes, type) {
         var amendment = new Amendment(attributes);
         this.add(amendment);
-        amendment.save(null, { url: this.combineUrls(this.url, type) });
+        amendment.save(null, { url: this.url + '&amendmentType=' + type });
     },
 
     applyAmendments: function () {
         var self = this;
-        $.post(this.combineUrls(this.url, 'apply')).then(function () { self.fetch({ reset: true }); });
+        $.ajax({ type: 'PUT', url: this.url }).then(function () { self.fetch({ reset: true }); });
     },
 
     undoAmendment: function () {
         var self = this;
-        $.post(this.combineUrls(this.url, 'undo')).then(function (resp) {
+        $.ajax({ type: 'DELETE', url: this.url }).then(function (resp) {
             self.fetch({ reset: true });
             self.trigger('undo', new UndoResponse(resp, { parse: true }));
         });
