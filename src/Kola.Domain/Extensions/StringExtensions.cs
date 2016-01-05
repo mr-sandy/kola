@@ -1,13 +1,7 @@
 ﻿namespace Kola.Domain.Extensions
 {
     using System;
-    using System.Collections.Generic;
     using System.Configuration;
-    using System.Linq;
-    using System.Text.RegularExpressions;
-
-    using Kola.Domain.Composition.PropertyValues;
-    using Kola.Domain.Instances.Context;
 
     public static class StringExtensions
     {
@@ -40,12 +34,6 @@
             }
 
             return new Uri(hostUri, path);
-        }
-
-        public static string ResolveContextData(this string source, IEnumerable<ContextSet> contextSets)
-        {
-            var resolver = new ContextSourcedContentResolver(contextSets);
-            return resolver.Resolve(source);
         }
     }
 }

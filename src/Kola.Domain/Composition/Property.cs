@@ -4,7 +4,7 @@
 
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public class Property
     {
@@ -21,9 +21,9 @@
 
         public IPropertyValue Value { get; set; }
 
-        public PropertyInstance Build(IBuildContext buildContext)
+        public PropertyInstance Build(IBuildSettings buildSettings)
         {
-            return new PropertyInstance(this.Name, this.Value?.Resolve(buildContext));
+            return new PropertyInstance(this.Name, this.Value?.Resolve(buildSettings));
         }
 
         public Property Clone()

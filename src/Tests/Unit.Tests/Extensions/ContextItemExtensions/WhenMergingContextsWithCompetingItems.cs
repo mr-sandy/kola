@@ -6,7 +6,7 @@ namespace Unit.Tests.Extensions.ContextItemExtensions
     using FluentAssertions;
 
     using Kola.Domain.Extensions;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     using NUnit.Framework;
 

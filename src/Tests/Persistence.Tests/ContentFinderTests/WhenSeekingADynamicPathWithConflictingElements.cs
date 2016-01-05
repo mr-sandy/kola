@@ -5,7 +5,7 @@ namespace Persistence.Tests.ContentFinderTests
     using FluentAssertions;
 
     using Kola.Domain.DynamicSources;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     using NUnit.Framework;
 

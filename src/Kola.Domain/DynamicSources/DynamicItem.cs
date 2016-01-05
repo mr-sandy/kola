@@ -2,7 +2,7 @@ namespace Kola.Domain.DynamicSources
 {
     using System.Collections.Generic;
 
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public class DynamicItem
     {

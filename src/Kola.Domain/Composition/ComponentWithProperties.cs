@@ -5,7 +5,7 @@
 
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
     using Kola.Domain.Specifications;
 
     public abstract class ComponentWithProperties : IComponentWithProperties
@@ -53,7 +53,7 @@
 
         public abstract T Accept<T, TContext>(IComponentVisitor<T, TContext> visitor, TContext context);
 
-        public abstract ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildContext buildContext);
+        public abstract ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildSettings buildSettings);
 
         public abstract IComponent Clone();
     }

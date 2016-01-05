@@ -3,20 +3,20 @@
     using System.Collections.Generic;
 
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public interface IBuilder
     {
-        PageInstance Build(Template template, IBuildContext buildContext);
+        PageInstance Build(Template template, IBuildSettings buildSettings);
 
-        AtomInstance Build(Atom atom, IEnumerable<int> path, IBuildContext buildContext);
+        AtomInstance Build(Atom atom, IEnumerable<int> path, IBuildSettings buildSettings);
 
-        ContainerInstance Build(Container container, IEnumerable<int> path, IBuildContext buildContext);
+        ContainerInstance Build(Container container, IEnumerable<int> path, IBuildSettings buildSettings);
 
-        WidgetInstance Build(Widget widget, IEnumerable<int> path, IBuildContext buildContext);
+        WidgetInstance Build(Widget widget, IEnumerable<int> path, IBuildSettings buildSettings);
 
-        PlaceholderInstance Build(Placeholder placeholder, IEnumerable<int> path, IBuildContext buildContext);
+        PlaceholderInstance Build(Placeholder placeholder, IEnumerable<int> path, IBuildSettings buildSettings);
 
-        AreaInstance Build(Area area, IEnumerable<int> path, IBuildContext buildContext);
+        AreaInstance Build(Area area, IEnumerable<int> path, IBuildSettings buildSettings);
     }
 }

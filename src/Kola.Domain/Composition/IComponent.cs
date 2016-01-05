@@ -3,7 +3,7 @@
     using System.Collections.Generic;
 
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public interface IComponent
     {
@@ -13,7 +13,7 @@
 
         T Accept<T, TContext>(IComponentVisitor<T, TContext> visitor, TContext context);
 
-        ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildContext buildContext);
+        ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildSettings buildSettings);
 
         IComponent Clone();
     }

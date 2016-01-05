@@ -5,7 +5,7 @@
 
     using Kola.Domain.Composition;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
     using Kola.Domain.Rendering;
     using Kola.Persistence;
     using Kola.Persistence.Extensions;
@@ -38,12 +38,12 @@
             var visitor = new ContentVisitor<IResult<PageInstance>>(
                 template =>
                     {
-                        if (result.Context?.AuthChecks != null && result.Context.AuthChecks.Any() && !result.Context.AuthChecks.All(a => a.Test(user)))
+                        if (result.Configuration?.AuthChecks != null && result.Configuration.AuthChecks.Any() && !result.Configuration.AuthChecks.All(a => a.Test(user)))
                         {
                             return new UnauthorisedResult<PageInstance>();
                         }
 
-                        return new SuccessResult<PageInstance>(this.BuildPage(template, result.Context?.ContextItems, preview));
+                        return new SuccessResult<PageInstance>(this.BuildPage(template, result.Configuration?.ContextItems, preview));
                     },
                 redirect => new MovedPermanentlyResult<PageInstance>(redirect.Location));
 
@@ -59,7 +59,7 @@
                 return new NotFoundResult<ComponentInstance>();
             }
 
-            var page = this.BuildPage(result.Content as Template, result.Context?.ContextItems, true);
+            var page = this.BuildPage(result.Content as Template, result.Configuration?.ContextItems, true);
 
             var finder = new ComponentFindingComponentInstanceVisitor();
 
@@ -72,12 +72,7 @@
         {
             template.ApplyAmendments(this.componentLibrary);
 
-            var buildContext = new BuildContext();
-
-            if (contextItems != null && contextItems.Any())
-            {
-                buildContext.ContextSets.Push(new ContextSet(contextItems));
-            }
+            var buildContext = new BuildSettings(contextItems ?? Enumerable.Empty<IContextItem>());
 
             var builder = new Builder(new RenderingInstructions(useCache: !preview, annotateComponentPaths: preview), this.widgetSpecificationRepository.Find);
 

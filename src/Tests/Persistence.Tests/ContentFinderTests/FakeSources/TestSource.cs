@@ -4,7 +4,7 @@
     using System.Collections.Generic;
 
     using Kola.Domain.DynamicSources;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     internal class TestSource : IDynamicSource
     {

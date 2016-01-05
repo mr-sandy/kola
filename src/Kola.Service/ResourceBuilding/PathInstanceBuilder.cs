@@ -5,7 +5,7 @@ namespace Kola.Service.ResourceBuilding
 
     using Kola.Domain.DynamicSources;
     using Kola.Domain.Extensions;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public class PathInstanceBuilder
     {

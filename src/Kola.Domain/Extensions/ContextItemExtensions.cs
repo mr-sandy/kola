@@ -4,7 +4,7 @@ namespace Kola.Domain.Extensions
     using System.Linq;
     using System.Net.Mime;
 
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public static class ContextItemExtensions
     {

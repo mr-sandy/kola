@@ -4,7 +4,7 @@
     using System.Collections.Generic;
 
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public class Placeholder : IComponent
     {
@@ -30,9 +30,9 @@
             return visitor.Visit(this, context);
         }
 
-        public ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildContext buildContext)
+        public ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildSettings buildSettings)
         {
-            return builder.Build(this, path, buildContext);
+            return builder.Build(this, path, buildSettings);
         }
 
         public IComponent Clone()

@@ -6,7 +6,7 @@
 
     public class MusicService : IMusicService
     {
-        private static readonly Artist TheBeatles = new Artist { Id = "1", Name = "The Beatles", ImageUrl = "http://wearebang.com/wp-content/uploads/2015/05/the-beatles-1.jpg" };
+        private static readonly Artist TheBeatles = new Artist { Id = "1", Name = "The Beatles", ImageUrl = "http://www.capitolrecords.com/files/2015/12/the-beatles.jpg" };
         private static readonly Artist TheBeachBoys = new Artist { Id = "2", Name = "The Beach Boys", ImageUrl = "http://images6.fanpop.com/image/photos/32400000/The-Beach-Boys-the-beach-boys-32469096-500-277.jpg" };
 
         private static readonly Album Revolver = new Album { Id = "11", Name = "Revolver", ArtistId = TheBeatles.Id, ImageUrl = "http://images2.houstonpress.com/imager/u/original/6499742/beatles_revolver_aug5.jpg" };

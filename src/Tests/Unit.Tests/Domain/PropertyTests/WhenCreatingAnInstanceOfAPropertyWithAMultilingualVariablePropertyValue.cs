@@ -7,7 +7,7 @@
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     using NUnit.Framework;
 
@@ -30,7 +30,7 @@
 
             var context = new ContextSet(Enumerable.Empty<IContextItem>(), "fr");
 
-            var buildContext = new BuildContext();
+            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
             buildContext.ContextSets.Push(context);
             this.propertyInstance = property.Build(buildContext);
         }

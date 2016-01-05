@@ -1,6 +1,6 @@
 ﻿namespace Kola.Domain.Instances
 {
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public class PropertyInstance : IContextItem
     {

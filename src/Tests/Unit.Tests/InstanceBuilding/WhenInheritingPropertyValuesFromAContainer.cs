@@ -7,7 +7,7 @@
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
     using Kola.Domain.Rendering;
     using Kola.Domain.Specifications;
 
@@ -27,7 +27,7 @@
             var containerSpecification = new ContainerSpecification("container");
             containerSpecification.AddProperty(new PropertySpecification("property-name", "property-type", string.Empty));
 
-            var buildContext = new BuildContext();
+            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
 
             var container = containerSpecification.Create();
             container.FindOrCreateProperty(new PropertySpecification("property-name", "property-type", string.Empty));

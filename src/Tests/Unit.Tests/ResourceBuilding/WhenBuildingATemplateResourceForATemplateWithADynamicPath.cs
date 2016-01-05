@@ -6,7 +6,7 @@ namespace Unit.Tests.ResourceBuilding
 
     using Kola.Domain.Composition;
     using Kola.Domain.DynamicSources;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
     using Kola.Resources;
     using Kola.Service.ResourceBuilding;
 

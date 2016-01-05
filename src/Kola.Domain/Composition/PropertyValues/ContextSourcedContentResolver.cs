@@ -5,7 +5,7 @@ namespace Kola.Domain.Composition.PropertyValues
 {
     using System.Text.RegularExpressions;
 
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public class ContextSourcedContentResolver
     {

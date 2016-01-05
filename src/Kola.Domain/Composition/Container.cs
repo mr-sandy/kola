@@ -4,7 +4,7 @@
 
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public class Container : ComponentWithProperties, IComponentCollection
     {
@@ -54,9 +54,9 @@
             return visitor.Visit(this, context);
         }
 
-        public override ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildContext buildContext)
+        public override ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildSettings buildSettings)
         {
-            return builder.Build(this, path, buildContext);
+            return builder.Build(this, path, buildSettings);
         }
 
         public override IComponent Clone()

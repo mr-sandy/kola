@@ -5,7 +5,7 @@
     using System.Linq;
 
     using Kola.Domain.Extensions;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public class MultilingualPropertyValue : IPropertyValue
     {
@@ -16,9 +16,9 @@
 
         public IEnumerable<MultilingualVariant> Variants { get; private set; }
 
-        public string Resolve(IBuildContext buildContext)
+        public string Resolve(IBuildSettings buildSettings)
         {
-            var candidateLanguages = buildContext.ContextSets.Where(c => !string.IsNullOrEmpty(c.LanguageCode)).Select(c => c.LanguageCode);
+            var candidateLanguages = buildSettings.ContextSets.Where(c => !string.IsNullOrEmpty(c.LanguageCode)).Select(c => c.LanguageCode);
 
             foreach (var candidateLanguage in candidateLanguages)
             {

@@ -5,7 +5,7 @@
     using FluentAssertions;
 
     using Kola.Domain.Composition.PropertyValues;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     using NUnit.Framework;
 

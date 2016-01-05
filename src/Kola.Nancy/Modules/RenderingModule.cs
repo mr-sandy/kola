@@ -6,7 +6,7 @@
     using global::Nancy.ModelBinding;
     using global::Nancy.Security;
 
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
     using Kola.Nancy.Extensions;
     using Kola.Nancy.Models;
     using Kola.Service.Services;

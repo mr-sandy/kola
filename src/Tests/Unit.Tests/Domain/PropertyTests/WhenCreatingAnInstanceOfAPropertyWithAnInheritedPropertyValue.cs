@@ -1,11 +1,13 @@
 ﻿namespace Unit.Tests.Domain.PropertyTests
 {
+    using System.Linq;
+
     using FluentAssertions;
 
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     using NUnit.Framework;
 
@@ -26,7 +28,7 @@
 
             var context = new ContextSet(new[] { contextItem });
 
-            var buildContext = new BuildContext();
+            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
             buildContext.ContextSets.Push(context);
 
             this.propertyInstance = property.Build(buildContext);

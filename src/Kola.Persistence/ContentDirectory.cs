@@ -2,18 +2,18 @@ namespace Kola.Persistence
 {
     using System.Collections.Generic;
 
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public class ContentDirectory
     {
-        public ContentDirectory(string path, IContext context)
+        public ContentDirectory(string path, IConfiguration configuration)
         {
             this.Path = path;
-            this.Context = context;
+            this.Configuration = configuration;
         }
 
         public string Path { get; }
 
-        public IContext Context { get; }
+        public IConfiguration Configuration { get; }
     }
 }

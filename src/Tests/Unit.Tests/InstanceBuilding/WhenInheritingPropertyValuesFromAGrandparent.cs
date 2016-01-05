@@ -7,7 +7,7 @@
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
     using Kola.Domain.Rendering;
     using Kola.Domain.Specifications;
 
@@ -29,7 +29,7 @@
             var grandparentSpecification = new ContainerSpecification("grandparent-container");
             grandparentSpecification.AddProperty(new PropertySpecification("property-name", "property-type", string.Empty));
 
-            var buildContext = new BuildContext();
+            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
 
             var parent = parentSpecification.Create();
             parent.Insert(0, atom);

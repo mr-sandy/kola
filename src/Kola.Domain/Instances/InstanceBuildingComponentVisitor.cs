@@ -7,7 +7,7 @@ namespace Kola.Domain.Instances
 
     using Kola.Domain.Composition;
     using Kola.Domain.Extensions;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
     using Kola.Domain.Rendering;
     using Kola.Domain.Specifications;
 
@@ -22,29 +22,29 @@ namespace Kola.Domain.Instances
             this.widgetSpecificationFinder = widgetSpecificationFinder;
         }
 
-        public PageInstance Build(Template template, IBuildContext buildContext)
+        public PageInstance Build(Template template, IBuildSettings buildSettings)
         {
-            return new PageInstance(template.Components.Select((c, i) => c.Build(this, new[] { i }, buildContext)).ToList(), this.renderingInstructions);
+            return new PageInstance(template.Components.Select((c, i) => c.Build(this, new[] { i }, buildSettings)).ToList(), this.renderingInstructions);
         }
 
-        public AtomInstance Build(Atom atom, IEnumerable<int> path, IBuildContext buildContext)
+        public AtomInstance Build(Atom atom, IEnumerable<int> path, IBuildSettings buildSettings)
         {
             return new AtomInstance(
                 path, 
                 this.renderingInstructions, 
                 atom.Name, 
-                atom.Properties.Select(p => p.Build(buildContext)).ToList());
+                atom.Properties.Select(p => p.Build(buildSettings)).ToList());
         }
 
-        public ContainerInstance Build(Container container, IEnumerable<int> path, IBuildContext buildContext)
+        public ContainerInstance Build(Container container, IEnumerable<int> path, IBuildSettings buildSettings)
         {
-            var propertyInstances = container.Properties.Select(p => p.Build(buildContext)).ToList();
+            var propertyInstances = container.Properties.Select(p => p.Build(buildSettings)).ToList();
 
-            buildContext.ContextSets.Push(new ContextSet(propertyInstances));
+            buildSettings.ContextSets.Push(new ContextSet(propertyInstances));
 
-            var children = container.Components.Select((c, i) => c.Build(this, path.Append(i), buildContext)).ToList();
+            var children = container.Components.Select((c, i) => c.Build(this, path.Append(i), buildSettings)).ToList();
 
-            buildContext.ContextSets.Pop();
+            buildSettings.ContextSets.Pop();
 
             return new ContainerInstance(
                 path, 
@@ -54,27 +54,27 @@ namespace Kola.Domain.Instances
                 children);
         }
 
-        public WidgetInstance Build(Widget widget, IEnumerable<int> path, IBuildContext buildContext)
+        public WidgetInstance Build(Widget widget, IEnumerable<int> path, IBuildSettings buildSettings)
         {
             // Add the widget's parameters to the context to be picjed up by any children
-            var propertyInstances = widget.Properties.Select(p => p.Build(buildContext)).ToList();
-            buildContext.ContextSets.Push(new ContextSet(propertyInstances));
+            var propertyInstances = widget.Properties.Select(p => p.Build(buildSettings)).ToList();
+            buildSettings.ContextSets.Push(new ContextSet(propertyInstances));
 
             var areas = widget.Areas.Select(
-                (a, i) => new { Name = a.Name, Components = a.Build(this, path.Append(i), buildContext) })
+                (a, i) => new { Name = a.Name, Components = a.Build(this, path.Append(i), buildSettings) })
                 .ToList()
                 .ToDictionary(d => d.Name, d => d.Components);
 
-            buildContext.AreaContents.Push(areas);
+            buildSettings.AreaContents.Push(areas);
 
             var specification = this.widgetSpecificationFinder(widget.Name);
 
             // Notice that we're passing null as the path - we don't want to annotate the components from the widget 
             // specification because they're not components that the editor of the current template can do anything about
-            var components = specification.Components.Select((c, i) => c.Build(this, null, buildContext)).ToList();
+            var components = specification.Components.Select((c, i) => c.Build(this, null, buildSettings)).ToList();
 
-            buildContext.AreaContents.Pop();
-            buildContext.ContextSets.Pop();
+            buildSettings.AreaContents.Pop();
+            buildSettings.ContextSets.Pop();
 
             return new WidgetInstance(
                 path, 
@@ -82,10 +82,10 @@ namespace Kola.Domain.Instances
                 components);
         }
 
-        public PlaceholderInstance Build(Placeholder placeholder, IEnumerable<int> path, IBuildContext buildContext)
+        public PlaceholderInstance Build(Placeholder placeholder, IEnumerable<int> path, IBuildSettings buildSettings)
         {
-            var componentInstance = buildContext.AreaContents.Peek().ContainsKey(placeholder.Name)
-                                        ? buildContext.AreaContents.Peek()[placeholder.Name]
+            var componentInstance = buildSettings.AreaContents.Peek().ContainsKey(placeholder.Name)
+                                        ? buildSettings.AreaContents.Peek()[placeholder.Name]
                                         : null;
 
             return new PlaceholderInstance(
@@ -94,12 +94,12 @@ namespace Kola.Domain.Instances
                 componentInstance);
         }
 
-        public AreaInstance Build(Area area, IEnumerable<int> path, IBuildContext buildContext)
+        public AreaInstance Build(Area area, IEnumerable<int> path, IBuildSettings buildSettings)
         {
             return new AreaInstance(
                 path, 
                 this.renderingInstructions, 
-                area.Components.Select((c, i) => c.Build(this, path.Append(i), buildContext)).ToList());
+                area.Components.Select((c, i) => c.Build(this, path.Append(i), buildSettings)).ToList());
         }
     }
 }

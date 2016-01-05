@@ -7,7 +7,7 @@
     using Kola.Domain.Composition;
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
     using Kola.Domain.Rendering;
     using Kola.Domain.Specifications;
 
@@ -29,7 +29,7 @@
                 new[] { new PropertySpecification("property-alias", "property-type", string.Empty) },
                 new[] { container });
 
-            var buildContext = new BuildContext();
+            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
 
             var widget = widgetSpecification.Create();
             widget.FindOrCreateProperty(new PropertySpecification("property-alias", "property-type", string.Empty));

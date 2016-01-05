@@ -5,7 +5,7 @@ namespace Persistence.Tests.ContentFinderTests
     using FluentAssertions;
 
     using Kola.Domain.DynamicSources;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
     using Kola.Persistence;
 
     using NUnit.Framework;
@@ -57,19 +57,19 @@ namespace Persistence.Tests.ContentFinderTests
         [Test]
         public void TheContentDirectoryShouldIncludeAllContextItems()
         {
-            this.Result.Single().Context.ContextItems.Should().HaveCount(2);
+            this.Result.Single().Configuration.ContextItems.Should().HaveCount(2);
         }
 
         [Test]
         public void TheContextItemShouldHaveTheExpectedBandContextValue()
         {
-            this.Result.Single().Context.ContextItems.Where(i => i.Name == "band name" && i.Value == "The Beatles").Should().HaveCount(1);
+            this.Result.Single().Configuration.ContextItems.Where(i => i.Name == "band name" && i.Value == "The Beatles").Should().HaveCount(1);
         }
 
         [Test]
         public void TheContextItemShouldHaveTheExpectedAlbumContextValue()
         {
-            this.Result.Single().Context.ContextItems.Where(i => i.Name == "album name" && i.Value == "Revolver").Should().HaveCount(1);
+            this.Result.Single().Configuration.ContextItems.Where(i => i.Name == "album name" && i.Value == "Revolver").Should().HaveCount(1);
         }
     }
 }

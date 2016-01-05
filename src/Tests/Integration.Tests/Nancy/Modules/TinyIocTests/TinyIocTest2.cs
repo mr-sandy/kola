@@ -11,7 +11,7 @@ namespace Integration.Tests.Nancy.Modules.TinyIocTests
     using Kola.Configuration;
     using Kola.Domain.Composition;
     using Kola.Domain.DynamicSources;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
     using Kola.Nancy.Modules;
     using Kola.Persistence;
     using Kola.Service;

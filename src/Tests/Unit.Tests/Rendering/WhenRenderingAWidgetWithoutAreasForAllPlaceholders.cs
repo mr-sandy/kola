@@ -9,7 +9,7 @@
     using Kola.Configuration.Plugins;
     using Kola.Domain.Composition;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
     using Kola.Domain.Rendering;
     using Kola.Domain.Specifications;
 
@@ -35,7 +35,7 @@
             var area = new Area("area 1");
             var widget = new Widget("widget", new[] { area });
 
-            var buildContext = new BuildContext();
+            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
 
             var builder = new Builder(new RenderingInstructions(false, true), w => widgetSpecification);
 

@@ -5,7 +5,7 @@
     using System.Linq;
 
     using Kola.Domain.DynamicSources;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     using Sample.Plugin.Extensions;
     using Sample.Plugin.Proxies.Music;

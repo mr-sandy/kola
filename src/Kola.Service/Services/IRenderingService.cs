@@ -3,7 +3,7 @@
     using System.Collections.Generic;
 
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
     using Kola.Service.Services.Results;
 
     public interface IRenderingService

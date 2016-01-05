@@ -10,7 +10,7 @@ namespace Unit.Tests.Domain.WidgetTests
 
     using Kola.Domain.Composition;
     using Kola.Domain.Instances;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
     using Kola.Domain.Rendering;
     using Kola.Domain.Specifications;
 
@@ -114,7 +114,7 @@ namespace Unit.Tests.Domain.WidgetTests
                             })
                     });
 
-            var buildContext = new BuildContext();
+            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
 
             var builder = new Builder(new RenderingInstructions(false, true), n => n == "widget 1" ? specification1 : specification2);
 

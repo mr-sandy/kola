@@ -1,10 +1,10 @@
 ﻿namespace Kola.Domain.Composition.PropertyValues
 {
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public interface IPropertyValue
     {
-        string Resolve(IBuildContext buildContext);
+        string Resolve(IBuildSettings buildSettings);
 
         T Accept<T>(IPropertyValueVisitor<T> visitor);
 

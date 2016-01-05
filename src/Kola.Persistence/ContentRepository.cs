@@ -83,14 +83,14 @@
                 {
                     var surrogate = this.serializationHelper.Deserialize<RedirectSurrogate>(redirectPath);
                     var redirect = new RedirectDomainBuilder().Build(surrogate);
-                    yield return new FindContentResult(redirect, directory.Context);
+                    yield return new FindContentResult(redirect, directory.Configuration);
                 }
 
                 if (this.fileSystemHelper.FileExists(templatePath))
                 {
                     var surrogate = this.serializationHelper.Deserialize<TemplateSurrogate>(templatePath);
                     var template = new TemplateDomainBuilder(pathItems).Build(surrogate);
-                    yield return new FindContentResult(template, directory.Context);
+                    yield return new FindContentResult(template, directory.Configuration);
                 }
             }
         }

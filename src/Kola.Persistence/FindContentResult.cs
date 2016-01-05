@@ -1,19 +1,19 @@
 ﻿namespace Kola.Persistence
 {
     using Kola.Domain.Composition;
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public class FindContentResult
     {
-        public FindContentResult(IContent content, IContext context)
+        public FindContentResult(IContent content, IConfiguration configuration)
         {
             this.Content = content;
-            this.Context = context;
+            this.Configuration = configuration;
         }
 
         public IContent Content { get; }
 
-        public IContext Context { get; }
+        public IConfiguration Configuration { get; }
     }
 
 }

@@ -3,7 +3,7 @@
     using System;
     using System.Linq;
 
-    using Kola.Domain.Instances.Context;
+    using Kola.Domain.Instances.Config;
 
     public class InheritedPropertyValue : IPropertyValue
     {
@@ -14,9 +14,9 @@
 
         public string Key { get; set; }
 
-        public string Resolve(IBuildContext buildContext)
+        public string Resolve(IBuildSettings buildSettings)
         {
-            foreach (var contextSet in buildContext.ContextSets)
+            foreach (var contextSet in buildSettings.ContextSets)
             {
                 var item = contextSet.Items.FirstOrDefault(i => i.Name.Equals(this.Key));
 
