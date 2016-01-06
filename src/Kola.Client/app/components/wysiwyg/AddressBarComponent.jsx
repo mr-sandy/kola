@@ -12,21 +12,37 @@ var AddressBarComponent = React.createClass({
 
     render: function () {
         const options = this.props.candidateUrls.map(function (url) {
-            return <span key={url} onClick={this.handleClick}>{url}</span>;
+            return <li key={url}><span onClick={this.handleClick}>{url}</span><a href={url} target="_blank"><i className="fa fa-external-link"></i></a></li>;
         }, this);
+
+        const optionsClassNames = classNames('options', { 'expanded': this.state.expanded });
 
         return (
             <div>
-                <span className="selected" >{this.props.selectedUrl}</span>
-                <div className="options">
+                <span className="selected" onClick={this.handleToggleClick}>{this.props.selectedUrl}<i className="fa fa-caret-down"></i></span>
+                <ul className={optionsClassNames}>
                     {options}
-                </div>
+                </ul>
             </div>
         );
     },
 
+    getInitialState: function () {
+        return {
+            expanded: false
+        };
+    },
+
+    handleToggleClick: function (e) {
+        e.stopPropagation();
+        this.setState({
+            expanded: !this.state.expanded
+        });
+    },
+
     handleClick: function (e) {
-        this.props.onChange(e.target.value);
+        e.stopPropagation();
+        this.props.onChange(e.target.textContent);
     }
 });
 

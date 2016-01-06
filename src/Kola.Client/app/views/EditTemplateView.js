@@ -45,7 +45,7 @@ module.exports = Backbone.View.extend({
             uiStateDispatcher: this.uiStateDispatcher
         });
 
-        this.uiStateDispatcher.on('toggle-tools', function () { this.$('.sidebar, .toolbars, .show-tools').toggleClass('hidden'); }, this);
+        this.uiStateDispatcher.on('toggle-tools', function () { this.$('.sidebar, .toolbars, .show-tools, .preview .address-bar').toggleClass('hidden'); }, this);
         this.uiStateDispatcher.on('toggle-toolbox', function () { this.$('.toggle-toolbox').toggleClass('selected'); }, this);
         this.uiStateDispatcher.on('toggle-block-editor', function () { this.$('.toggle-block-editor').toggleClass('selected'); }, this);
         this.uiStateDispatcher.on('toggle-properties', function () { this.$('.toggle-properties').toggleClass('selected'); }, this);

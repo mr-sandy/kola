@@ -13,22 +13,58 @@
         width: 100%;
         overflow-y: auto;
 
-        div.address-bar {
+        .address-bar {
+            padding: 8px;
+            border-left: 1px solid #999;
+            background-color: #333;
+
+            &.hidden {
+                display: none;
+            }
+
             span {
-                display: block;
+                display: inline-block;
+                cursor: pointer;
 
                 &.selected {
-                    border: 1px black solid;
-                    padding: 2px 5px;
-                    background-color: #fff;
+                    padding: 5px 8px;
+                    background-color: #ddd;
+                    color: #000;
+
+                    i {
+                        padding-left: 10px;
+                    }
                 }
             }
 
-            div.options {
+            ul.options {
                 position: absolute;
-                left: 0;
+                left: 8px;
                 border: 1px black solid;
                 padding: 5px;
+                display: none;
+                background-color: #fff;
+
+                &.expanded {
+                    display: block;
+                }
+
+                li {
+                    display: block;
+                    padding: 4px;
+                    margin: 2px 0;
+
+                    &:hover {
+                        background-color: #eee;
+                    }
+
+                    a {
+                        float: right;
+                        padding-top: 1px;
+                        margin-left: 16px;
+                        color: #000;
+                    }
+                }
             }
         }
 
