@@ -22,7 +22,7 @@
 
         public string Location(AmendmentDetails amendment)
         {
-            return $"/_kola/template/amendments?templatePath={amendment.Template.Path.ToHttpPath()}&amendmentIndex={this.GetAmendmentIndex(amendment.Template, amendment.Amendment)}";
+            return $"/_kola/templates/amendments?templatePath={amendment.Template.Path.ToHttpPath()}&amendmentIndex={this.GetAmendmentIndex(amendment.Template, amendment.Amendment)}";
         }
 
         private int GetAmendmentIndex(Template template, IAmendment amendment)

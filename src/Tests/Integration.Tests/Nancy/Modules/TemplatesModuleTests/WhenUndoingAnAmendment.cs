@@ -30,7 +30,7 @@
             this.ComponentLibrary.Stub(l => l.Lookup("atom name")).Return(new AtomSpecification("atom name"));
 
             this.Response = this.Browser.Delete(
-                "/_kola/template/amendments",
+                "/_kola/templates/amendments",
                 with =>
                     {
                         with.Query("templatePath", "/test/path");
@@ -59,7 +59,7 @@
         [Test]
         public void ShouldIncludeASelfLink()
         {
-            this.Response.Body.DeserializeJson<UndoAmendmentResource>().Links.Should().Contain(l => l.Rel == "self" && l.Href == "/_kola/template/amendments?templatePath=/test/path");
+            this.Response.Body.DeserializeJson<UndoAmendmentResource>().Links.Should().Contain(l => l.Rel == "self" && l.Href == "/_kola/templates/amendments?templatePath=/test/path");
         }
 
         [Test]

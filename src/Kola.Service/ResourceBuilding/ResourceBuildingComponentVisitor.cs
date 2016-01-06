@@ -104,7 +104,7 @@
             yield return new LinkResource
                 {
                     Rel = "self",
-                    Href = $"/_kola/template/components?templatePath={this.templatePath.ToHttpPath()}&componentPath={context.Select(i => i.ToString()).ToHttpPath()}"
+                    Href = $"/_kola/templates/components?templatePath={this.templatePath.ToHttpPath()}&componentPath={context.Select(i => i.ToString()).ToHttpPath()}"
             };
         }
     }

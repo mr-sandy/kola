@@ -114,7 +114,7 @@
             yield return new LinkResource
             {
                 Rel = "self",
-                Href = $"/_kola/template/amendments?templatePath={this.templatePath.ToHttpPath()}&amendmentIndex={index}"
+                Href = $"/_kola/templates/amendments?templatePath={this.templatePath.ToHttpPath()}&amendmentIndex={index}"
             };
 
             yield return new LinkResource

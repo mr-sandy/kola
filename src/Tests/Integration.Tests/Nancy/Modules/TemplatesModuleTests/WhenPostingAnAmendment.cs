@@ -25,7 +25,7 @@
             var componentSpecification = new AtomSpecification("atom name");
             this.ComponentLibrary.Stub(r => r.Lookup("atom name")).Return(componentSpecification);
 
-            this.Response = this.Browser.Post("/_kola/template/amendments",
+            this.Response = this.Browser.Post("/_kola/templates/amendments",
                 with =>
                     {
                         with.Query("templatePath", "/test/path");
@@ -48,7 +48,7 @@
         [Test]
         public void ShouldReturnALocationHeader()
         {
-            this.Response.Headers["location"].Should().Be("/_kola/template/amendments?templatePath=/test/path&amendmentIndex=0");
+            this.Response.Headers["location"].Should().Be("/_kola/templates/amendments?templatePath=/test/path&amendmentIndex=0");
         }
 
         [Test]

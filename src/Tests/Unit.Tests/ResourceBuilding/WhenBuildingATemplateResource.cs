@@ -41,7 +41,7 @@
         [Test]
         public void ShouldSetCorrectSelfLink()
         {
-            this.resource.Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/template?templatePath=/test/path");
+            this.resource.Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates?templatePath=/test/path");
         }
 
         [Test]
@@ -65,7 +65,7 @@
         [Test]
         public void ShouldSetCorrectSelfLinkForComponent0()
         {
-            this.resource.Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/template/components?templatePath=/test/path&componentPath=/0");
+            this.resource.Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates/components?templatePath=/test/path&componentPath=/0");
         }
 
         [Test]
@@ -132,7 +132,7 @@
         [Test]
         public void ShouldSetCorrectSelfLinkForComponent1()
         {
-            this.resource.Components.ElementAt(1).As<ContainerResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/template/components?templatePath=/test/path&componentPath=/1");
+            this.resource.Components.ElementAt(1).As<ContainerResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates/components?templatePath=/test/path&componentPath=/1");
         }
 
         [Test]
@@ -150,7 +150,7 @@
         [Test]
         public void ShouldSetCorrectSelfLinkForComponent10()
         {
-            this.resource.Components.ElementAt(1).As<ContainerResource>().Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/template/components?templatePath=/test/path&componentPath=/1/0");
+            this.resource.Components.ElementAt(1).As<ContainerResource>().Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates/components?templatePath=/test/path&componentPath=/1/0");
         }
 
         [Test]
@@ -168,7 +168,7 @@
         [Test]
         public void ShouldSetCorrectSelfLinkForComponent2()
         {
-            this.resource.Components.ElementAt(2).As<WidgetResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/template/components?templatePath=/test/path&componentPath=/2");
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates/components?templatePath=/test/path&componentPath=/2");
         }
 
         [Test]
@@ -186,7 +186,7 @@
         [Test]
         public void ShouldSetCorrectSelfLinkForComponent200()
         {
-            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).As<AreaResource>().Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/template/components?templatePath=/test/path&componentPath=/2/0/0");
+            this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).As<AreaResource>().Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates/components?templatePath=/test/path&componentPath=/2/0/0");
         }
 
         [Test]

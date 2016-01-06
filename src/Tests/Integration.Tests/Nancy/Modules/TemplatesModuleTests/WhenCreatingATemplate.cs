@@ -15,7 +15,7 @@
         [SetUp]
         public void SetUp()
         {
-            this.Response = this.Browser.Put("/_kola/template", with =>
+            this.Response = this.Browser.Put("/_kola/templates", with =>
                 {
                     with.Query("templatePath", "/test/path");
                     with.Header("Accept", "application/json");
@@ -31,7 +31,7 @@
         [Test]
         public void ShouldReturnALocationHeader()
         {
-            this.Response.Headers["location"].Should().Be("/_kola/template?templatePath=/test/path");
+            this.Response.Headers["location"].Should().Be("/_kola/templates?templatePath=/test/path");
         }
 
         [Test]

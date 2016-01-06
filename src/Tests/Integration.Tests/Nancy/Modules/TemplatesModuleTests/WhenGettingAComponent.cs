@@ -32,7 +32,7 @@ namespace Integration.Tests.Nancy.Modules.TemplatesModuleTests
             this.ContentRepository.Stub(r => r.GetTemplate(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" }))).Return(template);
 
             this.Response = this.Browser.Get(
-                "/_kola/template/components",
+                "/_kola/templates/components",
                 with =>
                     {
                         with.Query("templatePath", "/test/path");
@@ -56,7 +56,7 @@ namespace Integration.Tests.Nancy.Modules.TemplatesModuleTests
         [Test]
         public void ShouldReturnASelfLink()
         {
-            this.Response.Body.DeserializeJson<AtomResource>().Links.Should().Contain(l => l.Rel == "self" && l.Href == "/_kola/template/components?templatePath=/test/path&componentPath=/0/0");
+            this.Response.Body.DeserializeJson<AtomResource>().Links.Should().Contain(l => l.Rel == "self" && l.Href == "/_kola/templates/components?templatePath=/test/path&componentPath=/0/0");
         }
 
         [Test]

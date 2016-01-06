@@ -18,7 +18,7 @@
         private readonly IKolaConfigurationRegistry kolaConfigurationRegistry;
 
         public TemplateModule(ITemplateService templateService, IKolaConfigurationRegistry kolaConfigurationRegistry)
-            : base("/_kola/template")
+            : base("/_kola/templates")
         {
             this.templateService = templateService;
             this.kolaConfigurationRegistry = kolaConfigurationRegistry;

@@ -13,7 +13,6 @@ namespace Kola.Nancy.Modules
         {
             this.kolaConfigurationRegistry = kolaConfigurationRegistry;
             this.Get["/_kola"] = p => this.GetApplication();
-            this.Get["/_kola/templates"] = p => this.GetApplication();
         }
 
         private dynamic GetApplication()

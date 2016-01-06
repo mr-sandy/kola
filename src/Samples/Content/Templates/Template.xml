@@ -57,5 +57,17 @@ Here is some **content.**]]></value>
 
 Here is some **content.**]]></fixedValue>
     </setProperty>
+    <setProperty>
+      <componentPath>1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Hello there
+
+Here is some **content.**]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/1</componentPath>
+      <propertyName>caption</propertyName>
+      <fixedValue><![CDATA[Wowzer!]]></fixedValue>
+    </setProperty>
   </amendments>
 </template>

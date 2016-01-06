@@ -31,7 +31,7 @@ namespace Unit.Tests.ResourceBuilding
         [Test]
         public void ShouldSetCorrectSelfLink()
         {
-            this.resource.Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/template?templatePath=/");
+            this.resource.Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/templates?templatePath=/");
         }
 
         [Test]

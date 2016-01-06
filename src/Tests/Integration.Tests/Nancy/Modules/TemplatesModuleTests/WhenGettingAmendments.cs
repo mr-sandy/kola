@@ -25,7 +25,7 @@
             this.ContentRepository.Stub(r => r.GetTemplate(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" }))).Return(template);
 
             this.Response = this.Browser.Get(
-                "/_kola/template/amendments",
+                "/_kola/templates/amendments",
                 with =>
                     {
                         with.Query("templatePath", "/test/path");

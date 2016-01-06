@@ -36,7 +36,7 @@ namespace Kola.Service.ResourceBuilding
 
         public string Location(UndoAmendmentDetails amendment)
         {
-            return $"/_kola/template/amendments?templatePath={amendment.Template.Path.ToHttpPath()}";
+            return $"/_kola/templates/amendments?templatePath={amendment.Template.Path.ToHttpPath()}";
         }
     }
 }
