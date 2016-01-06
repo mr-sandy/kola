@@ -224,5 +224,9 @@ g
       <sourcePath>1/1/0</sourcePath>
       <targetPath>1/1/1</targetPath>
     </moveComponent>
+    <moveComponent>
+      <sourcePath>1/1/1</sourcePath>
+      <targetPath>1/1/0</targetPath>
+    </moveComponent>
   </amendments>
 </template>

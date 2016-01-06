@@ -80,5 +80,18 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <moveComponent>
+      <sourcePath>0/1/0</sourcePath>
+      <targetPath>0/1/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/1</sourcePath>
+      <targetPath>0/1/0</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>0/1/2/1</targetPath>
+    </addComponent>
+  </amendments>
 </template>

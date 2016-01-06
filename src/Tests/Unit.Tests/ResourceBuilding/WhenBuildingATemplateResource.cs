@@ -153,7 +153,6 @@
             this.resource.Components.ElementAt(1).As<ContainerResource>().Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/template/components?templatePath=/test/path&componentPath=/1/0");
         }
 
-
         [Test]
         public void ShouldSetCorrectNameForComponent2()
         {
@@ -189,6 +188,5 @@
         {
             this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).As<AreaResource>().Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/template/components?templatePath=/test/path&componentPath=/2/0/0");
         }
-
     }
 }

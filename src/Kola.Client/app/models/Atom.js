@@ -7,7 +7,7 @@ module.exports = Component.extend({
     parse: function (response) {
 
         this.url = this.getLink(response.links, 'self');
-        this.previewUrl = this.getLink(response.links, 'preview');
+
         return response;
     }
 });
