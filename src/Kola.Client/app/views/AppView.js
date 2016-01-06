@@ -3,6 +3,7 @@ var $ = require('jquery');
 var _ = require('underscore');
 var LoadingView = require('app/views/LoadingView');
 var homeHandler = require('app/handlers/HomeHandler');
+var viewTemplatesHandler = require('app/handlers/ViewTemplatesHandler');
 var editTemplateHandler = require('app/handlers/EditTemplateHandler');
 
 module.exports = Backbone.View.extend({
@@ -12,6 +13,7 @@ module.exports = Backbone.View.extend({
 
         var handlerMappings = {
             'route:home': homeHandler,
+            'route:viewTemplates': viewTemplatesHandler,
             'route:editTemplate': editTemplateHandler
         };
 

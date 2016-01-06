@@ -53,12 +53,14 @@
     <None Include="app\components\properties\PropertyHeaderComponent.jsx" />
     <None Include="app\components\properties\PropertyValueComponent.jsx" />
     <None Include="app\components\properties\PropertyComponent.jsx" />
+    <Content Include="app\handlers\ViewTemplatesHandler.js" />
     <Content Include="app\models\UndoResponse.js" />
     <Content Include="app\controls\accordian.js" />
     <EmbeddedResource Include="fonts\fontawesome-webfont.svg" />
     <EmbeddedResource Include="content\font-awesome.css" />
     <EmbeddedResource Include="content\font-awesome.min.css" />
     <Content Include="app\templates\AppTemplate.hbs" />
+    <Content Include="app\views\ViewTemplatesView.js" />
     <Content Include="app\views\WysiwygEditorView.js" />
     <Content Include="app\views\WysiwygComponentView.js" />
     <Content Include="app\views\WidgetView.js" />
@@ -118,6 +120,7 @@
     <EmbeddedResource Include="fonts\fontawesome-webfont.woff2" />
     <EmbeddedResource Include="fonts\FontAwesome.otf" />
     <Content Include="app\templates\PropertiesButtonsTemplate.hbs" />
+    <Content Include="app\templates\ViewTemplatesTemplate.hbs" />
     <None Include="package.json" />
     <EmbeddedResource Include="sass\kola.scss" />
     <None Include="sass\kola\editor\_property-table.scss" />
