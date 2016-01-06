@@ -157,7 +157,6 @@
 
 	    @import "toolbox";
 	    @import "block-editor";
-        @import "wysiwyg-editor";
 	    @import "properties";
 
         .toolbar {
@@ -240,28 +239,7 @@
 
     }
 
-    .preview {
-	    position: relative;
-	    height: 100%;
-		overflow: hidden;
-		background-color: #ccc;
-
-        .inner {
-		    position: relative;
-	        height: 100%;
-	        width: 100%;
-			overflow-y: auto;
-
-	        iframe {
-				margin: 0 auto;
-			    display: block;
-	            height: 100%;
-	            width: 100%;
-			    border: none;
-			    background-color: #fff;
-	        }
-		}
-    }
+    @import "wysiwyg-editor";
 
     button.show-tools {
         padding: 8px;

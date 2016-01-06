@@ -1,4 +1,4 @@
-﻿<button type="button" {{#if disabled}} disabled="true" {{/if}} id="remove"><i class="fa fa-trash-o fa-lg"></i></button>
-<button type="button" {{#if disabled}} disabled="true" {{/if}} id="duplicate"><i class="fa fa-files-o fa-lg"></i></button>
-<button type="button" {{#if disabled}} disabled="true" {{/if}} {{#if filterUnset}}class="selected"{{/if}} id="toggle-filter-unset"><i class="fa fa-filter fa-lg"></i></button>
-<button type="button" disabled="true" class="toolbox-settings"><i class="fa fa-cog fa-lg"></i></button>
+﻿<button type="button" title="Delete Component" {{#if disabled}} disabled="disabled" {{/if}} id="remove"><i class="fa fa-trash-o fa-lg"></i></button>
+<button type="button" title="Duplicate Component" {{#if disabled}} disabled="disabled" {{/if}} id="duplicate"><i class="fa fa-files-o fa-lg"></i></button>
+<button type="button" title="Show/Hide Unset Properties" {{#if disabled}} disabled="disabled" {{/if}} {{#if filterUnset}}class="selected"{{/if}} id="toggle-filter-unset"><i class="fa fa-filter fa-lg"></i></button>
+<button type="button" title="Settings" disabled="disabled" class="toolbox-settings"><i class="fa fa-cog fa-lg"></i></button>

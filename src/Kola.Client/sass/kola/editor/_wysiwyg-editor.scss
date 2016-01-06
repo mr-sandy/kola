@@ -1,7 +1,44 @@
 
 @import "../utility";
 
-.wysiwyg-editor {
-    div.address-bar {
+.preview {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    background-color: #ccc;
+
+    .inner {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        overflow-y: auto;
+
+        div.address-bar {
+            span {
+                display: block;
+
+                &.selected {
+                    border: 1px black solid;
+                    padding: 2px 5px;
+                    background-color: #fff;
+                }
+            }
+
+            div.options {
+                position: absolute;
+                left: 0;
+                border: 1px black solid;
+                padding: 5px;
+            }
+        }
+
+        iframe {
+            margin: 0 auto;
+            display: block;
+            height: 100%;
+            width: 100%;
+            border: none;
+            background-color: #fff;
+        }
     }
 }

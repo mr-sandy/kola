@@ -121,6 +121,7 @@
     <EmbeddedResource Include="fonts\FontAwesome.otf" />
     <Content Include="app\templates\PropertiesButtonsTemplate.hbs" />
     <Content Include="app\templates\ViewTemplatesTemplate.hbs" />
+    <None Include="app\components\wysiwyg\AddressBarComponent.jsx" />
     <None Include="package.json" />
     <EmbeddedResource Include="sass\kola.scss" />
     <None Include="sass\kola\editor\_property-table.scss" />

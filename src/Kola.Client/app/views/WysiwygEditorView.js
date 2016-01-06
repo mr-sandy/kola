@@ -4,30 +4,29 @@ var _ = require('underscore');
 var WysiwygComponentView = require('app/views/WysiwygComponentView');
 var MaskView = require('app/views/MaskView');
 var domHelper = require('app/views/DomHelper');
+var AddressBarComponent = require('app/components/wysiwyg/AddressBarComponent.jsx');
 var template = require('app/templates/WysiwygEditorTemplate.hbs');
+var React = require('react');
+var ReactDOM = require('react-dom');
 
 module.exports = Backbone.View.extend({
 
     template: template,
 
     initialize: function (options) {
+        _.bindAll(this, 'handlePreviewChange', 'buildChildren');
+
         this.listenTo(this.model, 'sync', this.handleSync);
 
         this.previewUrl = _.first(this.model.previewUrls);
 
         this.maskView = new MaskView({ uiStateDispatcher: options.uiStateDispatcher });
 
-        _.bindAll(this, 'buildChildren');
-
         this.children = [];
     },
 
-    events: {
-        'change select': 'changePreview'
-    },
-
-    changePreview: function() {
-        this.previewUrl = $(this.el).find('select').val();
+    handlePreviewChange: function (previewUrl) {
+        this.previewUrl = previewUrl;
         this.fullRefresh();
     },
 
@@ -56,13 +55,22 @@ module.exports = Backbone.View.extend({
     },
 
     render: function () {
-
-        var previewUrl = this.previewUrl;
-        var previewUrls = _.map(this.model.previewUrls, function (url) { return { url: url, selected: url === previewUrl } });
-
-        var model = previewUrls.length > 1 ? previewUrls : null;
+        const showAddressBar = this.model.previewUrls.length > 1;
+        const model = { showAddressBar: showAddressBar };
 
         this.$el.html(this.template(model));
+
+        if (showAddressBar) {
+            const $addressBar = this.$el.find('.address-bar').first();
+
+            const props = {
+                selectedUrl: this.previewUrl,
+                candidateUrls: this.model.previewUrls,
+                onChange: this.handlePreviewChange
+            };
+
+            this.reactComponent = ReactDOM.render(React.createElement(AddressBarComponent, props), $addressBar[0]);
+        }
 
         var $iframe = this.$('iframe');
 

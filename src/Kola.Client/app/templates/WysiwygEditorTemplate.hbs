@@ -1,12 +1,6 @@
 ﻿<div class="inner">
-    {{#if .}}
-    <div class="address-bar">
-        <select>
-            {{#each .}}
-            <option value="{{url}}"{{#if selected}} selected="selected"{{/if}}>{{url}}</option>
-            {{/each}}
-        </select>
-    </div>
+    {{#if showAddressBar}}
+    <div class="address-bar"></div>
     {{/if}}
     <iframe seamless="seamless"></iframe>
 </div>
