@@ -188,5 +188,11 @@
         {
             this.resource.Components.ElementAt(2).As<WidgetResource>().Areas.ElementAt(0).As<AreaResource>().Components.ElementAt(0).As<AtomResource>().Links.Single(l => l.Rel == "self").Href.Should().Be("/_kola/template/components?templatePath=/test/path&componentPath=/2/0/0");
         }
+
+        [Test]
+        public void ItShouldHaveAPreviewLink()
+        {
+            this.resource.Links.Where(l => l.Rel == "preview" && l.Href == "/test/path?preview=y").Should().HaveCount(1);
+        }
     }
 }

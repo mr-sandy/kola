@@ -133,7 +133,7 @@ module.exports = Backbone.View.extend({
         coords = coords || { top: null, bottom: null, left: null, right: null };
 
         _.each(wysiwygComponentView.$el, function (node) {
-            if (node.nodeType === 1 && $(node).is(":visible")) {
+            if (node && node.nodeType === 1 && $(node).is(":visible")) {
                 var $node = $(node);
                 var offset = $node.offset();
 

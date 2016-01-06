@@ -18,5 +18,44 @@ Here is some **content.**]]></value>
       </properties>
     </atom>
   </components>
-  <amendments />
+  <amendments>
+    <addComponent>
+      <componentType>html-head</componentType>
+      <targetPath>0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-body</componentType>
+      <targetPath>1</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>2</sourcePath>
+      <targetPath>1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>2</sourcePath>
+      <targetPath>1/1</targetPath>
+    </moveComponent>
+    <setProperty>
+      <componentPath>1/1</componentPath>
+      <propertyName>caption</propertyName>
+      <fixedValue><![CDATA[##Wowzer!]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/1</componentPath>
+      <propertyName>caption</propertyName>
+      <fixedValue><![CDATA[#Wowzer!]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/1</componentPath>
+      <propertyName>caption</propertyName>
+      <fixedValue><![CDATA[Wowzer]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[##Hello there
+
+Here is some **content.**]]></fixedValue>
+    </setProperty>
+  </amendments>
 </template>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+  <components>
+    <atom name="markdown">
+      <properties>
+        <property name="markdown" type="markdown">
+          <value xsi:type="fixed"><![CDATA[#Hello there
+
+Here is some **content.**]]></value>
+        </property>
+      </properties>
+    </atom>
+    <atom name="label">
+      <properties>
+        <property name="caption" type="text">
+          <value xsi:type="fixed"><![CDATA[Wowzer]]></value>
+        </property>
+      </properties>
+    </atom>
+  </components>
+  <amendments>
+    <addComponent>
+      <componentType>html-head</componentType>
+      <targetPath>0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-body</componentType>
+      <targetPath>1</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>2</sourcePath>
+      <targetPath>1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>2</sourcePath>
+      <targetPath>1/1</targetPath>
+    </moveComponent>
+  </amendments>
+</template>

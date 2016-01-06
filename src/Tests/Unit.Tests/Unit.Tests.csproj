@@ -132,6 +132,7 @@
     <Compile Include="ResourceBuilding\TestSource.cs" />
     <Compile Include="ResourceBuilding\WhenBuildingATemplateResource.cs" />
     <Compile Include="ResourceBuilding\WhenBuildingATemplateResourceForATemplateWithADynamicPath.cs" />
+    <Compile Include="ResourceBuilding\WhenBuildingATemplateResourceForTheHomepage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config">

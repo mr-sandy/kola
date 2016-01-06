@@ -18,7 +18,11 @@ namespace Kola.Service.ResourceBuilding
 
         public IEnumerable<string> Build(IEnumerable<string> path)
         {
-            return this.Find(path, string.Empty, null).ToArray();
+            var pathArray = path as string[] ?? path.ToArray();
+
+            return pathArray.Any() 
+                ? this.Find(pathArray, string.Empty, null).ToArray() 
+                : new[] { "/?preview=y" };
         }
 
         private IEnumerable<string> Find(IEnumerable<string> path, string pathSoFar, IEnumerable<IContextItem> context)
@@ -76,6 +80,5 @@ namespace Kola.Service.ResourceBuilding
         {
             return element.StartsWith("-") && element.EndsWith("-");
         }
-
     }
 }
