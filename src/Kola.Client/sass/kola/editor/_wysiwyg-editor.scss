@@ -17,6 +17,11 @@
             padding: 8px;
             border-left: 1px solid #999;
             background-color: #333;
+            height: 38px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
 
             &.hidden {
                 display: none;
@@ -75,6 +80,10 @@
             width: 100%;
             border: none;
             background-color: #fff;
+        }
+
+        .address-bar + iframe {
+            padding-top: 38px;
         }
     }
 }
