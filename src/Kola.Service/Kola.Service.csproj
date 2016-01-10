@@ -70,7 +70,7 @@
     <Compile Include="Services\IComponentSpecificationService.cs" />
     <Compile Include="Services\IRenderingService.cs" />
     <Compile Include="Services\ITemplateService.cs" />
-    <Compile Include="Services\IWidgetService.cs" />
+    <Compile Include="Services\IWidgetSpecificationService.cs" />
     <Compile Include="Services\Models\AmendmentsDetails.cs" />
     <Compile Include="Services\Models\UndoAmendmentDetails.cs" />
     <Compile Include="Services\RenderingService.cs" />
@@ -86,7 +86,7 @@
     <Compile Include="Services\Models\AmendmentDetails.cs" />
     <Compile Include="Services\Models\ComponentDetails.cs" />
     <Compile Include="Services\TemplateService.cs" />
-    <Compile Include="Services\WidgetService.cs" />
+    <Compile Include="Services\WidgetSpecificationService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Kola.Configuration\Kola.Configuration.csproj">

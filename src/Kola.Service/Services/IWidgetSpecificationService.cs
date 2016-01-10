@@ -7,11 +7,11 @@ namespace Kola.Service.Services
     using Kola.Service.Services.Models;
     using Kola.Service.Services.Results;
 
-    public interface IWidgetService
+    public interface IWidgetSpecificationService
     {
-        IResult<WidgetSpecification> CreateWidget(string widgetName);
+        IResult<WidgetSpecification> CreateWidgetSpecification(string widgetName);
 
-        IResult<WidgetSpecification> GetWidget(string widgetName);
+        IResult<WidgetSpecification> GetWidgetSpecification(string widgetName);
 
         IResult<ComponentDetails> GetComponent(string widgetName, IEnumerable<int> componentPath);
 

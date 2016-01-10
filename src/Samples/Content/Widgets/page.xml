@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<widgetSpecification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola" category="html">
+<widgetSpecification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" category="html" xmlns="http://www.kolacms.com/2013/kola">
   <propertySpecifications>
     <propertySpecification name="property1" type="text" />
     <propertySpecification name="property2" type="text" />
     <propertySpecification name="text" type="text" />
   </propertySpecifications>
-    <components>
+  <components>
     <container name="html-head">
       <properties />
       <components>
@@ -35,11 +35,10 @@
         <atom name="html-style">
           <properties>
             <property name="content" type="multiline-text">
-              <value xsi:type="fixed">
-                <![CDATA[h1 {
+              <value xsi:type="fixed"><![CDATA[h1 {
 color: #456;
-}]]>
-              </value>
+}
+              ]]></value>
             </property>
           </properties>
         </atom>
@@ -54,4 +53,30 @@ color: #456;
       </components>
     </container>
   </components>
+  <amendments>
+    <setProperty>
+      <componentPath>0/2</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[h1 {
+color: #b1f;
+}
+              ]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/2</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[h1 {
+color: #0f0;
+}
+              ]]></fixedValue>
+    </setProperty>
+    <setProperty>
+      <componentPath>0/2</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[h1 {
+color: #0ff;
+}
+              ]]></fixedValue>
+    </setProperty>
+  </amendments>
 </widgetSpecification>

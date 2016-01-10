@@ -38,7 +38,7 @@
             widget.Properties.Single().Value = new FixedPropertyValue("property-value");
             widget.Areas.Single().Insert(0, container);
 
-            var builder = new Builder(new RenderingInstructions(false, true), w => widgetSpecification);
+            var builder = new Builder(new RenderingInstructions(false, true), w => widgetSpecification, null);
 
             this.instance = widget.Build(builder, new[] { 0 }, buildContext);
         }

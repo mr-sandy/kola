@@ -74,7 +74,7 @@
 
             var buildContext = new BuildSettings(contextItems ?? Enumerable.Empty<IContextItem>());
 
-            var builder = new Builder(new RenderingInstructions(useCache: !preview, annotateComponentPaths: preview), this.widgetSpecificationRepository.Find);
+            var builder = new Builder(new RenderingInstructions(useCache: !preview, annotateComponentPaths: preview), this.widgetSpecificationRepository.Find, this.componentLibrary);
 
             return builder.Build(template, buildContext);
         }

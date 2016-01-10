@@ -69,6 +69,7 @@
     <Compile Include="TemplateResource.cs" />
     <Compile Include="UndoAmendmentResource.cs" />
     <Compile Include="WidgetResource.cs" />
+    <Compile Include="WidgetSpecificationResource.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -116,7 +116,7 @@ namespace Unit.Tests.Domain.WidgetTests
 
             var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
 
-            var builder = new Builder(new RenderingInstructions(false, true), n => n == "widget 1" ? specification1 : specification2);
+            var builder = new Builder(new RenderingInstructions(false, true), n => n == "widget 1" ? specification1 : specification2, null);
 
             this.instance = (WidgetInstance)widget.Build(builder, new[] { 0 }, buildContext);
         }

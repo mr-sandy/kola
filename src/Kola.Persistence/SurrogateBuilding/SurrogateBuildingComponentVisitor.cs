@@ -10,7 +10,7 @@
     internal class SurrogateBuildingComponentVisitor : IComponentVisitor<ComponentSurrogate>
     {
         private readonly SurrogateBuildingPropertyValueVisitor propertyValueBuilder = new SurrogateBuildingPropertyValueVisitor();
-        
+
         public ComponentSurrogate Visit(Atom atom)
         {
             return new AtomSurrogate
@@ -45,7 +45,10 @@
 
         public ComponentSurrogate Visit(Placeholder placeholder)
         {
-            return new PlaceholderSurrogate();
+            return new PlaceholderSurrogate
+            {
+                Name = placeholder.Name
+            };
         }
 
         public ComponentSurrogate Visit(Area area)
@@ -56,11 +59,11 @@
         private IEnumerable<PropertySurrogate> BuildProperties(IEnumerable<Property> properties)
         {
             return properties.Select(property => new PropertySurrogate
-                {
-                    Name = property.Name,
-                    Type = property.Type,
-                    Value = property.Value?.Accept(this.propertyValueBuilder)
-                });
+            {
+                Name = property.Name,
+                Type = property.Type,
+                Value = property.Value?.Accept(this.propertyValueBuilder)
+            });
         }
     }
 }

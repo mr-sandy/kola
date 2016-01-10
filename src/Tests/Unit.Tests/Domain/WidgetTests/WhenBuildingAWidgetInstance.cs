@@ -42,7 +42,7 @@
 
             var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
 
-            var builder = new Builder(new RenderingInstructions(false, true), n => specification);
+            var builder = new Builder(new RenderingInstructions(false, true), n => specification, null);
             
             this.instance = (WidgetInstance)widget.Build(builder, new[] { 0 }, buildContext);
         }

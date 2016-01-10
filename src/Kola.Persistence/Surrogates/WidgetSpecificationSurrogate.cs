@@ -10,15 +10,15 @@
         [XmlAttribute("category")]
         public string Category { get; set; }
 
+        [XmlArray("propertySpecifications")]
+        public PropertySpecificationSurrogate[] PropertySpecifications { get; set; }
+
         [XmlArray("components")]
         [XmlArrayItem(typeof(AtomSurrogate))]
         [XmlArrayItem(typeof(ContainerSurrogate))]
         [XmlArrayItem(typeof(WidgetSurrogate))]
         [XmlArrayItem(typeof(PlaceholderSurrogate))]
         public ComponentSurrogate[] Components { get; set; }
-
-        [XmlArray("propertySpecifications")]
-        public PropertySpecificationSurrogate[] PropertySpecifications { get; set; }
 
         [XmlArray("amendments")]
         [XmlArrayItem(typeof(AddComponentAmendmentSurrogate))]

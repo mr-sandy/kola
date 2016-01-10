@@ -2,19 +2,19 @@ namespace Kola.Nancy.Models
 {
     public class WidgetQuery
     {
-        private string widgetName;
+        private string mame;
         private string componentPath;
         private string amendmentType;
 
-        public string WidgetName
+        public string Name
         {
             get
             {
-                return this.widgetName ?? string.Empty;
+                return this.mame ?? string.Empty;
             }
             set
             {
-                this.widgetName = value;
+                this.mame = value;
             }
         }
 

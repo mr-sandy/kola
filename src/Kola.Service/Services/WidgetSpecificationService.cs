@@ -11,18 +11,18 @@ namespace Kola.Service.Services
     using Kola.Service.Services.Models;
     using Kola.Service.Services.Results;
 
-    public class WidgetService : IWidgetService
+    public class WidgetSpecificationService : IWidgetSpecificationService
     {
         private readonly IWidgetSpecificationRepository widgetSpecificationRepository;
         private readonly IComponentSpecificationLibrary componentLibrary;
 
-        public WidgetService(IWidgetSpecificationRepository widgetSpecificationRepository, IComponentSpecificationLibrary componentLibrary)
+        public WidgetSpecificationService(IWidgetSpecificationRepository widgetSpecificationRepository, IComponentSpecificationLibrary componentLibrary)
         {
             this.widgetSpecificationRepository = widgetSpecificationRepository;
             this.componentLibrary = componentLibrary;
         }
 
-        public IResult<WidgetSpecification> CreateWidget(string widgetName)
+        public IResult<WidgetSpecification> CreateWidgetSpecification(string widgetName)
         {
             if (this.widgetSpecificationRepository.Find(widgetName) != null)
             {
@@ -36,7 +36,7 @@ namespace Kola.Service.Services
             return new CreatedResult<WidgetSpecification>(widgetSpecification);
         }
 
-        public IResult<WidgetSpecification> GetWidget(string widgetName)
+        public IResult<WidgetSpecification> GetWidgetSpecification(string widgetName)
         {
             var widgetSpecification = this.widgetSpecificationRepository.Find(widgetName);
 

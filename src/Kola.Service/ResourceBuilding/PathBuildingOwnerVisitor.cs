@@ -15,7 +15,7 @@ namespace Kola.Service.ResourceBuilding
 
         public string Visit(WidgetSpecification widgetSpecification)
         {
-            return $"/_kola/widgets/{this.subPath}?widgetName={widgetSpecification.Name}";
+            return $"/_kola/widgets/{this.subPath}?name={widgetSpecification.Name}";
         }
 
         public string Visit(Template template)

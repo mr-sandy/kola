@@ -37,7 +37,7 @@
 
             var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
 
-            var builder = new Builder(new RenderingInstructions(false, true), w => widgetSpecification);
+            var builder = new Builder(new RenderingInstructions(false, true), w => widgetSpecification, null);
 
             var instance = widget.Build(builder, new[] { 0 }, buildContext);
 

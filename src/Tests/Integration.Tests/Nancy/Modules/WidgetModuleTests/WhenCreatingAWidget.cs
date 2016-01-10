@@ -18,10 +18,10 @@
         {
             var widgetName = "widgetName";
 
-            this.Response = this.Browser.Put(string.Format("/_kola/widgets", widgetName),
+            this.Response = this.Browser.Put("/_kola/widgets",
                 context =>
                     {
-                        context.Query("widgetName", widgetName);
+                        context.Query("name", widgetName);
                         context.Accept("application/json");
                     });
         }
