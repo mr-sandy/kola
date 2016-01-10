@@ -17,7 +17,8 @@
               <value xsi:type="fixed"><![CDATA[text/css]]></value>
             </property>
             <property name="content" type="multiline-text">
-              <value xsi:type="fixed"><![CDATA[body {
+              <value xsi:type="fixed"><![CDATA[
+body {
   font-family: monospace;
   background-color: #fec;
   color: #431;
@@ -52,7 +53,11 @@ img {
           <properties />
           <components>
             <container name="div">
-              <properties />
+              <properties>
+                <property name="classes" type="text">
+                  <value xsi:type="inherited" key="artist-id" />
+                </property>
+              </properties>
               <components>
                 <atom name="text">
                   <properties>
@@ -81,7 +86,7 @@ img {
                 <atom name="text">
                   <properties>
                     <property name="text" type="text">
-                      <value xsi:type="fixed"><![CDATA[badger]]></value>
+                      <value xsi:type="fixed"><![CDATA[cormie]]></value>
                     </property>
                   </properties>
                 </atom>
@@ -93,7 +98,7 @@ img {
                 <atom name="text">
                   <properties>
                     <property name="text" type="text">
-                      <value xsi:type="fixed"><![CDATA[cormie]]></value>
+                      <value xsi:type="fixed"><![CDATA[badger]]></value>
                     </property>
                   </properties>
                 </atom>
@@ -208,53 +213,15 @@ g
     </container>
   </components>
   <amendments>
-    <moveComponent>
-      <sourcePath>1/1/3</sourcePath>
-      <targetPath>1/1/2</targetPath>
-    </moveComponent>
-    <setProperty>
-      <componentPath>0/1</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[body {
-  font-family: monospace;
-  background-color: #fec;
-  color: #431;
-padding: 0;
-}
-
-img {
-  height: 200px;
-}]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[
-body {
-  font-family: monospace;
-  background-color: #fec;
-  color: #431;
-padding: 0;
-margin: 0;
-}
-
-img {
-  height: 200px;
-}]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[
-body {
-  font-family: monospace;
-  background-color: #fec;
-  color: #431;
-}
-
-img {
-  height: 200px;
-}]]></fixedValue>
-    </setProperty>
+    <setPropertyFixed>
+      <componentPath>1/1/0</componentPath>
+      <propertyName>classes</propertyName>
+      <fixedValue><![CDATA[my class name]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyInherited>
+      <componentPath>1/1/0</componentPath>
+      <propertyName>classes</propertyName>
+      <key>artist-id</key>
+    </setPropertyInherited>
   </amendments>
 </template>

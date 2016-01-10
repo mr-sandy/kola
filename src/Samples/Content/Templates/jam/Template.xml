@@ -44,6 +44,9 @@
                     </property>
                   </properties>
                 </atom>
+                <atom name="text">
+                  <properties />
+                </atom>
                 <atom name="markdown">
                   <properties>
                     <property name="markdown" type="markdown">
@@ -80,18 +83,5 @@
       </areas>
     </widget>
   </components>
-  <amendments>
-    <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/1</sourcePath>
-      <targetPath>0/1/0</targetPath>
-    </moveComponent>
-    <addComponent>
-      <componentType>text</componentType>
-      <targetPath>0/1/2/1</targetPath>
-    </addComponent>
-  </amendments>
+  <amendments />
 </template>
