@@ -12,9 +12,9 @@
     {
         public object Build(AmendmentDetails model)
         {
-            var index = this.GetAmendmentIndex(model.Template, model.Amendment);
+            var index = this.GetAmendmentIndex(model.Owner, model.Amendment);
 
-            var visitor = new ResourceBuildingAmendmentVisitor(model.Template.Path);
+            var visitor = new ResourceBuildingAmendmentVisitor(model.Owner);
 
             return model.Amendment.Accept(visitor, index);
 
@@ -22,12 +22,14 @@
 
         public string Location(AmendmentDetails amendment)
         {
-            return $"/_kola/templates/amendments?templatePath={amendment.Template.Path.ToHttpPath()}&amendmentIndex={this.GetAmendmentIndex(amendment.Template, amendment.Amendment)}";
+            var ownerPath = amendment.Owner.Accept(new PathBuildingOwnerVisitor("amendments"));
+
+            return $"{ownerPath}&amendmentIndex={this.GetAmendmentIndex(amendment.Owner, amendment.Amendment)}";
         }
 
-        private int GetAmendmentIndex(Template template, IAmendment amendment)
+        private int GetAmendmentIndex(AmendableComponentCollection owner, IAmendment amendment)
         {
-            return template.Amendments.Select((a, i) => new { Amendment = a, Index = i }).First(a => a.Amendment == amendment).Index;
+            return owner.Amendments.Select((a, i) => new { Amendment = a, Index = i }).First(a => a.Amendment == amendment).Index;
         }
     }
 }

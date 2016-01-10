@@ -5,13 +5,13 @@ namespace Kola.Service.Services.Models
 
     public class AmendmentDetails
     {
-        public AmendmentDetails(Template template, IAmendment amendment)
+        public AmendmentDetails(AmendableComponentCollection owner, IAmendment amendment)
         {
-            this.Template = template;
+            this.Owner = owner;
             this.Amendment = amendment;
         }
 
-        public Template Template { get; }
+        public AmendableComponentCollection Owner { get; }
 
         public IAmendment Amendment { get; }
     }

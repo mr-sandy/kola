@@ -64,6 +64,7 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="KolaNancyBootstrapper.cs" />
     <Compile Include="Models\ApplicationModel.cs" />
+    <Compile Include="Models\WidgetQuery.cs" />
     <Compile Include="Modules\ApplicationModule.cs" />
     <Compile Include="Models\TemplateQuery.cs" />
     <Compile Include="Processors\AmendmentDetailsResultProcessor.cs" />

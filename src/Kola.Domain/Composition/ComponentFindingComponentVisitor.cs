@@ -6,19 +6,19 @@
     // TODO {SC} Can this and the CollectionFindingComponentVisitor be unified now that Areas are IComponents?
     internal class ComponentFindingComponentVisitor : IComponentVisitor<IComponent, IEnumerable<int>>
     {
-        public IComponent Find(Template template, IEnumerable<int> path)
+        public IComponent Find(IComponentCollection componentCollection, IEnumerable<int> path)
         {
             if (!path.Any())
             {
                 throw new KolaException("No path specified");
             }
 
-            if (template.Components.Count() < path.First())
+            if (componentCollection.Components.Count() < path.First())
             {
                 throw new KolaException("No component at specified path");
             }
 
-            return template.Components.ElementAt(path.First()).Accept(this, path.Skip(1));
+            return componentCollection.Components.ElementAt(path.First()).Accept(this, path.Skip(1));
         }
 
         public IComponent Visit(Atom atom, IEnumerable<int> path)

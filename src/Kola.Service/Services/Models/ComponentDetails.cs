@@ -6,14 +6,14 @@ namespace Kola.Service.Services.Models
 
     public class ComponentDetails
     {
-        public ComponentDetails(Template template, IComponent component, IEnumerable<int> componentPath)
+        public ComponentDetails(AmendableComponentCollection owner, IComponent component, IEnumerable<int> componentPath)
         {
-            this.Template = template;
+            this.Owner = owner;
             this.Component = component;
             this.ComponentPath = componentPath;
         }
 
-        public Template Template { get; }
+        public AmendableComponentCollection Owner { get; }
 
         public IComponent Component { get; }
 

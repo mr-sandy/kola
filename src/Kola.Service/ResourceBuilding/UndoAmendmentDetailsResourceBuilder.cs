@@ -11,9 +11,9 @@ namespace Kola.Service.ResourceBuilding
     {
         public object Build(UndoAmendmentDetails model)
         {
-            var visitor = new ResourceBuildingAmendmentVisitor(model.Template.Path);
+            var visitor = new ResourceBuildingAmendmentVisitor(model.Owner);
 
-            var amendments = model.Template.Amendments.Select((amendment, index) => amendment.Accept(visitor, index));
+            var amendments = model.Owner.Amendments.Select((amendment, index) => amendment.Accept(visitor, index));
 
             return new UndoAmendmentResource
             {
@@ -36,7 +36,7 @@ namespace Kola.Service.ResourceBuilding
 
         public string Location(UndoAmendmentDetails amendment)
         {
-            return $"/_kola/templates/amendments?templatePath={amendment.Template.Path.ToHttpPath()}";
+            return amendment.Owner.Accept(new PathBuildingOwnerVisitor("amendments"));
         }
     }
 }

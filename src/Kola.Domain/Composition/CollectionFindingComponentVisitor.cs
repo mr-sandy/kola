@@ -5,7 +5,7 @@
 
     internal class CollectionFindingComponentVisitor : IComponentVisitor<IComponentCollection, IEnumerable<int>>
     {
-        public IComponentCollection Find(Template template, IEnumerable<int> path)
+        public IComponentCollection Find(IComponentCollection template, IEnumerable<int> path)
         {
             if (!path.Any())
             {

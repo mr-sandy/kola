@@ -4,48 +4,55 @@
     using System.Linq;
 
     using Kola.Domain.Composition;
+    using Kola.Domain.Composition.Amendments;
+    using Kola.Domain.Composition.PropertyValues;
     using Kola.Domain.Extensions;
 
-    public class WidgetSpecification : ComponentSpecification<Widget>, IComponentCollection
+    public class WidgetSpecification : AmendableComponentCollection, IComponentSpecification<Widget>
     {
-        private readonly List<IComponent> components = new List<IComponent>();
+        private readonly List<PropertySpecification> properties = new List<PropertySpecification>();
 
-        public WidgetSpecification(string name, IEnumerable<PropertySpecification> properties = null, IEnumerable<IComponent> components = null, string category = null)
-            : base(name, properties)
+        public WidgetSpecification(string name, IEnumerable<PropertySpecification> properties = null, IEnumerable<IComponent> components = null, IEnumerable<IAmendment> amendments = null, string category = null)
+            : base(components, amendments)
         {
-            if (components != null)
-            {
-                this.components.AddRange(components);
-            }
-
+            this.Name = name;
             this.Category = category;
-        }
 
-        public IEnumerable<IComponent> Components => this.components;
-
-        public void Insert(int index, IComponent component)
-        {
-            if (index > this.components.Count)
+            if (properties != null)
             {
-                throw new KolaException("Specified index outwith bounds of component collection");
+                this.properties.AddRange(properties);
             }
-
-            this.components.Insert(index, component);
         }
 
-        public void RemoveAt(int index)
-        {
-            this.components.RemoveAt(index);
-        }
-
-        public override Widget Create()
+        public Widget Create()
         {
             var areas = this.FindAll<Placeholder>().Select(p => new Area(p.Name, Enumerable.Empty<IComponent>())).ToArray();
 
             return new Widget(this.Name, areas, this.CreateDefaultProperties());
         }
 
-        public override TV Accept<TV>(IComponentSpecificationVisitor<TV> visitor)
+        public string Name { get; }
+
+        public string Category { get; set; }
+
+        public IEnumerable<PropertySpecification> Properties => this.properties;
+
+        public void AddProperty(PropertySpecification property)
+        {
+            this.properties.Add(property);
+        }
+
+        public TV Accept<TV>(IComponentSpecificationVisitor<TV> visitor)
+        {
+            return visitor.Visit(this);
+        }
+
+        protected IEnumerable<Property> CreateDefaultProperties()
+        {
+            return this.Properties.Where(p => !string.IsNullOrWhiteSpace(p.DefaultValue)).Select(p => p.Create(new FixedPropertyValue(p.DefaultValue))).ToList();
+        }
+
+        public override T Accept<T>(IAmendableComponentCollectionVisitor<T> visitor)
         {
             return visitor.Visit(this);
         }

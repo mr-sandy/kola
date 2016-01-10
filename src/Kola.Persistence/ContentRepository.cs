@@ -34,26 +34,6 @@
             this.contentFinder = contentFinder;
         }
 
-        public void Add(IContent content)
-        {
-            var template = content as Template;
-            if (template != null)
-            {
-                var surrogate = new TemplateSurrogateBuilder().Build(template);
-                var directoryPath = Path.Combine(
-                    TemplatesDirectory,
-                    template.Path.ToFileSystemPath());
-
-                if (!this.fileSystemHelper.DirectoryExists(directoryPath))
-                {
-                    this.fileSystemHelper.CreateDirectory(directoryPath);
-                }
-
-                var path = Path.Combine(directoryPath, TemplateFileName);
-                this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
-            }
-        }
-
         public Template GetTemplate(IEnumerable<string> path)
         {
             var pathItems = path as string[] ?? path.ToArray();
@@ -92,6 +72,26 @@
                     var template = new TemplateDomainBuilder(pathItems).Build(surrogate);
                     yield return new FindContentResult(template, directory.Configuration);
                 }
+            }
+        }
+
+        public void Add(IContent content)
+        {
+            var template = content as Template;
+            if (template != null)
+            {
+                var surrogate = new TemplateSurrogateBuilder().Build(template);
+                var directoryPath = Path.Combine(
+                    TemplatesDirectory,
+                    template.Path.ToFileSystemPath());
+
+                if (!this.fileSystemHelper.DirectoryExists(directoryPath))
+                {
+                    this.fileSystemHelper.CreateDirectory(directoryPath);
+                }
+
+                var path = Path.Combine(directoryPath, TemplateFileName);
+                this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
             }
         }
 

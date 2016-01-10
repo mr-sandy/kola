@@ -4,6 +4,7 @@
 
     using Kola.Domain.Specifications;
     using Kola.Persistence.Surrogates;
+    using Kola.Persistence.Surrogates.Amendments;
 
     internal class WidgetSpecificationDomainBuilder
     {
@@ -17,11 +18,13 @@
         public WidgetSpecification Build(WidgetSpecificationSurrogate surrogate)
         {
             var componentBuilder = new DomainBuildingComponentSurrogateVisitor();
+            var amendmentBuilder = new DomainBuildingAmendmentSurrogateVisitor();
 
             return new WidgetSpecification(
                 this.name,
                 surrogate.PropertySpecifications.Select(this.BuildPropertySpecification).ToArray(),
                 surrogate.Components.Select(c => c.Accept(componentBuilder)).ToArray(),
+                (surrogate.Amendments ?? Enumerable.Empty<AmendmentSurrogate>()).Select(a => a.Accept(amendmentBuilder)).ToArray(),
                 surrogate.Category);
         }
 

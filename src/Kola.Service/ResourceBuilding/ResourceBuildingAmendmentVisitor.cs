@@ -4,17 +4,18 @@
     using System.Collections.Generic;
     using System.Linq;
 
+    using Kola.Domain.Composition;
     using Kola.Domain.Composition.Amendments;
     using Kola.Resources;
     using Kola.Service.Extensions;
 
     internal class ResourceBuildingAmendmentVisitor : IAmendmentVisitor<AmendmentResource, int>
     {
-        private readonly IEnumerable<string> templatePath;
+        private readonly AmendableComponentCollection owner;
 
-        public ResourceBuildingAmendmentVisitor(IEnumerable<string> templatePath)
+        public ResourceBuildingAmendmentVisitor(AmendableComponentCollection owner)
         {
-            this.templatePath = templatePath;
+            this.owner = owner;
         }
 
         public AmendmentResource Visit(AddComponentAmendment amendment, int index)
@@ -111,10 +112,12 @@
 
         private IEnumerable<LinkResource> BuildLinks(IAmendment amendment, int index)
         {
+            var ownerPath = this.owner.Accept(new PathBuildingOwnerVisitor("components"));
+
             yield return new LinkResource
             {
                 Rel = "self",
-                Href = $"/_kola/templates/amendments?templatePath={this.templatePath.ToHttpPath()}&amendmentIndex={index}"
+                Href = $"{ownerPath}&amendmentIndex={index}"
             };
 
             yield return new LinkResource

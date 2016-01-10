@@ -9,9 +9,9 @@
             this.componentLibrary = componentLibrary;
         }
 
-        public void Refresh(Template template)
+        public void Refresh(IComponentCollection componentCollection)
         {
-            foreach (var component in template.Components)
+            foreach (var component in componentCollection.Components)
             {
                 component.Accept(this);
             }

@@ -7,6 +7,7 @@
 
     using Kola.Domain.Specifications;
     using Kola.Persistence.DomainBuilding;
+    using Kola.Persistence.SurrogateBuilding;
     using Kola.Persistence.Surrogates;
 
     public class WidgetSpecificationRepository : IWidgetSpecificationRepository
@@ -43,20 +44,12 @@
                 .Select(f => this.Find(f.Replace(".xml", string.Empty)));
         }
 
-        public void Add(WidgetSpecification widgetSpecification)
+        public void Save(WidgetSpecification widgetSpecification)
         {
-            throw new NotImplementedException();
+            var surrogate = new WidgetSpecificationSurrogateBuilder().Build(widgetSpecification);
+            var path = Path.Combine(WidgetsDirectory, widgetSpecification.Name + ".xml");
 
-            //var surrogate = widgetSpecification.ToSurrogate();
-            //var directoryPath = Path.Combine(RootDirectory, widgetSpecification.Path.ToFileSystemPath());
-
-            //if (!this.fileSystemHelper.DirectoryExists(directoryPath))
-            //{
-            //    this.fileSystemHelper.CreateDirectory(directoryPath);
-            //}
-
-            //var path = Path.Combine(directoryPath, TemplateFileName);
-            //this.serializationHelper.Serialize<TemplateSurrogate>(surrogate, path);
+            this.serializationHelper.Serialize<WidgetSpecificationSurrogate>(surrogate, path);
         }
     }
 }

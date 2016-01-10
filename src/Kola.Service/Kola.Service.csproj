@@ -53,6 +53,7 @@
     <Compile Include="ResourceBuilding\AmendmentsDetailsResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\ComponentNamingSpecificationVisitor.cs" />
     <Compile Include="ResourceBuilding\ComponentDetailsResourceBuilder.cs" />
+    <Compile Include="ResourceBuilding\PathBuildingOwnerVisitor.cs" />
     <Compile Include="ResourceBuilding\ComponentSpecificationsResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\ComponentTypeResourceBuilder.cs" />
     <Compile Include="ResourceBuilding\IResourceBuilder.cs" />

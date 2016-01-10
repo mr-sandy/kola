@@ -10,6 +10,6 @@
 
         IEnumerable<WidgetSpecification> FindAll();
 
-        void Add(WidgetSpecification widgetSpecification);
+        void Save(WidgetSpecification widgetSpecification);
     }
 }

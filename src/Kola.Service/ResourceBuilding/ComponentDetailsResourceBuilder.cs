@@ -10,7 +10,7 @@
     {
         public object Build(ComponentDetails model)
         {
-            var visitor = new ResourceBuildingComponentVisitor(model.Template.Path);
+            var visitor = new ResourceBuildingComponentVisitor(model.Owner);
 
             return model.Component.Accept(visitor, model.ComponentPath);
         }

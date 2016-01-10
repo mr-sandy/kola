@@ -63,6 +63,8 @@
     <Compile Include="Composition\ComponentRefreshingVisitor.cs" />
     <Compile Include="Composition\ComponentWithProperties.cs" />
     <Compile Include="Composition\Container.cs" />
+    <Compile Include="Composition\AmendableComponentCollection.cs" />
+    <Compile Include="Composition\IAmendableComponentCollectionVisitor.cs" />
     <Compile Include="Composition\IBuilder.cs" />
     <Compile Include="Composition\IComponent.cs" />
     <Compile Include="Composition\IComponentCollection.cs" />

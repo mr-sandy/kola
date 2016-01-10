@@ -18,8 +18,12 @@
         {
             var widgetName = "widgetName";
 
-            this.Response = this.Browser.Put(string.Format("/_kola/widgets/{0}", widgetName),
-                context => context.Accept("application/json"));
+            this.Response = this.Browser.Put(string.Format("/_kola/widgets", widgetName),
+                context =>
+                    {
+                        context.Query("widgetName", widgetName);
+                        context.Accept("application/json");
+                    });
         }
 
         [Test]
@@ -31,13 +35,13 @@
         [Test]
         public void ShouldAddTemplateToRepository()
         {
-            this.WidgetSpecificationRepository.AssertWasCalled(r => r.Add(Arg<WidgetSpecification>.Is.Anything));
+            this.WidgetSpecificationRepository.AssertWasCalled(r => r.Save(Arg<WidgetSpecification>.Is.Anything));
         }
 
         [Test]
         public void ShouldAddTemplateWithCorrectPath()
         {
-            var args = this.WidgetSpecificationRepository.GetArgumentsForCallsMadeOn(r => r.Add(Arg<WidgetSpecification>.Is.Anything));
+            var args = this.WidgetSpecificationRepository.GetArgumentsForCallsMadeOn(r => r.Save(Arg<WidgetSpecification>.Is.Anything));
             var widgetSpecification = (WidgetSpecification)args[0][0];
             widgetSpecification.Name.Should().Be("widgetName");
         }

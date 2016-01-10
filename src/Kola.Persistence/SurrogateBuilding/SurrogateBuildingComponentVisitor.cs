@@ -59,7 +59,7 @@
                 {
                     Name = property.Name,
                     Type = property.Type,
-                    Value = property.Value == null ? null : property.Value.Accept(this.propertyValueBuilder)
+                    Value = property.Value?.Accept(this.propertyValueBuilder)
                 });
         }
     }

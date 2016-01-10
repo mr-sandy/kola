@@ -6,19 +6,19 @@
 
     public static class ComponentCollectionExtensions
     {
-        public static IComponentCollection FindCollection(this Template template, IEnumerable<int> path)
+        public static IComponentCollection FindCollection(this IComponentCollection componentCollection, IEnumerable<int> path)
         {
-            return new CollectionFindingComponentVisitor().Find(template, path);
+            return new CollectionFindingComponentVisitor().Find(componentCollection, path);
         }
 
-        public static IComponent FindComponent(this Template template, IEnumerable<int> path)
+        public static IComponent FindComponent(this IComponentCollection componentCollection, IEnumerable<int> path)
         {
-            return new ComponentFindingComponentVisitor().Find(template, path);
+            return new ComponentFindingComponentVisitor().Find(componentCollection, path);
         }
 
-        public static IComponentWithProperties FindComponentWithProperties(this Template template, IEnumerable<int> path)
+        public static IComponentWithProperties FindComponentWithProperties(this IComponentCollection componentCollection, IEnumerable<int> path)
         {
-            var candidate = new ComponentFindingComponentVisitor().Find(template, path);
+            var candidate = new ComponentFindingComponentVisitor().Find(componentCollection, path);
 
             if (!(candidate is IComponentWithProperties))
             {
@@ -28,15 +28,15 @@
             return candidate as IComponentWithProperties;
         }
 
-        public static IEnumerable<T> FindAll<T>(this IComponentCollection collection) where T : class
+        public static IEnumerable<T> FindAll<T>(this IComponentCollection componentCollection) where T : class
         {
-            var collectionAsType = collection as T;
+            var collectionAsType = componentCollection as T;
             if (collectionAsType != null)
             {
                 yield return collectionAsType;
             }
 
-            foreach (var component in collection.Components)
+            foreach (var component in componentCollection.Components)
             {
                 var componentAsType = component as T;
                 if (componentAsType != null)

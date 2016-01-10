@@ -6,11 +6,11 @@
 
     public interface IContentRepository
     {
-        void Add(IContent content);
-
         IEnumerable<FindContentResult> FindContent(IEnumerable<string> path);
 
         Template GetTemplate(IEnumerable<string> path);
+
+        void Add(IContent content);
 
         void Update(IContent content);
     }

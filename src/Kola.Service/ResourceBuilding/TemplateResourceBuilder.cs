@@ -18,7 +18,7 @@
 
         public object Build(Template template)
         {
-            var visitor = new ResourceBuildingComponentVisitor(template.Path);
+            var visitor = new ResourceBuildingComponentVisitor(template);
 
             return new TemplateResource
             {

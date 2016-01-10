@@ -5,13 +5,13 @@ namespace Kola.Service.Services.Models
 {
     public class UndoAmendmentDetails
     {
-        public UndoAmendmentDetails(Template template, IAmendment amendment)
+        public UndoAmendmentDetails(AmendableComponentCollection amendableComponentCollection, IAmendment amendment)
         {
-            this.Template = template;
+            this.Owner = amendableComponentCollection;
             this.Amendment = amendment;
         }
 
-        public Template Template { get; }
+        public AmendableComponentCollection Owner { get; }
 
         public IAmendment Amendment { get; }
     }

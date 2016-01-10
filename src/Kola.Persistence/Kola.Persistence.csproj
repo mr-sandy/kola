@@ -70,6 +70,7 @@
     <Compile Include="SurrogateBuilding\SurrogateBuildingComponentVisitor.cs" />
     <Compile Include="SurrogateBuilding\SurrogateBuildingPropertyValueVisitor.cs" />
     <Compile Include="SurrogateBuilding\TemplateSurrogateBuilder.cs" />
+    <Compile Include="SurrogateBuilding\WidgetSpecificationSurrogateBuilder.cs" />
     <Compile Include="Surrogates\Amendments\AddComponentAmendmentSurrogate.cs" />
     <Compile Include="Surrogates\Amendments\AmendmentSurrogate.cs" />
     <Compile Include="Surrogates\Amendments\ResetPropertyAmendmentSurrogate.cs" />
