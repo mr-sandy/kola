@@ -36,9 +36,9 @@
           <properties>
             <property name="content" type="multiline-text">
               <value xsi:type="fixed"><![CDATA[h1 {
-color: #0ff;
+color: #a88;
 }
-              ]]></value>
+]]></value>
             </property>
           </properties>
         </atom>
@@ -53,5 +53,14 @@ color: #0ff;
       </components>
     </container>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0/2</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[h1 {
+color: lightblue;
+}
+]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </widgetSpecification>
