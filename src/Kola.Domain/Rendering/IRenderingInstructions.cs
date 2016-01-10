@@ -5,5 +5,7 @@
         bool UseCache { get; }
 
         bool AnnotateComponentPaths { get; }
+
+        bool ShowAmendments { get; }
     }
 }

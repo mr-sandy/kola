@@ -4,7 +4,7 @@
     <widget name="page">
       <properties>
         <property name="property1" type="text">
-          <value xsi:type="fixed"><![CDATA[hello there]]></value>
+          <value xsi:type="fixed"><![CDATA[hello there!]]></value>
         </property>
         <property name="property2" type="text">
           <value xsi:type="fixed"><![CDATA[I am a badger]]></value>
@@ -40,9 +40,12 @@
                 <atom name="markdown">
                   <properties>
                     <property name="markdown" type="markdown">
-                      <value xsi:type="fixed"><![CDATA[*add content here*]]></value>
+                      <value xsi:type="fixed"><![CDATA[#Sandy]]></value>
                     </property>
                   </properties>
+                </atom>
+                <atom name="text">
+                  <properties />
                 </atom>
                 <atom name="markdown">
                   <properties>
@@ -54,7 +57,7 @@
                 <atom name="text">
                   <properties>
                     <property name="text" type="text">
-                      <value xsi:type="fixed"><![CDATA[Text content]]></value>
+                      <value xsi:type="fixed"><![CDATA[Text contents]]></value>
                     </property>
                   </properties>
                 </atom>
@@ -80,43 +83,5 @@
       </areas>
     </widget>
   </components>
-  <amendments>
-    <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/1</sourcePath>
-      <targetPath>0/1/0</targetPath>
-    </moveComponent>
-    <addComponent>
-      <componentType>text</componentType>
-      <targetPath>0/1/2/1</targetPath>
-    </addComponent>
-    <setProperty>
-      <componentPath>0/1/2/3</componentPath>
-      <propertyName>text</propertyName>
-      <fixedValue><![CDATA[Text contents]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0</componentPath>
-      <propertyName>property1</propertyName>
-      <fixedValue><![CDATA[hello there!]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/2/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#artist-name]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/2/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#{{artist-name}}]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/1/2/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Sandy]]></fixedValue>
-    </setProperty>
-  </amendments>
+  <amendments />
 </template>

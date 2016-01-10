@@ -78,7 +78,7 @@
         {
             var query = this.Bind<TemplateQuery>();
             var path = query.TemplatePath.ParsePath();
-            var amendment = this.BuildAmendment(query.AmendmentType);
+            var amendment = new AmendmentBuilder(this).BuildAmendment(query.AmendmentType);
 
             var result = this.templateService.AddAmendment(path, amendment);
 
@@ -103,41 +103,6 @@
             var result = this.templateService.UndoAmendment(path);
 
             return this.Negotiate.WithModel(result);
-        }
-
-        private IAmendment BuildAmendment(string amendmentType)
-        {
-            var builder = new AmendmentDomainBuilder();
-
-            switch (amendmentType)
-            {
-                case "addComponent":
-                    return builder.Build(this.Bind<AddComponentAmendmentResource>());
-
-                case "moveComponent":
-                    return builder.Build(this.Bind<MoveComponentAmendmentResource>());
-
-                case "removeComponent":
-                    return builder.Build(this.Bind<RemoveComponentAmendmentResource>());
-
-                case "duplicateComponent":
-                    return builder.Build(this.Bind<DuplicateComponentAmendmentResource>());
-
-                case "resetProperty":
-                    return builder.Build(this.Bind<ResetPropertyAmendmentResource>());
-
-                case "setPropertyFixed":
-                    return builder.Build(this.Bind<SetPropertyFixedAmendmentResource>());
-
-                case "setPropertyInherited":
-                    return builder.Build(this.Bind<SetPropertyInheritedAmendmentResource>());
-
-                case "setComment":
-                    return builder.Build(this.Bind<SetCommentAmendmentResource>());
-
-                default:
-                    throw new KolaException("Unexpected amendment type");
-            }
         }
     }
 }

@@ -68,13 +68,17 @@
             return new SuccessResult<ComponentInstance>(fragment);
         }
 
-        private PageInstance BuildPage(Template template, IEnumerable<IContextItem> contextItems, bool preview)
+        private PageInstance BuildPage(Template template, IEnumerable<IContextItem> contextItems, bool isPreview)
         {
-            template.ApplyAmendments(this.componentLibrary);
+            // TODO {SC} Decide if I really want to do this...
+            if (isPreview)
+            {
+                template.ApplyAmendments(this.componentLibrary);
+            }
 
             var buildContext = new BuildSettings(contextItems ?? Enumerable.Empty<IContextItem>());
 
-            var builder = new Builder(new RenderingInstructions(useCache: !preview, annotateComponentPaths: preview), this.widgetSpecificationRepository.Find, this.componentLibrary);
+            var builder = new Builder(new RenderingInstructions(isPreview), this.widgetSpecificationRepository.Find, this.componentLibrary);
 
             return builder.Build(template, buildContext);
         }

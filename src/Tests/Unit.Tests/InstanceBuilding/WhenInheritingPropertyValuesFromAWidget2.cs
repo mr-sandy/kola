@@ -35,7 +35,7 @@
             widget.FindOrCreateProperty(new PropertySpecification("property-alias", "property-type", string.Empty));
             widget.Properties.Single().Value = new FixedPropertyValue("property-value");
 
-            var builder = new Builder(new RenderingInstructions(false, true), w => widgetSpecification, null);
+            var builder = new Builder(new RenderingInstructions(true), w => widgetSpecification, null);
 
             this.instance = widget.Build(builder, new[] { 0 }, buildContext);
         }

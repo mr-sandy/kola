@@ -38,7 +38,7 @@
                         with.Dependency<WidgetSpecificationResourceBuilder>();
                         with.ResponseProcessor<WidgetSpecificationJsonResultProcessor>();
                         with.Dependency<WidgetSpecificationService>();
-                        with.Module<WidgetModule>();
+                        with.Module<WidgetSpecificationModule>();
                     });
 
             this.Browser = new Browser(bootstrapper);

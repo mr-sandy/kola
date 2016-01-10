@@ -58,7 +58,7 @@ namespace Kola.Domain.Instances
 
         public WidgetInstance Build(Widget widget, IEnumerable<int> path, IBuildSettings buildSettings)
         {
-            // Add the widget's parameters to the context to be picjed up by any children
+            // Add the widget's parameters to the context to be picked up by any children
             var propertyInstances = widget.Properties.Select(p => p.Build(buildSettings)).ToList();
             buildSettings.ContextSets.Push(new ContextSet(propertyInstances));
 
@@ -70,7 +70,11 @@ namespace Kola.Domain.Instances
             buildSettings.AreaContents.Push(areas);
 
             var specification = this.widgetSpecificationFinder(widget.Name);
-            specification.ApplyAmendments(this.componentLibrary);
+
+            if (this.renderingInstructions.ShowAmendments)
+            {
+                specification.ApplyAmendments(this.componentLibrary);
+            }
 
             // Notice that we're passing null as the path - we don't want to annotate the components from the widget 
             // specification because they're not components that the editor of the current template can do anything about

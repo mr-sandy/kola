@@ -34,7 +34,7 @@
             container.Properties.Single().Value = new FixedPropertyValue("property-value");
             container.Insert(0, atom);
 
-            var builder = new Builder(new RenderingInstructions(false, true), null, null);
+            var builder = new Builder(new RenderingInstructions(true), null, null);
             this.instance = container.Build(builder, new[] { 0 }, buildContext);
         }
 

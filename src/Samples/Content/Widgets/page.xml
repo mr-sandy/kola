@@ -36,7 +36,7 @@
           <properties>
             <property name="content" type="multiline-text">
               <value xsi:type="fixed"><![CDATA[h1 {
-color: #456;
+color: #0ff;
 }
               ]]></value>
             </property>
@@ -53,30 +53,5 @@ color: #456;
       </components>
     </container>
   </components>
-  <amendments>
-    <setProperty>
-      <componentPath>0/2</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[h1 {
-color: #b1f;
-}
-              ]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/2</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[h1 {
-color: #0f0;
-}
-              ]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>0/2</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[h1 {
-color: #0ff;
-}
-              ]]></fixedValue>
-    </setProperty>
-  </amendments>
+  <amendments />
 </widgetSpecification>

@@ -65,6 +65,7 @@
     <Compile Include="KolaNancyBootstrapper.cs" />
     <Compile Include="Models\ApplicationModel.cs" />
     <Compile Include="Models\WidgetQuery.cs" />
+    <Compile Include="Modules\AmendmentBuilder.cs" />
     <Compile Include="Modules\ApplicationModule.cs" />
     <Compile Include="Models\TemplateQuery.cs" />
     <Compile Include="Processors\AmendmentDetailsResultProcessor.cs" />
@@ -86,7 +87,7 @@
     <Compile Include="Modules\RenderingModule.cs" />
     <Compile Include="Models\RenderQuery.cs" />
     <Compile Include="Modules\TemplateModule.cs" />
-    <Compile Include="Modules\WidgetModule.cs" />
+    <Compile Include="Modules\WidgetSpecificationModule.cs" />
     <Compile Include="NancyRazorViewHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultWrapper.cs" />

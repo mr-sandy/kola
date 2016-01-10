@@ -2,14 +2,22 @@
 {
     public class RenderingInstructions : IRenderingInstructions
     {
-        public RenderingInstructions(bool useCache, bool annotateComponentPaths)
+        public RenderingInstructions(bool isPreview)
+            : this(useCache: !isPreview, annotateComponentPaths: isPreview, showAmendments: isPreview)
+        {
+        }
+
+        public RenderingInstructions(bool useCache, bool annotateComponentPaths, bool showAmendments)
         {
             this.UseCache = useCache;
             this.AnnotateComponentPaths = annotateComponentPaths;
+            this.ShowAmendments = showAmendments;
         }
 
-        public bool UseCache { get; private set; }
+        public bool UseCache { get; }
 
-        public bool AnnotateComponentPaths { get; private set; }
+        public bool ShowAmendments { get; }
+
+        public bool AnnotateComponentPaths { get; }
     }
 }
