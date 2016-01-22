@@ -64,8 +64,8 @@ var PropertyComponent = React.createClass({
         };
     },
 
-    handleClick: function () {
-        //e.stopPropagation();
+    handleClick: function (e) {
+        e.stopPropagation();
 
         if (!this.state.editMode) {
             this.processOutcomeOnce = _.once(this.processOutcome);

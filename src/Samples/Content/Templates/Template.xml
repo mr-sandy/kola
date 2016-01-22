@@ -1,48 +1,95 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
-  <components>
-    <atom name="markdown">
-      <properties>
-        <property name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[#Hello there
-
-Here is some **content.**]]></value>
-        </property>
-      </properties>
-    </atom>
-    <atom name="label">
-      <properties>
-        <property name="caption" type="text">
-          <value xsi:type="fixed"><![CDATA[Wowzer]]></value>
-        </property>
-      </properties>
-    </atom>
-  </components>
+  <components />
   <amendments>
     <addComponent>
-      <componentType>html-head</componentType>
+      <componentType>page</componentType>
       <targetPath>0</targetPath>
     </addComponent>
     <addComponent>
-      <componentType>html-body</componentType>
-      <targetPath>1</targetPath>
+      <componentType>html-style</componentType>
+      <targetPath>0/0/0</targetPath>
     </addComponent>
-    <moveComponent>
-      <sourcePath>2</sourcePath>
-      <targetPath>1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>2</sourcePath>
-      <targetPath>1/1</targetPath>
-    </moveComponent>
+    <setPropertyFixed>
+      <componentPath>0/0/0</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[h1 {
+  color: red;
+}
+
+h2 {
+  color: orange;
+}
+
+h3 {
+  color: blue;
+}
+
+h4 {
+  color: green;
+}]]></fixedValue>
+    </setPropertyFixed>
     <addComponent>
-      <componentType>text</componentType>
-      <targetPath>1/1</targetPath>
+      <componentType>markdown</componentType>
+      <targetPath>0/1/0</targetPath>
     </addComponent>
-    <setPropertyInherited>
-      <componentPath>1/1</componentPath>
-      <propertyName>text</propertyName>
-      <key>text</key>
-    </setPropertyInherited>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Hello!
+
+##How
+
+###are
+
+####you?]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[body {
+  font-family: monospace;
+}
+
+h1 {
+  color: red;
+}
+
+h2 {
+  color: orange;
+}
+
+h3 {
+  color: blue;
+}
+
+h4 {
+  color: green;
+}]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[body {
+  font-family: monospace;
+  font-size: 24px;
+}
+
+h1 {
+  color: red;
+}
+
+h2 {
+  color: orange;
+}
+
+h3 {
+  color: blue;
+}
+
+h4 {
+  color: green;
+}]]></fixedValue>
+    </setPropertyFixed>
   </amendments>
 </template>
