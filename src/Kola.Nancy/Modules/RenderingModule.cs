@@ -40,17 +40,22 @@
 
         private IEnumerable<KeyValuePair<string, string>> GetQueryParameters(params string[] exclusions)
         {
-            return this.Request.Url.Query.Split('?', '&')
+            var parsed = this.Request.Url.Query.Split('?', '&')
                 .Where(str => str.IndexOf("=", StringComparison.Ordinal) > -1)
                 .Select(
                     o =>
-                        {
-                            var split = o.Split('=');
-                            return new KeyValuePair<string, string>(split[0], split[1]);
-                        })
-                .Where(p => !exclusions.Contains(p.Key));
-        }
+                    {
+                        var split = o.Split('=');
+                        return new KeyValuePair<string, string>(split[0], split[1]);
+                    })
+                    .Where(p => !exclusions.Contains(p.Key));
 
+            return new List<KeyValuePair<string, string>>(parsed)
+                             {
+                                 new KeyValuePair<string, string>("raw-query", this.Request.Url.Query)
+                             };
+        }
+        
         private dynamic GetPage(IEnumerable<string> path, IEnumerable<KeyValuePair<string, string>> parameters, bool preview)
         {
             var result = this.renderingService.GetPage(path, parameters, new NancyUser(this.Context.CurrentUser), preview);

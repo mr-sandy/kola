@@ -1,76 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
-  <components />
-  <amendments>
-    <addComponent>
-      <componentType>page</componentType>
-      <targetPath>0</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>html-style</componentType>
-      <targetPath>0/0/0</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>0/0/0</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[h1 {
-  color: red;
-}
-
-h2 {
-  color: orange;
-}
-
-h3 {
-  color: blue;
-}
-
-h4 {
-  color: green;
-}]]></fixedValue>
-    </setPropertyFixed>
-    <addComponent>
-      <componentType>markdown</componentType>
-      <targetPath>0/1/0</targetPath>
-    </addComponent>
-    <setPropertyFixed>
-      <componentPath>0/1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Hello!
-
-##How
-
-###are
-
-####you?]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[body {
-  font-family: monospace;
-}
-
-h1 {
-  color: red;
-}
-
-h2 {
-  color: orange;
-}
-
-h3 {
-  color: blue;
-}
-
-h4 {
-  color: green;
-}]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/0/0</componentPath>
-      <propertyName>content</propertyName>
-      <fixedValue><![CDATA[body {
+  <components>
+    <widget name="page">
+      <properties />
+      <areas>
+        <area name="header">
+          <components>
+            <atom name="html-style">
+              <properties>
+                <property name="type" type="html-style-type">
+                  <value xsi:type="fixed"><![CDATA[text/css]]></value>
+                </property>
+                <property name="content" type="multiline-text">
+                  <value xsi:type="fixed"><![CDATA[body {
   font-family: monospace;
   font-size: 24px;
 }
@@ -89,7 +31,48 @@ h3 {
 
 h4 {
   color: green;
-}]]></fixedValue>
-    </setPropertyFixed>
-  </amendments>
+}]]></value>
+                </property>
+              </properties>
+            </atom>
+          </components>
+        </area>
+        <area name="content">
+          <components>
+            <atom name="markdown">
+              <properties>
+                <property name="markdown" type="markdown">
+                  <value xsi:type="fixed"><![CDATA[#Hello!
+
+##How
+
+###are
+
+####you?]]></value>
+                </property>
+              </properties>
+            </atom>
+            <atom name="text">
+              <properties>
+                <property name="text" type="text">
+                  <value xsi:type="inherited" key="quiz" />
+                </property>
+              </properties>
+            </atom>
+            <atom name="text">
+              <properties>
+                <property name="text" type="text">
+                  <value xsi:type="inherited" key="raw-query" />
+                </property>
+              </properties>
+            </atom>
+          </components>
+        </area>
+        <area name="scripts">
+          <components />
+        </area>
+      </areas>
+    </widget>
+  </components>
+  <amendments />
 </template>
