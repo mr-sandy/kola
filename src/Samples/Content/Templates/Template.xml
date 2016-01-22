@@ -35,39 +35,14 @@ Here is some **content.**]]></value>
       <sourcePath>2</sourcePath>
       <targetPath>1/1</targetPath>
     </moveComponent>
-    <setProperty>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>1/1</targetPath>
+    </addComponent>
+    <setPropertyInherited>
       <componentPath>1/1</componentPath>
-      <propertyName>caption</propertyName>
-      <fixedValue><![CDATA[##Wowzer!]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/1</componentPath>
-      <propertyName>caption</propertyName>
-      <fixedValue><![CDATA[#Wowzer!]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/1</componentPath>
-      <propertyName>caption</propertyName>
-      <fixedValue><![CDATA[Wowzer]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[##Hello there
-
-Here is some **content.**]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Hello there
-
-Here is some **content.**]]></fixedValue>
-    </setProperty>
-    <setProperty>
-      <componentPath>1/1</componentPath>
-      <propertyName>caption</propertyName>
-      <fixedValue><![CDATA[Wowzer!]]></fixedValue>
-    </setProperty>
+      <propertyName>text</propertyName>
+      <key>text</key>
+    </setPropertyInherited>
   </amendments>
 </template>

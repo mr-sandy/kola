@@ -9,6 +9,7 @@
     using Kola.Domain.Rendering;
     using Kola.Persistence;
     using Kola.Persistence.Extensions;
+    using Kola.Service.Extensions;
     using Kola.Service.Services.Results;
 
     public class RenderingService : IRenderingService
@@ -24,7 +25,7 @@
             this.componentLibrary = componentLibrary;
         }
 
-        public IResult<PageInstance> GetPage(IEnumerable<string> path, bool preview, IUser user)
+        public IResult<PageInstance> GetPage(IEnumerable<string> path, IEnumerable<KeyValuePair<string, string>> parameters, IUser user, bool preview)
         {
             var results = (this.contentRepository.FindContent(path) ?? Enumerable.Empty<FindContentResult>()).ToArray();
 
@@ -38,19 +39,20 @@
             var visitor = new ContentVisitor<IResult<PageInstance>>(
                 template =>
                     {
-                        if (result.Configuration?.AuthChecks != null && result.Configuration.AuthChecks.Any() && !result.Configuration.AuthChecks.All(a => a.Test(user)))
+                        if (!this.IsAuthorised(user, result))
                         {
                             return new UnauthorisedResult<PageInstance>();
                         }
 
-                        return new SuccessResult<PageInstance>(this.BuildPage(template, result.Configuration?.ContextItems, preview));
+                        var contextItems = this.ContextItems(parameters, result.Configuration);
+                        return new SuccessResult<PageInstance>(this.BuildPage(template, contextItems, preview));
                     },
                 redirect => new MovedPermanentlyResult<PageInstance>(redirect.Location));
 
             return result.Content.Accept(visitor);
         }
 
-        public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IEnumerable<int> componentPath)
+        public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IEnumerable<KeyValuePair<string, string>> parameters, IUser user, IEnumerable<int> componentPath)
         {
             var result = this.contentRepository.FindContent(path).TakeTemplateResult();
 
@@ -59,13 +61,31 @@
                 return new NotFoundResult<ComponentInstance>();
             }
 
-            var page = this.BuildPage(result.Content as Template, result.Configuration?.ContextItems, true);
+            if (!this.IsAuthorised(user, result))
+            {
+                return new UnauthorisedResult<ComponentInstance>();
+            }
+
+            var contextItems = this.ContextItems(parameters, result.Configuration);
+            var page = this.BuildPage(result.Content as Template, contextItems, true);
 
             var finder = new ComponentFindingComponentInstanceVisitor();
 
             var fragment = finder.Find(page, componentPath);
 
             return new SuccessResult<ComponentInstance>(fragment);
+        }
+
+        private bool IsAuthorised(IUser user, FindContentResult result)
+        {
+            return result.Configuration?.AuthChecks == null || !result.Configuration.AuthChecks.Any() || result.Configuration.AuthChecks.All(a => a.Test(user));
+        }
+
+        private IEnumerable<IContextItem> ContextItems(IEnumerable<KeyValuePair<string, string>> parameters, IConfiguration config)
+        {
+            var parameterContext = parameters?.Select(p => p.ToContextItem()) ?? Enumerable.Empty<IContextItem>();
+            var configContext = config?.ContextItems ?? Enumerable.Empty<IContextItem>();
+            return parameterContext.Union(configContext);
         }
 
         private PageInstance BuildPage(Template template, IEnumerable<IContextItem> contextItems, bool isPreview)

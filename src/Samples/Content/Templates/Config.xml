@@ -2,5 +2,6 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <contextItems>
     <contextItem name="username"><![CDATA[Sandy]]></contextItem>
+    <contextItem name="text"><![CDATA[Weasels]]></contextItem>
   </contextItems>
 </configuration>
