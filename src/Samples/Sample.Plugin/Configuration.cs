@@ -1,7 +1,9 @@
 ﻿namespace Sample.Plugin
 {
     using Kola.Configuration.Plugins;
+    using Kola.Domain.Rendering;
 
+    using Sample.Plugin.Proxies.Music;
     using Sample.Plugin.Renderers;
     using Sample.Plugin.Sources;
 
@@ -17,6 +19,11 @@
             this.ConfigureContainers();
 
             this.ConfigureSources();
+        }
+
+        public override void Register(IObjectFactory objectFactory)
+        {
+            objectFactory.Register<IMusicService>(() => new CachingMusicService(new MusicService()));
         }
 
         private void ConfigureAtoms()

@@ -41,8 +41,10 @@
         {
             base.ConfigureApplicationContainer(container);
 
+            var objectFactory = new TinyIoCObjectFactory(container);
+            
             // TODO {SC} Use the IOC container to hold the Kola configuration
-            new KolaConfigurationBuilder().Build(new PluginFinder(), new TinyIoCObjectFactory(container));
+            new KolaConfigurationBuilder().Build(new PluginFinder(), objectFactory);
 
             container.Register<IResourceBuilder<AmendmentDetails>, AmendmentDetailsResourceBuilder>();
             container.Register<IResourceBuilder<AmendmentsDetails>, AmendmentsDetailsResourceBuilder>();
@@ -55,6 +57,11 @@
             var contentRoot = ConfigurationManager.AppSettings["ContentRoot"];
             container.Register<IFileSystemHelper>((c, o) => new FileSystemHelper(contentRoot));
             container.Register<ISerializationHelper>((c, o) => new SerializationHelper(contentRoot));
+
+            foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
+            {
+                plugin.Register(objectFactory);
+            }
 
             // TODO {SC} This should probably be moved somewhere into the Kola Config - it's not really Nancy/TinyIoc specific
             var sourceTypes = from plugin in KolaConfigurationRegistry.Instance.Plugins

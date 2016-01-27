@@ -5,6 +5,7 @@
 
     using Kola.Configuration.Fluent;
     using Kola.Domain.Composition;
+    using Kola.Domain.Rendering;
     using Kola.Domain.Specifications;
 
     public abstract class PluginConfiguration
@@ -39,6 +40,10 @@
         internal void AddSourceType(Type sourceType)
         {
             this.sourceTypes.Add(sourceType);
+        }
+
+        public virtual void Register(IObjectFactory objectFactory)
+        {
         }
     }
 }

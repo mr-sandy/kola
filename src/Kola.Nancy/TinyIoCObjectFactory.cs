@@ -32,5 +32,24 @@
 
             return (T)this.container.Resolve(type, overloads);
         }
+
+        //public void Register<TType, TRegistration>() 
+        //    where TType : class 
+        //    where TRegistration : class, TType
+        //{
+        //    this.container.Register<TType, TRegistration>();
+        //}
+
+        //public void Register<TType, TRegistration>(TRegistration instance) 
+        //    where TType : class 
+        //    where TRegistration : class, TType
+        //{
+        //    this.container.Register<TType, TRegistration>(instance);
+        //}
+
+        public void Register<T>(Func<T> constructor) where T : class
+        {
+            this.container.Register((c, o) => constructor());
+        }
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="Configuration.cs" />
     <Compile Include="Proxies\Music\Album.cs" />
     <Compile Include="Proxies\Music\Artist.cs" />
+    <Compile Include="Proxies\Music\CachingMusicService.cs" />
     <Compile Include="Proxies\Music\IMusicService.cs" />
     <Compile Include="Renderers\AlbumRenderer.cs" />
     <Compile Include="Renderers\ArtistRenderer.cs" />
