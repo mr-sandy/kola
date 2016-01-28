@@ -9,13 +9,6 @@
 
     public class TemplateResourceBuilder : IResourceBuilder<Template>
     {
-        private readonly PathInstanceBuilder pathInstanceBuilder;
-
-        public TemplateResourceBuilder(PathInstanceBuilder pathInstanceBuilder)
-        {
-            this.pathInstanceBuilder = pathInstanceBuilder;
-        }
-
         public object Build(Template template)
         {
             var visitor = new ResourceBuildingComponentVisitor(template);
@@ -46,7 +39,7 @@
                 Href = $"/_kola/templates/amendments?templatePath={template.Path.ToHttpPath()}"
             };
 
-            foreach (var previewUrl in this.pathInstanceBuilder.Build(template.Path))
+            foreach (var previewUrl in template.InstancePaths ?? Enumerable.Empty<string>())
             {
                 yield return new LinkResource
                 {

@@ -7,6 +7,7 @@
     using Kola.Domain.Composition.Amendments;
     using Kola.Domain.Extensions;
     using Kola.Persistence;
+    using Kola.Service.ResourceBuilding;
     using Kola.Service.Services.Models;
     using Kola.Service.Services.Results;
 
@@ -14,11 +15,13 @@
     {
         private readonly IContentRepository contentRepository;
         private readonly IComponentSpecificationLibrary componentLibrary;
+        private readonly IPathInstanceBuilder pathInstanceBuilder;
 
-        public TemplateService(IContentRepository contentRepository, IComponentSpecificationLibrary componentLibrary)
+        public TemplateService(IContentRepository contentRepository, IComponentSpecificationLibrary componentLibrary, IPathInstanceBuilder pathInstanceBuilder)
         {
             this.contentRepository = contentRepository;
             this.componentLibrary = componentLibrary;
+            this.pathInstanceBuilder = pathInstanceBuilder;
         }
 
         public IResult<Template> CreateTemplate(IEnumerable<string> rawPath)
@@ -36,6 +39,8 @@
 
             this.contentRepository.Add(template);
 
+            template.BuildInstancePaths(this.pathInstanceBuilder);
+
             return new CreatedResult<Template>(template);
         }
 
@@ -51,6 +56,8 @@
             template.ApplyAmendments(this.componentLibrary);
 
             new ComponentRefreshingVisitor(this.componentLibrary).Refresh(template);
+
+            template.BuildInstancePaths(this.pathInstanceBuilder);
 
             return new SuccessResult<Template>(template);
         }

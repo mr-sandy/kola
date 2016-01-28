@@ -24,8 +24,9 @@ namespace Unit.Tests.ResourceBuilding
             var pathInstanceBuilder = new PathInstanceBuilder(dynamicSourceProvider);
 
             var template = new Template(Enumerable.Empty<string>());
+            template.BuildInstancePaths(pathInstanceBuilder);
 
-            this.resource = new TemplateResourceBuilder(pathInstanceBuilder).Build(template) as TemplateResource;
+            this.resource = new TemplateResourceBuilder().Build(template) as TemplateResource;
         }
 
         [Test]

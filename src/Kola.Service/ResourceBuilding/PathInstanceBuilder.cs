@@ -3,11 +3,13 @@ namespace Kola.Service.ResourceBuilding
     using System.Collections.Generic;
     using System.Linq;
 
+    using Kola.Domain.Composition;
     using Kola.Domain.DynamicSources;
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances.Config;
+    using Kola.Persistence;
 
-    public class PathInstanceBuilder
+    public class PathInstanceBuilder : IPathInstanceBuilder
     {
         private readonly IDynamicSourceProvider dynamicSourceProvider;
 

@@ -47,6 +47,7 @@
                         with.Dependency(this.DynamicSourceProvider);
                         with.Dependency<TemplateResourceBuilder>();
                         with.Dependency<AmendmentDetailsResourceBuilder>();
+                        with.Dependency<PathInstanceBuilder>();
                         with.Dependency<AmendmentsDetailsResourceBuilder>();
                         with.Dependency<UndoAmendmentDetailsResourceBuilder>();
                         with.Dependency<ComponentDetailsResourceBuilder>();

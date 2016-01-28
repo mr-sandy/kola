@@ -26,9 +26,14 @@
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
 
+    using Kola.Nancy.Processors;
+
     public class KolaNancyBootstrapper : DefaultNancyBootstrapper
     {
-
+        public KolaNancyBootstrapper()
+        {
+            
+        }
         protected override NancyInternalConfiguration InternalConfiguration
         {
             get
@@ -42,9 +47,31 @@
 
         protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
         {
-            //            base.ConfigureRequestContainer(container, context);
-
             var objectFactory = new TinyIoCObjectFactory(container);
+
+            container.Register<IKolaConfigurationRegistry, KolaConfigurationRegistry>();
+            container.Register<IComponentSpecificationService, ComponentSpecificationService>();
+            container.Register<IComponentSpecificationLibrary, ComponentSpecificationLibrary>();
+            container.Register<IWidgetSpecificationRepository, WidgetSpecificationRepository>();
+
+
+            var contentRoot = ConfigurationManager.AppSettings["ContentRoot"];
+
+            container.Register<IFileSystemHelper>((c, o) => new FileSystemHelper(contentRoot));
+            container.Register<ISerializationHelper>((c, o) => new SerializationHelper(contentRoot));
+
+            container.Register<IContentFinder, ContentFinder>();
+            container.Register<IDynamicSourceProvider, DynamicSourceProvider>();
+            container.Register<IRenderingService, RenderingService>();
+            container.Register<IContentRepository, ContentRepository>();
+            container.Register<IConfigurationRepository, ConfigurationRepository>();
+            container.Register<ITemplateService, TemplateService>();
+            container.Register<IWidgetSpecificationService, WidgetSpecificationService>();
+            container.Register<IPathInstanceBuilder, PathInstanceBuilder>();
+
+
+            var sourceTypes = KolaConfigurationRegistry.Instance.Plugins.SelectMany(plugin => plugin.SourceTypes).ToArray();
+            container.Register((c, o) => sourceTypes.Select(c.Resolve).Cast<IDynamicSource>());
 
             var rendererMappings = KolaConfigurationRegistry.Instance.Plugins.SelectMany(c => c.ComponentTypeSpecifications);
             var rendererFactory = new RendererFactory(rendererMappings, objectFactory);
@@ -59,30 +86,9 @@
 
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
-            //base.ConfigureApplicationContainer(container);
-
-            var objectFactory = new TinyIoCObjectFactory(container);
-            
-            // TODO {SC} Use the IOC container to hold the Kola configuration
-            //new KolaConfigurationBuilder().Build(new PluginFinder(), objectFactory);
-
             var plugins = new PluginFinder().FindPlugins().ToArray();
-
-
-            // TODO {SC} Surely this has to happen in a better way?
-
-            var configuration = new KolaConfiguration(null, plugins);
-
-            KolaConfigurationRegistry.Register(configuration);
-
-            //return configuration;
-
-
-
-            container.Register<IKolaConfigurationRegistry, KolaConfigurationRegistry>();
-            container.Register<IComponentSpecificationService, ComponentSpecificationService>();
-            container.Register<IComponentSpecificationLibrary, ComponentSpecificationLibrary>();
-            container.Register<IWidgetSpecificationRepository, WidgetSpecificationRepository>();
+            
+            KolaConfigurationRegistry.Register(new KolaConfiguration(null, plugins));
 
             container.Register<IResourceBuilder<AmendmentDetails>, AmendmentDetailsResourceBuilder>();
             container.Register<IResourceBuilder<AmendmentsDetails>, AmendmentsDetailsResourceBuilder>();
@@ -92,25 +98,8 @@
             container.Register<IResourceBuilder<WidgetSpecification>, WidgetSpecificationResourceBuilder>();
             container.Register<IResourceBuilder<IEnumerable<IComponentSpecification<IComponentWithProperties>>>, ComponentSpecificationsResourceBuilder>();
 
-            var contentRoot = ConfigurationManager.AppSettings["ContentRoot"];
-
-            container.Register<IFileSystemHelper>((c, o) => new FileSystemHelper(contentRoot));
-            container.Register<ISerializationHelper>((c, o) => new SerializationHelper(contentRoot));
-
-            container.Register<IContentFinder, ContentFinder>();
-            container.Register<IDynamicSourceProvider, DynamicSourceProvider>();
-            container.Register<IRenderingService, RenderingService>();
-            container.Register<IContentRepository, ContentRepository>();
-            container.Register<IConfigurationRepository, ConfigurationRepository>();
-            container.Register<ITemplateService, TemplateService>();
-            container.Register<IWidgetSpecificationService, WidgetSpecificationService>();
-
-            var sourceTypes = KolaConfigurationRegistry.Instance.Plugins.SelectMany(plugin => plugin.SourceTypes).ToArray();
-            container.Register((c, o) => sourceTypes.Select(c.Resolve).Cast<IDynamicSource>());
-
             foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
             {
-                plugin.ConfigureApplicationFactory(objectFactory);
                 ResourceViewLocationProvider.RootNamespaces.Add(plugin.GetType().Assembly, plugin.ViewLocation);
             }
 
