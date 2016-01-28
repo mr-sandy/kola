@@ -1,10 +1,21 @@
 ﻿namespace Kola.Nancy
 {
-    using System;
     using System.Collections.Generic;
     using System.Configuration;
     using System.Linq;
     using System.Reflection;
+
+    using Kola.Client;
+    using Kola.Configuration;
+    using Kola.Domain.Composition;
+    using Kola.Domain.DynamicSources;
+    using Kola.Domain.Rendering;
+    using Kola.Domain.Specifications;
+    using Kola.Persistence;
+    using Kola.Service;
+    using Kola.Service.ResourceBuilding;
+    using Kola.Service.Services;
+    using Kola.Service.Services.Models;
 
     using global::Nancy;
     using global::Nancy.Bootstrapper;
@@ -15,17 +26,9 @@
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
 
-    using Kola.Client;
-    using Kola.Configuration;
-    using Kola.Domain.Composition;
-    using Kola.Domain.DynamicSources;
-    using Kola.Domain.Specifications;
-    using Kola.Persistence;
-    using Kola.Service.ResourceBuilding;
-    using Kola.Service.Services.Models;
-
     public class KolaNancyBootstrapper : DefaultNancyBootstrapper
     {
+
         protected override NancyInternalConfiguration InternalConfiguration
         {
             get
@@ -37,14 +40,49 @@
             }
         }
 
+        protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
+        {
+            //            base.ConfigureRequestContainer(container, context);
+
+            var objectFactory = new TinyIoCObjectFactory(container);
+
+            var rendererMappings = KolaConfigurationRegistry.Instance.Plugins.SelectMany(c => c.ComponentTypeSpecifications);
+            var rendererFactory = new RendererFactory(rendererMappings, objectFactory);
+            KolaConfigurationRegistry.Instance.Renderer = new MultiRenderer(rendererFactory);
+
+            foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
+            {
+                plugin.ConfigureRequestFactory(objectFactory);
+            }
+
+        }
+
         protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
-            base.ConfigureApplicationContainer(container);
+            //base.ConfigureApplicationContainer(container);
 
             var objectFactory = new TinyIoCObjectFactory(container);
             
             // TODO {SC} Use the IOC container to hold the Kola configuration
-            new KolaConfigurationBuilder().Build(new PluginFinder(), objectFactory);
+            //new KolaConfigurationBuilder().Build(new PluginFinder(), objectFactory);
+
+            var plugins = new PluginFinder().FindPlugins().ToArray();
+
+
+            // TODO {SC} Surely this has to happen in a better way?
+
+            var configuration = new KolaConfiguration(null, plugins);
+
+            KolaConfigurationRegistry.Register(configuration);
+
+            //return configuration;
+
+
+
+            container.Register<IKolaConfigurationRegistry, KolaConfigurationRegistry>();
+            container.Register<IComponentSpecificationService, ComponentSpecificationService>();
+            container.Register<IComponentSpecificationLibrary, ComponentSpecificationLibrary>();
+            container.Register<IWidgetSpecificationRepository, WidgetSpecificationRepository>();
 
             container.Register<IResourceBuilder<AmendmentDetails>, AmendmentDetailsResourceBuilder>();
             container.Register<IResourceBuilder<AmendmentsDetails>, AmendmentsDetailsResourceBuilder>();
@@ -55,22 +93,24 @@
             container.Register<IResourceBuilder<IEnumerable<IComponentSpecification<IComponentWithProperties>>>, ComponentSpecificationsResourceBuilder>();
 
             var contentRoot = ConfigurationManager.AppSettings["ContentRoot"];
+
             container.Register<IFileSystemHelper>((c, o) => new FileSystemHelper(contentRoot));
             container.Register<ISerializationHelper>((c, o) => new SerializationHelper(contentRoot));
 
-            foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
-            {
-                plugin.Register(objectFactory);
-            }
+            container.Register<IContentFinder, ContentFinder>();
+            container.Register<IDynamicSourceProvider, DynamicSourceProvider>();
+            container.Register<IRenderingService, RenderingService>();
+            container.Register<IContentRepository, ContentRepository>();
+            container.Register<IConfigurationRepository, ConfigurationRepository>();
+            container.Register<ITemplateService, TemplateService>();
+            container.Register<IWidgetSpecificationService, WidgetSpecificationService>();
 
-            // TODO {SC} This should probably be moved somewhere into the Kola Config - it's not really Nancy/TinyIoc specific
-            var sourceTypes = from plugin in KolaConfigurationRegistry.Instance.Plugins
-                                  from source in plugin.SourceTypes
-                                  select source;
+            var sourceTypes = KolaConfigurationRegistry.Instance.Plugins.SelectMany(plugin => plugin.SourceTypes).ToArray();
             container.Register((c, o) => sourceTypes.Select(c.Resolve).Cast<IDynamicSource>());
 
             foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
             {
+                plugin.ConfigureApplicationFactory(objectFactory);
                 ResourceViewLocationProvider.RootNamespaces.Add(plugin.GetType().Assembly, plugin.ViewLocation);
             }
 

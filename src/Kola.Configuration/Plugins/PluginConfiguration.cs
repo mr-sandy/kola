@@ -42,7 +42,11 @@
             this.sourceTypes.Add(sourceType);
         }
 
-        public virtual void Register(IObjectFactory objectFactory)
+        public virtual void ConfigureApplicationFactory(IObjectFactory factory)
+        {
+        }
+
+        public virtual void ConfigureRequestFactory(IObjectFactory factory)
         {
         }
     }

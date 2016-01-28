@@ -132,6 +132,13 @@ img {
             </property>
           </properties>
         </atom>
+        <atom name="artist">
+          <properties>
+            <property name="artist-id" type="text">
+              <value xsi:type="inherited" key="artist-id" />
+            </property>
+          </properties>
+        </atom>
         <atom name="artist-image">
           <properties>
             <property name="artist-id" type="text">
@@ -212,16 +219,5 @@ g
       </components>
     </container>
   </components>
-  <amendments>
-    <setPropertyFixed>
-      <componentPath>1/1/0</componentPath>
-      <propertyName>classes</propertyName>
-      <fixedValue><![CDATA[my class name]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyInherited>
-      <componentPath>1/1/0</componentPath>
-      <propertyName>classes</propertyName>
-      <key>artist-id</key>
-    </setPropertyInherited>
-  </amendments>
+  <amendments />
 </template>

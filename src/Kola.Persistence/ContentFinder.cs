@@ -26,7 +26,7 @@ namespace Kola.Persistence
 
         public IEnumerable<ContentDirectory> FindContentDirectories(IEnumerable<string> path)
         {
-            return this.Find(path, this.templatesDirectory, new Configuration());
+            return this.Find(path, this.templatesDirectory, new Configuration()).ToArray();
         }
 
         private IEnumerable<ContentDirectory> Find(IEnumerable<string> path, string pathSoFar, IConfiguration configuration)

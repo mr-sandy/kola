@@ -9,7 +9,7 @@ namespace Kola.Domain.DynamicSources
 
         public DynamicSourceProvider(IEnumerable<IDynamicSource> sources)
         {
-            this.sources = sources;
+            this.sources = sources.ToArray();
         }
 
         public IDynamicSource Get(string sourceName)

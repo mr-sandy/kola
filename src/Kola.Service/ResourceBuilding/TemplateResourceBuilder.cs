@@ -48,7 +48,8 @@
 
             foreach (var previewUrl in this.pathInstanceBuilder.Build(template.Path))
             {
-                yield return new LinkResource {
+                yield return new LinkResource
+                {
                     Rel = "preview",
                     Href = previewUrl
                 };

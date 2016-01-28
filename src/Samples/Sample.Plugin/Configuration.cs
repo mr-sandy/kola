@@ -1,5 +1,7 @@
 ﻿namespace Sample.Plugin
 {
+    using System.Security.Cryptography.X509Certificates;
+
     using Kola.Configuration.Plugins;
     using Kola.Domain.Rendering;
 
@@ -21,9 +23,14 @@
             this.ConfigureSources();
         }
 
-        public override void Register(IObjectFactory objectFactory)
+        public override void ConfigureRequestFactory(IObjectFactory factory)
         {
-            objectFactory.Register<IMusicService>(() => new CachingMusicService(new MusicService()));
+            factory.Register<IMusicService>(new CachingMusicService(new MusicService())); 
+        }
+
+        public override void ConfigureApplicationFactory(IObjectFactory factory)
+        {
+            factory.Register<IMusicService>(new CachingMusicService(new MusicService()));
         }
 
         private void ConfigureAtoms()

@@ -13,7 +13,7 @@
             this.Plugins = plugins;
         }
 
-        public IMultiRenderer Renderer { get; private set; }
+        public IMultiRenderer Renderer { get; set; }
 
         public IEnumerable<PluginConfiguration> Plugins { get; private set; }
     }
