@@ -57,8 +57,8 @@
 
             var container = new TinyIoCAdapter(tinyIoCContainer);
 
-            var rendererMappings = KolaConfigurationRegistry.Plugins.SelectMany(plugin => plugin.ComponentTypeSpecifications);
-            KolaConfigurationRegistry.RegisterRenderer(new MultiRenderer(new RendererFactory(rendererMappings, container)));
+            var componentSpecifications = KolaConfigurationRegistry.Plugins.SelectMany(plugin => plugin.ComponentTypeSpecifications);
+            KolaConfigurationRegistry.RegisterRenderer(new MultiRenderer(new RendererFactory(componentSpecifications, container)));
 
             foreach (var plugin in KolaConfigurationRegistry.Plugins)
             {
@@ -114,7 +114,7 @@
             }
         }
 
-        protected override void ApplicationStartup(global::Nancy.TinyIoc.TinyIoCContainer container, IPipelines pipelines)
+        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
             JsonSettings.MaxJsonLength = int.MaxValue;
