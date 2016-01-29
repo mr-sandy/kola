@@ -51,7 +51,6 @@
     <Compile Include="IKolaConfigurationRegistry.cs" />
     <Compile Include="IPluginFinder.cs" />
     <Compile Include="KolaConfiguration.cs" />
-    <Compile Include="KolaConfigurationBuilder.cs" />
     <Compile Include="KolaConfigurationRegistry.cs" />
     <Compile Include="PluginFinder.cs" />
     <Compile Include="Plugins\PluginConfiguration.cs" />

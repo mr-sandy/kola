@@ -9,11 +9,11 @@
 
     using Kola.Domain.Specifications;
 
-    public class TinyIoCObjectFactory : IObjectFactory
+    public class TinyIoCAdapter : IContainer
     {
         private readonly TinyIoCContainer container;
 
-        public TinyIoCObjectFactory(TinyIoCContainer container)
+        public TinyIoCAdapter(TinyIoCContainer container)
         {
             this.container = container;
         }
@@ -21,6 +21,11 @@
         public T Resolve<T>(Type type)
         {
             return (T)this.container.Resolve(type);
+        }
+
+        public T Resolve<T>(string name) where T : class
+        {
+            return this.container.Resolve<T>(name);
         }
 
         public T Resolve<T>(Type type, IPluginComponentSpecification<IComponentWithProperties> specification)
@@ -49,6 +54,16 @@
         public void Register<T>(Func<T> constructor) where T : class
         {
             this.container.Register((c, o) => constructor());
+        }
+
+        public void Register<T>(Func<IContainer, T> constructor) where T : class
+        {
+            Func<TinyIoCContainer, T> theActualFunc = c =>
+                {
+                    var objFactory = new TinyIoCAdapter(c);
+                    return constructor(objFactory);
+                };
+            this.container.Register((c, o) => theActualFunc(c));
         }
 
         public void Register<T>() where T : class

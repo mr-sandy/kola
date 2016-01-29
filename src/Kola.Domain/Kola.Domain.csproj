@@ -130,7 +130,7 @@
     <Compile Include="Rendering\DefaultRenderer.cs" />
     <Compile Include="Rendering\EmptyResult.cs" />
     <Compile Include="Rendering\IMultiRenderer.cs" />
-    <Compile Include="Rendering\IObjectFactory.cs" />
+    <Compile Include="Rendering\IContainer.cs" />
     <Compile Include="Rendering\IRenderer.cs" />
     <Compile Include="Rendering\IRendererFactory.cs" />
     <Compile Include="Rendering\IRenderingInstructions.cs" />

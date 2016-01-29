@@ -45,7 +45,7 @@
             this.viewHelper = MockRepository.GenerateStub<IViewHelper>();
             var multiRenderer = new MultiRenderer(rendererFactory);
 
-            KolaConfigurationRegistry.Register(new KolaConfiguration(multiRenderer, Enumerable.Empty<PluginConfiguration>()));
+            KolaConfigurationRegistry.RegisterRenderer(multiRenderer);
 
             this.result = instance.Render(multiRenderer);
         }

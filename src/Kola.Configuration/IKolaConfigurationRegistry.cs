@@ -1,7 +1,14 @@
 ﻿namespace Kola.Configuration
 {
+    using System.Collections.Generic;
+
+    using Kola.Configuration.Plugins;
+    using Kola.Domain.Rendering;
+
     public interface IKolaConfigurationRegistry
     {
-        KolaConfiguration KolaConfiguration { get; }
+        IEnumerable<PluginConfiguration> Plugins { get; }
+
+        MultiRenderer Renderer { get; }
     }
 }

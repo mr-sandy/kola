@@ -1,14 +1,28 @@
 ﻿namespace Kola.Configuration
 {
+    using System.Collections.Generic;
+
+    using Kola.Configuration.Plugins;
+    using Kola.Domain.Rendering;
+
     public class KolaConfigurationRegistry : IKolaConfigurationRegistry
     {
-        public static KolaConfiguration Instance { get; private set; }
+        MultiRenderer IKolaConfigurationRegistry.Renderer => Renderer;
 
-        public KolaConfiguration KolaConfiguration => Instance;
+        IEnumerable<PluginConfiguration> IKolaConfigurationRegistry.Plugins => Plugins;
 
-        public static void Register(KolaConfiguration kolaConfiguration)
+        public static IEnumerable<PluginConfiguration> Plugins { get; private set; }
+
+        public static MultiRenderer Renderer { get; private set; }
+
+        public static void RegisterRenderer(MultiRenderer renderer)
         {
-            Instance = kolaConfiguration;
+            Renderer = renderer;
+        }
+
+        public static void RegisterPlugins(IEnumerable<PluginConfiguration> plugins)
+        {
+            Plugins = plugins;
         }
     }
 }

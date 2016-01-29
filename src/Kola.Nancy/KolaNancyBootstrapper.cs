@@ -26,79 +26,73 @@
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
 
-    using Kola.Nancy.Processors;
+    using Kola.Configuration.Plugins;
 
     public class KolaNancyBootstrapper : DefaultNancyBootstrapper
     {
         public KolaNancyBootstrapper()
         {
-            
-        }
-        protected override NancyInternalConfiguration InternalConfiguration
-        {
-            get
-            {
-                return NancyInternalConfiguration.WithOverrides(c =>
-                    {
-                        c.ViewLocationProvider = typeof(CachingResourceViewLocationProvider);
-                    });
-            }
-        }
-
-        protected override void ConfigureRequestContainer(TinyIoCContainer container, NancyContext context)
-        {
-            var objectFactory = new TinyIoCObjectFactory(container);
-
-            container.Register<IKolaConfigurationRegistry, KolaConfigurationRegistry>();
-            container.Register<IComponentSpecificationService, ComponentSpecificationService>();
-            container.Register<IComponentSpecificationLibrary, ComponentSpecificationLibrary>();
-            container.Register<IWidgetSpecificationRepository, WidgetSpecificationRepository>();
-
-
-            var contentRoot = ConfigurationManager.AppSettings["ContentRoot"];
-
-            container.Register<IFileSystemHelper>((c, o) => new FileSystemHelper(contentRoot));
-            container.Register<ISerializationHelper>((c, o) => new SerializationHelper(contentRoot));
-
-            container.Register<IContentFinder, ContentFinder>();
-            container.Register<IDynamicSourceProvider, DynamicSourceProvider>();
-            container.Register<IRenderingService, RenderingService>();
-            container.Register<IContentRepository, ContentRepository>();
-            container.Register<IConfigurationRepository, ConfigurationRepository>();
-            container.Register<ITemplateService, TemplateService>();
-            container.Register<IWidgetSpecificationService, WidgetSpecificationService>();
-            container.Register<IPathInstanceBuilder, PathInstanceBuilder>();
-
-
-            var sourceTypes = KolaConfigurationRegistry.Instance.Plugins.SelectMany(plugin => plugin.SourceTypes).ToArray();
-            container.Register((c, o) => sourceTypes.Select(c.Resolve).Cast<IDynamicSource>());
-
-            var rendererMappings = KolaConfigurationRegistry.Instance.Plugins.SelectMany(c => c.ComponentTypeSpecifications);
-            var rendererFactory = new RendererFactory(rendererMappings, objectFactory);
-            KolaConfigurationRegistry.Instance.Renderer = new MultiRenderer(rendererFactory);
-
-            foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
-            {
-                plugin.ConfigureRequestFactory(objectFactory);
-            }
-
-        }
-
-        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
-        {
             var plugins = new PluginFinder().FindPlugins().ToArray();
-            
-            KolaConfigurationRegistry.Register(new KolaConfiguration(null, plugins));
 
-            container.Register<IResourceBuilder<AmendmentDetails>, AmendmentDetailsResourceBuilder>();
-            container.Register<IResourceBuilder<AmendmentsDetails>, AmendmentsDetailsResourceBuilder>();
-            container.Register<IResourceBuilder<Template>, TemplateResourceBuilder>();
-            container.Register<IResourceBuilder<ComponentDetails>, ComponentDetailsResourceBuilder>();
-            container.Register<IResourceBuilder<UndoAmendmentDetails>, UndoAmendmentDetailsResourceBuilder>();
-            container.Register<IResourceBuilder<WidgetSpecification>, WidgetSpecificationResourceBuilder>();
-            container.Register<IResourceBuilder<IEnumerable<IComponentSpecification<IComponentWithProperties>>>, ComponentSpecificationsResourceBuilder>();
+            this.ConfigureNamespaces(plugins);
 
-            foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
+            KolaConfigurationRegistry.RegisterPlugins(plugins);
+        }
+
+        protected override void ConfigureRequestContainer(TinyIoCContainer tinyIoCContainer, NancyContext context)
+        {
+            tinyIoCContainer.Register("sandy", "access_token");
+
+            tinyIoCContainer.Register<ITemplateService, TemplateService>();
+            tinyIoCContainer.Register<IRenderingService, RenderingService>();
+
+            tinyIoCContainer.Register<IContentRepository, ContentRepository>();
+
+            tinyIoCContainer.Register<IContentFinder, ContentFinder>();
+            tinyIoCContainer.Register<IPathInstanceBuilder, PathInstanceBuilder>();
+            tinyIoCContainer.Register<IDynamicSourceProvider, DynamicSourceProvider>();
+
+            var sourceTypes = KolaConfigurationRegistry.Plugins.SelectMany(plugin => plugin.SourceTypes).ToArray();
+            tinyIoCContainer.Register((c, o) => sourceTypes.Select(c.Resolve).Cast<IDynamicSource>());
+
+            var container = new TinyIoCAdapter(tinyIoCContainer);
+
+            var rendererMappings = KolaConfigurationRegistry.Plugins.SelectMany(plugin => plugin.ComponentTypeSpecifications);
+            KolaConfigurationRegistry.RegisterRenderer(new MultiRenderer(new RendererFactory(rendererMappings, container)));
+
+            foreach (var plugin in KolaConfigurationRegistry.Plugins)
+            {
+                plugin.ConfigureContainer(container);
+            }
+        }
+
+        protected override void ConfigureApplicationContainer(TinyIoCContainer tinyIoCContainer)
+        {
+            var contentRoot = ConfigurationManager.AppSettings["ContentRoot"];
+            tinyIoCContainer.Register<IFileSystemHelper>((c, o) => new FileSystemHelper(contentRoot));
+            tinyIoCContainer.Register<ISerializationHelper>((c, o) => new SerializationHelper(contentRoot));
+
+            tinyIoCContainer.Register<IKolaConfigurationRegistry, KolaConfigurationRegistry>();
+            tinyIoCContainer.Register<IConfigurationRepository, ConfigurationRepository>();
+
+            tinyIoCContainer.Register<IWidgetSpecificationService, WidgetSpecificationService>();
+            tinyIoCContainer.Register<IWidgetSpecificationRepository, WidgetSpecificationRepository>();
+
+            tinyIoCContainer.Register<IComponentSpecificationService, ComponentSpecificationService>();
+            tinyIoCContainer.Register<IComponentSpecificationLibrary, ComponentSpecificationLibrary>();
+
+            tinyIoCContainer.Register<IResourceBuilder<AmendmentDetails>, AmendmentDetailsResourceBuilder>();
+            tinyIoCContainer.Register<IResourceBuilder<AmendmentsDetails>, AmendmentsDetailsResourceBuilder>();
+            tinyIoCContainer.Register<IResourceBuilder<Template>, TemplateResourceBuilder>();
+            tinyIoCContainer.Register<IResourceBuilder<ComponentDetails>, ComponentDetailsResourceBuilder>();
+            tinyIoCContainer.Register<IResourceBuilder<UndoAmendmentDetails>, UndoAmendmentDetailsResourceBuilder>();
+            tinyIoCContainer.Register<IResourceBuilder<WidgetSpecification>, WidgetSpecificationResourceBuilder>();
+            tinyIoCContainer.Register<IResourceBuilder<IEnumerable<IComponentSpecification<IComponentWithProperties>>>, ComponentSpecificationsResourceBuilder>();
+        }
+
+        private void ConfigureNamespaces(IEnumerable<PluginConfiguration> plugins)
+        {
+            foreach (var plugin in plugins)
             {
                 ResourceViewLocationProvider.RootNamespaces.Add(plugin.GetType().Assembly, plugin.ViewLocation);
             }
@@ -109,7 +103,18 @@
             AppDomainAssemblyTypeScanner.AddAssembliesToScan(AppDomainAssemblyTypeScanner.DefaultAssembliesToScan.ToArray());
         }
 
-        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
+        protected override NancyInternalConfiguration InternalConfiguration
+        {
+            get
+            {
+                return NancyInternalConfiguration.WithOverrides(c =>
+                {
+                    c.ViewLocationProvider = typeof(CachingResourceViewLocationProvider);
+                });
+            }
+        }
+
+        protected override void ApplicationStartup(global::Nancy.TinyIoc.TinyIoCContainer container, IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
             JsonSettings.MaxJsonLength = int.MaxValue;
@@ -124,10 +129,10 @@
             conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/scripts", typeof(ClientIdentifier).Assembly, "/scripts"));
             conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/content", typeof(ClientIdentifier).Assembly, "/content"));
 
-            foreach (var plugin in KolaConfigurationRegistry.Instance.Plugins)
+            foreach (var plugin in KolaConfigurationRegistry.Plugins)
             {
                 conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/plugins/" + plugin.PluginName, plugin.GetType().Assembly, "/editors"));
-            } 
+            }
         }
     }
 }

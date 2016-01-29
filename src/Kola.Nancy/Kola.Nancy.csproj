@@ -91,7 +91,7 @@
     <Compile Include="NancyRazorViewHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultWrapper.cs" />
-    <Compile Include="TinyIoCObjectFactory.cs" />
+    <Compile Include="TinyIoCAdapter.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\404.cshtml" />

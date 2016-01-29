@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\WhenConfiguringAPlugInAtom.cs" />
-    <Compile Include="Configuration\WhenInitialisingConfiguration.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingADuplicateComponentAmendmentFollowedByAnAddComponentAmendment.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\AddComponent\WhenProcessingADuplicateComponentAmendmentToCreateAContainerInAChildComponent.cs" />
     <Compile Include="Domain\AmendmentApplyingVisitorTests\ResetProperty\WhenApplyingAResetPropertyAmendmentWhenThereIsADefaultValue.cs" />

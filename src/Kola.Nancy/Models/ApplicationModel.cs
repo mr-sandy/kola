@@ -9,11 +9,11 @@ namespace Kola.Nancy.Models
     {
         public static ApplicationModel Build(IKolaConfigurationRegistry kolaConfigurationRegistry)
         {
-            var editorScripts = kolaConfigurationRegistry.KolaConfiguration.Plugins
+            var editorScripts = kolaConfigurationRegistry.Plugins
                 .Where(p => !string.IsNullOrEmpty(p.PropertyEditor))
                 .Select(p => $"/_kola/plugins/{p.PluginName}/{p.PropertyEditor}");
 
-            var editorStylesheets = kolaConfigurationRegistry.KolaConfiguration.Plugins
+            var editorStylesheets = kolaConfigurationRegistry.Plugins
                 .Where(p => !string.IsNullOrEmpty(p.PropertyEditorStylesheet))
                 .Select(p => $"/_kola/plugins/{p.PluginName}/{p.PropertyEditorStylesheet}");
 

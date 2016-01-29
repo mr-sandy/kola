@@ -11,12 +11,12 @@
     public class RendererFactory : IRendererFactory
     {
         private readonly IEnumerable<IPluginComponentSpecification<IComponentWithProperties>> componentSpecifications;
-        private readonly IObjectFactory objectFactory;
+        private readonly IContainer container;
 
-        public RendererFactory(IEnumerable<IPluginComponentSpecification<IComponentWithProperties>> componentSpecifications, IObjectFactory objectFactory)
+        public RendererFactory(IEnumerable<IPluginComponentSpecification<IComponentWithProperties>> componentSpecifications, IContainer container)
         {
             this.componentSpecifications = componentSpecifications;
-            this.objectFactory = objectFactory;
+            this.container = container;
         }
 
         public IRenderer<AtomInstance> GetAtomRenderer(string atomName)
@@ -34,7 +34,7 @@
             var specification = this.componentSpecifications.FirstOrDefault(s => s.Name == componentName);
             if (specification != null)
             {
-                return this.objectFactory.Resolve<IRenderer<T>>(specification.RendererType, specification);
+                return this.container.Resolve<IRenderer<T>>(specification.RendererType, specification);
             }
 
             throw new Exception("No renderer found for component '" + componentName + "'");

@@ -44,7 +44,7 @@
 
             var renderer = new MultiRenderer(handlerFactory);
 
-            KolaConfigurationRegistry.Register(new KolaConfiguration(renderer, Enumerable.Empty<PluginConfiguration>()));
+            KolaConfigurationRegistry.RegisterRenderer(renderer);
 
             var page =
                 new PageInstance(

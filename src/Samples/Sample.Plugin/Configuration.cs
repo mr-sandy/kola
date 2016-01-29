@@ -23,14 +23,10 @@
             this.ConfigureSources();
         }
 
-        public override void ConfigureRequestFactory(IObjectFactory factory)
+        public override void ConfigureContainer(IContainer container)
         {
-            factory.Register<IMusicService>(new CachingMusicService(new MusicService())); 
-        }
-
-        public override void ConfigureApplicationFactory(IObjectFactory factory)
-        {
-            factory.Register<IMusicService>(new CachingMusicService(new MusicService()));
+            var name = container.Resolve<string>("access_token");
+            container.Register<IMusicService>(new CachingMusicService(new MusicService()));
         }
 
         private void ConfigureAtoms()

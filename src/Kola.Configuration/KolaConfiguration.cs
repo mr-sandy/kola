@@ -7,13 +7,10 @@
 
     public class KolaConfiguration 
     {
-        public KolaConfiguration(IMultiRenderer multiRenderer, IEnumerable<PluginConfiguration> plugins)
+        public KolaConfiguration(IEnumerable<PluginConfiguration> plugins)
         {
-            this.Renderer = multiRenderer;
             this.Plugins = plugins;
         }
-
-        public IMultiRenderer Renderer { get; set; }
 
         public IEnumerable<PluginConfiguration> Plugins { get; private set; }
     }

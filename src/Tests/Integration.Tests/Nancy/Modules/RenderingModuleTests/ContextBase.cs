@@ -62,7 +62,7 @@
                         ResourceViewLocationProvider.RootNamespaces.Add(typeof(ContextBase).Assembly, "Integration.Tests.Nancy.Modules.RenderingModuleTests.Views");
                     });
 
-            KolaConfigurationRegistry.Register(new KolaConfiguration(new MultiRenderer(this.RendererFactory), null));
+            KolaConfigurationRegistry.RegisterRenderer(new MultiRenderer(this.RendererFactory));
 
             this.Browser = new Browser(bootstrapper);
         }
