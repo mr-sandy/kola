@@ -7,9 +7,7 @@
 
     using global::Nancy;
     using global::Nancy.ModelBinding;
-    using global::Nancy.Security;
 
-    using Kola.Domain.Instances.Config;
     using Kola.Nancy.Extensions;
     using Kola.Nancy.Models;
     using Kola.Service.Services;
@@ -58,24 +56,16 @@
         
         private dynamic GetPage(IEnumerable<string> path, IEnumerable<KeyValuePair<string, string>> parameters, bool preview)
         {
-            var result = this.renderingService.GetPage(path, parameters, new NancyUser(this.Context.CurrentUser), preview);
+            var result = this.renderingService.GetPage(path, parameters, NancyUser.Create(this.Context.CurrentUser), preview);
 
             return this.Negotiate.WithModel(result);
         }
 
         private dynamic GetFragment(IEnumerable<string> path, IEnumerable<KeyValuePair<string, string>> parameters, IEnumerable<int> componentPath)
         {
-            var result = this.renderingService.GetFragment(path, parameters, new NancyUser(this.Context.CurrentUser), componentPath);
+            var result = this.renderingService.GetFragment(path, parameters, NancyUser.Create(this.Context.CurrentUser), componentPath);
 
             return this.Negotiate.WithModel(result);
-        }
-    }
-
-    public class NancyUser : IUser
-    {
-        public NancyUser(IUserIdentity user)
-        {
-
         }
     }
 }

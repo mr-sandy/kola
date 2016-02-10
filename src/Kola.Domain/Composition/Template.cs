@@ -8,8 +8,9 @@
 
     public class Template : AmendableComponentCollection, IContent
     {
-        public Template(IEnumerable<string> path, 
-            IEnumerable<IComponent> components = null, 
+        public Template(
+            IEnumerable<string> path,
+            IEnumerable<IComponent> components = null,
             IEnumerable<IAmendment> amendments = null) 
             : base(components, amendments)
         {

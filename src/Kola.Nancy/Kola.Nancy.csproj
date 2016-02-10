@@ -68,6 +68,7 @@
     <Compile Include="Modules\AmendmentBuilder.cs" />
     <Compile Include="Modules\ApplicationModule.cs" />
     <Compile Include="Models\TemplateQuery.cs" />
+    <Compile Include="NancyUser.cs" />
     <Compile Include="Processors\AmendmentDetailsResultProcessor.cs" />
     <Compile Include="Processors\AmendmentsDetailsResultProcessor.cs" />
     <Compile Include="Processors\ComponentDetailsResultProcessor.cs" />
@@ -137,6 +138,7 @@
       <SubType>Designer</SubType>
     </None>
     <EmbeddedResource Include="Views\Error.cshtml" />
+    <EmbeddedResource Include="Views\401.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup />

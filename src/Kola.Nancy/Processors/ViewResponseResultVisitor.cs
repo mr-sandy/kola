@@ -36,11 +36,20 @@ namespace Kola.Nancy.Processors
 
         public override Response Visit(NotFoundResult<T> result)
         {
-            var viewResponse = this.viewFactory.RenderView("404", null, GetViewLocationContext(this.context));
+            var view = result.Data == null ? "404" : "Page";
+
+            var viewResponse = this.viewFactory.RenderView(view, result.Data, GetViewLocationContext(this.context));
 
             return viewResponse.WithStatusCode(HttpStatusCode.NotFound);
+        }
 
-            //return new NotFoundResponse();
+        public override Response Visit(UnauthorisedResult<T> result)
+        {
+            var view = result.Data == null ? "401" : "Page";
+
+            var viewResponse = this.viewFactory.RenderView(view, result.Data, GetViewLocationContext(this.context));
+
+            return viewResponse.WithStatusCode(HttpStatusCode.Unauthorized);
         }
 
         public override Response Visit(MovedPermanentlyResult<T> result)

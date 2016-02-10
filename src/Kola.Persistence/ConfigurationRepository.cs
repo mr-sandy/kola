@@ -4,6 +4,8 @@ namespace Kola.Persistence
     using System.Linq;
 
     using Kola.Domain.Instances.Config;
+    using Kola.Domain.Instances.Config.Authorisation;
+    using Kola.Persistence.DomainBuilding;
     using Kola.Persistence.Surrogates;
 
     public class ConfigurationRepository : IConfigurationRepository
@@ -26,10 +28,13 @@ namespace Kola.Persistence
             if (this.fileSystemHelper.FileExists(filePath))
             {
                 var surrogate = this.serializationHelper.Deserialize<ConfigurationSurrogate>(filePath);
+                var conditionBuilder = new DomainBuildingConditionVisitor();
+
                 return new Configuration
-                           {
-                               ContextItems = surrogate.ContextItems.Select(i => new ContextItem(i.Name, i.Value)).ToArray()
-                           };
+                {
+                    Conditions = surrogate.Conditions?.Select(c => c.Accept(conditionBuilder)).ToArray() ?? Enumerable.Empty<ICondition>(),
+                    ContextItems = surrogate.ContextItems.Select(i => new ContextItem(i.Name, i.Value)).ToArray()
+                };
             }
 
             return new Configuration();

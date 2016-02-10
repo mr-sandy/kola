@@ -92,6 +92,7 @@
     <Compile Include="DynamicSources\DynamicItem.cs" />
     <Compile Include="Extensions\CloningExtensions.cs" />
     <Compile Include="Extensions\ComponentCollectionExtensions.cs" />
+    <Compile Include="Extensions\ConditionExtensions.cs" />
     <Compile Include="Extensions\ConfigurationExtensions.cs" />
     <Compile Include="Extensions\ContextItemExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
@@ -103,12 +104,17 @@
     <Compile Include="Instances\AreaInstance.cs" />
     <Compile Include="Instances\AtomInstance.cs" />
     <Compile Include="Instances\ComponentFindingComponentInstanceVisitor.cs" />
+    <Compile Include="Instances\Config\Authorisation\HasAllClaimsCondition.cs" />
+    <Compile Include="Instances\Config\Authorisation\HasAnyClaimsCondition.cs" />
+    <Compile Include="Instances\Config\Authorisation\HasClaimCondition.cs" />
+    <Compile Include="Instances\Config\Authorisation\IConditionVisitor.cs" />
+    <Compile Include="Instances\Config\Authorisation\IsAuthenticatedCondition.cs" />
     <Compile Include="Instances\ContainerInstance.cs" />
     <Compile Include="Instances\Config\BuildSettings.cs" />
     <Compile Include="Instances\Config\Configuration.cs" />
     <Compile Include="Instances\Config\ContextItem.cs" />
     <Compile Include="Instances\Config\ContextSet.cs" />
-    <Compile Include="Instances\Config\IAuthCheck.cs" />
+    <Compile Include="Instances\Config\Authorisation\ICondition.cs" />
     <Compile Include="Instances\Config\IBuildSettings.cs" />
     <Compile Include="Instances\Config\IConfiguration.cs" />
     <Compile Include="Instances\Config\IContextItem.cs" />

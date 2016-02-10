@@ -31,7 +31,9 @@
 
             if (!results.Any())
             {
-                return new NotFoundResult<PageInstance>();
+                var notFoundTemplate = this.contentRepository.GetTemplate(new[] { "404" });
+                var notFoundPage = notFoundTemplate == null ? null : this.BuildPage(notFoundTemplate, null, preview);
+                return new NotFoundResult<PageInstance>(notFoundPage);
             }
 
             var result = preview ? results.TakeTemplateResult() : results.FavourRedirectResult();
@@ -41,7 +43,9 @@
                     {
                         if (!this.IsAuthorised(user, result))
                         {
-                            return new UnauthorisedResult<PageInstance>();
+                            var customTemplate = this.contentRepository.GetTemplate(new[] { "401" });
+                            var customPage = customTemplate == null ? null : this.BuildPage(customTemplate, null, preview);
+                            return new UnauthorisedResult<PageInstance>(customPage);
                         }
 
                         var contextItems = this.ContextItems(parameters, result.Configuration);
@@ -78,7 +82,7 @@
 
         private bool IsAuthorised(IUser user, FindContentResult result)
         {
-            return result.Configuration?.AuthChecks == null || !result.Configuration.AuthChecks.Any() || result.Configuration.AuthChecks.All(a => a.Test(user));
+            return result.Configuration?.Conditions == null || !result.Configuration.Conditions.Any() || result.Configuration.Conditions.All(a => a.Test(user));
         }
 
         private IEnumerable<IContextItem> ContextItems(IEnumerable<KeyValuePair<string, string>> parameters, IConfiguration config)
@@ -102,7 +106,6 @@
 
             return builder.Build(template, buildContext);
         }
+
     }
-
-
 }

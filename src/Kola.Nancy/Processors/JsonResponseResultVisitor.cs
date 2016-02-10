@@ -24,12 +24,6 @@ namespace Kola.Nancy.Processors
                     .WithContentType("application/json");
         }
 
-        public override Response Visit(UnauthorisedResult<T> result)
-        {
-            return new JsonResponse(new { errors = new[] { result.Message } }, this.serializer)
-                    .WithStatusCode(HttpStatusCode.Unauthorized);
-        }
-
         public override Response Visit(CreatedResult<T> result)
         {
             return new JsonResponse(this.builder.Build(result.Data), this.serializer)

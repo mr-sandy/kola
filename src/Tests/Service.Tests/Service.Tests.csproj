@@ -66,6 +66,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RenderingServiceTests\WhenGettingAPage.cs" />
     <Compile Include="RenderingServiceTests\WhenGettingAPageThatDoesntExist.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPageWithHasClaimConditionWithClaim.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPageWithHasClaimConditionWithoutClaim.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPageWithIsAuthorisedCondition.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPageWithIsAuthorisedConditionWithAuthorisation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

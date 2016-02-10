@@ -6,7 +6,6 @@
 
     using Kola.Configuration;
     using Kola.Domain.Composition;
-    using Kola.Domain.Instances;
     using Kola.Domain.Rendering;
     using Kola.Domain.Specifications;
     using Kola.Nancy;

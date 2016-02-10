@@ -10,6 +10,7 @@ namespace Kola.Domain.Extensions
         {
             return new Configuration
             {
+                Conditions = oldConfiguration.Conditions.Merge(newConfiguration.Conditions),
                 ContextItems = oldConfiguration.ContextItems.Merge(newConfiguration.ContextItems)
             };
         }

@@ -10,11 +10,13 @@
 
     public abstract class ContextBase
     {
-        protected IContentRepository ContentRepository;
-        protected IWidgetSpecificationRepository WidgetSpecificationRepository;
-        protected IComponentSpecificationLibrary ComponentLibrary;
+        protected IContentRepository ContentRepository { get; set; }
 
-        protected RenderingService RenderingService;
+        protected IWidgetSpecificationRepository WidgetSpecificationRepository { get; set; }
+
+        protected IComponentSpecificationLibrary ComponentLibrary { get; set; }
+        
+        protected RenderingService RenderingService { get; set; }
 
         [SetUp]
         public void SetUpBase()
