@@ -8,12 +8,11 @@
         public FindContentResult(IContent content, IConfiguration configuration)
         {
             this.Content = content;
-            this.Configuration = configuration;
+            this.Configuration = configuration ?? new Configuration();
         }
 
         public IContent Content { get; }
 
         public IConfiguration Configuration { get; }
     }
-
 }

@@ -27,14 +27,14 @@
             var containerSpecification = new ContainerSpecification("container");
             containerSpecification.AddProperty(new PropertySpecification("property-name", "property-type", string.Empty));
 
-            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
+            var buildContext = new BuildData(Enumerable.Empty<IContextItem>());
 
             var container = containerSpecification.Create();
             container.FindOrCreateProperty(new PropertySpecification("property-name", "property-type", string.Empty));
             container.Properties.Single().Value = new FixedPropertyValue("property-value");
             container.Insert(0, atom);
 
-            var builder = new Builder(new RenderingInstructions(true), null, null);
+            var builder = new Builder(RenderingInstructions.BuildForPreview(), null, null);
             this.instance = container.Build(builder, new[] { 0 }, buildContext);
         }
 

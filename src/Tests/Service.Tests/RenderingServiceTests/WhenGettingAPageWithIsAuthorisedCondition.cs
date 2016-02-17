@@ -22,7 +22,7 @@
         {
             var path = new[] { "path1, path2 " };
             var template = new Template(path);
-            var config = new Configuration { Conditions = new[] { new IsAuthenticatedCondition() } };
+            var config = new Configuration(null, new[] { new IsAuthenticatedCondition() });
 
             this.ContentRepository.Stub(r => r.FindContent(path)).Return(new[] { new FindContentResult(template, config) });
             this.result = this.RenderingService.GetPage(path, null, null, false);

@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Security.Claims;
 
     using Kola.Domain.Composition;
     using Kola.Domain.Instances;
@@ -25,14 +26,14 @@
             this.componentLibrary = componentLibrary;
         }
 
-        public IResult<PageInstance> GetPage(IEnumerable<string> path, IEnumerable<KeyValuePair<string, string>> parameters, IUser user, bool preview)
+        public IResult<PageInstance> GetPage(IEnumerable<string> path, IEnumerable<KeyValuePair<string, string>> parameters, ClaimsPrincipal user, bool preview)
         {
             var results = (this.contentRepository.FindContent(path) ?? Enumerable.Empty<FindContentResult>()).ToArray();
 
             if (!results.Any())
             {
                 var notFoundTemplate = this.contentRepository.GetTemplate(new[] { "404" });
-                var notFoundPage = notFoundTemplate == null ? null : this.BuildPage(notFoundTemplate, null, preview);
+                var notFoundPage = notFoundTemplate == null ? null : this.BuildPage(notFoundTemplate, preview);
                 return new NotFoundResult<PageInstance>(notFoundPage);
             }
 
@@ -41,22 +42,22 @@
             var visitor = new ContentVisitor<IResult<PageInstance>>(
                 template =>
                     {
-                        if (!this.IsAuthorised(user, result))
+                        if (!result.Configuration.Conditions.SatisfiedBy(user))
                         {
                             var customTemplate = this.contentRepository.GetTemplate(new[] { "401" });
-                            var customPage = customTemplate == null ? null : this.BuildPage(customTemplate, null, preview);
+                            var customPage = customTemplate == null ? null : this.BuildPage(customTemplate, preview);
                             return new UnauthorisedResult<PageInstance>(customPage);
                         }
 
-                        var contextItems = this.ContextItems(parameters, result.Configuration);
-                        return new SuccessResult<PageInstance>(this.BuildPage(template, contextItems, preview));
+                        var contextItems = this.BuildContext(parameters, result.Configuration);
+                        return new SuccessResult<PageInstance>(this.BuildPage(template, preview, contextItems, result.Configuration.CacheControl));
                     },
                 redirect => new MovedPermanentlyResult<PageInstance>(redirect.Location));
 
             return result.Content.Accept(visitor);
         }
 
-        public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IEnumerable<KeyValuePair<string, string>> parameters, IUser user, IEnumerable<int> componentPath)
+        public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IEnumerable<KeyValuePair<string, string>> parameters, ClaimsPrincipal user, IEnumerable<int> componentPath)
         {
             var result = this.contentRepository.FindContent(path).TakeTemplateResult();
 
@@ -65,13 +66,13 @@
                 return new NotFoundResult<ComponentInstance>();
             }
 
-            if (!this.IsAuthorised(user, result))
+            if (!result.Configuration.Conditions.SatisfiedBy(user))
             {
                 return new UnauthorisedResult<ComponentInstance>();
             }
 
-            var contextItems = this.ContextItems(parameters, result.Configuration);
-            var page = this.BuildPage(result.Content as Template, contextItems, true);
+            var context = this.BuildContext(parameters, result.Configuration);
+            var page = this.BuildPage(result.Content as Template, true, context);
 
             var finder = new ComponentFindingComponentInstanceVisitor();
 
@@ -80,31 +81,27 @@
             return new SuccessResult<ComponentInstance>(fragment);
         }
 
-        private bool IsAuthorised(IUser user, FindContentResult result)
-        {
-            return result.Configuration?.Conditions == null || !result.Configuration.Conditions.Any() || result.Configuration.Conditions.All(a => a.Test(user));
-        }
-
-        private IEnumerable<IContextItem> ContextItems(IEnumerable<KeyValuePair<string, string>> parameters, IConfiguration config)
+        private IEnumerable<IContextItem> BuildContext(IEnumerable<KeyValuePair<string, string>> parameters, IConfiguration config)
         {
             var parameterContext = parameters?.Select(p => p.ToContextItem()) ?? Enumerable.Empty<IContextItem>();
             var configContext = config?.ContextItems ?? Enumerable.Empty<IContextItem>();
             return parameterContext.Union(configContext);
         }
 
-        private PageInstance BuildPage(Template template, IEnumerable<IContextItem> contextItems, bool isPreview)
+        private PageInstance BuildPage(Template template, bool isPreview, IEnumerable<IContextItem> contextItems = null, string cacheControl = null)
         {
-            // TODO {SC} Decide if I really want to do this...
             if (isPreview)
             {
                 template.ApplyAmendments(this.componentLibrary);
             }
 
-            var buildContext = new BuildSettings(contextItems ?? Enumerable.Empty<IContextItem>());
+            var renderingInstructions = isPreview 
+                ? RenderingInstructions.BuildForPreview() 
+                : RenderingInstructions.Build(cacheControl);
 
-            var builder = new Builder(new RenderingInstructions(isPreview), this.widgetSpecificationRepository.Find, this.componentLibrary);
+            var builder = new Builder(renderingInstructions, this.widgetSpecificationRepository.Find, this.componentLibrary);
 
-            return builder.Build(template, buildContext);
+            return builder.Build(template, new BuildData(contextItems));
         }
 
     }

@@ -28,7 +28,7 @@
 
             var context = new ContextSet(new[] { contextItem });
 
-            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
+            var buildContext = new BuildData(Enumerable.Empty<IContextItem>());
             buildContext.ContextSets.Push(context);
 
             this.propertyInstance = property.Build(buildContext);

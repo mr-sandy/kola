@@ -35,9 +35,9 @@
             var area = new Area("area 1");
             var widget = new Widget("widget", new[] { area });
 
-            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
+            var buildContext = new BuildData(Enumerable.Empty<IContextItem>());
 
-            var builder = new Builder(new RenderingInstructions(true), w => widgetSpecification, null);
+            var builder = new Builder(RenderingInstructions.BuildForPreview(), w => widgetSpecification, null);
 
             var instance = widget.Build(builder, new[] { 0 }, buildContext);
 

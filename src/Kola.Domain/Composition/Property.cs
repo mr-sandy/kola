@@ -21,9 +21,9 @@
 
         public IPropertyValue Value { get; set; }
 
-        public PropertyInstance Build(IBuildSettings buildSettings)
+        public PropertyInstance Build(IBuildData buildData)
         {
-            return new PropertyInstance(this.Name, this.Value?.Resolve(buildSettings));
+            return new PropertyInstance(this.Name, this.Value?.Resolve(buildData));
         }
 
         public Property Clone()

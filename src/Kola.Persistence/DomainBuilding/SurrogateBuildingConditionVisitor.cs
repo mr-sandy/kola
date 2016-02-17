@@ -10,11 +10,6 @@ namespace Kola.Persistence.DomainBuilding
             return new IsAuthenticatedCondition();
         }
 
-        public ICondition Visit(HasClaimConditionSurrogate condition)
-        {
-            return new HasClaimCondition(condition.Claim);
-        }
-
         public ICondition Visit(HasAllClaimsConditionSurrogate condition)
         {
             return new HasAllClaimsCondition(condition.Claims);

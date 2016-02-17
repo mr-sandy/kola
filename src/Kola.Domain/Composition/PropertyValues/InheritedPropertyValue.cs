@@ -14,9 +14,9 @@
 
         public string Key { get; set; }
 
-        public string Resolve(IBuildSettings buildSettings)
+        public string Resolve(IBuildData buildData)
         {
-            foreach (var contextSet in buildSettings.ContextSets)
+            foreach (var contextSet in buildData.ContextSets)
             {
                 var item = contextSet.Items.FirstOrDefault(i => i.Name.Equals(this.Key));
 

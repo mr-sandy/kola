@@ -13,7 +13,9 @@
             <property name="markdown" type="markdown">
               <value xsi:type="fixed"><![CDATA[#Hello there
 
-Here is some **content.**]]></value>
+Here is some **content.**
+
+<a href="/signout">signout</a>]]></value>
             </property>
           </properties>
         </atom>

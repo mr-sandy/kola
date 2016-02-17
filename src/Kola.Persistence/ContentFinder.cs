@@ -41,8 +41,8 @@ namespace Kola.Persistence
                 return new[] { new ContentDirectory(pathSoFar, updatedConfiguration) };
             }
 
-            var staticResults = this.FindStatic(pathItems, pathSoFar, updatedConfiguration);
-            var dynamicResults = this.FindDynamic(pathItems, pathSoFar, updatedConfiguration);
+            var staticResults = this.FindStatic(pathItems, pathSoFar, updatedConfiguration).ToArray();
+            var dynamicResults = this.FindDynamic(pathItems, pathSoFar, updatedConfiguration).ToArray();
 
             return staticResults.Concat(dynamicResults);
         }
@@ -52,7 +52,7 @@ namespace Kola.Persistence
             var staticPath = Path.Combine(pathSoFar, path.First());
 
             return this.fileSystemHelper.DirectoryExists(staticPath)
-                ? this.Find(path.Skip(1), staticPath, configuration)
+                ? this.Find(path.Skip(1), staticPath, configuration).ToArray()
                 : Enumerable.Empty<ContentDirectory>();
         }
 
@@ -69,7 +69,7 @@ namespace Kola.Persistence
                     return lookup != null
                         ? this.Find(path.Skip(1), Path.Combine(pathSoFar, sourceName), configuration.Merge(lookup.ContextItems))
                         : Enumerable.Empty<ContentDirectory>();
-                });
+                }).ToArray();
         }
     }
 }

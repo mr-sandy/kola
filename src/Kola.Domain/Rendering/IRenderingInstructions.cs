@@ -2,7 +2,7 @@
 {
     public interface IRenderingInstructions
     {
-        bool UseCache { get; }
+        string CacheControl { get; }
 
         bool AnnotateComponentPaths { get; }
 

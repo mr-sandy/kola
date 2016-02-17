@@ -46,6 +46,7 @@
     <Compile Include="ComponentSpecificationLibrary.cs" />
     <Compile Include="DomainBuilding\AmendmentDomainBuilder.cs" />
     <Compile Include="DomainBuilding\DomainBuildingAmendmentResourceVisitor.cs" />
+    <Compile Include="Extensions\ConditionExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\KeyValuePairExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />

@@ -1,5 +1,6 @@
 namespace Persistence.Tests.ContentFinderTests
 {
+    using System.Collections.Generic;
     using System.Linq;
 
     using FluentAssertions;
@@ -18,7 +19,7 @@ namespace Persistence.Tests.ContentFinderTests
         public void SetUp()
         {
             var source1 = MockRepository.GenerateMock<IDynamicSource>();
-            source1.Stub(s => s.Lookup("dynamic", Enumerable.Empty<IContextItem>())).Return(new DynamicItem("dynamic", new[] { new ContextItem("item name", "item value") }));
+            source1.Stub(s => s.Lookup(Arg<string>.Is.Equal("dynamic"), Arg<IEnumerable<IContextItem>>.Matches(l => !l.Any()))).Return(new DynamicItem("dynamic", new[] { new ContextItem("item name", "item value") }));
 
             this.DynamicSourceProvider.Stub(p => p.Get("-dynamic1-")).Return(source1);
 

@@ -6,6 +6,8 @@ namespace Kola.Domain.Instances.Config
 
     public interface IConfiguration
     {
+        string CacheControl { get; }
+
         IEnumerable<ICondition> Conditions { get; }
 
         IEnumerable<IContextItem> ContextItems { get; }

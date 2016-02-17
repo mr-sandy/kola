@@ -1,5 +1,6 @@
 ﻿namespace Persistence.Tests.ContentFinderTests
 {
+    using System.Collections.Generic;
     using System.Linq;
 
     using FluentAssertions;
@@ -18,10 +19,10 @@
         public void SetUp()
         {
             var source1 = MockRepository.GenerateMock<IDynamicSource>();
-            source1.Stub(s => s.Lookup("dynamic1", Enumerable.Empty<IContextItem>())).Return(new DynamicItem("dynamic1", new[] { new ContextItem("item name 1", "item value 1") }));
+            source1.Stub(s => s.Lookup(Arg<string>.Is.Equal("dynamic1"), Arg<IEnumerable<IContextItem>>.Matches(l => !l.Any()))).Return(new DynamicItem("dynamic1", new[] { new ContextItem("item name 1", "item value 1") }));
 
             var source2 = MockRepository.GenerateMock<IDynamicSource>();
-            source2.Stub(s => s.Lookup("dynamic1", Enumerable.Empty<IContextItem>())).Return(new DynamicItem("dynamic1", new[] { new ContextItem("item name 2", "item value 2") }));
+            source2.Stub(s => s.Lookup(Arg<string>.Is.Equal("dynamic1"), Arg<IEnumerable<IContextItem>>.Matches(l => !l.Any()))).Return(new DynamicItem("dynamic1", new[] { new ContextItem("item name 2", "item value 2") }));
 
             this.DynamicSourceProvider.Stub(p => p.Get("-dynamic1-")).Return(source1);
             this.DynamicSourceProvider.Stub(p => p.Get("-dynamic2-")).Return(source2);

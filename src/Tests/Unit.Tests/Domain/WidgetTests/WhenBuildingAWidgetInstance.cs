@@ -40,9 +40,9 @@
                         new Area("area 2", new IComponent[] { new Atom("atom", Enumerable.Empty<Property>()), new Atom("atom", Enumerable.Empty<Property>()), new Atom("atom", Enumerable.Empty<Property>()) })
                     });
 
-            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
+            var buildContext = new BuildData(Enumerable.Empty<IContextItem>());
 
-            var builder = new Builder(new RenderingInstructions(true), n => specification, null);
+            var builder = new Builder(RenderingInstructions.BuildForPreview(), n => specification, null);
             
             this.instance = (WidgetInstance)widget.Build(builder, new[] { 0 }, buildContext);
         }

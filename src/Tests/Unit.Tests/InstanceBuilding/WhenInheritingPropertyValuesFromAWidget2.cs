@@ -29,13 +29,13 @@
                 new[] { new PropertySpecification("property-alias", "property-type", string.Empty) },
                 new[] { container });
 
-            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
+            var buildContext = new BuildData(Enumerable.Empty<IContextItem>());
 
             var widget = widgetSpecification.Create();
             widget.FindOrCreateProperty(new PropertySpecification("property-alias", "property-type", string.Empty));
             widget.Properties.Single().Value = new FixedPropertyValue("property-value");
 
-            var builder = new Builder(new RenderingInstructions(true), w => widgetSpecification, null);
+            var builder = new Builder(RenderingInstructions.BuildForPreview(), w => widgetSpecification, null);
 
             this.instance = widget.Build(builder, new[] { 0 }, buildContext);
         }

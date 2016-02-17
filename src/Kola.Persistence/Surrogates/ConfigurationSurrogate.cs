@@ -1,5 +1,6 @@
 ﻿namespace Kola.Persistence.Surrogates
 {
+    using System.Xml;
     using System.Xml.Serialization;
 
     using Kola.Persistence.Surrogates.Conditions;
@@ -12,9 +13,24 @@
 
         [XmlArray("conditions")]
         [XmlArrayItem(typeof(IsAuthenticatedConditionSurrogate))]
-        [XmlArrayItem(typeof(HasClaimConditionSurrogate))]
         [XmlArrayItem(typeof(HasAllClaimsConditionSurrogate))]
         [XmlArrayItem(typeof(HasAnyClaimsConditionSurrogate))]
         public ConditionSurrogate[] Conditions { get; set; }
+        
+        [XmlIgnore]
+        public string CacheControl { get; set; }
+
+        [XmlElement("cacheControl")]
+        public XmlNode[] CDataContent
+        {
+            get
+            {
+                return new XmlNode[] { new XmlDocument().CreateCDataSection(this.CacheControl) };
+            }
+            set
+            {
+                this.CacheControl = value?[0].Value;
+            }
+        }
     }
 }

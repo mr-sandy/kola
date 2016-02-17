@@ -29,7 +29,7 @@
             var grandparentSpecification = new ContainerSpecification("grandparent-container");
             grandparentSpecification.AddProperty(new PropertySpecification("property-name", "property-type", string.Empty));
 
-            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
+            var buildContext = new BuildData(Enumerable.Empty<IContextItem>());
 
             var parent = parentSpecification.Create();
             parent.Insert(0, atom);
@@ -39,7 +39,7 @@
             grandparent.Properties.Single().Value = new FixedPropertyValue("property-value");
             grandparent.Insert(0, parent);
 
-            var builder = new Builder(new RenderingInstructions(true), null, null);
+            var builder = new Builder(RenderingInstructions.BuildForPreview(), null, null);
             this.instance = grandparent.Build(builder, new[] { 0 }, buildContext);
         }
 

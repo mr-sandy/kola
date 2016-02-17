@@ -8,6 +8,7 @@
     using global::Nancy.Testing;
 
     using Kola.Domain.Composition;
+    using Kola.Domain.Instances.Config;
     using Kola.Persistence;
 
     using NUnit.Framework;
@@ -26,8 +27,11 @@
                 new[] { "test", "path" },
                 new[] { new Container("container1", null, new[] { new Atom("atom1") }) });
 
-            this.ContentRepository.Stub(r => r.FindContent(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" })))
-                .Return(new [] { new FindContentResult(template, null)});
+            var config = new Configuration(cacheControl: "public, max-age=600");
+
+            this.ContentRepository.Stub(
+                r => r.FindContent(Arg<IEnumerable<string>>.List.Equal(new[] { "test", "path" })))
+                .Return(new[] { new FindContentResult(template, config) });
 
             this.Response = this.Browser.Get("/test/path", with => with.Header("Accept", "text/html"));
         }

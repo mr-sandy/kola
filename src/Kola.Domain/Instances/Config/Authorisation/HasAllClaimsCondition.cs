@@ -2,6 +2,7 @@ namespace Kola.Domain.Instances.Config.Authorisation
 {
     using System.Collections.Generic;
     using System.Linq;
+    using System.Security.Claims;
 
     public class HasAllClaimsCondition : ICondition
     {
@@ -12,9 +13,9 @@ namespace Kola.Domain.Instances.Config.Authorisation
 
         public IEnumerable<string> Claims { get; }
 
-        public bool Test(IUser user)
+        public bool Test(ClaimsPrincipal user)
         {
-            return user?.Claims != null && this.Claims.All(c => user.Claims.Contains(c));
+            return user?.Claims != null && this.Claims.All(c => user.Claims.Any(u => u.Type == c));
         }
 
         public T Accept<T>(IConditionVisitor<T> visitor)

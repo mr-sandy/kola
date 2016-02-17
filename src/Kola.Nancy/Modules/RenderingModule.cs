@@ -7,6 +7,7 @@
 
     using global::Nancy;
     using global::Nancy.ModelBinding;
+    using global::Nancy.Security;
 
     using Kola.Nancy.Extensions;
     using Kola.Nancy.Models;
@@ -24,7 +25,8 @@
             this.Get["/{path*}"] = this.GetResponse;
         }
 
-        [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1309:FieldNamesMustNotBeginWithUnderscore", Justification = "Reviewed. Suppression is OK here.")]
+        [SuppressMessage("StyleCop.CSharp.NamingRules", "SA1309:FieldNamesMustNotBeginWithUnderscore",
+            Justification = "Reviewed. Suppression is OK here.")]
         private dynamic GetResponse(dynamic _)
         {
             var query = this.Bind<RenderQuery>();
@@ -32,8 +34,8 @@
             var parameters = this.GetQueryParameters("preview", "ComponentPath");
 
             return string.IsNullOrEmpty(query.ComponentPath)
-                ? this.GetPage(path, parameters, query.IsPreview)
-                : this.GetFragment(path, parameters, query.ComponentPath.ParseComponentPath());
+                       ? this.GetPage(path, parameters, query.IsPreview)
+                       : this.GetFragment(path, parameters, query.ComponentPath.ParseComponentPath());
         }
 
         private IEnumerable<KeyValuePair<string, string>> GetQueryParameters(params string[] exclusions)
@@ -42,28 +44,39 @@
                 .Where(str => str.IndexOf("=", StringComparison.Ordinal) > -1)
                 .Select(
                     o =>
-                    {
-                        var split = o.Split('=');
-                        return new KeyValuePair<string, string>(split[0], split[1]);
-                    })
-                    .Where(p => !exclusions.Contains(p.Key));
+                        {
+                            var split = o.Split('=');
+                            return new KeyValuePair<string, string>(split[0], split[1]);
+                        }).Where(p => !exclusions.Contains(p.Key));
 
             return new List<KeyValuePair<string, string>>(parsed)
-                             {
-                                 new KeyValuePair<string, string>("raw-query", this.Request.Url.Query)
-                             };
+                       {
+                           new KeyValuePair<string, string>(
+                               "raw-query",
+                               this.Request.Url.Query)
+                       };
         }
-        
-        private dynamic GetPage(IEnumerable<string> path, IEnumerable<KeyValuePair<string, string>> parameters, bool preview)
+
+        private dynamic GetPage(
+            IEnumerable<string> path,
+            IEnumerable<KeyValuePair<string, string>> parameters,
+            bool preview)
         {
-            var result = this.renderingService.GetPage(path, parameters, NancyUser.Create(this.Context.CurrentUser), preview);
+            var result = this.renderingService.GetPage(path, parameters, this.Context.GetMSOwinUser(), preview);
 
             return this.Negotiate.WithModel(result);
         }
 
-        private dynamic GetFragment(IEnumerable<string> path, IEnumerable<KeyValuePair<string, string>> parameters, IEnumerable<int> componentPath)
+        private dynamic GetFragment(
+            IEnumerable<string> path,
+            IEnumerable<KeyValuePair<string, string>> parameters,
+            IEnumerable<int> componentPath)
         {
-            var result = this.renderingService.GetFragment(path, parameters, NancyUser.Create(this.Context.CurrentUser), componentPath);
+            var result = this.renderingService.GetFragment(
+                path,
+                parameters,
+                this.Context.GetMSOwinUser(),
+                componentPath);
 
             return this.Negotiate.WithModel(result);
         }

@@ -30,11 +30,10 @@ namespace Kola.Persistence
                 var surrogate = this.serializationHelper.Deserialize<ConfigurationSurrogate>(filePath);
                 var conditionBuilder = new DomainBuildingConditionVisitor();
 
-                return new Configuration
-                {
-                    Conditions = surrogate.Conditions?.Select(c => c.Accept(conditionBuilder)).ToArray() ?? Enumerable.Empty<ICondition>(),
-                    ContextItems = surrogate.ContextItems.Select(i => new ContextItem(i.Name, i.Value)).ToArray()
-                };
+                return new Configuration(
+                    surrogate.CacheControl,
+                    surrogate.Conditions?.Select(c => c.Accept(conditionBuilder)).ToArray(),
+                    surrogate.ContextItems.Select(i => new ContextItem(i.Name, i.Value)).ToArray());
             }
 
             return new Configuration();

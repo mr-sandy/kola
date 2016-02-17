@@ -8,19 +8,18 @@ namespace Kola.Domain.Extensions
     {
         public static IConfiguration Merge(this IConfiguration oldConfiguration, IConfiguration newConfiguration)
         {
-            return new Configuration
-            {
-                Conditions = oldConfiguration.Conditions.Merge(newConfiguration.Conditions),
-                ContextItems = oldConfiguration.ContextItems.Merge(newConfiguration.ContextItems)
-            };
+            return new Configuration(
+                newConfiguration.CacheControl ?? oldConfiguration.CacheControl,
+                oldConfiguration.Conditions.Merge(newConfiguration.Conditions),
+                oldConfiguration.ContextItems.Merge(newConfiguration.ContextItems));
         }
 
         public static IConfiguration Merge(this IConfiguration oldConfiguration, IEnumerable<IContextItem> newContextItems)
         {
-            return new Configuration
-            {
-                ContextItems = oldConfiguration.ContextItems.Merge(newContextItems)
-            };
+            return new Configuration(
+                oldConfiguration.CacheControl,
+                oldConfiguration.Conditions,
+                oldConfiguration.ContextItems.Merge(newContextItems));
         }
     }
 }

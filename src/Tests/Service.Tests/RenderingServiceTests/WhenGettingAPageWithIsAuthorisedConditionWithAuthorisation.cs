@@ -1,5 +1,7 @@
 ﻿namespace Service.Tests.RenderingServiceTests
 {
+    using System.Security.Claims;
+
     using FluentAssertions;
 
     using Kola.Domain.Composition;
@@ -22,8 +24,9 @@
         {
             var path = new[] { "path1, path2 " };
             var template = new Template(path);
-            var config = new Configuration { Conditions = new[] { new IsAuthenticatedCondition() } };
-            var user = Rhino.Mocks.MockRepository.GenerateMock<IUser>();
+            var config = new Configuration(null, new[] { new IsAuthenticatedCondition() });
+            var user = Rhino.Mocks.MockRepository.GenerateMock<ClaimsPrincipal>();
+            user.Stub(u => u.Claims).Return(new[] { new Claim("the claim", "yes") });
 
             this.ContentRepository.Stub(r => r.FindContent(path)).Return(new[] { new FindContentResult(template, config) });
             this.result = this.RenderingService.GetPage(path, null, user, false);

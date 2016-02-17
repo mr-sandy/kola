@@ -1,5 +1,8 @@
 ﻿namespace Integration.Tests.Nancy.Modules.RenderingModuleTests
 {
+    using System.Collections.Generic;
+
+    using global::Nancy;
     using global::Nancy.Testing;
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
@@ -32,6 +35,7 @@
 
         protected IRendererFactory RendererFactory { get; set; }
 
+
         [SetUp]
         public void SetUpBase()
         {
@@ -42,6 +46,7 @@
 
             this.SetUpAtom("atom1");
             this.SetUpContainer("container1");
+
 
             var bootstrapper = new ConfigurableBootstrapper(
                 with =>
@@ -63,7 +68,23 @@
 
             KolaConfigurationRegistry.RegisterRenderer(new MultiRenderer(this.RendererFactory));
 
+            bootstrapper.BeforeRequest = FakeOwinEnvironment();
+
             this.Browser = new Browser(bootstrapper);
+        }
+
+        private static BeforePipeline FakeOwinEnvironment()
+        {
+            var pipeline = new BeforePipeline();
+
+            pipeline.AddItemToStartOfPipeline(
+                context =>
+                    {
+                        context.Items.Add("OWIN_REQUEST_ENVIRONMENT", new Dictionary<string, object>());
+                        return context.Response;
+                    });
+
+            return pipeline;
         }
 
         private void SetUpAtom(string name)

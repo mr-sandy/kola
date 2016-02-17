@@ -4,7 +4,7 @@
 
     public interface IPropertyValue
     {
-        string Resolve(IBuildSettings buildSettings);
+        string Resolve(IBuildData buildData);
 
         T Accept<T>(IPropertyValueVisitor<T> visitor);
 

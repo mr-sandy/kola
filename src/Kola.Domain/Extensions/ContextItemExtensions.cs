@@ -8,24 +8,24 @@ namespace Kola.Domain.Extensions
 
     public static class ContextItemExtensions
     {
-        public static IEnumerable<IContextItem> Merge(this IEnumerable<IContextItem> context1, IEnumerable<IContextItem> context2)
+        public static IEnumerable<IContextItem> Merge(this IEnumerable<IContextItem> oldContext, IEnumerable<IContextItem> newContext)
         {
-            if (context1 == null && context2 == null)
+            if (oldContext == null && newContext == null)
             {
                 return Enumerable.Empty<IContextItem>();
             }
 
-            if (context1 == null)
+            if (oldContext == null)
             {
-                return context2;
+                return newContext;
             }
 
-            if (context2 == null)
+            if (newContext == null)
             {
-                return context1;
+                return oldContext;
             }
 
-            return context2.Union(context1.Where(c1 => context2.All(c2 => c1.Name != c2.Name)));
+            return newContext.Union(oldContext.Where(c1 => newContext.All(c2 => c1.Name != c2.Name)));
         }
     }
 }

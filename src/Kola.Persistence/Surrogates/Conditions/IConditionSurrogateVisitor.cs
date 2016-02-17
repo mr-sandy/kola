@@ -4,8 +4,6 @@ namespace Kola.Persistence.Surrogates.Conditions
     {
         T Visit(IsAuthenticatedConditionSurrogate condition);
 
-        T Visit(HasClaimConditionSurrogate condition);
-
         T Visit(HasAllClaimsConditionSurrogate condition);
 
         T Visit(HasAnyClaimsConditionSurrogate condition);

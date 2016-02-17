@@ -2,22 +2,27 @@
 {
     public class RenderingInstructions : IRenderingInstructions
     {
-        public RenderingInstructions(bool isPreview)
-            : this(useCache: !isPreview, annotateComponentPaths: isPreview, showAmendments: isPreview)
+        private RenderingInstructions(string cacheControl, bool annotateComponentPaths, bool showAmendments)
         {
-        }
-
-        public RenderingInstructions(bool useCache, bool annotateComponentPaths, bool showAmendments)
-        {
-            this.UseCache = useCache;
+            this.CacheControl = cacheControl;
             this.AnnotateComponentPaths = annotateComponentPaths;
             this.ShowAmendments = showAmendments;
         }
 
-        public bool UseCache { get; }
+        public string CacheControl { get; }
 
         public bool ShowAmendments { get; }
 
         public bool AnnotateComponentPaths { get; }
+
+        public static RenderingInstructions BuildForPreview()
+        {
+            return new RenderingInstructions("no-cache", true, true);
+        }
+
+        public static RenderingInstructions Build(string cacheControl)
+        {
+            return new RenderingInstructions(string.IsNullOrWhiteSpace(cacheControl) ? "no-cache" : cacheControl, false, false);
+        }
     }
 }

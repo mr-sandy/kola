@@ -117,9 +117,9 @@
                                 })
                     });
 
-            var buildContext = new BuildSettings(Enumerable.Empty<IContextItem>());
+            var buildContext = new BuildData(Enumerable.Empty<IContextItem>());
 
-            var builder = new Builder(new RenderingInstructions(true), n => n == "widget 1" ? specification1 : specification2, null);
+            var builder = new Builder(RenderingInstructions.BuildForPreview(), n => n == "widget 1" ? specification1 : specification2, null);
 
             this.instance = (WidgetInstance)widget.Build(builder, new[] { 0 }, buildContext);
         }

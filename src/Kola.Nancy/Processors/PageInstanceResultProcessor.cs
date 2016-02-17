@@ -1,9 +1,9 @@
 namespace Kola.Nancy.Processors
 {
+    using Kola.Domain.Instances;
+
     using global::Nancy;
     using global::Nancy.ViewEngines;
-
-    using Kola.Domain.Instances;
 
     public class PageInstanceResultProcessor : ViewResultProcessor<PageInstance>
     {
@@ -14,9 +14,10 @@ namespace Kola.Nancy.Processors
 
         protected override void ResponseDecorator(Response response, PageInstance page)
         {
-            response.WithHeader(
-                "Cache-Control",
-                page.RenderingInstructions.UseCache ? "public, max-age=600" : "no-cache");
+            if (!string.IsNullOrWhiteSpace(page.RenderingInstructions.CacheControl))
+            {
+                response.WithHeader("Cache-Control", page.RenderingInstructions.CacheControl);
+            }
         }
     }
 }

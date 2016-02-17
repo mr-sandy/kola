@@ -16,9 +16,9 @@
 
         public IEnumerable<MultilingualVariant> Variants { get; private set; }
 
-        public string Resolve(IBuildSettings buildSettings)
+        public string Resolve(IBuildData buildData)
         {
-            var candidateLanguages = buildSettings.ContextSets.Where(c => !string.IsNullOrEmpty(c.LanguageCode)).Select(c => c.LanguageCode);
+            var candidateLanguages = buildData.ContextSets.Where(c => !string.IsNullOrEmpty(c.LanguageCode)).Select(c => c.LanguageCode);
 
             foreach (var candidateLanguage in candidateLanguages)
             {

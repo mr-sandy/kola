@@ -4,8 +4,6 @@ namespace Kola.Domain.Instances.Config
 
     public interface IUser
     {
-        string UserName { get; }
-
         IEnumerable<string> Claims { get; }
     }
 }

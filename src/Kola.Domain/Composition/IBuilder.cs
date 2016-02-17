@@ -7,16 +7,16 @@
 
     public interface IBuilder
     {
-        PageInstance Build(Template template, IBuildSettings buildSettings);
+        PageInstance Build(Template template, IBuildData buildData);
 
-        AtomInstance Build(Atom atom, IEnumerable<int> path, IBuildSettings buildSettings);
+        AtomInstance Build(Atom atom, IEnumerable<int> path, IBuildData buildData);
 
-        ContainerInstance Build(Container container, IEnumerable<int> path, IBuildSettings buildSettings);
+        ContainerInstance Build(Container container, IEnumerable<int> path, IBuildData buildData);
 
-        WidgetInstance Build(Widget widget, IEnumerable<int> path, IBuildSettings buildSettings);
+        WidgetInstance Build(Widget widget, IEnumerable<int> path, IBuildData buildData);
 
-        PlaceholderInstance Build(Placeholder placeholder, IEnumerable<int> path, IBuildSettings buildSettings);
+        PlaceholderInstance Build(Placeholder placeholder, IEnumerable<int> path, IBuildData buildData);
 
-        AreaInstance Build(Area area, IEnumerable<int> path, IBuildSettings buildSettings);
+        AreaInstance Build(Area area, IEnumerable<int> path, IBuildData buildData);
     }
 }

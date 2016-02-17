@@ -30,9 +30,9 @@
             return visitor.Visit(this, context);
         }
 
-        public ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildSettings buildSettings)
+        public ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildData buildData)
         {
-            return builder.Build(this, path, buildSettings);
+            return builder.Build(this, path, buildData);
         }
 
         public IComponent Clone()

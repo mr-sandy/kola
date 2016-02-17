@@ -11,9 +11,9 @@
 
         public string Value { get; set; }
 
-        public string Resolve(IBuildSettings buildSettings)
+        public string Resolve(IBuildData buildData)
         {
-            var resolver = new ContextSourcedContentResolver(buildSettings?.ContextSets);
+            var resolver = new ContextSourcedContentResolver(buildData?.ContextSets);
             return resolver.Resolve(this.Value);
         }
 

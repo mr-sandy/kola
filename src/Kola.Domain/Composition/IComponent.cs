@@ -13,7 +13,7 @@
 
         T Accept<T, TContext>(IComponentVisitor<T, TContext> visitor, TContext context);
 
-        ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildSettings buildSettings);
+        ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildData buildData);
 
         IComponent Clone();
     }

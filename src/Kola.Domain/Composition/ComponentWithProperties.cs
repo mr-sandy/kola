@@ -53,7 +53,7 @@
 
         public abstract T Accept<T, TContext>(IComponentVisitor<T, TContext> visitor, TContext context);
 
-        public abstract ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildSettings buildSettings);
+        public abstract ComponentInstance Build(IBuilder builder, IEnumerable<int> path, IBuildData buildData);
 
         public abstract IComponent Clone();
     }

@@ -1,5 +1,6 @@
 ﻿namespace Kola.Service.Extensions
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
 
@@ -14,7 +15,7 @@
 
         public static string ToHttpPath(this IEnumerable<string> elements)
         {
-            return string.Format("/{0}", string.Join(@"/", elements));
+            return $"/{string.Join(@"/", elements)}";
         }
 
         public static IEnumerable<string> ParsePath(this string path)
@@ -34,7 +35,7 @@
 
         public static string ToComponentName(this string componentTypeUri)
         {
-            var lastSlash = componentTypeUri.LastIndexOf("/");
+            var lastSlash = componentTypeUri.LastIndexOf("/", StringComparison.Ordinal);
 
             return lastSlash < 0 
                 ? componentTypeUri 
