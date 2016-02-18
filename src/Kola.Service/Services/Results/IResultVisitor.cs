@@ -15,5 +15,7 @@
         TV Visit(ConflictResult<T> result);
 
         TV Visit(MovedPermanentlyResult<T> result);
+
+        TV Visit(ForbiddenResult<T> result);
     }
 }

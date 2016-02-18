@@ -21,5 +21,11 @@
         {
             return path.Split('/').Where(s => !string.IsNullOrWhiteSpace(s)).Select(int.Parse);
         }
+
+        public static KeyValuePair<string, string> ToKeyValuePair(this string str)
+        {
+            var split = str.Split('=');
+            return new KeyValuePair<string, string>(split[0], split[1]);
+        }
     }
 }

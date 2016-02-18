@@ -17,6 +17,12 @@
         private static readonly IEnumerable<Artist> Artists = new[] { TheBeatles, TheBeachBoys };
         private static readonly IEnumerable<Album> Albums = new[] { Revolver, BeatlesForSale, PetSounds, Smile };
 
+        private readonly string accessToken;
+
+        public MusicService(string accessToken)
+        {
+            this.accessToken = accessToken;
+        }
 
         public Artist GetArtist(string artistId)
         {

@@ -1,5 +1,6 @@
 ﻿namespace Kola.Nancy
 {
+    using System;
     using System.Collections.Generic;
     using System.Configuration;
     using System.Linq;
@@ -7,6 +8,7 @@
 
     using Kola.Client;
     using Kola.Configuration;
+    using Kola.Configuration.Plugins;
     using Kola.Domain.Composition;
     using Kola.Domain.DynamicSources;
     using Kola.Domain.Rendering;
@@ -22,11 +24,10 @@
     using global::Nancy.Conventions;
     using global::Nancy.Embedded.Conventions;
     using global::Nancy.Json;
+    using global::Nancy.Security;
     using global::Nancy.TinyIoc;
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
-
-    using Kola.Configuration.Plugins;
 
     public class KolaNancyBootstrapper : DefaultNancyBootstrapper
     {
@@ -41,7 +42,7 @@
 
         protected override void ConfigureRequestContainer(TinyIoCContainer tinyIoCContainer, NancyContext context)
         {
-            tinyIoCContainer.Register("sandy", "access_token");
+            tinyIoCContainer.Register(this.GetAccessToken(context), "access_token");
 
             tinyIoCContainer.Register<ITemplateService, TemplateService>();
             tinyIoCContainer.Register<IRenderingService, RenderingService>();
@@ -133,6 +134,13 @@
             {
                 conventions.StaticContentsConventions.Add(EmbeddedStaticContentConventionBuilder.AddDirectory("/_kola/plugins/" + plugin.PluginName, plugin.GetType().Assembly, "/editors"));
             }
+        }
+
+        private string GetAccessToken(NancyContext context)
+        {
+            return context.Items.ContainsKey("OWIN_REQUEST_ENVIRONMENT")
+                       ? context?.GetMSOwinUser()?.Claims?.FirstOrDefault(claim => claim.Type == "access_token")?.Value
+                       : string.Empty;
         }
     }
 }

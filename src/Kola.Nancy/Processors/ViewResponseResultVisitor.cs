@@ -43,6 +43,18 @@ namespace Kola.Nancy.Processors
             return viewResponse.WithStatusCode(HttpStatusCode.NotFound);
         }
 
+        public override Response Visit(ForbiddenResult<T> result)
+        {
+            var view = result.Data == null ? "403" : "Page";
+
+            var viewResponse = this.viewFactory.RenderView(view, result.Data, GetViewLocationContext(this.context));
+
+            var response =  viewResponse.WithStatusCode(HttpStatusCode.Forbidden);
+            response.ReasonPhrase = "Forbidden";
+
+            return response;
+        }
+
         public override Response Visit(MovedPermanentlyResult<T> result)
         {
             return new Response()

@@ -42,18 +42,12 @@
         {
             var parsed = this.Request.Url.Query.Split('?', '&')
                 .Where(str => str.IndexOf("=", StringComparison.Ordinal) > -1)
-                .Select(
-                    o =>
-                        {
-                            var split = o.Split('=');
-                            return new KeyValuePair<string, string>(split[0], split[1]);
-                        }).Where(p => !exclusions.Contains(p.Key));
+                .Select(str => str.ToKeyValuePair())
+                .Where(p => !exclusions.Contains(p.Key));
 
             return new List<KeyValuePair<string, string>>(parsed)
                        {
-                           new KeyValuePair<string, string>(
-                               "raw-query",
-                               this.Request.Url.Query)
+                           new KeyValuePair<string, string>("raw-query", this.Request.Url.Query)
                        };
         }
 

@@ -15,7 +15,7 @@ namespace Kola.Domain.Instances.Config.Authorisation
 
         public bool Test(ClaimsPrincipal user)
         {
-            return user?.Claims != null && this.Claims.Any(c => user.Claims.Any(u => u.Subject.Name == c));
+            return user?.Claims != null && this.Claims.Any(c => user.Claims.Any(u => u.Type == c));
         }
 
         public T Accept<T>(IConditionVisitor<T> visitor)

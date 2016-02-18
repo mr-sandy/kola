@@ -43,5 +43,10 @@ namespace Kola.Nancy.Processors
                 .WithHeader("Location", result.Location);
 
         }
+
+        public virtual Response Visit(ForbiddenResult<T> result)
+        {
+            return new Response().WithStatusCode(HttpStatusCode.Forbidden);
+        }
     }
 }

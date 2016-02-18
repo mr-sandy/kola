@@ -44,9 +44,7 @@
                     {
                         if (!result.Configuration.Conditions.SatisfiedBy(user))
                         {
-                            var customTemplate = this.contentRepository.GetTemplate(new[] { "401" });
-                            var customPage = customTemplate == null ? null : this.BuildPage(customTemplate, preview);
-                            return new UnauthorisedResult<PageInstance>(customPage);
+                            return this.CreateFailedAuthResult(user, preview);
                         }
 
                         var contextItems = this.BuildContext(parameters, result.Configuration);
@@ -56,6 +54,7 @@
 
             return result.Content.Accept(visitor);
         }
+
 
         public IResult<ComponentInstance> GetFragment(IEnumerable<string> path, IEnumerable<KeyValuePair<string, string>> parameters, ClaimsPrincipal user, IEnumerable<int> componentPath)
         {
@@ -68,7 +67,9 @@
 
             if (!result.Configuration.Conditions.SatisfiedBy(user))
             {
-                return new UnauthorisedResult<ComponentInstance>();
+                return user?.Identity != null &&  user.Identity.IsAuthenticated
+                           ? (IResult<ComponentInstance>)new ForbiddenResult<ComponentInstance>()
+                           : (IResult<ComponentInstance>)new UnauthorisedResult<ComponentInstance>();
             }
 
             var context = this.BuildContext(parameters, result.Configuration);
@@ -79,6 +80,22 @@
             var fragment = finder.Find(page, componentPath);
 
             return new SuccessResult<ComponentInstance>(fragment);
+        }
+
+        private IResult<PageInstance> CreateFailedAuthResult(ClaimsPrincipal user, bool preview)
+        {
+            if (user?.Identity != null && user.Identity.IsAuthenticated)
+            {
+                var customTemplate = this.contentRepository.GetTemplate(new[] { "403" });
+                var customPage = customTemplate == null ? null : this.BuildPage(customTemplate, preview);
+                return new ForbiddenResult<PageInstance>(customPage);
+            }
+            else
+            {
+                var customTemplate = this.contentRepository.GetTemplate(new[] { "401" });
+                var customPage = customTemplate == null ? null : this.BuildPage(customTemplate, preview);
+                return new UnauthorisedResult<PageInstance>(customPage);
+            }
         }
 
         private IEnumerable<IContextItem> BuildContext(IEnumerable<KeyValuePair<string, string>> parameters, IConfiguration config)

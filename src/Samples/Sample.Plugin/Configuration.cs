@@ -1,7 +1,5 @@
 ﻿namespace Sample.Plugin
 {
-    using System.Security.Cryptography.X509Certificates;
-
     using Kola.Configuration.Plugins;
     using Kola.Domain.Rendering;
 
@@ -25,8 +23,8 @@
 
         public override void ConfigureContainer(IContainer container)
         {
-            var name = container.Resolve<string>("access_token");
-            container.Register<IMusicService>(new CachingMusicService(new MusicService()));
+            var accessToken = container.Resolve<string>("access_token");
+            container.Register<IMusicService>(new CachingMusicService(new MusicService(accessToken)));
         }
 
         private void ConfigureAtoms()

@@ -7,7 +7,7 @@ namespace Kola.Domain.Instances.Config.Authorisation
     {
         public bool Test(ClaimsPrincipal user)
         {
-            return user != null && user.Claims.Any();
+            return user?.Identity != null && user.Identity.IsAuthenticated;
         }
 
         public T Accept<T>(IConditionVisitor<T> visitor)

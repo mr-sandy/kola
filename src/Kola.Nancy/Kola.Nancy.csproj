@@ -150,6 +150,7 @@
     </None>
     <EmbeddedResource Include="Views\Error.cshtml" />
     <EmbeddedResource Include="Views\401.cshtml" />
+    <EmbeddedResource Include="Views\403.cshtml" />
     <None Include="web.config" />
   </ItemGroup>
   <ItemGroup />

@@ -3,6 +3,11 @@
   <cacheControl><![CDATA[no-cache]]></cacheControl>
   <conditions>
     <isAuthenticated />
+    <hasAllClaims>
+      <claims>
+        <claim>aud</claim>
+      </claims>
+    </hasAllClaims>
   </conditions>
   <contextItems>
   </contextItems>

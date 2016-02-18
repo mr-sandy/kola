@@ -62,14 +62,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RenderingServiceTests\ContextBase.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPage\ContextBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RenderingServiceTests\WhenGettingAPage.cs" />
-    <Compile Include="RenderingServiceTests\WhenGettingAPageThatDoesntExist.cs" />
-    <Compile Include="RenderingServiceTests\WhenGettingAPageWithHasClaimConditionWithClaim.cs" />
-    <Compile Include="RenderingServiceTests\WhenGettingAPageWithHasClaimConditionWithoutClaim.cs" />
-    <Compile Include="RenderingServiceTests\WhenGettingAPageWithIsAuthorisedCondition.cs" />
-    <Compile Include="RenderingServiceTests\WhenGettingAPageWithIsAuthorisedConditionWithAuthorisation.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPage\WhereThePageExists.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPage\WhereThePageDoesntExist.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPage\WithAnAllClaimsCondition\ContextBase.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPage\WithAnAllClaimsCondition\WhenGettingAPageWithHasAllClaimsConditionWithoutClaims.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPage\WithAnAnyClaimsCondition\ContextBase.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPage\WithAnAnyClaimsCondition\WhenGettingAPageWithHasAnyClaimsConditionWithClaim.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPage\WithAnAllClaimsCondition\WhenGettingAPageWithHasAllClaimsConditionWithClaims.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPage\WithAnAllClaimsCondition\WhenGettingAPageWithHasAllClaimsConditionWithoutAuthentication.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPage\WithAnAnyClaimsCondition\WhenGettingAPageWithHasAnyClaimsConditionWithoutClaim.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPage\WithAnIsAuthenticatedCondition\ContextBase.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPage\WithAnIsAuthenticatedCondition\WhenGettingAPageWithIsAuthenticatedConditionWithoutAuthentication.cs" />
+    <Compile Include="RenderingServiceTests\WhenGettingAPage\WithAnIsAuthenticatedCondition\WhenGettingAPageWithIsAuthorisedConditionWithAuthorisation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -93,6 +99,7 @@
       <Name>Kola.Service</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
