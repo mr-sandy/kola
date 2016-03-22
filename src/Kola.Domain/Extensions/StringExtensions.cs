@@ -12,6 +12,11 @@
 
         public static Uri ToStaticHostUri(this string path, string cacheBuster)
         {
+            if (string.IsNullOrEmpty(path))
+            {
+                return null;
+            }
+
             var queryString = cacheBuster.StrongTrim();
 
             if (!string.IsNullOrEmpty(queryString))
