@@ -52,7 +52,7 @@
                 yield return new KeyValuePair<string, string>("request-headers:" + header.Key, string.Join(", ", header.Value));
             }
 
-            var pairs = this.Request.Headers.Select(h => $"{{ \"key\": \"{h.Key}\", \"value\"=\"{string.Join(", ", h.Value)}\" }}");
+            var pairs = this.Request.Headers.Select(h => $"{{ \"key\": \"{h.Key}\", \"value\": \"{string.Join(", ", h.Value)}\" }}");
 
             yield return new KeyValuePair<string, string>("request-headers", $"[ {string.Join(", ", pairs)} ]");
         }

@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>Kola.Plugins.Core</id>
-    <version>1.2.2</version>
+    <version>1.2.3</version>
     <authors>Sandy Cormie</authors>
     <owners>Sandy Cormie</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Core plugins for Kola CMS</description>
     <copyright>Copyright 2015</copyright>
     <dependencies>
-      <dependency id="Kola.Core" version="1.2.2" />
+      <dependency id="Kola.Core" version="1.2.3" />
       <dependency id="MarkdownSharp" version="1.13.0.0" />
     </dependencies>
   </metadata>
