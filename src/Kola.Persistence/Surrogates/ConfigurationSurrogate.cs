@@ -4,11 +4,14 @@
     using System.Xml.Serialization;
 
     using Kola.Persistence.Surrogates.Conditions;
+    using Kola.Persistence.Surrogates.ContextItems;
 
     [XmlRoot(Namespace = "http://www.kolacms.com/2013/kola", ElementName = "configuration")]
     public class ConfigurationSurrogate
     {
         [XmlArray("contextItems")]
+        [XmlArrayItem(typeof(FixedContextItemSurrogate))]
+        [XmlArrayItem(typeof(RandomContextItemSurrogate))]
         public ContextItemSurrogate[] ContextItems { get; set; }
 
         [XmlArray("conditions")]

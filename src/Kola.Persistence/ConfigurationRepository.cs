@@ -29,11 +29,12 @@ namespace Kola.Persistence
             {
                 var surrogate = this.serializationHelper.Deserialize<ConfigurationSurrogate>(filePath);
                 var conditionBuilder = new DomainBuildingConditionVisitor();
+                var contextItemBuilder = new DomainBuildingContextItemVisitor();
 
                 return new Configuration(
                     surrogate.CacheControl,
                     surrogate.Conditions?.Select(c => c.Accept(conditionBuilder)).ToArray(),
-                    surrogate.ContextItems?.Select(i => new ContextItem(i.Name, i.Value)).ToArray());
+                    surrogate.ContextItems?.SelectMany(c => c.Accept(contextItemBuilder)).ToArray());
             }
 
             return new Configuration();

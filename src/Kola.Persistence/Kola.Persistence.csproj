@@ -47,6 +47,7 @@
     <Compile Include="ContentDirectory.cs" />
     <Compile Include="ContentFinder.cs" />
     <Compile Include="ConfigurationRepository.cs" />
+    <Compile Include="DomainBuilding\DomainBuildingContextItemVisitor.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="FindContentResult.cs" />
     <Compile Include="DomainBuilding\DomainBuildingAmendmentSurrogateVisitor.cs" />
@@ -90,8 +91,12 @@
     <Compile Include="Surrogates\Conditions\HasAnyClaimsConditionSurrogate.cs" />
     <Compile Include="Surrogates\Conditions\IConditionSurrogateVisitor.cs" />
     <Compile Include="Surrogates\Conditions\IsAuthenticatedConditionSurrogate.cs" />
+    <Compile Include="Surrogates\ContextItems\ContextItemGroup.cs" />
+    <Compile Include="Surrogates\ContextItems\ContextItemSurrogate.cs" />
+    <Compile Include="Surrogates\ContextItems\IContextItemSurrogateVisitor.cs" />
+    <Compile Include="Surrogates\ContextItems\RandomContextItemSurrogate.cs" />
     <Compile Include="Surrogates\ContainerSurrogate.cs" />
-    <Compile Include="Surrogates\ContextItemSurrogate.cs" />
+    <Compile Include="Surrogates\ContextItems\FixedContextItemSurrogate.cs" />
     <Compile Include="Surrogates\ConfigurationSurrogate.cs" />
     <Compile Include="Surrogates\IComponentSurrogateVisitor.cs" />
     <Compile Include="Surrogates\PlaceholderSurrogate.cs" />
@@ -115,6 +120,7 @@
       <Name>Kola.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

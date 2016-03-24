@@ -4,5 +4,31 @@
   <contextItems>
     <contextItem name="username"><![CDATA[Sandy]]></contextItem>
     <contextItem name="text"><![CDATA[Weasels]]></contextItem>
+    <randomContext>
+      <contextItems>
+        <contextItem name="message1"><![CDATA[This is message1a]]></contextItem>
+        <contextItem name="message2"><![CDATA[This is message2a]]></contextItem>
+      </contextItems>
+      <contextItems>
+        <contextItem name="message1"><![CDATA[This is message1b]]></contextItem>
+        <contextItem name="message2"><![CDATA[This is message2b]]></contextItem>
+      </contextItems>
+      <contextItems>
+        <contextItem name="message1"><![CDATA[This is message1c]]></contextItem>
+        <contextItem name="message2"><![CDATA[This is message2c]]></contextItem>
+      </contextItems>
+      <contextItems>
+        <contextItem name="message1"><![CDATA[This is message1d]]></contextItem>
+        <contextItem name="message2"><![CDATA[This is message2d]]></contextItem>
+      </contextItems>
+      <contextItems>
+        <contextItem name="message1"><![CDATA[This is message1e]]></contextItem>
+        <contextItem name="message2"><![CDATA[This is message2e]]></contextItem>
+      </contextItems>
+      <contextItems>
+        <contextItem name="message1"><![CDATA[BADGERS!]]></contextItem>
+        <contextItem name="message2"><![CDATA[WEASELS!]]></contextItem>
+      </contextItems>
+    </randomContext>
   </contextItems>
 </configuration>

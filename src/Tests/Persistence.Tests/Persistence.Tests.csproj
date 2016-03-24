@@ -73,6 +73,7 @@
     <Compile Include="ContentFinderTests\WhenSeekingAStaticPathThatDoenstExist.cs" />
     <Compile Include="ContentFinderTests\WhenSeekingTheRootTemplate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SurrogateTests\SerializationTests\WhenSerializingAConfigurationFile.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -87,6 +88,9 @@
       <Project>{30ff4407-715f-4e68-b375-2ffa9667d166}</Project>
       <Name>Kola.Persistence</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SurrogateTests\temp.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
