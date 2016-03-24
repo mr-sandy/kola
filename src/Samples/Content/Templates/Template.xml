@@ -76,6 +76,30 @@ margin-top: 20px;
                 <atom name="text">
                   <properties>
                     <property name="text" type="text">
+                      <value xsi:type="fixed"><![CDATA[{{request-headers}}]]></value>
+                    </property>
+                  </properties>
+                </atom>
+              </components>
+            </container>
+            <container name="div">
+              <properties />
+              <components>
+                <atom name="text">
+                  <properties>
+                    <property name="text" type="text">
+                      <value xsi:type="fixed"><![CDATA[{{request-caller-ip}}]]></value>
+                    </property>
+                  </properties>
+                </atom>
+              </components>
+            </container>
+            <container name="div">
+              <properties />
+              <components>
+                <atom name="text">
+                  <properties>
+                    <property name="text" type="text">
                       <value xsi:type="inherited" key="message1" />
                     </property>
                   </properties>

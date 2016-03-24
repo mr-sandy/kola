@@ -31,11 +31,35 @@
         {
             var query = this.Bind<RenderQuery>();
             var path = this.Request.Path.ParsePath();
-            var parameters = this.GetQueryParameters("preview", "ComponentPath");
+            var parameters = this.GetParameters();
 
             return string.IsNullOrEmpty(query.ComponentPath)
                        ? this.GetPage(path, parameters, query.IsPreview)
                        : this.GetFragment(path, parameters, query.ComponentPath.ParseComponentPath());
+        }
+
+        private IEnumerable<KeyValuePair<string, string>> GetParameters()
+        {
+            return this.GetQueryParameters("preview", "ComponentPath")
+                .Union(this.GetRequestData())
+                .Union(this.GetHeaders());
+        }
+
+        private IEnumerable<KeyValuePair<string, string>> GetHeaders()
+        {
+            foreach (var header in this.Request.Headers)
+            {
+                yield return new KeyValuePair<string, string>("request-headers:" + header.Key, string.Join(", ", header.Value));
+            }
+
+            var pairs = this.Request.Headers.Select(h => $"{{ \"key\": \"{h.Key}\", \"value\"=\"{string.Join(", ", h.Value)}\" }}");
+
+            yield return new KeyValuePair<string, string>("request-headers", $"[ {string.Join(", ", pairs)} ]");
+        }
+
+        private IEnumerable<KeyValuePair<string, string>> GetRequestData()
+        {
+            yield return new KeyValuePair<string, string>("request-caller-ip", this.Request.UserHostAddress);
         }
 
         private IEnumerable<KeyValuePair<string, string>> GetQueryParameters(params string[] exclusions)
