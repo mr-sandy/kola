@@ -3,6 +3,7 @@ namespace Kola.Configuration.Fluent
 {
     using Kola.Configuration.Plugins;
     using Kola.Domain.DynamicSources;
+    using Kola.Domain.Instances.Config;
     using Kola.Domain.Specifications;
 
     public class PluginConfigurer
@@ -33,6 +34,11 @@ namespace Kola.Configuration.Fluent
         public void Source<T>() where T : IDynamicSource
         {
             this.configuration.AddSourceType(typeof(T));
+        }
+
+        public void ContextProvider<T>() where T : IContextProvider
+        {
+            this.configuration.AddContextProviderType(typeof(T));
         }
 
         public ComponentConfigurer Container(string componentName)

@@ -28,6 +28,8 @@
     using global::Nancy.ViewEngines;
     using global::Nancy.ViewEngines.Razor;
 
+    using Kola.Domain.Instances.Config;
+
     public class KolaNancyBootstrapper : DefaultNancyBootstrapper
     {
         public KolaNancyBootstrapper()
@@ -51,9 +53,13 @@
             tinyIoCContainer.Register<IContentFinder, ContentFinder>();
             tinyIoCContainer.Register<IPathInstanceBuilder, PathInstanceBuilder>();
             tinyIoCContainer.Register<IDynamicSourceProvider, DynamicSourceProvider>();
+            tinyIoCContainer.Register<IPluginContextProvider, PluginContextProvider>();
 
             var sourceTypes = KolaConfigurationRegistry.Plugins.SelectMany(plugin => plugin.SourceTypes).ToArray();
             tinyIoCContainer.Register((c, o) => sourceTypes.Select(c.Resolve).Cast<IDynamicSource>());
+
+            var contentProviderTypes = KolaConfigurationRegistry.Plugins.SelectMany(plugin => plugin.ContextProviderTypes).ToArray();
+            tinyIoCContainer.Register((c, o) => contentProviderTypes.Select(c.Resolve).Cast<IContextProvider>());
 
             var container = new TinyIoCAdapter(tinyIoCContainer);
 

@@ -47,6 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
+    <Compile Include="ContextProviders\CountryProvider.cs" />
+    <Compile Include="Proxies\Countries\CountriesService.cs" />
+    <Compile Include="Proxies\Countries\Country.cs" />
+    <Compile Include="Proxies\Countries\ICountriesService.cs" />
     <Compile Include="Proxies\Music\Album.cs" />
     <Compile Include="Proxies\Music\Artist.cs" />
     <Compile Include="Proxies\Music\CachingMusicService.cs" />

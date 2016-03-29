@@ -12,6 +12,7 @@
     {
         private readonly List<IPluginComponentSpecification<IComponentWithProperties>> componentSpecifications = new List<IPluginComponentSpecification<IComponentWithProperties>>();
         private readonly List<Type> sourceTypes = new List<Type>();
+        private readonly List<Type> contextProviderTypes = new List<Type>();
 
         protected PluginConfiguration(string pluginName)
         {
@@ -32,6 +33,8 @@
 
         public IEnumerable<Type> SourceTypes => this.sourceTypes;
 
+        public IEnumerable<Type> ContextProviderTypes => this.contextProviderTypes;
+
         internal void Add(IPluginComponentSpecification<IComponentWithProperties> componentSpecification)
         {
             this.componentSpecifications.Add(componentSpecification);
@@ -40,6 +43,11 @@
         internal void AddSourceType(Type sourceType)
         {
             this.sourceTypes.Add(sourceType);
+        }
+
+        internal void AddContextProviderType(Type sourceType)
+        {
+            this.contextProviderTypes.Add(sourceType);
         }
 
         public virtual void ConfigureContainer(IContainer container)

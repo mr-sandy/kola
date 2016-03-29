@@ -27,6 +27,7 @@
             this.container.Register<IFileSystemHelper>((c, o) => new FileSystemHelper("name"));
             this.container.Register<ISerializationHelper>((c, o) => new SerializationHelper("name"));
             this.container.Register<IContentRepository, ContentRepository>();
+            this.container.Register<IPluginContextProvider, PluginContextProvider>();
             this.container.Register<IDynamicSourceProvider, DynamicSourceProvider>();
             this.container.Register<IContentFinder, ContentFinder>();
             this.container.Register<IWidgetSpecificationRepository, WidgetSpecificationRepository>();
@@ -43,6 +44,5 @@
         {
             this.renderingModule.Should().NotBeNull();
         }
-
     }
 }

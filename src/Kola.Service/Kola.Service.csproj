@@ -70,6 +70,8 @@
     <Compile Include="Services\ComponentSpecificationService.cs" />
     <Compile Include="Services\ContentVisitor.cs" />
     <Compile Include="Services\IComponentSpecificationService.cs" />
+    <Compile Include="Services\PluginContextProvider.cs" />
+    <Compile Include="Services\IPluginContextProvider.cs" />
     <Compile Include="Services\IRenderingService.cs" />
     <Compile Include="Services\ITemplateService.cs" />
     <Compile Include="Services\IWidgetSpecificationService.cs" />

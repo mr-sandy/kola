@@ -3,6 +3,8 @@
     using Kola.Configuration.Plugins;
     using Kola.Domain.Rendering;
 
+    using Sample.Plugin.ContextProviders;
+    using Sample.Plugin.Proxies.Countries;
     using Sample.Plugin.Proxies.Music;
     using Sample.Plugin.Renderers;
     using Sample.Plugin.Sources;
@@ -19,12 +21,15 @@
             this.ConfigureContainers();
 
             this.ConfigureSources();
+
+            this.Configure.ContextProvider<CountryProvider>();
         }
 
         public override void ConfigureContainer(IContainer container)
         {
             var accessToken = container.Resolve<string>("access_token");
             container.Register<IMusicService>(new CachingMusicService(new MusicService(accessToken)));
+            container.Register<ICountriesService, CountriesService>();
         }
 
         private void ConfigureAtoms()

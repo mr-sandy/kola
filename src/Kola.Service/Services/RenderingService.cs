@@ -18,12 +18,14 @@
         private readonly IContentRepository contentRepository;
         private readonly IWidgetSpecificationRepository widgetSpecificationRepository;
         private readonly IComponentSpecificationLibrary componentLibrary;
+        private readonly IPluginContextProvider pluginContextProvider;
 
-        public RenderingService(IContentRepository contentRepository, IWidgetSpecificationRepository widgetSpecificationRepository, IComponentSpecificationLibrary componentLibrary)
+        public RenderingService(IContentRepository contentRepository, IWidgetSpecificationRepository widgetSpecificationRepository, IComponentSpecificationLibrary componentLibrary, IPluginContextProvider pluginContextProvider)
         {
             this.contentRepository = contentRepository;
             this.widgetSpecificationRepository = widgetSpecificationRepository;
             this.componentLibrary = componentLibrary;
+            this.pluginContextProvider = pluginContextProvider;
         }
 
         public IResult<PageInstance> GetPage(IEnumerable<string> path, IEnumerable<KeyValuePair<string, string>> parameters, ClaimsPrincipal user, bool preview)
@@ -102,7 +104,8 @@
         {
             var parameterContext = parameters?.Select(p => p.ToContextItem()) ?? Enumerable.Empty<IContextItem>();
             var configContext = config?.ContextItems ?? Enumerable.Empty<IContextItem>();
-            return parameterContext.Union(configContext);
+            var context = parameterContext.Union(configContext);
+            return this.pluginContextProvider.Contribute(context);
         }
 
         private PageInstance BuildPage(Template template, bool isPreview, IEnumerable<IContextItem> contextItems = null, string cacheControl = null)

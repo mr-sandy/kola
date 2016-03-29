@@ -33,6 +33,8 @@
 
         protected IWidgetSpecificationRepository WidgetRepository { get; set; }
 
+        protected IPluginContextProvider PluginContextProvider { get; set; }
+
         protected IRendererFactory RendererFactory { get; set; }
 
 
@@ -43,6 +45,7 @@
             this.ComponentLibrary = MockRepository.GenerateMock<IComponentSpecificationLibrary>();
             this.WidgetRepository = MockRepository.GenerateMock<IWidgetSpecificationRepository>();
             this.RendererFactory = MockRepository.GenerateMock<IRendererFactory>();
+            this.PluginContextProvider = MockRepository.GenerateStub<IPluginContextProvider>();
 
             this.SetUpAtom("atom1");
             this.SetUpContainer("container1");
@@ -54,6 +57,7 @@
                         with.Dependency(this.ContentRepository);
                         with.Dependency(this.ComponentLibrary);
                         with.Dependency(this.WidgetRepository);
+                        with.Dependency(this.PluginContextProvider);
                         with.ResponseProcessor<PageInstanceResultProcessor>();
                         with.ResponseProcessor<ComponentInstanceResultProcessor>();
                         with.Dependency<RenderingService>();

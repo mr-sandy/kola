@@ -108,6 +108,7 @@
     <Compile Include="Instances\Config\Authorisation\HasAnyClaimsCondition.cs" />
     <Compile Include="Instances\Config\Authorisation\IConditionVisitor.cs" />
     <Compile Include="Instances\Config\Authorisation\IsAuthenticatedCondition.cs" />
+    <Compile Include="Instances\Config\IContextProvider.cs" />
     <Compile Include="Instances\ContainerInstance.cs" />
     <Compile Include="Instances\Config\BuildData.cs" />
     <Compile Include="Instances\Config\Configuration.cs" />

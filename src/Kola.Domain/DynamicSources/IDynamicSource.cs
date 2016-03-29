@@ -1,6 +1,5 @@
 namespace Kola.Domain.DynamicSources
 {
-    using System.Collections;
     using System.Collections.Generic;
 
     using Kola.Domain.Instances.Config;
