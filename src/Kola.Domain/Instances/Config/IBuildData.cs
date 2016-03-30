@@ -6,6 +6,6 @@
     {
         Stack<IDictionary<string, ComponentInstance>> AreaContents { get; }
 
-        Stack<ContextSet> ContextSets { get; }
+        Stack<IEnumerable<IContextItem>> ContextSets { get; }
     }
 }

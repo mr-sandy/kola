@@ -11,12 +11,12 @@
 
             if (context.Any())
             {
-                this.ContextSets.Push(new ContextSet(context));
+                this.ContextSets.Push(context);
             }
         }
 
         public Stack<IDictionary<string, ComponentInstance>> AreaContents { get; } = new Stack<IDictionary<string, ComponentInstance>>();
 
-        public Stack<ContextSet> ContextSets { get; } = new Stack<ContextSet>();
+        public Stack<IEnumerable<IContextItem>> ContextSets { get; } = new Stack<IEnumerable<IContextItem>>();
     }
 }

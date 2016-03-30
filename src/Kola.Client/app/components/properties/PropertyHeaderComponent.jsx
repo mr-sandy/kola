@@ -25,6 +25,7 @@ var PropertyHeaderComponent = React.createClass({
                 <select className="propertyValueType" value={propertyValueType} onClick={this.handleClick} onChange={this.handleChange}>
                     <option value="fixed">fixed</option>
                     <option value="inherited">inherited</option>
+                    <option value="variable">variable</option>
                 </select>
             </div>
         );

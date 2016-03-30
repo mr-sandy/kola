@@ -19,7 +19,7 @@ namespace Sample.Plugin.ContextProviders
 
         public IEnumerable<IContextItem> GetContext(IEnumerable<IContextItem> context)
         {
-            var ipAddress = context.FirstOrDefault(c => c.Name.Equals("ipaddress", StringComparison.InvariantCultureIgnoreCase))?.Value;
+            var ipAddress = context.FirstOrDefault(c => c.Name.Equals("ipAddress", StringComparison.InvariantCultureIgnoreCase))?.Value;
 
             if (!string.IsNullOrEmpty(ipAddress))
             {
@@ -28,6 +28,7 @@ namespace Sample.Plugin.ContextProviders
                 if (country != null)
                 {
                     yield return new ContextItem("country", country.Name);
+                    yield return new ContextItem("country-code", country.Code);
                 }
             }
         }

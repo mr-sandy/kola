@@ -42,7 +42,7 @@ namespace Kola.Domain.Instances
         {
             var propertyInstances = container.Properties.Select(p => p.Build(buildData)).ToList();
 
-            buildData.ContextSets.Push(new ContextSet(propertyInstances));
+            buildData.ContextSets.Push(propertyInstances);
 
             var children = container.Components.Select((c, i) => c.Build(this, path.Append(i), buildData)).ToList();
 
@@ -60,7 +60,7 @@ namespace Kola.Domain.Instances
         {
             // Add the widget's parameters to the context to be picked up by any children
             var propertyInstances = widget.Properties.Select(p => p.Build(buildData)).ToList();
-            buildData.ContextSets.Push(new ContextSet(propertyInstances));
+            buildData.ContextSets.Push(propertyInstances);
 
             var areas = widget.Areas.Select(
                 (a, i) => new { Name = a.Name, Components = a.Build(this, path.Append(i), buildData) })

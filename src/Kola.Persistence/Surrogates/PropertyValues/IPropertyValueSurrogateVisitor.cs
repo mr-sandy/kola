@@ -6,6 +6,6 @@
 
         T Visit(InheritedPropertyValueSurrogate surrogate);
 
-        T Visit(MultilingualPropertyValueSurrogate surrogate);
+        T Visit(VariablePropertyValueSurrogate surrogate);
     }
 }

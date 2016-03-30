@@ -1,6 +1,6 @@
 ﻿namespace Kola.Persistence.DomainBuilding
 {
-    using System;
+    using System.Linq;
 
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Persistence.Surrogates.PropertyValues;
@@ -17,9 +17,9 @@
             return new InheritedPropertyValue(surrogate.Key);
         }
 
-        public IPropertyValue Visit(MultilingualPropertyValueSurrogate surrogate)
+        public IPropertyValue Visit(VariablePropertyValueSurrogate surrogate)
         {
-            throw new NotImplementedException();
+            return new VariablePropertyValue(surrogate.ContextName, surrogate.Variants?.Select(v => new PropertyVariant(v.ContextValue, v.Value.Accept(this), v.IsDefault)));
         }
     }
 }

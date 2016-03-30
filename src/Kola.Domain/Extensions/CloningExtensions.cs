@@ -8,7 +8,7 @@
 
     internal static class CloningExtensions
     {
-        internal static IEnumerable<MultilingualVariant> Clone(this IEnumerable<MultilingualVariant> variants)
+        internal static IEnumerable<PropertyVariant> Clone(this IEnumerable<PropertyVariant> variants)
         {
             return variants.Select(v => v.Clone()).ToArray();
         }

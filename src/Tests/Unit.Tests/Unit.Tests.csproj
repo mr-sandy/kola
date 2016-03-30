@@ -79,9 +79,13 @@
     <Compile Include="Domain\CollectionFindingComponentVisitorTests\WhenFindingAContainerAtTheRootOfATemplate.cs" />
     <Compile Include="Domain\CollectionFindingComponentVisitorTests\WhenFindingAnArea.cs" />
     <Compile Include="Domain\ComponentSpecifications\WhenCreatingAWidgetFromItsSpecification.cs" />
-    <Compile Include="Domain\PropertyTests\WhenCreatingAnInstanceOfAPropertyWithAMultilingualVariablePropertyValue.cs" />
+    <Compile Include="Domain\PropertyTests\WhenCreatingAnInstanceOfAPropertyWithAVariablePropertyValue.cs" />
     <Compile Include="Domain\PropertyTests\WhenCreatingAnInstanceOfAPropertyWithAnInheritedPropertyValue.cs" />
     <Compile Include="Domain\PropertyTests\WhenCreatingAnInstanceOfAPropertyWithAFixedPropertyValue.cs" />
+    <Compile Include="Domain\PropertyTests\WhenCreatingAnInstanceOfAPropertyWithAVariablePropertyValueWithAnInheritedValueVariant.cs" />
+    <Compile Include="Domain\PropertyTests\WhenCreatingAnInstanceOfAPropertyWithAVariablePropertyValueWithAnVariableValueVariant.cs" />
+    <Compile Include="Domain\PropertyTests\WhenCreatingAnInstanceOfAPropertyWithAVariablePropertyValueWithMatchingVariant.cs" />
+    <Compile Include="Domain\PropertyTests\WhenCreatingAnInstanceOfAPropertyWithAVariablePropertyValueWithNoKeySupplied.cs" />
     <Compile Include="Domain\PropertyTests\WhenSettingAFixedValueForAProperty.cs" />
     <Compile Include="Domain\ContextSourcedContentResolverTests\WhenResolvingContextSourcedContent.cs" />
     <Compile Include="Domain\TemplateTests\WhenAddingAnAmendment.cs" />

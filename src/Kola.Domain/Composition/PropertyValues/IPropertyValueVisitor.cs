@@ -6,6 +6,6 @@
 
         T Visit(InheritedPropertyValue inheritedPropertyValue);
 
-        T Visit(MultilingualPropertyValue multilingualPropertyValue);
+        T Visit(VariablePropertyValue variablePropertyValue);
     }
 }

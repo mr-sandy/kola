@@ -1,6 +1,6 @@
 ﻿namespace Kola.Service.ResourceBuilding
 {
-    using System;
+    using System.Linq;
 
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Resources;
@@ -23,9 +23,19 @@
             };
         }
 
-        public PropertyValueResource Visit(MultilingualPropertyValue multilingualPropertyValue)
+        public PropertyValueResource Visit(VariablePropertyValue variablePropertyValue)
         {
-            throw new NotImplementedException();
+            return new VariablePropertyValueResource
+            {
+                ContextName = variablePropertyValue.ContextName,
+                Variants = variablePropertyValue.Variants.Select(v => new PropertyVariantResource
+                {
+                    ContextValue = v.ContentValue,
+                    Value = v.Value.Accept(this),
+                    IsDefault = v.IsDefault
+                })
+                .ToArray()
+            };
         }
     }
 }

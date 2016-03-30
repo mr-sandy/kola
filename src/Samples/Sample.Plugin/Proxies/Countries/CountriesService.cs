@@ -17,13 +17,13 @@
             switch (first)
             {
                 case "1":
-                    return new Country("United Kingdom");
+                    return Country.UnitedKingdom;
 
                 case "2":
-                    return new Country("France");
+                    return Country.France;
 
                 default:
-                    return new Country("Badgerland");
+                    return Country.Badgerland;
             }
         }
     }

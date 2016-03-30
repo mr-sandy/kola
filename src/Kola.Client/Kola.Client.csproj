@@ -47,6 +47,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app\components\properties\PropertyVariantComponent.jsx" />
+    <None Include="app\components\properties\VariablePropertyValueComponent.jsx" />
     <None Include="app\components\properties\InheritedPropertyValueComponent.jsx" />
     <None Include="app\components\properties\FixedPropertyValueComponent.jsx" />
     <None Include="app\components\properties\PropertiesComponent.jsx" />

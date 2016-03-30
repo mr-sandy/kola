@@ -26,7 +26,7 @@
             contextItem.Stub(c => c.Name).Return("key");
             contextItem.Stub(c => c.Value).Return("result");
 
-            var context = new ContextSet(new[] { contextItem });
+            var context = new[] { contextItem };
 
             var buildContext = new BuildData(Enumerable.Empty<IContextItem>());
             buildContext.ContextSets.Push(context);

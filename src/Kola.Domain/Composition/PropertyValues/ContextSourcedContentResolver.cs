@@ -1,19 +1,18 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Kola.Domain.Composition.PropertyValues
+﻿namespace Kola.Domain.Composition.PropertyValues
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Text.RegularExpressions;
 
     using Kola.Domain.Instances.Config;
 
     public class ContextSourcedContentResolver
     {
-        private readonly IEnumerable<ContextSet> contextSets;
+        private readonly IEnumerable<IEnumerable<IContextItem>> contextSets;
 
-        public ContextSourcedContentResolver(IEnumerable<ContextSet> contextSets)
+        public ContextSourcedContentResolver(IEnumerable<IEnumerable<IContextItem>> contextSets)
         {
-            this.contextSets = contextSets ?? Enumerable.Empty<ContextSet>();
+            this.contextSets = contextSets ?? Enumerable.Empty<IEnumerable<IContextItem>>();
         }
 
         public string Resolve(string source)
@@ -28,7 +27,7 @@ namespace Kola.Domain.Composition.PropertyValues
         {
             var contextItemName = matchedValue.Substring(2, matchedValue.Length - 4);
 
-            var contextItem = this.contextSets.Select(s => s.Items.FirstOrDefault(c => c.Name == contextItemName)).FirstOrDefault(m => m != null);
+            var contextItem = this.contextSets.Select(s => s.FirstOrDefault(c => c.Name == contextItemName)).FirstOrDefault(m => m != null);
             
             return contextItem == null 
                 ? string.Empty 

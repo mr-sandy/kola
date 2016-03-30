@@ -20,9 +20,7 @@
 
             set
             {
-                this.Value = value == null 
-                    ? null 
-                    : value[0].Value;
+                this.Value = value?[0].Value;
             }
         }
 

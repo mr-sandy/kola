@@ -1,6 +1,6 @@
 ﻿namespace Kola.Persistence.SurrogateBuilding
 {
-    using System;
+    using System.Linq;
 
     using Kola.Domain.Composition.PropertyValues;
     using Kola.Persistence.Surrogates.PropertyValues;
@@ -23,9 +23,18 @@
             };
         }
 
-        public PropertyValueSurrogate Visit(MultilingualPropertyValue multilingualPropertyValue)
+        public PropertyValueSurrogate Visit(VariablePropertyValue variablePropertyValue)
         {
-            throw new NotImplementedException();
+            return new VariablePropertyValueSurrogate
+            {
+                ContextName = variablePropertyValue.ContextName,
+                Variants = variablePropertyValue.Variants.Select(v => new PropertyVariantSurrogate
+                                                                     {
+                                                                         ContextValue = v.ContentValue,
+                                                                         Value = v.Value.Accept(this),
+                                                                         IsDefault = v.IsDefault
+                }).ToArray()
+            };
         }
     }
 }

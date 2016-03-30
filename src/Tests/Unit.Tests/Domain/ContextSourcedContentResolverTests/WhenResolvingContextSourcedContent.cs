@@ -18,9 +18,9 @@
         {
             var source = "hello {{name}}. are you a {{animal}}{{non-existent}}? is your name {{{name}}}?";
 
-            var stack = new Stack<ContextSet>();
-            stack.Push(new ContextSet(new[] { new ContextItem("name", "banjo"), new ContextItem("animal", "hippo") }));
-            stack.Push(new ContextSet(new[] { new ContextItem("name", "sandy") }));
+            var stack = new Stack<IEnumerable<IContextItem>>();
+            stack.Push(new[] { new ContextItem("name", "banjo"), new ContextItem("animal", "hippo") });
+            stack.Push(new[] { new ContextItem("name", "sandy") });
 
             var sut = new ContextSourcedContentResolver(stack);
 

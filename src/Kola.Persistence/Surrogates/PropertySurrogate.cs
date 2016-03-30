@@ -7,7 +7,7 @@
     [XmlType(Namespace = "http://www.kolacms.com/2013/kola", TypeName = "property")]
     [XmlInclude(typeof(FixedPropertyValueSurrogate))]
     [XmlInclude(typeof(InheritedPropertyValueSurrogate))]
-    [XmlInclude(typeof(MultilingualPropertyValueSurrogate))]
+    [XmlInclude(typeof(VariablePropertyValueSurrogate))]
     public class PropertySurrogate
     {
         [XmlAttribute("name")]

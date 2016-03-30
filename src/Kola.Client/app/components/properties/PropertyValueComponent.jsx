@@ -1,5 +1,6 @@
 ﻿var FixedPropertyValueComponent = require('app/components/properties/FixedPropertyValueComponent.jsx');
 var InheritedPropertyValueComponent = require('app/components/properties/InheritedPropertyValueComponent.jsx');
+var VariablePropertyValueComponent = require('app/components/properties/VariablePropertyValueComponent.jsx');
 var React = require('react');
 
 var Unset = (props) => {
@@ -22,11 +23,14 @@ var PropertyValueComponent = React.createClass({
         const propertyValueType = this.props.propertyValue ? this.props.propertyValue.type : '';
 
         switch (propertyValueType) {
+            case 'fixed':
+                return <FixedPropertyValueComponent {...this.props} />;
+
             case 'inherited':
                 return <InheritedPropertyValueComponent {...this.props} />;
 
-            case 'fixed':
-                return <FixedPropertyValueComponent {...this.props} />;
+            case 'variable':
+                return <VariablePropertyValueComponent {...this.props} />;
 
             default:
                 return <Unset />;

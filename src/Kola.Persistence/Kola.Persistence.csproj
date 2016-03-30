@@ -105,7 +105,8 @@
     <Compile Include="Surrogates\PropertyValues\FixedPropertyValueSurrogate.cs" />
     <Compile Include="Surrogates\PropertyValues\InheritedPropertyValueSurrogate.cs" />
     <Compile Include="Surrogates\PropertyValues\IPropertyValueSurrogateVisitor.cs" />
-    <Compile Include="Surrogates\PropertyValues\MultilingualPropertyValueSurrogate.cs" />
+    <Compile Include="Surrogates\PropertyValues\PropertyVariantSurrogate.cs" />
+    <Compile Include="Surrogates\PropertyValues\VariablePropertyValueSurrogate.cs" />
     <Compile Include="Surrogates\PropertyValues\PropertyValueSurrogate.cs" />
     <Compile Include="Surrogates\RedirectSurrogate.cs" />
     <Compile Include="Surrogates\TemplateSurrogate.cs" />
