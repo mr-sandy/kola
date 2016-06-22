@@ -1,5 +1,9 @@
 ﻿@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<Kola.Domain.Instances.ContainerInstance>
 @using Kola.Nancy.Extensions
-<head>
+@using Kola.Domain.Extensions
+@{
+    var prefix = Model.Properties.GetAsAttribute("prefix");
+}
+<head @Html.Raw(prefix)>
 @Html.RenderComponents(Model.Components)
 </head>

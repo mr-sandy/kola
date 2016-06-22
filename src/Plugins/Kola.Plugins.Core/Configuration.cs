@@ -43,6 +43,7 @@
                 .WithCategory("html")
                 .WithView("HtmlMetadata")
                 .WithProperty("name", "text")
+                .WithProperty("property", "text")
                 .WithProperty("content", "text")
                 .WithProperty("charset", "text")
                 .WithProperty("httpEquiv", "text");
@@ -94,7 +95,8 @@
         {
             this.Configure.Container("html-head")
                 .WithCategory("html")
-                .WithView("HtmlHead");
+                .WithView("HtmlHead")
+                .WithProperty("prefix", "text");
 
             this.Configure.Container("html-body")
                 .WithCategory("html")
