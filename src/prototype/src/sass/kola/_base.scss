@@ -1,0 +1,26 @@
+
+@import "utility";
+
+body, input, button, select, textarea { 
+    font-family: sans-serif;
+	@include font-size(12);
+}
+
+* {
+    box-sizing: border-box;	    
+}
+
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

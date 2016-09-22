@@ -1,0 +1,19 @@
+
+@import "utility";
+
+button {
+    outline: none;
+    display: block;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    @include transition(all 200ms);
+
+	&.hidden {
+		visibility: hidden;
+	}
+
+	&:disabled {
+		cursor: default;
+	}
+}

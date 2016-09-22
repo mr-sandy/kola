@@ -1,0 +1,133 @@
+
+@import "../utility";
+
+.block-editor {
+    $margin: 8px;
+	$empty-item-height: 29px;
+
+	width: 250px;
+
+    div.content {
+        padding: 10px;
+
+		.holder {
+			position: relative;
+
+		    & > ol {
+			    height: 100%;
+		    }
+
+		    ol {
+			    min-height: $empty-item-height;
+
+			    li {
+				    border: 1px solid #ccc;
+                    background-color: rgba(102,102,102,0);
+				    @include transition(background-color 100ms);
+
+				    span {
+				        display: block;
+				        padding: $margin;
+				    }
+
+				    &.container > span,
+					&.widget > span,
+					&.area > span {
+					    border-bottom: 1px solid #ccc;
+				    }
+
+				    & + li {
+					    margin-top: $margin;
+				    }
+
+				    &.active:not(.selected) {
+				        background-color: rgba(104,104,104,0.8);
+				        border-color: #fff;
+				        color: #fff;
+				    }
+
+				    &.selected {
+				        border-color: #fff;
+				        color: #fff;
+
+                        &.atom {
+                            background-color: rgba(178, 32, 40, 0.5);
+                        }
+
+                        &.container {
+                            background-color: rgba(32, 113, 178, 0.5);
+                        }
+
+                        &.widget {
+                            background-color: rgba(178, 97, 32, 0.5);
+                        }
+				    }
+
+                    & > span:hover {
+                        & > i.comment {
+                            opacity: 1;
+                        }
+					}
+
+
+					& > span {
+					    & > i.collapse {
+						    float: right;
+                            @include transition(all 100ms);
+							margin-left: 10px;
+					    }
+
+					    & > i.comment {
+						    float: right;
+                            opacity: 0;
+							transition: opacity 150ms;
+					    }
+					}
+
+					&.collapsed {
+					    & > span {
+							border: none;
+
+					        & > i.collapse {
+                                @include rotate(-90);
+                            }
+					    }
+					}
+
+					textarea.comment {
+						display: none;
+						vertical-align: top;
+						outline: none;
+						border: none;
+						width: 100%;
+						max-width: 100%;
+						min-width: 100%;
+						padding: 10px;
+					}
+
+					span.comment {
+						width: 100%;
+						border: none;
+						color: #96ece7;
+						font-style: italic;
+					}
+
+				    ol {
+					    margin: $margin;
+				    }
+
+				    &.new {
+					    margin: $margin;
+					    border: 1px dashed #ccc;
+					    background-color: rgba(204,204,204, 0.8);
+                        min-height: $empty-item-height;
+				    }
+			    }
+
+			    &.components > li {
+				    cursor: pointer;
+			    }
+	        }
+	    }
+    }
+}

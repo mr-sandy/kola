@@ -1,0 +1,89 @@
+
+@import "../utility";
+
+.preview {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    background-color: #ccc;
+
+    .inner {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        overflow-y: auto;
+
+        .address-bar {
+            padding: 8px;
+            border-left: 1px solid #999;
+            background-color: #333;
+            height: 38px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            &.hidden {
+                display: none;
+            }
+
+            span {
+                display: inline-block;
+                cursor: pointer;
+
+                &.selected {
+                    padding: 5px 8px;
+                    background-color: #ddd;
+                    color: #000;
+
+                    i {
+                        padding-left: 10px;
+                    }
+                }
+            }
+
+            ul.options {
+                position: absolute;
+                left: 8px;
+                border: 1px black solid;
+                padding: 5px;
+                display: none;
+                background-color: #fff;
+
+                &.expanded {
+                    display: block;
+                }
+
+                li {
+                    display: block;
+                    padding: 4px;
+                    margin: 2px 0;
+
+                    &:hover {
+                        background-color: #eee;
+                    }
+
+                    a {
+                        float: right;
+                        padding-top: 1px;
+                        margin-left: 16px;
+                        color: #000;
+                    }
+                }
+            }
+        }
+
+        iframe {
+            margin: 0 auto;
+            display: block;
+            height: 100%;
+            width: 100%;
+            border: none;
+            background-color: #fff;
+        }
+
+        .address-bar + iframe {
+            padding-top: 38px;
+        }
+    }
+}

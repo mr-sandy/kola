@@ -12,8 +12,7 @@
                   <value xsi:type="fixed"><![CDATA[text/css]]></value>
                 </property>
                 <property name="content" type="multiline-text">
-                  <value xsi:type="fixed">
-                    <![CDATA[body {
+                  <value xsi:type="fixed"><![CDATA[body {
   font-family: monospace;
   font-size: 24px;
 }
@@ -36,8 +35,8 @@ h4 {
 
 div {
 margin-top: 20px;
-}]]>
-                  </value>
+}
+                  ]]></value>
                 </property>
               </properties>
             </atom>
@@ -65,19 +64,19 @@ margin-top: 20px;
                       <variant contextValue="gb" default="true">
                         <value xsi:type="fixed"><![CDATA[Oh I say!]]></value>
                       </variant>
-                      <variant contextValue="fr">
+                      <variant contextValue="fr" default="false">
                         <value xsi:type="fixed"><![CDATA[Ooh la-la!]]></value>
                       </variant>
-                      <variant contextValue="ba">
+                      <variant contextValue="ba" default="false">
                         <value xsi:type="inherited" key="message1" />
                       </variant>
-                      <variant contextValue="be">
+                      <variant contextValue="be" default="false">
                         <value xsi:type="variable" contextName="language-code">
                           <variants>
                             <variant contextValue="fl" default="true">
                               <value xsi:type="fixed"><![CDATA[Belgian flemish]]></value>
                             </variant>
-                            <variant contextValue="fr">
+                            <variant contextValue="fr" default="false">
                               <value xsi:type="fixed"><![CDATA[Belgian french]]></value>
                             </variant>
                           </variants>
@@ -91,15 +90,14 @@ margin-top: 20px;
             <atom name="markdown">
               <properties>
                 <property name="markdown" type="markdown">
-                  <value xsi:type="fixed">
-                    <![CDATA[#Hello!
+                  <value xsi:type="fixed"><![CDATA[#Hello!
 
 ##How
 
 ###are
 
-####you?]]>
-                  </value>
+####you?
+                  ]]></value>
                 </property>
               </properties>
             </atom>
@@ -173,5 +171,10 @@ margin-top: 20px;
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <moveComponent>
+      <sourcePath>0/1/2</sourcePath>
+      <targetPath>0/1/1</targetPath>
+    </moveComponent>
+  </amendments>
 </template>
