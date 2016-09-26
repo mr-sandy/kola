@@ -1,39 +1,31 @@
-export const REQUEST_POSTS = 'REQUEST_POSTS'
-export const RECEIVE_POSTS = 'RECEIVE_POSTS'
-export const SELECT_REDDIT = 'SELECT_REDDIT'
-export const INVALIDATE_REDDIT = 'INVALIDATE_REDDIT'
+export const REQUEST_TEMPLATE = 'REQUEST_TEMPLATE';
+export const RECEIVE_TEMPLATE = 'RECEIVE_TEMPLATE';
+export const SELECT_COMPONENT = 'SELECT_COMPONENT';
 
-export const selectReddit = reddit => ({
-  type: SELECT_REDDIT,
-  reddit
-})
+export const requestTemplate = templatePath => ({
+  type: REQUEST_TEMPLATE,
+  payload: { templatePath }
+});
 
-export const invalidateReddit = reddit => ({
-  type: INVALIDATE_REDDIT,
-  reddit
-})
+export const receiveTemplate = (templatePath, template) => ({
+  type: RECEIVE_TEMPLATE,
+  payload: { templatePath, template }
+});
 
-export const requestPosts = reddit => ({
-  type: REQUEST_POSTS,
-  reddit
-})
+export const selectComponent = (component) => ({
+  type: SELECT_COMPONENT,
+  payload: { component }
+});
 
-export const receiveTemplate = (reddit, json) => ({
-  type: RECEIVE_POSTS,
-  reddit,
-  posts: json.data.children.map(child => child.data),
-  receivedAt: Date.now()
-})
-
-const fetchPosts = templatePatht => dispatch => {
+const fetchPosts = templatePath => dispatch => {
   dispatch(requestTemplate(templatePath))
-  return fetch(`${PROCESS.ENV.salesDataMartRoot}/_kola/templates?templatePath=${templatePath}`)
+  return fetch(`${process.env.serviceRoot}/_kola/templates?templatePath=${templatePath}`)
     .then(response => response.json())
-    .then(json => dispatch(receiveTemplate(templatePath, json)))
+    .then(template => dispatch(receiveTemplate(templatePath, template)))
 }
 
 const shouldFetchTemplate = (state, templatePath) => {
-    return true;
+  return true;
 }
 
 export const fetchTemplateIfNeeded = templatePath => (dispatch, getState) => {

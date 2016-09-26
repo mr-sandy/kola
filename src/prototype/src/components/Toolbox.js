@@ -6,8 +6,7 @@ class Toolbox extends Component {
         const { components = []} = this.props;
 
         return (
-            <div>
-                <h2>Toolbox</h2>
+            <div className="toolbox">
                 <ul>
                     { components.map((t, i) => <li key={i}>{t.name}</li>) }
                 </ul>

@@ -4,39 +4,48 @@ import { Link } from 'react-router';
 import Toolbox from '../components/Toolbox';
 import Structure from '../components/Structure';
 import Properties from '../components/Properties';
+import Preview from '../components/Preview';
+import { fetchTemplateIfNeeded, selectComponent } from '../actions';
 
 class Edit extends Component {
 
     componentDidMount() {
-        // const { dispatch, selectedReddit } = this.props
-        // dispatch(fetchPostsIfNeeded(selectedReddit))
+        const { dispatch, templatePath } = this.props;
+        dispatch(fetchTemplateIfNeeded(templatePath));
     }
 
     componentWillReceiveProps(nextProps) {
-        // if (nextProps.selectedReddit !== this.props.selectedReddit) {
-        //   const { dispatch, selectedReddit } = nextProps
-        //   dispatch(fetchPostsIfNeeded(selectedReddit))
-        // }
+        if (nextProps.templatePath !== this.props.templatePath) {
+            const { dispatch, templatePath } = nextProps;
+            dispatch(fetchTemplateIfNeeded(templatePath));
+        }
     }
 
     render() {
-        const {templatePath} = this.props;
+        const { templatePath, template, onComponentSelect, selectedComponent, previewUrl } = this.props;
 
         return (
             <div>
-                <h2>{templatePath}</h2>
-                <h3>{process.env.serviceRoot}</h3>
-                <Link to="/">Home</Link>
+                <Link className="mainNav" to="/">Home</Link>
                 <Toolbox />
-                <Structure />
-                <Properties />
+                <Structure template={template} onClick={onComponentSelect} selectedComponent={selectedComponent} />
+                <Properties component={selectedComponent} />
+                <Preview url={previewUrl}/>
             </div>
         )
     }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-    templatePath: ownProps.location.query.templatePath
+    template: state.template.template,
+    templatePath: ownProps.location.query.templatePath,
+    selectedComponent: state.selection,
+    previewUrl: state.template.template.links ? state.template.template.links.find(l => l.rel === 'preview').href : ''
 });
 
-export default connect(mapStateToProps)(Edit);
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    dispatch,
+    onComponentSelect: component => dispatch(selectComponent(component))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Edit);

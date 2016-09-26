@@ -1,4 +1,85 @@
 body {
+    //font-family: sans-serif;
     // background-color: #333;
     // color: #fff;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+div.component {
+    border: 1px solid #999;
+    padding: 6px;
+    max-width: 200px;
+    margin-top: 6px;
+    cursor: pointer;
+
+    &.selected {
+        background-color: #ccc;
+    }
+}
+
+div.property {
+    border: 1px solid #999;
+    padding: 6px;
+    max-width: 200px;
+    margin-top: 6px;
+    
+}
+
+.mainNav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background-color: #333;
+    padding: 6px;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.toolbox{
+    padding: 3px;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    bottom: 0;
+    width: 150px;
+}
+
+.structure{
+    padding: 3px;
+    position: absolute;
+    top: 30px;
+    left: 150px;
+    bottom: 0;
+    width: 150px;
+}
+
+.properties{
+    padding: 3px;
+    position: absolute;
+    top: 30px;
+    left: 300px;
+    bottom: 0;
+    width: 150px;
+}
+
+.preview{
+    position: absolute;
+    top: 30px;
+    left: 450px;
+    bottom: 0;
+    right: 0;
+
+    iframe {
+        margin: 0 auto;
+        display: block;
+        height: 100%;
+        width: 100%;
+        border: none;
+        background-color: #fff;
+    }
 }
