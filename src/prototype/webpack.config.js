@@ -17,7 +17,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
             'process.env': {
-                'serviceRoot': JSON.stringify('http://localhost:61134')
+                'serviceRoot': JSON.stringify('/server')
             }
         })
   ],
