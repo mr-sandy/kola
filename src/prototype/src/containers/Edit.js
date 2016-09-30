@@ -5,7 +5,7 @@ import Toolbox from '../components/Toolbox';
 import Structure from '../components/Structure';
 import Properties from '../components/Properties';
 import Preview from '../components/Preview';
-import { fetchTemplateIfNeeded, selectComponent } from '../actions';
+import { fetchTemplateIfNeeded, selectComponent, selectComponentByPath } from '../actions';
 
 class Edit extends Component {
 
@@ -22,7 +22,7 @@ class Edit extends Component {
     }
 
     render() {
-        const { templatePath, template, onComponentSelect, selectedComponent, previewUrl } = this.props;
+        const { templatePath, template, onComponentSelect, onComponentSelectByPath, selectedComponent, previewUrl } = this.props;
 
         return (
             <div>
@@ -30,7 +30,7 @@ class Edit extends Component {
                 <Toolbox />
                 <Structure template={template} onClick={onComponentSelect} selectedComponent={selectedComponent} />
                 <Properties component={selectedComponent} />
-                <Preview url={previewUrl}/>
+                <Preview url={previewUrl} onClick={onComponentSelectByPath} selectedComponent={selectedComponent} />
             </div>
         )
     }
@@ -45,7 +45,8 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     dispatch,
-    onComponentSelect: component => dispatch(selectComponent(component))
+    onComponentSelect: component => dispatch(selectComponent(component)),
+    onComponentSelectByPath: componentPath => dispatch(selectComponentByPath(componentPath))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Edit);

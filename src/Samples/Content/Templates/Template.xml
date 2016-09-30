@@ -59,7 +59,7 @@ margin-top: 20px;
             <atom name="markdown">
               <properties>
                 <property name="markdown" type="markdown">
-                  <value xsi:type="fixed"><![CDATA[#Hello!
+                  <value xsi:type="fixed"><![CDATA[#Hello!!!
 
 ##How
 
@@ -98,6 +98,15 @@ margin-top: 20px;
             <atom name="markdown">
               <properties>
                 <property name="markdown" type="markdown">
+                  <value xsi:type="fixed"><![CDATA[<button>I am a button</button>
+
+[I am a link](#)]]></value>
+                </property>
+              </properties>
+            </atom>
+            <atom name="markdown">
+              <properties>
+                <property name="markdown" type="markdown">
                   <value xsi:type="variable" contextName="country-code">
                     <variants>
                       <variant contextValue="gb" default="true">
@@ -129,14 +138,14 @@ margin-top: 20px;
             <atom name="text">
               <properties>
                 <property name="text" type="text">
-                  <value xsi:type="inherited" key="quiz" />
+                  <value xsi:type="inherited" key="raw-query" />
                 </property>
               </properties>
             </atom>
             <atom name="text">
               <properties>
                 <property name="text" type="text">
-                  <value xsi:type="inherited" key="raw-query" />
+                  <value xsi:type="inherited" key="quiz" />
                 </property>
               </properties>
             </atom>
@@ -197,25 +206,60 @@ margin-top: 20px;
     </widget>
   </components>
   <amendments>
+    <duplicateComponent>
+      <componentPath>0/1/3</componentPath>
+    </duplicateComponent>
     <setPropertyFixed>
-      <componentPath>0/1/1</componentPath>
+      <componentPath>0/1/3</componentPath>
       <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[#Hello!!!
+      <fixedValue><![CDATA[<div style="float: left; margin: 10px; height: 200px; width: 200px; background-color: red"></div>]]></fixedValue>
+    </setPropertyFixed>
+    <duplicateComponent>
+      <componentPath>0/1/3</componentPath>
+    </duplicateComponent>
+    <duplicateComponent>
+      <componentPath>0/1/4</componentPath>
+    </duplicateComponent>
+    <duplicateComponent>
+      <componentPath>0/1/5</componentPath>
+    </duplicateComponent>
+    <duplicateComponent>
+      <componentPath>0/1/6</componentPath>
+    </duplicateComponent>
+    <setPropertyFixed>
+      <componentPath>0/1/7</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[<div style="clear:both"></div>]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/0/0</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[body {
+  font-family: monospace;
+  font-size: 24px;
+padding: 30px;
+}
 
-##How
+h1 {
+  color: red;
+}
 
-###are
+h2 {
+  color: orange;
+}
 
-####you?
+h3 {
+  color: blue;
+}
+
+h4 {
+  color: green;
+}
+
+div {
+margin-top: 20px;
+}
                   ]]></fixedValue>
     </setPropertyFixed>
-    <moveComponent>
-      <sourcePath>0/1/5</sourcePath>
-      <targetPath>0/1/4</targetPath>
-    </moveComponent>
-    <setComment>
-      <componentPath>0/1/0</componentPath>
-      <comment><![CDATA[]]></comment>
-    </setComment>
   </amendments>
 </template>

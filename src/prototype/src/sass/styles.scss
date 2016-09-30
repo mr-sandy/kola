@@ -42,6 +42,7 @@ div.property {
 
 .toolbox{
     padding: 3px;
+    overflow: scroll;
     position: absolute;
     top: 30px;
     left: 0;
@@ -51,6 +52,7 @@ div.property {
 
 .structure{
     padding: 3px;
+    overflow: scroll;
     position: absolute;
     top: 30px;
     left: 150px;
@@ -60,6 +62,7 @@ div.property {
 
 .properties{
     padding: 3px;
+    overflow: scroll;
     position: absolute;
     top: 30px;
     left: 300px;
@@ -69,6 +72,7 @@ div.property {
 
 .preview{
     position: absolute;
+    overflow: auto;
     top: 30px;
     left: 450px;
     bottom: 0;

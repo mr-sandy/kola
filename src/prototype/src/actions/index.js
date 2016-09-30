@@ -1,3 +1,5 @@
+import { findComponentByPath } from './helpers/templateHelpers';
+
 export const REQUEST_TEMPLATE = 'REQUEST_TEMPLATE';
 export const RECEIVE_TEMPLATE = 'RECEIVE_TEMPLATE';
 export const SELECT_COMPONENT = 'SELECT_COMPONENT';
@@ -17,6 +19,12 @@ export const selectComponent = (component) => ({
   payload: { component }
 });
 
+export const selectComponentByPath = componentPath => (dispatch, getState) => {
+  const template = getState().template.template;
+  const component = findComponentByPath(template, componentPath);
+  return dispatch(selectComponent(component))
+}
+
 const fetchPosts = templatePath => dispatch => {
   dispatch(requestTemplate(templatePath))
   return fetch(`${process.env.serviceRoot}/_kola/templates?templatePath=${templatePath}`)
@@ -33,3 +41,4 @@ export const fetchTemplateIfNeeded = templatePath => (dispatch, getState) => {
     return dispatch(fetchPosts(templatePath))
   }
 }
+

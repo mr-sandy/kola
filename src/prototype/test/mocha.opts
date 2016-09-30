@@ -1,0 +1,6 @@
+--compilers js:babel-register
+--require babel-polyfill
+--recursive
+--reporter spec
+--timeout 60000
+-r jsdom-global/register
