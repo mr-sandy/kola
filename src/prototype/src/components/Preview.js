@@ -71,31 +71,54 @@ class Preview extends Component {
         if (selectedComponent.path) {
             const nodes = findNodes(this.iframe.contentWindow.document, selectedComponent.path);
             const bounds = findBounds(nodes);
-            const $body = $(this.iframe.contentWindow.document.getElementsByTagName('body'));
-            console.log('Bounds!', bounds);
+            const $body = $(this.iframe.contentWindow.document.getElementsByTagName('html'));
 
-            this.$top.css({
-                height: bounds.top + 'px'
-            });
-            this.$bottom.css({
-                top: bounds.bottom + 'px',
-                height: ($body.outerHeight() - bounds.bottom) + 'px'
-            });
+            if (!bounds.top) {
+                this.$top.css({
+                    height: 0
+                });
 
-            this.$left.css({
-                top: bounds.top + 'px',
-                width: bounds.left + 'px',
-                height: (bounds.bottom - bounds.top) + 'px'
-            });
+                this.$bottom.css({
+                    top: 0,
+                    height: 0
+                });
 
-            this.$right.css({
-                top: bounds.top + 'px',
-                width: ($body.outerWidth() - bounds.right)  + 'px',
-                height: (bounds.bottom - bounds.top) + 'px'
-            });
-            // this.$left = $(body[0]).find('#mask #left');
-            // this.$right = $(body[0]).find('#mask #right');
+                this.$left.css({
+                    top: 0,
+                    width: 0,
+                    height: 0
+                });
 
+                this.$right.css({
+                    left: 0,
+                    top: 0,
+                    width: 0,
+                    height: 0
+                });
+            } else {
+
+                this.$top.css({
+                    height: bounds.top + 'px'
+                });
+
+                this.$bottom.css({
+                    top: bounds.bottom + 'px',
+                    height: ($body.outerHeight() - bounds.bottom) + 'px'
+                });
+
+                this.$left.css({
+                    top: bounds.top + 'px',
+                    width: bounds.left + 'px',
+                    height: (bounds.bottom - bounds.top) + 'px'
+                });
+
+                this.$right.css({
+                    left: bounds.right + 'px',
+                    top: bounds.top + 'px',
+                    width: ($body.outerWidth() - bounds.right) + 'px',
+                    height: (bounds.bottom - bounds.top) + 'px'
+                });
+            }
         }
     }
 

@@ -1,6 +1,7 @@
-import { SELECT_COMPONENT } from '../actions';
+import { combineReducers } from 'redux';
+import { SELECT_COMPONENT, SELECT_PROPERTY } from '../actions';
 
-export default function template(state = {}, action) {
+function selectedComponent (state = {}, action) {
     switch (action.type) {
         case SELECT_COMPONENT:
             return state === action.payload.component ? {} : action.payload.component; 
@@ -9,3 +10,15 @@ export default function template(state = {}, action) {
             return state;
     }
 }
+
+function selectedProperty (state = {}, action) {
+    switch (action.type) {
+        case SELECT_PROPERTY:
+            return action.payload.property; 
+
+        default:
+            return state;
+    }
+}
+
+export default combineReducers({ selectedComponent, selectedProperty });

@@ -3,6 +3,7 @@ import { findComponentByPath } from './helpers/templateHelpers';
 export const REQUEST_TEMPLATE = 'REQUEST_TEMPLATE';
 export const RECEIVE_TEMPLATE = 'RECEIVE_TEMPLATE';
 export const SELECT_COMPONENT = 'SELECT_COMPONENT';
+export const SELECT_PROPERTY = 'SELECT_PROPERTY';
 
 export const requestTemplate = templatePath => ({
   type: REQUEST_TEMPLATE,
@@ -14,9 +15,14 @@ export const receiveTemplate = (templatePath, template) => ({
   payload: { templatePath, template }
 });
 
-export const selectComponent = (component) => ({
+export const selectComponent = component => ({
   type: SELECT_COMPONENT,
   payload: { component }
+});
+
+export const selectProperty = property => ({
+  type: SELECT_PROPERTY,
+  payload: { property }
 });
 
 export const selectComponentByPath = componentPath => (dispatch, getState) => {

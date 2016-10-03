@@ -261,5 +261,39 @@ margin-top: 20px;
 }
                   ]]></fixedValue>
     </setPropertyFixed>
+    <resetProperty>
+      <componentPath>0/0/0</componentPath>
+      <propertyName>content</propertyName>
+    </resetProperty>
+    <setPropertyFixed>
+      <componentPath>0/0/0</componentPath>
+      <propertyName>content</propertyName>
+      <fixedValue><![CDATA[body {
+  font-family: monospace;
+  font-size: 24px;
+padding: 30px;
+}
+
+h1 {
+  color: red;
+}
+
+h2 {
+  color: orange;
+}
+
+h3 {
+  color: blue;
+}
+
+h4 {
+  color: green;
+}
+
+div {
+margin-top: 20px;
+}
+                  ]]></fixedValue>
+    </setPropertyFixed>
   </amendments>
 </template>
