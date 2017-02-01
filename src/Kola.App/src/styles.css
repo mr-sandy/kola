@@ -7,3 +7,7 @@
 .transition-all {
     transition: all 100ms;
 }
+
+div, section, button, a, li, ul {
+    box-sizing: border-box;
+}

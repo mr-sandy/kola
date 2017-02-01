@@ -44,7 +44,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="public\css\font-awesome.css" />
+    <Content Include="public\css\font-awesome.min.css" />
     <Content Include="public\favicon.ico" />
+    <Content Include="public\fonts\fontawesome-webfont.svg" />
     <Content Include="public\index.html" />
     <Content Include="src\actions\helpers\fetchJson.js" />
     <Content Include="src\actions\index.js" />
@@ -79,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="package.json" />
+    <None Include="public\css\font-awesome.css.map" />
+    <None Include="public\fonts\fontawesome-webfont.eot" />
+    <None Include="public\fonts\fontawesome-webfont.ttf" />
+    <None Include="public\fonts\fontawesome-webfont.woff" />
+    <None Include="public\fonts\fontawesome-webfont.woff2" />
+    <None Include="public\fonts\FontAwesome.otf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\components\Edit\NewFolder1\" />
