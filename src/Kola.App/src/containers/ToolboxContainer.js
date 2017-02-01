@@ -3,9 +3,8 @@ import { fetchComponents } from '../actions';
 import Toolbox from '../components/Toolbox';
 import { initialiseOnMount } from './helpers/higherOrderComponents';
 
-const mapStateToProps = (state, ownProps) => ({
-    //productPurchaseInformation: state.productPurchaseInformation,
-    //orderUrl: ownProps.location.query.orderUrl
+const mapStateToProps = state => ({
+    components: state.components
 });
 
 const mapDispatchToProps = dispatch => ({

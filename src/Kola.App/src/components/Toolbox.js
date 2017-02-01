@@ -6,10 +6,13 @@ const style = {
     width: '100px'
 };
 
-const Toolbox = props => {
+const Toolbox = ({components}) => {
 
-    return (<div style={style}>
-        
+    return (
+        <div style={style}>
+        <ul>
+        {components.map(component => <li key={component.name}>{component.name}</li>)}
+        </ul>
     </div>
     );
 }

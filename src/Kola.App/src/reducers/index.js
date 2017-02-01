@@ -1,24 +1,17 @@
 ﻿import { combineReducers } from 'redux';
 import { RECEIVE_COMPONENTS } from '../actions';
 
-const something = (state = {}, action) => {
+const components = (state = [], action) => {
     switch(action.type) {
         case RECEIVE_COMPONENTS:
-            console.log(action)
-            return state;
-        //    return action.payload
-        //        ? {
-        //            name: action.payload.name,
-        //            url: action.payload.links.find(l => l.rel === 'self').href
-        //        }
-        //        : null;
+            return action.payload;
         default:
             return state;
     }
 }
 
 const rootReducer = combineReducers({
-    something
+    components
 });
 
 export default rootReducer;
