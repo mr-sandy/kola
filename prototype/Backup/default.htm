@@ -1,0 +1,409 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Kola - Super Awesome</title>
+    <link rel="Stylesheet" type="text/css" href="/css/kola.min.css" />
+    <link rel="Stylesheet" type="text/css" href="/css/font-awesome.css" />
+</head>
+<body class="application">
+    <section class="sidebar">
+        <button type="button" class="hide-tools"><i class="fa fa-arrow-left fa-2x"></i></button>
+        <div class="primary">
+            <button type="button" class="toggle-add-component"><i class="fa fa-plus-square fa-2x"></i></button>
+            <button type="button" class="toggle-block-editor"><i class="fa fa-th-large fa-2x"></i></button>
+            <button type="button" class="toggle-properties"><i class="fa fa-table fa-2x"></i></button>
+        </div>
+        <div class="secondary">
+            <button type="button" class="undo"><i class="fa fa-undo fa-lg"></i></button>
+            <button type="button" class="cut"><i class="fa fa-cut fa-lg"></i></button>
+            <button type="button" class="copy"><i class="fa fa-copy fa-lg"></i></button>
+            <button type="button" class="paste"><i class="fa fa-paste fa-lg"></i></button>
+        </div>
+        <div class="footer">
+            <button type="button" class="pin"><i class="fa fa-thumb-tack fa-lg"></i></button>
+        </div>
+    </section>
+    <button type="button" class="show-tools hidden"><i class="fa fa-wrench fa-2x"></i></button>
+    <section class="toolbars">
+        <div class="toolbar toolbox cols-3 hidden">
+            <div class="content">
+                <div class="accordian">
+                    <span class="accordian-header">standard<i class="fa fa-chevron-down"></i></span>
+                    <div class="accordian-content">
+                        <button type="button" class="atom"><span>markdown</span></button>
+                        <button type="button" class="atom"><span>image</span></button>
+                        <button type="button" class="container"><span>anchor</span></button>
+                        <button type="button" class="container"><span>section</span></button>
+                        <button type="button" class="container"><span>division</span></button>
+                        <button type="button" class="widget"><span>standard page</span></button>
+                        <button type="button" class="widget"><span>legacy page</span></button>
+                        <button type="button" class="widget"><span>very-long-name</span></button>
+                        <button type="button" class="widget"><span>verylongname</span></button>
+                    </div>
+                </div>
+                <div class="accordian">
+                    <span class="accordian-header">fancy<i class="fa fa-chevron-down"></i></span>
+                    <div class="accordian-content">
+                        <button type="button" class="container"><span>section</span></button>
+                        <button type="button" class="container"><span>division</span></button>
+                        <button type="button" class="widget"><span>standard page</span></button>
+                        <button type="button" class="widget"><span>legacy page</span></button>
+                        <button type="button" class="widget"><span>very-long-name</span></button>
+                        <button type="button" class="widget"><span>verylongname</span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <button type="button" class="toolbox-settings"><i class="fa fa-cog fa-lg"></i></button>
+            </div>
+        </div>
+        <div class="toolbar block-editor hidden">
+            <div class="content">
+                <ol class="components">
+                    <li class="atom"><span>markdown</span></li>
+                    <li class="atom"><span>image</span></li>
+                    <li class="container"><span>section</span>
+                        <ol class="components"></ol>
+                    </li>
+                    <li class="widget"><span>my widget</span>
+                        <ol class="areas">
+                            <li class="area"><span>area 1</span><ol class="components"></ol>
+                            </li>
+                            <li class="area"><span>area 52</span><ol class="components"></ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li class="atom"><span>markdown</span></li>
+                    <li class="atom"><span>image</span></li>
+                    <li class="container"><span>section</span>
+                        <ol class="components"></ol>
+                    </li>
+                    <li class="widget"><span>my widget</span>
+                        <ol class="areas">
+                            <li class="area"><span>area 1</span><ol class="components"></ol>
+                            </li>
+                            <li class="area"><span>area 52</span><ol class="components"></ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li class="atom"><span>markdown</span></li>
+                    <li class="atom"><span>image</span></li>
+                    <li class="container"><span>section</span>
+                        <ol class="components"></ol>
+                    </li>
+                    <li class="widget"><span>my widget</span>
+                        <ol class="areas">
+                            <li class="area"><span>area 1</span><ol class="components"></ol>
+                            </li>
+                            <li class="area"><span>area 52</span><ol class="components"></ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li class="atom"><span>markdown</span></li>
+                    <li class="atom"><span>image</span></li>
+                    <li class="container"><span>section</span>
+                        <ol class="components"></ol>
+                    </li>
+                    <li class="widget"><span>my widget</span>
+                        <ol class="areas">
+                            <li class="area"><span>area 1</span><ol class="components"></ol>
+                            </li>
+                            <li class="area"><span>area 52</span><ol class="components"></ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li class="atom"><span>markdown</span></li>
+                    <li class="atom"><span>image</span></li>
+                    <li class="container"><span>section</span>
+                        <ol class="components"></ol>
+                    </li>
+                    <li class="widget"><span>my widget</span>
+                        <ol class="areas">
+                            <li class="area"><span>area 1</span><ol class="components"></ol>
+                            </li>
+                            <li class="area"><span>area 52</span><ol class="components"></ol>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+            </div>
+            <div class="footer">
+                <button type="button" class="toolbox-settings"><i class="fa fa-cog fa-lg"></i></button>
+            </div>
+        </div>
+        <div class="toolbar properties hidden">
+            <div class="content">
+                <div class="property-group accordian">
+                    <span class="group-name accordian-header">Group Name<i class="fa fa-chevron-down"></i></span>
+                    <div class="items accordian-content">
+                        <div class="property">
+                            <label class="name">Property Name</label>
+                            <div class="value">
+                                <label>Property value</label>
+                            </div>
+                        </div>
+                        <div class="property">
+                            <label class="name">Property Name</label>
+                            <div class="value">
+                                <form>
+                                <input type="text" value="Property Value" />
+                                </form>
+                            </div>
+                        </div>
+                        <div class="property">
+                            <label class="name">Property Name</label>
+                            <div class="value">
+                                <label>Property value</label>
+                            </div>
+                        </div>
+                        <div class="property">
+                            <label class="name">Property Name</label>
+                            <div class="value">
+                                <label>Property value</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="property">
+                    <label class="name">Property Name</label>
+                    <div class="value">
+                        <form>
+                        <textarea rows="3">Property Value</textarea>
+                        </form>
+                    </div>
+                </div>
+                <div class="property">
+                    <label class="name">Responsive property</label>
+                    <div class="value">
+                        <table class="responsive">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        XXL
+                                    </td>
+                                    <td>
+                                        First value
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        L
+                                    </td>
+                                    <td>
+                                        Second value
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        M
+                                    </td>
+                                    <td>
+                                        Third value
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="property">
+                    <label class="name">Responsive property 2</label>
+                    <div class="value">
+                        <table class="responsive">
+                        </table>
+                    </div>
+                </div>
+                <div class="property">
+                    <label class="name">Property Name</label>
+                    <div class="value">
+                        <label>Property value</label>
+                    </div>
+                </div>
+                <div class="property">
+                    <label class="name">Composite property</label>
+                    <div class="value">
+                        <table class="composite">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Font size
+                                    </td>
+                                    <td>
+                                        18px
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Font weight
+                                    </td>
+                                    <td>
+                                        Bold
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Line height
+                                    </td>
+                                    <td>
+                                        21px
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="property">
+                    <label class="name">Grid placement</label>
+                    <div class="value">
+                        <table class="responsive">
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        xxl
+                                    </td>
+                                    <td class="tabular">
+                                        <table class="composite">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        left
+                                                    </td>
+                                                    <td>
+                                                        fine
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        top
+                                                    </td>
+                                                    <td>
+                                                        thin
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        m
+                                    </td>
+                                    <td class="tabular">
+                                        <table class="composite">
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        bottom
+                                                    </td>
+                                                    <td>
+                                                        fine
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        top
+                                                    </td>
+                                                    <td>
+                                                        thick
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="property">
+                    <label class="name">Property Name</label>
+                    <div class="value">
+                        <label>Property value</label>
+                    </div>
+                </div>
+                <div class="property">
+                    <label class="name">Property Name</label>
+                    <div class="value">
+                        <form>
+                        <select>
+                            <option>Property value 1</option>
+                            <option>Property value 2</option>
+                            <option>Property value 3</option>
+                        </select>
+                        </form>
+                    </div>
+                </div>
+                <div class="property">
+                    <label class="name">Property Name</label>
+                    <div class="value">
+                        <label>Property value</label>
+                    </div>
+                </div>
+                <div class="property-group accordian">
+                    <span class="group-name accordian-header">Group Name<i class="fa fa-chevron-down"></i></span>
+                    <div class="items accordian-content">
+                        <div class="property">
+                            <label class="name">Property Name</label>
+                            <div class="value">
+                                <label>Property value</label>
+                            </div>
+                        </div>
+                        <div class="property">
+                            <label class="name">Property Name</label>
+                            <div class="value">
+                                <label>Property value</label>
+                            </div>
+                        </div>
+                        <div class="property">
+                            <label class="name">Property Name</label>
+                            <div class="value">
+                                <label>Property value</label>
+                            </div>
+                        </div>
+                        <div class="property">
+                            <label class="name">Property Name</label>
+                            <div class="value">
+                                <label>Property value</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-group accordian">
+                    <span class="group-name accordian-header">Group Name<i class="fa fa-chevron-down"></i></span>
+                    <div class="items accordian-content">
+                        <div class="property">
+                            <label class="name">Property Name</label>
+                            <div class="value">
+                                <label>Property value</label>
+                            </div>
+                        </div>
+                        <div class="property">
+                            <label class="name">Property Name</label>
+                            <div class="value">
+                                <label>Property value</label>
+                            </div>
+                        </div>
+                        <div class="property">
+                            <label class="name">Property Name</label>
+                            <div class="value">
+                                <label>Property value</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <button type="button" class="toolbox-settings"><i class="fa fa-cog fa-lg"></i></button>
+            </div>
+        </div>
+    </section>
+    <section class="preview">
+        <div class="inner">
+            <iframe src="http://www.linn.co.uk"></iframe>
+        </div>
+    </section>
+    <script type="text/javascript" src="scripts/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery-ui-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/kola.js"></script>
+</body>
+</html>

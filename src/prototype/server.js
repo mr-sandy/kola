@@ -13,10 +13,10 @@ new WebpackDevServer(webpack(config), {
     secure: false
   }
 }
-}).listen(3000, 'localhost', function (err, result) {
+}).listen(3001, 'localhost', function (err, result) {
   if (err) {
     return console.log(err);
   }
 
-  console.log('Listening at http://localhost:3000/');
+  console.log('Listening at http://localhost:3001/');
 });

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import $ from 'jquery';
 
 const findNodes = (node, componentPath) => {
-    if (node.nodeType === 8 && node.nodeValue === (`${componentPath}-start`)) {
+    if (node.nodeType === 8 && node.nodeValue === `${componentPath}-start`) {
         const nodes = [node];
         let next = node.nextSibling;
         while (next && next.nodeType !== 8 && next.nodeValue !== (`${componentPath}-end`)) {
