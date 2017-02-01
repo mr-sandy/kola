@@ -48,27 +48,40 @@
     <Content Include="public\index.html" />
     <Content Include="src\actions\helpers\fetchJson.js" />
     <Content Include="src\actions\index.js" />
-    <Content Include="src\components\Edit.js" />
+    <Content Include="src\components\Edit\Edit.js" />
+    <Content Include="src\components\Edit\index.js" />
+    <Content Include="src\components\Edit\Structure\Component.js" />
+    <Content Include="src\components\Edit\Structure\index.js" />
+    <Content Include="src\components\Edit\Toolbox\Component.js" />
+    <Content Include="src\components\Edit\Toolbox\Group.js" />
+    <Content Include="src\components\Edit\Toolbox\Toolbox.js" />
+    <Content Include="src\components\helpers\index.js" />
+    <Content Include="src\containers\Edit\index.js" />
     <Content Include="src\containers\helpers\higherOrderComponents.js" />
-    <Content Include="src\components\Properties.js" />
-    <Content Include="src\components\Preview.js" />
-    <Content Include="src\components\Structure.js" />
-    <Content Include="src\components\Toolbox.js" />
+    <Content Include="src\components\Edit\Properties.js" />
+    <Content Include="src\components\Edit\Preview.js" />
+    <Content Include="src\components\Edit\Structure\Structure.js" />
+    <Content Include="src\components\Edit\Toolbox\index.js" />
     <Content Include="src\components\Templates.js" />
     <Content Include="src\components\Home.js" />
     <Content Include="src\components\App.js" />
-    <Content Include="src\components\SideBar.js" />
-    <Content Include="src\containers\ToolboxContainer.js" />
-    <Content Include="src\containers\EditContainer.js" />
+    <Content Include="src\components\Edit\SideBar.js" />
+    <Content Include="src\containers\Edit\Toolbox.js" />
+    <Content Include="src\containers\Edit\Edit.js" />
     <Content Include="src\configureStore.js" />
     <Content Include="src\containers\Root.js" />
     <Content Include="src\config.js" />
     <Content Include="src\index.js" />
+    <Content Include="src\reducers\template.js" />
+    <Content Include="src\reducers\components.js" />
     <Content Include="src\reducers\index.js" />
     <Content Include="src\styles.css" />
   </ItemGroup>
   <ItemGroup>
     <None Include="package.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\components\Edit\NewFolder1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

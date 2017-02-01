@@ -1,7 +1,7 @@
 ﻿import { connect } from 'react-redux';
-import { fetchComponents } from '../actions';
-import Toolbox from '../components/Toolbox';
-import { initialiseOnMount } from './helpers/higherOrderComponents';
+import { fetchComponents } from '../../actions';
+import Toolbox from '../../components/Edit/Toolbox';
+import { initialiseOnMount } from '../helpers/higherOrderComponents';
 
 const mapStateToProps = state => ({
     components: state.components

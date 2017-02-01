@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, Redirect, IndexRoute, browserHistory } from 'react-router';
-import EditContainer from './EditContainer';
+import Edit from './Edit';
 import App from '../components/App';
 import Home from '../components/Home';
 import Templates from '../components/Templates';
@@ -14,7 +14,7 @@ const Root = ({ store }) => (
                 <IndexRoute component={Home} />
                 <Route name="templates" path="templates">
                     <IndexRoute component={Templates} />
-                    <Route name="edit" path="edit" component={EditContainer} />
+                    <Route name="edit" path="edit" component={Edit} />
                 </Route>
             </Route>
         </Router>

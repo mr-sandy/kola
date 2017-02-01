@@ -1,17 +1,10 @@
 ﻿import { combineReducers } from 'redux';
-import { RECEIVE_COMPONENTS } from '../actions';
-
-const components = (state = [], action) => {
-    switch(action.type) {
-        case RECEIVE_COMPONENTS:
-            return action.payload;
-        default:
-            return state;
-    }
-}
+import components from './components';
+import template from './template';
 
 const rootReducer = combineReducers({
-    components
+    components,
+    template
 });
 
 export default rootReducer;
