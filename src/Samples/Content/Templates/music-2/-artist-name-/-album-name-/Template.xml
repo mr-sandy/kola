@@ -219,5 +219,16 @@ g
       </components>
     </container>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>1/1/1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#{{username}}s]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>1/1/1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#{{username}}]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>

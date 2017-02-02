@@ -1,46 +1,25 @@
 ﻿import React from 'react';
+import Button from './Button';
+import { buttonTrayStyle }  from './commonStyles';
 
-const style = {
-    position: 'relative',
-    height: '100%',
-    width: '60px',
-    backgroundColor: '#333',
-    color: '#eee',
-    float: 'left',
-    zIndex: '200',
-    paddingTop: '4px',
-    overflow: 'hidden'};
-
-const footerStyle = {
-    position: 'absolute',
-    bottom: '0',
-    left: '0',
-    right: '0',
-    padding: '10px'
+const styles = {
+    normal: {
+        position: 'relative',
+        height: '100%',
+        width: '60px',
+        backgroundColor: '#333',
+        color: '#eee',
+        float: 'left',
+        zIndex: '30'
+    }
 };
 
-const buttonStyle =
-{
-    height: '36px',
-    width: '36px',
-    color: '#fff',
-    backgroundColor: '#555',
-    borderWidth: '2px',
-    borderColor: '#555',
-    borderStyle: 'solid'
-}
-
-const SideBar = props => {
-
-    return (
-    <div style={style}>
-        <div style={footerStyle}>
-            <button style={buttonStyle} type="button" title="Pin Toolbars">
-                <i className="fa fa-thumb-tack fa-lg"></i>
-            </button>
+const SideBar = ({ pinToolbars = () => {}, pinned }) => (
+    <div style={styles.normal}>
+        <div style={buttonTrayStyle}>
+            <Button title="Pin Toolbars" onClick={pinToolbars} icon='fa-thumb-tack' active={pinned} />
         </div>
     </div>
-    );
-}
+);
 
 export default SideBar;

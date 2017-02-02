@@ -1,16 +1,28 @@
 ﻿import React from 'react';
 import Component from './Component';
+import Toolbar from '../Toolbar';
+import ToolbarContent from '../ToolbarContent';
+import ToolbarButtonTray from '../ToolbarButtonTray';
+import Button from '../Button';
 
-const style = {
-    color: '#fff',
-    backgroundColor: 'rgba(0,0,0,0.6)',
-    padding: '4px'
-};
+const styles = {
+    base: {
+        width: '242px'
+    },  
+    content: {
+        padding: '10px'
+    }
+}
 
 const Structure = ({ components = [] }) => (
-    <div style={style}>
-        {components.map((component, i) => <Component key={i} component={component} />)}
-    </div>
+    <Toolbar style={styles.base}>
+        <ToolbarContent style={styles.content}>
+            {components.map((component, i) => <Component key={i} component={component} />)}
+        </ToolbarContent>
+        <ToolbarButtonTray>
+            <Button title="Pin Toolbars" onClick={() => console.log('clicked')} icon='fa-cog' active={false} />
+        </ToolbarButtonTray>
+    </Toolbar>
 );
 
 export default Structure;

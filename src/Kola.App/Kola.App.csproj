@@ -51,12 +51,17 @@
     <Content Include="public\index.html" />
     <Content Include="src\actions\helpers\fetchJson.js" />
     <Content Include="src\actions\index.js" />
+    <Content Include="src\components\Edit\ToolbarButtonTray.js" />
+    <Content Include="src\components\Edit\ToolbarContent.js" />
+    <Content Include="src\components\Edit\Toolbar.js" />
+    <Content Include="src\components\Edit\commonStyles.js" />
     <Content Include="src\components\Edit\Edit.js" />
     <Content Include="src\components\Edit\index.js" />
     <Content Include="src\components\Edit\Structure\Component.js" />
     <Content Include="src\components\Edit\Structure\index.js" />
     <Content Include="src\components\Edit\Toolbox\Component.js" />
     <Content Include="src\components\Edit\Toolbox\Group.js" />
+    <Content Include="src\components\Edit\Button.js" />
     <Content Include="src\components\Edit\Toolbox\Toolbox.js" />
     <Content Include="src\components\helpers\index.js" />
     <Content Include="src\containers\Edit\index.js" />
@@ -89,9 +94,7 @@
     <None Include="public\fonts\fontawesome-webfont.woff2" />
     <None Include="public\fonts\FontAwesome.otf" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="src\components\Edit\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

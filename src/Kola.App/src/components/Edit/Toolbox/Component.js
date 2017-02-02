@@ -8,8 +8,10 @@ const styles ={
         borderColor: 'transparent',
         backgroundColor: '#666',
         borderStyle: 'solid',
-        width: '25%',
-        display: 'inline-block'
+        width: '30%',
+        height: '60px',
+        display: 'block',
+        float: 'left'
     },
     hover: {
         borderColor: '#fff'
