@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import {groupBy} from '../../helpers';
+import { groupBy, orderBy } from '../../helpers';
 import Group from './Group';
 import Button from '../Button';
 import Toolbar from '../Toolbar';
@@ -17,7 +17,7 @@ const styles = {
 
 const Toolbox = ({components}) => {
 
-    const groups = groupBy(components, component => component.category);
+    const groups = orderBy(groupBy(components, component => component.category), g => g.key);
 
     return (
         <Toolbar style={styles.base}>

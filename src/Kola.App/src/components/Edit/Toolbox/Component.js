@@ -1,21 +1,50 @@
 ﻿import React, { Component } from 'react';
 
-const styles ={
-    normal: {
-        padding: '4px',
-        margin: '4px',
-        borderWidth: '1px',
-        borderColor: 'transparent',
-        backgroundColor: '#666',
-        borderStyle: 'solid',
-        width: '30%',
-        height: '60px',
+const styles = {
+    outer: {
         display: 'block',
-        float: 'left'
+        height: '70px',
+        width: '33.3333%',
+        float: 'left',
+        margin: '0',
+        padding: '2px'
     },
-    hover: {
-        borderColor: '#fff'
-    }};
+    inner: {
+        display: 'flex',
+        height: '100%',
+        width: '100%',
+        padding: '2px',
+        color: '#eee',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center',
+        borderRadius: '2px',
+        borderWidth: '2px',
+        borderStyle: 'solid',
+        borderColor: 'transparent'
+    },
+    innerHover: {
+        borderColor: '#ddd'
+    },
+    innerAtom: {
+        backgroundColor: 'rgba(178,32,40,0.2)'
+    },
+    innerAtomHover: {
+        backgroundColor: 'rgba(178,32,40,0.5)'
+    },
+    innerContainer: {
+        backgroundColor: 'rgba(178,97,32,0.2)'
+    },
+    innerContainerHover: {
+        backgroundColor: 'rgba(178,97,32,0.5)'
+    },
+    innerWidget: {
+        backgroundColor: 'rgba(32,113,178,0.2)'
+},
+    innerWidgetHover: {
+        backgroundColor: 'rgba(32,113,178,0.5)'
+    }
+};
 
 class KolaComponent extends Component {
     state = {
@@ -25,10 +54,33 @@ class KolaComponent extends Component {
     render() {
         const { component } = this.props;
 
-        const style = this.state.hovering ? { ...styles.normal, ...styles.hover } : styles.normal;
+        let innerStyle = this.state.hovering ? { ...styles.inner, ...styles.innerHover } : styles.inner;
+        let colourStyle;
 
-        return (<li className="transition-all" style={style} onMouseEnter={() => this.toggleHover()} onMouseLeave={() => this.toggleHover()}>{component.name}</li>);
+        switch (component.type) {
+            case 'atom':
+                colourStyle = this.state.hovering ? styles.innerAtomHover : styles.innerAtom;
+                break;
+            case 'container':
+                colourStyle = this.state.hovering ? styles.innerWidgetHover : styles.innerWidget;
+                break;
+            case 'widget':
+                colourStyle = this.state.hovering ? styles.innerContainerHover : styles.innerContainer;
+                break;
+            default:
+                colourStyle = {};
+                break;
         }
+
+
+        innerStyle = {...innerStyle, ...colourStyle }
+
+        return (
+            <div style={styles.outer} onMouseEnter={() => this.toggleHover()} onMouseLeave={() => this.toggleHover()}>
+                <span className="transition-all" style={innerStyle}>{component.name}</span>
+            </div>
+        );
+                }
 
     toggleHover() {
         this.setState({hovering: !this.state.hovering})

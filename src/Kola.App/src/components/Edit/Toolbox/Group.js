@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import Component from './Component';
+import Accordian from '../Accordian';
 
 const styles = {
     caption: {
@@ -14,12 +15,9 @@ const styles = {
 }
 
 const Group = ({ name, components }) => (
-    <div>
-        <span style={styles.caption}>{name}</span>
-        <ul style={styles.list}>
+    <Accordian caption={name}>
         {components.map(component => <Component key={component.name} component={component} />)}
-        </ul>
-    </div>
+    </Accordian>
 );
 
 export default Group;

@@ -16,3 +16,17 @@ export const groupBy = (items, keyFunc) => items.reduce((groups, item) => {
     },
     []
 );
+
+export const orderBy = (items, orderPropertyFunc) => items.sort((a, b) => {
+    var propertyA = orderPropertyFunc(a);
+    var propertyB = orderPropertyFunc(b);
+
+    if (propertyA < propertyB) {
+        return -1;
+    }
+    if (propertyA > propertyB) {
+        return 1;
+    }
+
+    return 0;
+});

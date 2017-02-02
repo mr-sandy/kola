@@ -1,13 +1,23 @@
 ﻿body {
     margin: 0;
     padding: 0;
+    font-size: 11px;
+    font-family: sans-serif;
 }
 
 .transition-all {
     transition: all 100ms;
 }
 
-div, section, button, a, li, ul {
+.transition-all-250 {
+    transition: all 250ms;
+}
+
+.transition-all-500 {
+    transition: all 500ms;
+}
+
+div, section, button, a, li, ul, span {
     box-sizing: border-box;
 }
 

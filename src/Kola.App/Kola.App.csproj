@@ -51,6 +51,7 @@
     <Content Include="public\index.html" />
     <Content Include="src\actions\helpers\fetchJson.js" />
     <Content Include="src\actions\index.js" />
+    <Content Include="src\components\Edit\Accordian.js" />
     <Content Include="src\components\Edit\ToolbarButtonTray.js" />
     <Content Include="src\components\Edit\ToolbarContent.js" />
     <Content Include="src\components\Edit\Toolbar.js" />
