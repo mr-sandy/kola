@@ -5,18 +5,14 @@ import Accordian from '../Accordian';
 const styles = {
     caption: {
         textTransform: 'uppercase',
-        color: '#fff'
-    },
-    list: {
-        listStyle: 'none',
-        padding: 0,
-        color: '#fff'
+        color: '#fff',
+        padding: '10px'
     }
 }
 
 const Group = ({ name, components }) => (
-    <Accordian caption={name}>
-        {components.map(component => <Component key={component.name} component={component} />)}
+    <Accordian caption={name} captionStyle={styles.caption}>
+        {components.map((component, i) => <Component key={i} component={component} />)}
     </Accordian>
 );
 

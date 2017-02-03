@@ -1,4 +1,4 @@
-﻿import React, { Component } from 'react';
+﻿import React from 'react';
 import { buttonTrayStyle } from './commonStyles';
 
 const defaultStyle = {
@@ -13,4 +13,5 @@ const ToolbarButtonTray = ({ children, style }) => (
         {children}
     </div>
 );
+
 export default ToolbarButtonTray;

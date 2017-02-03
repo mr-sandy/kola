@@ -1,22 +1,92 @@
-﻿import React from 'react';
+﻿import React, { Component } from 'react';
+import Accordian from '../Accordian';
 
-const style = {
-    padding: '4px',
-    margin: '4px',
-    borderWidth: '1px',
-    borderColor: '#fff',
-    borderStyle: 'solid'
+const styles = {
+    outer: {
+        color: '#eee',
+        borderWidth: '1px',
+        borderColor: '#ccc',
+        borderStyle: 'solid',
+        marginBottom: '8px'
+    },
+    caption: {
+        display: 'block',
+        padding: '8px'
+    },
+    inner: {
+        padding: '8px',
+        borderTopWidth: '1px',
+        borderTopColor: '#ccc',
+        borderTopStyle: 'solid'
+    }
 };
 
-const Component = ({ component }) => {
-    const children = component.areas || component.components || [];
+class KolaComponent extends Component {
+    render() {
+        const { component, selectComponent, highlightComponent, selectedComponent, highlightedComponent } = this.props;
+        
+        const children = component.areas || component.components || [];
+        
+        let outerStyle = component.path === selectedComponent ? { ...styles.outer, borderColor: '#fff' } : styles.outer;
+        outerStyle = component.path === highlightedComponent ? { ...outerStyle, backgroundColor: 'rgba(255,255,255,0.3)' } : outerStyle;
 
-    return (
-        <div style={style}>
-        <span>{component.type}: {component.name} ({component.path}) </span>
-        {children.map((component, i) => <Component key={i} component={component} />) }
-    </div>
-    );
+        switch (component.type) {
+            case 'atom':
+                return (
+                    <div style={outerStyle} 
+                         onMouseOver={e => this.handleMouseOver(e)}
+                         onMouseLeave={e => this.handleMouseLeave(e)}
+                         onClick={e => this.handleClick(e)}>
+                        <span style={styles.caption}>{component.type}: {component.name}</span>
+                    </div>
+                );
+
+            case 'container':
+            case 'widget':
+                return (<Accordian outerStyle={outerStyle} 
+                                   captionStyle={styles.caption} 
+                                   innerStyle={styles.inner} caption={`${component.type}: ${component.name}`} 
+                                   className='transition-all'
+                                   onMouseOver={e => this.handleMouseOver(e)}
+                                   onMouseLeave={e => this.handleMouseLeave(e)}
+                                   onClick={e => this.handleClick(e)}>
+                    {children.map((c, i) => <KolaComponent key={i} component={c} selectComponent={selectComponent} highlightComponent={highlightComponent} selectedComponent={selectedComponent} highlightedComponent={highlightedComponent} />)}
+                </Accordian>
+                );
+
+            default:
+                return false;
+        }
+    }
+
+    handleClick(e) {
+        e.stopPropagation();
+
+        const { component, selectComponent } = this.props;
+        if (selectComponent) {
+            selectComponent(component.path);
+        }
+    }
+
+    handleMouseOver(e) {
+        e.stopPropagation();
+
+        const { component, highlightComponent, highlightedComponent } = this.props;
+
+        if (highlightComponent && highlightedComponent !== component.path) {
+            highlightComponent(component.path)
+        }
+    }
+
+    handleMouseLeave(e) {
+        e.stopPropagation();
+
+        const { component, highlightComponent, highlightedComponent } = this.props;
+
+        if (highlightComponent && highlightedComponent === component.path) {
+            highlightComponent(component.path)
+        }
+    }
 }
 
-export default Component;
+export default KolaComponent;

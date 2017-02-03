@@ -1,4 +1,4 @@
-﻿import React, { Component } from 'react';
+﻿import React  from 'react';
 
 const defaultStyle = {
     position: 'absolute',
@@ -14,4 +14,5 @@ const ToolbarContent = ({ children, style }) => (
         {children}
     </div>
 );
+
 export default ToolbarContent ;

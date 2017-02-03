@@ -2,7 +2,7 @@
 import SideBar from './SideBar';
 import Toolbox from '../../containers/Edit/Toolbox';
 import Structure from './Structure';
-import Properties from './Properties';
+//import Properties from './Properties';
 import Preview from './Preview';
 
 const styles = {
@@ -39,7 +39,7 @@ class Edit extends Component {
     }
 
     render () {
-        const { template } = this.props;
+        const { template, selectComponent, highlightComponent, highlightedComponent, selectedComponent } = this.props;
         const toolbarsStyle = this.state.toolbarsPinned ? { ...styles.toolbars, ...styles.toolbarsPinned } : styles.toolbars;
 
         return (
@@ -47,7 +47,7 @@ class Edit extends Component {
                 <SideBar pinToolbars={() => this.toggleToolbarsPinned()} pinned={this.state.toolbarsPinned} />
                 <div className="smaller-scrollbars" style={toolbarsStyle}>
                     <Toolbox />
-                    <Structure components={template.components} />
+                    <Structure components={template.components} selectComponent={selectComponent} highlightComponent={highlightComponent} selectedComponent={selectedComponent} highlightedComponent={highlightedComponent} />
                 </div>
                 <Preview previewUrls={getPreviewUrls(template)} />
             </div>

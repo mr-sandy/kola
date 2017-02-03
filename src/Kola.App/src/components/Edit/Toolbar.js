@@ -1,4 +1,4 @@
-﻿import React, { Component } from 'react';
+﻿import React from 'react';
 
 const defaultStyle = {
     float: 'left',
@@ -14,4 +14,5 @@ const Toolbar = ({ children, style }) => (
         {children}
     </div>
 );
+
 export default Toolbar ;
