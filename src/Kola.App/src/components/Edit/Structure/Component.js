@@ -14,7 +14,7 @@ const styles = {
         padding: '8px'
     },
     inner: {
-        padding: '8px',
+        padding: '8px 8px 0 8px',
         borderTopWidth: '1px',
         borderTopColor: '#ccc',
         borderTopStyle: 'solid'
@@ -27,13 +27,14 @@ class KolaComponent extends Component {
         
         const children = component.areas || component.components || [];
         
-        let outerStyle = component.path === selectedComponent ? { ...styles.outer, borderColor: '#fff' } : styles.outer;
-        outerStyle = component.path === highlightedComponent ? { ...outerStyle, backgroundColor: 'rgba(255,255,255,0.3)' } : outerStyle;
+        let outerStyle = component.path === highlightedComponent ? { ...styles.outer, backgroundColor: 'rgba(255,255,255,0.2)' } : styles.outer;
+        outerStyle = component.path === selectedComponent ? { ...outerStyle, borderColor: '#fff', backgroundColor: 'rgba(255,255,255,0.4)' } : outerStyle;
 
         switch (component.type) {
             case 'atom':
                 return (
                     <div style={outerStyle} 
+                         className='transition-all'
                          onMouseOver={e => this.handleMouseOver(e)}
                          onMouseLeave={e => this.handleMouseLeave(e)}
                          onClick={e => this.handleClick(e)}>
