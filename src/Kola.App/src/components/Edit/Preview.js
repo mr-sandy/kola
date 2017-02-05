@@ -20,16 +20,17 @@ const iframeStyle = {
     width: '100%',
     border: 'none'
 }
+
 const Preview = ({previewUrls = []}) => {
 
     const src = previewUrls.length ? 'http://localhost:61134' + previewUrls[0] : '';
 
     return (
-    <div style={style}>
-        <div style={innerStyle}>
-            <iframe seamless="seamless" style={iframeStyle} src={src}></iframe>
+        <div style={style}>
+            <div style={innerStyle}>
+                <iframe seamless="seamless" style={iframeStyle} src={src}></iframe>
+            </div>
         </div>
-    </div>
     );
 }
 

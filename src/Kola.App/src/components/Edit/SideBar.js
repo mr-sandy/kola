@@ -14,10 +14,10 @@ const styles = {
     }
 };
 
-const SideBar = ({ pinToolbars = () => {}, pinned }) => (
+const SideBar = ({ togglePinToolbars = () => {}, toolbarsPinned }) => (
     <div style={styles.normal}>
         <div style={buttonTrayStyle}>
-            <Button title="Pin Toolbars" onClick={pinToolbars} icon='fa-thumb-tack' active={pinned} />
+            <Button title="Pin Toolbars" onClick={togglePinToolbars} icon='fa-thumb-tack' active={toolbarsPinned} />
         </div>
     </div>
 );

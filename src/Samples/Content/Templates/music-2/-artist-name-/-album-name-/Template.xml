@@ -230,5 +230,21 @@ g
       <propertyName>markdown</propertyName>
       <fixedValue><![CDATA[#{{username}}]]></fixedValue>
     </setPropertyFixed>
+    <addComponent>
+      <componentType>container</componentType>
+      <targetPath>1/4</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>1/10/0</sourcePath>
+      <targetPath>1/11</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>container</componentType>
+      <targetPath>0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>0/0/0</targetPath>
+    </addComponent>
   </amendments>
 </template>

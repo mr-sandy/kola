@@ -1,9 +1,9 @@
-﻿import React, { Component } from 'react';
-import SideBar from './SideBar';
+﻿import React from 'react';
+import SideBar from '../../containers/Edit/SideBar';
 import Toolbox from '../../containers/Edit/Toolbox';
-import Structure from './Structure';
+import Structure from '../../containers/Edit/Structure';
 //import Properties from './Properties';
-import Preview from './Preview';
+import Preview from '../../containers/Edit/Preview';
 
 const styles = {
     main: {
@@ -27,39 +27,21 @@ const styles = {
     }
 };
 
-const getPreviewUrls = template => {
-    return template.links
-        ? template.links.filter(l => l.rel === 'preview').map(l => l.href)
-        : [];
-}
+const Edit = ({ toolbarsPinned }) => {
 
-class Edit extends Component {
-    state = {
-        toolbarsPinned: true
-    }
+    const toolbarsStyle = toolbarsPinned
+        ? { ...styles.toolbars, ...styles.toolbarsPinned }
+        : styles.toolbars;
 
-    render () {
-        const { template, selectComponent, highlightComponent, highlightedComponent, selectedComponent } = this.props;
-        const toolbarsStyle = this.state.toolbarsPinned ? { ...styles.toolbars, ...styles.toolbarsPinned } : styles.toolbars;
-
-        return (
-            <div style={styles.main}>
-                <SideBar pinToolbars={() => this.toggleToolbarsPinned()} pinned={this.state.toolbarsPinned} />
-                <div className="smaller-scrollbars" style={toolbarsStyle}>
-                    <Toolbox />
-                    <Structure components={template.components} selectComponent={selectComponent} highlightComponent={highlightComponent} selectedComponent={selectedComponent} highlightedComponent={highlightedComponent} />
-                </div>
-                <Preview previewUrls={getPreviewUrls(template)} />
+    return (
+        <div style={styles.main}>
+            <SideBar />
+            <div className="smaller-scrollbars" style={toolbarsStyle}>
+                <Toolbox />
+                <Structure />
             </div>
-        );
-    }
-
-    toggleToolbarsPinned() {
-        this.setState({toolbarsPinned: !this.state.toolbarsPinned})
-    }
+            <Preview />
+        </div>
+    );
 }
-
 export default Edit;
-
-//
-//<Properties />

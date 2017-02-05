@@ -21,6 +21,22 @@ const styles = {
     }
 };
 
+const getComponentColour = componentType => {
+    switch (componentType) {
+    case 'atom':
+        return 'rgba(178,32,40,0.4)';
+
+        case 'container':
+            return 'rgba(32,113,178,0.4)';
+
+        case 'widget':
+            return 'rgba(178,97,32,0.4)';
+        
+        default:
+            return 'rgba(255,255,255,0.4)';
+    }
+}
+
 class KolaComponent extends Component {
     render() {
         const { component, selectComponent, highlightComponent, selectedComponent, highlightedComponent } = this.props;
@@ -28,7 +44,7 @@ class KolaComponent extends Component {
         const children = component.areas || component.components || [];
         
         let outerStyle = component.path === highlightedComponent ? { ...styles.outer, backgroundColor: 'rgba(255,255,255,0.2)' } : styles.outer;
-        outerStyle = component.path === selectedComponent ? { ...outerStyle, borderColor: '#fff', backgroundColor: 'rgba(255,255,255,0.4)' } : outerStyle;
+        outerStyle = component.path === selectedComponent ? { ...outerStyle, borderColor: '#fff', backgroundColor: getComponentColour(component.type) } : outerStyle;
 
         switch (component.type) {
             case 'atom':
@@ -43,16 +59,29 @@ class KolaComponent extends Component {
                 );
 
             case 'container':
-            case 'widget':
-                return (<Accordian outerStyle={outerStyle} 
+                return (
+                    <Accordian outerStyle={outerStyle} 
                                    captionStyle={styles.caption} 
                                    innerStyle={styles.inner} caption={`${component.type}: ${component.name}`} 
                                    className='transition-all'
                                    onMouseOver={e => this.handleMouseOver(e)}
                                    onMouseLeave={e => this.handleMouseLeave(e)}
                                    onClick={e => this.handleClick(e)}>
-                    {children.map((c, i) => <KolaComponent key={i} component={c} selectComponent={selectComponent} highlightComponent={highlightComponent} selectedComponent={selectedComponent} highlightedComponent={highlightedComponent} />)}
-                </Accordian>
+                        {component.components.map((c, i) => <KolaComponent key={i} component={c} selectComponent={selectComponent} highlightComponent={highlightComponent} selectedComponent={selectedComponent} highlightedComponent={highlightedComponent} />)}
+                    </Accordian>
+                );
+
+            case 'widget':
+                return (
+                    <Accordian outerStyle={outerStyle} 
+                                   captionStyle={styles.caption} 
+                                   innerStyle={styles.inner} caption={`${component.type}: ${component.name}`} 
+                                   className='transition-all'
+                                   onMouseOver={e => this.handleMouseOver(e)}
+                                   onMouseLeave={e => this.handleMouseLeave(e)}
+                                   onClick={e => this.handleClick(e)}>
+                        {children.map((c, i) => <KolaComponent key={i} component={c} selectComponent={selectComponent} highlightComponent={highlightComponent} selectedComponent={selectedComponent} highlightedComponent={highlightedComponent} />)}
+                    </Accordian>
                 );
 
             default:
