@@ -5,6 +5,7 @@ export const RECEIVE_COMPONENTS = 'RECEIVE_COMPONENTS';
 export const RECEIVE_TEMPLATE = 'RECEIVE_TEMPLATE';
 export const SELECT_COMPONENT = 'SELECT_COMPONENT';
 export const HIGHLIGHT_COMPONENT = 'HIGHLIGHT_COMPONENT';
+export const DEHIGHLIGHT_COMPONENT = 'DEHIGHLIGHT_COMPONENT';
 
 export const receiveComponents = components => ({
     type: RECEIVE_COMPONENTS,
@@ -23,6 +24,11 @@ export const selectComponent = componentPath => ({
 
 export const highlightComponent = componentPath => ({
     type: HIGHLIGHT_COMPONENT,
+    payload: componentPath
+});
+
+export const dehighlightComponent = componentPath => ({
+    type: DEHIGHLIGHT_COMPONENT,
     payload: componentPath
 });
 

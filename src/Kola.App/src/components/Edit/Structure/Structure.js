@@ -14,10 +14,10 @@ const styles = {
     }
 }
 
-const Structure = ({ components = [], selectComponent, highlightComponent, selectedComponent, highlightedComponent }) => (
+const Structure = ({ components = [], selectComponent, highlightComponent, dehighlightComponent, selectedComponent, highlightedComponent }) => (
     <Toolbar style={styles.base}>
         <ToolbarContent style={styles.content}>
-            {components.map((component, i) => <Component key={i} component={component} selectComponent={selectComponent} highlightComponent={highlightComponent} selectedComponent={selectedComponent} highlightedComponent={highlightedComponent} />)}
+            {components.map((component, i) => <Component key={i} component={component} selectComponent={selectComponent} highlightComponent={highlightComponent} dehighlightComponent={dehighlightComponent} selectedComponent={selectedComponent} highlightedComponent={highlightedComponent} />)}
         </ToolbarContent>
         <ToolbarButtonTray>
             <Button title="Pin Toolbars" onClick={() => console.log('clicked')} icon='fa-cog' active={false} />

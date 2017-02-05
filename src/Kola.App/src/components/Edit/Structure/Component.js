@@ -39,7 +39,7 @@ const getComponentColour = componentType => {
 
 class KolaComponent extends Component {
     render() {
-        const { component, selectComponent, highlightComponent, selectedComponent, highlightedComponent } = this.props;
+        const { component, selectComponent  = () => {}, highlightComponent  = () => {}, dehighlightComponent  = () => {}, selectedComponent, highlightedComponent } = this.props;
         
         const children = component.areas || component.components || [];
         
@@ -67,7 +67,7 @@ class KolaComponent extends Component {
                                    onMouseOver={e => this.handleMouseOver(e)}
                                    onMouseLeave={e => this.handleMouseLeave(e)}
                                    onClick={e => this.handleClick(e)}>
-                        {component.components.map((c, i) => <KolaComponent key={i} component={c} selectComponent={selectComponent} highlightComponent={highlightComponent} selectedComponent={selectedComponent} highlightedComponent={highlightedComponent} />)}
+{component.components.map((c, i) => <KolaComponent key={i} component={c} selectComponent={selectComponent} highlightComponent={highlightComponent} dehighlightComponent={dehighlightComponent} selectedComponent={selectedComponent} highlightedComponent={highlightedComponent} />)}
                     </Accordian>
                 );
 
@@ -80,7 +80,7 @@ class KolaComponent extends Component {
                                    onMouseOver={e => this.handleMouseOver(e)}
                                    onMouseLeave={e => this.handleMouseLeave(e)}
                                    onClick={e => this.handleClick(e)}>
-                        {children.map((c, i) => <KolaComponent key={i} component={c} selectComponent={selectComponent} highlightComponent={highlightComponent} selectedComponent={selectedComponent} highlightedComponent={highlightedComponent} />)}
+{children.map((c, i) => <KolaComponent key={i} component={c} selectComponent={selectComponent} highlightComponent={highlightComponent} dehighlightComponent={dehighlightComponent}  selectedComponent={selectedComponent} highlightedComponent={highlightedComponent} />)}
                     </Accordian>
                 );
 
@@ -92,30 +92,22 @@ class KolaComponent extends Component {
     handleClick(e) {
         e.stopPropagation();
 
-        const { component, selectComponent } = this.props;
-        if (selectComponent) {
-            selectComponent(component.path);
-        }
+        const { component, selectComponent  = () => {}} = this.props;
+        selectComponent(component.path);
     }
 
     handleMouseOver(e) {
         e.stopPropagation();
 
-        const { component, highlightComponent, highlightedComponent } = this.props;
-
-        if (highlightComponent && highlightedComponent !== component.path) {
-            highlightComponent(component.path)
-        }
+        const { component, highlightComponent = () => {} } = this.props;
+        highlightComponent(component.path)
     }
 
     handleMouseLeave(e) {
         e.stopPropagation();
 
-        const { component, highlightComponent, highlightedComponent } = this.props;
-
-        if (highlightComponent && highlightedComponent === component.path) {
-            highlightComponent(component.path)
-        }
+        const { component, dehighlightComponent = () => {} } = this.props;
+        dehighlightComponent(component.path)
     }
 }
 
