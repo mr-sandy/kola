@@ -5,6 +5,8 @@ import Button from '../Button';
 import Toolbar from '../Toolbar';
 import ToolbarContent from '../ToolbarContent';
 import ToolbarButtonTray from '../ToolbarButtonTray';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 const styles = {
     base: {
@@ -31,4 +33,4 @@ const Toolbox = ({components}) => {
     );
 }
 
-export default Toolbox;
+export default DragDropContext(HTML5Backend)(Toolbox);

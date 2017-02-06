@@ -1,4 +1,18 @@
 ﻿import React, { Component } from 'react';
+import { DragSource } from 'react-dnd';
+
+const knightSource = {
+  beginDrag(props) {
+    return {};
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  }
+}
 
 const styles = {
     outer: {
@@ -53,6 +67,7 @@ class KolaComponent extends Component {
 
     render() {
         const { component } = this.props;
+        const { connectDragSource, isDragging } = this.props;
 
         let innerStyle = this.state.hovering ? { ...styles.inner, ...styles.innerHover } : styles.inner;
         let colourStyle;
@@ -75,7 +90,7 @@ class KolaComponent extends Component {
 
         innerStyle = {...innerStyle, ...colourStyle }
 
-        return (
+        return connectDragSource(
             <div style={styles.outer} onMouseEnter={() => this.toggleHover()} onMouseLeave={() => this.toggleHover()}>
                 <span className="transition-all" style={innerStyle}>{component.name}</span>
             </div>
@@ -87,4 +102,4 @@ class KolaComponent extends Component {
     }
 }
 
-export default KolaComponent;
+export default DragSource("COMPONENT", knightSource, collect)(KolaComponent);
