@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import Component from './Component';
+import StructureComponent from './StructureComponent';
 import Toolbar from '../Toolbar';
 import ToolbarContent from '../ToolbarContent';
 import ToolbarButtonTray from '../ToolbarButtonTray';
@@ -14,10 +14,10 @@ const styles = {
     }
 }
 
-const Structure = ({ components = [], selectComponent, highlightComponent, dehighlightComponent, selectedComponent, highlightedComponent }) => (
-    <Toolbar style={styles.base}>
+const Structure = ({ components = [], ...otherProps }) => (
+        <Toolbar style={styles.base}>
         <ToolbarContent style={styles.content}>
-            {components.map((component, i) => <Component key={i} component={component} selectComponent={selectComponent} highlightComponent={highlightComponent} dehighlightComponent={dehighlightComponent} selectedComponent={selectedComponent} highlightedComponent={highlightedComponent} />)}
+            {components.map((component, i) => <StructureComponent key={i} component={component} {...otherProps} />)}
         </ToolbarContent>
         <ToolbarButtonTray>
             <Button title="Pin Toolbars" onClick={() => console.log('clicked')} icon='fa-cog' active={false} />

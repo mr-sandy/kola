@@ -54,13 +54,16 @@
     <Content Include="src\actions\templates.js" />
     <Content Include="src\actions\index.js" />
     <Content Include="src\components\Edit\Accordian.js" />
+    <Content Include="src\components\Edit\Structure\Atom.js" />
+    <Content Include="src\components\Edit\Structure\Widget.js" />
+    <Content Include="src\components\Edit\Structure\Container.js" />
     <Content Include="src\components\Edit\ToolbarButtonTray.js" />
     <Content Include="src\components\Edit\ToolbarContent.js" />
     <Content Include="src\components\Edit\Toolbar.js" />
     <Content Include="src\components\Edit\commonStyles.js" />
     <Content Include="src\components\Edit\Edit.js" />
     <Content Include="src\components\Edit\index.js" />
-    <Content Include="src\components\Edit\Structure\Component.js" />
+    <Content Include="src\components\Edit\Structure\StructureComponent.js" />
     <Content Include="src\components\Edit\Structure\index.js" />
     <Content Include="src\components\Edit\Toolbox\Component.js" />
     <Content Include="src\components\Edit\Toolbox\Group.js" />
