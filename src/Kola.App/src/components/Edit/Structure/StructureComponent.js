@@ -2,10 +2,24 @@
 import Atom from './Atom';
 import Container from './Container';
 import Widget from './Widget';
+import { DropTarget } from 'react-dnd';
 
+const squareTarget = {
+    drop(props) {
+        console.log('drop!');
+    }
+};
+
+function collect(connect, monitor) {
+    return {
+        connectDropTarget: connect.dropTarget(),
+        isOver: monitor.isOver()
+    };
+}
 class StructureComponent extends Component {
     render() {
         const { component, selectedComponent, highlightedComponent } = this.props;
+        const { x, y, connectDropTarget, isOver } = this.props;
 
         const selection = {
             isSelected: component.path === selectedComponent,
@@ -20,13 +34,13 @@ class StructureComponent extends Component {
 
         switch (this.props.component.type) {
             case 'atom':
-                return <Atom {...this.props} {...selection} {...handlers} />;
+            return connectDropTarget(<div><Atom {...this.props} {...selection} {...handlers} /></div>);
 
             case 'container':
-                return <Container {...this.props} {...selection} {...handlers} />
+                return connectDropTarget(<div><Container {...this.props} {...selection} {...handlers} /></div>);
 
             case 'widget':
-                return <Widget {...this.props} {...selection} {...handlers} />;
+                return connectDropTarget(<div><Widget {...this.props} {...selection} {...handlers} /></div>);
 
             default:
                 return false;
@@ -55,4 +69,4 @@ class StructureComponent extends Component {
     }
 }
 
-export default StructureComponent;
+export default DropTarget("COMPONENT", squareTarget, collect)(StructureComponent);

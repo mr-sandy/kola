@@ -4,6 +4,8 @@ import Toolbox from '../../containers/Edit/Toolbox';
 import Structure from '../../containers/Edit/Structure';
 //import Properties from './Properties';
 import Preview from '../../containers/Edit/Preview';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 const styles = {
     main: {
@@ -44,4 +46,5 @@ const Edit = ({ toolbarsPinned }) => {
         </div>
     );
 }
-export default Edit;
+
+export default DragDropContext(HTML5Backend)(Edit);
