@@ -250,5 +250,9 @@ g
       <componentType>markdown</componentType>
       <targetPath>2/4/0/0</targetPath>
     </addComponent>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>0/0/0/0</targetPath>
+    </addComponent>
   </amendments>
 </template>

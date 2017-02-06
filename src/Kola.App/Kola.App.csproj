@@ -55,6 +55,8 @@
     <Content Include="src\actions\index.js" />
     <Content Include="src\components\Edit\Accordian.js" />
     <Content Include="src\components\Edit\Structure\Atom.js" />
+    <Content Include="src\components\Edit\Structure\commonStyles.js" />
+    <Content Include="src\components\Edit\Structure\Area.js" />
     <Content Include="src\components\Edit\Structure\Widget.js" />
     <Content Include="src\components\Edit\Structure\Container.js" />
     <Content Include="src\components\Edit\ToolbarButtonTray.js" />

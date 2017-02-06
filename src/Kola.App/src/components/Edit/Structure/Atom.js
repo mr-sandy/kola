@@ -1,18 +1,33 @@
 ﻿import React, { Component } from 'react';
+import commonStyles from './commonStyles';
 
 class Atom extends Component {
     render() {
-        const { component, onClick, onMouseOver, onMouseLeave, outerStyle, captionStyle } = this.props;
+        const { component, onClick, onMouseOver, onMouseLeave } = this.props;
 
         return (
-            <div style={outerStyle}
+            <div style={this.buildOuterStyles()}
                     className="transition-all"
                     onMouseOver={onMouseOver}
                     onMouseLeave={onMouseLeave}
                     onClick={onClick}>
-                <span style={captionStyle}>{component.type}: {component.name}</span>
+                <span style={commonStyles.caption}>{component.type}: {component.name}</span>
             </div>
         );
+    }
+
+    buildOuterStyles() {
+        const { isSelected, isHighlighted } = this.props;
+
+        if (isSelected) {
+            return { ...commonStyles.outer, backgroundColor: 'rgba(178,32,40,0.4)' };
+        }
+
+        if (isHighlighted) {
+            return { ...commonStyles.outer, backgroundColor: 'rgba(255,255,255,0.2)' };
+        }
+
+        return commonStyles.outer;
     }
 }
 
