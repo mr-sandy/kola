@@ -89,6 +89,9 @@ class KolaComponent extends Component {
 
 
         innerStyle = {...innerStyle, ...colourStyle }
+        if (isDragging) {
+            innerStyle = { ...innerStyle, backgroundColor: 'red' };
+        }
 
         return connectDragSource(
             <div style={styles.outer} onMouseEnter={() => this.toggleHover()} onMouseLeave={() => this.toggleHover()}>

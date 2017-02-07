@@ -3,6 +3,12 @@ import Atom from './Atom';
 import Container from './Container';
 import Widget from './Widget';
 
+const componentMappings = {
+    atom: Atom,
+    container: Container,
+    widget: Widget
+}
+
 class StructureComponent extends Component {
     render() {
         const { component, selectedComponent, highlightedComponent } = this.props;
@@ -18,19 +24,23 @@ class StructureComponent extends Component {
             onMouseLeave: e => this.handleMouseLeave(e)
         };
 
-        switch (this.props.component.type) {
-            case 'atom':
-                return <Atom {...this.props} {...selection} {...handlers} />;
+        const TheComponent = componentMappings[component.type];
 
-            case 'container':
-                return <Container {...this.props} {...selection} {...handlers} />
+        return <TheComponent {...this.props} {...selection} {...handlers} />;
 
-            case 'widget':
-                return <Widget {...this.props} {...selection} {...handlers} />;
+        //switch (this.props.component.type) {
+        //    case 'atom':
+        //        return <Atom {...this.props} {...selection} {...handlers} />;
 
-            default:
-                return false;
-        }
+        //    case 'container':
+        //        return <Container {...this.props} {...selection} {...handlers} />
+
+        //    case 'widget':
+        //        return <Widget {...this.props} {...selection} {...handlers} />;
+
+        //    default:
+        //        return false;
+        //}
     }
 
     handleClick(e) {

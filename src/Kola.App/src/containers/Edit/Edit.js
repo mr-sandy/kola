@@ -2,6 +2,8 @@
 import { fetchTemplate, togglePinToolbars } from '../../actions';
 import Edit from '../../components/Edit';
 import { initialiseOnMount } from '../helpers/higherOrderComponents';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
 const mapStateToProps = state => ({
     toolbarsPinned: state.application.toolbarsPinned
@@ -12,4 +14,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     togglePinToolbars: () => dispatch(togglePinToolbars())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(initialiseOnMount(Edit));
+export default DragDropContext(HTML5Backend)(connect(mapStateToProps, mapDispatchToProps)(initialiseOnMount(Edit)));
