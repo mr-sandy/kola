@@ -1,5 +1,5 @@
 ﻿import React  from 'react';
-import StructureComponent from './StructureComponent';
+import ComponentList from './ComponentList';
 
 const styles = {
     caption: {
@@ -12,7 +12,7 @@ const Area = ({ area, ...props }) => {
     return (
         <div>
             <span style={styles.caption}>{`area: ${name}`}</span>
-            { components.map((c, i) => <StructureComponent key={i} component={c} {...props} />) }
+            <ComponentList components={components} {...props} />
         </div>
     );
 }

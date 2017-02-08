@@ -1,5 +1,5 @@
 ﻿import React, { Component } from 'react';
-import StructureComponent from './StructureComponent';
+import ComponentList from './ComponentList';
 import Accordian from '../Accordian';
 import commonStyles from './commonStyles';
 
@@ -16,7 +16,7 @@ class Container extends Component {
                     onMouseOver={onMouseOver}
                     onMouseLeave={onMouseLeave}
                     onClick={onClick}>
-                {component.components.map((c, i) => <StructureComponent key={i} component={c} {...otherProps} />)}
+                <ComponentList components={component.components} {...otherProps} />
             </Accordian>
         );
     }

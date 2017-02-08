@@ -254,5 +254,17 @@ g
       <componentType>markdown</componentType>
       <targetPath>0/0/0/0</targetPath>
     </addComponent>
+    <addComponent>
+      <componentType>magical-atom</componentType>
+      <targetPath>0/0/1</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-style</componentType>
+      <targetPath>2/5</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>magical-atom</componentType>
+      <targetPath>0/0/0</targetPath>
+    </addComponent>
   </amendments>
 </template>

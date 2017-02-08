@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { Component } from 'react';
 import SideBar from '../../containers/Edit/SideBar';
 import Toolbox from '../../containers/Edit/Toolbox';
 import Structure from '../../containers/Edit/Structure';
@@ -29,14 +29,16 @@ const styles = {
     }
 };
 
-const Edit = ({ toolbarsPinned }) => {
+//const Edit = ({ toolbarsPinned }) => {
+class Edit extends Component {
+    render() {
+        const { toolbarsPinned } = this.props;
+        const toolbarsStyle = toolbarsPinned
+            ? { ...styles.toolbars, ...styles.toolbarsPinned }
+            : styles.toolbars;
 
-    const toolbarsStyle = toolbarsPinned
-        ? { ...styles.toolbars, ...styles.toolbarsPinned }
-        : styles.toolbars;
-
-    return (
-        <div style={styles.main}>
+        return (
+            <div style={styles.main}>
             <SideBar />
             <div className="smaller-scrollbars" style={toolbarsStyle}>
                 <Toolbox />
@@ -44,7 +46,8 @@ const Edit = ({ toolbarsPinned }) => {
             </div>
             <Preview />
         </div>
-    );
+        );
+    }
 }
 
 export default DragDropContext(HTML5Backend)(Edit);

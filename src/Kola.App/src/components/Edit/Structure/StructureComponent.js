@@ -2,24 +2,16 @@
 import Atom from './Atom';
 import Container from './Container';
 import Widget from './Widget';
-import { DropTarget } from 'react-dnd';
 
-const squareTarget = {
-    drop(props) {
-        console.log('drop!');
-    }
-};
-
-function collect(connect, monitor) {
-    return {
-        connectDropTarget: connect.dropTarget(),
-        isOver: monitor.isOver()
-    };
+const componentMappings = {
+    atom: Atom,
+    container: Container,
+    widget: Widget
 }
+
 class StructureComponent extends Component {
     render() {
         const { component, selectedComponent, highlightedComponent } = this.props;
-        const { x, y, connectDropTarget, isOver } = this.props;
 
         const selection = {
             isSelected: component.path === selectedComponent,
@@ -32,19 +24,9 @@ class StructureComponent extends Component {
             onMouseLeave: e => this.handleMouseLeave(e)
         };
 
-        switch (this.props.component.type) {
-            case 'atom':
-            return connectDropTarget(<div><Atom {...this.props} {...selection} {...handlers} /></div>);
+        const TheComponent = componentMappings[component.type];
 
-            case 'container':
-                return connectDropTarget(<div><Container {...this.props} {...selection} {...handlers} /></div>);
-
-            case 'widget':
-                return connectDropTarget(<div><Widget {...this.props} {...selection} {...handlers} /></div>);
-
-            default:
-                return false;
-        }
+        return (<TheComponent {...this.props} {...selection} {...handlers} />);
     }
 
     handleClick(e) {
@@ -69,4 +51,4 @@ class StructureComponent extends Component {
     }
 }
 
-export default DropTarget("COMPONENT", squareTarget, collect)(StructureComponent);
+export default StructureComponent;

@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import StructureComponent from './StructureComponent';
+import ComponentList from './ComponentList';
 import Toolbar from '../Toolbar';
 import ToolbarContent from '../ToolbarContent';
 import ToolbarButtonTray from '../ToolbarButtonTray';
@@ -17,7 +17,7 @@ const styles = {
 const Structure = ({ components = [], ...otherProps }) => (
         <Toolbar style={styles.base}>
         <ToolbarContent style={styles.content}>
-            {components.map((component, i) => <StructureComponent key={i} component={component} {...otherProps} />)}
+            <ComponentList components={components} {...otherProps} />
         </ToolbarContent>
         <ToolbarButtonTray>
             <Button title="Pin Toolbars" onClick={() => console.log('clicked')} icon='fa-cog' active={false} />
