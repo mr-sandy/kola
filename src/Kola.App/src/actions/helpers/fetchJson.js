@@ -12,10 +12,10 @@ function checkStatus(response) {
     }
 }
 
-export default async function fetchJSON(url, headers = {}) {
+async function fetchJSON(url, headers = {}) {
 
     let response = await fetch(url, {
-        method: 'get',
+        method: 'GET',
         headers: {
             ...headers,
             'Accept': 'application/json'
@@ -25,4 +25,23 @@ credentials: 'same-origin'
 
 response = checkStatus(response);
 return await response.json();
+};
+
+async function postJSON(url, body, headers) {
+
+    let response = await fetch(url, {
+        method: 'POST',
+        headers: {
+            ...headers,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+},
+body: body && typeof body !== 'string' ? JSON.stringify(body) : '',
+credentials: 'same-origin'
+});
+
+response = checkStatus(response);
+return await response.json();
 }
+
+export { fetchJSON, postJSON }

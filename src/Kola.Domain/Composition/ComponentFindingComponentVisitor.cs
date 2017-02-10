@@ -38,7 +38,7 @@
                 return container;
             }
 
-            if (container.Components.Count() < path.First())
+            if (container.Components.Count() <= path.First())
             {
                 throw new KolaException("No component at specified path");
             }

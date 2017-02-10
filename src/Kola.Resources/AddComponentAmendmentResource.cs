@@ -6,10 +6,7 @@
 
         public string TargetPath { get; set; }
 
-        public override string Type
-        {
-            get { return "Add Component"; }
-        }
+        public override string Type => "Add Component";
 
         public override T Accept<T>(IAmendmentResourceVisitor<T> visitor)
         {

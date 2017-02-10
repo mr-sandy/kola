@@ -92,6 +92,7 @@
     <Content Include="src\containers\Root.js" />
     <Content Include="src\config.js" />
     <Content Include="src\index.js" />
+    <Content Include="src\middleware\index.js" />
     <Content Include="src\reducers\selection.js" />
     <Content Include="src\reducers\application.js" />
     <Content Include="src\reducers\template.js" />
