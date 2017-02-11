@@ -46,8 +46,8 @@ class StructureComponent extends Component {
     handleMouseLeave(e) {
         e.stopPropagation();
 
-        const { component, dehighlightComponent } = this.props;
-        dehighlightComponent(component.path)
+        const { component, unhighlightComponent } = this.props;
+        unhighlightComponent(component.path)
     }
 }
 

@@ -1,11 +1,11 @@
 ﻿import { combineReducers } from 'redux';
-import components from './components';
+import componentTypes from './componentTypes';
 import template from './template';
 import selection from './selection';
 import application from './application';
 
 const rootReducer = combineReducers({
-    components,
+    componentTypes,
     template,
     selection,
     application

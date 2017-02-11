@@ -1,4 +1,4 @@
-﻿import { SELECT_COMPONENT, HIGHLIGHT_COMPONENT, DEHIGHLIGHT_COMPONENT } from '../actions';
+﻿import { SELECT_COMPONENT, HIGHLIGHT_COMPONENT, UNHIGHLIGHT_COMPONENT } from '../actions';
 
 const selection = (state = {}, action) => {
     switch (action.type) {
@@ -26,7 +26,7 @@ const selection = (state = {}, action) => {
                 };
         }
 
-        case DEHIGHLIGHT_COMPONENT:
+        case UNHIGHLIGHT_COMPONENT:
         {
             const { highlightedComponent, ...newState } = state;
 

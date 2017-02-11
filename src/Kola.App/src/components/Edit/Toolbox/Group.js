@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import Component from './Component';
+import ComponentType from './ComponentType';
 import Accordian from '../Accordian';
 
 const styles = {
@@ -10,9 +10,9 @@ const styles = {
     }
 }
 
-const Group = ({ name, components }) => (
+const Group = ({ name, componentTypes }) => (
     <Accordian caption={name} captionStyle={styles.caption}>
-        {components.map((component, i) => <Component key={i} component={component} />)}
+        {componentTypes.map((componentType, i) => <ComponentType key={i} componentType={componentType} />)}
     </Accordian>
 );
 

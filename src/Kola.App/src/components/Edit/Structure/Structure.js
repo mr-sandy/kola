@@ -29,10 +29,17 @@ class Structure extends Component {
         );
     }
 
-    handleDrop(e) {
+    handleDropx(e) {
         const { addComponent } = this.props;
         if (addComponent) {
             addComponent('0', e.name);
+        }
+    }
+
+    handleDrop(e) {
+        const { moveComponent } = this.props;
+        if (moveComponent) {
+            moveComponent('0', e.name);
         }
     }
 }

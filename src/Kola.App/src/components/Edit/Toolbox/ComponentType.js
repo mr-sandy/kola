@@ -2,8 +2,8 @@
 import { DragSource } from 'react-dnd';
 
 const knightSource = {
-  beginDrag({component}) {
-    return {name: component.name};
+    beginDrag({componentType}) {
+    return {name: componentType.name};
   }
 };
 
@@ -60,19 +60,19 @@ const styles = {
     }
 };
 
-class KolaComponent extends Component {
+class ComponentType extends Component {
     state = {
         hovering: false
     }
 
     render() {
-        const { component } = this.props;
+        const { componentType } = this.props;
         const { connectDragSource, isDragging } = this.props;
 
         let innerStyle = this.state.hovering ? { ...styles.inner, ...styles.innerHover } : styles.inner;
         let colourStyle;
 
-        switch (component.type) {
+        switch (componentType.type) {
             case 'atom':
                 colourStyle = this.state.hovering ? styles.innerAtomHover : styles.innerAtom;
                 break;
@@ -95,7 +95,7 @@ class KolaComponent extends Component {
 
         return connectDragSource(
             <div style={styles.outer} onMouseEnter={() => this.toggleHover()} onMouseLeave={() => this.toggleHover()}>
-                <span className="transition-all" style={innerStyle}>{component.name}</span>
+                <span className="transition-all" style={innerStyle}>{componentType.name}</span>
             </div>
         );
                 }
@@ -105,4 +105,4 @@ class KolaComponent extends Component {
     }
 }
 
-export default DragSource("COMPONENT", knightSource, collect)(KolaComponent);
+export default DragSource("COMPONENT", knightSource, collect)(ComponentType);

@@ -1,16 +1,16 @@
 ﻿import { fetchJSON, postJSON } from './helpers/fetchJson';
 import config from '../config';
 
-export const RECEIVE_COMPONENTS = 'RECEIVE_COMPONENTS';
+export const RECEIVE_COMPONENT_TYPES = 'RECEIVE_COMPONENT_TYPES';
 export const RECEIVE_TEMPLATE = 'RECEIVE_TEMPLATE';
 export const SELECT_COMPONENT = 'SELECT_COMPONENT';
 export const HIGHLIGHT_COMPONENT = 'HIGHLIGHT_COMPONENT';
-export const DEHIGHLIGHT_COMPONENT = 'DEHIGHLIGHT_COMPONENT';
-export const ADD_COMPONENT = 'ADD_COMPONENT';
+export const UNHIGHLIGHT_COMPONENT = 'UNHIGHLIGHT_COMPONENT';
 export const RECEIVE_AMENDMENT = 'RECEIVE_AMENDMENT';
+export const RECEIVE_COMPONENT = 'RECEIVE_COMPONENT';
 
-export const receiveComponents = components => ({
-    type: RECEIVE_COMPONENTS,
+export const receiveComponentTypes = components => ({
+    type: RECEIVE_COMPONENT_TYPES,
     payload: components
 });
 
@@ -29,14 +29,9 @@ export const highlightComponent = componentPath => ({
     payload: componentPath
 });
 
-export const dehighlightComponent = componentPath => ({
-    type: DEHIGHLIGHT_COMPONENT,
+export const unhighlightComponent = componentPath => ({
+    type: UNHIGHLIGHT_COMPONENT,
     payload: componentPath
-});
-
-export const addComponent = (componentPath, componentType) => ({
-    type: ADD_COMPONENT,
-    payload: { componentPath, componentType }
 });
 
 export const receiveAmendment = amendment => ({
@@ -44,22 +39,25 @@ export const receiveAmendment = amendment => ({
     payload: amendment
 });
 
-// note: toolox component
-export const fetchComponents = () => async dispatch => {
+export const receiveComponent = component => ({
+    type: RECEIVE_COMPONENT,
+    payload: component
+});
+
+
+export const fetchComponentTypes = () => async dispatch => {
     try {
         const data = await fetchJSON(`${config.appRoot}/component-types`);
-        dispatch(receiveComponents(data));
+        dispatch(receiveComponentTypes(data));
     } catch (error) {
         console.log(`request failed ${error}`);
     }
 }
 
-// note: template component
 export const fetchComponent = (templatePath = '/test', componentPath) => async dispatch => {
     try {
         const data = await fetchJSON(`${config.appRoot}/templates/components?templatePath=${templatePath}&componentPath=${componentPath}`);
-        console.log(data);
-        //dispatch(receiveComponents(data));
+        dispatch(receiveComponent(data));
     } catch (error) {
         console.log(`request failed ${error}`);
     }
@@ -74,7 +72,7 @@ export const fetchTemplate = templatePath => async dispatch => {
     }
 }
 
-export const postAmendment = (templatePath, amendment) => async dispatch => {
+const postAmendment = async (dispatch, templatePath, amendment) => {
     try {
         const data = await postJSON(`${config.appRoot}/templates/amendments?templatePath=${templatePath}`, amendment);
         dispatch(receiveAmendment(data));
@@ -82,3 +80,22 @@ export const postAmendment = (templatePath, amendment) => async dispatch => {
         console.log(`post failed ${error}`);
     }
 }
+
+export const addComponent = (componentPath, componentType) => async dispatch => {
+    postAmendment(dispatch, '/test',
+    {
+        amendmentType: 'addComponent',
+        componentType: componentType,
+        targetPath: '/3/0/0'
+    });
+};
+
+export const moveComponent = (sourcePath, targetPath) => async dispatch => {
+    postAmendment(dispatch, '/test',
+    {
+        amendmentType: 'moveComponent',
+        sourcePath: '/0/0/0',
+        targetPath: '/1/0/0'
+    });
+};
+

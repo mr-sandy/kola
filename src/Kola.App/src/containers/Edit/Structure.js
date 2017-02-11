@@ -1,5 +1,5 @@
 ﻿import { connect } from 'react-redux';
-import { selectComponent, highlightComponent, dehighlightComponent, addComponent } from '../../actions';
+import { selectComponent, highlightComponent, unhighlightComponent, addComponent, moveComponent } from '../../actions';
 import Structure from '../../components/Edit/Structure';
 
 const mapStateToProps = state => ({
@@ -11,8 +11,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
     selectComponent,
     highlightComponent,
-    dehighlightComponent,
-    addComponent
+    unhighlightComponent,
+    addComponent,
+    moveComponent 
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Structure);

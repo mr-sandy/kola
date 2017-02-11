@@ -68,7 +68,7 @@
     <Content Include="src\components\Edit\index.js" />
     <Content Include="src\components\Edit\Structure\StructureComponent.js" />
     <Content Include="src\components\Edit\Structure\index.js" />
-    <Content Include="src\components\Edit\Toolbox\Component.js" />
+    <Content Include="src\components\Edit\Toolbox\ComponentType.js" />
     <Content Include="src\components\Edit\Toolbox\Group.js" />
     <Content Include="src\components\Edit\Button.js" />
     <Content Include="src\components\Edit\Toolbox\Toolbox.js" />
@@ -96,7 +96,7 @@
     <Content Include="src\reducers\selection.js" />
     <Content Include="src\reducers\application.js" />
     <Content Include="src\reducers\template.js" />
-    <Content Include="src\reducers\components.js" />
+    <Content Include="src\reducers\componentTypes.js" />
     <Content Include="src\reducers\index.js" />
     <Content Include="src\styles.css" />
   </ItemGroup>
