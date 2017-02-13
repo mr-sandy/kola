@@ -3,14 +3,10 @@ import commonStyles from './commonStyles';
 
 class Atom extends Component {
     render() {
-        const { component, onClick, onMouseOver, onMouseLeave } = this.props;
+        const { component } = this.props;
 
         return (
-            <div style={this.buildOuterStyles()}
-                    className="transition-all"
-                    onMouseOver={onMouseOver}
-                    onMouseLeave={onMouseLeave}
-                    onClick={onClick}>
+            <div style={this.buildOuterStyles()} className="transition-all" >
                 <span style={commonStyles.caption}>{component.type}: {component.name}</span>
             </div>
         );

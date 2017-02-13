@@ -3,19 +3,44 @@ import StructureComponent from './StructureComponent';
 import { DropTarget } from 'react-dnd';
 import { arraysMatch } from './helpers';
 
+const modifyTargetPath = (sourcePath, targetPath) =>
+{
+    if (sourcePath.length !== targetPath.length) {
+        return targetPath;
+    }
+
+    const sourceWithoutLast = sourcePath.slice(0, sourcePath.length - 1);
+    const targetWithoutLast = targetPath.slice(0, targetPath.length - 1);
+
+    if (!arraysMatch(sourceWithoutLast, targetWithoutLast)) {
+        return targetPath;
+    }
+
+    const lastSource = sourcePath[sourcePath.length - 1];
+    const lastTarget = targetPath[targetPath.length - 1];
+
+    var newLast = lastSource < lastTarget
+        ? lastTarget - 1
+        : lastTarget;
+
+    return [...sourceWithoutLast, newLast]
+}
+
+
 const target = {
     drop(props, monitor) {
-        const { onDrop, placeholderPath } = props;
-        if (onDrop && monitor.isOver({ shallow: true })) {
-            
+        if (monitor.isOver({ shallow: true })) {
             if (monitor.getItemType() === 'COMPONENT_TYPE') {
-                onDrop({
-                        componentPath: placeholderPath,
+                props.onAddComponent({
+                        componentPath: props.placeholderPath,
                         componentType: monitor.getItem().name
                     }
                 );
             } else {
-                console.log(monitor.getItemType());
+                props.onMoveComponent({
+                    sourcePath: monitor.getItem().componentPath,
+                    targetPath: modifyTargetPath(monitor.getItem().componentPath, props.placeholderPath)
+                })
             }
         }
     },
@@ -45,12 +70,12 @@ function collect(connect, monitor) {
 }
 
 const placeholderStyle = {
-    height: '50px',
+    height: '30px',
     borderWidth: '2px',
     borderStyle: 'dashed',
     borderColor: '#999',
-    marginTop: '0',
-    marginBottom: '0'
+    marginTop: '8px',
+    marginBottom: '8px'
 }
 
 const Placeholder = () => (

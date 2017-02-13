@@ -5,6 +5,7 @@ import Container from './Container';
 import Widget from './Widget';
 import { DragSource, DropTarget } from 'react-dnd';
 import flow from 'lodash/flow';
+import { arraysMatch } from './helpers';
 
 const componentMappings = {
     atom: Atom,
@@ -12,18 +13,43 @@ const componentMappings = {
     widget: Widget
 }
 
+const modifyTargetPath = (sourcePath, targetPath) =>
+{
+    if (sourcePath.length !== targetPath.length) {
+        return targetPath;
+    }
+
+    const sourceWithoutLast = sourcePath.slice(0, sourcePath.length - 1);
+    const targetWithoutLast = targetPath.slice(0, targetPath.length - 1);
+
+    if (!arraysMatch(sourceWithoutLast, targetWithoutLast)) {
+        return targetPath;
+    }
+
+    const lastSource = sourcePath[sourcePath.length - 1];
+    const lastTarget = targetPath[targetPath.length - 1];
+
+    var newLast = lastSource < lastTarget
+        ? lastTarget - 1
+        : lastTarget;
+
+    return [...sourceWithoutLast, newLast]
+}
+
 const dropTarget = {
     drop(props, monitor) {
-        const { onDrop, placeholderPath } = props;
-        if (onDrop && monitor.isOver({ shallow: true })) {
+        if (monitor.isOver({ shallow: true })) {
             if (monitor.getItemType() === 'COMPONENT_TYPE') {
-                onDrop({
-                        componentPath: placeholderPath,
-                        componentType: monitor.getItem().name
-                    }
+                props.onAddComponent({
+                    componentPath: props.placeholderPath,
+                    componentType: monitor.getItem().name
+                }
                 );
             } else {
-                console.log(monitor.getItemType());
+                props.onMoveComponent({
+                    sourcePath: monitor.getItem().componentPath,
+                    targetPath: modifyTargetPath(monitor.getItem().componentPath, props.placeholderPath)
+                })
             }
         }
     },
@@ -68,8 +94,9 @@ function dropCollect(connect, monitor) {
 }
 
 const dragSource = {
-    beginDrag({componentType}) {
-    return {name: 'BADGRE!'};
+    beginDrag({component}) {
+
+    return { componentPath: component.path.split('/').filter(s => s).map(s => parseInt(s, 10)) };
   }
 };
 
@@ -98,7 +125,11 @@ class StructureComponent extends Component {
 
         const TheComponent = componentMappings[component.type];
 
-        return connectDragSource(connectDropTarget(<div style={{paddingTop: '8px', paddingBottom: '8px'}}><TheComponent {...this.props} {...selection} {...handlers} /></div>));
+        return connectDragSource(connectDropTarget(
+            <div {...handlers} style={{paddingTop: '8px', paddingBottom: '8px'}}>
+                <TheComponent {...this.props} {...selection} />
+            </div>)
+        );
     }
 
     handleClick(e) {

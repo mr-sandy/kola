@@ -21,17 +21,17 @@ export const addComponent = (templatePath, componentPath, componentType) => asyn
     postAmendment(dispatch, templatePath,
     {
         amendmentType: 'addComponent',
-        componentType: componentType,
+        componentType,
         targetPath: '/' + componentPath.join('/')
     });
 };
 
-export const moveComponent = (sourcePath, targetPath) => async dispatch => {
-    postAmendment(dispatch, '/test',
+export const moveComponent = (templatePath, sourcePath, targetPath) => async dispatch => {
+    postAmendment(dispatch, templatePath,
     {
         amendmentType: 'moveComponent',
-        sourcePath: '/0/0/0',
-        targetPath: '/1/0/0'
+        sourcePath:  '/' + sourcePath.join('/'),
+        targetPath:  '/' + targetPath.join('/')
     });
 };
 

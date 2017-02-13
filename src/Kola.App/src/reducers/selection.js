@@ -6,11 +6,11 @@ const selection = (state = {}, action) => {
         {
             const { selectedComponent, ...newState } = state;
 
-            return (selectedComponent === action.payload) 
+            return (selectedComponent === action.payload.componentPath && action.payload.toggle ) 
                 ? newState
                 : {
                     ...state,
-                    selectedComponent: action.payload
+                        selectedComponent: action.payload.componentPath
                 };
         }
 

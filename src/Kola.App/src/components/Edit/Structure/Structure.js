@@ -37,7 +37,8 @@ class Structure extends Component {
                         placeholderPath={this.state.placeholderPath} 
                         setPlaceholderPath={p => this.setPlaceholderPath(p) } 
                         style={{ minHeight: '100%' }} 
-                        onDrop={e => this.handleDrop(e)} 
+                        onAddComponent={e => this.handleAddComponent(e)} 
+                        onMoveComponent={e => this.handleMoveComponent(e)} 
                         {...otherProps} />
                 </ToolbarContent>
                 <ToolbarButtonTray>
@@ -47,18 +48,16 @@ class Structure extends Component {
         );
     }
 
-    handleDrop(e) {
-        
+    handleAddComponent(e) {
         this.props.addComponent(this.props.templatePath, e.componentPath, e.componentType);
-        this.props.selectComponent('/' + this.state.placeholderPath.join('/'));
+        this.props.selectComponent('/' + this.state.placeholderPath.join('/'), false);
         this.setState({ placeholderPath: [] });
     }
 
-    xhandleDrop(e) {
-        const { moveComponent } = this.props;
-        if (moveComponent) {
-            moveComponent('0', e.name);
-        }
+    handleMoveComponent(e) {
+        this.props.moveComponent(this.props.templatePath, e.sourcePath, e.targetPath);
+        this.props.selectComponent('/' + this.state.placeholderPath.join('/'), false);
+        this.setState({ placeholderPath: [] });
     }
 }
 

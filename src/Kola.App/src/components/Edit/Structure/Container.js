@@ -6,16 +6,12 @@ import commonStyles from './commonStyles';
 class Container extends Component {
     render() {
         const { component, ...otherProps } = this.props;
-        const { onClick, onMouseOver, onMouseLeave } = otherProps;
 
         return (
             <Accordian outerStyle={this.buildOuterStyles()} 
                     captionStyle={commonStyles.caption} 
                     innerStyle={commonStyles.inner} caption={`${component.type}: ${component.name}`} 
-                    className="transition-all"
-                    onMouseOver={onMouseOver}
-                    onMouseLeave={onMouseLeave}
-                    onClick={onClick}>
+                    className="transition-all" >
                 <ComponentList components={component.components} componentPath={component.path} {...otherProps} />
             </Accordian>
         );

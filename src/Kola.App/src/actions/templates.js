@@ -18,9 +18,9 @@ export const receiveTemplate = template => ({
     payload: template
 });
 
-export const selectComponent = componentPath => ({
+export const selectComponent = (componentPath, toggle = true) => ({
     type: SELECT_COMPONENT,
-    payload: componentPath
+    payload: { componentPath, toggle }
 });
 
 export const highlightComponent = componentPath => ({
@@ -48,7 +48,7 @@ export const fetchComponentTypes = () => async dispatch => {
     }
 }
 
-export const fetchComponent = (templatePath = '/test', componentPath) => async dispatch => {
+export const fetchComponent = (templatePath, componentPath) => async dispatch => {
     try {
         const data = await fetchJSON(`${config.appRoot}/templates/components?templatePath=${templatePath}&componentPath=${componentPath}`);
         dispatch(receiveComponent(data));
