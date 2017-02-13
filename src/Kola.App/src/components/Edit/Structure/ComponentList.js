@@ -7,12 +7,16 @@ const target = {
     drop(props, monitor) {
         const { onDrop, placeholderPath } = props;
         if (onDrop && monitor.isOver({ shallow: true })) {
-            console.log('drop in ComponentList');
-            onDrop({
-                    componentPath: placeholderPath,
-                    componentType: monitor.getItem().name
-                }
-            );
+            
+            if (monitor.getItemType() === 'COMPONENT_TYPE') {
+                onDrop({
+                        componentPath: placeholderPath,
+                        componentType: monitor.getItem().name
+                    }
+                );
+            } else {
+                console.log(monitor.getItemType());
+            }
         }
     },
 
@@ -86,4 +90,4 @@ class ComponentList extends Component {
     }
 }
 
-export default DropTarget('COMPONENT', target, collect)(ComponentList);
+export default DropTarget(['COMPONENT', 'COMPONENT_TYPE'], target, collect)(ComponentList);

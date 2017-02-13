@@ -13,6 +13,7 @@
     "es6-promise": "^4.0.5",
     "font-awesome": "^4.7.0",
     "isomorphic-fetch": "^2.2.1",
+    "lodash": "^4.17.4",
     "react": "^15.4.2",
     "react-dnd": "^2.1.4",
     "react-dnd-html5-backend": "^2.1.2",

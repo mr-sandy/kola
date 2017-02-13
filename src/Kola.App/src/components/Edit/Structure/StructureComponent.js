@@ -3,7 +3,8 @@ import Atom from './Atom';
 import { findDOMNode } from 'react-dom';
 import Container from './Container';
 import Widget from './Widget';
-import { DropTarget } from 'react-dnd';
+import { DragSource, DropTarget } from 'react-dnd';
+import flow from 'lodash/flow';
 
 const componentMappings = {
     atom: Atom,
@@ -11,17 +12,19 @@ const componentMappings = {
     widget: Widget
 }
 
-const target = {
+const dropTarget = {
     drop(props, monitor) {
         const { onDrop, placeholderPath } = props;
         if (onDrop && monitor.isOver({ shallow: true })) {
-            console.log('drop in StructureComponent');
-            const item = monitor.getItem();
-            onDrop({
-                    componentPath: placeholderPath,
-                    componentType: item.name
-                }
-            );
+            if (monitor.getItemType() === 'COMPONENT_TYPE') {
+                onDrop({
+                        componentPath: placeholderPath,
+                        componentType: monitor.getItem().name
+                    }
+                );
+            } else {
+                console.log(monitor.getItemType());
+            }
         }
     },
 
@@ -56,7 +59,7 @@ const target = {
     }
 };
 
-function collect(connect, monitor) {
+function dropCollect(connect, monitor) {
     return {
         connectDropTarget: connect.dropTarget(),
         isOver: monitor.isOver({ shallow: true }),
@@ -64,9 +67,23 @@ function collect(connect, monitor) {
     };
 }
 
+const dragSource = {
+    beginDrag({componentType}) {
+    return {name: 'BADGRE!'};
+  }
+};
+
+function dragCollect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  }
+}
+
+
 class StructureComponent extends Component {
     render() {
-        const { component, connectDropTarget, selectedComponent, highlightedComponent } = this.props;
+        const { component, connectDropTarget, connectDragSource, selectedComponent, highlightedComponent } = this.props;
 
         const selection = {
             isSelected: component.path === selectedComponent,
@@ -81,7 +98,7 @@ class StructureComponent extends Component {
 
         const TheComponent = componentMappings[component.type];
 
-        return connectDropTarget(<div style={{paddingTop: '8px', paddingBottom: '8px'}}><TheComponent {...this.props} {...selection} {...handlers} /></div>);
+        return connectDragSource(connectDropTarget(<div style={{paddingTop: '8px', paddingBottom: '8px'}}><TheComponent {...this.props} {...selection} {...handlers} /></div>));
     }
 
     handleClick(e) {
@@ -106,4 +123,7 @@ class StructureComponent extends Component {
     }
 }
 
-export default DropTarget('COMPONENT', target, collect)(StructureComponent);
+export default flow(
+  DragSource('COMPONENT', dragSource, dragCollect),
+  DropTarget(['COMPONENT', 'COMPONENT_TYPE'], dropTarget, dropCollect)
+)(StructureComponent);

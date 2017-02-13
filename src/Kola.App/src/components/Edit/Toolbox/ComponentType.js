@@ -105,4 +105,4 @@ class ComponentType extends Component {
     }
 }
 
-export default DragSource("COMPONENT", knightSource, collect)(ComponentType);
+export default DragSource('COMPONENT_TYPE', knightSource, collect)(ComponentType);
