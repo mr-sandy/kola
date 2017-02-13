@@ -23,11 +23,113 @@
         </container>
       </components>
     </container>
+    <container name="div">
+      <properties />
+      <components>
+        <container name="div">
+          <properties />
+          <components />
+        </container>
+      </components>
+    </container>
+    <container name="div">
+      <properties />
+      <components>
+        <container name="div">
+          <properties />
+          <components />
+        </container>
+      </components>
+    </container>
   </components>
   <amendments>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>1/0/0</targetPath>
-    </moveComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-head</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-head</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-style</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-style</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-style</componentType>
+      <targetPath>3/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>0</targetPath>
+    </addComponent>
   </amendments>
 </template>

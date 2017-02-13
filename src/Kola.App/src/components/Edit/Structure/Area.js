@@ -12,7 +12,7 @@ const Area = ({ area, ...props }) => {
     return (
         <div>
             <span style={styles.caption}>{`area: ${name}`}</span>
-            <ComponentList components={components} {...props} />
+            <ComponentList components={components} componentPath={area.path} {...props} />
         </div>
     );
 }

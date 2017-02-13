@@ -4,10 +4,10 @@
         borderWidth: '1px',
         borderColor: '#ccc',
         borderStyle: 'solid',
-        marginBottom: '8px'
+        marginBottom: '0'
     },
     inner: {
-        padding: '8px 8px 0 8px',
+        padding: '8px 8px 8px 8px',
         borderTopWidth: '1px',
         borderTopColor: '#ccc',
         borderTopStyle: 'solid'

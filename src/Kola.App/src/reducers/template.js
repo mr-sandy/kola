@@ -1,6 +1,6 @@
 ﻿import { RECEIVE_TEMPLATE, RECEIVE_COMPONENT } from '../actions';
 
-const parseComponentPath = str => str.split('/').filter(s => s);
+const parseComponentPath = str => str.split('/').filter(s => s).map(s => parseInt(s));
 
 const replaceComponent = (componentPath, component, replacement ) => {
     if (componentPath.length === 0) {

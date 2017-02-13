@@ -6,7 +6,6 @@ export const RECEIVE_TEMPLATE = 'RECEIVE_TEMPLATE';
 export const SELECT_COMPONENT = 'SELECT_COMPONENT';
 export const HIGHLIGHT_COMPONENT = 'HIGHLIGHT_COMPONENT';
 export const UNHIGHLIGHT_COMPONENT = 'UNHIGHLIGHT_COMPONENT';
-export const RECEIVE_AMENDMENT = 'RECEIVE_AMENDMENT';
 export const RECEIVE_COMPONENT = 'RECEIVE_COMPONENT';
 
 export const receiveComponentTypes = components => ({
@@ -32,11 +31,6 @@ export const highlightComponent = componentPath => ({
 export const unhighlightComponent = componentPath => ({
     type: UNHIGHLIGHT_COMPONENT,
     payload: componentPath
-});
-
-export const receiveAmendment = amendment => ({
-    type: RECEIVE_AMENDMENT,
-    payload: amendment
 });
 
 export const receiveComponent = component => ({
@@ -71,31 +65,3 @@ export const fetchTemplate = templatePath => async dispatch => {
         console.log(`request failed ${error}`);
     }
 }
-
-const postAmendment = async (dispatch, templatePath, amendment) => {
-    try {
-        const data = await postJSON(`${config.appRoot}/templates/amendments?templatePath=${templatePath}`, amendment);
-        dispatch(receiveAmendment(data));
-    } catch (error) {
-        console.log(`post failed ${error}`);
-    }
-}
-
-export const addComponent = (componentPath, componentType) => async dispatch => {
-    postAmendment(dispatch, '/test',
-    {
-        amendmentType: 'addComponent',
-        componentType: componentType,
-        targetPath: '/3/0/0'
-    });
-};
-
-export const moveComponent = (sourcePath, targetPath) => async dispatch => {
-    postAmendment(dispatch, '/test',
-    {
-        amendmentType: 'moveComponent',
-        sourcePath: '/0/0/0',
-        targetPath: '/1/0/0'
-    });
-};
-

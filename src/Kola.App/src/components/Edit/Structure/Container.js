@@ -16,7 +16,7 @@ class Container extends Component {
                     onMouseOver={onMouseOver}
                     onMouseLeave={onMouseLeave}
                     onClick={onClick}>
-                <ComponentList components={component.components} {...otherProps} />
+                <ComponentList components={component.components} componentPath={component.path} {...otherProps} />
             </Accordian>
         );
     }

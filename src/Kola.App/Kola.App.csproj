@@ -51,6 +51,7 @@
     <Content Include="public\index.html" />
     <Content Include="src\actions\application.js" />
     <Content Include="src\actions\helpers\fetchJson.js" />
+    <Content Include="src\actions\amendments.js" />
     <Content Include="src\actions\templates.js" />
     <Content Include="src\actions\index.js" />
     <Content Include="src\components\Edit\Accordian.js" />
