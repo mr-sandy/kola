@@ -13,21 +13,19 @@ const componentMappings = {
 
 const target = {
     drop(props, monitor) {
-        const { onDrop, component } = props;
+        const { onDrop, placeholderPath } = props;
         if (onDrop && monitor.isOver({ shallow: true })) {
-            onDrop(monitor.getItem(), component.path);
+            console.log('drop in StructureComponent');
+            const item = monitor.getItem();
+            onDrop({
+                    componentPath: placeholderPath,
+                    componentType: item.name
+                }
+            );
         }
     },
 
     hover(props, monitor, reactComponent) {
-        //const dragIndex = monitor.getItem().index;
-        //const hoverIndex = props.index;
-
-        //// Don't replace items with themselves
-        //if (dragIndex === hoverIndex) {
-        //    return;
-        //}
-
         if (monitor.isOver({ shallow: true })) {
             const { component, setPlaceholderPath } = props;
 
@@ -43,20 +41,16 @@ const target = {
             // Get pixels to the top
             const hoverClientY = clientOffset.y - hoverBoundingRect.top;
 
-            // Only perform the move when the mouse has crossed half of the items height
-            // When dragging downwards, only move when the cursor is below 50%
-            // When dragging upwards, only move when the cursor is above 50%
-
-            const componentPathArr = component.path.split('/').filter(s => s).map(s => parseInt(s));
+            const componentPath = component.path.split('/').filter(s => s).map(s => parseInt(s, 10));
 
             // Dragging downwards
             if (hoverClientY <= hoverMiddleY) {
-                setPlaceholderPath(componentPathArr);
+                setPlaceholderPath(componentPath);
             }
 
             // Dragging upwards
             if (hoverClientY > hoverMiddleY) {
-                setPlaceholderPath([...componentPathArr.slice(0, componentPathArr.length - 1), componentPathArr[componentPathArr.length - 1] + 1]);
+                setPlaceholderPath([...componentPath.slice(0, componentPath.length - 1), componentPath[componentPath.length - 1] + 1]);
             }
         }
     }

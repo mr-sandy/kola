@@ -1,7 +1,5 @@
 ﻿import { RECEIVE_TEMPLATE, RECEIVE_COMPONENT } from '../actions';
 
-const parseComponentPath = str => str.split('/').filter(s => s).map(s => parseInt(s));
-
 const replaceComponent = (componentPath, component, replacement ) => {
     if (componentPath.length === 0) {
         return replacement;
@@ -24,7 +22,7 @@ const template = (state = {}, action) => {
 
         case RECEIVE_COMPONENT:
         {
-            const componentPath = parseComponentPath(action.payload.path);
+            const componentPath = action.payload.path.split('/').filter(s => s).map(s => parseInt(s, 10));
             return replaceComponent(componentPath, state, action.payload);
         }
 

@@ -4,24 +4,7 @@ import Toolbar from '../Toolbar';
 import ToolbarContent from '../ToolbarContent';
 import ToolbarButtonTray from '../ToolbarButtonTray';
 import Button from '../Button';
-
-const arraysMatch = (arr1, arr2) => {
-    if (!arr1 || !arr2) {
-        return false
-    }
-
-    if (arr1.length !== arr2.length) {
-        return false;
-    }
-
-    for (let i = 0; i < arr1.length; i++) {
-        if (arr1[i] !== arr2[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
+import { arraysMatch } from './helpers';
 
 const styles = {
     base: {
@@ -48,7 +31,14 @@ class Structure extends Component {
         return (
             <Toolbar style={styles.base}>
                 <ToolbarContent style={styles.content}>
-                    <ComponentList components={components} componentPath="/" placeholderPath={this.state.placeholderPath} setPlaceholderPath={p => this.setPlaceholderPath(p) }{...otherProps} style={{ minHeight: '100%' }} onDrop={(e, f) => this.handleDrop(e, f)} />
+                    <ComponentList 
+                        components={components} 
+                        componentPath="/" 
+                        placeholderPath={this.state.placeholderPath} 
+                        setPlaceholderPath={p => this.setPlaceholderPath(p) } 
+                        style={{ minHeight: '100%' }} 
+                        onDrop={e => this.handleDrop(e)} 
+                        {...otherProps} />
                 </ToolbarContent>
                 <ToolbarButtonTray>
                     <Button title="Pin Toolbars" onClick={() => console.log('clicked')} icon="fa-cog" active={false} />
@@ -57,11 +47,11 @@ class Structure extends Component {
         );
     }
 
-    handleDrop(e, componentPath) {
-        const { addComponent } = this.props;
-        if (addComponent) {
-            addComponent(componentPath, e.name);
-        }
+    handleDrop(e) {
+        
+        this.props.addComponent(this.props.templatePath, e.componentPath, e.componentType);
+        this.props.selectComponent('/' + this.state.placeholderPath.join('/'));
+        this.setState({ placeholderPath: [] });
     }
 
     xhandleDrop(e) {

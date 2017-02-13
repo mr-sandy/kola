@@ -1,4 +1,4 @@
-﻿import { fetchJSON, postJSON } from './helpers/fetchJson';
+﻿import { postJSON } from './helpers/fetchJson';
 import config from '../config';
 
 export const RECEIVE_AMENDMENT = 'RECEIVE_AMENDMENT';
@@ -17,12 +17,12 @@ const postAmendment = async (dispatch, templatePath, amendment) => {
     }
 }
 
-export const addComponent = (componentPath, componentType) => async dispatch => {
-    postAmendment(dispatch, '/test',
+export const addComponent = (templatePath, componentPath, componentType) => async dispatch => {
+    postAmendment(dispatch, templatePath,
     {
         amendmentType: 'addComponent',
         componentType: componentType,
-        targetPath: componentPath
+        targetPath: '/' + componentPath.join('/')
     });
 };
 

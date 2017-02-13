@@ -35,6 +35,12 @@
 
             yield return new LinkResource
             {
+                Rel = "path",
+                Href = template.Path.ToHttpPath()
+            };
+
+            yield return new LinkResource
+            {
                 Rel = "amendments",
                 Href = $"/_kola/templates/amendments?templatePath={template.Path.ToHttpPath()}"
             };

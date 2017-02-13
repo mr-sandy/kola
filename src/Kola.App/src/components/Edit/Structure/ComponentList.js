@@ -1,37 +1,25 @@
 ﻿import React, { Component } from 'react';
 import StructureComponent from './StructureComponent';
 import { DropTarget } from 'react-dnd';
-
-const arraysMatch = (arr1, arr2) => {
-    if (!arr1 || !arr2) {
-        return false
-    }
-
-    if (arr1.length !== arr2.length) {
-        return false;
-    }
-
-    for (let i = 0; i < arr1.length; i++) {
-        if (arr1[i] !== arr2[i]) {
-            return false;
-        }
-    }
-
-    return true;
-}
+import { arraysMatch } from './helpers';
 
 const target = {
     drop(props, monitor) {
-        const { onDrop, componentPath } = props;
+        const { onDrop, placeholderPath } = props;
         if (onDrop && monitor.isOver({ shallow: true })) {
-            onDrop(monitor.getItem(), componentPath);
+            console.log('drop in ComponentList');
+            onDrop({
+                    componentPath: placeholderPath,
+                    componentType: monitor.getItem().name
+                }
+            );
         }
     },
 
     hover(props, monitor, component) {
         if (monitor.isOver({ shallow: true })) {
             const { componentPath, setPlaceholderPath, components } = props;
-            const componentPathArr = componentPath.split('/').filter(s => s).map(s => parseInt(s));
+            const componentPathArr = componentPath.split('/').filter(s => s).map(s => parseInt(s, 10));
             if (components.length === 0) {
                 setPlaceholderPath([...componentPathArr, 0]);
             }
@@ -67,14 +55,14 @@ const Placeholder = () => (
 
 class ComponentList extends Component {
     render() {
-        const { components, connectDropTarget, componentPath, isOver, isOverChild, style = { minHeight: '48px' }, ...otherProps } = this.props;
+        const { components, connectDropTarget, componentPath, style = { minHeight: '48px' }, ...otherProps } = this.props;
         const { placeholderPath = '' } = otherProps;
 
         let styles = style;
         
         let placeholderIndex = -1;
         if (placeholderPath.length > 0) {
-            const componentPathArr = componentPath.split('/').filter(s => s).map(s => parseInt(s));
+            const componentPathArr = componentPath.split('/').filter(s => s).map(s => parseInt(s, 10));
             const placeholderParent = placeholderPath.slice(0, placeholderPath.length - 1);
 
             if (arraysMatch(componentPathArr, placeholderParent)) {
@@ -88,7 +76,7 @@ class ComponentList extends Component {
             : keyed;
 
         return connectDropTarget(
-                <div style={styles}>{componentPath} {placeholderPath}
+                <div style={styles}>
                     { children.map((c, i) => {
                         return c.placeholder
                             ? <Placeholder key={c.key} />

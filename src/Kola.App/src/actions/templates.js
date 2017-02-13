@@ -1,4 +1,4 @@
-﻿import { fetchJSON, postJSON } from './helpers/fetchJson';
+﻿import { fetchJSON } from './helpers/fetchJson';
 import config from '../config';
 
 export const RECEIVE_COMPONENT_TYPES = 'RECEIVE_COMPONENT_TYPES';
