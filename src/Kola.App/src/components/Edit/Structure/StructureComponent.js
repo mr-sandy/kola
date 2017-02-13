@@ -41,9 +41,9 @@ const dropTarget = {
         if (monitor.isOver({ shallow: true })) {
             if (monitor.getItemType() === 'COMPONENT_TYPE') {
                 props.onAddComponent({
-                    componentPath: props.placeholderPath,
-                    componentType: monitor.getItem().name
-                }
+                        componentPath: props.placeholderPath,
+                        componentType: monitor.getItem().name
+                    }
                 );
             } else {
                 props.onMoveComponent({
@@ -58,6 +58,8 @@ const dropTarget = {
         if (monitor.isOver({ shallow: true })) {
             const { component, setPlaceholderPath } = props;
 
+            const componentPath = component.path.split('/').filter(s => s).map(s => parseInt(s, 10));
+
             // Determine rectangle on screen
             const hoverBoundingRect = findDOMNode(reactComponent).getBoundingClientRect();
 
@@ -70,17 +72,30 @@ const dropTarget = {
             // Get pixels to the top
             const hoverClientY = clientOffset.y - hoverBoundingRect.top;
 
-            const componentPath = component.path.split('/').filter(s => s).map(s => parseInt(s, 10));
+            let newPlaceholderPath = [];
 
             // Dragging downwards
             if (hoverClientY <= hoverMiddleY) {
-                setPlaceholderPath(componentPath);
+                newPlaceholderPath = componentPath;
             }
 
             // Dragging upwards
             if (hoverClientY > hoverMiddleY) {
-                setPlaceholderPath([...componentPath.slice(0, componentPath.length - 1), componentPath[componentPath.length - 1] + 1]);
+                newPlaceholderPath = [
+                    ...componentPath.slice(0, componentPath.length - 1), componentPath[componentPath.length - 1] + 1
+                ];
             }
+
+            if (monitor.getItemType() === 'COMPONENT') {
+                const sourceComponentPath = monitor.getItem().componentPath;
+                const modified = modifyTargetPath(sourceComponentPath, newPlaceholderPath);
+                if (arraysMatch(modified, sourceComponentPath)) {
+                    newPlaceholderPath = [];
+                }
+            }
+
+            setPlaceholderPath(newPlaceholderPath);
+
         }
     }
 };
@@ -95,7 +110,6 @@ function dropCollect(connect, monitor) {
 
 const dragSource = {
     beginDrag({component}) {
-
     return { componentPath: component.path.split('/').filter(s => s).map(s => parseInt(s, 10)) };
   }
 };
@@ -110,7 +124,7 @@ function dragCollect(connect, monitor) {
 
 class StructureComponent extends Component {
     render() {
-        const { component, connectDropTarget, connectDragSource, selectedComponent, highlightedComponent } = this.props;
+        const { component, connectDropTarget, connectDragSource, isDragging, placeholderPath, isMoving, selectedComponent, highlightedComponent } = this.props;
 
         const selection = {
             isSelected: component.path === selectedComponent,
@@ -125,8 +139,19 @@ class StructureComponent extends Component {
 
         const TheComponent = componentMappings[component.type];
 
+        const style = isDragging
+            ? {
+                paddingTop: '8px',
+                paddingBottom: '8px',
+                opacity: '0.2'
+            }
+            : {
+                paddingTop: '8px',
+                paddingBottom: '8px'
+            };
+
         return connectDragSource(connectDropTarget(
-            <div {...handlers} style={{paddingTop: '8px', paddingBottom: '8px'}}>
+            <div {...handlers} style={style}>
                 <TheComponent {...this.props} {...selection} />
             </div>)
         );

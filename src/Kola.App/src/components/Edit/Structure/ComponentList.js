@@ -45,18 +45,13 @@ const target = {
         }
     },
 
-    hover(props, monitor, component) {
+    hover(props, monitor) {
         if (monitor.isOver({ shallow: true })) {
             const { componentPath, setPlaceholderPath, components } = props;
             const componentPathArr = componentPath.split('/').filter(s => s).map(s => parseInt(s, 10));
             if (components.length === 0) {
                 setPlaceholderPath([...componentPathArr, 0]);
             }
-            //component.setState({ placeholderIndex: 0 })
-            //const { onHover } = props;
-            //if (onHover) {
-            //    onHover(monitor.getItem());
-            //}
         }
     }
 };
@@ -74,12 +69,12 @@ const placeholderStyle = {
     borderWidth: '2px',
     borderStyle: 'dashed',
     borderColor: '#999',
-    marginTop: '8px',
-    marginBottom: '8px'
+    marginTop: '0',
+    marginBottom: '0'
 }
 
 const Placeholder = () => (
-    <div style={placeholderStyle}></div>
+    <div style={{ paddingTop: '8px', paddingBottom: '8px' }}><div style={placeholderStyle}></div></div>
     );
 
 class ComponentList extends Component {
