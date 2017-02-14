@@ -9,17 +9,19 @@ const style = { minHeight: '38px' };
 
 const dropTarget = {
     drop(props, monitor) {
+        const { onAddComponent, onMoveComponent, placeholderPath = '' } = props;
+
         if (monitor.isOver({ shallow: true })) {
             if (monitor.getItemType() === 'COMPONENT_TYPE') {
-                props.onAddComponent({
-                    componentPath: props.placeholderPath,
+                onAddComponent({
+                    componentPath: placeholderPath,
                     componentType: monitor.getItem().name
                 });
             } 
             else {
-                props.onMoveComponent({
+                onMoveComponent({
                     sourcePath: monitor.getItem().componentPath,
-                    targetPath: modifySiblingPath(monitor.getItem().componentPath, props.placeholderPath)
+                    targetPath: modifySiblingPath(monitor.getItem().componentPath, placeholderPath)
                 })
             }
         }
@@ -27,9 +29,9 @@ const dropTarget = {
 
     hover(props, monitor) {
         if (monitor.isOver({ shallow: true })) {
-            const { componentPath, setPlaceholderPath, components } = props;
+            const { componentPath, showPlaceholder, components } = props;
             if (components.length === 0) {
-                setPlaceholderPath('/' + [...toIntArray(componentPath), 0].join('/'));
+                showPlaceholder('/' + [...toIntArray(componentPath), 0].join('/'));
             }
         }
     }
@@ -43,7 +45,7 @@ function dropCollect(connect, monitor) {
     };
 }
 
-const insertPlaceholder = (components, componentPath, placeholderPathStr) => {
+const insertPlaceholder = (components, componentPath, placeholderPathStr = '') => {
     const placeholderPath = toIntArray(placeholderPathStr);
     if (placeholderPath.length > 0) {
         const componentPathArray = toIntArray(componentPath);

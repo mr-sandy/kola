@@ -1,5 +1,5 @@
 ﻿import { connect } from 'react-redux';
-import { selectComponent, highlightComponent, unhighlightComponent, addComponent, moveComponent } from '../../actions';
+import { selectComponent, highlightComponent, unhighlightComponent, addComponent, moveComponent, showPlaceholder, hidePlaceholder } from '../../actions';
 import Structure from '../../components/Edit/Structure';
 
 const getTemplatePath = template => template.links ? template.links.find(l => l.rel === 'path').href : '';
@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
     components: state.template.components,
     templatePath: getTemplatePath(state.template),
     selectedComponent: state.selection.selectedComponent,
-    highlightedComponent : state.selection.highlightedComponent
+    highlightedComponent : state.selection.highlightedComponent,
+    placeholderPath: state.selection.placeholderPath
 });
 
 const mapDispatchToProps = {
@@ -16,7 +17,9 @@ const mapDispatchToProps = {
     highlightComponent,
     unhighlightComponent,
     addComponent,
-    moveComponent 
+    moveComponent,
+    showPlaceholder,
+    hidePlaceholder
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Structure);

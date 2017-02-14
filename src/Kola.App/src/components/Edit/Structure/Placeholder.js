@@ -2,9 +2,9 @@
 
 const style = {
     height: '30px',
-    borderWidth: '1px',
-    borderStyle: 'dotted',
-    borderColor: '#eee'
+    borderWidth: '2px',
+    borderStyle: 'dashed',
+    borderColor: '#999'
 }
 
 const Placeholder = () => (

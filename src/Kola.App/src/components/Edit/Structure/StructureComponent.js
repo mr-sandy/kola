@@ -18,17 +18,19 @@ const styles = {
 
 const dropTarget = {
     drop(props, monitor) {
+        const { onAddComponent, onMoveComponent, placeholderPath = '' } = props;
+
         if (monitor.isOver({ shallow: true })) {
             if (monitor.getItemType() === 'COMPONENT_TYPE') {
-                props.onAddComponent({
-                    componentPath: props.placeholderPath,
+                onAddComponent({
+                    componentPath: placeholderPath,
                     componentType: monitor.getItem().name
                 });
             } 
             else {
-                props.onMoveComponent({
+                onMoveComponent({
                     sourcePath: monitor.getItem().componentPath,
-                    targetPath: modifySiblingPath(monitor.getItem().componentPath, props.placeholderPath)
+                    targetPath: modifySiblingPath(monitor.getItem().componentPath, placeholderPath)
                 })
             }
         }
@@ -36,19 +38,19 @@ const dropTarget = {
 
     hover(props, monitor, reactComponent) {
         if (monitor.isOver({ shallow: true })) {
-            const { component, setPlaceholderPath } = props;
+            const { component, showPlaceholder } = props;
             const hoverBoundingRect = findDOMNode(reactComponent).getBoundingClientRect();
             const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
             const clientOffset = monitor.getClientOffset();
             const hoverClientY = clientOffset.y - hoverBoundingRect.top;
 
             if (hoverClientY <= hoverMiddleY) {
-                setPlaceholderPath(component.path);
+                showPlaceholder(component.path);
             }
             else if (hoverClientY > hoverMiddleY) {
                 const componentPathArray = toIntArray(component.path);
                 const placeholderPath = [...componentPathArray.slice(0, componentPathArray.length - 1), componentPathArray[componentPathArray.length - 1] + 1]
-                setPlaceholderPath('/' + placeholderPath.join('/'));
+                showPlaceholder('/' + placeholderPath.join('/'));
             }
         }
     }
@@ -71,6 +73,10 @@ const dragSource = {
 
     isDragging({component}, monitor) {
         return component.path === monitor.getItem().componentPath;
+    },
+
+    endDrag(props) {
+        props.hidePlaceholder();
     }
 };
 

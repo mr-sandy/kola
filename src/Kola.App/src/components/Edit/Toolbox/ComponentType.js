@@ -4,6 +4,10 @@ import { DragSource } from 'react-dnd';
 const dragSource = {
     beginDrag({ componentType }) {
         return { name: componentType.name };
+    },
+
+    endDrag(props) {
+        props.hidePlaceholder();
     }
 };
 

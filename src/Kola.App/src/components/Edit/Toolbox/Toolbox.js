@@ -15,14 +15,14 @@ const styles = {
     }
 }
 
-const Toolbox = ({componentTypes}) => {
+const Toolbox = ({componentTypes, ...props}) => {
 
     const groups = orderBy(groupBy(componentTypes, componentType => componentType.category), g => g.key);
 
     return (
         <Toolbar style={styles.base}>
             <ToolbarContent style={styles.content}>
-                {groups.map(group => <Group key={group.key} name={group.key} componentTypes={group.items} />)}
+                {groups.map(group => <Group key={group.key} name={group.key} componentTypes={group.items} {...props }/>)}
             </ToolbarContent>
             <ToolbarButtonTray>
                 <Button title="Pin Toolbars" onClick={() => console.log('clicked')} icon='fa-cog' active={false} />

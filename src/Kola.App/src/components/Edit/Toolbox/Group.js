@@ -10,9 +10,9 @@ const styles = {
     }
 }
 
-const Group = ({ name, componentTypes }) => (
+const Group = ({ name, componentTypes, ...props }) => (
     <Accordian caption={name} captionStyle={styles.caption}>
-        {componentTypes.map((componentType, i) => <ComponentType key={i} componentType={componentType} />)}
+        {componentTypes.map((componentType, i) => <ComponentType key={i} componentType={componentType} {...props} />)}
     </Accordian>
 );
 

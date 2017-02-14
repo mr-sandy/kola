@@ -7,6 +7,8 @@ export const SELECT_COMPONENT = 'SELECT_COMPONENT';
 export const HIGHLIGHT_COMPONENT = 'HIGHLIGHT_COMPONENT';
 export const UNHIGHLIGHT_COMPONENT = 'UNHIGHLIGHT_COMPONENT';
 export const RECEIVE_COMPONENT = 'RECEIVE_COMPONENT';
+export const SHOW_PLACEHOLDER = 'SHOW_PLACEHOLDER';
+export const HIDE_PLACEHOLDER = 'HIDE_PLACEHOLDER';
 
 export const receiveComponentTypes = components => ({
     type: RECEIVE_COMPONENT_TYPES,
@@ -38,6 +40,15 @@ export const receiveComponent = component => ({
     payload: component
 });
 
+export const showPlaceholder = placeholderPath => ({
+    type: SHOW_PLACEHOLDER,
+    payload: placeholderPath
+});
+
+export const hidePlaceholder = placeholderPath => ({
+    type: HIDE_PLACEHOLDER,
+    payload: placeholderPath
+});
 
 export const fetchComponentTypes = () => async dispatch => {
     try {

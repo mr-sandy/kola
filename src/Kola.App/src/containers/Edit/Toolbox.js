@@ -1,5 +1,5 @@
 ﻿import { connect } from 'react-redux';
-import { fetchComponentTypes } from '../../actions';
+import { fetchComponentTypes, showPlaceholder, hidePlaceholder } from '../../actions';
 import Toolbox from '../../components/Edit/Toolbox';
 import { initialiseOnMount } from '../helpers/higherOrderComponents';
 
@@ -8,7 +8,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    initialise: () => dispatch(fetchComponentTypes())
+    initialise: () => dispatch(fetchComponentTypes()),
+    showPlaceholder: path => dispatch(showPlaceholder(path)),
+    hidePlaceholder: path => dispatch(hidePlaceholder(path))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(initialiseOnMount(Toolbox));
