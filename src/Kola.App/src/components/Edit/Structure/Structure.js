@@ -49,14 +49,12 @@ class Structure extends Component {
 
     handleAddComponent(e) {
         this.props.addComponent(this.props.templatePath, e.componentPath, e.componentType);
-        this.props.selectComponent(e.componentPath, false);
         this.setState({ placeholderPath: '' });
     }
 
     handleMoveComponent(e) {
         if (e.sourcePath !== e.targetPath) {
             this.props.moveComponent(this.props.templatePath, e.sourcePath, e.targetPath);
-            this.props.selectComponent(e.targetPath, false);
         }
         this.setState({ placeholderPath: '' });
     }

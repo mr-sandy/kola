@@ -4,8 +4,7 @@ export const commonStyles = {
         color: '#eee',
         borderWidth: '1px',
         borderColor: '#ccc',
-        borderStyle: 'solid',
-        marginBottom: '0'
+        borderStyle: 'solid'
     },
     inner: {
         padding: '4px 8px 4px 8px',

@@ -5,7 +5,7 @@ import Placeholder from './Placeholder';
 import { arraysMatch, modifySiblingPath } from './helpers';
 import { toIntArray } from '../../../utility';
 
-const style = { minHeight: '48px' };
+const style = { minHeight: '38px' };
 
 const dropTarget = {
     drop(props, monitor) {

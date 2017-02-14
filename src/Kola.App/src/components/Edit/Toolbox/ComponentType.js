@@ -1,10 +1,10 @@
 ﻿import React, { Component } from 'react';
 import { DragSource } from 'react-dnd';
 
-const knightSource = {
-    beginDrag({componentType}) {
-    return {name: componentType.name};
-  }
+const dragSource = {
+    beginDrag({ componentType }) {
+        return { name: componentType.name };
+    }
 };
 
 function collect(connect, monitor) {
@@ -102,4 +102,4 @@ class ComponentType extends Component {
     }
 }
 
-export default DragSource('COMPONENT_TYPE', knightSource, collect)(ComponentType);
+export default DragSource('COMPONENT_TYPE', dragSource, collect)(ComponentType);

@@ -1,4 +1,5 @@
 ﻿import { postJSON } from './helpers/fetchJson';
+import { selectComponent } from './templates';
 import config from '../config';
 
 export const RECEIVE_AMENDMENT = 'RECEIVE_AMENDMENT';
@@ -10,6 +11,7 @@ export const receiveAmendment = amendment => ({
 
 const postAmendment = async (dispatch, templatePath, amendment) => {
     try {
+        dispatch(selectComponent(''));
         const data = await postJSON(`${config.appRoot}/templates/amendments?templatePath=${templatePath}`, amendment);
         dispatch(receiveAmendment(data));
     } catch (error) {
