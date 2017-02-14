@@ -96,8 +96,11 @@
     <Content Include="src\config.js" />
     <Content Include="src\index.js" />
     <Content Include="src\middleware\index.js" />
-    <Content Include="src\reducers\selection.js" />
+    <Content Include="src\reducers\selection\selectedComponent.js" />
+    <Content Include="src\reducers\selection\highlightedComponent.js" />
+    <Content Include="src\reducers\selection\placeholderPath.js" />
     <Content Include="src\reducers\application.js" />
+    <Content Include="src\reducers\selection\index.js" />
     <Content Include="src\reducers\template.js" />
     <Content Include="src\reducers\componentTypes.js" />
     <Content Include="src\reducers\index.js" />

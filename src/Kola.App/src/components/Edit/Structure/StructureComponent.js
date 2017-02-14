@@ -18,7 +18,7 @@ const styles = {
 
 const dropTarget = {
     drop(props, monitor) {
-        const { onAddComponent, onMoveComponent, placeholderPath = '' } = props;
+        const { onAddComponent, onMoveComponent, placeholderPath } = props;
 
         if (monitor.isOver({ shallow: true })) {
             if (monitor.getItemType() === 'COMPONENT_TYPE') {

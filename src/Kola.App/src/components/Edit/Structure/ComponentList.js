@@ -9,7 +9,7 @@ const style = { minHeight: '38px' };
 
 const dropTarget = {
     drop(props, monitor) {
-        const { onAddComponent, onMoveComponent, placeholderPath = '' } = props;
+        const { onAddComponent, onMoveComponent, placeholderPath } = props;
 
         if (monitor.isOver({ shallow: true })) {
             if (monitor.getItemType() === 'COMPONENT_TYPE') {
@@ -45,7 +45,7 @@ function dropCollect(connect, monitor) {
     };
 }
 
-const insertPlaceholder = (components, componentPath, placeholderPathStr = '') => {
+const insertPlaceholder = (components, componentPath, placeholderPathStr) => {
     const placeholderPath = toIntArray(placeholderPathStr);
     if (placeholderPath.length > 0) {
         const componentPathArray = toIntArray(componentPath);

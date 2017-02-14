@@ -17,7 +17,7 @@ const styles = {
 class Structure extends Component {
     render() {
         const { components = [], ...otherProps } = this.props;
-        const { placeholderPath = '', showPlaceholder } = otherProps;
+        const { placeholderPath, showPlaceholder } = otherProps;
         return (
             <Toolbar style={styles.base}>
                 <ToolbarContent style={styles.content}>
