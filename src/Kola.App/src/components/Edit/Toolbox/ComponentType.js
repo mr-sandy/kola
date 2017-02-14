@@ -67,7 +67,7 @@ class ComponentType extends Component {
 
     render() {
         const { componentType } = this.props;
-        const { connectDragSource, isDragging } = this.props;
+        const { connectDragSource } = this.props;
 
         let innerStyle = this.state.hovering ? { ...styles.inner, ...styles.innerHover } : styles.inner;
         let colourStyle;
@@ -89,9 +89,6 @@ class ComponentType extends Component {
 
 
         innerStyle = {...innerStyle, ...colourStyle }
-        if (isDragging) {
-            innerStyle = { ...innerStyle, backgroundColor: 'red' };
-        }
 
         return connectDragSource(
             <div style={styles.outer} onMouseEnter={() => this.toggleHover()} onMouseLeave={() => this.toggleHover()}>

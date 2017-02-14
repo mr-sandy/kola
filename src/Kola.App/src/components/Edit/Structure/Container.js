@@ -1,35 +1,15 @@
-﻿import React, { Component } from 'react';
+﻿import React from 'react';
 import ComponentList from './ComponentList';
 import Accordian from '../Accordian';
-import commonStyles from './commonStyles';
+import { commonStyles, buildOuterStyle } from './commonStyles';
 
-class Container extends Component {
-    render() {
-        const { component, ...otherProps } = this.props;
-
-        return (
-            <Accordian outerStyle={this.buildOuterStyles()} 
-                    captionStyle={commonStyles.caption} 
-                    innerStyle={commonStyles.inner} caption={`${component.type}: ${component.name}`} 
-                    className="transition-all" >
-                <ComponentList components={component.components} componentPath={component.path} {...otherProps} />
-            </Accordian>
-        );
-    }
-
-    buildOuterStyles() {
-        const { isSelected, isHighlighted } = this.props;
-
-        if (isSelected) {
-            return { ...commonStyles.outer, backgroundColor: 'rgba(32,113,178,0.4)' };
-        }
-
-        if (isHighlighted) {
-            return { ...commonStyles.outer, backgroundColor: 'rgba(255,255,255,0.2)' };
-        }
-
-        return commonStyles.outer;
-    }
-}
+const Container = ({ component, isSelected, isHighlighted, ...otherProps }) => (
+    <Accordian outerStyle={buildOuterStyle(component.type, isSelected, isHighlighted)} 
+                captionStyle={commonStyles.caption} 
+                innerStyle={commonStyles.inner} caption={`${component.type}: ${component.name}`} 
+                className="transition-all" >
+        <ComponentList components={component.components} componentPath={component.path} {...otherProps} />
+    </Accordian>
+);
 
 export default Container;

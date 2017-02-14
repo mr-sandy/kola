@@ -1,20 +1,12 @@
 ﻿import React  from 'react';
 import ComponentList from './ComponentList';
+import { commonStyles } from './commonStyles';
 
-const styles = {
-    caption: {
-        display: 'block',
-        paddingBottom: '12px'
-    }
-}
-const Area = ({ area, ...props }) => {
-    const { name, components = [] } = area;
-    return (
-        <div>
-            <span style={styles.caption}>{`area: ${name}`}</span>
-            <ComponentList components={components} componentPath={area.path} {...props} />
-        </div>
-    );
-}
+const Area = ({ area, ...props }) => (
+    <div>
+        <span style={commonStyles.caption}>{`area: ${area.name}`}</span>
+        <ComponentList components={area.components} componentPath={area.path} {...props} />
+    </div>
+);
 
 export default Area;
