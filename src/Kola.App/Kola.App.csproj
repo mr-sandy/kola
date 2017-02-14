@@ -101,6 +101,7 @@
     <Content Include="src\reducers\componentTypes.js" />
     <Content Include="src\reducers\index.js" />
     <Content Include="src\styles.css" />
+    <Content Include="src\utilities\index.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="package.json" />

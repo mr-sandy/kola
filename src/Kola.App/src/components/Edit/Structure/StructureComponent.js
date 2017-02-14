@@ -6,6 +6,7 @@ import Widget from './Widget';
 import { DragSource, DropTarget } from 'react-dnd';
 import flow from 'lodash/flow';
 import { arraysMatch } from './helpers';
+//import { doSomething } from '../../../utilities';
 
 const componentMappings = {
     atom: Atom,
@@ -58,8 +59,6 @@ const dropTarget = {
         if (monitor.isOver({ shallow: true })) {
             const { component, setPlaceholderPath } = props;
 
-            const componentPath = component.path.split('/').filter(s => s).map(s => parseInt(s, 10));
-
             // Determine rectangle on screen
             const hoverBoundingRect = findDOMNode(reactComponent).getBoundingClientRect();
 
@@ -72,30 +71,17 @@ const dropTarget = {
             // Get pixels to the top
             const hoverClientY = clientOffset.y - hoverBoundingRect.top;
 
-            let newPlaceholderPath = [];
+            const componentPath = component.path.split('/').filter(s => s).map(s => parseInt(s, 10));
 
             // Dragging downwards
             if (hoverClientY <= hoverMiddleY) {
-                newPlaceholderPath = componentPath;
+                setPlaceholderPath(componentPath);
             }
 
             // Dragging upwards
             if (hoverClientY > hoverMiddleY) {
-                newPlaceholderPath = [
-                    ...componentPath.slice(0, componentPath.length - 1), componentPath[componentPath.length - 1] + 1
-                ];
+                setPlaceholderPath([...componentPath.slice(0, componentPath.length - 1), componentPath[componentPath.length - 1] + 1]);
             }
-
-            if (monitor.getItemType() === 'COMPONENT') {
-                const sourceComponentPath = monitor.getItem().componentPath;
-                const modified = modifyTargetPath(sourceComponentPath, newPlaceholderPath);
-                if (arraysMatch(modified, sourceComponentPath)) {
-                    newPlaceholderPath = [];
-                }
-            }
-
-            setPlaceholderPath(newPlaceholderPath);
-
         }
     }
 };
@@ -124,26 +110,19 @@ function dragCollect(connect, monitor) {
 
 class StructureComponent extends Component {
     render() {
-        const { component, connectDropTarget, connectDragSource, isDragging, placeholderPath, isMoving, selectedComponent, highlightedComponent } = this.props;
+        const { component, connectDropTarget, connectDragSource, isDragging, selectedComponent, highlightedComponent } = this.props;
 
         const selection = {
             isSelected: component.path === selectedComponent,
             isHighlighted: component.path === highlightedComponent
         }
 
-        const handlers = {
-            onClick: e => this.handleClick(e),
-            onMouseOver: e => this.handleMouseOver(e),
-            onMouseLeave: e => this.handleMouseLeave(e)
-        };
-
         const TheComponent = componentMappings[component.type];
 
         const style = isDragging
             ? {
-                paddingTop: '8px',
-                paddingBottom: '8px',
-                opacity: '0.2'
+                height: '0',
+                opacity: '0'
             }
             : {
                 paddingTop: '8px',
@@ -151,7 +130,10 @@ class StructureComponent extends Component {
             };
 
         return connectDragSource(connectDropTarget(
-            <div {...handlers} style={style}>
+            <div onClick={e => this.handleClick(e)}
+                 onMouseOver={e => this.handleMouseOver(e)}
+                 onMouseLeave={e => this.handleMouseLeave(e)} 
+                 style={style}>
                 <TheComponent {...this.props} {...selection} />
             </div>)
         );
@@ -159,23 +141,17 @@ class StructureComponent extends Component {
 
     handleClick(e) {
         e.stopPropagation();
-
-        const { component, selectComponent } = this.props;
-        selectComponent(component.path);
+        this.props.selectComponent(this.props.component.path);
     }
 
     handleMouseOver(e) {
         e.stopPropagation();
-
-        const { component, highlightComponent } = this.props;
-        highlightComponent(component.path)
+        this.props.highlightComponent(this.props.component.path)
     }
 
     handleMouseLeave(e) {
         e.stopPropagation();
-
-        const { component, unhighlightComponent } = this.props;
-        unhighlightComponent(component.path)
+        this.props.unhighlightComponent(this.props.component.path)
     }
 }
 
