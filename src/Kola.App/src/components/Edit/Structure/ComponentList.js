@@ -17,10 +17,9 @@ const dropTarget = {
                 });
             } 
             else {
-                const componentPath = toIntArray(monitor.getItem().componentPath);
                 props.onMoveComponent({
-                    sourcePath: componentPath,
-                    targetPath: modifySiblingPath(componentPath, props.placeholderPath)
+                    sourcePath: monitor.getItem().componentPath,
+                    targetPath: modifySiblingPath(monitor.getItem().componentPath, props.placeholderPath)
                 })
             }
         }
@@ -30,7 +29,7 @@ const dropTarget = {
         if (monitor.isOver({ shallow: true })) {
             const { componentPath, setPlaceholderPath, components } = props;
             if (components.length === 0) {
-                setPlaceholderPath([...toIntArray(componentPath), 0]);
+                setPlaceholderPath('/' + [...toIntArray(componentPath), 0].join('/'));
             }
         }
     }
@@ -44,7 +43,8 @@ function dropCollect(connect, monitor) {
     };
 }
 
-const insertPlaceholder = (components, componentPath, placeholderPath) => {
+const insertPlaceholder = (components, componentPath, placeholderPathStr) => {
+    const placeholderPath = toIntArray(placeholderPathStr);
     if (placeholderPath.length > 0) {
         const componentPathArray = toIntArray(componentPath);
         const placeholderParent = placeholderPath.slice(0, placeholderPath.length - 1);

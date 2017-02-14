@@ -5,7 +5,6 @@ import flow from 'lodash/flow';
 import { modifySiblingPath, pickComponent } from './helpers';
 import { toIntArray } from '../../../utility';
 
-
 const styles = {
     normal: {
         paddingTop: '8px',
@@ -27,10 +26,9 @@ const dropTarget = {
                 });
             } 
             else {
-                const componentPath = toIntArray(monitor.getItem().componentPath);
                 props.onMoveComponent({
-                    sourcePath: componentPath,
-                    targetPath: modifySiblingPath(componentPath, props.placeholderPath)
+                    sourcePath: monitor.getItem().componentPath,
+                    targetPath: modifySiblingPath(monitor.getItem().componentPath, props.placeholderPath)
                 })
             }
         }
@@ -43,13 +41,14 @@ const dropTarget = {
             const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
             const clientOffset = monitor.getClientOffset();
             const hoverClientY = clientOffset.y - hoverBoundingRect.top;
-            const componentPath = toIntArray(component.path);
 
             if (hoverClientY <= hoverMiddleY) {
-                setPlaceholderPath(componentPath);
+                setPlaceholderPath(component.path);
             }
             else if (hoverClientY > hoverMiddleY) {
-                setPlaceholderPath([...componentPath.slice(0, componentPath.length - 1), componentPath[componentPath.length - 1] + 1]);
+                const componentPathArray = toIntArray(component.path);
+                const placeholderPath = [...componentPathArray.slice(0, componentPathArray.length - 1), componentPathArray[componentPathArray.length - 1] + 1]
+                setPlaceholderPath('/' + placeholderPath.join('/'));
             }
         }
     }

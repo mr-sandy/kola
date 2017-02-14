@@ -4,7 +4,6 @@ import Toolbar from '../Toolbar';
 import ToolbarContent from '../ToolbarContent';
 import ToolbarButtonTray from '../ToolbarButtonTray';
 import Button from '../Button';
-import { arraysMatch } from './helpers';
 
 const styles = {
     base: {
@@ -17,11 +16,11 @@ const styles = {
 
 class Structure extends Component {
     state = {
-        placeholderPath: []
+        placeholderPath: ''
     }
 
     setPlaceholderPath(placeholderPath) {
-        if (!arraysMatch(placeholderPath, this.state.placeholderPath)) {
+        if (placeholderPath !== this.state.placeholderPath) {
             this.setState({ placeholderPath });
         }
     }
@@ -50,14 +49,14 @@ class Structure extends Component {
 
     handleAddComponent(e) {
         this.props.addComponent(this.props.templatePath, e.componentPath, e.componentType);
-        this.props.selectComponent('/' + this.state.placeholderPath.join('/'), false);
-        this.setState({ placeholderPath: [] });
+        this.props.selectComponent(e.componentPath, false);
+        this.setState({ placeholderPath: '' });
     }
 
     handleMoveComponent(e) {
         this.props.moveComponent(this.props.templatePath, e.sourcePath, e.targetPath);
-        this.props.selectComponent('/' + this.state.placeholderPath.join('/'), false);
-        this.setState({ placeholderPath: [] });
+        this.props.selectComponent(e.targetPath, false);
+        this.setState({ placeholderPath: '' });
     }
 }
 
