@@ -54,8 +54,10 @@ class Structure extends Component {
     }
 
     handleMoveComponent(e) {
-        this.props.moveComponent(this.props.templatePath, e.sourcePath, e.targetPath);
-        this.props.selectComponent(e.targetPath, false);
+        if (e.sourcePath !== e.targetPath) {
+            this.props.moveComponent(this.props.templatePath, e.sourcePath, e.targetPath);
+            this.props.selectComponent(e.targetPath, false);
+        }
         this.setState({ placeholderPath: '' });
     }
 }

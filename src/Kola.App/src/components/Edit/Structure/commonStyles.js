@@ -8,7 +8,7 @@ export const commonStyles = {
         marginBottom: '0'
     },
     inner: {
-        padding: '8px 8px 8px 8px',
+        padding: '4px 8px 4px 8px',
         borderTopWidth: '1px',
         borderTopColor: '#ccc',
         borderTopStyle: 'solid'

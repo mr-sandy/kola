@@ -10,3 +10,21 @@ render(
     <Root store={store} />,
     document.getElementById('root')
 );
+
+//function dorender(Component) {
+//    render(
+//        (
+//            <Component store={store}/>
+//        ),
+//        document.getElementById('root')
+//    );
+//}
+
+//    dorender(Root);
+
+//if (module.hot) {
+//    module.hot.accept('./containers/Root', () => {
+//        const NextApp = dorender('./Root').default;
+//        render(NextApp);
+//    });
+//}
