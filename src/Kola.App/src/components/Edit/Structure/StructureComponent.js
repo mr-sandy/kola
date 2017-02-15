@@ -99,7 +99,7 @@ class StructureComponent extends Component {
             <div onClick={e => this.handleClick(e)} 
                  onMouseOver={e => this.handleMouseOver(e)} 
                  onMouseLeave={e => this.handleMouseLeave(e)} 
-                 style={isDragging ? styles.dragging : styles.normal}>{component.path}
+                 style={isDragging ? styles.dragging : styles.normal}>
                 <TheComponent isSelected={component.path === selectedComponent} 
                               isHighlighted={component.path === highlightedComponent} 
                               {...this.props} />
