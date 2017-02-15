@@ -31,6 +31,8 @@ const dropTarget = {
         if (monitor.isOver({ shallow: true })) {
             const { componentPath, showPlaceholder, components } = props;
             if (components.length === 0) {
+                console.log(componentPath);
+                console.log(props.components);
                 showPlaceholder('/' + [...toIntArray(componentPath), 0].join('/'));
             }
         }

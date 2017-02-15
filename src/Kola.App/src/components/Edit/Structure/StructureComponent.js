@@ -12,7 +12,8 @@ const styles = {
     },
     dragging: {
         height: '0',
-        opacity: '0'
+        opacity: '0',
+        overflow: 'hidden'
     }
 };
 
@@ -66,6 +67,7 @@ function dropCollect(connect, monitor) {
 
 const dragSource = {
     beginDrag({ component }) {
+        //console.log(component.path);
         return {
              componentPath: component.path
         };
@@ -97,7 +99,7 @@ class StructureComponent extends Component {
             <div onClick={e => this.handleClick(e)} 
                  onMouseOver={e => this.handleMouseOver(e)} 
                  onMouseLeave={e => this.handleMouseLeave(e)} 
-                 style={isDragging ? styles.dragging : styles.normal}>
+                 style={isDragging ? styles.dragging : styles.normal}>{component.path}
                 <TheComponent isSelected={component.path === selectedComponent} 
                               isHighlighted={component.path === highlightedComponent} 
                               {...this.props} />
