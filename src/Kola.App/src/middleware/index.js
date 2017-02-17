@@ -1,4 +1,4 @@
-﻿import { RECEIVE_AMENDMENT, fetchComponent, fetchTemplate, selectComponent } from '../actions';
+﻿import { RECEIVE_AMENDMENT, fetchComponent, fetchTemplate, selectComponent, unhideComponent } from '../actions';
 
 const getTemplatePath = template => template.links ? template.links.find(l => l.rel === 'path').href : '';
 
@@ -19,6 +19,7 @@ export const amendmentMiddleware = ({ dispatch, getState }) => next => action =>
                 }
             });
 
+            dispatch(unhideComponent());
             dispatch(selectComponent('/' + subject, false));
 
             break;

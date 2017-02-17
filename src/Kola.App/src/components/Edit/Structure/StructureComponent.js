@@ -67,7 +67,6 @@ function dropCollect(connect, monitor) {
 
 const dragSource = {
     beginDrag({ component }) {
-        //console.log(component.path);
         return {
              componentPath: component.path
         };
@@ -91,9 +90,12 @@ function dragCollect(connect, monitor) {
 
 class StructureComponent extends Component {
     render() {
-        const { component, connectDropTarget, connectDragSource, isDragging, selectedComponent, highlightedComponent } = this.props;
+        const { component, connectDropTarget, connectDragSource, isDragging, selectedComponent, highlightedComponent, hiddenComponent } = this.props;
 
         const TheComponent = pickComponent(component.type);
+
+        // this is to prevent a flicker jsut after a moved component has been dropped
+        if (hiddenComponent === component.path) return false;
 
         return connectDragSource(connectDropTarget(
             <div onClick={e => this.handleClick(e)} 

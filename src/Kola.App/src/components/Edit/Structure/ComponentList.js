@@ -30,8 +30,16 @@ const dropTarget = {
     hover(props, monitor) {
         if (monitor.isOver({ shallow: true })) {
             const { componentPath, showPlaceholder, components } = props;
-            if (components.length === 0) {
-                showPlaceholder('/' + [...toIntArray(componentPath), 0].join('/'));
+            const onlyChildComponentPath = '/' + [...toIntArray(componentPath), 0].join('/');
+
+            // should handle the hover if:
+            // - there are no children
+            // - there is only one child and it is the item currently being dragged (it will be hidden, so we need to handle the hover here)
+            if (components.length === 0 || 
+               (components.length === 1 &&
+                monitor.getItemType() === 'COMPONENT' &&
+                monitor.getItem().componentPath === onlyChildComponentPath)) {
+                showPlaceholder(onlyChildComponentPath);
             }
         }
     }

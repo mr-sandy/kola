@@ -1,5 +1,5 @@
 ﻿import { postJSON } from './helpers/fetchJson';
-import { selectComponent } from './templates';
+import { selectComponent, hideComponent } from './templates';
 import config from '../config';
 
 export const RECEIVE_AMENDMENT = 'RECEIVE_AMENDMENT';
@@ -29,6 +29,7 @@ export const addComponent = (templatePath, targetPath, componentType) => async d
 };
 
 export const moveComponent = (templatePath, sourcePath, targetPath) => async dispatch => {
+    dispatch(hideComponent(sourcePath));
     postAmendment(dispatch, templatePath,
     {
         amendmentType: 'moveComponent',

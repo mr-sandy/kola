@@ -9,6 +9,7 @@ const mapStateToProps = state => ({
     templatePath: getTemplatePath(state.template),
     selectedComponent: state.selection.selectedComponent,
     highlightedComponent : state.selection.highlightedComponent,
+    hiddenComponent : state.selection.hiddenComponent,
     placeholderPath: state.selection.placeholderPath
 });
 

@@ -24,7 +24,7 @@
 
         public IEnumerable<int> SubjectPath
         {
-            get { return this.SourcePath.Compensate(this.TargetPath); }
+            get { return this.TargetPath.Compensate(this.SourcePath); }
         }
 
         public void Accept(IAmendmentVisitor visitor)

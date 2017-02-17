@@ -41,25 +41,32 @@
             return new[] { shorter };
         }
 
-        public static IEnumerable<int> Compensate(this IEnumerable<int> list1, IEnumerable<int> list2)
+        public static IEnumerable<int> Compensate(this IEnumerable<int> targetPath, IEnumerable<int> sourcePath)
         {
-            var array1 = list1 as int[] ?? list1.ToArray();
-            var array2 = list2 as int[] ?? list2.ToArray();
+            var target = targetPath as int[] ?? targetPath.ToArray();
+            var source = sourcePath as int[] ?? sourcePath.ToArray();
 
             var matching = true;
 
-            for (var i = 0; i < array2.Count(); i++)
+            // 'subtract' the source path from the target path to compensate for its removal
+            for (var i = 0; i < target.Length; i++)
             {
-                if (matching && i < array1.Count() - 1)
-                {
-                    matching = array1[i].Equals(array2[i]);
-                }
+                var endOfSource = i == source.Length - 1;
+                var endOfTarget = i == target.Length - 1;
 
-                yield return matching && i == array1.Count() - 1 && array1[i] <= array2[i]
-                    ? array2[i] - 1
-                    : array2[i];
+                if (matching && endOfSource && !endOfTarget && source[i] < target[i])
+                {
+                    yield return target[i] - 1;
+                    matching = false;
+                }
+                else
+                {
+                    yield return target[i];
+                    matching = i < source.Length && source[i] == target[i];
+                }
             }
         }
+
 
         public static IEnumerable<int> IncrementLast(this IEnumerable<int> list)
         {

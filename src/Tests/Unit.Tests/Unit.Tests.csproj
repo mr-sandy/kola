@@ -97,7 +97,8 @@
     <Compile Include="Extensions\ContextItemExtensions\WhenMergingContextsWithCompetingItems.cs" />
     <Compile Include="Extensions\ContextItemExtensions\WhenMergingTwoDisinctContexts.cs" />
     <Compile Include="Extensions\ContextItemExtensions\WhenMergingOverlappingContexts.cs" />
-    <Compile Include="Extensions\EnumerableExtensions\Compensate\WhenCompensatingListsWhenSecondListIsBeforeFirstList.cs" />
+    <Compile Include="Extensions\EnumerableExtensions\Compensate\CompensateTests.cs" />
+    <Compile Include="Extensions\EnumerableExtensions\Compensate\OldCompenstateTests.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingIdenticalLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingEmptyLists.cs" />
     <Compile Include="Extensions\EnumerableExtensions\Consolidate\WhenConsolidatingNonOverlappingLists.cs" />

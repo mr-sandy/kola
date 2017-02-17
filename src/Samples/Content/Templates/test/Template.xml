@@ -1,276 +1,366 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
-  <components>
-    <widget name="page">
-      <properties />
-      <areas>
-        <area name="header">
-          <components>
-            <widget name="container">
-              <properties>
-                <property name="header-text" type="markdown">
-                  <value xsi:type="fixed"><![CDATA[###Header Text]]></value>
-                </property>
-              </properties>
-              <areas>
-                <area name="bits">
-                  <components>
-                    <container name="div">
-                      <properties />
-                      <components>
-                        <container name="div">
-                          <properties />
-                          <components>
-                            <atom name="text">
-                              <properties />
-                            </atom>
-                            <container name="div">
-                              <properties />
-                              <components>
-                                <atom name="text">
-                                  <properties />
-                                </atom>
-                                <container name="div">
-                                  <properties />
-                                  <components />
-                                </container>
-                              </components>
-                            </container>
-                            <atom name="text">
-                              <properties />
-                            </atom>
-                            <atom name="markdown">
-                              <properties>
-                                <property name="markdown" type="markdown">
-                                  <value xsi:type="fixed"><![CDATA[#Badgers!]]></value>
-                                </property>
-                              </properties>
-                            </atom>
-                          </components>
-                        </container>
-                      </components>
-                    </container>
-                  </components>
-                </area>
-              </areas>
-            </widget>
-          </components>
-        </area>
-        <area name="content">
-          <components>
-            <atom name="text">
-              <properties />
-            </atom>
-          </components>
-        </area>
-        <area name="scripts">
-          <components>
-            <atom name="markdown">
-              <properties>
-                <property name="markdown" type="markdown">
-                  <value xsi:type="fixed"><![CDATA[*add content here*]]></value>
-                </property>
-              </properties>
-            </atom>
-          </components>
-        </area>
-      </areas>
-    </widget>
-  </components>
+  <components />
   <amendments>
-    <removeComponent>
-      <componentPath>0/0/0/0/0</componentPath>
-    </removeComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>0/1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/1</sourcePath>
-      <targetPath>0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>0/1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/1</sourcePath>
-      <targetPath>0/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>0/1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/1/1/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0/0/0</sourcePath>
-      <targetPath>0/1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/1</sourcePath>
-      <targetPath>0/1/0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0/0/0</sourcePath>
-      <targetPath>0/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/1</sourcePath>
+    <addComponent>
+      <componentType>page</componentType>
       <targetPath>0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0/1/0</sourcePath>
-      <targetPath>0/0/0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0/2/0</sourcePath>
-      <targetPath>0/0/0/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0/0/0</sourcePath>
-      <targetPath>0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/1/1/0</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>2</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>3</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>3/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>2/1/0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0</sourcePath>
-      <targetPath>1/1/0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0/0/0</sourcePath>
-      <targetPath>0/1/0/0/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0/0/0</sourcePath>
-      <targetPath>0/1/0/0/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0/0/1</sourcePath>
-      <targetPath>0/1/0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0/0/1</sourcePath>
+    </addComponent>
+    <addComponent>
+      <componentType>div</componentType>
       <targetPath>0/1/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>0/1/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>label</componentType>
+      <targetPath>0/1/0/1</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>magical-atom</componentType>
+      <targetPath>0/1/0/1</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>0/1/0/1</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/1</sourcePath>
+      <targetPath>0/1/0/2</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/1/1/0/1</targetPath>
+      <sourcePath>0/1/0/2</sourcePath>
+      <targetPath>0/1/0/3</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0/0/1</sourcePath>
-      <targetPath>0/1/0</targetPath>
+      <sourcePath>0/1/0/3</sourcePath>
+      <targetPath>0/1/0/0</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/1/0/0</sourcePath>
-      <targetPath>0/1/1</targetPath>
+      <sourcePath>0/1/0/0</sourcePath>
+      <targetPath>0/1/0/2</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/1/2/0/0</targetPath>
+      <sourcePath>0/1/0/1</sourcePath>
+      <targetPath>0/1/0/3</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/1/1/0/1</targetPath>
+      <sourcePath>0/1/0/2</sourcePath>
+      <targetPath>0/1/0/1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0/0/1</sourcePath>
-      <targetPath>0/1/0/0/0</targetPath>
+      <sourcePath>0/1/0/2</sourcePath>
+      <targetPath>0/1/0/1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0/0/1</sourcePath>
-      <targetPath>0/1/0/0/0</targetPath>
+      <sourcePath>0/1/0/3</sourcePath>
+      <targetPath>0/1/0/2</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0/0/0</sourcePath>
-      <targetPath>0/1/0/0/1</targetPath>
+      <sourcePath>0/1/0/3</sourcePath>
+      <targetPath>0/1/0/0</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0/0/1</sourcePath>
-      <targetPath>0/1/0/0/0</targetPath>
+      <sourcePath>0/1/0/0</sourcePath>
+      <targetPath>0/1/0/1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0/0/1</sourcePath>
-      <targetPath>0/1/0</targetPath>
+      <sourcePath>0/1/0/0</sourcePath>
+      <targetPath>0/1/0/1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/1/0/0</sourcePath>
-      <targetPath>0/1/0</targetPath>
+      <sourcePath>0/1/0/0</sourcePath>
+      <targetPath>0/1/0/1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/1/2/0/0</targetPath>
+      <sourcePath>0/1/0/0</sourcePath>
+      <targetPath>0/1/0/1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/1/1/0/1</targetPath>
+      <sourcePath>0/1/0/1</sourcePath>
+      <targetPath>0/1/0/0</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0/0/1</sourcePath>
-      <targetPath>0/0/0</targetPath>
+      <sourcePath>0/1/0/0</sourcePath>
+      <targetPath>0/1/0/3</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0/0/0</sourcePath>
+      <sourcePath>0/1/0/2</sourcePath>
+      <targetPath>0/1/0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/0</sourcePath>
+      <targetPath>0/1/0/2</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/2</sourcePath>
+      <targetPath>0/1/0/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/1</sourcePath>
       <targetPath>0/2/0</targetPath>
     </moveComponent>
-    <addComponent>
-      <componentType>text</componentType>
-      <targetPath>0/0/0</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>text</componentType>
-      <targetPath>0/1/0</targetPath>
-    </addComponent>
     <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>0/1/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>0/1/2</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/2</sourcePath>
+      <sourcePath>0/2/0</sourcePath>
       <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/1/0/0</sourcePath>
+      <targetPath>1/1/0/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/1/0/1</sourcePath>
+      <targetPath>1/1/0/2</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/1/0/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <removeComponent>
+      <componentPath>1</componentPath>
+    </removeComponent>
+    <removeComponent>
+      <componentPath>0/1</componentPath>
+    </removeComponent>
+    <removeComponent>
+      <componentPath>0/0</componentPath>
+    </removeComponent>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/0</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>0/0</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>0/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>0/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1</sourcePath>
+      <targetPath>0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>0/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1</sourcePath>
+      <targetPath>0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/0</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>2/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>1/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1</sourcePath>
+      <targetPath>0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1</sourcePath>
+      <targetPath>0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1</sourcePath>
+      <targetPath>0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1</sourcePath>
+      <targetPath>0/0</targetPath>
     </moveComponent>
     <addComponent>
       <componentType>div</componentType>
-      <targetPath>0</targetPath>
+      <targetPath>0/1</targetPath>
     </addComponent>
     <moveComponent>
-      <sourcePath>1</sourcePath>
+      <sourcePath>0/1</sourcePath>
       <targetPath>0/0</targetPath>
     </moveComponent>
     <moveComponent>
@@ -279,106 +369,42 @@
     </moveComponent>
     <moveComponent>
       <sourcePath>1</sourcePath>
-      <targetPath>2/0/0</targetPath>
-    </moveComponent>
-    <addComponent>
-      <componentType>text</componentType>
-      <targetPath>1</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>page</componentType>
-      <targetPath>0</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>text</componentType>
-      <targetPath>0/2/0</targetPath>
-    </addComponent>
-    <moveComponent>
-      <sourcePath>0/2/0</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>0/2/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/2/0</sourcePath>
-      <targetPath>0/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>0/2/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/2/0</sourcePath>
-      <targetPath>0/1/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
       <targetPath>0</targetPath>
     </moveComponent>
     <moveComponent>
       <sourcePath>0</sourcePath>
-      <targetPath>1/2/0</targetPath>
+      <targetPath>1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/2/0</sourcePath>
-      <targetPath>0/1/0</targetPath>
+      <sourcePath>1</sourcePath>
+      <targetPath>0/0</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/2/0</targetPath>
+      <sourcePath>0/1</sourcePath>
+      <targetPath>0/0</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/2/0</sourcePath>
-      <targetPath>0/1/0</targetPath>
+      <sourcePath>0/0</sourcePath>
+      <targetPath>0/1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/2/0</targetPath>
+      <sourcePath>0/1</sourcePath>
+      <targetPath>1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/2/0</sourcePath>
-      <targetPath>0/0/0</targetPath>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>0/1/0</targetPath>
+      <sourcePath>0</sourcePath>
+      <targetPath>1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0</sourcePath>
-      <targetPath>0/2/0</targetPath>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/2/0</sourcePath>
-      <targetPath>0/0/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
+      <sourcePath>1/1</sourcePath>
       <targetPath>1/0</targetPath>
     </moveComponent>
     <moveComponent>
@@ -386,24 +412,120 @@
       <targetPath>1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>4/0/0</sourcePath>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0</sourcePath>
+      <targetPath>2/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/1</sourcePath>
+      <targetPath>1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/0</sourcePath>
       <targetPath>1</targetPath>
     </moveComponent>
     <moveComponent>
       <sourcePath>1</sourcePath>
-      <targetPath>0/2/0</targetPath>
+      <targetPath>0</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/2/0</sourcePath>
-      <targetPath>0/0/0</targetPath>
+      <sourcePath>0</sourcePath>
+      <targetPath>2/0/0</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/0/0</sourcePath>
-      <targetPath>0/2/0</targetPath>
+      <sourcePath>1/0/0</sourcePath>
+      <targetPath>1</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/2/0</sourcePath>
-      <targetPath>0/1/0</targetPath>
+      <sourcePath>1</sourcePath>
+      <targetPath>0</targetPath>
     </moveComponent>
+    <moveComponent>
+      <sourcePath>1</sourcePath>
+      <targetPath>2/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>1/0</sourcePath>
+      <targetPath>2</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>html-style</componentType>
+      <targetPath>3</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-head</componentType>
+      <targetPath>1</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-script</componentType>
+      <targetPath>5</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-head</componentType>
+      <targetPath>6</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>6</sourcePath>
+      <targetPath>3/0</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>html-script</componentType>
+      <targetPath>5</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-body</componentType>
+      <targetPath>1</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>container</componentType>
+      <targetPath>0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>markdown</componentType>
+      <targetPath>5/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>page</componentType>
+      <targetPath>3/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-script</componentType>
+      <targetPath>3/0/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-style</componentType>
+      <targetPath>3/0/1/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>div</componentType>
+      <targetPath>3/0/2/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>text</componentType>
+      <targetPath>3/0/2/0/0</targetPath>
+    </addComponent>
+    <addComponent>
+      <componentType>html-head</componentType>
+      <targetPath>3/0</targetPath>
+    </addComponent>
+    <moveComponent>
+      <sourcePath>3/0</sourcePath>
+      <targetPath>2</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>4/0/0/0</sourcePath>
+      <targetPath>2</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>3</sourcePath>
+      <targetPath>1</targetPath>
+    </moveComponent>
+    <addComponent>
+      <componentType>html-script</componentType>
+      <targetPath>3</targetPath>
+    </addComponent>
   </amendments>
 </template>

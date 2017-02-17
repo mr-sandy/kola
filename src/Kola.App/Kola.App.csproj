@@ -96,6 +96,7 @@
     <Content Include="src\config.js" />
     <Content Include="src\index.js" />
     <Content Include="src\middleware\index.js" />
+    <Content Include="src\reducers\selection\hiddenComponent.js" />
     <Content Include="src\reducers\selection\selectedComponent.js" />
     <Content Include="src\reducers\selection\highlightedComponent.js" />
     <Content Include="src\reducers\selection\placeholderPath.js" />
