@@ -102,6 +102,7 @@
     <Content Include="src\reducers\selection\placeholderPath.js" />
     <Content Include="src\reducers\application.js" />
     <Content Include="src\reducers\selection\index.js" />
+    <Content Include="src\reducers\amendments.js" />
     <Content Include="src\reducers\template.js" />
     <Content Include="src\reducers\componentTypes.js" />
     <Content Include="src\reducers\index.js" />

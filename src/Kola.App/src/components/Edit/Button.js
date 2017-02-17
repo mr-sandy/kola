@@ -1,7 +1,7 @@
 ﻿import React, { Component } from 'react';
 import classnames from 'classnames';
 
-const styles = {
+const defaultStyles = {
     normal:
     {
         height: '36px',
@@ -20,7 +20,8 @@ const styles = {
     active: {
         color: '#ccc',
         backgroundColor: '#555'
-    }
+    },
+    disabled: {}
 };
 
 class Button extends Component {
@@ -29,18 +30,29 @@ class Button extends Component {
     }
 
     render() {
-        const { title, active, icon } = this.props;
+        const { title, icon } = this.props;
 
-        const hoverStyle = this.state.hovering ? { ...styles.normal, ...styles.hover } : styles.normal;
-        const style = active ? { ...hoverStyle, ...styles.active } : hoverStyle;
+        const styles = this.buildStyles();
 
         const classname = classnames('fa fa-lg', icon);
 
         return (
-            <button style={style} className="transition-all" type="button" onMouseEnter={() => this.toggleHover()} onMouseLeave={() => this.toggleHover()} title={title} onClick={() => this.handleClick()}>
+            <button style={styles} className="transition-all" type="button" onMouseEnter={() => this.toggleHover()} onMouseLeave={() => this.toggleHover()} title={title} onClick={() => this.handleClick()}>
                 <i className={classname}></i>
             </button>
         );
+    }
+
+    buildStyles() {
+        const { active, enabled = true, styles = defaultStyles } = this.props;
+
+        if (!enabled) {
+            return { ...styles.normal, ...styles.disabled };
+        }
+
+        const hoverStyle = this.state.hovering ? { ...styles.normal, ...styles.hover } : styles.normal;
+
+        return active ? { ...hoverStyle, ...styles.active } : hoverStyle;
     }
 
     toggleHover() {
@@ -48,9 +60,9 @@ class Button extends Component {
     }
 
     handleClick() {
-        const { onClick } = this.props;
+        const { onClick, enabled } = this.props;
 
-        if (onClick) {
+        if (enabled && onClick) {
             onClick();
         }
     }

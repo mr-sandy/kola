@@ -1,4 +1,5 @@
 ﻿import { fetchJSON } from './helpers/fetchJson';
+import { fetchAmendments } from './amendments';
 import config from '../config';
 
 export const RECEIVE_COMPONENT_TYPES = 'RECEIVE_COMPONENT_TYPES';
@@ -64,7 +65,7 @@ export const unhideComponent = () => ({
 
 export const fetchComponentTypes = () => async dispatch => {
     try {
-        const data = await fetchJSON(`${config.appRoot}/component-types`);
+        const data = await fetchJSON(`${config.appRoot}/_kola/component-types`);
         dispatch(receiveComponentTypes(data));
     } catch (error) {
         console.log(`request failed ${error}`);
@@ -73,7 +74,7 @@ export const fetchComponentTypes = () => async dispatch => {
 
 export const fetchComponent = (templatePath, componentPath) => async dispatch => {
     try {
-        const data = await fetchJSON(`${config.appRoot}/templates/components?templatePath=${templatePath}&componentPath=${componentPath}`);
+        const data = await fetchJSON(`${config.appRoot}/_kola/templates/components?templatePath=${templatePath}&componentPath=${componentPath}`);
         dispatch(receiveComponent(data));
     } catch (error) {
         console.log(`request failed ${error}`);
@@ -82,8 +83,9 @@ export const fetchComponent = (templatePath, componentPath) => async dispatch =>
 
 export const fetchTemplate = templatePath => async dispatch => {
     try {
-        const data = await fetchJSON(`${config.appRoot}/templates?templatePath=${templatePath}`);
-        dispatch(receiveTemplate(data));
+        const template = await fetchJSON(`${config.appRoot}/_kola/templates?templatePath=${templatePath}`);
+        dispatch(receiveTemplate(template));
+        dispatch(fetchAmendments());
     } catch (error) {
         console.log(`request failed ${error}`);
     }

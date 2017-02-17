@@ -39,12 +39,12 @@ class Structure extends Component {
     }
 
     handleAddComponent(e) {
-        this.props.addComponent(this.props.templatePath, e.componentPath, e.componentType);
+        this.props.addComponent(e.componentPath, e.componentType);
     }
 
     handleMoveComponent(e) {
         if (e.sourcePath !== e.targetPath) {
-            this.props.moveComponent(this.props.templatePath, e.sourcePath, e.targetPath);
+            this.props.moveComponent(e.sourcePath, e.targetPath);
         }
     }
 }

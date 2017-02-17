@@ -30,7 +30,7 @@
 
         public static string ToComponentPathString(this IEnumerable<int> componentPath)
         {
-            return string.Join("/", componentPath);
+            return $"/{string.Join("/", componentPath)}";
         }
 
         public static string ToComponentName(this string componentTypeUri)
