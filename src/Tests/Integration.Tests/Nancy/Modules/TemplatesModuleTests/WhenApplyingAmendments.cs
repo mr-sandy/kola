@@ -50,13 +50,13 @@
         [Test]
         public void ShouldReturnAListOfAmendmentsResource()
         {
-            this.Response.Body.DeserializeJson<IEnumerable<AmendmentResource>>().Should().NotBeNull();
+            this.Response.Body.DeserializeJson<AmendmentsResource>().Should().NotBeNull();
         }
 
         [Test]
         public void ShouldReturnAnEmptyListOfAmendmentsResource()
         {
-            this.Response.Body.DeserializeJson<IEnumerable<AmendmentResource>>().Should().HaveCount(0);
+            this.Response.Body.DeserializeJson<AmendmentsResource>().Amendments.Should().HaveCount(0);
         }
 
         [Test]

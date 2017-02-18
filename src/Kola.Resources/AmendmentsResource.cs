@@ -6,6 +6,6 @@ namespace Kola.Resources
     {
         public AmendmentResource[] Amendments { get; set; }
 
-        public IEnumerable<LinkResource> Links { get; set; }
+        public LinkResource[] Links { get; set; }
     }
 }

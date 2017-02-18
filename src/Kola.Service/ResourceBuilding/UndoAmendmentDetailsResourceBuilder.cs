@@ -18,7 +18,7 @@ namespace Kola.Service.ResourceBuilding
             return new AmendmentsResource
             {
                 Amendments = amendments.ToArray(),
-                Links = this.GetLinks(model)
+                Links = this.GetLinks(model).ToArray()
             };
         }
 
