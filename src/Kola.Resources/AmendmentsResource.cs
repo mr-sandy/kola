@@ -2,7 +2,7 @@ namespace Kola.Resources
 {
     using System.Collections.Generic;
 
-    public class UndoAmendmentResource
+    public class AmendmentsResource
     {
         public AmendmentResource[] Amendments { get; set; }
 

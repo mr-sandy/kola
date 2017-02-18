@@ -68,7 +68,7 @@
     <Compile Include="SetPropertyFixedAmendmentResource.cs" />
     <Compile Include="SetPropertyInheritedAmendmentResource.cs" />
     <Compile Include="TemplateResource.cs" />
-    <Compile Include="UndoAmendmentResource.cs" />
+    <Compile Include="AmendmentsResource.cs" />
     <Compile Include="VariablePropertyValueResource.cs" />
     <Compile Include="WidgetResource.cs" />
     <Compile Include="WidgetSpecificationResource.cs" />

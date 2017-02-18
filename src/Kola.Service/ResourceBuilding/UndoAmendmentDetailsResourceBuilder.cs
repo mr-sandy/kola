@@ -15,7 +15,7 @@ namespace Kola.Service.ResourceBuilding
 
             var amendments = model.Owner.Amendments.Select((amendment, index) => amendment.Accept(visitor, index));
 
-            return new UndoAmendmentResource
+            return new AmendmentsResource
             {
                 Amendments = amendments.ToArray(),
                 Links = this.GetLinks(model)
@@ -26,11 +26,11 @@ namespace Kola.Service.ResourceBuilding
         {
             yield return new LinkResource { Rel = "self", Href = this.Location(model) };
 
-            yield return new LinkResource { Rel = "subject", Href = string.Join("/", model.Amendment.AffectedPaths.First()) };
+            yield return new LinkResource { Rel = "subject", Href = $"/{string.Join("/", model.Amendment.AffectedPaths.First())}" };
 
             foreach (var affectedPath in model.Amendment.AffectedPaths)
             {
-                yield return new LinkResource { Rel = "affected", Href = string.Join("/", affectedPath) };
+                yield return new LinkResource { Rel = "affected", Href = $"/{string.Join("/", affectedPath)}" };
             }
         }
 

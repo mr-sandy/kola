@@ -1,4 +1,4 @@
-﻿import { fetchJSON, postJSON } from './helpers/fetchJson';
+﻿import { fetchJSON, postJSON, putJSON , deleteJSON } from './helpers/fetchJson';
 import { selectComponent, hideComponent } from './templates';
 import config from '../config';
 
@@ -60,7 +60,7 @@ export const fetchAmendments = () => async (dispatch, getState) => {
 export const saveAmendments = () => async (dispatch, getState) => {
     try {
         const amendmentsUrl = (getState().template.links.find(l => l.rel === 'amendments').href);
-        const data = await postJSON(`${config.appRoot}${amendmentsUrl}`);
+        const data = await putJSON(`${config.appRoot}${amendmentsUrl}`);
         dispatch(receiveAmendments(data));
     } catch (error) {
         console.log(`request failed ${error}`);
@@ -68,11 +68,11 @@ export const saveAmendments = () => async (dispatch, getState) => {
 }
 
 export const undoAmendment = () => async (dispatch, getState) => {
-    //try {
-    //    const amendmentsUrl = (getState().template.links.find(l => l.rel === 'amendments').href);
-    //    const data = await fetchJSON(`${config.appRoot}${amendmentsUrl}`);
-    //    dispatch(receiveAmendments(data));
-    //} catch (error) {
-    //    console.log(`request failed ${error}`);
-    //}
+    try {
+        const amendmentsUrl = (getState().template.links.find(l => l.rel === 'amendments').href);
+        const data = await deleteJSON(`${config.appRoot}${amendmentsUrl}`);
+        dispatch(receiveAmendments(data));
+    } catch (error) {
+        console.log(`request failed ${error}`);
+    }
 }

@@ -2,7 +2,7 @@
 import fetch from 'isomorphic-fetch';
 es6promise.polyfill();
 
-function checkStatus(response) {
+const checkStatus = (response) => {
     if(response.ok) {
         return response;
     } else {
@@ -12,22 +12,23 @@ function checkStatus(response) {
     }
 }
 
-async function fetchJSON(url, headers = {}) {
+export const fetchJSON = async (url, headers = {}) => {
 
-    let response = await fetch(url, {
+    let response = await fetch(url,
+    {
         method: 'GET',
         headers: {
             ...headers,
             'Accept': 'application/json'
-},
-credentials: 'same-origin'
-});
+        },
+        credentials: 'same-origin'
+    });
 
-response = checkStatus(response);
-return await response.json();
+    response = checkStatus(response);
+    return await response.json();
 };
 
-async function postJSON(url, body, headers) {
+export const postJSON = async (url, body, headers) => {
 
     let response = await fetch(url,
     {
@@ -43,6 +44,40 @@ async function postJSON(url, body, headers) {
 
     response = checkStatus(response);
     return await response.json();
-}
+};
 
-export { fetchJSON, postJSON }
+export const putJSON = async (url, body, headers) => {
+
+    let response = await fetch(url,
+    {
+        method: 'PUT',
+        headers: {
+            ...headers,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: body && typeof body !== 'string' ? JSON.stringify(body) : '',
+        credentials: 'same-origin'
+    });
+
+    response = checkStatus(response);
+    return await response.json();
+};
+
+export const deleteJSON = async (url, headers) => {
+
+    let response = await fetch(url,
+    {
+        method: 'DELETE',
+        headers: {
+            ...headers,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        credentials: 'same-origin'
+    });
+
+    response = checkStatus(response);
+    return await response.json();
+};
+

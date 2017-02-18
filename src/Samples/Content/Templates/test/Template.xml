@@ -1,173 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
-    <atom name="html-script">
-      <properties>
-        <property name="type" type="html-script-type">
-          <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
-        </property>
-      </properties>
-    </atom>
-    <atom name="html-script">
-      <properties>
-        <property name="type" type="html-script-type">
-          <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
-        </property>
-      </properties>
-    </atom>
-    <atom name="markdown">
-      <properties>
-        <property name="markdown" type="markdown">
-          <value xsi:type="fixed"><![CDATA[*add content here*]]></value>
-        </property>
-      </properties>
-    </atom>
-    <atom name="magical-atom">
-      <properties />
-    </atom>
-    <container name="html-head">
-      <properties />
-      <components>
-        <atom name="html-script">
-          <properties>
-            <property name="type" type="html-script-type">
-              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
-            </property>
-          </properties>
-        </atom>
-        <atom name="text">
-          <properties />
-        </atom>
-        <atom name="text">
-          <properties />
-        </atom>
-        <atom name="text">
-          <properties />
-        </atom>
-        <atom name="text">
-          <properties />
-        </atom>
-      </components>
-    </container>
     <container name="div">
       <properties />
       <components>
-        <atom name="html-script">
-          <properties>
-            <property name="type" type="html-script-type">
-              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
-            </property>
-          </properties>
+        <atom name="label">
+          <properties />
         </atom>
         <atom name="label">
           <properties />
         </atom>
       </components>
     </container>
-    <widget name="container">
-      <properties>
-        <property name="header-text" type="markdown">
-          <value xsi:type="fixed"><![CDATA[###Header Text]]></value>
-        </property>
-      </properties>
-      <areas>
-        <area name="bits">
-          <components>
-            <container name="html-head">
-              <properties />
-              <components>
-                <widget name="page">
-                  <properties />
-                  <areas>
-                    <area name="header">
-                      <components />
-                    </area>
-                    <area name="content">
-                      <components>
-                        <atom name="html-script">
-                          <properties>
-                            <property name="type" type="html-script-type">
-                              <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
-                            </property>
-                          </properties>
-                        </atom>
-                      </components>
-                    </area>
-                    <area name="scripts">
-                      <components>
-                        <container name="div">
-                          <properties />
-                          <components>
-                            <atom name="text">
-                              <properties />
-                            </atom>
-                          </components>
-                        </container>
-                      </components>
-                    </area>
-                  </areas>
-                </widget>
-              </components>
-            </container>
-            <container name="html-body">
-              <properties />
-              <components />
-            </container>
-          </components>
-        </area>
-      </areas>
-    </widget>
-    <atom name="html-style">
-      <properties>
-        <property name="type" type="html-style-type">
-          <value xsi:type="fixed"><![CDATA[text/css]]></value>
-        </property>
-      </properties>
-    </atom>
     <container name="div">
       <properties />
       <components>
-        <container name="html-head">
+        <atom name="text">
           <properties />
-          <components />
-        </container>
+        </atom>
+        <atom name="text">
+          <properties />
+        </atom>
       </components>
     </container>
-    <atom name="html-style">
-      <properties>
-        <property name="type" type="html-style-type">
-          <value xsi:type="fixed"><![CDATA[text/css]]></value>
-        </property>
-      </properties>
-    </atom>
-    <atom name="html-script">
-      <properties>
-        <property name="type" type="html-script-type">
-          <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
-        </property>
-      </properties>
-    </atom>
   </components>
-  <amendments>
-    <moveComponent>
-      <sourcePath>4/0</sourcePath>
-      <targetPath>3</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>3</sourcePath>
-      <targetPath>1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>3</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>5/0</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>3</sourcePath>
-      <targetPath>0</targetPath>
-    </moveComponent>
-  </amendments>
+  <amendments />
 </template>

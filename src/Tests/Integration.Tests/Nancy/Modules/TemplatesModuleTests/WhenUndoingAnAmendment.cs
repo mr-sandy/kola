@@ -47,19 +47,19 @@
         [Test]
         public void ShouldReturnAnUndoAmendmentResource()
         {
-            this.Response.Body.DeserializeJson<UndoAmendmentResource>().Should().NotBeNull();
+            this.Response.Body.DeserializeJson<AmendmentsResource>().Should().NotBeNull();
         }
 
         [Test]
         public void ShouldReturnAnEmptyListOfAmendments()
         {
-            this.Response.Body.DeserializeJson<UndoAmendmentResource>().Amendments.Should().HaveCount(0);
+            this.Response.Body.DeserializeJson<AmendmentsResource>().Amendments.Should().HaveCount(0);
         }
 
         [Test]
         public void ShouldIncludeASelfLink()
         {
-            this.Response.Body.DeserializeJson<UndoAmendmentResource>().Links.Should().Contain(l => l.Rel == "self" && l.Href == "/_kola/templates/amendments?templatePath=/test/path");
+            this.Response.Body.DeserializeJson<AmendmentsResource>().Links.Should().Contain(l => l.Rel == "self" && l.Href == "/_kola/templates/amendments?templatePath=/test/path");
         }
 
         [Test]
