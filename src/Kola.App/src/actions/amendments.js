@@ -47,6 +47,25 @@ export const moveComponent = (sourcePath, targetPath) => async dispatch => {
     }));
 };
 
+export const removeComponent = componentPath => async dispatch => {
+    dispatch(selectComponent(''));
+    dispatch(postAmendment(
+    {
+        amendmentType: 'removeComponent',
+        componentPath
+    }));
+};
+
+export const duplicateComponent = componentPath => async dispatch => {
+    dispatch(selectComponent(''));
+    dispatch(postAmendment(
+    {
+        amendmentType: 'duplicateComponent',
+        componentPath
+    }));
+};
+
+
 export const fetchAmendments = () => async (dispatch, getState) => {
     try {
         const amendmentsUrl = (getState().template.links.find(l => l.rel === 'amendments').href);

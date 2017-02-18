@@ -6,7 +6,7 @@ const selectedComponent = (state = '', action) => {
         {
             return (state === action.payload.componentPath && action.payload.toggle ) 
                 ? ''
-                : action.payload.componentPath;
+                : action.payload.componentPath === '/' ?  '' : action.payload.componentPath;
         }
 
         default:

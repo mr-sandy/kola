@@ -21,7 +21,9 @@ const defaultStyles = {
         color: '#ccc',
         backgroundColor: '#555'
     },
-    disabled: {}
+    disabled: {
+        color: '#555'
+    }
 };
 
 class Button extends Component {

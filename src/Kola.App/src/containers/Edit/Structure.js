@@ -1,5 +1,13 @@
 ﻿import { connect } from 'react-redux';
-import { selectComponent, highlightComponent, unhighlightComponent, addComponent, moveComponent, showPlaceholder, hidePlaceholder } from '../../actions';
+import { selectComponent,
+    highlightComponent,
+    unhighlightComponent,
+    addComponent,
+    moveComponent,
+    removeComponent,
+    duplicateComponent,
+    showPlaceholder,
+    hidePlaceholder } from '../../actions';
 import Structure from '../../components/Edit/Structure';
 
 const mapStateToProps = state => ({
@@ -17,7 +25,9 @@ const mapDispatchToProps = {
     addComponent,
     moveComponent,
     showPlaceholder,
-    hidePlaceholder
+    hidePlaceholder,
+    removeComponent,
+    duplicateComponent
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Structure);

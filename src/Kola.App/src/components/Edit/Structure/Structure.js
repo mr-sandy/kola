@@ -17,7 +17,7 @@ const styles = {
 class Structure extends Component {
     render() {
         const { components = [], ...otherProps } = this.props;
-        const { placeholderPath, showPlaceholder } = otherProps;
+        const { placeholderPath, showPlaceholder, selectedComponent } = otherProps;
         return (
             <Toolbar style={styles.base}>
                 <ToolbarContent style={styles.content}>
@@ -32,7 +32,8 @@ class Structure extends Component {
                         {...otherProps} />
                 </ToolbarContent>
                 <ToolbarButtonTray>
-                    <Button title="Pin Toolbars" onClick={() => console.log('clicked')} icon="fa-cog" active={false} />
+                    <Button title="Duplicate Component" onClick={() => this.handleDuplicateComponent()} icon="fa-files-o" active={false} enabled={selectedComponent ? true : false} />
+                    <Button title="Delete Component" onClick={() => this.handleRemoveComponent()} icon="fa-trash" active={false} enabled={selectedComponent ? true : false} />
                 </ToolbarButtonTray>
             </Toolbar>
         );
@@ -45,6 +46,20 @@ class Structure extends Component {
     handleMoveComponent(e) {
         if (e.sourcePath !== e.targetPath) {
             this.props.moveComponent(e.sourcePath, e.targetPath);
+        }
+    }
+
+    handleRemoveComponent() {
+        const { removeComponent, selectedComponent } = this.props;
+        if (selectedComponent) {
+            removeComponent(selectedComponent);
+        }
+    }
+
+    handleDuplicateComponent() {
+        const { duplicateComponent, selectedComponent } = this.props;
+        if (duplicateComponent) {
+            duplicateComponent(selectedComponent);
         }
     }
 }
