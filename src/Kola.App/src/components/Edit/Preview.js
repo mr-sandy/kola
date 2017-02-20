@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { Component } from 'react';
 
 const style = {
     position: 'relative',
@@ -21,17 +21,32 @@ const iframeStyle = {
     border: 'none'
 }
 
-const Preview = ({previewUrls = []}) => {
+class Preview extends Component {
+    render() {
+        const { previewUrls = [] } = this.props;
 
-    const src = previewUrls.length ? 'http://localhost:61134' + previewUrls[0] : '';
+        const src = previewUrls.length ? 'http://localhost:61134' + previewUrls[0] : '';
 
-    return (
-        <div style={style}>
+        return (
+            <div style={style}>
             <div style={innerStyle}>
-                <iframe seamless="seamless" style={iframeStyle} src={src}></iframe>
+                <iframe seamless="seamless" 
+                    style={iframeStyle} 
+                    ref={iframe => this.iframe = iframe} 
+                    src={src}>
+                </iframe>
             </div>
         </div>
-    );
+        );
+    }
+
+            componentDidMount() {
+                this.iframe.onload = () => this.buildComponents();
+            }
+
+    buildComponents() {
+        this.iframe.contentWindow.postMessage('success!', '*');
+    }
 }
 
 export default Preview;

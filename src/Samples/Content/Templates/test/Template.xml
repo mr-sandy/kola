@@ -1,27 +1,103 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
   <components>
-    <container name="div">
+    <widget name="page">
       <properties />
-      <components />
-    </container>
+      <areas>
+        <area name="header">
+          <components />
+        </area>
+        <area name="content">
+          <components>
+            <atom name="markdown">
+              <properties>
+                <property name="markdown" type="markdown">
+                  <value xsi:type="fixed"><![CDATA[#Markdown 2 
+]]></value>
+                </property>
+              </properties>
+            </atom>
+            <container name="div">
+              <properties />
+              <components />
+            </container>
+            <atom name="markdown">
+              <properties>
+                <property name="markdown" type="markdown">
+                  <value xsi:type="fixed"><![CDATA[#Markdown 1
+]]></value>
+                </property>
+              </properties>
+            </atom>
+            <atom name="markdown">
+              <properties>
+                <property name="markdown" type="markdown">
+                  <value xsi:type="fixed"><![CDATA[##Markdown 3 ]]></value>
+                </property>
+              </properties>
+            </atom>
+            <container name="div">
+              <properties />
+              <components>
+                <atom name="markdown">
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[#Markdown 2 
+]]></value>
+                    </property>
+                  </properties>
+                </atom>
+                <atom name="markdown">
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[##Markdown 3 ]]></value>
+                    </property>
+                  </properties>
+                </atom>
+                <atom name="markdown">
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[#Markdown 1
+]]></value>
+                    </property>
+                  </properties>
+                </atom>
+              </components>
+            </container>
+            <container name="div">
+              <properties />
+              <components />
+            </container>
+            <atom name="markdown">
+              <properties>
+                <property name="markdown" type="markdown">
+                  <value xsi:type="fixed"><![CDATA[<h1><span id="test">Look here</span></h1>]]></value>
+                </property>
+              </properties>
+            </atom>
+          </components>
+        </area>
+        <area name="scripts">
+          <components>
+            <atom name="html-script">
+              <properties>
+                <property name="type" type="html-script-type">
+                  <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+                </property>
+                <property name="content" type="multiline-text">
+                  <value xsi:type="fixed"><![CDATA[window.addEventListener("message", receiveMessage, false);
+
+function receiveMessage(event)
+{
+document.getElementById("test").textContent = event.data;
+}]]></value>
+                </property>
+              </properties>
+            </atom>
+          </components>
+        </area>
+      </areas>
+    </widget>
   </components>
-  <amendments>
-    <addComponent>
-      <componentType>text</componentType>
-      <targetPath>0/0</targetPath>
-    </addComponent>
-    <addComponent>
-      <componentType>page</componentType>
-      <targetPath>0</targetPath>
-    </addComponent>
-    <moveComponent>
-      <sourcePath>1</sourcePath>
-      <targetPath>0/1/0</targetPath>
-    </moveComponent>
-    <addComponent>
-      <componentType>markdown</componentType>
-      <targetPath>0/1/0/0</targetPath>
-    </addComponent>
-  </amendments>
+  <amendments />
 </template>

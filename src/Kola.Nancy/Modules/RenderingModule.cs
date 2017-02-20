@@ -82,7 +82,7 @@
         {
             var result = this.renderingService.GetPage(path, parameters, this.Context.GetMSOwinUser(), preview);
 
-            return this.Negotiate.WithModel(result);
+            return this.Negotiate.WithModel(result);//.WithHeader("Access-Control-Allow-Origin", "*");
         }
 
         private dynamic GetFragment(

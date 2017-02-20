@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "/_kola",
+  "proxy": "http://localhost:61134/",
   "devDependencies": {
     "deep-freeze": "0.0.1",
     "react-scripts": "0.8.5",
