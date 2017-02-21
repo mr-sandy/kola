@@ -99,5 +99,18 @@ document.getElementById("test").textContent = event.data;
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <moveComponent>
+      <sourcePath>0/1/2</sourcePath>
+      <targetPath>0/1/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/2</sourcePath>
+      <targetPath>0/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/6</sourcePath>
+      <targetPath>0/1/0/0</targetPath>
+    </moveComponent>
+  </amendments>
 </template>

@@ -258,9 +258,9 @@ function runDevServer(host, port, protocol) {
     // Enable HTTPS if the HTTPS environment variable is set to 'true'
     https: protocol === "https",
     proxy: {
-        '/preview': {
+        '/_preview': {
             target: 'http://localhost:61134',
-            pathRewrite: {'^/preview' : ''}
+            pathRewrite: {'^/_preview' : ''}
         }
     },
     host: host

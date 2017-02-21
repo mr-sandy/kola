@@ -25,7 +25,10 @@ class Preview extends Component {
     render() {
         const { previewUrls = [] } = this.props;
 
-        const src = previewUrls.length ? 'http://localhost:61134' + previewUrls[0] : '';
+        // proxy preview requests when debuggin on webpack dev server by using configured prefix '_preview'
+        const prefix = process.env.NODE_ENV === 'development' ? '/_preview' : '';
+
+        const src = previewUrls.length ? prefix + previewUrls[0] : '';
 
         return (
             <div style={style}>
@@ -45,7 +48,23 @@ class Preview extends Component {
             }
 
     buildComponents() {
-        this.iframe.contentWindow.postMessage('success!', '*');
+        //this.iframe.contentWindow.postMessage('success!', '*');
+        this.iframe.contentDocument.getElementById('test').textContent = 'jam!';
+        this.logChildren(this.iframe.contentDocument.childNodes);
+    }
+
+    logChildren(children) {
+        for (var i = 0; i < children.length; i++) {
+            if (children[i].nodeType === 8) {
+                console.log('########## yahoo!!!!: ' + children[i].nodeValue);
+            } else {
+                console.log(children[i].tagName);
+            }
+            if (children[i].childNodes) {
+                this.logChildren(children[i].childNodes);
+            }
+
+        }
     }
 }
 
