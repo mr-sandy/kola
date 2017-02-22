@@ -1,12 +1,19 @@
 ﻿import { connect } from 'react-redux';
-import { togglePinToolbars, saveAmendments, undoAmendment } from '../../actions';
+import { togglePinToolbars, toggleToolbox, toggleStructure, toggleProperties, saveAmendments, undoAmendment } from '../../actions';
 import SideBar from '../../components/Edit/SideBar';
 
 const mapStateToProps = state => ({
-    toolbarsPinned: state.application.toolbarsPinned,
+    ...state.application,
     amendments: state.amendments
 });
 
-const mapDispatchToProps = { togglePinToolbars, saveAmendments, undoAmendment };
+const mapDispatchToProps = {
+    togglePinToolbars, 
+    toggleToolbox, 
+    toggleStructure, 
+    toggleProperties, 
+    saveAmendments, 
+    undoAmendment
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SideBar);

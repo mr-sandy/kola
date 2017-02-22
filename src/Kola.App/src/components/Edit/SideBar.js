@@ -46,11 +46,37 @@ const styles = {
         disabled: {
             color: '#555'
         }
+    },
+    bigButton: {
+        normal:
+        {
+            border: 'none',
+            padding: '18px 0',
+            color: '#eee',
+            backgroundColor: '#333',
+            width: '100%'
+        },
+        hover:
+        {
+            color: '#fff',
+            backgroundColor: '#20b2aa'
+        },
+        active: {
+            backgroundColor: '#20b2aa'
+        },
+        disabled: {
+            color: '#555'
+        }
     }
 };
 
-const SideBar = ({ togglePinToolbars = () => {}, toolbarsPinned, amendments, saveAmendments, undoAmendment }) => (
+const SideBar = ({ togglePinToolbars, toggleToolbox, toggleStructure, showToolbox, showStructure, showProperties, toggleProperties = () => {}, toolbarsPinned, amendments, saveAmendments, undoAmendment }) => (
     <div style={styles.normal}>
+        <div>
+            <Button styles={styles.bigButton} title="Toggle Toolbox" active={true} onClick={toggleToolbox} icon="fa-plus-square fa-2x" />
+            <Button styles={styles.bigButton} title="Toggle Structure" active={showStructure} onClick={toggleStructure} icon="fa-th-large fa-2x" />
+            <Button styles={styles.bigButton} title="Toggle Properties" active={showProperties} onClick={toggleProperties} icon="fa-table fa-2x" />
+        </div>
         <div>
             <Button styles={styles.button} title="Save" enabled={amendments.length > 0} onClick={saveAmendments} icon="fa-save" />
             <Button styles={styles.button} title="Undo" enabled={amendments.length > 0} onClick={undoAmendment} icon="fa-undo" />
