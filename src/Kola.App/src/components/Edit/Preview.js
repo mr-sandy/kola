@@ -1,4 +1,5 @@
 ﻿import React, { Component } from 'react';
+import previewBroker from '../../previewBroker';
 
 const style = {
     position: 'relative',
@@ -44,6 +45,7 @@ class Preview extends Component {
     }
 
             componentDidMount() {
+                previewBroker.subscribe(data => console.log('I see the data: ' + data));
                 this.iframe.onload = () => this.buildComponents();
             }
 

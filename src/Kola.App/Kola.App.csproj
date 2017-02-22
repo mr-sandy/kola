@@ -94,6 +94,7 @@
     <Content Include="src\configureStore.js" />
     <Content Include="src\containers\Root.js" />
     <Content Include="src\config.js" />
+    <Content Include="src\previewBroker.js" />
     <Content Include="src\index.js" />
     <Content Include="src\middleware\previewMiddleware.js" />
     <Content Include="src\middleware\amendmentMiddleware.js" />

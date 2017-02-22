@@ -1,4 +1,5 @@
 ﻿import { RECEIVE_COMPONENT } from '../actions';
+import previewBroker from '../previewBroker';
 
 //const getTemplatePath = template => template.links ? template.links.find(l => l.rel === 'path').href : '';
 
@@ -8,7 +9,7 @@ export const previewMiddleware = ({ dispatch, getState }) => next => action => {
         case RECEIVE_COMPONENT:
         {
             var previewUrl = `http://localhost:61134/test?componentPath=${action.payload.path}&preview=y`;
-            console.log(previewUrl);
+            previewBroker.publish(previewUrl);
                 break;
             }
         default:
