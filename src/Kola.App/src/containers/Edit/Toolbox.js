@@ -4,7 +4,8 @@ import Toolbox from '../../components/Edit/Toolbox';
 import { initialiseOnMount } from '../helpers/higherOrderComponents';
 
 const mapStateToProps = state => ({
-    componentTypes: state.componentTypes
+    componentTypes: state.componentTypes,
+    showToolbox: state.application.showToolbox
 });
 
 const mapDispatchToProps = dispatch => ({

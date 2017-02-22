@@ -15,7 +15,8 @@ const mapStateToProps = state => ({
     selectedComponent: state.selection.selectedComponent,
     highlightedComponent : state.selection.highlightedComponent,
     hiddenComponent : state.selection.hiddenComponent,
-    placeholderPath: state.selection.placeholderPath
+    placeholderPath: state.selection.placeholderPath,
+    showStructure: state.application.showStructure
 });
 
 const mapDispatchToProps = {

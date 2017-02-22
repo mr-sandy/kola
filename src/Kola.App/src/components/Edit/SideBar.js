@@ -50,16 +50,19 @@ const styles = {
     bigButton: {
         normal:
         {
+            marginTop: '8px',
             border: 'none',
-            padding: '18px 0',
+            padding: '2px 0 0 0',
             color: '#eee',
-            backgroundColor: '#333',
-            width: '100%'
+            backgroundColor: '#789',
+            borderRadius: '4px',
+            width: '44px',
+            height: '44px'
         },
         hover:
         {
             color: '#fff',
-            backgroundColor: '#20b2aa'
+            backgroundColor: '#9fabb7'
         },
         active: {
             backgroundColor: '#20b2aa'
@@ -70,10 +73,10 @@ const styles = {
     }
 };
 
-const SideBar = ({ togglePinToolbars, toggleToolbox, toggleStructure, showToolbox, showStructure, showProperties, toggleProperties = () => {}, toolbarsPinned, amendments, saveAmendments, undoAmendment }) => (
+const SideBar = ({ togglePinToolbars, toggleToolbox, toggleStructure, showToolbox, showStructure, showProperties, toggleProperties, toolbarsPinned, amendments, saveAmendments, undoAmendment }) => (
     <div style={styles.normal}>
-        <div>
-            <Button styles={styles.bigButton} title="Toggle Toolbox" active={true} onClick={toggleToolbox} icon="fa-plus-square fa-2x" />
+        <div style={{textAlign: 'center'}}>
+            <Button styles={styles.bigButton} title="Toggle Toolbox" active={showToolbox} onClick={toggleToolbox} icon="fa-plus-square fa-2x" />
             <Button styles={styles.bigButton} title="Toggle Structure" active={showStructure} onClick={toggleStructure} icon="fa-th-large fa-2x" />
             <Button styles={styles.bigButton} title="Toggle Properties" active={showProperties} onClick={toggleProperties} icon="fa-table fa-2x" />
         </div>

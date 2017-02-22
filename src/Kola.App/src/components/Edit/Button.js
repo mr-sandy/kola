@@ -62,7 +62,7 @@ class Button extends Component {
     }
 
     handleClick() {
-        const { onClick, enabled } = this.props;
+        const { onClick, enabled = true } = this.props;
 
         if (enabled && onClick) {
             onClick();

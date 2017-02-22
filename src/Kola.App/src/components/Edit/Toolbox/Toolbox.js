@@ -15,12 +15,14 @@ const styles = {
     }
 }
 
-const Toolbox = ({componentTypes, ...props}) => {
+const Toolbox = ({componentTypes, showToolbox, ...props}) => {
 
     const groups = orderBy(groupBy(componentTypes, componentType => componentType.category), g => g.key);
 
+    const style = showToolbox ? styles.base : { ...styles.base, width: '0' };
+
     return (
-        <Toolbar style={styles.base}>
+        <Toolbar style={style}>
             <ToolbarContent style={styles.content}>
                 {groups.map(group => <Group key={group.key} name={group.key} componentTypes={group.items} {...props }/>)}
             </ToolbarContent>

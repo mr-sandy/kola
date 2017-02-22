@@ -10,7 +10,7 @@ const defaultStyle = {
 };
 
 const Toolbar = ({ children, style }) => (
-    <div style={{ ...defaultStyle, ...style  }}>
+    <div className="transition-all" style={{ ...defaultStyle, ...style  }}>
         {children}
     </div>
 );

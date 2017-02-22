@@ -17,10 +17,6 @@
                 </property>
               </properties>
             </atom>
-            <container name="div">
-              <properties />
-              <components />
-            </container>
             <atom name="markdown">
               <properties>
                 <property name="markdown" type="markdown">
@@ -29,6 +25,10 @@
                 </property>
               </properties>
             </atom>
+            <container name="div">
+              <properties />
+              <components />
+            </container>
             <atom name="markdown">
               <properties>
                 <property name="markdown" type="markdown">
@@ -99,6 +99,5 @@ document.getElementById("test").textContent = event.data;
       </areas>
     </widget>
   </components>
-  <amendments>
-  </amendments>
+  <amendments />
 </template>

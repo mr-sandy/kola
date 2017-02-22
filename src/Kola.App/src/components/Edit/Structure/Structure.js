@@ -16,10 +16,13 @@ const styles = {
 
 class Structure extends Component {
     render() {
-        const { components = [], ...otherProps } = this.props;
+        const { components = [], showStructure, ...otherProps } = this.props;
         const { placeholderPath, showPlaceholder, selectedComponent } = otherProps;
+
+        const style = showStructure ? styles.base : { ...styles.base, width: '0' };
+
         return (
-            <Toolbar style={styles.base}>
+            <Toolbar style={style}>
                 <ToolbarContent style={styles.content}>
                     <ComponentList 
                         components={components} 
