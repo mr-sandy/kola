@@ -1,4 +1,4 @@
-﻿import { fetchJSON } from './helpers/fetchJson';
+﻿import { fetchJSON, fetchHTML } from './helpers/fetchJson';
 import { fetchAmendments } from './amendments';
 import config from '../config';
 
@@ -12,6 +12,7 @@ export const SHOW_PLACEHOLDER = 'SHOW_PLACEHOLDER';
 export const HIDE_PLACEHOLDER = 'HIDE_PLACEHOLDER';
 export const HIDE_COMPONENT = 'HIDE_COMPONENT';
 export const UNHIDE_COMPONENT = 'HIDE_COMPONENT';
+export const RECEIVE_HTML = 'RECEIVE_HTML';
 
 export const receiveComponentTypes = components => ({
     type: RECEIVE_COMPONENT_TYPES,
@@ -63,6 +64,11 @@ export const unhideComponent = () => ({
     payload: ''
 });
 
+export const receiveHtml = (componentPath, html) => ({
+    type: RECEIVE_HTML,
+    payload: { componentPath, html }
+});
+
 export const fetchComponentTypes = () => async dispatch => {
     try {
         const data = await fetchJSON(`${config.appRoot}/_kola/component-types`);
@@ -86,6 +92,15 @@ export const fetchTemplate = templatePath => async dispatch => {
         const template = await fetchJSON(`${config.appRoot}/_kola/templates?templatePath=${templatePath}`);
         dispatch(receiveTemplate(template));
         dispatch(fetchAmendments());
+    } catch (error) {
+        console.log(`request failed ${error}`);
+    }
+}
+
+export const fetchHtml = (componentPath, previewUrl) => async dispatch => {
+    try {
+        const html = await fetchHTML(`${config.appRoot}/${previewUrl}`);
+        dispatch(receiveHtml(componentPath, html));
     } catch (error) {
         console.log(`request failed ${error}`);
     }

@@ -1,14 +1,21 @@
-
-let handler = () => {};
+let refreshHandler = () => {};
+let updateHandler = () => {};
 
 const previewBroker = {
-    subscribe: h => {
-        handler = h;
+    subscribe: (onRefresh, onUpdate) => {
+        refreshHandler = onRefresh;
+        updateHandler = onUpdate;
     },
 
-    publish: data => {
-        if (handler) {
-            handler(data);
+    refresh: () => {
+        if (refreshHandler) {
+            refreshHandler();
+        }
+    },
+
+    update: (componentPath, html) => {
+        if (updateHandler) {
+            updateHandler(componentPath, html);
         }
     }
 }

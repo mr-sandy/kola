@@ -60,6 +60,12 @@ namespace Integration.Tests.Nancy.Modules.TemplatesModuleTests
         }
 
         [Test]
+        public void ShouldReturnAPreviewLink()
+        {
+            this.Response.Body.DeserializeJson<AtomResource>().Links.Should().Contain(l => l.Rel == "preview" && l.Href == "/test/path?componentPath=/0/0");
+        }
+
+        [Test]
         public void ShouldReturnTheComponentName()
         {
             this.Response.Body.DeserializeJson<AtomResource>().Name.Should().Be("atom 1");

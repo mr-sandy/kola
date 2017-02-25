@@ -44,15 +44,22 @@ class Preview extends Component {
         );
     }
 
-            componentDidMount() {
-                previewBroker.subscribe(data => console.log('I see the data: ' + data));
-                this.iframe.onload = () => this.buildComponents();
-            }
+    componentDidMount() {
+        previewBroker.subscribe(() => this.handleRefresh(), (path, html) => this.handleUpdate(path, html));
+        this.iframe.onload = () => this.buildComponents();
+    }
 
     buildComponents() {
-        //this.iframe.contentWindow.postMessage('success!', '*');
         this.iframe.contentDocument.getElementById('test').textContent = 'jam!';
-        this.logChildren(this.iframe.contentDocument.childNodes);
+//        this.logChildren(this.iframe.contentDocument.childNodes);
+    }
+
+    handleRefresh() {
+        this.iframe.contentWindow.location.reload(true);
+    }
+
+    handleUpdate(componentPath, html) {
+        console.log('updating: ' + componentPath + ' with ' + html)    
     }
 
     logChildren(children) {

@@ -101,12 +101,19 @@
 
         private IEnumerable<LinkResource> BuildLinks(int[] context)
         {
-            var ownerPath = this.owner.Accept(new PathBuildingOwnerVisitor("components"));
+            var componentsPath = this.owner.Accept(new PathBuildingOwnerVisitor("components"));
+            var previewPath = this.owner.Accept(new PreviewPathBuildingOwnerVisitor());
 
             yield return new LinkResource
             {
                 Rel = "self",
-                Href = $"{ownerPath}&componentPath={context.Select(i => i.ToString()).ToHttpPath()}"
+                Href = $"{componentsPath}&componentPath={context.Select(i => i.ToString()).ToHttpPath()}"
+            };
+
+            yield return new LinkResource
+            {
+                Rel = "preview",
+                Href = $"{previewPath}?componentPath={context.Select(i => i.ToString()).ToHttpPath()}"
             };
         }
     }

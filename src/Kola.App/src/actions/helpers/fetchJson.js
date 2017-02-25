@@ -81,3 +81,21 @@ export const deleteJSON = async (url, headers) => {
     return await response.json();
 };
 
+export const fetchHTML = async (url, headers = {}) => {
+
+    let response = await fetch(url,
+    {
+        method: 'GET',
+        headers: {
+            ...headers,
+            'Accept': 'text/html'
+        },
+        credentials: 'same-origin'
+    });
+
+        response = checkStatus(response);
+    const html = await response.text();
+    return html;
+};
+
+
