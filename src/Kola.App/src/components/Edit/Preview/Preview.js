@@ -1,5 +1,6 @@
 ﻿import React, { Component } from 'react';
-import previewBroker from '../../previewBroker';
+import previewBroker from '../../../previewBroker';
+import { findNodes, getInnerNodes, deleteNodes, insertNodes, isWithinBody } from './helpers';
 
 const style = {
     position: 'relative',
@@ -26,7 +27,7 @@ class Preview extends Component {
     render() {
         const { previewUrls = [] } = this.props;
 
-        // proxy preview requests when debuggin on webpack dev server by using configured prefix '_preview'
+        // proxy preview requests when debugging on webpack dev server by using configured prefix '_preview'
         const prefix = process.env.NODE_ENV === 'development' ? '/_preview' : '';
 
         const src = previewUrls.length ? prefix + previewUrls[0] : '';
@@ -50,7 +51,7 @@ class Preview extends Component {
     }
 
     buildComponents() {
-        this.iframe.contentDocument.getElementById('test').textContent = 'jam!';
+//        this.iframe.contentDocument.getElementById('test').textContent = 'jam!';
 //        this.logChildren(this.iframe.contentDocument.childNodes);
     }
 
@@ -59,7 +60,25 @@ class Preview extends Component {
     }
 
     handleUpdate(componentPath, html) {
-        console.log('updating: ' + componentPath + ' with ' + html)    
+
+        const oldNodes = findNodes(this.iframe.contentDocument.childNodes, componentPath);
+        const referenceNode = oldNodes[oldNodes.length - 1];
+
+        if (isWithinBody(referenceNode)) {
+
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = html;
+
+            const newNodes = getInnerNodes(wrapper.childNodes, componentPath);
+
+            const toBeDeleted = getInnerNodes(oldNodes, componentPath);
+            deleteNodes(toBeDeleted);
+
+            insertNodes(newNodes, referenceNode);
+        } else {
+            this.handleRefresh();
+        }
+
     }
 
     logChildren(children) {

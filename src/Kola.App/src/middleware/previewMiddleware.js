@@ -9,8 +9,6 @@ export const previewMiddleware = ({ dispatch, getState }) => next => action => {
                 const componentPath = action.payload.path;
                 const previewUrl = action.payload.links.find(l => l.rel === 'preview').href;
 
-                const prefix = process.env.NODE_ENV === 'development' ? '/_preview' : '';
-
                 dispatch(fetchHtml(componentPath, previewUrl));
                 break;
             }

@@ -55,6 +55,8 @@
     <Content Include="src\actions\templates.js" />
     <Content Include="src\actions\index.js" />
     <Content Include="src\components\Edit\Accordian.js" />
+    <Content Include="src\components\Edit\Preview\helpers\index.js" />
+    <Content Include="src\components\Edit\Preview\index.js" />
     <Content Include="src\components\Edit\Structure\Placeholder.js" />
     <Content Include="src\components\Edit\Structure\ComponentList.js" />
     <Content Include="src\components\Edit\Structure\Atom.js" />
@@ -82,7 +84,7 @@
     <Content Include="src\containers\Edit\SideBar.js" />
     <Content Include="src\containers\helpers\higherOrderComponents.js" />
     <Content Include="src\components\Edit\Properties.js" />
-    <Content Include="src\components\Edit\Preview.js" />
+    <Content Include="src\components\Edit\Preview\Preview.js" />
     <Content Include="src\components\Edit\Structure\Structure.js" />
     <Content Include="src\components\Edit\Toolbox\index.js" />
     <Content Include="src\components\Templates.js" />
