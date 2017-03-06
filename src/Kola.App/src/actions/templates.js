@@ -13,6 +13,7 @@ export const HIDE_PLACEHOLDER = 'HIDE_PLACEHOLDER';
 export const HIDE_COMPONENT = 'HIDE_COMPONENT';
 export const UNHIDE_COMPONENT = 'HIDE_COMPONENT';
 export const RECEIVE_HTML = 'RECEIVE_HTML';
+export const SELECT_PROPERTY = 'SELECT_PROPERTY';
 
 export const receiveComponentTypes = components => ({
     type: RECEIVE_COMPONENT_TYPES,
@@ -67,6 +68,11 @@ export const unhideComponent = () => ({
 export const receiveHtml = (componentPath, html) => ({
     type: RECEIVE_HTML,
     payload: { componentPath, html }
+});
+
+export const selectProperty = propertyName => ({
+    type: SELECT_PROPERTY,
+    payload: propertyName
 });
 
 export const fetchComponentTypes = () => async dispatch => {

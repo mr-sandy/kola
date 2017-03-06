@@ -5,11 +5,22 @@ import createStoreFunction from './configureStore';
 import './styles.css';
 
 const store = createStoreFunction({});
+const rootEl = document.getElementById('root');
 
 render(
     <Root store={store} />,
-    document.getElementById('root')
+    rootEl
 );
+
+if (module.hot) {
+    module.hot.accept('./containers/Root', () => {
+        const NextApp = require('./containers/Root').default;
+        render(
+            <NextApp store={store} />,
+            rootEl
+        );
+    });
+}
 
 //function dorender(Component) {
 //    render(

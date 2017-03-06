@@ -32,15 +32,16 @@ class Button extends Component {
     }
 
     render() {
-        const { title, icon } = this.props;
+        const { title, icon, caption } = this.props;
 
         const styles = this.buildStyles();
 
-        const classname = classnames('fa fa-lg', icon);
+        const iconClass = classnames('fa fa-lg', icon);
 
         return (
             <button style={styles} className="transition-all" type="button" onMouseEnter={() => this.toggleHover()} onMouseLeave={() => this.toggleHover()} title={title} onClick={() => this.handleClick()}>
-                <i className={classname}></i>
+            {caption ? caption : false}
+            {icon ? <i className={iconClass}></i> : false}
             </button>
         );
     }

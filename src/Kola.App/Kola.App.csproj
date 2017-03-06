@@ -57,6 +57,11 @@
     <Content Include="src\components\Edit\Accordian.js" />
     <Content Include="src\components\Edit\Preview\helpers\index.js" />
     <Content Include="src\components\Edit\Preview\index.js" />
+    <Content Include="src\components\Edit\Properties\FixedValue.js" />
+    <Content Include="src\components\Edit\Properties\Value.js" />
+    <Content Include="src\components\Edit\Properties\ValueType.js" />
+    <Content Include="src\components\Edit\Properties\Property.js" />
+    <Content Include="src\components\Edit\Properties\index.js" />
     <Content Include="src\components\Edit\Structure\Placeholder.js" />
     <Content Include="src\components\Edit\Structure\ComponentList.js" />
     <Content Include="src\components\Edit\Structure\Atom.js" />
@@ -80,10 +85,11 @@
     <Content Include="src\components\helpers\index.js" />
     <Content Include="src\containers\Edit\index.js" />
     <Content Include="src\containers\Edit\Preview.js" />
+    <Content Include="src\containers\Edit\Properties.js" />
     <Content Include="src\containers\Edit\Structure.js" />
     <Content Include="src\containers\Edit\SideBar.js" />
     <Content Include="src\containers\helpers\higherOrderComponents.js" />
-    <Content Include="src\components\Edit\Properties.js" />
+    <Content Include="src\components\Edit\Properties\Properties.js" />
     <Content Include="src\components\Edit\Preview\Preview.js" />
     <Content Include="src\components\Edit\Structure\Structure.js" />
     <Content Include="src\components\Edit\Toolbox\index.js" />
@@ -102,6 +108,7 @@
     <Content Include="src\middleware\amendmentMiddleware.js" />
     <Content Include="src\middleware\index.js" />
     <Content Include="src\reducers\selection\hiddenComponent.js" />
+    <Content Include="src\reducers\selection\selectedProperty.js" />
     <Content Include="src\reducers\selection\selectedComponent.js" />
     <Content Include="src\reducers\selection\highlightedComponent.js" />
     <Content Include="src\reducers\selection\placeholderPath.js" />
@@ -111,8 +118,11 @@
     <Content Include="src\reducers\template.js" />
     <Content Include="src\reducers\componentTypes.js" />
     <Content Include="src\reducers\index.js" />
+    <Content Include="src\selectors\index.js" />
+    <Content Include="src\selectors\__tests__\index.js" />
     <Content Include="src\styles.css" />
     <Content Include="src\utility\index.js" />
+    <Content Include="src\utility\__tests__\index.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="package.json" />

@@ -2,7 +2,7 @@
 import SideBar from '../../containers/Edit/SideBar';
 import Toolbox from '../../containers/Edit/Toolbox';
 import Structure from '../../containers/Edit/Structure';
-//import Properties from './Properties';
+import Properties from '../../containers/Edit/Properties';
 import Preview from '../../containers/Edit/Preview';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
@@ -43,6 +43,7 @@ class Edit extends Component {
             <div className="smaller-scrollbars" style={toolbarsStyle}>
                 <Toolbox />
                 <Structure />
+                <Properties />
             </div>
             <Preview />
         </div>

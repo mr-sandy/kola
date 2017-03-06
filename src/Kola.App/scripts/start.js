@@ -260,9 +260,18 @@ function runDevServer(host, port, protocol) {
     proxy: {
         '/_preview': {
             target: 'http://localhost:61134',
-            pathRewrite: {'^/_preview' : ''}
+            pathRewrite: { '^/_preview': '' }
+        },
+        '/_kola/scripts': {
+            target: 'http://localhost:61134'
+        },
+        '/_kola/content': {
+            target: 'http://localhost:61134'
+        },
+        '/_kola/plugins': {
+            target: 'http://localhost:61134'
         }
-    },
+},
     host: host
   });
 
