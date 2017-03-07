@@ -24,15 +24,24 @@
         </area>
         <area name="content">
           <components>
+            <atom name="magical-atom">
+              <properties>
+                <property name="boolean" type="boolean">
+                  <value xsi:type="fixed"><![CDATA[true]]></value>
+                </property>
+                <property name="markdown" type="markdown">
+                  <value xsi:type="fixed"><![CDATA[## Hello there!
+
+*how are you dong?*]]></value>
+                </property>
+              </properties>
+            </atom>
             <container name="div">
               <properties />
               <components>
                 <container name="div">
                   <properties />
                   <components>
-                    <atom name="magical-atom">
-                      <properties />
-                    </atom>
                     <atom name="markdown">
                       <properties>
                         <property name="markdown" type="markdown">
@@ -56,13 +65,6 @@
                 </container>
               </components>
             </container>
-            <atom name="markdown">
-              <properties>
-                <property name="markdown" type="markdown">
-                  <value xsi:type="fixed"><![CDATA[<span id="test"></span>]]></value>
-                </property>
-              </properties>
-            </atom>
           </components>
         </area>
         <area name="scripts">
@@ -71,23 +73,5 @@
       </areas>
     </widget>
   </components>
-  <amendments>
-    <setPropertyInherited>
-      <componentPath>0/1/0/0/0</componentPath>
-      <propertyName>boolean</propertyName>
-      <key>boolean</key>
-    </setPropertyInherited>
-    <setPropertyFixed>
-      <componentPath>0/1/0/0/0</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[true]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1/0/0/0</componentPath>
-      <propertyName>markdown</propertyName>
-      <fixedValue><![CDATA[## Hello there!
-
-*how are you dong?*]]></fixedValue>
-    </setPropertyFixed>
-  </amendments>
+  <amendments />
 </template>

@@ -6,7 +6,14 @@ import { toIntArray } from '../../../utility';
 
 const captionStyle = {
     display: 'block',
-    padding: '4px 0 8px 0'
+    padding: '8px 0'
+};
+
+const innerStyle = {
+    padding: '4px 8px',
+    borderWidth: '1px',
+    borderColor: '#777',
+    borderStyle: 'dotted'
 };
 
 const dropTarget = {
@@ -54,9 +61,11 @@ function dropCollect(connect) {
 }
 
 const Area = ({ area, connectDropTarget, ...props }) => connectDropTarget(
-    <div>
+    <div style={{ paddingBottom: '4px' }}>
         <span style={captionStyle}>{`area: ${area.name}`}</span>
-        <ComponentList components={area.components} componentPath={area.path} {...props} />
+        <div style={innerStyle}>
+            <ComponentList components={area.components} componentPath={area.path} {...props} />
+        </div>
     </div>
 );
 
