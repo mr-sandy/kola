@@ -44,11 +44,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="config\env.js" />
+    <Content Include="config\jest\cssTransform.js" />
+    <Content Include="config\jest\fileTransform.js" />
+    <Content Include="config\paths.js" />
+    <Content Include="config\polyfills.js" />
+    <Content Include="config\webpack.config.dev.js" />
+    <Content Include="config\webpack.config.prod.js" />
     <Content Include="public\css\font-awesome.css" />
     <Content Include="public\css\font-awesome.min.css" />
     <Content Include="public\favicon.ico" />
     <Content Include="public\fonts\fontawesome-webfont.svg" />
     <Content Include="public\index.html" />
+    <Content Include="scripts\build.js" />
+    <Content Include="scripts\start.js" />
+    <Content Include="scripts\test.js" />
     <Content Include="src\actions\application.js" />
     <Content Include="src\actions\helpers\fetchJson.js" />
     <Content Include="src\actions\amendments.js" />
@@ -120,9 +130,13 @@
     <Content Include="src\reducers\index.js" />
     <Content Include="src\selectors\index.js" />
     <Content Include="src\selectors\__tests__\index.js" />
-    <Content Include="src\styles.css" />
+    <None Include="src\sass\_common.scss" />
+    <None Include="src\sass\index.scss" />
     <Content Include="src\utility\index.js" />
     <Content Include="src\utility\__tests__\index.js" />
+    <None Include="src\sass\_modal.scss" />
+    <None Include="src\sass\_property.scss" />
+    <None Include="src\sass\_property-table.scss" />
   </ItemGroup>
   <ItemGroup>
     <None Include="package.json" />

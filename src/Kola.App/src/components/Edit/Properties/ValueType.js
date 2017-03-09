@@ -25,7 +25,7 @@ const ValueType = ({ value, selected}) => {
         );
     } else {
         return (
-            <select style={styles.select}>
+            <select style={styles.select} onClick={e => e.stopPropagation()}>
                 <option value="fixed">fixed</option>
                 <option value="inherited">inherited</option>
                 <option value="variable">variable</option>

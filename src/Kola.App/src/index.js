@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import Root from './containers/Root';
 import createStoreFunction from './configureStore';
-import './styles.css';
+import './sass/index.scss';
 
 const store = createStoreFunction({});
 const rootEl = document.getElementById('root');

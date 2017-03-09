@@ -1,22 +1,10 @@
 ﻿import React,  { Component } from 'react';
 
-const styles = {
-    value: {
-        display: 'block',
-        color: '#333',
-        backgroundColor: '#ddd',
-        padding: '9px 8px 7px 8px',
-        minHeight: '28px',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis',
-        whiteSpace: 'nowrap'
-    }
-};
 
 class FixedValue extends Component {
     render() {
-        const divClasses = 'value ' + this.props.type;
-        return <div style={styles.value} className={divClasses} ref={el => this.el = el } onClick={this.handleClick}></div>;
+        const divClasses = 'property ' + this.props.type;
+        return <div className={divClasses} ref={el => this.el = el } onClick={() => this.handleClick}></div>;
     }
 
     componentDidMount() {
@@ -32,13 +20,14 @@ class FixedValue extends Component {
     }
 
     componentDidUpdate() {
+
         if (this.editor) {
             this.editor.render({
                 element: this.el,
                 value: this.props.value ? this.props.value.value : '',
-                editMode: false,
-                onChange: this.handleChange,
-                onCancel: this.props.onCancel
+                editMode: false,//this.props.selected,
+                onChange: value => this.handleChange(value),
+                onCancel: () => this.props.onCancel()
             });
         }
     }

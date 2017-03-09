@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import ValueType from './ValueType';
 import Button from '../Button';
-import Value from './FixedValue';
+import Value from './Value';
 
 const styles = {
     outer: {
@@ -14,7 +14,11 @@ const styles = {
         backgroundColor: '#777'
 },
     name: {
-        textTransform: 'capitalize'
+        textTransform: 'capitalize',
+        verticalAlign: 'sub'
+    },
+    chrome: {
+        height: '18px'
     },
     resetButton: {
         normal: {
@@ -38,11 +42,11 @@ const Property = props => {
 
     return (
         <div style={outerStyle} onClick={() => onClick() }>
-            <div>
+            <div style={styles.chrome} >
                 <span style={styles.name}>{name}</span>
                 <ValueType {...props} />
             </div>
-            <Value {...props} />
+            <Value {...props} selected={selected} />
             { selected
                 ? <Button styles={styles.resetButton} title="Reset" caption="reset" onClick={() => console.log('clicked')} />
                 : false

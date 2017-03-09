@@ -2,15 +2,17 @@
 import FixedValue from './FixedValue';
 
 const Unset = props => {
-    return <h1>Unset</h1>;
+    return false;
 }
 
 const Value = props => {
-    switch (props.value ? props.value.type : '') {
+    const { value, selected } = props;
+    const valueType = value ? value.type : selected ? 'fixed' : '';
+    switch (valueType) {
         case 'fixed':
             return <FixedValue {...props} />;
         default:
-            return <Unset {...props} />;
+            return <Unset />;
     }
 }
 
