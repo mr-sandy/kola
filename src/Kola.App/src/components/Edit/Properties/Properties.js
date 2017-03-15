@@ -22,10 +22,19 @@ const Properties = ({ showProperties, properties, selectProperty })=> {
         selectProperty(name);
     }
 
+    const handlePropertyChange = val => {
+        console.log(val);
+    }
+
     return (
         <Toolbar style={style}>
             <ToolbarContent style={styles.content}>
-                { properties.map((p, i) => <Property {...p} onClick={() => handlePropertyClick(p.name)} key={i} />) }
+                { properties.map((p, i) => 
+                    <Property key={i} 
+                        {...p}
+                        onClick={() => handlePropertyClick(p.name)} 
+                        onChange={val => handlePropertyChange(val)} 
+                    />) }
             </ToolbarContent>
             <ToolbarButtonTray>
                 <Button title="Pin Toolbars" onClick={() => console.log('clicked')} icon='fa-cog' active={false} />

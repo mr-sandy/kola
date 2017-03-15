@@ -2,15 +2,18 @@
 
 
 class FixedValue extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {editMode: false};
+    }
+    
     render() {
         const divClasses = 'property ' + this.props.type;
-        return <div className={divClasses} ref={el => this.el = el } onClick={() => this.handleClick}></div>;
+        return <div className={divClasses} ref={el => this.el = el } onClick={e => this.handleClick(e)}></div>;
     }
 
     componentDidMount() {
-        var propertyType = this.props.type;
-
-        this.editor = window.kola.propertyEditors.find(e => e.propertyType === propertyType);
+        this.editor = window.kola.propertyEditors.find(e => e.propertyType === this.props.type);
 
         if (!this.editor) {
             console.log('No editor for property type ' + this.props.type);
@@ -20,19 +23,19 @@ class FixedValue extends Component {
     }
 
     componentDidUpdate() {
-
         if (this.editor) {
             this.editor.render({
                 element: this.el,
                 value: this.props.value ? this.props.value.value : '',
-                editMode: false,//this.props.selected,
+                editMode: this.props.selected,
                 onChange: value => this.handleChange(value),
-                onCancel: () => this.props.onCancel()
+                onCancel: () => this.handleCancel()
             });
         }
     }
 
     handleChange(value) {
+        this.setState({ editMode: false });
         this.props.onChange({
             type: 'fixed',
             value: value
@@ -40,9 +43,14 @@ class FixedValue extends Component {
     }
 
     handleClick(e) {
-        if (this.props.editMode) {
+        if (this.props.selected) {
             e.stopPropagation();
+//            this.setState({ editMode: true });
         }
+    }
+
+    handleCancel() {
+         this.setState({ editMode: false });
     }
 }
 
