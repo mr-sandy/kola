@@ -73,5 +73,153 @@
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[false]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[true]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>html-link-rel-type</propertyName>
+      <fixedValue><![CDATA[stylesheet]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>html-link-type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/1/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Markdown 11]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/1/1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Markdown 22]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[false]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[true]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[## Hello there!
+
+*how are you dong?*]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[false]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[true]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[false]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>html-link-type</propertyName>
+      <fixedValue><![CDATA[image/x-icon]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>html-script-type</propertyName>
+      <fixedValue><![CDATA[text/javascript]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>html-style-type</propertyName>
+      <fixedValue><![CDATA[text/css]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>ie-condition</propertyName>
+      <fixedValue><![CDATA[gt8]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>multiline-text</propertyName>
+      <fixedValue><![CDATA[a
+
+a
+a
+a
+a
+]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>number</propertyName>
+      <fixedValue><![CDATA[12]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[asdasd]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>html-link-rel-type</propertyName>
+      <fixedValue><![CDATA[shortcut icon]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[true]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[## Hello there!
+
+*how are you dong?*]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[false]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0</componentPath>
+      <propertyName>text</propertyName>
+      <fixedValue><![CDATA[NElly is a StinKer!!!]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/1/0/0</componentPath>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#daddy is stupidly dumb]]></fixedValue>
+    </setPropertyFixed>
+    <moveComponent>
+      <sourcePath>0/1/1/1/0</sourcePath>
+      <targetPath>0/1/1/0/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/1/0/1</sourcePath>
+      <targetPath>0/1/1/1/0</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0</sourcePath>
+      <targetPath>0/1/1/0/0</targetPath>
+    </moveComponent>
+  </amendments>
 </template>

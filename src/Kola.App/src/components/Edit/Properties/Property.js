@@ -41,7 +41,7 @@ const Property = props => {
     const outerStyle = selected ? { ...styles.outer, ...styles.outerSelected } : styles.outer;
 
     return (
-        <div style={outerStyle} onClick={() => onClick() }>
+        <div style={outerStyle} className="property" onClick={() => onClick() }>
             <div style={styles.chrome} >
                 <span style={styles.name}>{name}</span>
                 <ValueType {...props} />

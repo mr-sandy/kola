@@ -1,21 +1,21 @@
 ﻿import { connect } from 'react-redux';
 import Properties from '../../components/Edit/Properties';
 import { selectedComponentProperties } from '../../selectors';
-import { selectProperty } from '../../actions';
+import { selectProperty, setProperty } from '../../actions';
 
 const mapStateToProps = state => ({
     //components: state.template.components,
-    //selectedComponent: state.selection.selectedComponent,
     //highlightedComponent : state.selection.highlightedComponent,
     //hiddenComponent : state.selection.hiddenComponent,
     //placeholderPath: state.selection.placeholderPath,
+    componentPath: state.selection.selectedComponent,
     showProperties: state.application.showProperties,
     properties: selectedComponentProperties(state)
 });
 
 const mapDispatchToProps = {
-    selectProperty
-
+    selectProperty,
+    setProperty
     //highlightComponent,
     //unhighlightComponent,
     //addComponent,

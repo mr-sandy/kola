@@ -66,6 +66,16 @@ export const duplicateComponent = componentPath => async dispatch => {
 };
 
 
+export const setProperty = (componentPath, propertyName, value) => async dispatch => {
+    dispatch(postAmendment(
+    {
+        amendmentType: 'setPropertyFixed',
+        componentPath, 
+        propertyName, 
+        value: value.value
+    }));
+};
+
 export const fetchAmendments = () => async (dispatch, getState) => {
     try {
         const amendmentsUrl = (getState().template.links.find(l => l.rel === 'amendments').href);

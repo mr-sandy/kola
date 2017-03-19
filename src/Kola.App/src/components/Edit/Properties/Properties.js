@@ -15,15 +15,15 @@ const styles = {
     }
 }
 
-const Properties = ({ showProperties, properties, selectProperty })=> {
+const Properties = ({ showProperties, properties, selectProperty, setProperty, componentPath })=> {
     const style = showProperties ? styles.base : { ...styles.base, width: '0' };
 
     const handlePropertyClick = name => {
         selectProperty(name);
     }
 
-    const handlePropertyChange = val => {
-        console.log(val);
+    const handlePropertyChange = (name, value) => {
+        setProperty(componentPath, name, value);
     }
 
     return (
@@ -33,7 +33,7 @@ const Properties = ({ showProperties, properties, selectProperty })=> {
                     <Property key={i} 
                         {...p}
                         onClick={() => handlePropertyClick(p.name)} 
-                        onChange={val => handlePropertyChange(val)} 
+                        onChange={val => handlePropertyChange(p.name, val)} 
                     />) }
             </ToolbarContent>
             <ToolbarButtonTray>

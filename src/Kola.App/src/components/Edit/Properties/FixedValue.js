@@ -8,7 +8,7 @@ class FixedValue extends Component {
     }
     
     render() {
-        const divClasses = 'property ' + this.props.type;
+        const divClasses = 'value ' + this.props.type;
         return <div className={divClasses} ref={el => this.el = el } onClick={e => this.handleClick(e)}></div>;
     }
 

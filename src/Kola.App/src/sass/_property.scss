@@ -1,50 +1,15 @@
 
 .property {
-    margin-top: 6px;
-    clear: both;
-    cursor: pointer;
+    .value {
+        margin-top: 6px;
+        clear: both;
+        cursor: pointer;
 
-    & > span,
-    & > label {
-        display: block;
-        color: #333;
-        background-color: #ddd;
-        padding: 9px 8px 7px 8px;
-        min-height: 28px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
 
-    .property-variant {
-        padding-top: 8px;
-        padding-left: 12px;
-
-        .name {
-            line-height: 16px;
-        }
-    }
-    /*@import "property-table";*/
-    form {
-        & > input,
-        & > select,
-        & > textarea,
-        & > span {
+        & > span,
+        & > label {
             display: block;
             color: #333;
-        }
-
-        & > input,
-        & > textarea {
-            padding: 8px;
-        }
-
-        & > select {
-            padding: 0 4px;
-            min-height: 28px;
-        }
-
-        & > span {
             background-color: #ddd;
             padding: 9px 8px 7px 8px;
             min-height: 28px;
@@ -53,14 +18,53 @@
             white-space: nowrap;
         }
 
-        & > input,
-        & > select,
-        & > textarea {
-            border: none;
-            outline: none;
-            width: 100%;
-            background-color: #fff;
+        .property-variant {
+            padding-top: 8px;
+            padding-left: 12px;
+
+            .name {
+                line-height: 16px;
+            }
         }
-        @import "modal";
+        /*@import "property-table";*/
+        form {
+            & > input,
+            & > select,
+            & > textarea,
+            & > span {
+                display: block;
+                color: #333;
+            }
+
+            & > input,
+            & > textarea {
+                padding: 8px;
+            }
+
+            & > select {
+                padding: 0 4px;
+                min-height: 28px;
+            }
+
+            & > span {
+                background-color: #ddd;
+                padding: 9px 8px 7px 8px;
+                min-height: 28px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            & > input,
+            & > select,
+            & > textarea {
+                border: none;
+                outline: none;
+                width: 100%;
+                background-color: #fff;
+            }
+
+            @import "modal";
+        }
     }
 }
