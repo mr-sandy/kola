@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { Component } from 'react';
 import ValueType from './ValueType';
 import Button from '../Button';
 import Value from './Value';
@@ -12,7 +12,7 @@ const styles = {
     outerSelected: {
         padding: '10px',
         backgroundColor: '#777'
-},
+    },
     name: {
         textTransform: 'capitalize',
         verticalAlign: 'sub'
@@ -35,24 +35,34 @@ const styles = {
     }
 };
 
-const Property = props => {
-    const { name, selected, onClick } = props;
+class Property extends Component {
+    render() {
+        const { name, selected, onClick } = this.props;
 
-    const outerStyle = selected ? { ...styles.outer, ...styles.outerSelected } : styles.outer;
+        const outerStyle = selected ? { ...styles.outer, ...styles.outerSelected } : styles.outer;
 
-    return (
-        <div style={outerStyle} className="property" onClick={() => onClick() }>
-            <div style={styles.chrome} >
-                <span style={styles.name}>{name}</span>
-                <ValueType {...props} />
+        return (
+            <div style={outerStyle} className="property" onKeyUp={e => this.handleKeyUp(e)} onClick={() => onClick() }>
+                <div style={styles.chrome} >
+                    <span style={styles.name}>{name}</span>
+                    <ValueType {...this.props} />
+                </div>
+                <Value {...this.props} selected={selected} />
+                { selected
+                    ? <Button styles={styles.resetButton} title="Reset" caption="reset" onClick={() => console
+                        .log('clicked')} />
+                    : false
+                }
             </div>
-            <Value {...props} selected={selected} />
-            { selected
-                ? <Button styles={styles.resetButton} title="Reset" caption="reset" onClick={() => console.log('clicked')} />
-                : false
-            }
-        </div>
-    );
+        );
+    }
+
+    handleKeyUp(e) {
+        if (e.which === 27) { // && this.state.editMode) {
+            console.log('CANCEL#########');
+            //this.processOutcomeOnce(Outcomes.cancel);
+        }
+    }
 }
 
 export default Property;

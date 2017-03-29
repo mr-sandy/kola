@@ -1,10 +1,8 @@
 ﻿import React,  { Component } from 'react';
 
-
 class FixedValue extends Component {
     constructor(props) {
         super(props);
-        this.state = {editMode: false};
     }
     
     render() {
@@ -13,16 +11,18 @@ class FixedValue extends Component {
     }
 
     componentDidMount() {
-        this.editor = window.kola.propertyEditors.find(e => e.propertyType === this.props.type);
-
-        if (!this.editor) {
-            console.log('No editor for property type ' + this.props.type);
-        }
-
         this.componentDidUpdate();
     }
 
     componentDidUpdate() {
+        if (!this.editor || this.editor.propertyType !== this.props.type) {
+            this.editor = window.kola.propertyEditors.find(e => e.propertyType === this.props.type);
+
+            if (!this.editor) {
+                console.log('No editor for property type ' + this.props.type);
+            }
+        }
+
         if (this.editor) {
             this.editor.render({
                 element: this.el,
@@ -35,7 +35,6 @@ class FixedValue extends Component {
     }
 
     handleChange(value) {
-        this.setState({ editMode: false });
         this.props.onChange({
             type: 'fixed',
             value: value
@@ -45,12 +44,10 @@ class FixedValue extends Component {
     handleClick(e) {
         if (this.props.selected) {
             e.stopPropagation();
-//            this.setState({ editMode: true });
         }
     }
 
     handleCancel() {
-         this.setState({ editMode: false });
     }
 }
 
