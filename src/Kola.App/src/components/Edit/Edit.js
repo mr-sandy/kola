@@ -1,54 +1,22 @@
-﻿import React, { Component } from 'react';
+﻿import React from 'react';
 import SideBar from '../../containers/Edit/SideBar';
-import Toolbox from '../../containers/Edit/Toolbox';
-import Structure from '../../containers/Edit/Structure';
-import Properties from '../../containers/Edit/Properties';
+import Toolbars from '../../containers/Edit/Toolbars';
 import Preview from '../../containers/Edit/Preview';
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd-html5-backend';
 
-const styles = {
-    main: {
-        position: 'absolute',
-        top: '0',
-        left: '0',
-        width: '100%',
-        height: '100%'
-    },
-    toolbars: {
-        position: 'absolute',
-        marginLeft: '60px',
-        height: '100%',
-        overflow: 'hidden',
-        zIndex: '20'
-    },
-    toolbarsPinned: {
-        position: 'relative',
-        marginLeft: '0',
-        float: 'left'
-    }
+const style = {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    width: '100%',
+    height: '100%'
 };
 
-//const Edit = ({ toolbarsPinned }) => {
-class Edit extends Component {
-    render() {
-        const { toolbarsPinned } = this.props;
-        const toolbarsStyle = toolbarsPinned
-            ? { ...styles.toolbars, ...styles.toolbarsPinned }
-            : styles.toolbars;
+const Edit = () => (
+    <div style={style}>
+        <SideBar />
+        <Toolbars />
+        <Preview />
+    </div>
+);
 
-        return (
-            <div style={styles.main}>
-            <SideBar />
-            <div className="smaller-scrollbars" style={toolbarsStyle}>
-                <Toolbox />
-                <Structure />
-                <Properties />
-            </div>
-            <Preview />
-        </div>
-        );
-    }
-}
-
-export default DragDropContext(HTML5Backend)(Edit);
+export default Edit;

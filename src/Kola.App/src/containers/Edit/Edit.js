@@ -5,13 +5,16 @@ import { initialiseOnMount } from '../helpers/higherOrderComponents';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
+    templatePath: ownProps.location.query.templatePath,
     toolbarsPinned: state.application.toolbarsPinned
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-    initialise: () => dispatch(fetchTemplate(ownProps.location.query.templatePath)),
-    togglePinToolbars: () => dispatch(togglePinToolbars())
-});
+const initialise = ({ templatePath }) => dispatch => dispatch(fetchTemplate(templatePath));
+
+const mapDispatchToProps = {
+    initialise,
+    togglePinToolbars
+};
 
 export default DragDropContext(HTML5Backend)(connect(mapStateToProps, mapDispatchToProps)(initialiseOnMount(Edit)));

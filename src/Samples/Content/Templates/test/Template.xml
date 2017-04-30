@@ -16,6 +16,7 @@
   padding: 8px;
   margin: 8px;
   border: 1px dashed black;
+color: #fad;
 }]]></value>
                 </property>
               </properties>
@@ -27,72 +28,62 @@
             <container name="div">
               <properties />
               <components>
-                <container name="div">
-                  <properties />
-                  <components>
-                    <atom name="magical-atom">
-                      <properties>
-                        <property name="boolean" type="boolean">
-                          <value xsi:type="fixed"><![CDATA[true]]></value>
-                        </property>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[## Hello there!
+                <atom name="markdown">
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[#Bea is the best!]]></value>
+                    </property>
+                  </properties>
+                </atom>
+                <atom name="markdown">
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[*(not true)*]]></value>
+                    </property>
+                  </properties>
+                </atom>
+                <atom name="magical-atom">
+                  <properties>
+                    <property name="boolean" type="boolean">
+                      <value xsi:type="fixed"><![CDATA[false]]></value>
+                    </property>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[## Hello there!
 
-*how are you dong?*]]></value>
-                        </property>
-                        <property name="html-link-rel-type" type="html-link-rel-type">
-                          <value xsi:type="fixed"><![CDATA[shortcut icon]]></value>
-                        </property>
-                        <property name="html-link-type" type="html-link-type">
-                          <value xsi:type="fixed"><![CDATA[image/x-icon]]></value>
-                        </property>
-                        <property name="html-script-type" type="html-script-type">
-                          <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
-                        </property>
-                        <property name="html-style-type" type="html-style-type">
-                          <value xsi:type="fixed"><![CDATA[text/css]]></value>
-                        </property>
-                        <property name="ie-condition" type="ie-condition">
-                          <value xsi:type="fixed"><![CDATA[gt8]]></value>
-                        </property>
-                        <property name="multiline-text" type="multiline-text">
-                          <value xsi:type="fixed"><![CDATA[a
+*how are you doing?*]]></value>
+                    </property>
+                    <property name="html-link-rel-type" type="html-link-rel-type">
+                      <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
+                    </property>
+                    <property name="html-link-type" type="html-link-type">
+                      <value xsi:type="fixed"><![CDATA[image/x-icon]]></value>
+                    </property>
+                    <property name="html-script-type" type="html-script-type">
+                      <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
+                    </property>
+                    <property name="html-style-type" type="html-style-type">
+                      <value xsi:type="fixed"><![CDATA[text/css]]></value>
+                    </property>
+                    <property name="ie-condition" type="ie-condition">
+                      <value xsi:type="fixed"><![CDATA[lte8]]></value>
+                    </property>
+                    <property name="multiline-text" type="multiline-text">
+                      <value xsi:type="fixed"><![CDATA[a
 
 a
 a
 a
 a
 ]]></value>
-                        </property>
-                        <property name="number" type="number">
-                          <value xsi:type="fixed"><![CDATA[12]]></value>
-                        </property>
-                        <property name="text" type="text">
-                          <value xsi:type="fixed"><![CDATA[NElly is a StinKer!!!!]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[#Markdown 22]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                  </components>
-                </container>
-                <container name="div">
-                  <properties />
-                  <components>
-                    <atom name="markdown">
-                      <properties>
-                        <property name="markdown" type="markdown">
-                          <value xsi:type="fixed"><![CDATA[#daddy is awesome]]></value>
-                        </property>
-                      </properties>
-                    </atom>
-                  </components>
-                </container>
+                    </property>
+                    <property name="number" type="number">
+                      <value xsi:type="fixed"><![CDATA[12]]></value>
+                    </property>
+                    <property name="text" type="text">
+                      <value xsi:type="fixed"><![CDATA[But Daddy is better]]></value>
+                    </property>
+                  </properties>
+                </atom>
               </components>
             </container>
           </components>
@@ -104,35 +95,21 @@ a
     </widget>
   </components>
   <amendments>
-    <setPropertyFixed>
-      <componentPath>0/1/0/0/0</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[false]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1/0/0/0</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[true]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyInherited>
-      <componentPath>0/1/0/0/0</componentPath>
-      <propertyName>boolean</propertyName>
-      <key>boolean</key>
-    </setPropertyInherited>
-    <setPropertyFixed>
-      <componentPath>0/1/0/0/0</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[true]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1/0/0/0</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[true]]></fixedValue>
-    </setPropertyFixed>
-    <setPropertyFixed>
-      <componentPath>0/1/0/0/0</componentPath>
-      <propertyName>boolean</propertyName>
-      <fixedValue><![CDATA[false]]></fixedValue>
-    </setPropertyFixed>
+    <moveComponent>
+      <sourcePath>0/1/0/2</sourcePath>
+      <targetPath>0/1/0/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/2</sourcePath>
+      <targetPath>0/1/0/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/2</sourcePath>
+      <targetPath>0/1/0/1</targetPath>
+    </moveComponent>
+    <moveComponent>
+      <sourcePath>0/1/0/2</sourcePath>
+      <targetPath>0/1/0/1</targetPath>
+    </moveComponent>
   </amendments>
 </template>

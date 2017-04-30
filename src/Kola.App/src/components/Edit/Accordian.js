@@ -36,10 +36,6 @@ class Accordian extends Component {
             ? { ...styles.icon, transform: 'rotate(-90deg)' }
             : styles.icon;
 
-        //const height = this.state.collapsed
-        //    ? '0'
-        //    : this.contentElement ? `${this.contentElement.scrollHeight}px` : 'auto';
-
         const height = this.state.collapsed
             ? '0'
             : 'auto';
@@ -63,36 +59,8 @@ class Accordian extends Component {
         );
     }
 
-    //componentDidMount() {
-    //    if (this.state.collapsed) {
-    //        this.contentElement.style.height = '0px';
-    //    }
-    //    else {
-    //        this.contentElement.style.height = 'auto';
-    //    }
-    //}
-
-    //componentWillUpdate() {
-    //    if (this.state.collapsed) {
-    //        this.contentElement.style.height = '0px';
-    //    } else {
-    //        this.contentElement.style.height = `${this.contentElement.scrollHeight}px`;
-    //        this.contentElement.scrollHeight
-    //    }
-    //}
-
-    //componentDidUpdate() {
-    //    if (this.state.collapsed) {
-    //        this.timeout = setTimeout(() => this.contentElement.style.height = '0px', 250);
-    //    }
-    //    else {
-    //        this.timeout = setTimeout(() => this.contentElement.style.height = 'auto', 250);
-    //    }
-    //}
-
     toggleCollapsed(e) {
         e.stopPropagation();
-        //clearTimeout(this.timeout);
         this.setState({ collapsed: !this.state.collapsed })
     }
 }

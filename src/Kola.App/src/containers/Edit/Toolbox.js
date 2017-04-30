@@ -8,10 +8,12 @@ const mapStateToProps = state => ({
     showToolbox: state.application.showToolbox
 });
 
-const mapDispatchToProps = dispatch => ({
-    initialise: () => dispatch(fetchComponentTypes()),
-    showPlaceholder: path => dispatch(showPlaceholder(path)),
-    hidePlaceholder: path => dispatch(hidePlaceholder(path))
-});
+const initialise= () => dispatch => dispatch(fetchComponentTypes());
+
+const mapDispatchToProps = {
+    initialise,
+    showPlaceholder,
+    hidePlaceholder
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(initialiseOnMount(Toolbox));
