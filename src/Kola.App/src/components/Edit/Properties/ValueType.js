@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { Component } from 'react';
 
 const styles = {
     label: {
@@ -16,22 +16,16 @@ const styles = {
     }
 };
 
-const ValueType = ({ value, selected}) => {
+const ValueType = ({ value, selected, onChange }) => {
     const valueType = value ? value.type : 'unset';
 
-    if (!selected) {
-        return (
-            <span style={styles.label}>{valueType}</span>
-        );
-    } else {
-        return (
-            <select style={styles.select} onClick={e => e.stopPropagation()}>
-                <option value="fixed">fixed</option>
-                <option value="inherited">inherited</option>
-                <option value="variable">variable</option>
-          </select>
-        );
-    }
+    return (!selected)
+        ? <span style={styles.label}>{valueType}</span>
+        : <select style={styles.select} onChange={e => onChange(e.target.value)} onClick={e => e.stopPropagation()}>
+            <option value="fixed">fixed</option>
+            <option value="inherited">inherited</option>
+            <option value="variable">variable</option>
+        </select>;
 };
 
 export default ValueType;

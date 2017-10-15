@@ -67,7 +67,9 @@
     <Content Include="src\components\Edit\Accordian.js" />
     <Content Include="src\components\Edit\Preview\helpers\index.js" />
     <Content Include="src\components\Edit\Preview\index.js" />
+    <Content Include="src\components\Edit\Properties\Header.js" />
     <Content Include="src\components\Edit\Properties\FixedValue.js" />
+    <Content Include="src\components\Edit\Properties\Property.bkup.js" />
     <Content Include="src\components\Edit\Properties\Value.js" />
     <Content Include="src\components\Edit\Properties\ValueType.js" />
     <Content Include="src\components\Edit\Properties\Property.js" />
@@ -88,6 +90,7 @@
     <Content Include="src\components\Edit\index.js" />
     <Content Include="src\components\Edit\Structure\StructureComponent.js" />
     <Content Include="src\components\Edit\Structure\index.js" />
+    <Content Include="src\components\Edit\Toolbars.js" />
     <Content Include="src\components\Edit\Toolbox\ComponentType.js" />
     <Content Include="src\components\Edit\Toolbox\Group.js" />
     <Content Include="src\components\Edit\Button.js" />
@@ -98,6 +101,7 @@
     <Content Include="src\containers\Edit\Properties.js" />
     <Content Include="src\containers\Edit\Structure.js" />
     <Content Include="src\containers\Edit\SideBar.js" />
+    <Content Include="src\containers\Edit\Toolbars.js" />
     <Content Include="src\containers\helpers\higherOrderComponents.js" />
     <Content Include="src\components\Edit\Properties\Properties.js" />
     <Content Include="src\components\Edit\Preview\Preview.js" />

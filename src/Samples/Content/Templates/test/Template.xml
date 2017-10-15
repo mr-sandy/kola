@@ -31,29 +31,16 @@ color: #fad;
                 <atom name="markdown">
                   <properties>
                     <property name="markdown" type="markdown">
-                      <value xsi:type="fixed"><![CDATA[#Bea is the best!]]></value>
-                    </property>
-                  </properties>
-                </atom>
-                <atom name="markdown">
-                  <properties>
-                    <property name="markdown" type="markdown">
-                      <value xsi:type="fixed"><![CDATA[*(not true)*]]></value>
+                      <value xsi:type="fixed"><![CDATA[#Bea is the best!!]]></value>
                     </property>
                   </properties>
                 </atom>
                 <atom name="magical-atom">
                   <properties>
-                    <property name="boolean" type="boolean">
-                      <value xsi:type="fixed"><![CDATA[false]]></value>
-                    </property>
                     <property name="markdown" type="markdown">
                       <value xsi:type="fixed"><![CDATA[## Hello there!
 
 *how are you doing?*]]></value>
-                    </property>
-                    <property name="html-link-rel-type" type="html-link-rel-type">
-                      <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
                     </property>
                     <property name="html-link-type" type="html-link-type">
                       <value xsi:type="fixed"><![CDATA[image/x-icon]]></value>
@@ -82,7 +69,23 @@ a
                     <property name="text" type="text">
                       <value xsi:type="fixed"><![CDATA[But Daddy is better]]></value>
                     </property>
+                    <property name="boolean" type="boolean">
+                      <value xsi:type="fixed"><![CDATA[false]]></value>
+                    </property>
+                    <property name="html-link-rel-type" type="html-link-rel-type">
+                      <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
+                    </property>
                   </properties>
+                </atom>
+                <atom name="markdown">
+                  <properties>
+                    <property name="markdown" type="markdown">
+                      <value xsi:type="fixed"><![CDATA[*(not true!)*]]></value>
+                    </property>
+                  </properties>
+                </atom>
+                <atom name="text">
+                  <properties />
                 </atom>
               </components>
             </container>
@@ -97,19 +100,11 @@ a
   <amendments>
     <moveComponent>
       <sourcePath>0/1/0/2</sourcePath>
-      <targetPath>0/1/0/1</targetPath>
+      <targetPath>0/1/0/0</targetPath>
     </moveComponent>
     <moveComponent>
-      <sourcePath>0/1/0/2</sourcePath>
-      <targetPath>0/1/0/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0/2</sourcePath>
-      <targetPath>0/1/0/1</targetPath>
-    </moveComponent>
-    <moveComponent>
-      <sourcePath>0/1/0/2</sourcePath>
-      <targetPath>0/1/0/1</targetPath>
+      <sourcePath>0/1/0/0</sourcePath>
+      <targetPath>0/1/0/3</targetPath>
     </moveComponent>
   </amendments>
 </template>

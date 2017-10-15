@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { Component } from 'react';
 import Button from '../Button';
 import Toolbar from '../Toolbar';
 import ToolbarContent from '../ToolbarContent';
@@ -6,41 +6,51 @@ import ToolbarButtonTray from '../ToolbarButtonTray';
 import Property from './Property';
 
 const styles = {
-    base: {
+    toolbar: visible => ({
         color: '#eee',
-        width: '242px'
-    },  
+        width: visible ? '242px' : '0'
+    }),
     content: {
         padding: '0'
     }
 }
 
-const Properties = ({ showProperties, properties, selectProperty, setProperty, componentPath })=> {
-    const style = showProperties ? styles.base : { ...styles.base, width: '0' };
+class Properties extends Component {
+    render() {
+        const { showProperties, properties } = this.props;
 
-    const handlePropertyClick = name => {
+        return (
+            <Toolbar style={styles.toolbar(showProperties)}>
+                <ToolbarContent style={styles.content}>
+                    {properties.map(p => (
+                        <Property key={p.name}
+                            property={p}
+                            onSelect={() => this.handleSelect(p.name)}
+                            onDeselect={() => this.handleDeselect()}
+                            onChange={val => this.handleChange(p.name, val)} />
+                    ))}
+                </ToolbarContent>
+                <ToolbarButtonTray>
+                    <Button title="Pin Toolbars" onClick={() => console.log('clicked')} icon='fa-cog' active={false} />
+                </ToolbarButtonTray>
+            </Toolbar>
+        );
+    }
+
+    handleSelect(name) {
+        const { selectProperty } = this.props;
         selectProperty(name);
     }
 
-    const handlePropertyChange = (name, value) => {
-        setProperty(componentPath, name, value);
+    handleDeselect() {
+        const { selectProperty } = this.props;
+        selectProperty();
     }
 
-    return (
-        <Toolbar style={style}>
-            <ToolbarContent style={styles.content}>
-                { properties.map((p, i) => 
-                    <Property key={i} 
-                        {...p}
-                        onClick={() => handlePropertyClick(p.name)} 
-                        onChange={val => handlePropertyChange(p.name, val)} 
-                    />) }
-            </ToolbarContent>
-            <ToolbarButtonTray>
-                <Button title="Pin Toolbars" onClick={() => console.log('clicked')} icon='fa-cog' active={false} />
-            </ToolbarButtonTray>
-        </Toolbar>
-    );
+    handleChange(name, value) {
+        const { setProperty, componentPath } = this.props;
+        setProperty(componentPath, name, value);
+    }
 }
 
 export default Properties;

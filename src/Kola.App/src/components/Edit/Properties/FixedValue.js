@@ -1,13 +1,17 @@
-﻿import React,  { Component } from 'react';
+﻿import React, { Component } from 'react';
 
 class FixedValue extends Component {
     constructor(props) {
         super(props);
     }
-    
+
     render() {
         const divClasses = 'value ' + this.props.type;
-        return <div className={divClasses} ref={el => this.el = el } onClick={e => this.handleClick(e)}></div>;
+
+        return (
+            <div className={divClasses} ref={el => this.el = el} onClick={e => this.handleClick(e)}>
+            </div>
+        );
     }
 
     componentDidMount() {
@@ -48,6 +52,7 @@ class FixedValue extends Component {
     }
 
     handleCancel() {
+        alert('cancelled');
     }
 }
 
