@@ -70,9 +70,9 @@ export const receiveHtml = (componentPath, html) => ({
     payload: { componentPath, html }
 });
 
-export const selectProperty = propertyName => ({
+export const selectProperty = property => ({
     type: SELECT_PROPERTY,
-    payload: propertyName
+    payload: property
 });
 
 export const fetchComponentTypes = () => async dispatch => {

@@ -62,11 +62,13 @@
     <Content Include="src\actions\application.js" />
     <Content Include="src\actions\helpers\fetchJson.js" />
     <Content Include="src\actions\amendments.js" />
+    <Content Include="src\actions\property.js" />
     <Content Include="src\actions\templates.js" />
     <Content Include="src\actions\index.js" />
     <Content Include="src\components\Edit\Accordian.js" />
     <Content Include="src\components\Edit\Preview\helpers\index.js" />
     <Content Include="src\components\Edit\Preview\index.js" />
+    <Content Include="src\components\Edit\Properties\InheritedValue.js" />
     <Content Include="src\components\Edit\Properties\Header.js" />
     <Content Include="src\components\Edit\Properties\FixedValue.js" />
     <Content Include="src\components\Edit\Properties\Property.bkup.js" />

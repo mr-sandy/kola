@@ -8,18 +8,16 @@ export const selectedComponent = state => {
         : null;
 }
 
-export const selectedComponentProperties = state => {
-    const selectedComponentPath = state.selection.selectedComponent;
+export const selectedComponentProperties = ({template, selection}) => {
+    const { selectedComponent, selectedProperty } = selection;
 
-    if (!selectedComponentPath) {
+    if (!selectedComponent) {
         return [];
     }
 
-    const selectedComponent = selectComponent(state.template, toIntArray(selectedComponentPath));
-    const selectedPropertyName = state.selection.selectedProperty;
+    const component = selectComponent(template, toIntArray(selectedComponent));
 
-    return selectedComponent.properties.map(p => ({
-        ...p,
-        selected: p.name === selectedPropertyName
-    }));
+    return component.properties.map(p => selectedProperty && selectedProperty.name === p.name
+        ? { ...selectedProperty, selected: true }
+        : { ...p, selected: false });
 }

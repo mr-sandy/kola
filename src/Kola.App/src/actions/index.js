@@ -1,3 +1,4 @@
-﻿export * from './templates';
-export * from './application';
+﻿export * from './application';
 export * from './amendments';
+export * from './property';
+export * from './templates';

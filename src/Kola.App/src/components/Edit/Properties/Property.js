@@ -12,13 +12,13 @@ const style = selected => ({
 class Property extends Component {
 
     render() {
-        const { property, onSelect, onDeselect, onChange } = this.props;
+        const { property, onSelect, onValueTypeChange, onValueChange, onDeselect, onChange } = this.props;
         const { selected, name, value, type } = property;
 
         return (
             <div style={style(selected)} className="property" onKeyUp={e => this.handleKeyUp(e)} onClick={onSelect}>
-                <Header caption={name} value={value} selected={selected} onValueTypeChange={t => this.handleValueTypeChange(t)} />
-                <Value type={type} value={value} selected={selected} onChange={v => this.handleValueChange(v)} />
+                <Header caption={name} value={value} selected={selected} onValueTypeChange={t => onValueTypeChange(t)} />
+                <Value type={type} value={value} selected={selected} onChange={v => onValueChange(v)} />
             </div>
         );
             }
@@ -27,14 +27,6 @@ class Property extends Component {
         if (e.which === 27){
             this.props.onDeselect();
         }
-    }
-
-    handleValueTypeChange(t) {
-        console.log(t);
-    }
-
-    handleValueChange(v) {
-        console.log(v);
     }
 }
 
