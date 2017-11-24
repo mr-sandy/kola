@@ -22,7 +22,7 @@ class InheritedValue extends Component {
                 {selected
                     ? (
                         <form>
-                            <input ref={el => this.el = el } type="text" value={key} onChange={e => this.handleChange(e.target.value)} />
+                            <input ref={el => this.el = el } type="text" value={key} onChange={e => this.handleChange(e.target.value)} onBlur={e => console.log('blur!')} />
                         </form>
                     )
                     : <span>{key}</span>
@@ -36,7 +36,7 @@ class InheritedValue extends Component {
     }
 
     handleChange(key) {
-        this.props.onChange({
+        this.props.onValueChange({
             type: 'inherited',
             key: key
         });

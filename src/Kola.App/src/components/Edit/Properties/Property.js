@@ -17,8 +17,8 @@ class Property extends Component {
 
         return (
             <div style={style(selected)} className="property" onKeyUp={e => this.handleKeyUp(e)} onClick={onSelect}>
-                <Header caption={name} value={value} selected={selected} onValueTypeChange={t => onValueTypeChange(t)} />
-                <Value type={type} value={value} selected={selected} onChange={v => onValueChange(v)} />
+                <Header caption={name} value={value} selected={selected} onValueTypeChange={onValueTypeChange} />
+                <Value type={type} value={value} selected={selected} onValueChange={onValueChange} onChange={onChange} />
             </div>
         );
             }

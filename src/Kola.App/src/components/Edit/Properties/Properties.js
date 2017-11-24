@@ -17,7 +17,7 @@ const styles = {
 
 class Properties extends Component {
     render() {
-        const { showProperties, properties, selectProperty, setProperty, componentPath, setPropertyValueType, setPropertyValue, saveProperty } = this.props;
+        const { showProperties, properties, selectProperty, setProperty, componentPath, setPropertyValueType, setPropertyValue } = this.props;
 
         return (
             <Toolbar style={styles.toolbar(showProperties)}>
@@ -28,10 +28,9 @@ class Properties extends Component {
                             property={p}
                             onValueTypeChange={setPropertyValueType}
                             onValueChange={setPropertyValue}
-                            onSave={saveProperty}
+                            onChange={val => setProperty(componentPath, p.name, val)}
                             onSelect={() => selectProperty(p)}
-                            onDeselect={() => selectProperty()}
-                            onChange={val => setProperty(componentPath, p.name, val)} />
+                            onDeselect={() => selectProperty()} />
                     ))}
                 </ToolbarContent>
                 <ToolbarButtonTray>

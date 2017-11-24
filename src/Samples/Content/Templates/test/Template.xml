@@ -95,5 +95,16 @@ a
       </areas>
     </widget>
   </components>
-  <amendments />
+  <amendments>
+    <setPropertyFixed>
+      <componentPath>0/1/0/1</componentPath>
+      <propertyName>multiline-text</propertyName>
+      <fixedValue><![CDATA[sandy]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0/1</componentPath>
+      <propertyName>html-link-rel-type</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+  </amendments>
 </template>
