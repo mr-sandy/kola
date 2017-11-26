@@ -3,11 +3,11 @@ import FixedValue from './FixedValue';
 import InheritedValue from './InheritedValue';
 
 const Value = props => {
-    const { value, selected } = props;
+    const { property } = props;
 
-    const valueType = value 
-        ? value.type 
-        : selected  ? 'fixed' : '';
+    const valueType = property.value 
+        ? property.value.type 
+        : property.selected ? 'fixed' : '';
 
     switch (valueType) {
         case 'fixed':

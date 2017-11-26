@@ -12,13 +12,12 @@ const style = selected => ({
 class Property extends Component {
 
     render() {
-        const { property, onSelect, onValueTypeChange, onValueChange, onDeselect, onChange } = this.props;
-        const { selected, name, value, type } = property;
+        const { property, onSelect } = this.props;
 
         return (
-            <div style={style(selected)} className="property" onKeyUp={e => this.handleKeyUp(e)} onClick={onSelect}>
-                <Header caption={name} value={value} selected={selected} onValueTypeChange={onValueTypeChange} />
-                <Value type={type} value={value} selected={selected} onValueChange={onValueChange} onChange={onChange} />
+            <div style={style(property.selected)} className="property" onKeyUp={e => this.handleKeyUp(e)} onClick={onSelect}>
+                <Header {...this.props} />
+                <Value {...this.props} />
             </div>
         );
             }

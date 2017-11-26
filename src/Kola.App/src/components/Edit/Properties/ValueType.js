@@ -16,16 +16,20 @@ const styles = {
     }
 };
 
-const ValueType = ({ value, selected, onChange }) => {
-    const valueType = value ? value.type : 'unset';
+class ValueType extends Component {
+    render() {
+        const { value, selected, onChange } = this.props;
 
-    return (!selected)
-        ? <span style={styles.label}>{valueType}</span>
-        : <select style={styles.select} onChange={e => onChange(e.target.value)} onClick={e => e.stopPropagation()}>
-            <option value="fixed">fixed</option>
-            <option value="inherited">inherited</option>
-            <option value="variable">variable</option>
-        </select>;
-};
+        const valueType = value ? value.type : 'unset';
+
+        return (!selected)
+            ? <span style={styles.label}>{valueType}</span>
+            : <select style={styles.select} onChange={e => onChange(e.target.value)} onClick={e => e.stopPropagation()}>
+                <option value="fixed" selected={valueType==='fixed'}>fixed</option>
+                <option value="inherited" selected={valueType === 'inherited'}>inherited</option>
+                <option value="variable" selected={valueType === 'variable'}>variable</option>
+            </select>;
+    }
+}
 
 export default ValueType;

@@ -16,7 +16,7 @@
   padding: 8px;
   margin: 8px;
   border: 1px dashed black;
-color: #fad;
+  color: #0009ff;
 }]]></value>
                 </property>
               </properties>
@@ -31,7 +31,7 @@ color: #fad;
                 <atom name="markdown">
                   <properties>
                     <property name="markdown" type="markdown">
-                      <value xsi:type="fixed"><![CDATA[#Bea is the best!!]]></value>
+                      <value xsi:type="fixed"><![CDATA[#Tilda is the best!!]]></value>
                     </property>
                   </properties>
                 </atom>
@@ -41,7 +41,7 @@ color: #fad;
                       <value xsi:type="inherited" key="markdown" />
                     </property>
                     <property name="html-link-type" type="html-link-type">
-                      <value xsi:type="fixed"><![CDATA[image/x-icon]]></value>
+                      <value xsi:type="fixed"><![CDATA[text/css]]></value>
                     </property>
                     <property name="html-script-type" type="html-script-type">
                       <value xsi:type="fixed"><![CDATA[text/javascript]]></value>
@@ -53,30 +53,21 @@ color: #fad;
                       <value xsi:type="fixed"><![CDATA[lte8]]></value>
                     </property>
                     <property name="multiline-text" type="multiline-text">
-                      <value xsi:type="fixed"><![CDATA[a
-
-a
-a
-a
-a
-]]></value>
+                      <value xsi:type="fixed"><![CDATA[ssasas]]></value>
                     </property>
                     <property name="number" type="number">
                       <value xsi:type="fixed"><![CDATA[12]]></value>
                     </property>
                     <property name="text" type="text">
-                      <value xsi:type="fixed"><![CDATA[But Daddy is better]]></value>
+                      <value xsi:type="fixed"><![CDATA[But Daddy is not that much better]]></value>
                     </property>
                     <property name="boolean" type="boolean">
                       <value xsi:type="inherited" key="jam" />
                     </property>
                     <property name="html-link-rel-type" type="html-link-rel-type">
-                      <value xsi:type="fixed"><![CDATA[stylesheet]]></value>
+                      <value xsi:type="fixed"><![CDATA[shortcut icon]]></value>
                     </property>
                   </properties>
-                </atom>
-                <atom name="text">
-                  <properties />
                 </atom>
                 <atom name="markdown">
                   <properties>
@@ -87,6 +78,13 @@ a
                 </atom>
               </components>
             </container>
+            <atom name="text">
+              <properties>
+                <property name="text" type="text">
+                  <value xsi:type="fixed"><![CDATA[Hooray!]]></value>
+                </property>
+              </properties>
+            </atom>
           </components>
         </area>
         <area name="scripts">
@@ -96,15 +94,102 @@ a
     </widget>
   </components>
   <amendments>
+    <duplicateComponent>
+      <componentPath>0/1/0/0</componentPath>
+    </duplicateComponent>
     <setPropertyFixed>
       <componentPath>0/1/0/1</componentPath>
-      <propertyName>multiline-text</propertyName>
-      <fixedValue><![CDATA[sandy]]></fixedValue>
+      <propertyName>markdown</propertyName>
+      <fixedValue><![CDATA[#Bea is also the best!!]]></fixedValue>
     </setPropertyFixed>
+    <moveComponent>
+      <sourcePath>0/1/0/1</sourcePath>
+      <targetPath>0/1/0/0</targetPath>
+    </moveComponent>
     <setPropertyFixed>
-      <componentPath>0/1/0/1</componentPath>
-      <propertyName>html-link-rel-type</propertyName>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
       <fixedValue><![CDATA[]]></fixedValue>
     </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[true]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[false]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyFixed>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <fixedValue><![CDATA[]]></fixedValue>
+    </setPropertyFixed>
+    <setPropertyInherited>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <key>sakfjakjs</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <key>sakfjakjs</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <key>sakfjakjs</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <key>sakfjakjs</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <key>sakfjakjs</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <key>sakfjakjs</key>
+    </setPropertyInherited>
+    <setPropertyInherited>
+      <componentPath>0/1/0/2</componentPath>
+      <propertyName>boolean</propertyName>
+      <key>sakfjakjs</key>
+    </setPropertyInherited>
   </amendments>
 </template>

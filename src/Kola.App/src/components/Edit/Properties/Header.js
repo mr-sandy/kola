@@ -13,11 +13,12 @@ const styles = {
 
 class Chrome extends Component {
     render() {
-        const { caption, value, selected, onValueTypeChange } = this.props;
+        const { property, onValueTypeChange } = this.props;
+        const { selected, name, value } = property;
 
         return (
             <div style={styles.chrome} >
-                <span style={styles.name}>{caption}</span>
+                <span style={styles.name}>{name}</span>
                 <ValueType value={value} selected={selected} onChange={onValueTypeChange} />
             </div>
         );

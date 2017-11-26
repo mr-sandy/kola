@@ -1,4 +1,4 @@
-﻿import { fetchJSON, postJSON, putJSON , deleteJSON } from './helpers/fetchJson';
+﻿import { fetchJSON, postJSON, putJSON, deleteJSON } from './helpers/fetchJson';
 import { selectComponent, hideComponent } from './templates';
 import config from '../config';
 
@@ -17,7 +17,7 @@ export const receiveAmendments = amendments => ({
 
 const postAmendment = amendment => async (dispatch, getState) => {
     const amendmentsUrl = (getState().template.links.find(l => l.rel === 'amendments').href);
-    
+
     try {
         const data = await postJSON(`${config.appRoot}${amendmentsUrl}`, amendment);
         dispatch(receiveAmendment(data));
@@ -29,51 +29,68 @@ const postAmendment = amendment => async (dispatch, getState) => {
 export const addComponent = (targetPath, componentType) => async dispatch => {
     dispatch(selectComponent(''));
     dispatch(postAmendment(
-    {
-        amendmentType: 'addComponent',
-        componentType,
-        targetPath
-    }));
+        {
+            amendmentType: 'addComponent',
+            componentType,
+            targetPath
+        }));
 };
 
 export const moveComponent = (sourcePath, targetPath) => async dispatch => {
     dispatch(hideComponent(sourcePath));
     dispatch(selectComponent(''));
     dispatch(postAmendment(
-    {
-        amendmentType: 'moveComponent',
-        sourcePath,
-        targetPath
-    }));
+        {
+            amendmentType: 'moveComponent',
+            sourcePath,
+            targetPath
+        }));
 };
 
 export const removeComponent = componentPath => async dispatch => {
     dispatch(selectComponent(''));
     dispatch(postAmendment(
-    {
-        amendmentType: 'removeComponent',
-        componentPath
-    }));
+        {
+            amendmentType: 'removeComponent',
+            componentPath
+        }));
 };
 
 export const duplicateComponent = componentPath => async dispatch => {
     dispatch(selectComponent(''));
     dispatch(postAmendment(
-    {
-        amendmentType: 'duplicateComponent',
-        componentPath
-    }));
+        {
+            amendmentType: 'duplicateComponent',
+            componentPath
+        }));
 };
 
-
 export const setProperty = (componentPath, propertyName, value) => async dispatch => {
-    dispatch(postAmendment(
-    {
-        amendmentType: 'setPropertyFixed',
-        componentPath, 
-        propertyName, 
-        value: value.value
-    }));
+
+    let amendment = null;
+
+    switch (value.type) {
+        case 'fixed':
+            amendment = {
+                amendmentType: 'setPropertyFixed',
+                componentPath,
+                propertyName,
+                value: value.value
+            };
+            break;
+        case 'inherited':
+            amendment = {
+                amendmentType: 'setPropertyInherited',
+                componentPath,
+                propertyName,
+                key: value.key
+            };
+            break;
+    }
+
+    if (amendment !== null) {
+        dispatch(postAmendment(amendment));
+    }
 };
 
 export const fetchAmendments = () => async (dispatch, getState) => {

@@ -1,12 +1,10 @@
 ﻿import React, { Component } from 'react';
 
 class FixedValue extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-        const divClasses = 'value ' + this.props.type;
+        const { property } = this.props;
+
+        const divClasses = 'value ' + property.type;
 
         return (
             <div className={divClasses} ref={el => this.el = el} onClick={e => this.handleClick(e)}>
@@ -19,19 +17,21 @@ class FixedValue extends Component {
     }
 
     componentDidUpdate() {
-        if (!this.editor || this.editor.propertyType !== this.props.type) {
-            this.editor = window.kola.propertyEditors.find(e => e.propertyType === this.props.type);
+        const { property } = this.props;
+
+        if (!this.editor || this.editor.propertyType !== property.type) {
+            this.editor = window.kola.propertyEditors.find(e => e.propertyType === property.type);
 
             if (!this.editor) {
-                console.log('No editor for property type ' + this.props.type);
+                console.log('No editor for property type ' + property.type);
             }
         }
 
         if (this.editor) {
             this.editor.render({
                 element: this.el,
-                value: this.props.value ? this.props.value.value : '',
-                editMode: this.props.selected,
+                value: property.value ? property.value.value : '',
+                editMode: property.selected,
                 onChange: value => this.handleChange(value),
                 onCancel: () => this.handleCancel()
             });
@@ -39,14 +39,18 @@ class FixedValue extends Component {
     }
 
     handleChange(value) {
-        this.props.onChange({
+        const { onChange } = this.props;
+
+        onChange({
             type: 'fixed',
             value: value
         });
     }
 
     handleClick(e) {
-        if (this.props.selected) {
+        const { property } = this.props;
+
+        if (property.selected) {
             e.stopPropagation();
         }
     }
