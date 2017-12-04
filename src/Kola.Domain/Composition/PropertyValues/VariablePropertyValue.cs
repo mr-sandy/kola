@@ -25,7 +25,7 @@
             var key = this.EstablishSoughtKey(buildData);
 
             return this.Variants.FirstOrDefault(v => v.ContentValue.Equals(key, StringComparison.OrdinalIgnoreCase))?.Value.Resolve(buildData)
-                   ?? this.Variants.FirstOrDefault(v => v.ContentValue.Split(' ').Contains(key))?.Value.Resolve(buildData)
+                   ?? this.Variants.FirstOrDefault(v => v.ContentValue.Split(' ').Contains(key, StringComparer.OrdinalIgnoreCase))?.Value.Resolve(buildData)
                    ?? this.Variants.FirstOrDefault(v => v.IsDefault)?.Value.Resolve(buildData)
                    ?? string.Empty;
         }
