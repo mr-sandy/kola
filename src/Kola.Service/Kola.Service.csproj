@@ -70,6 +70,7 @@
     <Compile Include="Services\ComponentSpecificationService.cs" />
     <Compile Include="Services\ContentVisitor.cs" />
     <Compile Include="Services\IComponentSpecificationService.cs" />
+    <Compile Include="Services\ISitemapService.cs" />
     <Compile Include="Services\PluginContextProvider.cs" />
     <Compile Include="Services\IPluginContextProvider.cs" />
     <Compile Include="Services\IRenderingService.cs" />
@@ -90,6 +91,8 @@
     <Compile Include="Services\Results\UnauthorisedResult.cs" />
     <Compile Include="Services\Models\AmendmentDetails.cs" />
     <Compile Include="Services\Models\ComponentDetails.cs" />
+    <Compile Include="Services\Models\SitemapModel.cs" />
+    <Compile Include="Services\SitemapService.cs" />
     <Compile Include="Services\TemplateService.cs" />
     <Compile Include="Services\WidgetSpecificationService.cs" />
   </ItemGroup>

@@ -7,6 +7,7 @@
 
     using global::Nancy;
     using global::Nancy.ModelBinding;
+    using global::Nancy.Responses;
     using global::Nancy.Security;
 
     using Kola.Nancy.Extensions;

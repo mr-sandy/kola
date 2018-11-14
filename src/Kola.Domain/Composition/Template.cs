@@ -23,7 +23,7 @@
 
         public void BuildInstancePaths(IPathInstanceBuilder pathInstanceBuilder)
         {
-            this.InstancePaths = pathInstanceBuilder.Build(this.Path);
+            this.InstancePaths = pathInstanceBuilder.Build(this.Path, true);
         }
 
         public T Accept<T>(IContentVisitor<T> visitor)
