@@ -33,6 +33,36 @@
             this.contentFinder = contentFinder;
         }
 
+        public IEnumerable<IEnumerable<string>> GetAllTemplatePaths()
+        {
+            return this.GetAllTemplatePaths(Enumerable.Empty<string>()).ToArray();
+        }
+
+        private IEnumerable<IEnumerable<string>> GetAllTemplatePaths(IEnumerable<string> pathItems)
+        {
+            var path = pathItems as string[] ?? pathItems.ToArray();
+
+            var directoryPath = Path.Combine(TemplatesDirectory, path.ToFileSystemPath());
+            var redirectPath = Path.Combine(directoryPath, RedirectFileName);
+            var templatePath = Path.Combine(directoryPath, TemplateFileName);
+
+            if (this.fileSystemHelper.FileExists(templatePath) && !this.fileSystemHelper.FileExists(redirectPath))
+            {
+                yield return path;
+            }
+
+            var childDirectories = this.fileSystemHelper.FindChildDirectories(directoryPath, "*");
+
+            foreach (var childDirectory in childDirectories)
+            {
+                var childTemplatePaths = this.GetAllTemplatePaths(path.Append(childDirectory));
+                foreach (var childTemplatePath in childTemplatePaths)
+                {
+                    yield return childTemplatePath;
+                }
+            }
+        }
+
         public Template GetTemplate(IEnumerable<string> path)
         {
             var pathItems = path as string[] ?? path.ToArray();

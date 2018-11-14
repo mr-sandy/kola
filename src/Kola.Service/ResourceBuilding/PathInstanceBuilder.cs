@@ -7,7 +7,6 @@ namespace Kola.Service.ResourceBuilding
     using Kola.Domain.DynamicSources;
     using Kola.Domain.Extensions;
     using Kola.Domain.Instances.Config;
-    using Kola.Persistence;
 
     public class PathInstanceBuilder : IPathInstanceBuilder
     {
@@ -18,30 +17,32 @@ namespace Kola.Service.ResourceBuilding
             this.dynamicSourceProvider = dynamicSourceProvider;
         }
 
-        public IEnumerable<string> Build(IEnumerable<string> path)
+        public IEnumerable<string> Build(IEnumerable<string> path, bool preview)
         {
             var pathArray = path as string[] ?? path.ToArray();
 
             return pathArray.Any() 
-                ? this.Find(pathArray, string.Empty, null).ToArray() 
-                : new[] { "/?preview=y" };
+                ? this.Find(pathArray, string.Empty, null, preview).ToArray() 
+                : new[] { preview ?  "/?preview=y" : "/" };
         }
 
-        private IEnumerable<string> Find(IEnumerable<string> path, string pathSoFar, IEnumerable<IContextItem> context)
+        private IEnumerable<string> Find(IEnumerable<string> path, string pathSoFar, IEnumerable<IContextItem> context, bool preview)
         {
             var pathItems = path as string[] ?? path.ToArray();
 
             if (!pathItems.Any())
             {
-                yield return pathSoFar + "?preview=y";
+                yield return preview 
+                    ? pathSoFar + "?preview=y" 
+                    : pathSoFar;
             }
             else
             {
                 var first = pathItems.First();
 
                 var childResults = this.IsDynamic(first)
-                                       ? this.FindDynamic(pathItems, pathSoFar, context)
-                                       : this.FindStatic(pathItems, pathSoFar, context);
+                                       ? this.FindDynamic(pathItems, pathSoFar, context, preview)
+                                       : this.FindStatic(pathItems, pathSoFar, context, preview);
 
                 foreach (var childResult in childResults)
                 {
@@ -50,7 +51,7 @@ namespace Kola.Service.ResourceBuilding
             }
         }
 
-        private IEnumerable<string> FindDynamic(IEnumerable<string> path, string pathSoFar, IEnumerable<IContextItem> context)
+        private IEnumerable<string> FindDynamic(IEnumerable<string> path, string pathSoFar, IEnumerable<IContextItem> context, bool preview)
         {
             var pathItems = path as string[] ?? path.ToArray();
 
@@ -64,18 +65,18 @@ namespace Kola.Service.ResourceBuilding
 
             foreach (var item in provider.GetAllItems(context))
             {
-                foreach (var previewUrl in this.Find(pathItems.Skip(1), $"{pathSoFar}/{item.Value}", context.Merge(item.ContextItems)))
+                foreach (var previewUrl in this.Find(pathItems.Skip(1), $"{pathSoFar}/{item.Value}", context.Merge(item.ContextItems), preview))
                 {
                     yield return previewUrl;
                 }
             }
         }
 
-        private IEnumerable<string> FindStatic(IEnumerable<string> path, string pathSoFar, IEnumerable<IContextItem> context)
+        private IEnumerable<string> FindStatic(IEnumerable<string> path, string pathSoFar, IEnumerable<IContextItem> context, bool preview)
         {
             var pathItems = path as string[] ?? path.ToArray();
 
-            return this.Find(pathItems.Skip(1), $"{pathSoFar}/{pathItems.First()}", context);
+            return this.Find(pathItems.Skip(1), $"{pathSoFar}/{pathItems.First()}", context, preview);
         }
 
         private bool IsDynamic(string element)

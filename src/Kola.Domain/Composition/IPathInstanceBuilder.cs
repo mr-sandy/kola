@@ -4,6 +4,6 @@
 
     public interface IPathInstanceBuilder
     {
-        IEnumerable<string> Build(IEnumerable<string> path);
+        IEnumerable<string> Build(IEnumerable<string> path, bool preview);
     }
 }

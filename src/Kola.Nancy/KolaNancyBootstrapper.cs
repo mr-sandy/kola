@@ -47,10 +47,13 @@
 
             tinyIoCContainer.Register<ITemplateService, TemplateService>();
             tinyIoCContainer.Register<IRenderingService, RenderingService>();
+            tinyIoCContainer.Register<ISitemapService, SitemapService>();
 
             tinyIoCContainer.Register<IContentRepository, ContentRepository>();
 
             tinyIoCContainer.Register<IContentFinder, ContentFinder>();
+            tinyIoCContainer.Register<IContentLister, ContentLister>();
+
             tinyIoCContainer.Register<IPathInstanceBuilder, PathInstanceBuilder>();
             tinyIoCContainer.Register<IDynamicSourceProvider, DynamicSourceProvider>();
             tinyIoCContainer.Register<IPluginContextProvider, PluginContextProvider>();

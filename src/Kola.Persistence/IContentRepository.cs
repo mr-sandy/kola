@@ -8,6 +8,8 @@
     {
         IEnumerable<FindContentResult> FindContent(IEnumerable<string> path);
 
+        IEnumerable<IEnumerable<string>> GetAllTemplatePaths();
+
         Template GetTemplate(IEnumerable<string> path);
 
         void Add(IContent content);

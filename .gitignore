@@ -14,3 +14,4 @@ NDependOut/
 *StyleCop.Cache
 node_modules/
 packages/
+.vs/

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<template xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.kolacms.com/2013/kola">
+  <components>
+    <container name="html-head">
+      <properties>
+        <property name="prefix" type="text">
+          <value xsi:type="fixed"><![CDATA[og: http://ogp.me/ns#]]></value>
+        </property>
+      </properties>
+      <components>
+        <atom name="html-metadata">
+          <properties>
+            <property name="property" type="text">
+              <value xsi:type="fixed"><![CDATA[og:title]]></value>
+            </property>
+            <property name="content" type="text">
+              <value xsi:type="fixed"><![CDATA[The Rock]]></value>
+            </property>
+          </properties>
+        </atom>
+      </components>
+    </container>
+    <container name="html-body">
+      <properties />
+      <components />
+    </container>
+  </components>
+  <amendments />
+</template>
