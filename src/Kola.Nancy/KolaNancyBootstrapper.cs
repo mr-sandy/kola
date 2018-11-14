@@ -47,12 +47,13 @@
 
             tinyIoCContainer.Register<ITemplateService, TemplateService>();
             tinyIoCContainer.Register<IRenderingService, RenderingService>();
-            tinyIoCContainer.Register<ISitemapService, SitemapService>();
+
+            var sitemapDomainName = ConfigurationManager.AppSettings["SitemapDomainName"];
+            tinyIoCContainer.Register<ISitemapService>((c, o) => new SitemapService(c.Resolve<IContentRepository>(), c.Resolve<IPathInstanceBuilder>(), sitemapDomainName));
 
             tinyIoCContainer.Register<IContentRepository, ContentRepository>();
 
             tinyIoCContainer.Register<IContentFinder, ContentFinder>();
-            tinyIoCContainer.Register<IContentLister, ContentLister>();
 
             tinyIoCContainer.Register<IPathInstanceBuilder, PathInstanceBuilder>();
             tinyIoCContainer.Register<IDynamicSourceProvider, DynamicSourceProvider>();

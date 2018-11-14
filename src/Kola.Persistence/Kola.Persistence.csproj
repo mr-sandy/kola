@@ -47,7 +47,6 @@
     <Compile Include="ContentDirectory.cs" />
     <Compile Include="ContentFinder.cs" />
     <Compile Include="ConfigurationRepository.cs" />
-    <Compile Include="ContentLister.cs" />
     <Compile Include="DomainBuilding\DomainBuildingContextItemVisitor.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="FindContentResult.cs" />
@@ -61,7 +60,6 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="FileSystemHelper.cs" />
     <Compile Include="IContentFinder.cs" />
-    <Compile Include="IContentLister.cs" />
     <Compile Include="IContentRepository.cs" />
     <Compile Include="IConfigurationRepository.cs" />
     <Compile Include="IFileSystemHelper.cs" />
