@@ -11,7 +11,7 @@
 
     public class SitemapItemModel
     {
-        [XmlAttribute("loc")]
+        [XmlElement("loc")]
         public string Location { get; set; }
     }
 }

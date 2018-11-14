@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>Kola.Application</id>
-    <version>1.2.8</version>
+    <version>1.2.9</version>
     <authors>Sandy Cormie</authors>
     <owners>Sandy Cormie</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A wysiwyg content management system</description>
     <copyright>Copyright 2015</copyright>
     <dependencies>
-      <dependency id="Kola.Core" version="1.2.8" />
+      <dependency id="Kola.Core" version="1.2.9" />
       <dependency id="Nancy" version="1.4.1" />
       <dependency id="Nancy.Viewengines.Razor" version="1.4.1" />
       <dependency id="Nancy.MSOwinSecurity" version="2.0.0" />
